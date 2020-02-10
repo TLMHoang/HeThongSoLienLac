@@ -1,0 +1,21 @@
+frmLogin
+frmMain
+
+phần quản lý học sinh :
+frmQlHS
+	frmNhapDiem 
+	chức năng : Nhập điểm và xem
+	
+	frmQlHocSinh 
+	chức năng : thêm sửa xóa học sinh lớp phụ trách
+
+	frmGuiThongBao
+
+phần Quản Lý Tài Khoản :
+frmQLTaiKhoanMannager
+	chức năng : ThemTaiKhoan (theo lớp) và sửa xóa
+
+frmAdminMannager
+	
+	fTimKiem : cho phép tìm kiếm thông tin giáo viên và lớp chủ nhiệm
+		
