@@ -2,6 +2,7 @@ Nhóm  US
 Đề tài: Tìm hiểu và triển khai hệ thống Sổ liên lạc điện tử cho các trường học 
 
 
+
 Danh sách thành viên:
 1.	Trần  Lê Minh Hoàng -  1711061066 – 17DTHB2
 2.	Vũ Hoàng Phong - 1711060251 - 17DTHA3
