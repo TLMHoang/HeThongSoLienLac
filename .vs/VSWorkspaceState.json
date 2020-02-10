@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AppQuanLyNhaTruong",
+    "\\AppQuanLyNhaTruong\\DAL",
+    "\\AppQuanLyNhaTruong\\DAL\\SQL"
   ],
+  "SelectedNode": "\\AppQuanLyNhaTruong\\AppQuanLyNhaTruong.sln",
   "PreviewInSolutionExplorer": false
 }
