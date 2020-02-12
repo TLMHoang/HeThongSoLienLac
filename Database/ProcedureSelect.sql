@@ -1,0 +1,100 @@
+USE HeThongSoLienLac
+GO
+
+CREATE PROCEDURE SelectCupHoc
+AS
+BEGIN
+    SELECT * FROM dbo.CupHoc
+END
+GO
+
+CREATE PROCEDURE SelectDiemDanh
+AS
+BEGIN
+    SELECT * FROM dbo.DiemDanh
+END
+GO
+
+CREATE PROCEDURE SelectHanhKiem
+AS
+BEGIN
+    SELECT * FROM dbo.HanhKiem
+END
+GO
+
+CREATE PROCEDURE SelectLop
+AS
+BEGIN
+    SELECT * FROM dbo.Lop
+END
+GO
+
+CREATE PROCEDURE SelectMonhoc
+AS
+BEGIN
+    SELECT * FROM dbo.MonHoc
+END
+GO
+
+CREATE PROCEDURE SelectTaiKhoanPH
+AS
+BEGIN
+    SELECT * FROM dbo.TaiKhoanPH
+END
+GO
+
+CREATE PROCEDURE SelectTaiKhoanTruong
+AS
+BEGIN
+    SELECT * FROM dbo.TaiKhoanTruong
+END
+GO
+
+CREATE PROCEDURE SelectThoiKhaoBieu
+AS
+BEGIN
+    SELECT * FROM dbo.ThoiKhoaBieu
+END
+GO
+
+CREATE PROCEDURE SelectThongBaoHS
+AS
+BEGIN
+    SELECT * FROM dbo.ThongBaoHS
+END
+GO
+
+CREATE PROCEDURE SelectThongBaoLop
+AS
+BEGIN
+    SELECT * FROM dbo.ThongBaoLop
+END
+GO
+
+CREATE PROCEDURE SelectThongBaoTruong
+AS
+BEGIN
+    SELECT * FROM dbo.ThongBaoTruong
+END
+GO
+
+CREATE PROCEDURE SelectThongTinGV
+AS
+BEGIN
+    SELECT * FROM dbo.ThongTinGV
+END
+GO
+
+CREATE PROCEDURE SelectThongTinHS
+AS
+BEGIN
+    SELECT * FROM dbo.ThongTinHS
+END
+GO
+
+CREATE PROCEDURE SelectXinPhep
+AS
+BEGIN
+    SELECT * FROM dbo.XinPhep
+END
+GO
