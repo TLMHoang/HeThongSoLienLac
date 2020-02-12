@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="CupHoc.cs" />
     <Compile Include="DiemDanh.cs" />
+    <Compile Include="DiemHeSoHai.cs" />
+    <Compile Include="DiemHeSoMot.cs" />
+    <Compile Include="DiemHocKy.cs" />
     <Compile Include="HanhKiem.cs" />
     <Compile Include="Lop.cs" />
     <Compile Include="MonHoc.cs" />

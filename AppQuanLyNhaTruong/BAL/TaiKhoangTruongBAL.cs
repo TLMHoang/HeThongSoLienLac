@@ -12,38 +12,46 @@ namespace BAL
     public class TaiKhoangTruongBAL : CInterface<TaiKhoanTruong>
     {
         TaiKhoanTruongDAL val = new TaiKhoanTruongDAL();
-        public Task<int> CapNhap(TaiKhoanTruong obj)
+        public async Task<int> CapNhap(TaiKhoanTruong obj)
         {
-            throw new NotImplementedException();
+            return await val.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await val.Lay();
         }
 
-        public Task<List<TaiKhoanTruong>> LayLst()
+        public async Task<List<TaiKhoanTruong>> LayLst()
         {
-            throw new NotImplementedException();
-        }
+            List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
 
-        public Task<int> Them(TaiKhoanTruong obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> Xoa(int ID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<bool> DangNhap(string TaiKhoan, string MatKhau)
-        {
-            if ((await val.DangNhap(TaiKhoan,MatKhau)).Rows.Count == 1)
+            foreach (DataRow dr in (await LayDT()).Rows)
             {
-                return true;
+                lst.Add(new TaiKhoanTruong(dr));
             }
-            return false;
+
+            return lst;
+        }
+
+        public async Task<int> Them(TaiKhoanTruong obj)
+        {
+            return await val.Them(obj);
+        }
+
+        public async Task<int> Xoa(int ID)
+        {
+            return await val.Xoa(ID);
+        }
+
+        public async Task<DataTable> DangNhap(string TaiKhoan, string MatKhau)
+        {
+            DataTable dt = new DataTable();
+            if (dt.Rows.Count == 1)
+            {
+                return dt;
+            }
+            return null;
         }
     }
 }
