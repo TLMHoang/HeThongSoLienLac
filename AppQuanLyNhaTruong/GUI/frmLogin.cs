@@ -23,7 +23,7 @@ namespace AppQuanLyNhaTruong
         {            
             string userName = txtUserName.Text;
             string passWord = txtPassWord.Text;
-            if (await account.DangNhap(userName, passWord) == true)
+            if (await account.DangNhap(userName, passWord) != null)
             {
                 frmMain f = new frmMain();
                 this.Hide();

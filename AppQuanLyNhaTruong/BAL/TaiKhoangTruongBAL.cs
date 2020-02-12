@@ -46,7 +46,8 @@ namespace BAL
 
         public async Task<DataTable> DangNhap(string TaiKhoan, string MatKhau)
         {
-            DataTable dt = new DataTable();
+            TaiKhoanTruongDAL data = new TaiKhoanTruongDAL();
+            DataTable dt = await data.DangNhap(TaiKhoan,MatKhau);                       
             if (dt.Rows.Count == 1)
             {
                 return dt;
