@@ -39,7 +39,7 @@ namespace DAL
         public async Task<DataTable> DangNhap(string TaiKhoan, string MatKhau)
         {
             return await ExecuteQuery(
-                "DangNhap",
+                "DangNhapTruong",
                 new SqlParameter("@TaiKhoan", SqlDbType.NVarChar) { Value = TaiKhoan },
                 new SqlParameter("@MatKhau", SqlDbType.NVarChar) { Value = MatKhau });
         }

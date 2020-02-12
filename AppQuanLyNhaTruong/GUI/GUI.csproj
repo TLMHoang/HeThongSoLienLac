@@ -140,5 +140,11 @@
   <ItemGroup>
     <None Include="Resources\Ust.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj">
+      <Project>{c0032786-f375-43e9-9f44-212949d26ef2}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
