@@ -27,7 +27,7 @@ namespace AppQuanLyNhaTruong
             {
                 frmMain f = new frmMain();
                 this.Hide();
-                f.ShowDialog();
+                f.ShowDialog();               
                 this.Show();
             }
             else
@@ -39,6 +39,11 @@ namespace AppQuanLyNhaTruong
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnForgotPass_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bạn Vui Lòng Liên Hệ US Team Để Lấy Lại Mật Khẩu !", "Notification !", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

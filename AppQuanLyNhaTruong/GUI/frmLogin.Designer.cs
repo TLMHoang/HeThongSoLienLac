@@ -48,7 +48,7 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.Gray;
-            this.lblLogin.Location = new System.Drawing.Point(380, 180);
+            this.lblLogin.Location = new System.Drawing.Point(396, 180);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(266, 25);
             this.lblLogin.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.Color.Gray;
-            this.lblUserName.Location = new System.Drawing.Point(299, 217);
+            this.lblUserName.Location = new System.Drawing.Point(328, 220);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(138, 20);
             this.lblUserName.TabIndex = 1;
@@ -68,17 +68,17 @@
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(304, 240);
+            this.txtUserName.Location = new System.Drawing.Point(333, 243);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(426, 27);
+            this.txtUserName.Size = new System.Drawing.Size(386, 27);
             this.txtUserName.TabIndex = 2;
             // 
             // txtPassWord
             // 
             this.txtPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassWord.Location = new System.Drawing.Point(304, 293);
+            this.txtPassWord.Location = new System.Drawing.Point(333, 296);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(426, 27);
+            this.txtPassWord.Size = new System.Drawing.Size(386, 27);
             this.txtPassWord.TabIndex = 4;
             this.txtPassWord.UseSystemPasswordChar = true;
             // 
@@ -87,7 +87,7 @@
             this.lblPassWord.AutoSize = true;
             this.lblPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassWord.ForeColor = System.Drawing.Color.Gray;
-            this.lblPassWord.Location = new System.Drawing.Point(299, 270);
+            this.lblPassWord.Location = new System.Drawing.Point(328, 273);
             this.lblPassWord.Name = "lblPassWord";
             this.lblPassWord.Size = new System.Drawing.Size(88, 20);
             this.lblPassWord.TabIndex = 3;
@@ -100,9 +100,9 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(304, 365);
+            this.btnLogin.Location = new System.Drawing.Point(333, 368);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(426, 35);
+            this.btnLogin.Size = new System.Drawing.Size(386, 35);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -116,9 +116,9 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(304, 406);
+            this.btnExit.Location = new System.Drawing.Point(333, 409);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(426, 35);
+            this.btnExit.Size = new System.Drawing.Size(386, 35);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -131,12 +131,13 @@
             this.btnForgotPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnForgotPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForgotPass.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnForgotPass.Location = new System.Drawing.Point(299, 326);
+            this.btnForgotPass.Location = new System.Drawing.Point(328, 329);
             this.btnForgotPass.Name = "btnForgotPass";
             this.btnForgotPass.Size = new System.Drawing.Size(145, 25);
             this.btnForgotPass.TabIndex = 7;
             this.btnForgotPass.Text = "Quên Mật Khẩu ?";
             this.btnForgotPass.UseVisualStyleBackColor = false;
+            this.btnForgotPass.Click += new System.EventHandler(this.btnForgotPass_Click);
             // 
             // pictureBox1
             // 
@@ -151,7 +152,7 @@
             // picLogin
             // 
             this.picLogin.Image = global::GUI.Properties.Resources.Image_login2;
-            this.picLogin.Location = new System.Drawing.Point(426, 46);
+            this.picLogin.Location = new System.Drawing.Point(434, 46);
             this.picLogin.Name = "picLogin";
             this.picLogin.Size = new System.Drawing.Size(180, 131);
             this.picLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
