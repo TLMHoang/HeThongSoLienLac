@@ -11,14 +11,19 @@ namespace DAL
 {
     public class TaiKhoanTruongDAL : SQL.SQLHelper, CInterface<TaiKhoanTruong>
     {
-        public Task<int> CapNhap(TaiKhoanTruong obj)
+        public async Task<int> CapNhap(TaiKhoanTruong obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery(
+                "UpdateTaiKhoanTruong",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
+                new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai }
+                );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectTaiKhoanTruong");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -26,14 +31,23 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(TaiKhoanTruong obj)
+        public async Task<int> Them(TaiKhoanTruong obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery(
+                "InsertTaiKhoanTruong",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
+                new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
+                new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai }
+                );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery(
+                "DeleteTaiKhoanTruong",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+                );
         }
 
         public async Task<DataTable> DangNhap(string TaiKhoan, string MatKhau)
