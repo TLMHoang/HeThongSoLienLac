@@ -11,7 +11,12 @@ namespace DAL.SQL
 {
     public class SQLHelper
     {
+        //Hoàng
         private string connStr = @"StringNameDatabase";
+        //Phong
+        //private string connStr = @"StringNameDatabase";
+        //Trường
+        //private string connStr = @"StringNameDatabase";
 
 
         public async Task<int> ExecuteNonQuery(string ProcName, params SqlParameter[] parameters)
