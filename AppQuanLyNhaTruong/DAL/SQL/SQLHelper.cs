@@ -16,7 +16,7 @@ namespace DAL.SQL
         //Phong
         //private string connStr = @"Data Source=VHP;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
         //Trường
-        //private string connStr = @"StringNameDatabase";
+        //private string connStr = @"Data Source=TRUONGTRAN\MSSQLSERVER1;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
 
 
         public async Task<int> ExecuteNonQuery(string ProcName, params SqlParameter[] parameters)
