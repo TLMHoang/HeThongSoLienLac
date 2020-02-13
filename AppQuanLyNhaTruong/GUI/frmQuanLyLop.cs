@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
-    public partial class frmMain : Form
+    public partial class frmQuanLyLop : Form
     {
-        public frmMain()
+        public frmQuanLyLop()
         {
             InitializeComponent();
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }
