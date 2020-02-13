@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXemDiem));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,9 +35,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lvDanhSach = new System.Windows.Forms.ListView();
@@ -55,6 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnXoa = new System.Windows.Forms.ToolStripButton();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -104,30 +103,13 @@
             this.toolStripLabel4.Name = "toolStripLabel4";
             this.toolStripLabel4.Size = new System.Drawing.Size(37, 22);
             this.toolStripLabel4.Text = "Thoát";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(23, 22);
-            this.btnThoat.Text = "toolStripButton4";
+            this.toolStripLabel4.Click += new System.EventHandler(this.toolStripLabel4_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(27, 22);
             this.toolStripLabel1.Text = "Xóa";
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(23, 22);
-            this.btnXoa.Text = "toolStripButton1";
             // 
             // toolStrip1
             // 
@@ -136,7 +118,7 @@
             this.toolStripLabel1,
             this.btnThoat,
             this.toolStripLabel4});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip1.Location = new System.Drawing.Point(3, 22);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(568, 25);
             this.toolStrip1.TabIndex = 0;
@@ -147,6 +129,7 @@
             this.groupBox1.Controls.Add(this.lvDanhSach);
             this.groupBox1.Controls.Add(this.toolStrip1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(574, 297);
@@ -164,11 +147,12 @@
             this.columnHeader5,
             this.columnHeader7});
             this.lvDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvDanhSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lvDanhSach.GridLines = true;
             this.lvDanhSach.HideSelection = false;
-            this.lvDanhSach.Location = new System.Drawing.Point(3, 41);
+            this.lvDanhSach.Location = new System.Drawing.Point(3, 47);
             this.lvDanhSach.Name = "lvDanhSach";
-            this.lvDanhSach.Size = new System.Drawing.Size(568, 253);
+            this.lvDanhSach.Size = new System.Drawing.Size(568, 247);
             this.lvDanhSach.TabIndex = 1;
             this.lvDanhSach.UseCompatibleStateImageBehavior = false;
             this.lvDanhSach.View = System.Windows.Forms.View.Details;
@@ -181,6 +165,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
             this.splitContainer2.Panel1.Controls.Add(this.comboBox5);
             this.splitContainer2.Panel1.Controls.Add(this.cboHocSinh);
             this.splitContainer2.Panel1.Controls.Add(this.cboLop);
@@ -192,6 +177,7 @@
             this.splitContainer2.Panel1.Controls.Add(this.label3);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
             this.splitContainer2.Panel1.Controls.Add(this.label1);
+            this.splitContainer2.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // splitContainer2.Panel2
             // 
@@ -205,7 +191,7 @@
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(12, 226);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(182, 21);
+            this.comboBox5.Size = new System.Drawing.Size(182, 24);
             this.comboBox5.TabIndex = 12;
             // 
             // cboHocSinh
@@ -213,7 +199,7 @@
             this.cboHocSinh.FormattingEnabled = true;
             this.cboHocSinh.Location = new System.Drawing.Point(12, 186);
             this.cboHocSinh.Name = "cboHocSinh";
-            this.cboHocSinh.Size = new System.Drawing.Size(182, 21);
+            this.cboHocSinh.Size = new System.Drawing.Size(182, 24);
             this.cboHocSinh.TabIndex = 11;
             // 
             // cboLop
@@ -221,7 +207,7 @@
             this.cboLop.FormattingEnabled = true;
             this.cboLop.Location = new System.Drawing.Point(12, 146);
             this.cboLop.Name = "cboLop";
-            this.cboLop.Size = new System.Drawing.Size(182, 21);
+            this.cboLop.Size = new System.Drawing.Size(182, 24);
             this.cboLop.TabIndex = 10;
             // 
             // cboHocKy
@@ -229,7 +215,7 @@
             this.cboHocKy.FormattingEnabled = true;
             this.cboHocKy.Location = new System.Drawing.Point(12, 104);
             this.cboHocKy.Name = "cboHocKy";
-            this.cboHocKy.Size = new System.Drawing.Size(182, 21);
+            this.cboHocKy.Size = new System.Drawing.Size(182, 24);
             this.cboHocKy.TabIndex = 9;
             // 
             // cboNamHoc
@@ -237,7 +223,7 @@
             this.cboNamHoc.FormattingEnabled = true;
             this.cboNamHoc.Location = new System.Drawing.Point(12, 64);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(182, 21);
+            this.cboNamHoc.Size = new System.Drawing.Size(182, 24);
             this.cboNamHoc.TabIndex = 8;
             // 
             // label6
@@ -245,7 +231,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 210);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.Size = new System.Drawing.Size(65, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Môn Học:";
             // 
@@ -254,7 +240,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 4;
             this.label5.Text = "Học Sinh:";
             // 
@@ -263,7 +249,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Lớp:";
             // 
@@ -272,7 +258,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Học Kỳ:";
             // 
@@ -281,14 +267,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(68, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Năm Học:";
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.SystemColors.Info;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 37);
@@ -305,15 +293,38 @@
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 2;
             // 
+            // btnXoa
+            // 
+            this.btnXoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnXoa.Image = global::GUI.Properties.Resources.bin;
+            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(23, 22);
+            this.btnXoa.Text = "toolStripButton1";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnThoat.Image = global::GUI.Properties.Resources.exit;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(23, 22);
+            this.btnThoat.Text = "toolStripButton4";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // frmXemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(800, 297);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.splitContainer1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Name = "frmXemDiem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xem Điểm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmXemDiem_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
