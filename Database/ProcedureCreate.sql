@@ -216,6 +216,7 @@ GO
 CREATE PROCEDURE InsertThongTinGV
 @IDTKT INT,
 @TenGV NVARCHAR(200),
+@SDT VARCHAR(12)
 @IDMonHoc INT,
 @IDLop INT
 AS
@@ -224,12 +225,14 @@ BEGIN
     (
         IDTKT,
         TenGV,
+		SDT,
         IDMonHoc,
         IDLop
     )
     VALUES
     (   @IDTKT,   -- IDTKT - int
         @TenGV, -- TenGV - nvarchar(200)
+		@SDT,     -- SDT - varchar (12)
 		@IDMonHoc,   -- IDMonHoc - int
         @IDLop    -- IDLop - int
         )
