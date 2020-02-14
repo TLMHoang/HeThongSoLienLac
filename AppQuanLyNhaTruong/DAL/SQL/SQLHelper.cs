@@ -12,9 +12,9 @@ namespace DAL.SQL
     public class SQLHelper
     {
         //Hoàng
-         //private string connStr = @"Data Source=DESKTOP-MPFCGCF;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
+         private string connStr = @"Data Source=DESKTOP-MPFCGCF;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
         //Phong
-        private string connStr = @"Data Source=VHP;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
+        //private string connStr = @"Data Source=VHP;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
         //Trường
         //private string connStr = @"Data Source=TRUONGTRAN\MSSQLSERVER1;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
 
