@@ -44,6 +44,14 @@
     <Compile Include="CInterface.cs" />
     <Compile Include="TaiKhoangTruongBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoanPHBAL.cs" />
+    <Compile Include="ThoiKhoaBieuBAL.cs" />
+    <Compile Include="ThongBaoHSBAL.cs" />
+    <Compile Include="ThongBaoLopBAL.cs" />
+    <Compile Include="ThongBaoTruongBAL.cs" />
+    <Compile Include="ThongTinGVBAL.cs" />
+    <Compile Include="ThongTinHSBAL.cs" />
+    <Compile Include="XinPhepBAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
