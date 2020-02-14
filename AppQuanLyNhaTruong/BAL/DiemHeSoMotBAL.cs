@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using DAL;
+using System.Data;
 
-namespace DAL
+namespace BAL
 {
-    public class CupHocDAL : SQL.SQLHelper, CInterface<CupHoc>
+    class DiemHeSoMotBAL : CInterface<DiemHeSoMot>
     {
-        public Task<int> CapNhap(CupHoc obj)
+        public Task<int> CapNhap(DiemHeSoMot obj)
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataTable> Lay()
+        public Task<DataTable> LayDT()
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataTable> Lay(int ID)
+        public Task<List<DiemHeSoMot>> LayLst()
         {
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(CupHoc obj)
+        public Task<int> Them(DiemHeSoMot obj)
         {
             throw new NotImplementedException();
         }

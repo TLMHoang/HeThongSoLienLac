@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CInterface.cs" />
+    <Compile Include="CupHocDAL.cs" />
+    <Compile Include="DiemDanhDAL.cs" />
+    <Compile Include="DiemHeSoHaiDAL.cs" />
+    <Compile Include="DiemHeSoMotDAL.cs" />
+    <Compile Include="DiemHocKyDAL.cs" />
+    <Compile Include="HanhKiemDAL.cs" />
+    <Compile Include="LopDAL.cs" />
+    <Compile Include="MonHocDAL.cs" />
     <Compile Include="TaiKhoanPHDAL.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
