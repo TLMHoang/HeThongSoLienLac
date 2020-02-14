@@ -71,7 +71,7 @@
             // 
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(250, 197);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(290, 23);
             this.txtUserName.TabIndex = 2;
@@ -82,7 +82,7 @@
             // 
             this.txtPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassWord.Location = new System.Drawing.Point(250, 240);
-            this.txtPassWord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassWord.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.Size = new System.Drawing.Size(290, 23);
             this.txtPassWord.TabIndex = 4;
@@ -109,7 +109,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(250, 299);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(290, 28);
             this.btnLogin.TabIndex = 5;
@@ -120,13 +120,13 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(250, 332);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(290, 28);
             this.btnExit.TabIndex = 6;
@@ -142,7 +142,7 @@
             this.btnForgotPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForgotPass.ForeColor = System.Drawing.Color.DarkOrange;
             this.btnForgotPass.Location = new System.Drawing.Point(246, 267);
-            this.btnForgotPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnForgotPass.Margin = new System.Windows.Forms.Padding(2);
             this.btnForgotPass.Name = "btnForgotPass";
             this.btnForgotPass.Size = new System.Drawing.Size(109, 20);
             this.btnForgotPass.TabIndex = 7;
@@ -154,7 +154,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.Ust;
             this.pictureBox1.Location = new System.Drawing.Point(1, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(212, 248);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,7 +165,7 @@
             // 
             this.picLogin.Image = global::GUI.Properties.Resources.Image_login2;
             this.picLogin.Location = new System.Drawing.Point(326, 37);
-            this.picLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picLogin.Margin = new System.Windows.Forms.Padding(2);
             this.picLogin.Name = "picLogin";
             this.picLogin.Size = new System.Drawing.Size(135, 106);
             this.picLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,7 +204,7 @@
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";

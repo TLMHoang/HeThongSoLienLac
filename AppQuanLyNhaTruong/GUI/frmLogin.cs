@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using DTO;
 
 namespace AppQuanLyNhaTruong
 {
@@ -43,12 +45,15 @@ namespace AppQuanLyNhaTruong
 
             if (!CheckNull(txtUserName) && !CheckNull(txtPassWord))
             {
-                if (await account.DangNhap(txtUserName.Text, txtPassWord.Text) != null)
+                var dt = await account.DangNhap(txtUserName.Text, txtPassWord.Text);
+                if (dt != null)
                 {
-                    frmMain f = new frmMain();
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
+                    //frmMain f = new frmMain();
+                    //this.Hide();
+                    //f.ShowDialog();
+                    //this.Show();
+                    Program.TK = new TaiKhoanTruong(dt.Rows[0]);
+                    DialogResult = DialogResult.Yes;
                 }
                 else
                 {
@@ -81,12 +86,32 @@ namespace AppQuanLyNhaTruong
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bạn Vui Lòng Liên Hệ US Team Để Lấy Lại Mật Khẩu !", "Notification !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (MessageBox.Show("Bạn có muốn lấy lại mật khẩu ?\nYES lây lại vui lòng điền vào mẫu\nNO lấy thông tin hỗ trợ.",
+                "Thông Báo !",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Process cmd = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "CMD.exe";
+                startInfo.Arguments = "/c start https://docs.google.com/forms/d/1FsFsaOEpQdpSLa9VPqIGX4FxQNNXiR1bayBNj-Q-5-o/edit";
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                cmd.StartInfo = startInfo;
+                cmd.Start();
+            }
+            else
+            {
+                MessageBox.Show("Email", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         #region Hieu ứng cho txt dn
@@ -130,7 +155,6 @@ namespace AppQuanLyNhaTruong
         }
 
         #endregion
-
     }
 }
 /*

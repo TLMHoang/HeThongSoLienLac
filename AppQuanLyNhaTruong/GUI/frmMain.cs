@@ -22,5 +22,27 @@ namespace AppQuanLyNhaTruong
             this.Close();
         }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            frmLogin f = new frmLogin();
+            this.Visible = false;
+            if (f.ShowDialog() == DialogResult.Yes)
+            {
+
+                this.Visible = true;
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
