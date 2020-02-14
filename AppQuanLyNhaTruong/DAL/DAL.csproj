@@ -44,9 +44,24 @@
   <ItemGroup>
     <Compile Include="CInterface.cs" />
     <Compile Include="CupHocDAL.cs" />
+    <Compile Include="DiemDanhDAL.cs" />
+    <Compile Include="DiemHeSoHaiDAL.cs" />
+    <Compile Include="DiemHeSoMotDAL.cs" />
+    <Compile Include="DiemHocKyDAL.cs" />
+    <Compile Include="HanhKiemDAL.cs" />
+    <Compile Include="LopDAL.cs" />
+    <Compile Include="MonHocDAL.cs" />
+    <Compile Include="TaiKhoanPHDAL.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="ThoiKhoaBieuDAL.cs" />
+    <Compile Include="ThongBaoHSDAL.cs" />
+    <Compile Include="ThongBaoLopDAL.cs" />
+    <Compile Include="ThongBaoTruongDAL.cs" />
+    <Compile Include="ThongTinGVDAL.cs" />
+    <Compile Include="ThongTinHSDAL.cs" />
+    <Compile Include="XinPhepDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

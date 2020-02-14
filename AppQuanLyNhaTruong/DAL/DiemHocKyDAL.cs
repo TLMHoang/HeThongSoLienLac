@@ -8,9 +8,9 @@ using DTO;
 
 namespace DAL
 {
-    public class CupHocDAL : SQL.SQLHelper, CInterface<CupHoc>
+    class DiemHocKyDAL : SQL.SQLHelper, CInterface<DiemHocKy>
     {
-        public Task<int> CapNhap(CupHoc obj)
+        public Task<int> CapNhap(DiemHocKy obj)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +25,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(CupHoc obj)
+        public Task<int> Them(DiemHocKy obj)
         {
             throw new NotImplementedException();
         }

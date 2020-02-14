@@ -42,8 +42,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CInterface.cs" />
+    <Compile Include="CupHocBAL.cs" />
+    <Compile Include="DiemDanhBAL.cs" />
+    <Compile Include="DiemHeSoHaiBAL.cs" />
+    <Compile Include="DiemHeSoMotBAL.cs" />
+    <Compile Include="DiemHocKyBAL.cs" />
+    <Compile Include="HanhKiemBAL.cs" />
+    <Compile Include="LopBAL.cs" />
+    <Compile Include="MonHocBAL.cs" />
     <Compile Include="TaiKhoangTruongBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoanPHBAL.cs" />
+    <Compile Include="ThoiKhoaBieuBAL.cs" />
+    <Compile Include="ThongBaoHSBAL.cs" />
+    <Compile Include="ThongBaoLopBAL.cs" />
+    <Compile Include="ThongBaoTruongBAL.cs" />
+    <Compile Include="ThongTinGVBAL.cs" />
+    <Compile Include="ThongTinHSBAL.cs" />
+    <Compile Include="XinPhepBAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

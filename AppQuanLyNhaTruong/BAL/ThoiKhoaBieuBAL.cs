@@ -4,28 +4,29 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 using DTO;
 
-namespace DAL
+namespace BAL
 {
-    public class CupHocDAL : SQL.SQLHelper, CInterface<CupHoc>
+    class ThoiKhoaBieuBAL : CInterface<ThoiKhoaBieu>
     {
-        public Task<int> CapNhap(CupHoc obj)
+        public Task<int> CapNhap(ThoiKhoaBieu obj)
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataTable> Lay()
+        public Task<DataTable> LayDT()
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataTable> Lay(int ID)
+        public Task<List<ThoiKhoaBieu>> LayLst()
         {
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(CupHoc obj)
+        public Task<int> Them(ThoiKhoaBieu obj)
         {
             throw new NotImplementedException();
         }
