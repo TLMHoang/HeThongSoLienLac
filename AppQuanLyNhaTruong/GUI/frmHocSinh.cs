@@ -19,6 +19,8 @@ namespace AppQuanLyNhaTruong
 
         private void frmHocSinh_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+            
             DialogResult ret = MessageBox.Show("Bạn có thoát không", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (ret == DialogResult.Yes)
             {

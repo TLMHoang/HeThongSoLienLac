@@ -33,7 +33,7 @@
             this.btnAccountManagement = new System.Windows.Forms.Button();
             this.btnStudentManagement = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.xinChàoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,18 +41,18 @@
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtLopHoc = new System.Windows.Forms.TextBox();
             this.dgvDanhSachLop = new System.Windows.Forms.DataGridView();
+            this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.btnDiem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnThongBao = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsLop)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -109,7 +109,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xinChàoToolStripMenuItem,
+            this.UserNameToolStripMenuItem,
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -118,11 +118,11 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // xinChàoToolStripMenuItem
+            // UserNameToolStripMenuItem
             // 
-            this.xinChàoToolStripMenuItem.Name = "xinChàoToolStripMenuItem";
-            this.xinChàoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.xinChàoToolStripMenuItem.Text = "Xin Chào";
+            this.UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
+            this.UserNameToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.UserNameToolStripMenuItem.Text = "Xin chào ";
             // 
             // menuToolStripMenuItem
             // 
@@ -187,6 +187,10 @@
             this.dgvDanhSachLop.RowTemplate.Height = 24;
             this.dgvDanhSachLop.Size = new System.Drawing.Size(208, 457);
             this.dgvDanhSachLop.TabIndex = 2;
+            // 
+            // bsLop
+            // 
+            this.bsLop.DataSource = typeof(DTO.Lop);
             // 
             // btnDiem
             // 
@@ -276,21 +280,19 @@
             this.label1.Text = "Danh sách lớp";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bsLop
-            // 
-            this.bsLop.DataSource = typeof(DTO.Lop);
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "Mã";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Width = 50;
             // 
             // tenLopDataGridViewTextBoxColumn
             // 
             this.tenLopDataGridViewTextBoxColumn.DataPropertyName = "TenLop";
-            this.tenLopDataGridViewTextBoxColumn.HeaderText = "TenLop";
+            this.tenLopDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
             this.tenLopDataGridViewTextBoxColumn.Name = "tenLopDataGridViewTextBoxColumn";
+            this.tenLopDataGridViewTextBoxColumn.Width = 110;
             // 
             // frmMain
             // 
@@ -309,9 +311,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLop)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,14 +331,14 @@
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvDanhSachLop;
         private System.Windows.Forms.TextBox txtLopHoc;
-        private System.Windows.Forms.ToolStripMenuItem xinChàoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UserNameToolStripMenuItem;
         private System.Windows.Forms.Button btnDiem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnThongBao;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource bsLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLopDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bsLop;
     }
 }

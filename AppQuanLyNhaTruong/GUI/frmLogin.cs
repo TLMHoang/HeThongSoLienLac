@@ -54,6 +54,7 @@ namespace AppQuanLyNhaTruong
                     //this.Show();
                     Program.TK = new TaiKhoanTruong(dt.Rows[0]);
                     DialogResult = DialogResult.Yes;
+                    this.FormClosing -= frmLogin_FormClosing;
                 }
                 else
                 {
@@ -82,14 +83,6 @@ namespace AppQuanLyNhaTruong
                 return true;
             }
             return false;
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-            }
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)
@@ -155,6 +148,15 @@ namespace AppQuanLyNhaTruong
         }
 
         #endregion
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            DialogResult = DialogResult.No;
+        }
     }
 }
 /*

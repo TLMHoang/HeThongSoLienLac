@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,14 +23,22 @@ namespace AppQuanLyNhaTruong
             this.Close();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        private async void frmMain_Load(object sender, EventArgs e)
         {
             frmLogin f = new frmLogin();
             this.Visible = false;
             if (f.ShowDialog() == DialogResult.Yes)
             {
-
+                UserNameToolStripMenuItem.Text += "\n" + Program.TK.TaiKhoan;
                 this.Visible = true;
+
+                bsLop.SuspendBinding();
+                dgvDanhSachLop.SuspendLayout();
+
+                bsLop.DataSource = await new LopBAL().LayDT();
+
+                dgvDanhSachLop.ResumeLayout();
+                bsLop.ResumeBinding();
             }
             else
             {

@@ -74,15 +74,18 @@ END
 GO
 
 CREATE PROCEDURE InsertLop
-@TenLop NVARCHAR(50)
+@TenLop NVARCHAR(50),
+@IDGiaoVien INT
 AS
 BEGIN
     Insert dbo.Lop
     (
-        TenLop
+        TenLop,
+		IDGiaoVien
     )
     VALUES
-    (@TenLop -- TenLop - nvarchar(50)
+    (@TenLop, -- TenLop - nvarchar(50)
+	@IDGiaoVien
         )
 END
 GO
@@ -244,7 +247,7 @@ CREATE PROCEDURE InsertThongTinHS
 @NgaySinh DATETIME,
 @GioiTinh BIT,
 @NoiSinh NVARCHAR(250),
-@DanhToc NVARCHAR(100),
+@DanToc NVARCHAR(100),
 @TonGiao NVARCHAR(100),
 @IDLop INT,
 @IDTaiKhoan INT,
@@ -260,7 +263,7 @@ BEGIN
         NgaySinh,
         GioiTinh,
         NoiSinh,
-        DanhToc,
+        DanToc,
         TonGiao,
         IDLop,
         IDTaiKhoan,
@@ -274,7 +277,7 @@ BEGIN
         @NgaySinh, -- NgaySinh - datetime
         @GioiTinh,      -- GioiTinh - bit
         @NoiSinh,       -- NoiSinh - nvarchar(250)
-        @DanhToc,       -- DanhToc - nvarchar(100)
+        @DanToc,       -- DanToc - nvarchar(100)
         @TonGiao,       -- TonGiao - nvarchar(100)
         @IDLop,         -- IDLop - int
         @IDTaiKhoan,         -- IDTaiKhoan - int

@@ -34,7 +34,10 @@ GO
 CREATE TABLE Lop
 (
 	ID INT IDENTITY(1,1) PRIMARY KEY,
-	TenLop NVARCHAR(50)
+	TenLop NVARCHAR(50),
+	IDGiaoVien INT,
+
+	FOREIGN KEY (IDGiaoVien) REFERENCES dbo.TaiKhoanTruong(ID)
 )
 GO
 
@@ -59,7 +62,7 @@ CREATE TABLE ThongTinHS
 	NgaySinh DATETIME,
 	GioiTinh BIT,
 	NoiSinh NVARCHAR(250),
-	DanhToc NVARCHAR(100),
+	DanToc NVARCHAR(100),
 	TonGiao NVARCHAR(100),
 	IDLop INT,
 	IDTaiKhoan INT,
