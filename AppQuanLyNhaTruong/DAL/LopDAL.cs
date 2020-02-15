@@ -5,19 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     class LopDAL : SQL.SQLHelper, CInterface<Lop>
     {
-        public Task<int> CapNhap(Lop obj)
+        public async Task<int> CapNhap(Lop obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateLop", new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }) ; 
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectLop");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,14 +26,14 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(Lop obj)
+        public async Task<int> Them(Lop obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertLop", new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop });
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteLop", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
         }
     }
 }
