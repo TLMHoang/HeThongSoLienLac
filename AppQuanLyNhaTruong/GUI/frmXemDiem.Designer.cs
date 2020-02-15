@@ -37,6 +37,8 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnXoa = new System.Windows.Forms.ToolStripButton();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lvDanhSach = new System.Windows.Forms.ListView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -52,8 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnXoa = new System.Windows.Forms.ToolStripButton();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -124,6 +124,25 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnXoa
+            // 
+            this.btnXoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnXoa.Image = global::GUI.Properties.Resources.bin;
+            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(23, 22);
+            this.btnXoa.Text = "toolStripButton1";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnThoat.Image = global::GUI.Properties.Resources.exit;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(23, 22);
+            this.btnThoat.Text = "toolStripButton4";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lvDanhSach);
@@ -132,7 +151,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(574, 297);
+            this.groupBox1.Size = new System.Drawing.Size(574, 325);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh Sách Học Sinh:";
@@ -152,7 +171,7 @@
             this.lvDanhSach.HideSelection = false;
             this.lvDanhSach.Location = new System.Drawing.Point(3, 47);
             this.lvDanhSach.Name = "lvDanhSach";
-            this.lvDanhSach.Size = new System.Drawing.Size(568, 247);
+            this.lvDanhSach.Size = new System.Drawing.Size(568, 275);
             this.lvDanhSach.TabIndex = 1;
             this.lvDanhSach.UseCompatibleStateImageBehavior = false;
             this.lvDanhSach.View = System.Windows.Forms.View.Details;
@@ -182,7 +201,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(800, 297);
+            this.splitContainer2.Size = new System.Drawing.Size(800, 325);
             this.splitContainer2.SplitterDistance = 222;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -289,35 +308,16 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(800, 297);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 325);
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnXoa.Image = global::GUI.Properties.Resources.bin;
-            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(23, 22);
-            this.btnXoa.Text = "toolStripButton1";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnThoat.Image = global::GUI.Properties.Resources.exit;
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(23, 22);
-            this.btnThoat.Text = "toolStripButton4";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmXemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(800, 297);
+            this.ClientSize = new System.Drawing.Size(800, 325);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.splitContainer1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
