@@ -5,19 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class HanhKiemDAL : SQL.SQLHelper, CInterface<HanhKiem>
     {
-        public Task<int> CapNhap(HanhKiem obj)
+        public async Task<int> CapNhap(HanhKiem obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateHanhKiem", 
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
+                new SqlParameter("@Loai", SqlDbType.NVarChar) { Value = obj.Loai },
+                new SqlParameter("@HocKy", SqlDbType.Bit) { Value = obj.HocKy }
+                );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectHanhKiem");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,9 +30,13 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(HanhKiem obj)
+        public async Task<int> Them(HanhKiem obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertHanhKiem",
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
+                new SqlParameter("@Loai", SqlDbType.NVarChar) { Value = obj.Loai },
+                new SqlParameter("@HocKy", SqlDbType.Bit) { Value = obj.HocKy }
+                );
         }
 
         public Task<int> Xoa(int ID)

@@ -5,19 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class MonHocDAL : SQL.SQLHelper, CInterface<MonHoc>
     {
-        public Task<int> CapNhap(MonHoc obj)
+        public async Task<int> CapNhap(MonHoc obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateMonhoc",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@TenMon", SqlDbType.Int) { Value = obj.TenMon },
+                new SqlParameter("@LoaiDiem", SqlDbType.Int) { Value = obj.LoaiDiem }
+            );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectMonhoc");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,14 +30,18 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(MonHoc obj)
+        public async Task<int> Them(MonHoc obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertMonhoc",
+                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                 new SqlParameter("@TenMon", SqlDbType.Int) { Value = obj.TenMon },
+                 new SqlParameter("@LoaiDiem", SqlDbType.Int) { Value = obj.LoaiDiem }
+                );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteMonhoc", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
         }
     }
 }

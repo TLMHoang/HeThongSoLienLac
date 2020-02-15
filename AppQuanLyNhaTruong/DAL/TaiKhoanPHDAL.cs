@@ -5,19 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class TaiKhoanPHDAL : SQL.SQLHelper, CInterface<TaiKhoanPH>
     {
-        public Task<int> CapNhap(TaiKhoanPH obj)
+        public async Task<int> CapNhap(TaiKhoanPH obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateTaiKhoanPH", 
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau }
+                );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectTaiKhoanPH");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,14 +29,17 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(TaiKhoanPH obj)
+        public async Task<int> Them(TaiKhoanPH obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertTaiKhoanPH",
+                new SqlParameter("@TaiKhoan", SqlDbType.Int) { Value = obj.TaiKhoan },
+                new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau }
+                );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteTaiKhoanPH", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
         }
     }
 }

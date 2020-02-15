@@ -5,19 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class ThongBaoLopDAL : SQL.SQLHelper, CInterface<ThongBaoLop>
     {
-        public Task<int> CapNhap(ThongBaoLop obj)
+        public async Task<int> CapNhap(ThongBaoLop obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateThongBaoLop",
+                new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
+                new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung }
+                );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectThongBaoLop");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,14 +29,16 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(ThongBaoLop obj)
+        public async Task<int> Them(ThongBaoLop obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertThongBaoLop",                 
+                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung }
+                 );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int STT)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteThongBaoLop", new SqlParameter("@STT", SqlDbType.Int) { Value = STT });
         }
     }
 }

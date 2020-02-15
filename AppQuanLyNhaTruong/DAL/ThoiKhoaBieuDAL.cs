@@ -5,19 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class ThoiKhoaBieuDAL : SQL.SQLHelper, CInterface<ThoiKhoaBieu>
     {
-        public Task<int> CapNhap(ThoiKhoaBieu obj)
+        public async Task<int> CapNhap(ThoiKhoaBieu obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateThoiKhaoBieu", 
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
+                new SqlParameter("@Thu", SqlDbType.Int) { Value = obj.Thu },
+                new SqlParameter("@Tiet", SqlDbType.Int) { Value = obj.Tiet },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon }
+            );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectThoiKhaoBieu");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,9 +31,14 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(ThoiKhoaBieu obj)
+        public async Task<int> Them(ThoiKhoaBieu obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertThoiKhaoBieu",
+               new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
+               new SqlParameter("@Thu", SqlDbType.Int) { Value = obj.Thu },
+               new SqlParameter("@Tiet", SqlDbType.Int) { Value = obj.Tiet },
+               new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon }
+           );
         }
 
         public Task<int> Xoa(int ID)
