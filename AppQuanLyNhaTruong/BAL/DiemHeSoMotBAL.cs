@@ -9,31 +9,39 @@ using System.Data;
 
 namespace BAL
 {
-    class DiemHeSoMotBAL : CInterface<DiemHeSoMot>
+    public class DiemHeSoMotBAL : CInterface<DiemHeSoMot>
     {
-        public Task<int> CapNhap(DiemHeSoMot obj)
+        DiemHeSoMotDAL diem1 = new DiemHeSoMotDAL();
+        public async Task<int> CapNhap(DiemHeSoMot obj)
         {
-            throw new NotImplementedException();
+            return await diem1.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await diem1.Lay();
         }
 
-        public Task<List<DiemHeSoMot>> LayLst()
+        public async Task<List<DiemHeSoMot>> LayLst()
         {
-            throw new NotImplementedException();
+            List<DiemHeSoMot> lst = new List<DiemHeSoMot>();
+
+            foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new DiemHeSoMot(dr));
+            }
+
+            return lst;
         }
 
-        public Task<int> Them(DiemHeSoMot obj)
+        public async Task<int> Them(DiemHeSoMot obj)
         {
-            throw new NotImplementedException();
+            return await diem1.Them(obj);
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await diem1.Xoa(ID);
         }
     }
 }

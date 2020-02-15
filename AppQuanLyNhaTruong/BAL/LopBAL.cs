@@ -9,31 +9,39 @@ using System.Data;
 
 namespace BAL
 {
-    class LopBAL : CInterface<Lop>
+    public class LopBAL : CInterface<Lop>
     {
-        public Task<int> CapNhap(Lop obj)
+        LopDAL lop = new LopDAL();
+        public async Task<int> CapNhap(Lop obj)
         {
-            throw new NotImplementedException();
+            return await lop.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await lop.Lay();
         }
 
-        public Task<List<Lop>> LayLst()
+        public async Task<List<Lop>> LayLst()
         {
-            throw new NotImplementedException();
+            List<Lop> lst = new List<Lop>();
+
+            foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new Lop(dr));
+            }
+
+            return lst;
         }
 
-        public Task<int> Them(Lop obj)
+        public async Task<int> Them(Lop obj)
         {
-            throw new NotImplementedException();
+            return await lop.Them(obj);
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await lop.Xoa(ID);
         }
     }
 }

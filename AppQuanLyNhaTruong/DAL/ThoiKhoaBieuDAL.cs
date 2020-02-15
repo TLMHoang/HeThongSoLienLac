@@ -8,7 +8,7 @@ using DTO;
 
 namespace DAL
 {
-    class ThoiKhoaBieuDAL : SQL.SQLHelper, CInterface<ThoiKhoaBieu>
+    public class ThoiKhoaBieuDAL : SQL.SQLHelper, CInterface<ThoiKhoaBieu>
     {
         public Task<int> CapNhap(ThoiKhoaBieu obj)
         {

@@ -9,31 +9,39 @@ using System.Data;
 
 namespace BAL
 {
-    class CupHocBAL : CInterface<CupHoc>
+    public class CupHocBAL : CInterface<CupHoc>
     {
-        public Task<int> CapNhap(CupHoc obj)
+        CupHocDAL Cup = new CupHocDAL();
+        public async Task<int> CapNhap(CupHoc obj)
         {
-            throw new NotImplementedException();
+            return await Cup.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await Cup.Lay();
         }
 
-        public Task<List<CupHoc>> LayLst()
+        public async Task<List<CupHoc>> LayLst()
         {
-            throw new NotImplementedException();
+            List<CupHoc> lst = new List<CupHoc>();
+
+            foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new CupHoc(dr));
+            }
+
+            return lst;
         }
 
-        public Task<int> Them(CupHoc obj)
+        public async Task<int> Them(CupHoc obj)
         {
-            throw new NotImplementedException();
+            return await Cup.Them(obj);
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await Cup.Xoa(ID);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    class LopDAL : SQL.SQLHelper, CInterface<Lop>
+    public class LopDAL : SQL.SQLHelper, CInterface<Lop>
     {
         public async Task<int> CapNhap(Lop obj)
         {

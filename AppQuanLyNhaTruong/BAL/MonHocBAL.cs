@@ -9,31 +9,39 @@ using System.Data;
 
 namespace BAL
 {
-    class MonHocBAL : CInterface<MonHoc>
+    public class MonHocBAL : CInterface<MonHoc>
     {
-        public Task<int> CapNhap(MonHoc obj)
+        MonHocDAL monHoc = new MonHocDAL();
+        public async Task<int> CapNhap(MonHoc obj)
         {
-            throw new NotImplementedException();
+            return await monHoc.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await monHoc.Lay();
         }
 
-        public Task<List<MonHoc>> LayLst()
+        public async Task<List<MonHoc>> LayLst()
         {
-            throw new NotImplementedException();
+            List<MonHoc> lst = new List<MonHoc>();
+
+            foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new MonHoc(dr));
+            }
+
+            return lst;
         }
 
-        public Task<int> Them(MonHoc obj)
+        public async Task<int> Them(MonHoc obj)
         {
-            throw new NotImplementedException();
+            return await monHoc.Them(obj);
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await monHoc.Xoa(ID);
         }
     }
 }
