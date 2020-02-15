@@ -5,19 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
-    class XinPhepDAL : SQL.SQLHelper, CInterface<XinPhep>
+    public class XinPhepDAL : SQL.SQLHelper, CInterface<XinPhep>
     {
-        public Task<int> CapNhap(XinPhep obj)
+        public async Task<int> CapNhap(XinPhep obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateXinPhep", 
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value= obj.IDHocSinh},
+                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = obj.NghiTu },
+                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = obj.NghiDen },
+                new SqlParameter("@SoNgayNghi", SqlDbType.Int) { Value = obj.SoNgayNghi }
+                );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectXinPhep");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,9 +31,14 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(XinPhep obj)
+        public async Task<int> Them(XinPhep obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertXinPhep",
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh},
+                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value=obj.NghiTu},
+                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value=obj.NghiDen},
+                new SqlParameter("@SoNgayNghi", SqlDbType.Int) { Value=obj.SoNgayNghi}
+                );
         }
 
         public Task<int> Xoa(int ID)

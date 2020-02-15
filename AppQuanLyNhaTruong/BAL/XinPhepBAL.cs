@@ -9,31 +9,39 @@ using DTO;
 
 namespace BAL
 {
-    class XinPhepBAL : CInterface<XinPhep>
+    public class XinPhepBAL : CInterface<XinPhep>
     {
-        public Task<int> CapNhap(XinPhep obj)
+        XinPhepDAL xinPhep = new XinPhepDAL();
+        public async Task<int> CapNhap(XinPhep obj)
         {
-            throw new NotImplementedException();
+            return await xinPhep.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await xinPhep.Lay();
         }
 
-        public Task<List<XinPhep>> LayLst()
+        public async Task<List<XinPhep>> LayLst()
         {
-            throw new NotImplementedException();
+            List<XinPhep> lst = new List<XinPhep>();
+
+            foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new XinPhep(dr));
+            }
+
+            return lst;
         }
 
-        public Task<int> Them(XinPhep obj)
+        public async Task<int> Them(XinPhep obj)
         {
-            throw new NotImplementedException();
+            return await xinPhep.Them(obj);
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await xinPhep.Xoa(ID);
         }
     }
 }

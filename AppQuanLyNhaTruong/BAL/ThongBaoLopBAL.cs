@@ -9,31 +9,39 @@ using DTO;
 
 namespace BAL
 {
-    class ThongBaoLopBAL : CInterface<ThongBaoLop>
+    public class ThongBaoLopBAL : CInterface<ThongBaoLop>
     {
-        public Task<int> CapNhap(ThongBaoLop obj)
+        ThongBaoLopDAL tbLop = new ThongBaoLopDAL();
+        public async Task<int> CapNhap(ThongBaoLop obj)
         {
-            throw new NotImplementedException();
+            return await tbLop.CapNhap(obj);
         }
 
-        public Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT()
         {
-            throw new NotImplementedException();
+            return await tbLop.Lay();
         }
 
-        public Task<List<ThongBaoLop>> LayLst()
+        public async Task<List<ThongBaoLop>> LayLst()
         {
-            throw new NotImplementedException();
+            List<ThongBaoLop> lst = new List<ThongBaoLop>();
+
+            foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new ThongBaoLop(dr));
+            }
+
+            return lst;
         }
 
-        public Task<int> Them(ThongBaoLop obj)
+        public async Task<int> Them(ThongBaoLop obj)
         {
-            throw new NotImplementedException();
+            return await tbLop.Them(obj);
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await tbLop.Xoa(ID);
         }
     }
 }

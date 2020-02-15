@@ -5,19 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
-    class ThongTinGVDAL : SQL.SQLHelper, CInterface<ThongTinGV>
+    public class ThongTinGVDAL : SQL.SQLHelper, CInterface<ThongTinGV>
     {
-        public Task<int> CapNhap(ThongTinGV obj)
+        public async Task<int> CapNhap(ThongTinGV obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateThongTinGV",
+                new SqlParameter("@IDTKT", SqlDbType.Int) { Value = obj.IDTKT },
+                new SqlParameter("@TenGV", SqlDbType.NVarChar) { Value = obj.TenGV},
+                new SqlParameter("@SDT", SqlDbType.VarChar) { Value = obj.SDT },
+                new SqlParameter("@IDTKT", SqlDbType.Int) { Value = obj.IDTKT },
+                new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc},
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
+                );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectThongTinGV");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,14 +33,21 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(ThongTinGV obj)
+        public async Task<int> Them(ThongTinGV obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertThongTinGV",
+                 new SqlParameter("@IDTKT", SqlDbType.Int) { Value = obj.IDTKT },
+                 new SqlParameter("@TenGV", SqlDbType.NVarChar) { Value = obj.TenGV },
+                 new SqlParameter("@SDT", SqlDbType.VarChar) { Value = obj.SDT },
+                 new SqlParameter("@IDTKT", SqlDbType.Int) { Value = obj.IDTKT },
+                 new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc },
+                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
+                 );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int IDTKT)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteThongTinGV", new SqlParameter("@IDTKT", SqlDbType.Int) { Value = IDTKT });
         }
     }
 }

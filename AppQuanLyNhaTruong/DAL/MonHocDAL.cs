@@ -8,7 +8,7 @@ using DTO;
 
 namespace DAL
 {
-    class MonHocDAL : SQL.SQLHelper, CInterface<MonHoc>
+    public class MonHocDAL : SQL.SQLHelper, CInterface<MonHoc>
     {
         public Task<int> CapNhap(MonHoc obj)
         {
