@@ -122,6 +122,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\DTO.CupHoc.datasource" />
+    <None Include="Properties\DataSources\DTO.DiemDanh.datasource" />
+    <None Include="Properties\DataSources\DTO.DiemHeSoHai.datasource" />
+    <None Include="Properties\DataSources\DTO.DiemHeSoMot.datasource" />
+    <None Include="Properties\DataSources\DTO.DiemHocKy.datasource" />
+    <None Include="Properties\DataSources\DTO.HanhKiem.datasource" />
+    <None Include="Properties\DataSources\DTO.Lop.datasource" />
+    <None Include="Properties\DataSources\DTO.MonHoc.datasource" />
+    <None Include="Properties\DataSources\DTO.TaiKhoanPH.datasource" />
+    <None Include="Properties\DataSources\DTO.TaiKhoanTruong.datasource" />
+    <None Include="Properties\DataSources\DTO.ThoiKhoaBieu.datasource" />
+    <None Include="Properties\DataSources\DTO.ThongBaoHS.datasource" />
+    <None Include="Properties\DataSources\DTO.ThongBaoLop.datasource" />
+    <None Include="Properties\DataSources\DTO.ThongBaoTruong.datasource" />
+    <None Include="Properties\DataSources\DTO.ThongTinGV.datasource" />
+    <None Include="Properties\DataSources\DTO.ThongTinHS.datasource" />
+    <None Include="Properties\DataSources\DTO.XinPhep.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

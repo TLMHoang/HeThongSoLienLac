@@ -14,7 +14,7 @@ namespace DTO
 		public DateTime NgaySinh { get; set; }
 		public byte GioiTinh { get; set; }
 		public string NoiSinh { get; set; }
-		public string DanhToc { get; set; }
+		public string DanToc { get; set; }
 		public string TonGiao { get; set; }
 		public int IDLop { get; set; }
 		public int IDTaiKhoan { get; set; }
@@ -30,7 +30,7 @@ namespace DTO
 			NgaySinh = DateTime.Now;
 			GioiTinh = 0;
 			NoiSinh = "";
-			DanhToc = "";
+			DanToc = "";
 			TonGiao = "";
 			IDLop = -1;
 			IDTaiKhoan = -1;
@@ -40,14 +40,14 @@ namespace DTO
 			SDTBo = "";
 		}
 
-		public ThongTinHS(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danhToc, string tonGiao, int iDLop, int iDTaiKhoan, string tenMe, string sDTMe, string tenBo, string sDTBo)
+		public ThongTinHS(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int iDLop, int iDTaiKhoan, string tenMe, string sDTMe, string tenBo, string sDTBo)
 		{
 			ID = iD;
 			Ten = ten;
 			NgaySinh = ngaySinh;
 			GioiTinh = gioiTinh;
 			NoiSinh = noiSinh;
-			DanhToc = danhToc;
+			DanToc = danToc;
 			TonGiao = tonGiao;
 			IDLop = iDLop;
 			IDTaiKhoan = iDTaiKhoan;
@@ -64,7 +64,7 @@ namespace DTO
 			NgaySinh = Convert.ToDateTime(dr["NgaySinh"]);
 			GioiTinh = Convert.ToByte(dr["GioiTinh"]);
 			NoiSinh = dr["NoiSinh"].ToString();
-			DanhToc = dr["DanhToc"].ToString();
+			DanToc = dr["DanToc"].ToString();
 			TonGiao = dr["TonGiao"].ToString();
 			IDLop = Convert.IsDBNull(dr["IDLop"]) ? -1 : Convert.ToInt32(dr["IDLop"]);
 			IDTaiKhoan = Convert.IsDBNull(dr["IDTaiKhoan"]) ? -1 : Convert.ToInt32(dr["IDTaiKhoan"]);

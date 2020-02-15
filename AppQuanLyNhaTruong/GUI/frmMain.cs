@@ -44,5 +44,11 @@ namespace AppQuanLyNhaTruong
                 e.Cancel = true;
             }
         }
+
+        private void btnStudentManagement_Click(object sender, EventArgs e)
+        {
+            frmHocSinh f = new frmHocSinh();
+            f.ShowDialog();
+        }
     }
 }
