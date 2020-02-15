@@ -5,19 +5,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class ThongTinHSDAL : SQL.SQLHelper, CInterface<ThongTinHS>
     {
-        public Task<int> CapNhap(ThongTinHS obj)
+        public async Task<int> CapNhap(ThongTinHS obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("UpdateThongTinHS",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = obj.Ten},
+                new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = obj.NgaySinh},
+                new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = obj.GioiTinh},
+                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = obj.NoiSinh},
+                new SqlParameter("@DanhToc", SqlDbType.NVarChar) { Value = obj.DanhToc },
+                new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = obj.TonGiao },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop},
+                new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = obj.IDTaiKhoan },
+                new SqlParameter("@TenMe", SqlDbType.NVarChar) { Value = obj.TenMe },
+                new SqlParameter("@SDTMe", SqlDbType.NVarChar) { Value = obj.SDTMe},
+                new SqlParameter("@TenBo", SqlDbType.NVarChar) { Value = obj.TenBo},
+                new SqlParameter("@SDTBo", SqlDbType.NVarChar) { Value = obj.SDTBo}
+            );
         }
 
-        public Task<DataTable> Lay()
+        public async Task<DataTable> Lay()
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectThongTinHS");
         }
 
         public Task<DataTable> Lay(int ID)
@@ -25,14 +40,28 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Task<int> Them(ThongTinHS obj)
+        public async Task<int> Them(ThongTinHS obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertThongTinHS",
+               new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = obj.Ten },
+               new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = obj.NgaySinh },
+               new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = obj.GioiTinh },
+               new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = obj.NoiSinh },
+               new SqlParameter("@DanhToc", SqlDbType.NVarChar) { Value = obj.DanhToc },
+               new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = obj.TonGiao },
+               new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
+               new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = obj.IDTaiKhoan },
+               new SqlParameter("@TenMe", SqlDbType.NVarChar) { Value = obj.TenMe },
+               new SqlParameter("@SDTMe", SqlDbType.NVarChar) { Value = obj.SDTMe },
+               new SqlParameter("@TenBo", SqlDbType.NVarChar) { Value = obj.TenBo },
+               new SqlParameter("@SDTBo", SqlDbType.NVarChar) { Value = obj.SDTBo }
+
+           );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteThongTinHS", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
         }
     }
 }
