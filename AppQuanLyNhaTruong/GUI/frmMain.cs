@@ -46,14 +46,6 @@ namespace AppQuanLyNhaTruong
             }
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-        }
-
         private void btnStudentManagement_Click(object sender, EventArgs e)
         {
             frmHocSinh f = new frmHocSinh();
@@ -63,6 +55,44 @@ namespace AppQuanLyNhaTruong
         private void btnThongBao_Click(object sender, EventArgs e)
         {
             GUI.frmThongBao f = new GUI.frmThongBao();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GUI.frmThongBaoTungHocSinh f = new GUI.frmThongBaoTungHocSinh();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void btnAccountManagement_Click(object sender, EventArgs e)
+        {
+            frmAccountManager f = new frmAccountManager();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Notification !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
             this.Hide();
             f.ShowDialog();
             this.Show();

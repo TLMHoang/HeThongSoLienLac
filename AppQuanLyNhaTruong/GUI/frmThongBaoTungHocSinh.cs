@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
-    public partial class frmSearch : Form
+    public partial class frmThongBaoTungHocSinh : Form
     {
-        public frmSearch()
+        public frmThongBaoTungHocSinh()
         {
             InitializeComponent();
         }

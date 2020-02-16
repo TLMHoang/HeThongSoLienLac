@@ -98,3 +98,10 @@ BEGIN
     SELECT * FROM dbo.XinPhep
 END
 GO
+
+CREATE PROC SelectPhanCong
+as
+begin
+	select * from dbo.PhanCong
+end
+go

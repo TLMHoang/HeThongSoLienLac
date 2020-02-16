@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,31 +9,49 @@ using DTO;
 
 namespace DAL
 {
-    public class DiemHocKyDAL : SQL.SQLHelper, CInterface<DiemHocKy>
+    public class DiemHocKyDAL : SQL.SQLHelper
     {
-        public Task<int> CapNhap(DiemHocKy obj)
+        public async Task<int> CapNhap(string TenLop, DiemHocKy obj)
+        {
+            return await ExecuteNonQuery(
+                "UpdateDHK" + TenLop,
+                new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon },
+                new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
+                new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai },
+                new SqlParameter("@HocKy", SqlDbType.Bit) { Value = obj.HocKy }
+                );
+        }
+
+        public async Task<DataTable> Lay(string TenLop)
+        {
+            return await ExecuteQuery("SelectDHK" + TenLop);
+        }
+
+        public Task<DataTable> Lay(string TenLop, int ID)
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataTable> Lay()
+        public async Task<int> Them(string TenLop, DiemHocKy obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery(
+                "CreateDHK" + TenLop,
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon },
+                new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
+                new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai },
+                new SqlParameter("@HocKy", SqlDbType.Bit) { Value = obj.HocKy }
+                );
         }
 
-        public Task<DataTable> Lay(int ID)
+        public async Task<int> Xoa(string TenLop, int STT)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> Them(DiemHocKy obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> Xoa(int ID)
-        {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery(
+                "DeleteDHK" + TenLop,
+                new SqlParameter("@STT", SqlDbType.Int) { Value = STT }
+                );
         }
     }
 }

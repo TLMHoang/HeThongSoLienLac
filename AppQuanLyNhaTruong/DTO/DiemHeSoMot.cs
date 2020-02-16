@@ -11,7 +11,8 @@ namespace DTO
     {
         public int STT { get; set; }
         public int IDHocSinh { get; set; }
-        public double Diem { get; set; }
+        public int IDMon { get; set; }
+        public double? Diem { get; set; }
         public int CotThu { get; set; }
         public byte? DiemMieng { get; set; }
         public byte? Loai { get; set; }
@@ -21,6 +22,7 @@ namespace DTO
         {
             STT = -1;
             IDHocSinh = -1;
+            IDMon = -1;
             Diem = 0.0;
             CotThu = 1;
             DiemMieng = 1;
@@ -28,10 +30,11 @@ namespace DTO
             HocKy = 0;
         }
 
-        public DiemHeSoMot(int sTT, int iDHocSinh, float diem, int cotThu, byte diemMieng, byte loai, byte hocKy)
+        public DiemHeSoMot(int sTT, int iDHocSinh, int iDMon, float diem, int cotThu, byte diemMieng, byte loai, byte hocKy)
         {
             STT = sTT;
             IDHocSinh = iDHocSinh;
+            IDMon = iDMon;
             Diem = diem;
             CotThu = cotThu;
             DiemMieng = diemMieng;
@@ -43,6 +46,7 @@ namespace DTO
         {
             STT = Convert.IsDBNull(dr["STT"]) ? -1 : Convert.ToInt32(dr["STT"]);
             IDHocSinh = Convert.IsDBNull(dr["IDHocSinh"]) ? -1 : Convert.ToInt32(dr["IDHocSinh"]);
+            IDMon = Convert.IsDBNull(dr["IDMon"]) ? -1 : Convert.ToInt32(dr["IDMon"]);
             Diem = Convert.ToDouble(dr["Diem"]);
             CotThu = Convert.IsDBNull(dr["CotThu"]) ? 0 : Convert.ToInt32(dr["CotThu"]);
             DiemMieng = Convert.ToByte(dr["DiemMieng"]);

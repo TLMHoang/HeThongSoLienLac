@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlThongBao = new System.Windows.Forms.Panel();
+            this.lblChonLoai = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cboSTT = new System.Windows.Forms.ComboBox();
             this.picTeam = new System.Windows.Forms.PictureBox();
             this.lblSoThongBao = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.lblDSThongBao = new System.Windows.Forms.Label();
             this.dgvDSThongBao = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblChonLoai = new System.Windows.Forms.Label();
             this.pnlThongBao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTeam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSThongBao)).BeginInit();
@@ -64,6 +64,24 @@
             this.pnlThongBao.Name = "pnlThongBao";
             this.pnlThongBao.Size = new System.Drawing.Size(1261, 654);
             this.pnlThongBao.TabIndex = 0;
+            // 
+            // lblChonLoai
+            // 
+            this.lblChonLoai.AutoSize = true;
+            this.lblChonLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChonLoai.Location = new System.Drawing.Point(78, 52);
+            this.lblChonLoai.Name = "lblChonLoai";
+            this.lblChonLoai.Size = new System.Drawing.Size(190, 20);
+            this.lblChonLoai.TabIndex = 22;
+            this.lblChonLoai.Text = "Chọn Loại Thông Báo";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(11, 75);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(358, 24);
+            this.comboBox1.TabIndex = 21;
             // 
             // cboSTT
             // 
@@ -139,7 +157,7 @@
             // 
             this.lblNhapTB.AutoSize = true;
             this.lblNhapTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhapTB.Location = new System.Drawing.Point(729, 40);
+            this.lblNhapTB.Location = new System.Drawing.Point(738, 52);
             this.lblNhapTB.Name = "lblNhapTB";
             this.lblNhapTB.Size = new System.Drawing.Size(148, 20);
             this.lblNhapTB.TabIndex = 14;
@@ -172,24 +190,6 @@
             this.dgvDSThongBao.RowTemplate.Height = 24;
             this.dgvDSThongBao.Size = new System.Drawing.Size(358, 472);
             this.dgvDSThongBao.TabIndex = 11;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(358, 24);
-            this.comboBox1.TabIndex = 21;
-            // 
-            // lblChonLoai
-            // 
-            this.lblChonLoai.AutoSize = true;
-            this.lblChonLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChonLoai.Location = new System.Drawing.Point(78, 52);
-            this.lblChonLoai.Name = "lblChonLoai";
-            this.lblChonLoai.Size = new System.Drawing.Size(190, 20);
-            this.lblChonLoai.TabIndex = 22;
-            this.lblChonLoai.Text = "Chọn Loại Thông Báo";
             // 
             // frmThongBao
             // 

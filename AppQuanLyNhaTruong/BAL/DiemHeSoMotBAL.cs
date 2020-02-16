@@ -9,24 +9,24 @@ using System.Data;
 
 namespace BAL
 {
-    public class DiemHeSoMotBAL : CInterface<DiemHeSoMot>
+    public class DiemHeSoMotBAL
     {
         DiemHeSoMotDAL diem1 = new DiemHeSoMotDAL();
-        public async Task<int> CapNhap(DiemHeSoMot obj)
+        public async Task<int> CapNhap(string TenLop, DiemHeSoMot obj)
         {
-            return await diem1.CapNhap(obj);
+            return await diem1.CapNhap(TenLop ,obj);
         }
 
-        public async Task<DataTable> LayDT()
+        public async Task<DataTable> LayDT(string TenLop)
         {
-            return await diem1.Lay();
+            return await diem1.Lay(TenLop);
         }
 
-        public async Task<List<DiemHeSoMot>> LayLst()
+        public async Task<List<DiemHeSoMot>> LayLst(string TenLop)
         {
             List<DiemHeSoMot> lst = new List<DiemHeSoMot>();
 
-            foreach (DataRow dr in (await LayDT()).Rows)
+            foreach (DataRow dr in (await LayDT(TenLop)).Rows)
             {
                 lst.Add(new DiemHeSoMot(dr));
             }
@@ -34,14 +34,14 @@ namespace BAL
             return lst;
         }
 
-        public async Task<int> Them(DiemHeSoMot obj)
+        public async Task<int> Them(string TenLop, DiemHeSoMot obj)
         {
-            return await diem1.Them(obj);
+            return await diem1.Them(TenLop ,obj);
         }
 
-        public async Task<int> Xoa(int ID)
+        public async Task<int> Xoa(string TenLop, int ID)
         {
-            return await diem1.Xoa(ID);
+            return await diem1.Xoa(TenLop, ID);
         }
     }
 }

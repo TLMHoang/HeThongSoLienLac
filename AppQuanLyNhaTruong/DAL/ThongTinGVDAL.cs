@@ -19,7 +19,8 @@ namespace DAL
                 new SqlParameter("@SDT", SqlDbType.VarChar) { Value = obj.SDT },
                 new SqlParameter("@IDTKT", SqlDbType.Int) { Value = obj.IDTKT },
                 new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc},
-                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
+                new SqlParameter("@GVCN", SqlDbType.Bit) { Value = obj.GVCN }
                 );
         }
 
@@ -41,7 +42,8 @@ namespace DAL
                  new SqlParameter("@SDT", SqlDbType.VarChar) { Value = obj.SDT },
                  new SqlParameter("@IDTKT", SqlDbType.Int) { Value = obj.IDTKT },
                  new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc },
-                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
+                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
+                 new SqlParameter("@GVCN", SqlDbType.Bit) { Value = obj.GVCN }
                  );
         }
 

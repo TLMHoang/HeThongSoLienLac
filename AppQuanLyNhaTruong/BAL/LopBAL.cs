@@ -9,12 +9,12 @@ using System.Data;
 
 namespace BAL
 {
-    public class LopBAL : CInterface<Lop>
+    public class LopBAL
     {
         LopDAL lop = new LopDAL();
-        public async Task<int> CapNhap(Lop obj)
+        public async Task<int> CapNhap(string OldName, Lop obj)
         {
-            return await lop.CapNhap(obj);
+            return await lop.CapNhap(OldName ,obj);
         }
 
         public async Task<DataTable> LayDT()
@@ -39,9 +39,9 @@ namespace BAL
             return await lop.Them(obj);
         }
 
-        public async Task<int> Xoa(int ID)
+        public async Task<int> Xoa(Lop obj)
         {
-            return await lop.Xoa(ID);
+            return await lop.Xoa(obj);
         }
     }
 }

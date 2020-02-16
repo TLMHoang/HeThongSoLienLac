@@ -122,13 +122,15 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE UpdateThongBaoH
+CREATE PROCEDURE UpdateThongBaoHS
 @STT INT,
+@IDHocSinh INT,
 @NoiDung NVARCHAR(MAX)
 AS
 BEGIN
     Update dbo.ThongBaoHS
     SET	
+	IDHocSinh = @IDHocSinh,
     NoiDung = @NoiDung -- NoiDung - nvarchar(max)
     WHERE STT = @STT
 END
@@ -136,11 +138,13 @@ GO
 
 CREATE PROCEDURE UpdateThongBaoLop
 @STT INT,
+@IDLop INT,
 @NoiDung NVARCHAR(MAX)
 AS
 BEGIN
     Update dbo.ThongBaoLop
     SET	
+	IDLop = @IDLop,
     NoiDung = @NoiDung -- NoiDung - nvarchar(max)
     WHERE STT = @STT
 END
@@ -163,7 +167,8 @@ CREATE PROCEDURE UpdateThongTinGV
 @TenGV NVARCHAR(200),
 @SDT VARCHAR(12),
 @IDMonHoc INT,
-@IDLop INT
+@IDLop INT,
+@GVCN BIT	
 AS
 BEGIN
     Update dbo.ThongTinGV
@@ -171,7 +176,8 @@ BEGIN
         TenGV = @TenGV, -- TenGV - nvarchar(200)
 		SDT = @SDT,	-- SDT - varchar(12)
 		IDMonHoc = @IDMonHoc,   -- IDMonHoc - int
-        IDLop = @IDLop    -- IDLop - int
+        IDLop = @IDLop,    -- IDLop - int
+		GVCN = @GVCN
     WHERE  IDTKT = @IDTKT
 END
 GO
@@ -225,5 +231,22 @@ BEGIN
         NghiDen = @NghiDen, -- NghiDen - datetime
         SoNgayNghi = @SoNgayNghi          -- SoNgayNghi - int
     WHERE STT = @STT
+END
+GO
+
+CREATE PROC UpdatePhanCong
+@STT INT,
+@IDGiaoVien INT,
+@IDLop INT,
+@IDMon INT
+
+AS
+BEGIN
+	Update dbo.PhanCong
+	SET 
+		IDGiaoVien = @IDGiaoVien,
+		IDLop = @IDLop,
+		IDMon = @IDMon
+	WHERE STT = @STT
 END
 GO
