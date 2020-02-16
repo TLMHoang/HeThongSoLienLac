@@ -63,13 +63,14 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(332, 565);
+            this.btnSearch.Location = new System.Drawing.Point(325, 565);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(316, 111);
+            this.btnSearch.Size = new System.Drawing.Size(309, 111);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Quản lý Giáo Viên";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAccountManagement
             // 
@@ -79,13 +80,14 @@
             this.btnAccountManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccountManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccountManagement.ForeColor = System.Drawing.Color.White;
-            this.btnAccountManagement.Location = new System.Drawing.Point(332, 452);
+            this.btnAccountManagement.Location = new System.Drawing.Point(325, 452);
             this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAccountManagement.Name = "btnAccountManagement";
-            this.btnAccountManagement.Size = new System.Drawing.Size(316, 109);
+            this.btnAccountManagement.Size = new System.Drawing.Size(309, 109);
             this.btnAccountManagement.TabIndex = 1;
-            this.btnAccountManagement.Text = "Quản Lý Tài Khoản";
+            this.btnAccountManagement.Text = "Quản Lý Tài Khoản Phụ Huynh";
             this.btnAccountManagement.UseVisualStyleBackColor = false;
+            this.btnAccountManagement.Click += new System.EventHandler(this.btnAccountManagement_Click);
             // 
             // btnStudentManagement
             // 
@@ -95,11 +97,11 @@
             this.btnStudentManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudentManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudentManagement.ForeColor = System.Drawing.Color.White;
-            this.btnStudentManagement.Location = new System.Drawing.Point(332, 2);
+            this.btnStudentManagement.Location = new System.Drawing.Point(325, 2);
             this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStudentManagement.Name = "btnStudentManagement";
             this.tableLayoutPanel1.SetRowSpan(this.btnStudentManagement, 2);
-            this.btnStudentManagement.Size = new System.Drawing.Size(316, 107);
+            this.btnStudentManagement.Size = new System.Drawing.Size(309, 107);
             this.btnStudentManagement.TabIndex = 0;
             this.btnStudentManagement.Text = "Quản Lý Học Sinh";
             this.btnStudentManagement.UseVisualStyleBackColor = false;
@@ -114,7 +116,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(651, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(637, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,11 +141,7 @@
             this.adminToolStripMenuItem1,
             this.nhânViênToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
-
             this.adminToolStripMenuItem.Text = "Quản Lý Tài Khoản";
             // 
             // adminToolStripMenuItem1
@@ -161,12 +159,9 @@
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
-
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // txtLopHoc
             // 
@@ -175,7 +170,7 @@
             this.txtLopHoc.Location = new System.Drawing.Point(3, 79);
             this.txtLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLopHoc.Name = "txtLopHoc";
-            this.txtLopHoc.Size = new System.Drawing.Size(323, 30);
+            this.txtLopHoc.Size = new System.Drawing.Size(316, 30);
             this.txtLopHoc.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -205,7 +200,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 678);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(637, 678);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // dgvDanhSachLop
@@ -223,7 +218,7 @@
             this.dgvDanhSachLop.Name = "dgvDanhSachLop";
             this.tableLayoutPanel1.SetRowSpan(this.dgvDanhSachLop, 5);
             this.dgvDanhSachLop.RowTemplate.Height = 24;
-            this.dgvDanhSachLop.Size = new System.Drawing.Size(323, 563);
+            this.dgvDanhSachLop.Size = new System.Drawing.Size(316, 563);
             this.dgvDanhSachLop.TabIndex = 2;
             // 
             // iDDataGridViewTextBoxColumn
@@ -252,10 +247,10 @@
             this.btnDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiem.ForeColor = System.Drawing.Color.White;
-            this.btnDiem.Location = new System.Drawing.Point(332, 113);
+            this.btnDiem.Location = new System.Drawing.Point(325, 113);
             this.btnDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiem.Name = "btnDiem";
-            this.btnDiem.Size = new System.Drawing.Size(316, 109);
+            this.btnDiem.Size = new System.Drawing.Size(309, 109);
             this.btnDiem.TabIndex = 3;
             this.btnDiem.Text = "Quản lý điểm";
             this.btnDiem.UseVisualStyleBackColor = false;
@@ -268,10 +263,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(332, 226);
+            this.button1.Location = new System.Drawing.Point(325, 226);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(316, 109);
+            this.button1.Size = new System.Drawing.Size(309, 109);
             this.button1.TabIndex = 3;
             this.button1.Text = "Thông báo riêng học sinh";
             this.button1.UseVisualStyleBackColor = false;
@@ -285,12 +280,12 @@
             this.btnThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongBao.ForeColor = System.Drawing.Color.White;
-            this.btnThongBao.Location = new System.Drawing.Point(332, 339);
+            this.btnThongBao.Location = new System.Drawing.Point(325, 339);
             this.btnThongBao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThongBao.Name = "btnThongBao";
-            this.btnThongBao.Size = new System.Drawing.Size(316, 109);
+            this.btnThongBao.Size = new System.Drawing.Size(309, 109);
             this.btnThongBao.TabIndex = 3;
-            this.btnThongBao.Text = "Thông báo ";
+            this.btnThongBao.Text = "Thông báo Chung";
             this.btnThongBao.UseVisualStyleBackColor = false;
             this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
             // 
@@ -302,7 +297,7 @@
             this.label1.Location = new System.Drawing.Point(4, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 77);
+            this.label1.Size = new System.Drawing.Size(314, 77);
             this.label1.TabIndex = 5;
             this.label1.Text = "Danh sách lớp";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -312,7 +307,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(651, 706);
+            this.ClientSize = new System.Drawing.Size(637, 706);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -320,6 +315,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ  Thống Sổ Liên Lạc Điện Tử ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

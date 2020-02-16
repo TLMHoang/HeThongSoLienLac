@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AppQuanLyNhaTruong
 {
-    public partial class frmSearch : Form
+    public partial class frmTaiKhoanGiaoVien : Form
     {
-        public frmSearch()
+        public frmTaiKhoanGiaoVien()
         {
             InitializeComponent();
         }
