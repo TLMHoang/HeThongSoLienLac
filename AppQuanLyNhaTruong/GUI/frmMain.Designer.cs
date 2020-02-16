@@ -41,14 +41,14 @@
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtLopHoc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnThongBao = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDiem = new System.Windows.Forms.Button();
             this.dgvDanhSachLop = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsLop = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDiem = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnThongBao = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).BeginInit();
@@ -195,7 +195,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.36059F));
@@ -207,68 +207,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 678);
             this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(332, 226);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(316, 109);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Thông báo riêng học sinh";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnThongBao
-            // 
-            this.btnThongBao.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnThongBao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThongBao.FlatAppearance.BorderSize = 0;
-            this.btnThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongBao.ForeColor = System.Drawing.Color.White;
-            this.btnThongBao.Location = new System.Drawing.Point(332, 339);
-            this.btnThongBao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThongBao.Name = "btnThongBao";
-            this.btnThongBao.Size = new System.Drawing.Size(316, 109);
-            this.btnThongBao.TabIndex = 3;
-            this.btnThongBao.Text = "Thông báo ";
-            this.btnThongBao.UseVisualStyleBackColor = false;
-            this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 77);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Danh sách lớp";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDiem
-            // 
-            this.btnDiem.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnDiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDiem.FlatAppearance.BorderSize = 0;
-            this.btnDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiem.ForeColor = System.Drawing.Color.White;
-            this.btnDiem.Location = new System.Drawing.Point(332, 113);
-            this.btnDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDiem.Name = "btnDiem";
-            this.btnDiem.Size = new System.Drawing.Size(316, 109);
-            this.btnDiem.TabIndex = 3;
-            this.btnDiem.Text = "Quản lý điểm";
-            this.btnDiem.UseVisualStyleBackColor = false;
             // 
             // dgvDanhSachLop
             // 
@@ -305,6 +243,69 @@
             // bsLop
             // 
             this.bsLop.DataSource = typeof(DTO.Lop);
+            // 
+            // btnDiem
+            // 
+            this.btnDiem.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDiem.FlatAppearance.BorderSize = 0;
+            this.btnDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiem.ForeColor = System.Drawing.Color.White;
+            this.btnDiem.Location = new System.Drawing.Point(332, 113);
+            this.btnDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDiem.Name = "btnDiem";
+            this.btnDiem.Size = new System.Drawing.Size(316, 109);
+            this.btnDiem.TabIndex = 3;
+            this.btnDiem.Text = "Quản lý điểm";
+            this.btnDiem.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkOrange;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(332, 226);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(316, 109);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Thông báo riêng học sinh";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnThongBao
+            // 
+            this.btnThongBao.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThongBao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongBao.FlatAppearance.BorderSize = 0;
+            this.btnThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongBao.ForeColor = System.Drawing.Color.White;
+            this.btnThongBao.Location = new System.Drawing.Point(332, 339);
+            this.btnThongBao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThongBao.Name = "btnThongBao";
+            this.btnThongBao.Size = new System.Drawing.Size(316, 109);
+            this.btnThongBao.TabIndex = 3;
+            this.btnThongBao.Text = "Thông báo ";
+            this.btnThongBao.UseVisualStyleBackColor = false;
+            this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(321, 77);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Danh sách lớp";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmMain
             // 
