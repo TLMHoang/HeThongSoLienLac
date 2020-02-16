@@ -59,5 +59,13 @@ namespace AppQuanLyNhaTruong
             frmHocSinh f = new frmHocSinh();
             f.ShowDialog();
         }
+
+        private void btnThongBao_Click(object sender, EventArgs e)
+        {
+            GUI.frmThongBao f = new GUI.frmThongBao();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
