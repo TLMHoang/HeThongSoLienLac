@@ -13,7 +13,10 @@ namespace DAL
     {
         public async Task<int> CapNhap(Lop obj)
         {
-            return await ExecuteNonQuery("UpdateLop", new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }) ; 
+            return await ExecuteNonQuery("UpdateLop",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }
+                ) ; 
         }
 
         public async Task<DataTable> Lay()
