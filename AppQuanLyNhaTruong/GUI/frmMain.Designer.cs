@@ -41,14 +41,14 @@
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtLopHoc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnThongBao = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDiem = new System.Windows.Forms.Button();
             this.dgvDanhSachLop = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsLop = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDiem = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnThongBao = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).BeginInit();
@@ -63,10 +63,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(332, 565);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(248, 455);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(316, 111);
+            this.btnSearch.Size = new System.Drawing.Size(238, 93);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Quản lý Giáo Viên";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -79,10 +79,10 @@
             this.btnAccountManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccountManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccountManagement.ForeColor = System.Drawing.Color.White;
-            this.btnAccountManagement.Location = new System.Drawing.Point(332, 452);
-            this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAccountManagement.Location = new System.Drawing.Point(248, 364);
+            this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAccountManagement.Name = "btnAccountManagement";
-            this.btnAccountManagement.Size = new System.Drawing.Size(316, 109);
+            this.btnAccountManagement.Size = new System.Drawing.Size(238, 87);
             this.btnAccountManagement.TabIndex = 1;
             this.btnAccountManagement.Text = "Quản Lý Tài Khoản";
             this.btnAccountManagement.UseVisualStyleBackColor = false;
@@ -95,11 +95,11 @@
             this.btnStudentManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudentManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudentManagement.ForeColor = System.Drawing.Color.White;
-            this.btnStudentManagement.Location = new System.Drawing.Point(332, 2);
-            this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudentManagement.Location = new System.Drawing.Point(248, 2);
+            this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStudentManagement.Name = "btnStudentManagement";
             this.tableLayoutPanel1.SetRowSpan(this.btnStudentManagement, 2);
-            this.btnStudentManagement.Size = new System.Drawing.Size(316, 107);
+            this.btnStudentManagement.Size = new System.Drawing.Size(238, 85);
             this.btnStudentManagement.TabIndex = 0;
             this.btnStudentManagement.Text = "Quản Lý Học Sinh";
             this.btnStudentManagement.UseVisualStyleBackColor = false;
@@ -113,15 +113,15 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(651, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(488, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // UserNameToolStripMenuItem
             // 
             this.UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
-            this.UserNameToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.UserNameToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.UserNameToolStripMenuItem.Text = "Xin chào ";
             // 
             // menuToolStripMenuItem
@@ -130,7 +130,7 @@
             this.adminToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // adminToolStripMenuItem
@@ -139,35 +139,35 @@
             this.adminToolStripMenuItem1,
             this.nhânViênToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.adminToolStripMenuItem.Text = "Quản Lý Tài Khoản";
             // 
             // adminToolStripMenuItem1
             // 
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
-            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
             this.adminToolStripMenuItem1.Text = "Admin";
             // 
             // nhânViênToolStripMenuItem
             // 
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.nhânViênToolStripMenuItem.Text = "Nhân Viên";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             // 
             // txtLopHoc
             // 
             this.txtLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLopHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtLopHoc.Location = new System.Drawing.Point(3, 79);
-            this.txtLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLopHoc.Location = new System.Drawing.Point(2, 64);
+            this.txtLopHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLopHoc.Name = "txtLopHoc";
-            this.txtLopHoc.Size = new System.Drawing.Size(323, 30);
+            this.txtLopHoc.Size = new System.Drawing.Size(242, 26);
             this.txtLopHoc.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -175,7 +175,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.59382F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.40618F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.dgvDanhSachLop, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtLopHoc, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnStudentManagement, 1, 0);
@@ -186,8 +186,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnSearch, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.36059F));
@@ -197,70 +196,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.72383F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 678);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(488, 550);
             this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(332, 226);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(316, 109);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Thông báo riêng học sinh";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnThongBao
-            // 
-            this.btnThongBao.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnThongBao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThongBao.FlatAppearance.BorderSize = 0;
-            this.btnThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongBao.ForeColor = System.Drawing.Color.White;
-            this.btnThongBao.Location = new System.Drawing.Point(332, 339);
-            this.btnThongBao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThongBao.Name = "btnThongBao";
-            this.btnThongBao.Size = new System.Drawing.Size(316, 109);
-            this.btnThongBao.TabIndex = 3;
-            this.btnThongBao.Text = "Thông báo ";
-            this.btnThongBao.UseVisualStyleBackColor = false;
-            this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 77);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Danh sách lớp";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDiem
-            // 
-            this.btnDiem.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnDiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDiem.FlatAppearance.BorderSize = 0;
-            this.btnDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiem.ForeColor = System.Drawing.Color.White;
-            this.btnDiem.Location = new System.Drawing.Point(332, 113);
-            this.btnDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDiem.Name = "btnDiem";
-            this.btnDiem.Size = new System.Drawing.Size(316, 109);
-            this.btnDiem.TabIndex = 3;
-            this.btnDiem.Text = "Quản lý điểm";
-            this.btnDiem.UseVisualStyleBackColor = false;
             // 
             // dgvDanhSachLop
             // 
@@ -272,12 +209,12 @@
             this.tenLopDataGridViewTextBoxColumn});
             this.dgvDanhSachLop.DataSource = this.bsLop;
             this.dgvDanhSachLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDanhSachLop.Location = new System.Drawing.Point(3, 113);
-            this.dgvDanhSachLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDanhSachLop.Location = new System.Drawing.Point(2, 91);
+            this.dgvDanhSachLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDanhSachLop.Name = "dgvDanhSachLop";
             this.tableLayoutPanel1.SetRowSpan(this.dgvDanhSachLop, 5);
             this.dgvDanhSachLop.RowTemplate.Height = 24;
-            this.dgvDanhSachLop.Size = new System.Drawing.Size(323, 563);
+            this.dgvDanhSachLop.Size = new System.Drawing.Size(242, 457);
             this.dgvDanhSachLop.TabIndex = 2;
             // 
             // iDDataGridViewTextBoxColumn
@@ -298,16 +235,77 @@
             // 
             this.bsLop.DataSource = typeof(DTO.Lop);
             // 
+            // btnDiem
+            // 
+            this.btnDiem.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDiem.FlatAppearance.BorderSize = 0;
+            this.btnDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiem.ForeColor = System.Drawing.Color.White;
+            this.btnDiem.Location = new System.Drawing.Point(248, 91);
+            this.btnDiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiem.Name = "btnDiem";
+            this.btnDiem.Size = new System.Drawing.Size(238, 87);
+            this.btnDiem.TabIndex = 3;
+            this.btnDiem.Text = "Quản lý điểm";
+            this.btnDiem.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkOrange;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(248, 182);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(238, 87);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Thông báo riêng học sinh";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnThongBao
+            // 
+            this.btnThongBao.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThongBao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongBao.FlatAppearance.BorderSize = 0;
+            this.btnThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongBao.ForeColor = System.Drawing.Color.White;
+            this.btnThongBao.Location = new System.Drawing.Point(248, 273);
+            this.btnThongBao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThongBao.Name = "btnThongBao";
+            this.btnThongBao.Size = new System.Drawing.Size(238, 87);
+            this.btnThongBao.TabIndex = 3;
+            this.btnThongBao.Text = "Thông báo ";
+            this.btnThongBao.UseVisualStyleBackColor = false;
+            this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 62);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Danh sách lớp";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(651, 706);
+            this.ClientSize = new System.Drawing.Size(488, 574);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ  Thống Sổ Liên Lạc Điện Tử ";

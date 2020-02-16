@@ -34,9 +34,34 @@ namespace AppQuanLyNhaTruong
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnThoat_Click_1(object sender, EventArgs e)
+        {
             DialogResult ret = MessageBox.Show("Bạn có muốn thoát không", "Hỏi thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (ret == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

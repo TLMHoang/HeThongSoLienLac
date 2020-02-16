@@ -519,9 +519,9 @@
             this.btnLuu,
             this.btnLamMoi,
             this.btnThoat});
-            this.toolStrip1.Location = new System.Drawing.Point(1221, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(1213, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(24, 150);
+            this.toolStrip1.Size = new System.Drawing.Size(32, 150);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -531,8 +531,9 @@
             this.btnThem.Image = global::GUI.Properties.Resources.add;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(21, 20);
+            this.btnThem.Size = new System.Drawing.Size(29, 20);
             this.btnThem.Text = "&New";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -540,8 +541,9 @@
             this.btnXoa.Image = global::GUI.Properties.Resources.bin;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(21, 20);
+            this.btnXoa.Size = new System.Drawing.Size(29, 20);
             this.btnXoa.Text = "toolStripButton2";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
@@ -549,8 +551,9 @@
             this.btnLuu.Image = global::GUI.Properties.Resources.floppy_disk;
             this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(21, 20);
+            this.btnLuu.Size = new System.Drawing.Size(29, 20);
             this.btnLuu.Text = "toolStripButton3";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnLamMoi
             // 
@@ -558,8 +561,9 @@
             this.btnLamMoi.Image = global::GUI.Properties.Resources.refresh;
             this.btnLamMoi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(21, 20);
+            this.btnLamMoi.Size = new System.Drawing.Size(29, 20);
             this.btnLamMoi.Text = "toolStripButton4";
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnThoat
             // 
@@ -567,8 +571,9 @@
             this.btnThoat.Image = global::GUI.Properties.Resources.exit;
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(21, 20);
+            this.btnThoat.Size = new System.Drawing.Size(29, 20);
             this.btnThoat.Text = "toolStripButton5";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click_1);
             // 
             // frmHocSinh
             // 
