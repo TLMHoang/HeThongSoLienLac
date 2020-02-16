@@ -51,6 +51,8 @@
     <Compile Include="HanhKiemDAL.cs" />
     <Compile Include="LopDAL.cs" />
     <Compile Include="MonHocDAL.cs" />
+    <Compile Include="SQL\BangDiem.cs" />
+    <Compile Include="SQL\stringConnect.cs" />
     <Compile Include="TaiKhoanPHDAL.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

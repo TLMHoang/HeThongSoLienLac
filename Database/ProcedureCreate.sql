@@ -174,30 +174,36 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE InsertThongBaoH
+CREATE PROCEDURE InsertThongBaoHS
+@IDHocSinh INT,
 @NoiDung NVARCHAR(MAX)
 AS
 BEGIN
     Insert dbo.ThongBaoHS
     (
+		IDHocSinh,
         NoiDung
     )
     VALUES
-    (@NoiDung -- NoiDung - nvarchar(max)
+    (	@IDHocSinh
+		@NoiDung -- NoiDung - nvarchar(max)
         )
 END
 GO
 
 CREATE PROCEDURE InsertThongBaoLop
+@IDLop INT,
 @NoiDung NVARCHAR(MAX)
 AS
 BEGIN
     Insert dbo.ThongBaoLop
     (
+		IDLop
         NoiDung
     )
     VALUES
-    (@NoiDung -- NoiDung - nvarchar(max)
+    (	@IDLop
+		@NoiDung -- NoiDung - nvarchar(max)
         )
 END
 GO
@@ -221,7 +227,8 @@ CREATE PROCEDURE InsertThongTinGV
 @TenGV NVARCHAR(200),
 @SDT VARCHAR(12),
 @IDMonHoc INT,
-@IDLop INT
+@IDLop INT,
+@GVCN BIT	
 AS
 BEGIN
     Insert dbo.ThongTinGV
@@ -230,14 +237,16 @@ BEGIN
         TenGV,
 		SDT,
         IDMonHoc,
-        IDLop
+        IDLop,
+		GVCN
     )
     VALUES
     (   @IDTKT,   -- IDTKT - int
         @TenGV, -- TenGV - nvarchar(200)
 		@SDT,     -- SDT - varchar (12)
 		@IDMonHoc,   -- IDMonHoc - int
-        @IDLop    -- IDLop - int
+        @IDLop,    -- IDLop - int
+		@GVCN
         )
 END
 GO

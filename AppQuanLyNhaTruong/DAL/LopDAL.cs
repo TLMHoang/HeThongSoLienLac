@@ -9,11 +9,20 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class LopDAL : SQL.SQLHelper, CInterface<Lop>
+    public class LopDAL : SQL.SQLHelper
     {
-        public async Task<int> CapNhap(Lop obj)
+        SQL.BangDiem val = new SQL.BangDiem();
+        public async Task<int> CapNhap(string OldName, Lop obj)
         {
-            return await ExecuteNonQuery("UpdateLop", new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }) ; 
+            var a = await ExecuteNonQuery(
+                "UpdateLop", 
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID},
+                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop },
+                new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
+                ) ;
+
+            await val.RenameTable(OldName, obj.TenLop);
+            return a;
         }
 
         public async Task<DataTable> Lay()
@@ -21,19 +30,27 @@ namespace DAL
             return await ExecuteQuery("SelectLop");
         }
 
-        public Task<DataTable> Lay(int ID)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<int> Them(Lop obj)
         {
-            return await ExecuteNonQuery("InsertLop", new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop });
+            var a = await ExecuteNonQuery(
+                "InsertLop", 
+                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop },
+                new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
+                );
+
+            await val.CreateTable(obj.TenLop);
+
+            return a;
         }
 
-        public async Task<int> Xoa(int ID)
+        public async Task<int> Xoa(Lop obj)
         {
-            return await ExecuteNonQuery("DeleteLop", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
+            var a = await ExecuteNonQuery("DeleteLop", new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID });
+
+            await val.DeleteTable(obj.TenLop);
+
+            return a;
         }
     }
 }
