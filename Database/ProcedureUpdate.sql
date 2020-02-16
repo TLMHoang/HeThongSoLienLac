@@ -233,3 +233,20 @@ BEGIN
     WHERE STT = @STT
 END
 GO
+
+CREATE PROC UpdatePhanCong
+@STT INT,
+@IDGiaoVien INT,
+@IDLop INT,
+@IDMon INT
+
+AS
+BEGIN
+	Update dbo.PhanCong
+	SET 
+		IDGiaoVien = @IDGiaoVien,
+		IDLop = @IDLop,
+		IDMon = @IDMon
+	WHERE STT = @STT
+END
+GO

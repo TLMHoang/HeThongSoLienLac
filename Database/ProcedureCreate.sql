@@ -320,3 +320,25 @@ BEGIN
         )
 END
 GO
+
+CREATE PROC InsertPhanCong
+@IDGiaoVien INT,
+@IDLop INT,
+@IDMon INT
+
+AS
+BEGIN
+	Insert dbo.PhanCong
+	(
+		IDGiaoVien ,
+		IDLop ,
+		IDMon 
+	)
+	values
+	(
+	@IDGiaoVien ,
+	@IDLop ,
+	@IDMon
+	)
+END
+GO

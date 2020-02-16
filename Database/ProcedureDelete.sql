@@ -80,3 +80,11 @@ BEGIN
     Delete dbo.ThongTinHS WHERE ID = @ID
 END
 GO
+
+CREATE PROC DeletePhanCong
+@STT INT
+AS
+BEGIN
+	Delete dbo.PhanCong where STT = @STT
+END
+GO
