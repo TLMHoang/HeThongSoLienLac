@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace AppQuanLyNhaTruong
 {
     partial class frmMain
     {
