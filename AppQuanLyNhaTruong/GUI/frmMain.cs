@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace AppQuanLyNhaTruong
 {
     public partial class frmMain : Form
     {
@@ -59,23 +59,6 @@ namespace GUI
             f.ShowDialog();
             this.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GUI.frmThongBaoTungHocSinh f = new GUI.frmThongBaoTungHocSinh();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
-
-        private void btnAccountManagement_Click(object sender, EventArgs e)
-        {
-            frmAccountManager f = new frmAccountManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
-
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát phần mềm ?", "Notification !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -90,7 +73,17 @@ namespace GUI
             this.Close();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+
+
+        private void btnThongBaoRiengHS_Click(object sender, EventArgs e)
+        {
+            GUI.frmThongBaoTungHocSinh f = new GUI.frmThongBaoTungHocSinh();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void btnQuanLyGV_Click(object sender, EventArgs e)
         {
             frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
             this.Hide();
@@ -98,10 +91,12 @@ namespace GUI
             this.Show();
         }
 
-        private void btnSearch_Click_1(object sender, EventArgs e)
+        private void btnAccountManagement_Click(object sender, EventArgs e)
         {
-            frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
-            f.Show();
+            frmAccountManager f = new frmAccountManager();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }
