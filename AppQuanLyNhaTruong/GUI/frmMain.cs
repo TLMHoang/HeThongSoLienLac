@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
     public partial class frmMain : Form
     {
@@ -86,14 +86,6 @@ namespace AppQuanLyNhaTruong
         private void btnQuanLyGV_Click(object sender, EventArgs e)
         {
             frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
-
-        private void btnAccountManagement_Click(object sender, EventArgs e)
-        {
-            frmAccountManager f = new frmAccountManager();
             this.Hide();
             f.ShowDialog();
             this.Show();
