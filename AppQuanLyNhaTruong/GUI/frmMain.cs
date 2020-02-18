@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
     public partial class frmMain : Form
     {
@@ -96,6 +96,12 @@ namespace AppQuanLyNhaTruong
             this.Hide();
             f.ShowDialog();
             this.Show();
+        }
+
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
+            f.Show();
         }
     }
 }
