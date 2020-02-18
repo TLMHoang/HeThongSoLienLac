@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DAL.SQL
 {
-    public class SQLHelper
+    public class SQLHelper: stringConnect
     {
         //Hoàng
          //private string connStr = @"Data Source=DESKTOP-MPFCGCF;Initial Catalog=HeThongSoLienLac;Integrated Security=True";

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BAL;
+using DTO;
+
 
 namespace AppQuanLyNhaTruong
 {
@@ -16,6 +19,7 @@ namespace AppQuanLyNhaTruong
         {
             InitializeComponent();
         }
+        
 
         private void frmHocSinh_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -34,7 +38,7 @@ namespace AppQuanLyNhaTruong
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btnThoat_Click_1(object sender, EventArgs e)
@@ -46,22 +50,37 @@ namespace AppQuanLyNhaTruong
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-
+            //
         }
+
+        
+        private async void frmHocSinh_Load(object sender, EventArgs e)
+        {
+            ThongTinHSBAL hs = new ThongTinHSBAL();
+            bsThongTinHS.DataSource = await hs.LayDT();
+        }
+        
+
+        
+            
+            
+            
+
+        
     }
 }
