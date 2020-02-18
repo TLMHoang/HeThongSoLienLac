@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmThongBao : Form
+    public partial class frmDiemDanh : Form
     {
-        public frmThongBao()
+        public frmDiemDanh()
         {
             InitializeComponent();
-            Program
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppQuanLyNhGaTruong
+namespace GUI
 {
     static class Program
     {
@@ -18,7 +18,7 @@ namespace AppQuanLyNhGaTruong
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHocSinh());
+            Application.Run(new frmMain());
         }
     }
 }

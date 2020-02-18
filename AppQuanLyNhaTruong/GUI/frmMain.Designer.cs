@@ -1,4 +1,4 @@
-﻿namespace AppQuanLyNhaTruong
+﻿namespace GUI
 {
     partial class frmMain
     {
@@ -70,6 +70,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Quản lý Giáo Viên";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // btnAccountManagement
             // 
