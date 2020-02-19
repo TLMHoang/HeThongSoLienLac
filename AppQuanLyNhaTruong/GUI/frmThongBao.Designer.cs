@@ -28,168 +28,192 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlThongBao = new System.Windows.Forms.Panel();
-            this.lblChonLoai = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cboSTT = new System.Windows.Forms.ComboBox();
-            this.picTeam = new System.Windows.Forms.PictureBox();
-            this.lblSoThongBao = new System.Windows.Forms.Label();
-            this.btnXoaThongBao = new System.Windows.Forms.Button();
-            this.btnSuaThongBao = new System.Windows.Forms.Button();
-            this.btnThongBaoToanTruong = new System.Windows.Forms.Button();
-            this.lblNhapTB = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.lblDSThongBao = new System.Windows.Forms.Label();
-            this.dgvDSThongBao = new System.Windows.Forms.DataGridView();
-            this.pnlThongBao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picTeam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDSThongBao)).BeginInit();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvDSTB = new System.Windows.Forms.DataGridView();
+            this.lblChonTB = new System.Windows.Forms.Label();
+            this.cboChonLoaiTB = new System.Windows.Forms.ComboBox();
+            this.lblNhapNoiDung = new System.Windows.Forms.Label();
+            this.rtbNhapNoiDung = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlThongBao
+            // tableLayoutPanel1
             // 
-            this.pnlThongBao.Controls.Add(this.lblChonLoai);
-            this.pnlThongBao.Controls.Add(this.comboBox1);
-            this.pnlThongBao.Controls.Add(this.cboSTT);
-            this.pnlThongBao.Controls.Add(this.picTeam);
-            this.pnlThongBao.Controls.Add(this.lblSoThongBao);
-            this.pnlThongBao.Controls.Add(this.btnXoaThongBao);
-            this.pnlThongBao.Controls.Add(this.btnSuaThongBao);
-            this.pnlThongBao.Controls.Add(this.btnThongBaoToanTruong);
-            this.pnlThongBao.Controls.Add(this.lblNhapTB);
-            this.pnlThongBao.Controls.Add(this.richTextBox1);
-            this.pnlThongBao.Controls.Add(this.lblDSThongBao);
-            this.pnlThongBao.Controls.Add(this.dgvDSThongBao);
-            this.pnlThongBao.Location = new System.Drawing.Point(9, 12);
-            this.pnlThongBao.Name = "pnlThongBao";
-            this.pnlThongBao.Size = new System.Drawing.Size(1261, 654);
-            this.pnlThongBao.TabIndex = 0;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.84652F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.15348F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvDSTB, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblChonTB, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboChonLoaiTB, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblNhapNoiDung, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rtbNhapNoiDung, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 4);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.090312F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.597701F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.11166F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.374384F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.48276F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1277, 670);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblChonLoai
+            // dgvDSTB
             // 
-            this.lblChonLoai.AutoSize = true;
-            this.lblChonLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChonLoai.Location = new System.Drawing.Point(78, 52);
-            this.lblChonLoai.Name = "lblChonLoai";
-            this.lblChonLoai.Size = new System.Drawing.Size(190, 20);
-            this.lblChonLoai.TabIndex = 22;
-            this.lblChonLoai.Text = "Chọn Loại Thông Báo";
+            this.dgvDSTB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDSTB.Location = new System.Drawing.Point(3, 121);
+            this.dgvDSTB.Name = "dgvDSTB";
+            this.tableLayoutPanel1.SetRowSpan(this.dgvDSTB, 3);
+            this.dgvDSTB.RowTemplate.Height = 24;
+            this.dgvDSTB.Size = new System.Drawing.Size(605, 546);
+            this.dgvDSTB.TabIndex = 0;
             // 
-            // comboBox1
+            // lblChonTB
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(358, 24);
-            this.comboBox1.TabIndex = 21;
+            this.lblChonTB.AutoSize = true;
+            this.lblChonTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChonTB.Location = new System.Drawing.Point(3, 61);
+            this.lblChonTB.Name = "lblChonTB";
+            this.lblChonTB.Size = new System.Drawing.Size(190, 20);
+            this.lblChonTB.TabIndex = 1;
+            this.lblChonTB.Text = "Chọn Loại Thông Báo";
             // 
-            // cboSTT
+            // cboChonLoaiTB
             // 
-            this.cboSTT.FormattingEnabled = true;
-            this.cboSTT.Location = new System.Drawing.Point(861, 561);
-            this.cboSTT.Name = "cboSTT";
-            this.cboSTT.Size = new System.Drawing.Size(120, 24);
-            this.cboSTT.TabIndex = 20;
+            this.cboChonLoaiTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboChonLoaiTB.FormattingEnabled = true;
+            this.cboChonLoaiTB.Location = new System.Drawing.Point(3, 94);
+            this.cboChonLoaiTB.Name = "cboChonLoaiTB";
+            this.cboChonLoaiTB.Size = new System.Drawing.Size(605, 24);
+            this.cboChonLoaiTB.TabIndex = 2;
             // 
-            // picTeam
+            // lblNhapNoiDung
             // 
-            this.picTeam.Image = global::GUI.Properties.Resources.Ust;
-            this.picTeam.Location = new System.Drawing.Point(384, 467);
-            this.picTeam.Name = "picTeam";
-            this.picTeam.Size = new System.Drawing.Size(192, 179);
-            this.picTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picTeam.TabIndex = 19;
-            this.picTeam.TabStop = false;
+            this.lblNhapNoiDung.AutoSize = true;
+            this.lblNhapNoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNhapNoiDung.Location = new System.Drawing.Point(614, 61);
+            this.lblNhapNoiDung.Name = "lblNhapNoiDung";
+            this.lblNhapNoiDung.Size = new System.Drawing.Size(232, 20);
+            this.lblNhapNoiDung.TabIndex = 3;
+            this.lblNhapNoiDung.Text = "Nhập Nội Dung Thông Báo";
             // 
-            // lblSoThongBao
+            // rtbNhapNoiDung
             // 
-            this.lblSoThongBao.AutoSize = true;
-            this.lblSoThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoThongBao.Location = new System.Drawing.Point(650, 561);
-            this.lblSoThongBao.Name = "lblSoThongBao";
-            this.lblSoThongBao.Size = new System.Drawing.Size(176, 20);
-            this.lblSoThongBao.TabIndex = 18;
-            this.lblSoThongBao.Text = "Chọn Số Thông Báo";
+            this.rtbNhapNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbNhapNoiDung.Location = new System.Drawing.Point(614, 94);
+            this.rtbNhapNoiDung.Name = "rtbNhapNoiDung";
+            this.tableLayoutPanel1.SetRowSpan(this.rtbNhapNoiDung, 2);
+            this.rtbNhapNoiDung.Size = new System.Drawing.Size(660, 312);
+            this.rtbNhapNoiDung.TabIndex = 4;
+            this.rtbNhapNoiDung.Text = "";
             // 
-            // btnXoaThongBao
+            // tableLayoutPanel2
             // 
-            this.btnXoaThongBao.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnXoaThongBao.FlatAppearance.BorderSize = 0;
-            this.btnXoaThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoaThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaThongBao.ForeColor = System.Drawing.Color.White;
-            this.btnXoaThongBao.Location = new System.Drawing.Point(997, 578);
-            this.btnXoaThongBao.Name = "btnXoaThongBao";
-            this.btnXoaThongBao.Size = new System.Drawing.Size(253, 48);
-            this.btnXoaThongBao.TabIndex = 17;
-            this.btnXoaThongBao.Text = "Xóa Thông Báo";
-            this.btnXoaThongBao.UseVisualStyleBackColor = false;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.80864F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.19136F));
+            this.tableLayoutPanel2.Controls.Add(this.btnThem, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSua, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnXoa, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(614, 412);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(660, 255);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // btnSuaThongBao
+            // btnThem
             // 
-            this.btnSuaThongBao.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSuaThongBao.FlatAppearance.BorderSize = 0;
-            this.btnSuaThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuaThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaThongBao.ForeColor = System.Drawing.Color.White;
-            this.btnSuaThongBao.Location = new System.Drawing.Point(997, 526);
-            this.btnSuaThongBao.Name = "btnSuaThongBao";
-            this.btnSuaThongBao.Size = new System.Drawing.Size(253, 46);
-            this.btnSuaThongBao.TabIndex = 16;
-            this.btnSuaThongBao.Text = "Sửa Thông Báo";
-            this.btnSuaThongBao.UseVisualStyleBackColor = false;
+            this.btnThem.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(417, 3);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(240, 51);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm Thông Báo";
+            this.btnThem.UseVisualStyleBackColor = false;
             // 
-            // btnThongBaoToanTruong
+            // btnSua
             // 
-            this.btnThongBaoToanTruong.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnThongBaoToanTruong.FlatAppearance.BorderSize = 0;
-            this.btnThongBaoToanTruong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongBaoToanTruong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongBaoToanTruong.ForeColor = System.Drawing.Color.White;
-            this.btnThongBaoToanTruong.Location = new System.Drawing.Point(997, 467);
-            this.btnThongBaoToanTruong.Name = "btnThongBaoToanTruong";
-            this.btnThongBaoToanTruong.Size = new System.Drawing.Size(253, 53);
-            this.btnThongBaoToanTruong.TabIndex = 15;
-            this.btnThongBaoToanTruong.Text = "Thông Báo";
-            this.btnThongBaoToanTruong.UseVisualStyleBackColor = false;
+            this.btnSua.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(417, 60);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(240, 51);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "Sửa Thông Báo";
+            this.btnSua.UseVisualStyleBackColor = false;
             // 
-            // lblNhapTB
+            // btnXoa
             // 
-            this.lblNhapTB.AutoSize = true;
-            this.lblNhapTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhapTB.Location = new System.Drawing.Point(738, 52);
-            this.lblNhapTB.Name = "lblNhapTB";
-            this.lblNhapTB.Size = new System.Drawing.Size(148, 20);
-            this.lblNhapTB.TabIndex = 14;
-            this.lblNhapTB.Text = "Nhập Thông Báo";
+            this.btnXoa.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(417, 117);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(240, 53);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "Xóa Thông Báo";
+            this.btnXoa.UseVisualStyleBackColor = false;
             // 
-            // richTextBox1
+            // tableLayoutPanel3
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(375, 75);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(875, 386);
-            this.richTextBox1.TabIndex = 13;
-            this.richTextBox1.Text = "";
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.63725F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.36275F));
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 117);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel2.SetRowSpan(this.tableLayoutPanel3, 2);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(408, 135);
+            this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // lblDSThongBao
+            // pictureBox1
             // 
-            this.lblDSThongBao.AutoSize = true;
-            this.lblDSThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSThongBao.Location = new System.Drawing.Point(78, 111);
-            this.lblDSThongBao.Name = "lblDSThongBao";
-            this.lblDSThongBao.Size = new System.Drawing.Size(197, 20);
-            this.lblDSThongBao.TabIndex = 12;
-            this.lblDSThongBao.Text = "Danh Sách Thông Báo";
-            // 
-            // dgvDSThongBao
-            // 
-            this.dgvDSThongBao.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvDSThongBao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSThongBao.Location = new System.Drawing.Point(11, 149);
-            this.dgvDSThongBao.Name = "dgvDSThongBao";
-            this.dgvDSThongBao.RowTemplate.Height = 24;
-            this.dgvDSThongBao.Size = new System.Drawing.Size(358, 472);
-            this.dgvDSThongBao.TabIndex = 11;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.Ust;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.tableLayoutPanel3.SetRowSpan(this.pictureBox1, 2);
+            this.pictureBox1.Size = new System.Drawing.Size(118, 129);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // frmThongBao
             // 
@@ -197,32 +221,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1277, 670);
-            this.Controls.Add(this.pnlThongBao);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmThongBao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông Báo Chung";
-            this.pnlThongBao.ResumeLayout(false);
-            this.pnlThongBao.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picTeam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDSThongBao)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlThongBao;
-        private System.Windows.Forms.Label lblChonLoai;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox cboSTT;
-        private System.Windows.Forms.PictureBox picTeam;
-        private System.Windows.Forms.Label lblSoThongBao;
-        private System.Windows.Forms.Button btnXoaThongBao;
-        private System.Windows.Forms.Button btnSuaThongBao;
-        private System.Windows.Forms.Button btnThongBaoToanTruong;
-        private System.Windows.Forms.Label lblNhapTB;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label lblDSThongBao;
-        private System.Windows.Forms.DataGridView dgvDSThongBao;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dgvDSTB;
+        private System.Windows.Forms.Label lblChonTB;
+        private System.Windows.Forms.ComboBox cboChonLoaiTB;
+        private System.Windows.Forms.Label lblNhapNoiDung;
+        private System.Windows.Forms.RichTextBox rtbNhapNoiDung;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
