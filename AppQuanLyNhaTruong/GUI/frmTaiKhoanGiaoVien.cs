@@ -75,11 +75,24 @@ namespace GUI
                 try {
                         ThemTK();
                         MessageBox.Show("Thêm Thành Công !");
+                        LoadDGV();
                     } catch (Exception) { MessageBox.Show("Lỗi !"); }
             else
             {
                 MessageBox.Show("TK Đã Tồn Tại");
             }
+        }
+
+        private void txtNhapID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar != (char)Keys.Back)
+            {
+                if (!char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = true;                    
+                    MessageBox.Show("Chỉ Nhập Số !");
+                }
+            }           
         }
     }
 }
