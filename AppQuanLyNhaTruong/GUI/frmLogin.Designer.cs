@@ -1,4 +1,4 @@
-﻿namespace AppQuanLyNhaTruong
+﻿namespace GUI
 {
     partial class frmLogin
     {
