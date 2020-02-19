@@ -33,6 +33,7 @@ namespace GUI
 
         }
         private BindingSource bsHS = new BindingSource();
+        public int IDHS;
 
         public uctTimTiemHS()
         {
@@ -49,8 +50,48 @@ namespace GUI
                 lsths.Add(new DanhSachHocSinh(i.ID, i.Ten, i.NgaySinh, Program.lstLop.FirstOrDefault(p => p.ID == i.IDLop).TenLop));
             }
 
+            foreach (Lop i in Program.lstLop)
+            {
+                cbxLop.Items.Add(i.TenLop);
+            }
+
+            bsHS.SuspendBinding();
+            dgvDSHS.SuspendLayout();
+
             bsHS.DataSource = lsths;
             dgvDSHS.DataSource = bsHS.DataSource;
+
+            dgvDSHS.ResumeLayout();
+            bsHS.ResumeBinding();
+        }
+
+        private void cbxLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxLop.Text == "")
+            {
+                bsHS.RemoveFilter();
+            }
+            else
+            {
+            bsHS.Filter = String.Format("[Lop] LIKE '%{0}%'", cbxLop.Text);
+            }
+        }
+
+        public void dgvDSHS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            IDHS = Convert.ToInt32(dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["ID"].Value);
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.TextLength == 0)
+            {
+                bsHS.RemoveFilter();
+            }
+            else
+            {
+                bsHS.Filter = String.Format("CCONVERT([ID], System.String)='{0}' OR [TenHS] LIKE '%{0}%'", txtTimKiem.Text);
+            }
         }
     }
 }

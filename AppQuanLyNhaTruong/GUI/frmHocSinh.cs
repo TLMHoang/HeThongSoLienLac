@@ -55,7 +55,7 @@ namespace GUI
             DateTime ngaySinh;
             try
             {
-                dtpNgaySinh.Text = ngaySinh.ToString();
+                //dtpNgaySinh.Text = ngaySinh.ToString();
             }
             catch
             {
@@ -75,7 +75,7 @@ namespace GUI
             string tenMe = txtTenMe.Text;
             string sDTMe = txtSDTMe.Text;
             
-            await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
+            //await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
         }
         private async void btnThem_Click(object sender, EventArgs e)
         {
