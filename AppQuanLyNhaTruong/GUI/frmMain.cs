@@ -1,4 +1,6 @@
-﻿using BAL;
+﻿
+using AppQuanLyNhaTruong;
+using BAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,7 +85,7 @@ namespace GUI
             this.Show();
         }
 
-        private void btnQuanLyGV_Click(object sender, EventArgs e)
+        private void btnQLGV_Click(object sender, EventArgs e)
         {
             frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
             this.Hide();
