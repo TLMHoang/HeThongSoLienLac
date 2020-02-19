@@ -55,7 +55,8 @@ namespace GUI
             DateTime ngaySinh;
             try
             {
-                //dtpNgaySinh.Text = ngaySinh.ToString();
+
+                DateTime.Parse(dtpNgaySinh.Text) = ngaySinh;
             }
             catch
             {
@@ -75,7 +76,7 @@ namespace GUI
             string tenMe = txtTenMe.Text;
             string sDTMe = txtSDTMe.Text;
             
-            //await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
+            await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
         }
         private async void btnThem_Click(object sender, EventArgs e)
         {
@@ -99,17 +100,80 @@ namespace GUI
             }
 
         }
-
+        public async void xoa()
+        {
+            int id = int.Parse(txtMa.Text);
+            await new ThongTinGVBAL().Xoa(id);
+        }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            //
+            if (MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa ?", "Hỏi Xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                try
+                {
+                    xoa();
+                    MessageBox.Show("Xóa Thành Công");
+                    New();
+                    loadHS();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lỗi !");
+                }
+            }
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private async void btnLuu_Click(object sender, EventArgs e)
         {
-            //
+            if (await new ThongTinHSBAL().KiemTraID(int.Parse(txtMa.Text)) == null)
+                try
+                {
+                    update();
+                    MessageBox.Show("Thêm Thành Công !");
+                    New();
+                    loadHS();
+
+
+                }
+                catch (Exception)
+                { MessageBox.Show("Lỗi !"); }
+            else
+            {
+                MessageBox.Show("TK Đã Tồn Tại");
+            }
         }
-        
+
+        private async void update()
+        {
+            int iD = int.Parse(txtMa.Text);
+            string ten = txtTen.Text;
+            DateTime ngaySinh;
+            try
+            {
+
+                DateTime.Parse(dtpNgaySinh.Text) = ngaySinh;
+            }
+            catch
+            {
+                MessageBox.Show("Ngày Sinh không hợp lệ");
+            }
+            Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
+            string noiSinh = txtNoiSinh.Text;
+            string danToc = txtDanToc.Text;
+
+
+            int iDLop = int.Parse(txtMa.Text);
+            int iDTaiKhoan = int.Parse(txtMa.Text);
+            string tonGiao = txtTonGiao.Text;
+
+            string tenBo = txtTenBa.Text;
+            string sDTBo = txtSDTBa.Text;
+            string tenMe = txtTenMe.Text;
+            string sDTMe = txtSDTMe.Text;
+
+            await new ThongTinHSBAL().Sua(iD, ten, ngaySinh, gioiTinh, noiSinh, danToc, tonGiao, iDLop, iDTaiKhoan, tenMe, sDTMe, tenBo, sDTBo);
+        }
+
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             
