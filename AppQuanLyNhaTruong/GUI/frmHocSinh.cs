@@ -11,7 +11,7 @@ using BAL;
 using DTO;
 
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
     public partial class frmHocSinh : Form
     {

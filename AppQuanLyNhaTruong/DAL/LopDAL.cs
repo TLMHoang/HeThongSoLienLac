@@ -17,8 +17,8 @@ namespace DAL
             var a = await ExecuteNonQuery(
                 "UpdateLop", 
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID},
-                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop },
-                new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
+                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }
+                //new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
                 ) ;
 
             await val.RenameTable(OldName, obj.TenLop);
@@ -35,8 +35,8 @@ namespace DAL
         {
             var a = await ExecuteNonQuery(
                 "InsertLop", 
-                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop },
-                new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
+                new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }
+                //new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
                 );
 
             await val.CreateTable(obj.TenLop);

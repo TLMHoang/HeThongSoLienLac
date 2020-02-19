@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
     public partial class frmNhapDiem : Form
     {

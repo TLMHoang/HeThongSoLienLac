@@ -11,6 +11,7 @@ namespace GUI
     static class Program
     {
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
+        public static List<Lop> lstLop = new List<Lop>();
         
         /// <summary>
         /// The main entry point for the application.
@@ -20,7 +21,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AppQuanLyNhaTruong.frmHocSinh());
+            Application.Run(new frmHocSinh());
         }
     }
 }
