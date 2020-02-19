@@ -16,5 +16,11 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            uctTimTiemHS uct = new uctTimTiemHS();
+            this.Controls.Add(uct);
+        }
     }
 }

@@ -30,27 +30,29 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxLop = new System.Windows.Forms.ComboBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dgvDSHS = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnChiTiet = new System.Windows.Forms.Button();
-            this.btnKiemTra = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VangP = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.VangKP = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnChiTiet = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnKiemTra = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHS)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -75,16 +77,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Vắng";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(895, 567);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cúp học";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -159,53 +151,6 @@
             this.dgvDSHS.Size = new System.Drawing.Size(883, 465);
             this.dgvDSHS.TabIndex = 2;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.Controls.Add(this.btnChiTiet, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnLuu, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 501);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(589, 60);
-            this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLuu.Location = new System.Drawing.Point(292, 3);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(144, 54);
-            this.btnLuu.TabIndex = 4;
-            this.btnLuu.Text = "Luu danh sách";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            // 
-            // btnChiTiet
-            // 
-            this.btnChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnChiTiet.Location = new System.Drawing.Point(442, 3);
-            this.btnChiTiet.Name = "btnChiTiet";
-            this.btnChiTiet.Size = new System.Drawing.Size(144, 54);
-            this.btnChiTiet.TabIndex = 4;
-            this.btnChiTiet.Text = "Xem chi tiết";
-            this.btnChiTiet.UseVisualStyleBackColor = true;
-            // 
-            // btnKiemTra
-            // 
-            this.btnKiemTra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnKiemTra.Location = new System.Drawing.Point(3, 504);
-            this.btnKiemTra.Name = "btnKiemTra";
-            this.btnKiemTra.Size = new System.Drawing.Size(144, 54);
-            this.btnKiemTra.TabIndex = 4;
-            this.btnKiemTra.Text = "Kiểm tra";
-            this.btnKiemTra.UseVisualStyleBackColor = true;
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
@@ -248,6 +193,74 @@
             this.VangKP.Name = "VangKP";
             this.VangKP.ReadOnly = true;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.Controls.Add(this.btnChiTiet, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnLuu, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 501);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(589, 60);
+            this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChiTiet.Location = new System.Drawing.Point(442, 3);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(144, 54);
+            this.btnChiTiet.TabIndex = 4;
+            this.btnChiTiet.Text = "Xem chi tiết";
+            this.btnChiTiet.UseVisualStyleBackColor = true;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLuu.Location = new System.Drawing.Point(292, 3);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(144, 54);
+            this.btnLuu.TabIndex = 4;
+            this.btnLuu.Text = "Luu danh sách";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            // 
+            // btnKiemTra
+            // 
+            this.btnKiemTra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnKiemTra.Location = new System.Drawing.Point(3, 504);
+            this.btnKiemTra.Name = "btnKiemTra";
+            this.btnKiemTra.Size = new System.Drawing.Size(144, 54);
+            this.btnKiemTra.TabIndex = 4;
+            this.btnKiemTra.Text = "Kiểm tra";
+            this.btnKiemTra.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(895, 567);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Cúp học";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(266, 165);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 58);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmDiemDanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -264,6 +277,7 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHS)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -287,5 +301,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Lop;
         private System.Windows.Forms.DataGridViewCheckBoxColumn VangP;
         private System.Windows.Forms.DataGridViewCheckBoxColumn VangKP;
+        private System.Windows.Forms.Button button1;
     }
 }
