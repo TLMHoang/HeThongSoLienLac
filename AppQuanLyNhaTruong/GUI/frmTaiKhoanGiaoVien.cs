@@ -13,6 +13,7 @@ namespace GUI
 {
     public partial class frmTaiKhoanGiaoVien : Form
     {
+        ThongTinGVBAL tt = new ThongTinGVBAL();
         public frmTaiKhoanGiaoVien()
         {
             InitializeComponent();
@@ -89,7 +90,6 @@ namespace GUI
                 MessageBox.Show("TK Đã Tồn Tại");
             }
         }
-
         private async void btnSua_Click(object sender, EventArgs e)
         {
             if (await new ThongTinGVBAL().KiemTraID(int.Parse(txtNhapID.Text)) == null)
@@ -109,9 +109,10 @@ namespace GUI
                 }
             }
         }
+
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa ?","Notification !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa ?", "Notification !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 try
                 {
@@ -136,24 +137,27 @@ namespace GUI
             bsDSGV.ResumeBinding();
         }
         public async void ThemTK()
-        {
-            int IDTKT = int.Parse(txtNhapID.Text);
-            string Ten = txtNhapTenGV.Text;
-            string SDT = txtSDT.Text;
-            int IDMon = int.Parse(cboMonHoc.SelectedValue.ToString());
-            int IDLop = int.Parse(cboLopPhuTrach.SelectedValue.ToString());
-            byte GVCN = chkGVCN.Checked ? (byte)1 : (byte)0;
-            await new ThongTinGVBAL().ThemThongTin(IDTKT, Ten, SDT, IDMon, IDLop, GVCN);
+        {            
+            await tt.Them(new DTO.ThongTinGV(
+                int.Parse(txtNhapID.Text),
+                txtNhapTenGV.Text,
+                txtSDT.Text,
+                int.Parse(cboMonHoc.SelectedValue.ToString()),
+                int.Parse(cboLopPhuTrach.SelectedValue.ToString()),
+                chkGVCN.Checked ? (byte)1 : (byte)0
+                ));
+
         }
         public async void CapNhatTK()
         {
-            int IDTKT = int.Parse(txtNhapID.Text);
-            string Ten = txtNhapTenGV.Text;
-            string SDT = txtSDT.Text;
-            int IDMon = int.Parse(cboMonHoc.SelectedValue.ToString());
-            int IDLop = int.Parse(cboLopPhuTrach.SelectedValue.ToString());
-            byte GVCN = chkGVCN.Checked ? (byte)1 : (byte)0;
-            await new ThongTinGVBAL().SuaThongTin(IDTKT, Ten, SDT, IDMon, IDLop, GVCN);
+            await tt.CapNhap(new DTO.ThongTinGV(
+                int.Parse(txtNhapID.Text),
+                txtNhapTenGV.Text,
+                txtSDT.Text,
+                int.Parse(cboMonHoc.SelectedValue.ToString()),
+                int.Parse(cboLopPhuTrach.SelectedValue.ToString()),
+                chkGVCN.Checked ? (byte)1 : (byte)0
+                ));
         }
         public async void XoaTK()
         {
@@ -181,8 +185,11 @@ namespace GUI
             txtNhapID.Focus();
         }
 
+
+
+
         #endregion
 
-       
+        
     }
 }
