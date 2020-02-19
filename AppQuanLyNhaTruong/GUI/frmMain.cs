@@ -56,7 +56,7 @@ namespace GUI
 
         private void btnThongBao_Click(object sender, EventArgs e)
         {
-            frmThongBao f = new frmThongBao();
+            GUI.frmThongBao f = new GUI.frmThongBao();
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -79,7 +79,7 @@ namespace GUI
 
         private void btnThongBaoRiengHS_Click(object sender, EventArgs e)
         {
-            frmThongBaoTungHocSinh f = new frmThongBaoTungHocSinh();
+            GUI.frmThongBaoTungHocSinh f = new GUI.frmThongBaoTungHocSinh();
             this.Hide();
             f.ShowDialog();
             this.Show();

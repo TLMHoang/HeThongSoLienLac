@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
 
-namespace GUI
+namespace AppQuanLyNhaTruong
 {
     public partial class frmTaiKhoanGiaoVien : Form
     {
