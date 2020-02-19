@@ -47,18 +47,56 @@ namespace AppQuanLyNhaTruong
             if (ret == DialogResult.Yes)
                 this.Close();
         }
-        
 
+        public async void Them()
+        {
+            int iD = int.Parse(txtMa.Text);
+            string ten = txtTen.Text;
+            DateTime ngaySinh;
+            try
+            {
+                dtpNgaySinh.Text = ngaySinh.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Ngày Sinh không hợp lệ");
+            }
+            Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
+            string noiSinh = txtNoiSinh.Text;
+            string danToc = txtDanToc.Text;
+
+
+            int iDLop = int.Parse(txtMa.Text);
+            int iDTaiKhoan = int.Parse(txtMa.Text);
+            string tonGiao = txtTonGiao.Text;
+            
+            string tenBo = txtTenBa.Text;
+            string sDTBo = txtSDTBa.Text;
+            string tenMe = txtTenMe.Text;
+            string sDTMe = txtSDTMe.Text;
+            
+            await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
+        }
         private async void btnThem_Click(object sender, EventArgs e)
         {
 
 
-            //ThongTinHS hs = new ThongTinHS(-1, txtTen.Text, txtNgaySinh.Text, radNam.Checked ? "0" : "1", txtNoiSinh.Text, txtTonGiao.Text, txtDanToc.Text, -1, -1, txtTenBa.Text, txtSDTBa.Text, txtTenMe.Text, txtSDTMe.Text);
-
-            //await new ThongTinHSBAL().Them(hs);
-
-            //MessageBox.Show("Thêm thành công");
-            //loadHS();
+            if (await new ThongTinHSBAL().KiemTraID(int.Parse(txtMa.Text)) == null)
+                try
+                {
+                    Them();
+                    MessageBox.Show("Thêm Thành Công !");
+                    New();
+                    loadHS();
+                    
+                    
+                }
+                catch (Exception) 
+                { MessageBox.Show("Lỗi !"); }
+            else
+            {
+                MessageBox.Show("TK Đã Tồn Tại");
+            }
 
         }
 
@@ -71,16 +109,23 @@ namespace AppQuanLyNhaTruong
         {
             //
         }
-
+        
         private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            
+            New();
+        }
+        private void New()
         {
             txtMa.Text = "";
             txtTen.Text = "";
             radNam.Checked = true;
             txtNoiSinh.Text = "";
-            txtNgaySinh.Text = "";
+            dtpNgaySinh.Text="";
             txtDanToc.Text = "";
             txtTonGiao.Text = "";
+            txtMaLop.Text = "";
+            txtMaTK.Text = "";
             txtTenBa.Text = "";
             txtSDTMe.Text = "";
             txtTenMe.Text = "";
@@ -100,6 +145,7 @@ namespace AppQuanLyNhaTruong
             bsThongTinHS.DataSource = await new ThongTinHSBAL().LayDT();
             bsThongTinHS.ResumeBinding();
             dgvHocSinh.ResumeLayout();
+
         }
 
         private void dgvHocSinh_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -114,7 +160,7 @@ namespace AppQuanLyNhaTruong
             txtMa.Text = dgvHocSinh.Rows[i].Cells[0].Value.ToString();
             txtTen.Text = dgvHocSinh.Rows[i].Cells[1].Value.ToString();
             string GioiTinh;
-            GioiTinh = dgvHocSinh.Rows[i].Cells[3].Value.ToString();
+            GioiTinh = dgvHocSinh.Rows[i].Cells[2].Value.ToString();
             if (GioiTinh == "Nữ")
             {
                 radNu.Checked = true;
@@ -123,14 +169,18 @@ namespace AppQuanLyNhaTruong
             {
                 radNam.Checked = true;
             }
-            txtNoiSinh.Text = dgvHocSinh.Rows[i].Cells[4].Value.ToString();
-            dgvHocSinh.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy" ;
+            txtNoiSinh.Text = dgvHocSinh.Rows[i].Cells[3].Value.ToString(); 
+            dtpNgaySinh.Text = dgvHocSinh.Rows[i].Cells[4].Value.ToString();
+            
             txtDanToc.Text = dgvHocSinh.Rows[i].Cells[5].Value.ToString();
             txtTonGiao.Text = dgvHocSinh.Rows[i].Cells[6].Value.ToString();
+            txtMaLop.Text = dgvHocSinh.Rows[i].Cells[7].Value.ToString();
+            txtMaTK.Text = dgvHocSinh.Rows[i].Cells[8].Value.ToString();
+
             txtTenBa.Text = dgvHocSinh.Rows[i].Cells[9].Value.ToString();
             txtSDTBa.Text = dgvHocSinh.Rows[i].Cells[10].Value.ToString();
-            txtTenMe.Text = dgvHocSinh.Rows[i].Cells[7].Value.ToString();
-            txtSDTMe.Text = dgvHocSinh.Rows[i].Cells[8].Value.ToString();
+            txtTenMe.Text = dgvHocSinh.Rows[i].Cells[11].Value.ToString();
+            txtSDTMe.Text = dgvHocSinh.Rows[i].Cells[12].Value.ToString();
 
         }
     }
