@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using BAL;
 using DTO;
 
-namespace AppQuanLyNhaTruong
+namespace GUI
 {
     public partial class frmLogin : Form
     {

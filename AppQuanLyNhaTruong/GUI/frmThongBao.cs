@@ -15,7 +15,6 @@ namespace GUI
         public frmThongBao()
         {
             InitializeComponent();
-            Program
         }
     }
 }
