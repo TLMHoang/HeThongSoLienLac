@@ -73,6 +73,7 @@
             // 
             // dgvDSTB
             // 
+            this.dgvDSTB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSTB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDSTB.Location = new System.Drawing.Point(3, 121);
