@@ -169,6 +169,9 @@
             this.txtNhapTen.Name = "txtNhapTen";
             this.txtNhapTen.Size = new System.Drawing.Size(647, 22);
             this.txtNhapTen.TabIndex = 2;
+            this.txtNhapTen.TextChanged += new System.EventHandler(this.txtNhapTen_TextChanged);
+            this.txtNhapTen.Enter += new System.EventHandler(this.txtNhapTen_Enter);
+            this.txtNhapTen.Leave += new System.EventHandler(this.txtNhapTen_Leave);
             // 
             // tableLayoutPanel2
             // 
@@ -363,6 +366,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -379,6 +383,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 

@@ -33,16 +33,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvDSGV = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboMonDay = new System.Windows.Forms.ComboBox();
+            this.lblMonDay = new System.Windows.Forms.Label();
+            this.lblChonLop = new System.Windows.Forms.Label();
             this.lblNhapID = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblChonLop = new System.Windows.Forms.Label();
             this.cboChonLop = new System.Windows.Forms.ComboBox();
-            this.lblMonDay = new System.Windows.Forms.Label();
-            this.cboMonDay = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnXacNhan = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXacNhan = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSGV)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -123,8 +123,40 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(213, 531);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(210, 531);
             this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // cboMonDay
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.cboMonDay, 2);
+            this.cboMonDay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboMonDay.FormattingEnabled = true;
+            this.cboMonDay.Location = new System.Drawing.Point(3, 183);
+            this.cboMonDay.Name = "cboMonDay";
+            this.cboMonDay.Size = new System.Drawing.Size(204, 24);
+            this.cboMonDay.TabIndex = 5;
+            // 
+            // lblMonDay
+            // 
+            this.lblMonDay.AutoSize = true;
+            this.tableLayoutPanel2.SetColumnSpan(this.lblMonDay, 2);
+            this.lblMonDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonDay.Location = new System.Drawing.Point(3, 142);
+            this.lblMonDay.Name = "lblMonDay";
+            this.lblMonDay.Size = new System.Drawing.Size(132, 20);
+            this.lblMonDay.TabIndex = 4;
+            this.lblMonDay.Text = "Chọn Môn Dạy";
+            // 
+            // lblChonLop
+            // 
+            this.lblChonLop.AutoSize = true;
+            this.tableLayoutPanel2.SetColumnSpan(this.lblChonLop, 2);
+            this.lblChonLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChonLop.Location = new System.Drawing.Point(3, 74);
+            this.lblChonLop.Name = "lblChonLop";
+            this.lblChonLop.Size = new System.Drawing.Size(89, 20);
+            this.lblChonLop.TabIndex = 2;
+            this.lblChonLop.Text = "Chọn Lớp";
             // 
             // lblNhapID
             // 
@@ -143,19 +175,8 @@
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Location = new System.Drawing.Point(3, 41);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(207, 22);
+            this.textBox2.Size = new System.Drawing.Size(204, 22);
             this.textBox2.TabIndex = 1;
-            // 
-            // lblChonLop
-            // 
-            this.lblChonLop.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this.lblChonLop, 2);
-            this.lblChonLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChonLop.Location = new System.Drawing.Point(3, 74);
-            this.lblChonLop.Name = "lblChonLop";
-            this.lblChonLop.Size = new System.Drawing.Size(89, 20);
-            this.lblChonLop.TabIndex = 2;
-            this.lblChonLop.Text = "Chọn Lớp";
             // 
             // cboChonLop
             // 
@@ -164,29 +185,8 @@
             this.cboChonLop.FormattingEnabled = true;
             this.cboChonLop.Location = new System.Drawing.Point(3, 110);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(207, 24);
+            this.cboChonLop.Size = new System.Drawing.Size(204, 24);
             this.cboChonLop.TabIndex = 3;
-            // 
-            // lblMonDay
-            // 
-            this.lblMonDay.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this.lblMonDay, 2);
-            this.lblMonDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonDay.Location = new System.Drawing.Point(3, 142);
-            this.lblMonDay.Name = "lblMonDay";
-            this.lblMonDay.Size = new System.Drawing.Size(132, 20);
-            this.lblMonDay.TabIndex = 4;
-            this.lblMonDay.Text = "Chọn Môn Dạy";
-            // 
-            // cboMonDay
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.cboMonDay, 2);
-            this.cboMonDay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMonDay.FormattingEnabled = true;
-            this.cboMonDay.Location = new System.Drawing.Point(3, 183);
-            this.cboMonDay.Name = "cboMonDay";
-            this.cboMonDay.Size = new System.Drawing.Size(207, 24);
-            this.cboMonDay.TabIndex = 5;
             // 
             // tableLayoutPanel3
             // 
@@ -207,36 +207,8 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 103F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(207, 306);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(204, 306);
             this.tableLayoutPanel3.TabIndex = 6;
-            // 
-            // btnXacNhan
-            // 
-            this.btnXacNhan.BackColor = System.Drawing.Color.DarkOrange;
-            this.tableLayoutPanel3.SetColumnSpan(this.btnXacNhan, 2);
-            this.btnXacNhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.ForeColor = System.Drawing.Color.White;
-            this.btnXacNhan.Location = new System.Drawing.Point(3, 3);
-            this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(201, 29);
-            this.btnXacNhan.TabIndex = 0;
-            this.btnXacNhan.Text = "Xác Nhận";
-            this.btnXacNhan.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.DarkOrange;
-            this.tableLayoutPanel3.SetColumnSpan(this.btnSua, 2);
-            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(3, 38);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(201, 31);
-            this.btnSua.TabIndex = 1;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
             // 
             // btnXoa
             // 
@@ -247,10 +219,38 @@
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Location = new System.Drawing.Point(3, 75);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(201, 31);
+            this.btnXoa.Size = new System.Drawing.Size(198, 31);
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            // 
+            // btnSua
+            // 
+            this.btnSua.BackColor = System.Drawing.Color.DarkOrange;
+            this.tableLayoutPanel3.SetColumnSpan(this.btnSua, 2);
+            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(3, 38);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(198, 31);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            // 
+            // btnXacNhan
+            // 
+            this.btnXacNhan.BackColor = System.Drawing.Color.DarkOrange;
+            this.tableLayoutPanel3.SetColumnSpan(this.btnXacNhan, 2);
+            this.btnXacNhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.ForeColor = System.Drawing.Color.White;
+            this.btnXacNhan.Location = new System.Drawing.Point(3, 3);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(198, 29);
+            this.btnXacNhan.TabIndex = 0;
+            this.btnXacNhan.Text = "Xác Nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = false;
             // 
             // frmPhanCong
             // 
