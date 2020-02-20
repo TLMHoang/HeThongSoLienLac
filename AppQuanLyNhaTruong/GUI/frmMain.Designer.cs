@@ -64,7 +64,7 @@
             this.btnQLGV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQLGV.ForeColor = System.Drawing.Color.White;
             this.btnQLGV.Location = new System.Drawing.Point(248, 455);
-            this.btnQLGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnQLGV.Margin = new System.Windows.Forms.Padding(2);
             this.btnQLGV.Name = "btnQLGV";
             this.btnQLGV.Size = new System.Drawing.Size(238, 93);
             this.btnQLGV.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.btnAccountManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccountManagement.ForeColor = System.Drawing.Color.White;
             this.btnAccountManagement.Location = new System.Drawing.Point(248, 364);
-            this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccountManagement.Name = "btnAccountManagement";
             this.btnAccountManagement.Size = new System.Drawing.Size(238, 87);
             this.btnAccountManagement.TabIndex = 1;
@@ -98,7 +98,7 @@
             this.btnStudentManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudentManagement.ForeColor = System.Drawing.Color.White;
             this.btnStudentManagement.Location = new System.Drawing.Point(248, 2);
-            this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudentManagement.Name = "btnStudentManagement";
             this.tableLayoutPanel1.SetRowSpan(this.btnStudentManagement, 2);
             this.btnStudentManagement.Size = new System.Drawing.Size(238, 85);
@@ -167,7 +167,7 @@
             this.txtLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLopHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtLopHoc.Location = new System.Drawing.Point(2, 64);
-            this.txtLopHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLopHoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtLopHoc.Name = "txtLopHoc";
             this.txtLopHoc.Size = new System.Drawing.Size(242, 26);
             this.txtLopHoc.TabIndex = 4;
@@ -188,8 +188,8 @@
             this.tableLayoutPanel1.Controls.Add(this.btnQLGV, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.36059F));
@@ -213,7 +213,7 @@
             this.dgvDanhSachLop.DataSource = this.bsLop;
             this.dgvDanhSachLop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSachLop.Location = new System.Drawing.Point(2, 91);
-            this.dgvDanhSachLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDanhSachLop.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDanhSachLop.Name = "dgvDanhSachLop";
             this.tableLayoutPanel1.SetRowSpan(this.dgvDanhSachLop, 5);
             this.dgvDanhSachLop.RowTemplate.Height = 24;
@@ -247,7 +247,7 @@
             this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiem.ForeColor = System.Drawing.Color.White;
             this.btnDiem.Location = new System.Drawing.Point(248, 91);
-            this.btnDiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiem.Name = "btnDiem";
             this.btnDiem.Size = new System.Drawing.Size(238, 87);
             this.btnDiem.TabIndex = 3;
@@ -263,7 +263,7 @@
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(248, 182);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(238, 87);
             this.button1.TabIndex = 3;
@@ -279,7 +279,7 @@
             this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongBao.ForeColor = System.Drawing.Color.White;
             this.btnThongBao.Location = new System.Drawing.Point(248, 273);
-            this.btnThongBao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThongBao.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongBao.Name = "btnThongBao";
             this.btnThongBao.Size = new System.Drawing.Size(238, 87);
             this.btnThongBao.TabIndex = 3;
@@ -308,7 +308,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ  Thống Sổ Liên Lạc Điện Tử ";
