@@ -46,13 +46,15 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnKiemTra = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.uctTimTiemHS1 = new GUI.uctTimTiemHS();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHS)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -242,8 +244,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(895, 567);
@@ -251,15 +254,35 @@
             this.tabPage2.Text = "Cúp học";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // tableLayoutPanel3
             // 
-            this.button1.Location = new System.Drawing.Point(266, 165);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.uctTimTiemHS1, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.4F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(889, 561);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // uctTimTiemHS1
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.uctTimTiemHS1, 2);
+            this.uctTimTiemHS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.uctTimTiemHS1.Location = new System.Drawing.Point(0, 0);
+            this.uctTimTiemHS1.Margin = new System.Windows.Forms.Padding(0);
+            this.uctTimTiemHS1.Name = "uctTimTiemHS1";
+            this.uctTimTiemHS1.Size = new System.Drawing.Size(889, 293);
+            this.uctTimTiemHS1.TabIndex = 0;
+            this.uctTimTiemHS1.Load += new System.EventHandler(this.uctTimTiemHS1_Load);
             // 
             // frmDiemDanh
             // 
@@ -278,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHS)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -301,6 +325,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Lop;
         private System.Windows.Forms.DataGridViewCheckBoxColumn VangP;
         private System.Windows.Forms.DataGridViewCheckBoxColumn VangKP;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private uctTimTiemHS uctTimTiemHS1;
     }
 }

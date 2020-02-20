@@ -43,28 +43,7 @@ namespace BAL
         {
             return await gv.Xoa(ID);
         }
-        public async Task<int> ThemThongTin(int ID, string Ten, string SDT, int IDMon, int IDLop, byte GVCN)
-        {
-            ThongTinGV gv = new ThongTinGV();
-            gv.IDTKT = ID;
-            gv.TenGV = Ten;
-            gv.SDT = SDT;
-            gv.IDMonHoc = IDMon;
-            gv.IDLop = IDLop;
-            gv.GVCN = GVCN;
-            return await Them(gv);
-        }
-        public async Task<int> SuaThongTin(int ID, string Ten, string SDT, int IDMon, int IDLop, byte GVCN)
-        {
-            ThongTinGV gv = new ThongTinGV();
-            gv.IDTKT = ID;
-            gv.TenGV = Ten;
-            gv.SDT = SDT;
-            gv.IDMonHoc = IDMon;
-            gv.IDLop = IDLop;
-            gv.GVCN = GVCN;
-            return await CapNhap(gv);
-        }
+               
         public async Task<DataTable> KiemTraID(int id)
         {
             DataTable dt = await LayDT();

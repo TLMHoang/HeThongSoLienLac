@@ -76,6 +76,7 @@
             this.dgvDSHS.RowHeadersVisible = false;
             this.dgvDSHS.Size = new System.Drawing.Size(604, 412);
             this.dgvDSHS.TabIndex = 3;
+            this.dgvDSHS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSHS_CellDoubleClick);
             // 
             // ID
             // 
@@ -115,14 +116,17 @@
             this.cbxLop.Name = "cbxLop";
             this.cbxLop.Size = new System.Drawing.Size(144, 24);
             this.cbxLop.TabIndex = 1;
+            this.cbxLop.SelectedIndexChanged += new System.EventHandler(this.cbxLop_SelectedIndexChanged);
             // 
             // txtTimKiem
             // 
+            this.txtTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtTimKiem.Location = new System.Drawing.Point(153, 3);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(454, 23);
             this.txtTimKiem.TabIndex = 2;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // uctTimTiemHS
             // 
