@@ -15,6 +15,9 @@ namespace GUI
 {
     public partial class frmHocSinh : Form
     {
+
+        private ThongTinHSBAL tt = new ThongTinHSBAL();
+
         public frmHocSinh()
         {
             InitializeComponent();
@@ -50,38 +53,53 @@ namespace GUI
 
         public async void Them()
         {
-            int iD = int.Parse(txtMa.Text);
-            string ten = txtTen.Text;
-            DateTime ngaySinh;
-            try
-            {
-                dtpNgaySinh.Text = ngaySinh.ToString();
-            }
-            catch
-            {
-                MessageBox.Show("Ngày Sinh không hợp lệ");
-            }
-            Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
-            string noiSinh = txtNoiSinh.Text;
-            string danToc = txtDanToc.Text;
+            await tt.Them(new ThongTinHS(
+                int.Parse(txtMa.Text),
+                txtTen.Text,
+                dtpNgaySinh.Value,
+                Convert.ToByte(radNam.Checked),
+                txtNoiSinh.Text, txtDanToc.Text,
+                txtTonGiao.Text, int.Parse(txtMa.Text), 
+                int.Parse(txtMa.Text), 
+                txtTenMe.Text, 
+                txtSDTMe.Text, 
+                txtTenBa.Text, 
+                txtSDTBa.Text
+                ));
+            //int iD = int.Parse(txtMa.Text);
+            //string ten = txtTen.Text;
+            //DateTime ngaySinh;
+            //try
+            //{
+            //    dtpNgaySinh.text = ngaySinh.ToString();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Ngày Sinh không hợp lệ");
+            //}
+            //Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
+            //string noiSinh = txtNoiSinh.Text;
+            //string danToc = txtDanToc.Text;
 
 
-            int iDLop = int.Parse(txtMa.Text);
-            int iDTaiKhoan = int.Parse(txtMa.Text);
-            string tonGiao = txtTonGiao.Text;
-            
-            string tenBo = txtTenBa.Text;
-            string sDTBo = txtSDTBa.Text;
-            string tenMe = txtTenMe.Text;
-            string sDTMe = txtSDTMe.Text;
-            
+            //int iDLop = int.Parse(txtMa.Text);
+            //int iDTaiKhoan = int.Parse(txtMa.Text);
+            //string tonGiao = txtTonGiao.Text;
+
+            //string tenBo = txtTenBa.Text;
+            //string sDTBo = txtSDTBa.Text;
+            //string tenMe = txtTenMe.Text;
+            //string sDTMe = txtSDTMe.Text;
+
             //await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
+
+
         }
         private async void btnThem_Click(object sender, EventArgs e)
         {
 
 
-            if (await new ThongTinHSBAL().KiemTraID(int.Parse(txtMa.Text)) == null)
+            if (await tt.KiemTraID(int.Parse(txtMa.Text)) == null)
                 try
                 {
                     Them();
@@ -124,7 +142,7 @@ namespace GUI
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            if (await new ThongTinHSBAL().KiemTraID(int.Parse(txtMa.Text)) == null)
+            if (await tt.KiemTraID(int.Parse(txtMa.Text)) == null)
                 try
                 {
                     update();
@@ -144,33 +162,46 @@ namespace GUI
 
         private async void update()
         {
-            int iD = int.Parse(txtMa.Text);
-            string ten = txtTen.Text;
-            DateTime ngaySinh;
-            try
-            {
+            await tt.CapNhap(new ThongTinHS(
+                int.Parse(txtMa.Text),
+                txtTen.Text,
+                dtpNgaySinh.Value,
+                Convert.ToByte(radNam.Checked),
+                txtNoiSinh.Text, txtDanToc.Text,
+                txtTonGiao.Text, int.Parse(txtMa.Text),
+                int.Parse(txtMa.Text),
+                txtTenMe.Text,
+                txtSDTMe.Text,
+                txtTenBa.Text,
+                txtSDTBa.Text
+                ));
+            //int iD = int.Parse(txtMa.Text);
+            //string ten = txtTen.Text;
+            //DateTime ngaySinh;
+            //try
+            //{
 
-                DateTime.Parse(dtpNgaySinh.Text) = ngaySinh;
-            }
-            catch
-            {
-                MessageBox.Show("Ngày Sinh không hợp lệ");
-            }
-            Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
-            string noiSinh = txtNoiSinh.Text;
-            string danToc = txtDanToc.Text;
+            //    DateTime.Parse(dtpNgaySinh.Text) = ngaySinh;
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Ngày Sinh không hợp lệ");
+            //}
+            //Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
+            //string noiSinh = txtNoiSinh.Text;
+            //string danToc = txtDanToc.Text;
 
 
-            int iDLop = int.Parse(txtMa.Text);
-            int iDTaiKhoan = int.Parse(txtMa.Text);
-            string tonGiao = txtTonGiao.Text;
+            //int iDLop = int.Parse(txtMa.Text);
+            //int iDTaiKhoan = int.Parse(txtMa.Text);
+            //string tonGiao = txtTonGiao.Text;
 
-            string tenBo = txtTenBa.Text;
-            string sDTBo = txtSDTBa.Text;
-            string tenMe = txtTenMe.Text;
-            string sDTMe = txtSDTMe.Text;
+            //string tenBo = txtTenBa.Text;
+            //string sDTBo = txtSDTBa.Text;
+            //string tenMe = txtTenMe.Text;
+            //string sDTMe = txtSDTMe.Text;
 
-            await new ThongTinHSBAL().Sua(iD, ten, ngaySinh, gioiTinh, noiSinh, danToc, tonGiao, iDLop, iDTaiKhoan, tenMe, sDTMe, tenBo, sDTBo);
+            //await tt.Sua(iD, ten, ngaySinh, gioiTinh, noiSinh, danToc, tonGiao, iDLop, iDTaiKhoan, tenMe, sDTMe, tenBo, sDTBo);
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -205,7 +236,7 @@ namespace GUI
         {
             dgvHocSinh.SuspendLayout();
             bsThongTinHS.SuspendBinding();
-            bsThongTinHS.DataSource = await new ThongTinHSBAL().LayDT();
+            bsThongTinHS.DataSource = await tt.LayDT();
             bsThongTinHS.ResumeBinding();
             dgvHocSinh.ResumeLayout();
 
