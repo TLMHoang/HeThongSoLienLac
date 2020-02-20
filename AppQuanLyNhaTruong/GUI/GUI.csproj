@@ -53,6 +53,12 @@
     <Compile Include="frmAccountManager.Designer.cs">
       <DependentUpon>frmAccountManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTiet.Designer.cs">
+      <DependentUpon>frmChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDiemDanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     <Compile Include="frmPhanCong.Designer.cs">
       <DependentUpon>frmPhanCong.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThoiKhoaBieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThoiKhoaBieu.Designer.cs">
+      <DependentUpon>frmThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThongBao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +130,9 @@
     <EmbeddedResource Include="frmAccountManager.resx">
       <DependentUpon>frmAccountManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTiet.resx">
+      <DependentUpon>frmChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDiemDanh.resx">
       <DependentUpon>frmDiemDanh.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhanCong.resx">
       <DependentUpon>frmPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThoiKhoaBieu.resx">
+      <DependentUpon>frmThoiKhoaBieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThongBao.resx">
       <DependentUpon>frmThongBao.cs</DependentUpon>

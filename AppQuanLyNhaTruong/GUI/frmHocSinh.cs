@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using DTO;
+
 
 
 
@@ -16,7 +18,7 @@ namespace GUI
     public partial class frmHocSinh : Form
     {
 
-        private ThongTinHSBAL tt = new ThongTinHSBAL();
+       ThongTinHSBAL tt = new ThongTinHSBAL();
 
         public frmHocSinh()
         {
@@ -53,7 +55,7 @@ namespace GUI
 
         public async void Them()
         {
-            await tt.Them(new DTO.ThongTinHS(
+            await tt.Them(new ThongTinHS(
                 int.Parse(txtMa.Text),
                 txtTen.Text,
                 dtpNgaySinh.Value,
@@ -143,7 +145,7 @@ namespace GUI
 
         private async void update()
         {
-            await tt.CapNhap(new DTO.ThongTinHS(
+            await tt.CapNhap(new ThongTinHS(
                 int.Parse(txtMa.Text),
                 txtTen.Text,
                 dtpNgaySinh.Value,

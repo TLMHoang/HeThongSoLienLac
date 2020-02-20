@@ -22,8 +22,7 @@ namespace GUI
         }
 
         private void frmThongBao_Load(object sender, EventArgs e)
-        {
-            lblChonLop.Visible = false;
+        {            
             cboChonLop.Visible = false;
             LoadCBO();
             LoadDGVTruong();
@@ -38,13 +37,11 @@ namespace GUI
             {
                 LoadDGVLop();
                 LoadCBOChonLop();
-                lblChonLop.Visible = true;
                 cboChonLop.Visible = true;
             }
             else
             {
                 LoadDGVTruong();
-                lblChonLop.Visible = false;
                 cboChonLop.Visible = false;
             }
                 
@@ -87,29 +84,6 @@ namespace GUI
         }
         #endregion
 
-        private async void btnThem_Click(object sender, EventArgs e)
-        {
-            //chua check ID
-            try
-            {
-                if (cboChonLoaiTB.SelectedIndex != 1)
-                {
-                    await tbt.Them(new ThongBaoTruong(-1, rtbNhapNoiDung.Text));
-                    MessageBox.Show("Thêm Thành Công !");
-                    LoadDGVTruong();
-                }
-                else
-                {
-                    await tbl.Them(new ThongBaoLop(-1, int.Parse(cboChonLop.SelectedValue.ToString()), rtbNhapNoiDung.Text));
-                    MessageBox.Show("Thêm Thành Công !");
-                    LoadDGVLop();
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Lỗi !");
-            }
-        }
 
         private async void btnSua_Click(object sender, EventArgs e)
         {
@@ -133,6 +107,30 @@ namespace GUI
             //{
             //    MessageBox.Show("Lỗi !");
             //}
+        }
+
+        private async void btnLuu_Click(object sender, EventArgs e)
+        {
+            //chua check ID
+            try
+            {
+                if (cboChonLoaiTB.SelectedIndex != 1)
+                {
+                    await tbt.Them(new ThongBaoTruong(-1, rtbNhapNoiDung.Text));
+                    MessageBox.Show("Thêm Thành Công !");
+                    LoadDGVTruong();
+                }
+                else
+                {
+                    await tbl.Them(new ThongBaoLop(-1, int.Parse(cboChonLop.SelectedValue.ToString()), rtbNhapNoiDung.Text));
+                    MessageBox.Show("Thêm Thành Công !");
+                    LoadDGVLop();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi !");
+            }
         }
     }
 }

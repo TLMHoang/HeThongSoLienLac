@@ -7,24 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BAL;
-using DTO;
 
 namespace GUI
 {
-    public partial class frmAccountManager : Form
+    public partial class frmChiTiet : Form
     {
-        ThongTinGVBAL ttgv = new ThongTinGVBAL();
-        public frmAccountManager()
+        public frmChiTiet()
         {
             InitializeComponent();
         }
-
-        private void frmAccountManager_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-      
     }
 }
