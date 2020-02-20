@@ -46,17 +46,17 @@
             this.bsThongTinHS = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtNoiSinh = new System.Windows.Forms.TextBox();
-            this.txtTen = new System.Windows.Forms.TextBox();
-            this.txtMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
+            this.txtMa = new System.Windows.Forms.TextBox();
+            this.txtTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtNoiSinh = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDanToc = new System.Windows.Forms.TextBox();
             this.txtTonGiao = new System.Windows.Forms.TextBox();
@@ -266,36 +266,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1201, 144);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
-            // txtNoiSinh
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.txtNoiSinh, 2);
-            this.txtNoiSinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNoiSinh.Location = new System.Drawing.Point(180, 97);
-            this.txtNoiSinh.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(216, 22);
-            this.txtNoiSinh.TabIndex = 50;
-            // 
-            // txtTen
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.txtTen, 2);
-            this.txtTen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTen.Location = new System.Drawing.Point(180, 35);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(216, 22);
-            this.txtTen.TabIndex = 34;
-            // 
-            // txtMa
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.txtMa, 2);
-            this.txtMa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMa.Location = new System.Drawing.Point(180, 4);
-            this.txtMa.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(216, 22);
-            this.txtMa.TabIndex = 33;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -337,6 +307,26 @@
             this.radNam.Text = "Nam";
             this.radNam.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.radNam.UseVisualStyleBackColor = true;
+            // 
+            // txtMa
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.txtMa, 2);
+            this.txtMa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMa.Location = new System.Drawing.Point(180, 4);
+            this.txtMa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMa.Name = "txtMa";
+            this.txtMa.Size = new System.Drawing.Size(216, 22);
+            this.txtMa.TabIndex = 33;
+            // 
+            // txtTen
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.txtTen, 2);
+            this.txtTen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTen.Location = new System.Drawing.Point(180, 35);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(216, 22);
+            this.txtTen.TabIndex = 34;
             // 
             // label1
             // 
@@ -397,6 +387,16 @@
             this.label5.TabIndex = 51;
             this.label5.Text = "Ngày Sinh:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtNoiSinh
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.txtNoiSinh, 2);
+            this.txtNoiSinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNoiSinh.Location = new System.Drawing.Point(180, 97);
+            this.txtNoiSinh.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoiSinh.Name = "txtNoiSinh";
+            this.txtNoiSinh.Size = new System.Drawing.Size(216, 22);
+            this.txtNoiSinh.TabIndex = 50;
             // 
             // label4
             // 
