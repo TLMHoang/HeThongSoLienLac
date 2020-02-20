@@ -14,10 +14,10 @@ namespace DTO
 
         public ThongBaoTruong() { STT = -1; NoiDung = ""; }
 
-        public ThongBaoTruong(int sTT, string noiDung)
+        public ThongBaoTruong(int STT,string NoiDung)
         {
-            STT = sTT;
-            NoiDung = noiDung;
+            this.STT = STT;
+            this.NoiDung = NoiDung;
         }
 
         public ThongBaoTruong(DataRow dr)

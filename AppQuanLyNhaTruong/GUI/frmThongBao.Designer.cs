@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDSTB = new System.Windows.Forms.DataGridView();
             this.lblChonTB = new System.Windows.Forms.Label();
@@ -40,11 +41,19 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bsThongBaoTruong = new System.Windows.Forms.BindingSource(this.components);
+            this.bsThongBaoLop = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblChonLop = new System.Windows.Forms.Label();
+            this.cboChonLop = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoLop)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -101,6 +110,7 @@
             this.cboChonLoaiTB.Name = "cboChonLoaiTB";
             this.cboChonLoaiTB.Size = new System.Drawing.Size(605, 24);
             this.cboChonLoaiTB.TabIndex = 2;
+            this.cboChonLoaiTB.SelectedIndexChanged += new System.EventHandler(this.cboChonLoaiTB_SelectedIndexChanged);
             // 
             // lblNhapNoiDung
             // 
@@ -131,6 +141,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnSua, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnXoa, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(614, 412);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -157,6 +168,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm Thông Báo";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -172,6 +184,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa Thông Báo";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -216,6 +229,46 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // bsThongBaoTruong
+            // 
+            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
+            // 
+            // bsThongBaoLop
+            // 
+            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.lblChonLop, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cboChonLop, 0, 1);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(401, 51);
+            this.tableLayoutPanel4.TabIndex = 4;
+            // 
+            // lblChonLop
+            // 
+            this.lblChonLop.AutoSize = true;
+            this.lblChonLop.Location = new System.Drawing.Point(3, 0);
+            this.lblChonLop.Name = "lblChonLop";
+            this.lblChonLop.Size = new System.Drawing.Size(69, 17);
+            this.lblChonLop.TabIndex = 0;
+            this.lblChonLop.Text = "Chọn Lớp";
+            // 
+            // cboChonLop
+            // 
+            this.cboChonLop.FormattingEnabled = true;
+            this.cboChonLop.Location = new System.Drawing.Point(3, 28);
+            this.cboChonLop.Name = "cboChonLop";
+            this.cboChonLop.Size = new System.Drawing.Size(194, 24);
+            this.cboChonLop.TabIndex = 1;
+            // 
             // frmThongBao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -226,12 +279,17 @@
             this.Name = "frmThongBao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông Báo Chung";
+            this.Load += new System.EventHandler(this.frmThongBao_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoLop)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -250,5 +308,10 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.BindingSource bsThongBaoTruong;
+        private System.Windows.Forms.BindingSource bsThongBaoLop;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label lblChonLop;
+        private System.Windows.Forms.ComboBox cboChonLop;
     }
 }
