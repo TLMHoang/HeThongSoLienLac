@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using DTO;
 
 namespace GUI
 {
@@ -138,25 +139,23 @@ namespace GUI
         }
         public async void ThemTK()
         {            
-            await tt.Them(new DTO.ThongTinGV(
+            await tt.Them(new ThongTinGV(
                 int.Parse(txtNhapID.Text),
                 txtNhapTenGV.Text,
                 txtSDT.Text,
                 int.Parse(cboMonHoc.SelectedValue.ToString()),
-                int.Parse(cboLopPhuTrach.SelectedValue.ToString()),
-                chkGVCN.Checked ? (byte)1 : (byte)0
+                int.Parse(cboLopPhuTrach.SelectedValue.ToString())
                 ));
 
         }
         public async void CapNhatTK()
         {
-            await tt.CapNhap(new DTO.ThongTinGV(
+            await tt.CapNhap(new ThongTinGV(
                 int.Parse(txtNhapID.Text),
                 txtNhapTenGV.Text,
                 txtSDT.Text,
                 int.Parse(cboMonHoc.SelectedValue.ToString()),
-                int.Parse(cboLopPhuTrach.SelectedValue.ToString()),
-                chkGVCN.Checked ? (byte)1 : (byte)0
+                int.Parse(cboLopPhuTrach.SelectedValue.ToString())
                 ));
         }
         public async void XoaTK()

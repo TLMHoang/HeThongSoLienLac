@@ -85,7 +85,15 @@ namespace GUI
 
         private void btnQLGV_Click(object sender, EventArgs e)
         {
-            frmTaiKhoanGiaoVien f = new frmTaiKhoanGiaoVien();
+            GUI.frmTaiKhoanGiaoVien f = new GUI.frmTaiKhoanGiaoVien();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void btnAccountManagement_Click(object sender, EventArgs e)
+        {
+            GUI.frmAccountManager f = new frmAccountManager();
             this.Hide();
             f.ShowDialog();
             this.Show();
