@@ -22,6 +22,11 @@ namespace BAL
             return await Cup.Lay();
         }
 
+        public async Task<DataTable> LayID(int ID)
+        {
+            return await Cup.Lay(ID);
+        }
+
         public async Task<List<CupHoc>> LayLst()
         {
             List<CupHoc> lst = new List<CupHoc>();

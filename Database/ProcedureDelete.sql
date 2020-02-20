@@ -9,6 +9,22 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE DeleteDiemDanh
+@STT INT
+AS
+BEGIN
+    Delete dbo.DiemDanh WHERE STT = @STT
+END
+GO
+
+CREATE PROCEDURE DeleteXinPhep
+@STT INT
+AS
+BEGIN
+    Delete dbo.XinPhep WHERE STT = @STT
+END
+GO
+
 CREATE PROCEDURE DeleteLop
 @ID INT
 AS

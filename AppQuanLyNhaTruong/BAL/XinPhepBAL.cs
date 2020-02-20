@@ -22,6 +22,11 @@ namespace BAL
             return await xinPhep.Lay();
         }
 
+        public Task<DataTable> LayID(int ID)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<XinPhep>> LayLst()
         {
             List<XinPhep> lst = new List<XinPhep>();

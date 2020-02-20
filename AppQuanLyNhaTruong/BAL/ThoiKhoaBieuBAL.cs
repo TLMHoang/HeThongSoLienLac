@@ -22,6 +22,12 @@ namespace BAL
             return await tkb.Lay();
         }
 
+        public async Task<DataTable> LayID(int ID) // Lay tkb của lớp
+        {
+            return await tkb.Lay(ID);
+        }
+
+
         public async Task<List<ThoiKhoaBieu>> LayLst()
         {
             List<ThoiKhoaBieu> lst = new List<ThoiKhoaBieu>();

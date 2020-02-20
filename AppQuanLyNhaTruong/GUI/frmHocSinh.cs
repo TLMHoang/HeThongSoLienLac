@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
-using DTO;
+
 
 
 namespace GUI
@@ -53,45 +53,26 @@ namespace GUI
 
         public async void Them()
         {
-            await tt.Them(new ThongTinHS(
+            await tt.Them(new DTO.ThongTinHS(
                 int.Parse(txtMa.Text),
                 txtTen.Text,
                 dtpNgaySinh.Value,
                 Convert.ToByte(radNam.Checked),
-                txtNoiSinh.Text, txtDanToc.Text,
-                txtTonGiao.Text, int.Parse(txtMa.Text), 
-                int.Parse(txtMa.Text), 
+                txtNoiSinh.Text, 
+                txtDanToc.Text,
+                txtTonGiao.Text, 
+                int.Parse(txtMaTK.Text), 
+                int.Parse(txtMaLop.Text), 
                 txtTenMe.Text, 
                 txtSDTMe.Text, 
                 txtTenBa.Text, 
                 txtSDTBa.Text
                 ));
-            //int iD = int.Parse(txtMa.Text);
-            //string ten = txtTen.Text;
-            //DateTime ngaySinh;
-            //try
-            //{
-            //    dtpNgaySinh.text = ngaySinh.ToString();
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Ngày Sinh không hợp lệ");
-            //}
-            //Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
-            //string noiSinh = txtNoiSinh.Text;
-            //string danToc = txtDanToc.Text;
+            
+            this.DialogResult = DialogResult.OK;
+            this.Close();
 
 
-            //int iDLop = int.Parse(txtMa.Text);
-            //int iDTaiKhoan = int.Parse(txtMa.Text);
-            //string tonGiao = txtTonGiao.Text;
-
-            //string tenBo = txtTenBa.Text;
-            //string sDTBo = txtSDTBa.Text;
-            //string tenMe = txtTenMe.Text;
-            //string sDTMe = txtSDTMe.Text;
-
-            //await new ThongTinHSBAL().ThemHs(iD, ten, ngaySinh,  gioiTinh,  noiSinh,  danToc,  tonGiao, iDLop,  iDTaiKhoan,  tenMe,  sDTMe,  tenBo,  sDTBo);
 
 
         }
@@ -142,27 +123,27 @@ namespace GUI
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            if (await tt.KiemTraID(int.Parse(txtMa.Text)) == null)
+            if (await new ThongTinHSBAL().KiemTraID(int.Parse(txtMa.Text)) == null)
+                MessageBox.Show("TK Không Tồn Tại");
+            else
+            {
                 try
                 {
                     update();
-                    MessageBox.Show("Thêm Thành Công !");
+                    MessageBox.Show("Cập Nhật Thành Công !");
                     New();
                     loadHS();
-
-
                 }
                 catch (Exception)
-                { MessageBox.Show("Lỗi !"); }
-            else
-            {
-                MessageBox.Show("TK Đã Tồn Tại");
+                {
+                    MessageBox.Show("Lỗi !");
+                }
             }
         }
 
         private async void update()
         {
-            await tt.CapNhap(new ThongTinHS(
+            await tt.CapNhap(new DTO.ThongTinHS(
                 int.Parse(txtMa.Text),
                 txtTen.Text,
                 dtpNgaySinh.Value,
@@ -175,33 +156,7 @@ namespace GUI
                 txtTenBa.Text,
                 txtSDTBa.Text
                 ));
-            //int iD = int.Parse(txtMa.Text);
-            //string ten = txtTen.Text;
-            //DateTime ngaySinh;
-            //try
-            //{
-
-            //    DateTime.Parse(dtpNgaySinh.Text) = ngaySinh;
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Ngày Sinh không hợp lệ");
-            //}
-            //Byte gioiTinh = radNam.Checked ? (byte)1 : (byte)0;
-            //string noiSinh = txtNoiSinh.Text;
-            //string danToc = txtDanToc.Text;
-
-
-            //int iDLop = int.Parse(txtMa.Text);
-            //int iDTaiKhoan = int.Parse(txtMa.Text);
-            //string tonGiao = txtTonGiao.Text;
-
-            //string tenBo = txtTenBa.Text;
-            //string sDTBo = txtSDTBa.Text;
-            //string tenMe = txtTenMe.Text;
-            //string sDTMe = txtSDTMe.Text;
-
-            //await tt.Sua(iD, ten, ngaySinh, gioiTinh, noiSinh, danToc, tonGiao, iDLop, iDTaiKhoan, tenMe, sDTMe, tenBo, sDTBo);
+            
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -221,7 +176,7 @@ namespace GUI
             txtMaLop.Text = "";
             txtMaTK.Text = "";
             txtTenBa.Text = "";
-            txtSDTMe.Text = "";
+            txtSDTBa.Text = "";
             txtTenMe.Text = "";
             txtSDTMe.Text = "";
         }
@@ -249,32 +204,32 @@ namespace GUI
 
         private void dgvHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int i;
-            i = e.RowIndex;
-            txtMa.Text = dgvHocSinh.Rows[i].Cells[0].Value.ToString();
-            txtTen.Text = dgvHocSinh.Rows[i].Cells[1].Value.ToString();
-            string GioiTinh;
-            GioiTinh = dgvHocSinh.Rows[i].Cells[2].Value.ToString();
-            if (GioiTinh == "Nữ")
-            {
-                radNu.Checked = true;
-            }
-            else
-            {
-                radNam.Checked = true;
-            }
-            txtNoiSinh.Text = dgvHocSinh.Rows[i].Cells[3].Value.ToString(); 
-            dtpNgaySinh.Text = dgvHocSinh.Rows[i].Cells[4].Value.ToString();
-            
-            txtDanToc.Text = dgvHocSinh.Rows[i].Cells[5].Value.ToString();
-            txtTonGiao.Text = dgvHocSinh.Rows[i].Cells[6].Value.ToString();
-            txtMaLop.Text = dgvHocSinh.Rows[i].Cells[7].Value.ToString();
-            txtMaTK.Text = dgvHocSinh.Rows[i].Cells[8].Value.ToString();
+            //int i;
+            //i = e.RowIndex;
+            //txtMa.Text = dgvHocSinh.Rows[i].Cells[0].Value.ToString();
+            //txtTen.Text = dgvHocSinh.Rows[i].Cells[1].Value.ToString();
+            //string GioiTinh;
+            //GioiTinh = dgvHocSinh.Rows[i].Cells[2].Value.ToString();
+            //if (GioiTinh == "Nữ")
+            //{
+            //    radNu.Checked = true;
+            //}
+            //else
+            //{
+            //    radNam.Checked = true;
+            //}
+            //txtNoiSinh.Text = dgvHocSinh.Rows[i].Cells[3].Value.ToString();
+            //dtpNgaySinh.Text = dgvHocSinh.Rows[i].Cells[4].Value.ToString();
 
-            txtTenBa.Text = dgvHocSinh.Rows[i].Cells[9].Value.ToString();
-            txtSDTBa.Text = dgvHocSinh.Rows[i].Cells[10].Value.ToString();
-            txtTenMe.Text = dgvHocSinh.Rows[i].Cells[11].Value.ToString();
-            txtSDTMe.Text = dgvHocSinh.Rows[i].Cells[12].Value.ToString();
+            //txtDanToc.Text = dgvHocSinh.Rows[i].Cells[5].Value.ToString();
+            //txtTonGiao.Text = dgvHocSinh.Rows[i].Cells[6].Value.ToString();
+            //txtMaLop.Text = dgvHocSinh.Rows[i].Cells[7].Value.ToString();
+            //txtMaTK.Text = dgvHocSinh.Rows[i].Cells[8].Value.ToString();
+
+            //txtTenBa.Text = dgvHocSinh.Rows[i].Cells[9].Value.ToString();
+            //txtSDTBa.Text = dgvHocSinh.Rows[i].Cells[10].Value.ToString();
+            //txtTenMe.Text = dgvHocSinh.Rows[i].Cells[11].Value.ToString();
+            //txtSDTMe.Text = dgvHocSinh.Rows[i].Cells[12].Value.ToString();
 
         }
     }

@@ -34,6 +34,12 @@ namespace BAL
             return lst;
         }
 
+        public async Task<DataTable> LayID(string TenLop, int ID)
+        {
+            return await diem1.Lay(TenLop, ID);
+
+        }
+
         public async Task<int> Them(string TenLop, DiemHeSoMot obj)
         {
             return await diem1.Them(TenLop ,obj);

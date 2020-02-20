@@ -22,12 +22,18 @@ namespace DAL
 
         public async Task<DataTable> Lay()
         {
-            return await ExecuteQuery("SelectTaiKhoanPH");
+            return await ExecuteQuery(
+                "SelectTaiKhoanPH",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
+                );
         }
 
-        public Task<DataTable> Lay(int ID)
+        public async Task<DataTable> Lay(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery(
+                "SelectTaiKhoanPH",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+                );
         }
 
         public async Task<int> Them(TaiKhoanPH obj)

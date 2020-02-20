@@ -22,6 +22,11 @@ namespace BAL
             return await hanhKiem.Lay();
         }
 
+        public async Task<DataTable> LayID(int ID)
+        {
+            return await hanhKiem.Lay(ID);
+        }
+
         public async Task<List<HanhKiem>> LayLst()
         {
             List<HanhKiem> lst = new List<HanhKiem>();

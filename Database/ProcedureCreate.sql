@@ -81,11 +81,9 @@ BEGIN
     Insert dbo.Lop
     (
         TenLop,
-		IDGiaoVien
     )
     VALUES
     (@TenLop, -- TenLop - nvarchar(50)
-	@IDGiaoVien
         )
 END
 GO
@@ -295,6 +293,10 @@ BEGIN
         @TenBo,       -- TenBo - nvarchar(150)
         @SDTBo         -- SDTBo - varchar(12)
         )
+	EXEC dbo.InsertHanhKiem @IDHocSinh = @IDLop, -- int
+	                        @Loai = N'',    -- nvarchar(20)
+	                        @HocKy = NULL   -- bit
+	
 END
 GO
 
