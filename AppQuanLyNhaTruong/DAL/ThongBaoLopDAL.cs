@@ -31,7 +31,8 @@ namespace DAL
 
         public async Task<int> Them(ThongBaoLop obj)
         {
-            return await ExecuteNonQuery("InsertThongBaoLop",                 
+            return await ExecuteNonQuery("InsertThongBaoLop",
+                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                  new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung }
                  );
         }

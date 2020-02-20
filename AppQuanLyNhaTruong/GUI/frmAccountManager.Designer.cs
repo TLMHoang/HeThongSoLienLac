@@ -28,272 +28,511 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtTraCuuTK = new System.Windows.Forms.TextBox();
-            this.pnlAddAccount = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnDeleteAccount = new System.Windows.Forms.Button();
-            this.btnEditAccount = new System.Windows.Forms.Button();
-            this.lblAccountStudentClass = new System.Windows.Forms.Label();
-            this.txtAccountStudentName = new System.Windows.Forms.TextBox();
-            this.lblIDHocSinh = new System.Windows.Forms.Label();
-            this.txtPassWord = new System.Windows.Forms.TextBox();
-            this.lblPassWord = new System.Windows.Forms.Label();
-            this.txtAccountName = new System.Windows.Forms.TextBox();
-            this.lblAccountName = new System.Windows.Forms.Label();
-            this.btnAddAccount = new System.Windows.Forms.Button();
-            this.lblListAccount = new System.Windows.Forms.Label();
-            this.dgvDanhSachTK = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.panel1.SuspendLayout();
-            this.pnlAddAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachTK)).BeginInit();
+            this.tabPageQLTK = new System.Windows.Forms.TabControl();
+            this.tabPageTaiKhoanPH = new System.Windows.Forms.TabPage();
+            this.tabPageAdmin = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvDSTK = new System.Windows.Forms.DataGridView();
+            this.lblTimKiem = new System.Windows.Forms.Label();
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.lblTaoTaiKhoan = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTenTK = new System.Windows.Forms.Label();
+            this.lblMatKhau = new System.Windows.Forms.Label();
+            this.txtNhapTen = new System.Windows.Forms.TextBox();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnDatLaiMK = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.tlpAdmin = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvDSTKAdmin = new System.Windows.Forms.DataGridView();
+            this.lblTimKiemAdmin = new System.Windows.Forms.Label();
+            this.txtTimKiemAdmin = new System.Windows.Forms.TextBox();
+            this.tlpTaoTKAdmin = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTaoTKAdmin = new System.Windows.Forms.Label();
+            this.lblTenTKAdmin = new System.Windows.Forms.Label();
+            this.lblMatKhauAdmin = new System.Windows.Forms.Label();
+            this.lblQuyenAdmin = new System.Windows.Forms.Label();
+            this.chkQuyenAdmin = new System.Windows.Forms.CheckBox();
+            this.txtNhapMatKhauAdmin = new System.Windows.Forms.TextBox();
+            this.txtNhapTenAdmin = new System.Windows.Forms.TextBox();
+            this.btnThemAdmin = new System.Windows.Forms.Button();
+            this.btnSuaAdmin = new System.Windows.Forms.Button();
+            this.btnXoaAdmin = new System.Windows.Forms.Button();
+            this.tabPageQLTK.SuspendLayout();
+            this.tabPageTaiKhoanPH.SuspendLayout();
+            this.tabPageAdmin.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tlpAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTKAdmin)).BeginInit();
+            this.tlpTaoTKAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // tabPageQLTK
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.txtTraCuuTK);
-            this.panel1.Controls.Add(this.pnlAddAccount);
-            this.panel1.Controls.Add(this.lblListAccount);
-            this.panel1.Controls.Add(this.dgvDanhSachTK);
-            this.panel1.Location = new System.Drawing.Point(4, 7);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(913, 546);
-            this.panel1.TabIndex = 0;
+            this.tabPageQLTK.Controls.Add(this.tabPageTaiKhoanPH);
+            this.tabPageQLTK.Controls.Add(this.tabPageAdmin);
+            this.tabPageQLTK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPageQLTK.Location = new System.Drawing.Point(0, 0);
+            this.tabPageQLTK.Name = "tabPageQLTK";
+            this.tabPageQLTK.SelectedIndex = 0;
+            this.tabPageQLTK.Size = new System.Drawing.Size(1266, 724);
+            this.tabPageQLTK.TabIndex = 0;
             // 
-            // txtTraCuuTK
+            // tabPageTaiKhoanPH
             // 
-            this.txtTraCuuTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTraCuuTK.Location = new System.Drawing.Point(168, 22);
-            this.txtTraCuuTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTraCuuTK.Name = "txtTraCuuTK";
-            this.txtTraCuuTK.Size = new System.Drawing.Size(280, 23);
-            this.txtTraCuuTK.TabIndex = 7;
+            this.tabPageTaiKhoanPH.Controls.Add(this.tableLayoutPanel1);
+            this.tabPageTaiKhoanPH.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTaiKhoanPH.Name = "tabPageTaiKhoanPH";
+            this.tabPageTaiKhoanPH.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTaiKhoanPH.Size = new System.Drawing.Size(1258, 695);
+            this.tabPageTaiKhoanPH.TabIndex = 0;
+            this.tabPageTaiKhoanPH.Text = "Tài Khoản Phụ Huynh";
+            this.tabPageTaiKhoanPH.UseVisualStyleBackColor = true;
             // 
-            // pnlAddAccount
+            // tabPageAdmin
             // 
-            this.pnlAddAccount.Controls.Add(this.dataGridView1);
-            this.pnlAddAccount.Controls.Add(this.comboBox1);
-            this.pnlAddAccount.Controls.Add(this.btnDeleteAccount);
-            this.pnlAddAccount.Controls.Add(this.btnEditAccount);
-            this.pnlAddAccount.Controls.Add(this.lblAccountStudentClass);
-            this.pnlAddAccount.Controls.Add(this.txtAccountStudentName);
-            this.pnlAddAccount.Controls.Add(this.lblIDHocSinh);
-            this.pnlAddAccount.Controls.Add(this.txtPassWord);
-            this.pnlAddAccount.Controls.Add(this.lblPassWord);
-            this.pnlAddAccount.Controls.Add(this.txtAccountName);
-            this.pnlAddAccount.Controls.Add(this.lblAccountName);
-            this.pnlAddAccount.Controls.Add(this.btnAddAccount);
-            this.pnlAddAccount.Location = new System.Drawing.Point(454, 2);
-            this.pnlAddAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pnlAddAccount.Name = "pnlAddAccount";
-            this.pnlAddAccount.Size = new System.Drawing.Size(452, 543);
-            this.pnlAddAccount.TabIndex = 6;
+            this.tabPageAdmin.Controls.Add(this.tlpAdmin);
+            this.tabPageAdmin.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAdmin.Name = "tabPageAdmin";
+            this.tabPageAdmin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdmin.Size = new System.Drawing.Size(1258, 695);
+            this.tabPageAdmin.TabIndex = 1;
+            this.tabPageAdmin.Text = "Admin";
+            this.tabPageAdmin.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // tableLayoutPanel1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 65);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(446, 222);
-            this.dataGridView1.TabIndex = 12;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvDSTK, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblTimKiem, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtTimkiem, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblTaoTaiKhoan, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.81967F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.18033F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 585F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1252, 689);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // comboBox1
+            // dgvDSTK
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(87, 23);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(325, 21);
-            this.comboBox1.TabIndex = 11;
+            this.dgvDSTK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDSTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSTK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDSTK.Location = new System.Drawing.Point(3, 106);
+            this.dgvDSTK.Name = "dgvDSTK";
+            this.dgvDSTK.RowTemplate.Height = 24;
+            this.dgvDSTK.Size = new System.Drawing.Size(620, 580);
+            this.dgvDSTK.TabIndex = 0;
             // 
-            // btnDeleteAccount
+            // lblTimKiem
             // 
-            this.btnDeleteAccount.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnDeleteAccount.FlatAppearance.BorderSize = 0;
-            this.btnDeleteAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAccount.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteAccount.Location = new System.Drawing.Point(301, 444);
-            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(119, 45);
-            this.btnDeleteAccount.TabIndex = 10;
-            this.btnDeleteAccount.Text = "Xóa Tài Khoản";
-            this.btnDeleteAccount.UseVisualStyleBackColor = false;
+            this.lblTimKiem.AutoSize = true;
+            this.lblTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimKiem.Location = new System.Drawing.Point(3, 42);
+            this.lblTimKiem.Name = "lblTimKiem";
+            this.lblTimKiem.Size = new System.Drawing.Size(254, 20);
+            this.lblTimKiem.TabIndex = 1;
+            this.lblTimKiem.Text = "Nhập ID Hoặc Tên Tài Khoản";
             // 
-            // btnEditAccount
+            // txtTimkiem
             // 
-            this.btnEditAccount.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEditAccount.FlatAppearance.BorderSize = 0;
-            this.btnEditAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAccount.ForeColor = System.Drawing.Color.White;
-            this.btnEditAccount.Location = new System.Drawing.Point(178, 444);
-            this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnEditAccount.Name = "btnEditAccount";
-            this.btnEditAccount.Size = new System.Drawing.Size(119, 45);
-            this.btnEditAccount.TabIndex = 9;
-            this.btnEditAccount.Text = "Sửa";
-            this.btnEditAccount.UseVisualStyleBackColor = false;
+            this.txtTimkiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTimkiem.Location = new System.Drawing.Point(3, 76);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(620, 22);
+            this.txtTimkiem.TabIndex = 2;
             // 
-            // lblAccountStudentClass
+            // lblTaoTaiKhoan
             // 
-            this.lblAccountStudentClass.AutoSize = true;
-            this.lblAccountStudentClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountStudentClass.Location = new System.Drawing.Point(34, 25);
-            this.lblAccountStudentClass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAccountStudentClass.Name = "lblAccountStudentClass";
-            this.lblAccountStudentClass.Size = new System.Drawing.Size(28, 13);
-            this.lblAccountStudentClass.TabIndex = 7;
-            this.lblAccountStudentClass.Text = "Lớp";
+            this.lblTaoTaiKhoan.AutoSize = true;
+            this.lblTaoTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaoTaiKhoan.Location = new System.Drawing.Point(629, 42);
+            this.lblTaoTaiKhoan.Name = "lblTaoTaiKhoan";
+            this.lblTaoTaiKhoan.Size = new System.Drawing.Size(166, 20);
+            this.lblTaoTaiKhoan.TabIndex = 3;
+            this.lblTaoTaiKhoan.Text = "Tạo Tài Khoản Mới";
             // 
-            // txtAccountStudentName
+            // tableLayoutPanel2
             // 
-            this.txtAccountStudentName.Location = new System.Drawing.Point(127, 315);
-            this.txtAccountStudentName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtAccountStudentName.Name = "txtAccountStudentName";
-            this.txtAccountStudentName.Size = new System.Drawing.Size(273, 20);
-            this.txtAccountStudentName.TabIndex = 6;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.02913F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.97087F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 207F));
+            this.tableLayoutPanel2.Controls.Add(this.lblMatKhau, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.lblTenTK, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtNhapTen, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtMatKhau, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.btnThem, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.btnDatLaiMK, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.btnXoa, 2, 6);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(629, 76);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 9;
+            this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.37838F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.62162F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 254F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(620, 610);
+            this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // lblIDHocSinh
+            // lblTenTK
             // 
-            this.lblIDHocSinh.AutoSize = true;
-            this.lblIDHocSinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDHocSinh.Location = new System.Drawing.Point(34, 318);
-            this.lblIDHocSinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIDHocSinh.Name = "lblIDHocSinh";
-            this.lblIDHocSinh.Size = new System.Drawing.Size(76, 13);
-            this.lblIDHocSinh.TabIndex = 5;
-            this.lblIDHocSinh.Text = "ID Học Sinh";
+            this.lblTenTK.AutoSize = true;
+            this.lblTenTK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTenTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenTK.Location = new System.Drawing.Point(3, 124);
+            this.lblTenTK.Name = "lblTenTK";
+            this.lblTenTK.Size = new System.Drawing.Size(196, 28);
+            this.lblTenTK.TabIndex = 4;
+            this.lblTenTK.Text = "Nhập Tên Tài Khoản";
             // 
-            // txtPassWord
+            // lblMatKhau
             // 
-            this.txtPassWord.Location = new System.Drawing.Point(127, 381);
-            this.txtPassWord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(273, 20);
-            this.txtPassWord.TabIndex = 4;
+            this.lblMatKhau.AutoSize = true;
+            this.lblMatKhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatKhau.Location = new System.Drawing.Point(3, 178);
+            this.lblMatKhau.Name = "lblMatKhau";
+            this.lblMatKhau.Size = new System.Drawing.Size(196, 30);
+            this.lblMatKhau.TabIndex = 5;
+            this.lblMatKhau.Text = "Nhập Mật Khẩu";
             // 
-            // lblPassWord
+            // txtNhapTen
             // 
-            this.lblPassWord.AutoSize = true;
-            this.lblPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassWord.Location = new System.Drawing.Point(34, 385);
-            this.lblPassWord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPassWord.Name = "lblPassWord";
-            this.lblPassWord.Size = new System.Drawing.Size(61, 13);
-            this.lblPassWord.TabIndex = 3;
-            this.lblPassWord.Text = "Mật Khẩu";
+            this.tableLayoutPanel2.SetColumnSpan(this.txtNhapTen, 2);
+            this.txtNhapTen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNhapTen.Location = new System.Drawing.Point(205, 127);
+            this.txtNhapTen.Name = "txtNhapTen";
+            this.txtNhapTen.Size = new System.Drawing.Size(412, 22);
+            this.txtNhapTen.TabIndex = 6;
             // 
-            // txtAccountName
+            // txtMatKhau
             // 
-            this.txtAccountName.Location = new System.Drawing.Point(127, 349);
-            this.txtAccountName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(273, 20);
-            this.txtAccountName.TabIndex = 2;
+            this.tableLayoutPanel2.SetColumnSpan(this.txtMatKhau, 2);
+            this.txtMatKhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMatKhau.Location = new System.Drawing.Point(205, 181);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(412, 22);
+            this.txtMatKhau.TabIndex = 7;
             // 
-            // lblAccountName
+            // btnThem
             // 
-            this.lblAccountName.AutoSize = true;
-            this.lblAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountName.Location = new System.Drawing.Point(34, 352);
-            this.lblAccountName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(91, 13);
-            this.lblAccountName.TabIndex = 1;
-            this.lblAccountName.Text = "Tên Tài Khoản";
+            this.btnThem.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(3, 272);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(196, 60);
+            this.btnThem.TabIndex = 8;
+            this.btnThem.Text = "Thêm Tài Khoản";
+            this.btnThem.UseVisualStyleBackColor = false;
             // 
-            // btnAddAccount
+            // btnDatLaiMK
             // 
-            this.btnAddAccount.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAddAccount.FlatAppearance.BorderSize = 0;
-            this.btnAddAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAccount.ForeColor = System.Drawing.Color.White;
-            this.btnAddAccount.Location = new System.Drawing.Point(53, 444);
-            this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(119, 45);
-            this.btnAddAccount.TabIndex = 0;
-            this.btnAddAccount.Text = "Thêm Tài Khoản";
-            this.btnAddAccount.UseVisualStyleBackColor = false;
+            this.btnDatLaiMK.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDatLaiMK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDatLaiMK.FlatAppearance.BorderSize = 0;
+            this.btnDatLaiMK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDatLaiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatLaiMK.ForeColor = System.Drawing.Color.White;
+            this.btnDatLaiMK.Location = new System.Drawing.Point(205, 272);
+            this.btnDatLaiMK.Name = "btnDatLaiMK";
+            this.btnDatLaiMK.Size = new System.Drawing.Size(204, 60);
+            this.btnDatLaiMK.TabIndex = 9;
+            this.btnDatLaiMK.Text = "Đặt Lại Mật Khẩu";
+            this.btnDatLaiMK.UseVisualStyleBackColor = false;
             // 
-            // lblListAccount
+            // btnXoa
             // 
-            this.lblListAccount.AutoSize = true;
-            this.lblListAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListAccount.Location = new System.Drawing.Point(4, 21);
-            this.lblListAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblListAccount.Name = "lblListAccount";
-            this.lblListAccount.Size = new System.Drawing.Size(157, 20);
-            this.lblListAccount.TabIndex = 5;
-            this.lblListAccount.Text = "Tra Cứu Tài Khoản";
+            this.btnXoa.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(415, 272);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(202, 60);
+            this.btnXoa.TabIndex = 10;
+            this.btnXoa.Text = "Xóa Tài Khoản";
+            this.btnXoa.UseVisualStyleBackColor = false;
             // 
-            // dgvDanhSachTK
+            // tlpAdmin
             // 
-            this.dgvDanhSachTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachTK.Location = new System.Drawing.Point(6, 67);
-            this.dgvDanhSachTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvDanhSachTK.Name = "dgvDanhSachTK";
-            this.dgvDanhSachTK.RowTemplate.Height = 24;
-            this.dgvDanhSachTK.Size = new System.Drawing.Size(441, 478);
-            this.dgvDanhSachTK.TabIndex = 4;
+            this.tlpAdmin.ColumnCount = 2;
+            this.tlpAdmin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.30671F));
+            this.tlpAdmin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.69329F));
+            this.tlpAdmin.Controls.Add(this.dgvDSTKAdmin, 0, 3);
+            this.tlpAdmin.Controls.Add(this.lblTimKiemAdmin, 0, 1);
+            this.tlpAdmin.Controls.Add(this.txtTimKiemAdmin, 0, 2);
+            this.tlpAdmin.Controls.Add(this.tlpTaoTKAdmin, 1, 2);
+            this.tlpAdmin.Controls.Add(this.lblTaoTKAdmin, 1, 1);
+            this.tlpAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpAdmin.Location = new System.Drawing.Point(3, 3);
+            this.tlpAdmin.Name = "tlpAdmin";
+            this.tlpAdmin.RowCount = 4;
+            this.tlpAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tlpAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tlpAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.565863F));
+            this.tlpAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.43414F));
+            this.tlpAdmin.Size = new System.Drawing.Size(1252, 689);
+            this.tlpAdmin.TabIndex = 0;
             // 
-            // Column1
+            // dgvDSTKAdmin
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.dgvDSTKAdmin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDSTKAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSTKAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDSTKAdmin.Location = new System.Drawing.Point(3, 132);
+            this.dgvDSTKAdmin.Name = "dgvDSTKAdmin";
+            this.dgvDSTKAdmin.RowTemplate.Height = 24;
+            this.dgvDSTKAdmin.Size = new System.Drawing.Size(724, 554);
+            this.dgvDSTKAdmin.TabIndex = 0;
+            // 
+            // lblTimKiemAdmin
+            // 
+            this.lblTimKiemAdmin.AutoSize = true;
+            this.lblTimKiemAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimKiemAdmin.Location = new System.Drawing.Point(3, 68);
+            this.lblTimKiemAdmin.Name = "lblTimKiemAdmin";
+            this.lblTimKiemAdmin.Size = new System.Drawing.Size(254, 20);
+            this.lblTimKiemAdmin.TabIndex = 2;
+            this.lblTimKiemAdmin.Text = "Nhập ID Hoặc Tên Tài Khoản";
+            // 
+            // txtTimKiemAdmin
+            // 
+            this.txtTimKiemAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTimKiemAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiemAdmin.Location = new System.Drawing.Point(3, 99);
+            this.txtTimKiemAdmin.Name = "txtTimKiemAdmin";
+            this.txtTimKiemAdmin.Size = new System.Drawing.Size(724, 27);
+            this.txtTimKiemAdmin.TabIndex = 3;
+            // 
+            // tlpTaoTKAdmin
+            // 
+            this.tlpTaoTKAdmin.ColumnCount = 3;
+            this.tlpTaoTKAdmin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.2907F));
+            this.tlpTaoTKAdmin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.7093F));
+            this.tlpTaoTKAdmin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tlpTaoTKAdmin.Controls.Add(this.lblTenTKAdmin, 0, 1);
+            this.tlpTaoTKAdmin.Controls.Add(this.lblMatKhauAdmin, 0, 2);
+            this.tlpTaoTKAdmin.Controls.Add(this.lblQuyenAdmin, 0, 3);
+            this.tlpTaoTKAdmin.Controls.Add(this.chkQuyenAdmin, 1, 3);
+            this.tlpTaoTKAdmin.Controls.Add(this.txtNhapMatKhauAdmin, 1, 2);
+            this.tlpTaoTKAdmin.Controls.Add(this.txtNhapTenAdmin, 1, 1);
+            this.tlpTaoTKAdmin.Controls.Add(this.btnSuaAdmin, 1, 6);
+            this.tlpTaoTKAdmin.Controls.Add(this.btnXoaAdmin, 2, 6);
+            this.tlpTaoTKAdmin.Controls.Add(this.btnThemAdmin, 0, 6);
+            this.tlpTaoTKAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpTaoTKAdmin.Location = new System.Drawing.Point(733, 99);
+            this.tlpTaoTKAdmin.Name = "tlpTaoTKAdmin";
+            this.tlpTaoTKAdmin.RowCount = 8;
+            this.tlpAdmin.SetRowSpan(this.tlpTaoTKAdmin, 2);
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.53968F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.46032F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tlpTaoTKAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 153F));
+            this.tlpTaoTKAdmin.Size = new System.Drawing.Size(516, 587);
+            this.tlpTaoTKAdmin.TabIndex = 4;
+            // 
+            // lblTaoTKAdmin
+            // 
+            this.lblTaoTKAdmin.AutoSize = true;
+            this.lblTaoTKAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaoTKAdmin.Location = new System.Drawing.Point(733, 68);
+            this.lblTaoTKAdmin.Name = "lblTaoTKAdmin";
+            this.lblTaoTKAdmin.Size = new System.Drawing.Size(166, 20);
+            this.lblTaoTKAdmin.TabIndex = 5;
+            this.lblTaoTKAdmin.Text = "Tạo Tài Khoản Mới";
+            // 
+            // lblTenTKAdmin
+            // 
+            this.lblTenTKAdmin.AutoSize = true;
+            this.lblTenTKAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenTKAdmin.Location = new System.Drawing.Point(3, 156);
+            this.lblTenTKAdmin.Name = "lblTenTKAdmin";
+            this.lblTenTKAdmin.Size = new System.Drawing.Size(90, 20);
+            this.lblTenTKAdmin.TabIndex = 6;
+            this.lblTenTKAdmin.Text = "Nhập tên ";
+            // 
+            // lblMatKhauAdmin
+            // 
+            this.lblMatKhauAdmin.AutoSize = true;
+            this.lblMatKhauAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatKhauAdmin.Location = new System.Drawing.Point(3, 189);
+            this.lblMatKhauAdmin.Name = "lblMatKhauAdmin";
+            this.lblMatKhauAdmin.Size = new System.Drawing.Size(137, 20);
+            this.lblMatKhauAdmin.TabIndex = 7;
+            this.lblMatKhauAdmin.Text = "Nhập Mật Khẩu";
+            // 
+            // lblQuyenAdmin
+            // 
+            this.lblQuyenAdmin.AutoSize = true;
+            this.lblQuyenAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuyenAdmin.Location = new System.Drawing.Point(3, 221);
+            this.lblQuyenAdmin.Name = "lblQuyenAdmin";
+            this.lblQuyenAdmin.Size = new System.Drawing.Size(138, 20);
+            this.lblQuyenAdmin.TabIndex = 8;
+            this.lblQuyenAdmin.Text = "Quyền Quản Lý";
+            // 
+            // chkQuyenAdmin
+            // 
+            this.chkQuyenAdmin.AutoSize = true;
+            this.chkQuyenAdmin.Location = new System.Drawing.Point(179, 224);
+            this.chkQuyenAdmin.Name = "chkQuyenAdmin";
+            this.chkQuyenAdmin.Size = new System.Drawing.Size(47, 21);
+            this.chkQuyenAdmin.TabIndex = 9;
+            this.chkQuyenAdmin.Text = "Có";
+            this.chkQuyenAdmin.UseVisualStyleBackColor = true;
+            // 
+            // txtNhapMatKhauAdmin
+            // 
+            this.tlpTaoTKAdmin.SetColumnSpan(this.txtNhapMatKhauAdmin, 2);
+            this.txtNhapMatKhauAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNhapMatKhauAdmin.Location = new System.Drawing.Point(179, 192);
+            this.txtNhapMatKhauAdmin.Name = "txtNhapMatKhauAdmin";
+            this.txtNhapMatKhauAdmin.Size = new System.Drawing.Size(334, 22);
+            this.txtNhapMatKhauAdmin.TabIndex = 10;
+            // 
+            // txtNhapTenAdmin
+            // 
+            this.tlpTaoTKAdmin.SetColumnSpan(this.txtNhapTenAdmin, 2);
+            this.txtNhapTenAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNhapTenAdmin.Location = new System.Drawing.Point(179, 159);
+            this.txtNhapTenAdmin.Name = "txtNhapTenAdmin";
+            this.txtNhapTenAdmin.Size = new System.Drawing.Size(334, 22);
+            this.txtNhapTenAdmin.TabIndex = 11;
+            // 
+            // btnThemAdmin
+            // 
+            this.btnThemAdmin.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThemAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThemAdmin.FlatAppearance.BorderSize = 0;
+            this.btnThemAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnThemAdmin.Location = new System.Drawing.Point(3, 368);
+            this.btnThemAdmin.Name = "btnThemAdmin";
+            this.btnThemAdmin.Size = new System.Drawing.Size(170, 62);
+            this.btnThemAdmin.TabIndex = 12;
+            this.btnThemAdmin.Text = "Thêm";
+            this.btnThemAdmin.UseVisualStyleBackColor = false;
+            // 
+            // btnSuaAdmin
+            // 
+            this.btnSuaAdmin.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSuaAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSuaAdmin.FlatAppearance.BorderSize = 0;
+            this.btnSuaAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuaAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnSuaAdmin.Location = new System.Drawing.Point(179, 368);
+            this.btnSuaAdmin.Name = "btnSuaAdmin";
+            this.btnSuaAdmin.Size = new System.Drawing.Size(167, 62);
+            this.btnSuaAdmin.TabIndex = 13;
+            this.btnSuaAdmin.Text = "Sửa";
+            this.btnSuaAdmin.UseVisualStyleBackColor = false;
+            // 
+            // btnXoaAdmin
+            // 
+            this.btnXoaAdmin.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnXoaAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoaAdmin.FlatAppearance.BorderSize = 0;
+            this.btnXoaAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnXoaAdmin.Location = new System.Drawing.Point(352, 368);
+            this.btnXoaAdmin.Name = "btnXoaAdmin";
+            this.btnXoaAdmin.Size = new System.Drawing.Size(161, 62);
+            this.btnXoaAdmin.TabIndex = 14;
+            this.btnXoaAdmin.Text = "Xóa";
+            this.btnXoaAdmin.UseVisualStyleBackColor = false;
             // 
             // frmAccountManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(922, 563);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(1266, 724);
+            this.Controls.Add(this.tabPageQLTK);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAccountManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Tài Khoản";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.pnlAddAccount.ResumeLayout(false);
-            this.pnlAddAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachTK)).EndInit();
+            this.tabPageQLTK.ResumeLayout(false);
+            this.tabPageTaiKhoanPH.ResumeLayout(false);
+            this.tabPageAdmin.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tlpAdmin.ResumeLayout(false);
+            this.tlpAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTKAdmin)).EndInit();
+            this.tlpTaoTKAdmin.ResumeLayout(false);
+            this.tlpTaoTKAdmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel pnlAddAccount;
-        private System.Windows.Forms.Button btnDeleteAccount;
-        private System.Windows.Forms.Button btnEditAccount;
-        private System.Windows.Forms.Label lblAccountStudentClass;
-        private System.Windows.Forms.TextBox txtAccountStudentName;
-        private System.Windows.Forms.Label lblIDHocSinh;
-        private System.Windows.Forms.TextBox txtPassWord;
-        private System.Windows.Forms.Label lblPassWord;
-        private System.Windows.Forms.TextBox txtAccountName;
-        private System.Windows.Forms.Label lblAccountName;
-        private System.Windows.Forms.Button btnAddAccount;
-        private System.Windows.Forms.Label lblListAccount;
-        private System.Windows.Forms.DataGridView dgvDanhSachTK;
-        private System.Windows.Forms.TextBox txtTraCuuTK;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.TabControl tabPageQLTK;
+        private System.Windows.Forms.TabPage tabPageTaiKhoanPH;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TabPage tabPageAdmin;
+        private System.Windows.Forms.DataGridView dgvDSTK;
+        private System.Windows.Forms.Label lblTimKiem;
+        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.Label lblTaoTaiKhoan;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lblMatKhau;
+        private System.Windows.Forms.Label lblTenTK;
+        private System.Windows.Forms.TextBox txtNhapTen;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnDatLaiMK;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.TableLayoutPanel tlpAdmin;
+        private System.Windows.Forms.DataGridView dgvDSTKAdmin;
+        private System.Windows.Forms.Label lblTimKiemAdmin;
+        private System.Windows.Forms.TextBox txtTimKiemAdmin;
+        private System.Windows.Forms.TableLayoutPanel tlpTaoTKAdmin;
+        private System.Windows.Forms.Label lblTenTKAdmin;
+        private System.Windows.Forms.Label lblMatKhauAdmin;
+        private System.Windows.Forms.Label lblQuyenAdmin;
+        private System.Windows.Forms.CheckBox chkQuyenAdmin;
+        private System.Windows.Forms.TextBox txtNhapMatKhauAdmin;
+        private System.Windows.Forms.TextBox txtNhapTenAdmin;
+        private System.Windows.Forms.Button btnSuaAdmin;
+        private System.Windows.Forms.Button btnXoaAdmin;
+        private System.Windows.Forms.Button btnThemAdmin;
+        private System.Windows.Forms.Label lblTaoTKAdmin;
     }
 }
