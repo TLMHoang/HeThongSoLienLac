@@ -63,7 +63,7 @@ namespace DTO
 			ID = Convert.IsDBNull(dr["ID"]) ? -1 : Convert.ToInt32(dr["ID"]);
 			Ten = dr["Ten"].ToString();
 			NgaySinh = Convert.ToDateTime(dr["NgaySinh"]);
-			//GioiTinh = Convert.ToByte(dr["GioiTinh"]);
+			GioiTinh = Convert.ToByte(dr["GioiTinh"]);
             
 			NoiSinh = dr["NoiSinh"].ToString();
 			DanToc = dr["DanToc"].ToString();
