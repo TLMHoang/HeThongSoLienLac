@@ -56,8 +56,7 @@ GO
 
 CREATE PROCEDURE UpdateLop
 @ID INT,
-@TenLop NVARCHAR(50),
-@IDGiaoVien INT
+@TenLop NVARCHAR(50)
 AS
 BEGIN
     Update dbo.Lop

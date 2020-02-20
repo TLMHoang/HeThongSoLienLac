@@ -1,4 +1,5 @@
 ﻿using BAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,9 @@ namespace GUI
 {
     public partial class frmMain : Form
     {
+
+        private LopBAL lopBAL = new LopBAL();
+        private string OldName = "";
         public frmMain()
         {
             InitializeComponent();
@@ -35,7 +39,7 @@ namespace GUI
                 bsLop.SuspendBinding();
                 dgvDanhSachLop.SuspendLayout();
 
-                bsLop.DataSource = await new LopBAL().LayDT();
+                bsLop.DataSource = await lopBAL.LayDT();
 
                 dgvDanhSachLop.ResumeLayout();
                 bsLop.ResumeBinding();
@@ -89,6 +93,63 @@ namespace GUI
             this.Hide();
             f.ShowDialog();
             this.Show();
+        }
+
+        private void dgvDanhSachLop_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            dgvDanhSachLop.Rows[e.Row.Index - 1].Cells[0].Value = -1;
+        }
+
+        private async void dgvDanhSachLop_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if ((sender as DataGridView).SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Lop l = new Lop((e.Row.DataBoundItem as DataRowView).Row);
+                    await lopBAL.Xoa(l);
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thể xóa nhiều");
+                e.Cancel = true;
+            }
+        }
+
+        private async void dgvDanhSachLop_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
+            if (drv == null)
+            {
+                return;
+            }
+            Lop l = new Lop(Convert.ToInt32(drv.Row.ItemArray[0]), drv.Row.ItemArray[1].ToString());
+            if (l.ID == -1)
+            {
+                await lopBAL.Them(l);
+                bsLop.DataSource = await lopBAL.LayDT();
+                dgvDanhSachLop.CurrentCell = dgvDanhSachLop.Rows[dgvDanhSachLop.RowCount - 1].Cells[1];
+            }
+            else
+            {
+                if (OldName != l.TenLop)
+                {
+                    await lopBAL.CapNhap(OldName,l);
+                }
+            }  
+        }
+
+        private void dgvDanhSachLop_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvDanhSachLop.Rows[dgvDanhSachLop.CurrentCell.RowIndex].Cells[1].Value.ToString() != "")
+            {
+                OldName = dgvDanhSachLop.Rows[dgvDanhSachLop.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            }
         }
     }
 }

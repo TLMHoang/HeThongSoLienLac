@@ -105,7 +105,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.Controls.Add(this.txtTimKiemGV, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgvDSGV, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgvDSLop, 3, 1);
@@ -135,7 +135,7 @@
             this.txtTimKiemGV.Location = new System.Drawing.Point(3, 2);
             this.txtTimKiemGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimKiemGV.Name = "txtTimKiemGV";
-            this.txtTimKiemGV.Size = new System.Drawing.Size(363, 23);
+            this.txtTimKiemGV.Size = new System.Drawing.Size(364, 23);
             this.txtTimKiemGV.TabIndex = 1;
             this.txtTimKiemGV.Text = "Nhập ID hoặc Tên GV";
             // 
@@ -156,7 +156,7 @@
             this.dgvDSGV.Name = "dgvDSGV";
             this.dgvDSGV.RowHeadersVisible = false;
             this.dgvDSGV.RowTemplate.Height = 24;
-            this.dgvDSGV.Size = new System.Drawing.Size(363, 168);
+            this.dgvDSGV.Size = new System.Drawing.Size(364, 168);
             this.dgvDSGV.TabIndex = 2;
             // 
             // iDTKTDataGridViewTextBoxColumn
@@ -197,10 +197,10 @@
             this.Check});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvDSLop, 2);
             this.dgvDSLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDSLop.Location = new System.Drawing.Point(372, 28);
+            this.dgvDSLop.Location = new System.Drawing.Point(373, 28);
             this.dgvDSLop.Name = "dgvDSLop";
             this.dgvDSLop.RowHeadersVisible = false;
-            this.dgvDSLop.Size = new System.Drawing.Size(193, 166);
+            this.dgvDSLop.Size = new System.Drawing.Size(192, 166);
             this.dgvDSLop.TabIndex = 6;
             // 
             // IDLop
@@ -226,10 +226,10 @@
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(418, 199);
+            this.btnBack.Location = new System.Drawing.Point(420, 199);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(147, 56);
+            this.btnBack.Size = new System.Drawing.Size(145, 56);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Trở lại";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -268,9 +268,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(372, 0);
+            this.label1.Location = new System.Drawing.Point(373, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 25);
+            this.label1.Size = new System.Drawing.Size(192, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Danh sách lớp";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

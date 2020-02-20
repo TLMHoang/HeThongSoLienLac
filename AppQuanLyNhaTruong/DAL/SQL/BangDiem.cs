@@ -105,7 +105,7 @@ namespace DAL.SQL
         public async Task UpdateBDHSM(string TenLop)
         {
             string TenBang = "DHSM" + TenLop;
-            string Query = "CREATE PROCEDURE Create" +
+            string Query = "CREATE PROCEDURE Update" +
                 TenBang +
                 " @STT INT," +
                 " @IDHocSinh INT," +
@@ -119,12 +119,12 @@ namespace DAL.SQL
                 " BEGIN" +
                 " UPDATE dbo." + TenBang + " SET" +
                 " IDHocSinh = @IDHocSinh," +
-                " IDMonhoc = @IDMonHoc," +
+                " IDMon = @IDMonHoc," +
                 " Diem = @Diem," +
                 " CotThu = @CotThu," +
-                " DiemMien = @DiemMieng," +
+                " DiemMieng = @DiemMieng," +
                 " Loai = @Loai," +
-                " HocKy = @HocKy )" +
+                " HocKy = @HocKy" +
                 " END";
 
             await ConnectDB(Query);
@@ -188,7 +188,7 @@ namespace DAL.SQL
             string TenBang = "DHSH" + TenLop;
             string Query = "CREATE PROCEDURE Delete" +
                 TenBang +
-                " @STT INT," +
+                " @STT INT" +
                 " AS" +
                 " BEGIN" +
                 " DELETE dbo." + TenBang + " WHERE STT = @STT" +
@@ -223,7 +223,7 @@ namespace DAL.SQL
         public async Task UpdateBDHSH(string TenLop)
         {
             string TenBang = "DHSH" + TenLop;
-            string Query = "CREATE PROCEDURE Create" +
+            string Query = "CREATE PROCEDURE Update" +
                 TenBang +
                 " @STT INT," +
                 " @IDHocSinh INT," +
@@ -236,11 +236,11 @@ namespace DAL.SQL
                 " BEGIN" +
                 " UPDATE dbo." + TenBang + " SET" +
                 " IDHocSinh = @IDHocSinh," +
-                " IDMonhoc = @IDMonHoc," +
+                " IDMon = @IDMonHoc," +
                 " Diem = @Diem," +
                 " CotThu = @CotThu," +
                 " Loai = @Loai," +
-                " HocKy = @HocKy )" +
+                " HocKy = @HocKy" +
                 " END";
 
             await ConnectDB(Query);
@@ -301,7 +301,7 @@ namespace DAL.SQL
             string TenBang = "DHK" + TenLop;
             string Query = "CREATE PROCEDURE Delete" +
                 TenBang +
-                " @STT INT," +
+                " @STT INT" +
                 " AS" +
                 " BEGIN" +
                 " DELETE dbo." + TenBang + " WHERE STT = @STT" +
@@ -336,7 +336,7 @@ namespace DAL.SQL
         public async Task UpdateBDHK(string TenLop) // Create table database
         {
             string TenBang = "DHK" + TenLop;
-            string Query = "CREATE PROCEDURE Create" +
+            string Query = "CREATE PROCEDURE Update" +
                 TenBang +
                 " @STT INT," +
                 " @IDHocSinh INT," +
@@ -348,10 +348,10 @@ namespace DAL.SQL
                 " BEGIN" +
                 " UPDATE dbo." + TenBang + " SET" +
                 " IDHocSinh = @IDHocSinh," +
-                " IDMonhoc = @IDMonHoc," +
+                " IDMon = @IDMonHoc," +
                 " Diem = @Diem," +
                 " Loai = @Loai," +
-                " HocKy = @HocKy )" +
+                " HocKy = @HocKy" +
                 " END";
 
             await ConnectDB(Query);
