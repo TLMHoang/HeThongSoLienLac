@@ -31,6 +31,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboLoaiDiem = new System.Windows.Forms.ComboBox();
             this.cboMonHoc = new System.Windows.Forms.ComboBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,8 +71,6 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.cboLoaiDiem = new System.Windows.Forms.ComboBox();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -138,6 +138,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(217, 452);
             this.panel1.TabIndex = 1;
+            // 
+            // cboLoaiDiem
+            // 
+            this.cboLoaiDiem.FormattingEnabled = true;
+            this.cboLoaiDiem.Location = new System.Drawing.Point(3, 392);
+            this.cboLoaiDiem.Name = "cboLoaiDiem";
+            this.cboLoaiDiem.Size = new System.Drawing.Size(190, 24);
+            this.cboLoaiDiem.TabIndex = 21;
             // 
             // cboMonHoc
             // 
@@ -366,6 +374,10 @@
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 98;
             // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Điểm Miệng";
+            // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Điểm 15p";
@@ -456,18 +468,6 @@
             this.toolStripLabel4.Name = "toolStripLabel4";
             this.toolStripLabel4.Size = new System.Drawing.Size(37, 22);
             this.toolStripLabel4.Text = "Thoát";
-            // 
-            // cboLoaiDiem
-            // 
-            this.cboLoaiDiem.FormattingEnabled = true;
-            this.cboLoaiDiem.Location = new System.Drawing.Point(3, 392);
-            this.cboLoaiDiem.Name = "cboLoaiDiem";
-            this.cboLoaiDiem.Size = new System.Drawing.Size(190, 24);
-            this.cboLoaiDiem.TabIndex = 21;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Điểm Miệng";
             // 
             // frmNhapDiem
             // 

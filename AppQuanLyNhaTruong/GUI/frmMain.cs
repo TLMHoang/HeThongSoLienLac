@@ -46,6 +46,7 @@ namespace GUI
             }
             else
             {
+                this.FormClosing -= frmMain_FormClosing;
                 this.Close();
             }
         }
@@ -150,6 +151,79 @@ namespace GUI
             {
                 OldName = dgvDanhSachLop.Rows[dgvDanhSachLop.CurrentCell.RowIndex].Cells[1].Value.ToString();
             }
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDoiMatKhau f = new frmDoiMatKhau();
+            this.Hide();
+
+            f.ShowDialog();
+
+            this.Show();
+        }
+
+        private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin f = new frmLogin();
+            this.Hide();
+
+            if (f.ShowDialog() == DialogResult.No)
+            {
+                this.FormClosing -= frmMain_FormClosing;
+                this.Close();
+            }
+            this.Show();
+        }
+
+        private void btnDiemDanh_Click(object sender, EventArgs e)
+        {
+            frmDiemDanh f = new frmDiemDanh();
+            this.Hide();
+
+            f.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnThoiKhoaBieu_Click(object sender, EventArgs e)
+        {
+            frmThoiKhoaBieu f = new frmThoiKhoaBieu();
+            this.Hide();
+
+            f.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnDiem_Click(object sender, EventArgs e)
+        {
+            frmNhapDiem f = new frmNhapDiem();
+            this.Hide();
+
+            f.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnThongBaoChung_Click(object sender, EventArgs e)
+        {
+            frmThongBaoTungHocSinh f = new frmThongBaoTungHocSinh();
+            this.Hide();
+
+            f.ShowDialog();
+
+            this.Show();
+        }
+
+        private void btnPCMonHoc_Click(object sender, EventArgs e)
+        {
+            frmPhanCong f = new frmPhanCong();
+            this.Hide();
+
+            f.ShowDialog();
+
+            this.Show();
         }
     }
 }
