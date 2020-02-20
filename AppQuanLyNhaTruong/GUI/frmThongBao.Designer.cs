@@ -41,19 +41,19 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bsThongBaoTruong = new System.Windows.Forms.BindingSource(this.components);
-            this.bsThongBaoLop = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lblChonLop = new System.Windows.Forms.Label();
             this.cboChonLop = new System.Windows.Forms.ComboBox();
+            this.bsThongBaoTruong = new System.Windows.Forms.BindingSource(this.components);
+            this.bsThongBaoLop = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoLop)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -229,14 +229,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // bsThongBaoTruong
-            // 
-            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
-            // 
-            // bsThongBaoLop
-            // 
-            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -269,6 +261,14 @@
             this.cboChonLop.Size = new System.Drawing.Size(194, 24);
             this.cboChonLop.TabIndex = 1;
             // 
+            // bsThongBaoTruong
+            // 
+            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
+            // 
+            // bsThongBaoLop
+            // 
+            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
+            // 
             // frmThongBao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,10 +286,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoLop)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoLop)).EndInit();
             this.ResumeLayout(false);
 
         }
