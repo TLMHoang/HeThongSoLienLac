@@ -21,7 +21,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDiemDanh());
+            Application.Run(new frmPhanCong());
         }
     }
 }

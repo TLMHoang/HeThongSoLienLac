@@ -166,8 +166,7 @@ CREATE PROCEDURE UpdateThongTinGV
 @TenGV NVARCHAR(200),
 @SDT VARCHAR(12),
 @IDMonHoc INT,
-@IDLop INT,
-@GVCN BIT	
+@IDLop INT	
 AS
 BEGIN
     Update dbo.ThongTinGV
@@ -175,8 +174,7 @@ BEGIN
         TenGV = @TenGV, -- TenGV - nvarchar(200)
 		SDT = @SDT,	-- SDT - varchar(12)
 		IDMonHoc = @IDMonHoc,   -- IDMonHoc - int
-        IDLop = @IDLop,    -- IDLop - int
-		GVCN = @GVCN
+        IDLop = @IDLop    -- IDLop - int
     WHERE  IDTKT = @IDTKT
 END
 GO

@@ -175,6 +175,7 @@
     <None Include="Properties\DataSources\DTO.HanhKiem.datasource" />
     <None Include="Properties\DataSources\DTO.Lop.datasource" />
     <None Include="Properties\DataSources\DTO.MonHoc.datasource" />
+    <None Include="Properties\DataSources\DTO.PhanCong.datasource" />
     <None Include="Properties\DataSources\DTO.TaiKhoanPH.datasource" />
     <None Include="Properties\DataSources\DTO.TaiKhoanTruong.datasource" />
     <None Include="Properties\DataSources\DTO.ThoiKhoaBieu.datasource" />
