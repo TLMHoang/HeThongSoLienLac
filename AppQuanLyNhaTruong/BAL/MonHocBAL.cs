@@ -22,6 +22,10 @@ namespace BAL
             return await monHoc.Lay();
         }
 
+        public async Task<DataTable> LayID(int ID)
+        {
+            return await monHoc.Lay(ID);
+        }
         public async Task<List<MonHoc>> LayLst()
         {
             List<MonHoc> lst = new List<MonHoc>();

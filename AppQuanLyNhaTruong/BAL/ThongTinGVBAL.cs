@@ -22,6 +22,11 @@ namespace BAL
             return await gv.Lay();
         }
 
+        public async Task<DataTable> LayID(int ID)
+        {
+            return await gv.Lay(ID);
+        }
+
         public async Task<List<ThongTinGV>> LayLst()
         {
             List<ThongTinGV> lst = new List<ThongTinGV>();

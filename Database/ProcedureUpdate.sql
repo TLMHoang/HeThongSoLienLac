@@ -62,8 +62,7 @@ AS
 BEGIN
     Update dbo.Lop
     SET	
-    TenLop = @TenLop, -- TenLop - nvarchar(50)
-	IDGiaoVien = @IDGiaoVien
+    TenLop = @TenLop -- TenLop - nvarchar(50)
 	WHERE ID = @ID
 END
 GO

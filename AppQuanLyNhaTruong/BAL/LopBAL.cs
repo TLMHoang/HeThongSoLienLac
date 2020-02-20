@@ -22,6 +22,11 @@ namespace BAL
             return await lop.Lay();
         }
 
+        public async Task<DataTable> LayID(int ID)
+        {
+            return await lop.Lay(ID);
+        }
+
         public async Task<List<Lop>> LayLst()
         {
             List<Lop> lst = new List<Lop>();

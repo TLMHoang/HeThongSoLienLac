@@ -27,7 +27,18 @@ namespace DAL
 
         public async Task<DataTable> Lay()
         {
-            return await ExecuteQuery("SelectLop");
+            return await ExecuteQuery(
+                "SelectLop",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
+                );
+        }
+
+        public async Task<DataTable> Lay(int ID)
+        {
+            return await ExecuteQuery(
+                "SelectLop",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+                );
         }
 
 

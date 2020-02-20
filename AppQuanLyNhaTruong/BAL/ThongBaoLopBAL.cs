@@ -22,6 +22,11 @@ namespace BAL
             return await tbLop.Lay();
         }
 
+        public Task<DataTable> LayID(int ID)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<ThongBaoLop>> LayLst()
         {
             List<ThongBaoLop> lst = new List<ThongBaoLop>();

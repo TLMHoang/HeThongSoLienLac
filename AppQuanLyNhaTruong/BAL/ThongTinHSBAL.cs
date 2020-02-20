@@ -95,5 +95,10 @@ namespace BAL
             }
             return null;
         }
+
+        public async Task<DataTable> LayID(int ID)
+        {
+            return await hs.Lay(ID);
+        }
     }
 }

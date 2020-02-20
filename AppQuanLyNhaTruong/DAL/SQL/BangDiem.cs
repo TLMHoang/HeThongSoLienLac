@@ -70,7 +70,7 @@ namespace DAL.SQL
             string TenBang = "DHSM" + TenLop;
             string Query = "CREATE PROCEDURE Delete" +
                 TenBang +
-                " @STT INT," +
+                " @STT INT" +
                 " AS" +
                 " BEGIN" +
                 " DELETE dbo." + TenBang + " WHERE STT = @STT" +
@@ -85,10 +85,17 @@ namespace DAL.SQL
             string TenBang = "DHSM" + TenLop;
             string Query = "CREATE PROCEDURE Select" +
                 TenBang +
-                " @STT INT," +
+                " @IDHocSinh INT" +
                 " AS" +
                 " BEGIN" +
+                " IF @IDHocSinh = -1" +
+                " BEGIN" +
                 " SELECT * FROM dbo." + TenBang +
+                " END" +
+                " ELSE" +
+                " BEGIN" +
+                " SELECT * FROM dbo." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
+                " END" +
                 " END";
 
 
@@ -196,10 +203,17 @@ namespace DAL.SQL
             string TenBang = "DHSH" + TenLop;
             string Query = "CREATE PROCEDURE Select" +
                 TenBang +
-                " @STT INT," +
+                " @IDHocSinh INT" +
                 " AS" +
                 " BEGIN" +
+                " IF @IDHocSinh = -1" +
+                " BEGIN" +
                 " SELECT * FROM dbo." + TenBang +
+                " END" +
+                " ELSE" +
+                " BEGIN" +
+                " SELECT * FROM dbo." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
+                " END" +
                 " END";
 
 
@@ -302,10 +316,17 @@ namespace DAL.SQL
             string TenBang = "DHK" + TenLop;
             string Query = "CREATE PROCEDURE Select" +
                 TenBang +
-                " @STT INT," +
+                " @IDHocSinh INT" +
                 " AS" +
                 " BEGIN" +
+                " IF @IDHocSinh = -1" +
+                " BEGIN" +
                 " SELECT * FROM dbo." + TenBang +
+                " END" +
+                " ELSE" +
+                " BEGIN" +
+                " SELECT * FROM dbo." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
+                " END" +
                 " END";
 
 

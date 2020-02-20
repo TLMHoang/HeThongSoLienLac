@@ -2,58 +2,130 @@ USE HeThongSoLienLac
 GO
 
 CREATE PROCEDURE SelectCupHoc
+@IDHocSinh INT
 AS
 BEGIN
-    SELECT * FROM dbo.CupHoc
+	IF @IDHocSinh = -1
+	BEGIN
+		SELECT * FROM dbo.CupHoc
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.CupHoc WHERE IDHocSinh = @IDHocSinh
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectDiemDanh
+@IDHocSinh INT
 AS
 BEGIN
-    SELECT * FROM dbo.DiemDanh
+	IF @IDHocSinh = -1
+	BEGIN
+		SELECT * FROM dbo.DiemDanh
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.DiemDanh WHERE IDHocSinh = @IDHocSinh
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectHanhKiem
+@IDHocSinh INT
 AS
 BEGIN
-    SELECT * FROM dbo.HanhKiem
+	IF @IDHocSinh = -1
+	BEGIN
+		SELECT * FROM dbo.HanhKiem
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.HanhKiem WHERE IDHocSinh = @IDHocSinh
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectLop
+@ID INT
 AS
 BEGIN
-    SELECT * FROM dbo.Lop
+	IF @ID = -1
+	BEGIN
+		SELECT * FROM dbo.Lop
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.Lop WHERE ID = @ID
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectMonhoc
+@ID INT
 AS
 BEGIN
-    SELECT * FROM dbo.MonHoc
+	IF @ID = -1
+	BEGIN
+		SELECT * FROM dbo.MonHoc
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.MonHoc WHERE ID = @ID
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectTaiKhoanPH
+@ID INT
 AS
 BEGIN
-    SELECT * FROM dbo.TaiKhoanPH
+	IF @ID = -1
+	BEGIN
+		SELECT * FROM dbo.TaiKhoanPH
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.TaiKhoanPH WHERE ID = @ID
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectTaiKhoanTruong
+@ID INT
 AS
 BEGIN
-    SELECT * FROM dbo.TaiKhoanTruong
+	IF @ID = -1
+	BEGIN
+		SELECT * FROM dbo.TaiKhoanTruong
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.TaiKhoanPH WHERE ID = @ID
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectThoiKhaoBieu
+@IDLop INT
 AS
 BEGIN
-    SELECT * FROM dbo.ThoiKhoaBieu
+	IF @IDLop = -1
+	BEGIN
+		SELECT * FROM dbo.ThoiKhoaBieu
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.ThoiKhoaBieu WHERE IDLop = @IDLop
+    END
+
 END
 GO
 
@@ -79,16 +151,34 @@ END
 GO
 
 CREATE PROCEDURE SelectThongTinGV
+@ID INT
 AS
 BEGIN
-    SELECT * FROM dbo.ThongTinGV
+	IF @ID = -1
+	BEGIN
+		SELECT * FROM dbo.ThongTinGV
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.ThongTinGV WHERE IDTKT = @ID
+    END
+
 END
 GO
 
 CREATE PROCEDURE SelectThongTinHS
+@ID INT
 AS
 BEGIN
-    SELECT * FROM dbo.ThongTinHS
+	IF @ID = -1
+	BEGIN
+		SELECT * FROM dbo.ThongTinHS
+	END
+	ELSE
+    BEGIN
+        SELECT * FROM dbo.ThongTinHS WHERE ID = @ID
+    END
+
 END
 GO
 

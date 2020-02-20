@@ -12,7 +12,7 @@ namespace BAL
         //Task<List<T>> LayLst(DataTable val);
         Task<List<T>> LayLst();
         Task<DataTable> LayDT();
-        //Task<T> LayID(int ID);
+        Task<DataTable> LayID(int ID);
         Task<int> Them(T obj);
         Task<int> CapNhap(T obj);
         Task<int> Xoa(int ID);
