@@ -26,7 +26,7 @@ namespace DAL
         {
             return await ExecuteQuery(
                 "SelectThongTinGV",
-                new SqlParameter("@IDTKT", SqlDbType.Int) { Value = -1}
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1}
                 );
         }
 
@@ -34,7 +34,7 @@ namespace DAL
         {
             return await ExecuteQuery(
                 "SelectThongTinGV",
-                new SqlParameter("@IDTKT", SqlDbType.Int) { Value = ID }
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
                 );
         }
 
