@@ -3,7 +3,7 @@ GO
 
 
 CREATE TRIGGER Trg_UpdatePhanCong
-ON dbo.PhanCOn
+ON dbo.
 FOR INSERT
 AS
 BEGIN

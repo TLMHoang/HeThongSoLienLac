@@ -74,16 +74,15 @@ END
 GO
 
 CREATE PROCEDURE InsertLop
-@TenLop NVARCHAR(50),
-@IDGiaoVien INT
+@TenLop NVARCHAR(50)
 AS
 BEGIN
     Insert dbo.Lop
     (
-        TenLop,
+        TenLop
     )
     VALUES
-    (@TenLop, -- TenLop - nvarchar(50)
+    (@TenLop -- TenLop - nvarchar(50)
         )
 END
 GO
@@ -183,7 +182,7 @@ BEGIN
         NoiDung
     )
     VALUES
-    (	@IDHocSinh
+    (	@IDHocSinh,
 		@NoiDung -- NoiDung - nvarchar(max)
         )
 END
@@ -196,11 +195,11 @@ AS
 BEGIN
     Insert dbo.ThongBaoLop
     (
-		IDLop
+		IDLop,
         NoiDung
     )
     VALUES
-    (	@IDLop
+    (	@IDLop,
 		@NoiDung -- NoiDung - nvarchar(max)
         )
 END
@@ -322,22 +321,18 @@ GO
 
 CREATE PROC InsertPhanCong
 @IDGiaoVien INT,
-@IDLop INT,
-@IDMon INT
-
+@IDLop INT
 AS
 BEGIN
 	Insert dbo.PhanCong
 	(
 		IDGiaoVien ,
-		IDLop ,
-		IDMon 
+		IDLop 
 	)
 	values
 	(
 	@IDGiaoVien ,
-	@IDLop ,
-	@IDMon
+	@IDLop 
 	)
 END
 GO
