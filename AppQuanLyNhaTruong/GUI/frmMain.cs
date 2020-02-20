@@ -93,7 +93,7 @@ namespace GUI
 
         private void btnAccountManagement_Click(object sender, EventArgs e)
         {
-            GUI.frmAccountManager f = new frmAccountManager();
+            frmAccountManager f = new frmAccountManager();
             this.Hide();
             f.ShowDialog();
             this.Show();
