@@ -24,18 +24,24 @@ namespace GUI
         {
             InitializeComponent();
         }
-        
+
+        public frmHocSinh(TaiKhoanTruong tK, ThongTinGV gV)
+        {
+            InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            if (tK.Loai == 1)
+            {
+                lblNameFrom.Text += "toàn trường";
+            }
+            else
+            {
+                lblNameFrom.Text += "lớp " + Program.lstLop.FirstOrDefault(p => p.ID == gV.IDLop).TenLop;
+            }
+        }
 
         private void frmHocSinh_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            
-            DialogResult ret = MessageBox.Show("Bạn có thoát không", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ret == DialogResult.Yes)
-            {
-                e.Cancel = false;
-            }
-            else
+            if (MessageBox.Show("Bạn có muốn thoát không", "Hỏi thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -43,67 +49,38 @@ namespace GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
-        private void btnThoat_Click_1(object sender, EventArgs e)
+        private async void btnThem_Click(object sender, EventArgs e)
         {
-            DialogResult ret = MessageBox.Show("Bạn có muốn thoát không", "Hỏi thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ret == DialogResult.Yes)
-                this.Close();
-        }
-
-        public async void Them()
-        {
-            await tt.Them(new ThongTinHS(
+            if ( await tt.Them(new ThongTinHS(
                 int.Parse(txtMa.Text),
                 txtTen.Text,
                 dtpNgaySinh.Value,
                 Convert.ToByte(radNam.Checked),
-                txtNoiSinh.Text, 
+                txtNoiSinh.Text,
                 txtDanToc.Text,
-                txtTonGiao.Text, 
-                int.Parse(txtMaTK.Text), 
-                int.Parse(txtMaLop.Text), 
-                txtTenMe.Text, 
-                txtSDTMe.Text, 
-                txtTenBa.Text, 
+                txtTonGiao.Text,
+                -1,
+                int.Parse(cbxLop.Text),
+                txtTenMe.Text,
+                txtSDTMe.Text,
+                txtTenBa.Text,
                 txtSDTBa.Text
-                ));
-            
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-
-
-
-
-        }
-        private async void btnThem_Click(object sender, EventArgs e)
-        {
-
-
-            if (await tt.KiemTraID(int.Parse(txtMa.Text)) == null)
-                try
-                {
-                    Them();
-                    MessageBox.Show("Thêm Thành Công !");
-                    New();
-                    loadHS();
-                    
-                    
-                }
-                catch (Exception) 
-                { MessageBox.Show("Lỗi !"); }
+                )) == 1)
+            {
+                MessageBox.Show("Thêm Thành Công !");
+            }
             else
             {
-                MessageBox.Show("TK Đã Tồn Tại");
+                MessageBox.Show("Thêm thất bại !");
             }
 
         }
         public async void xoa()
         {
-            int id = int.Parse(txtMa.Text);
-            await new ThongTinGVBAL().Xoa(id);
+            await new ThongTinGVBAL().Xoa(int.Parse(txtMa.Text));
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -125,7 +102,7 @@ namespace GUI
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            if (await new ThongTinHSBAL().KiemTraID(int.Parse(txtMa.Text)) == null)
+            if (await new ThongTinHSBAL().LayID(int.Parse(txtMa.Text)) == null)
                 MessageBox.Show("TK Không Tồn Tại");
             else
             {
@@ -150,9 +127,11 @@ namespace GUI
                 txtTen.Text,
                 dtpNgaySinh.Value,
                 Convert.ToByte(radNam.Checked),
-                txtNoiSinh.Text, txtDanToc.Text,
-                txtTonGiao.Text, int.Parse(txtMa.Text),
-                int.Parse(txtMa.Text),
+                txtNoiSinh.Text,
+                txtDanToc.Text,
+                txtTonGiao.Text,
+                -1,
+                int.Parse(cbxLop.Text),
                 txtTenMe.Text,
                 txtSDTMe.Text,
                 txtTenBa.Text,
@@ -175,28 +154,34 @@ namespace GUI
             dtpNgaySinh.Text="";
             txtDanToc.Text = "";
             txtTonGiao.Text = "";
-            txtMaLop.Text = "";
-            txtMaTK.Text = "";
+            cbxLop.SelectedItem = cbxLop.Items[0];
             txtTenBa.Text = "";
             txtSDTBa.Text = "";
             txtTenMe.Text = "";
             txtSDTMe.Text = "";
+            txtTen.Focus();
         }
 
         
         private  void frmHocSinh_Load(object sender, EventArgs e)
         {
+            bsThongTinHS.SuspendBinding();
+            dgvHocSinh.SuspendLayout();
+
+            foreach (Lop l in Program.lstLop)
+            {
+                cbxLop.Items.Add(l.ID + "-" + l.TenLop);
+            }
+
             loadHS();
+
+            dgvHocSinh.ResumeLayout();
+            bsThongTinHS.ResumeBinding();
         }
 
         private async void loadHS()
         {
-            dgvHocSinh.SuspendLayout();
-            bsThongTinHS.SuspendBinding();
             bsThongTinHS.DataSource = await tt.LayDT();
-            bsThongTinHS.ResumeBinding();
-            dgvHocSinh.ResumeLayout();
-
         }
 
         private void dgvHocSinh_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

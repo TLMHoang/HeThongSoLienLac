@@ -43,19 +43,6 @@ namespace BAL
         {
             return await hs.Xoa(ID);
         }
-       
-        public async Task<DataTable> KiemTraID(int id)
-        {
-            DataTable dt = await LayDT();
-            foreach (DataRow dr in dt.Rows)
-            {
-                if (dr[0].Equals(id))
-                {
-                    return dt;
-                }
-            }
-            return null;
-        }
 
         public async Task<DataTable> LayID(int ID)
         {

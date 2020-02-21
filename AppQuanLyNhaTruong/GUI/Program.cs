@@ -10,7 +10,10 @@ namespace GUI
 {
     static class Program
     {
+        //Value 
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
+        public static ThongTinGV gV = new ThongTinGV();
+        //List
         public static List<Lop> lstLop = new List<Lop>();
         
         /// <summary>

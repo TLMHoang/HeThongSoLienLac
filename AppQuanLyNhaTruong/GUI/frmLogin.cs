@@ -53,6 +53,7 @@ namespace GUI
                     //f.ShowDialog();
                     //this.Show();
                     Program.TK = new TaiKhoanTruong(dt.Rows[0]);
+                    //Program.gV = new ThongTinGV((await new ThongTinGVBAL().LayID(Program.TK.ID)).Rows[0]);
                     DialogResult = DialogResult.Yes;
                     this.FormClosing -= frmLogin_FormClosing;
                 }

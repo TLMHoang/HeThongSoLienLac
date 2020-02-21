@@ -53,8 +53,10 @@ namespace GUI
 
         private void btnStudentManagement_Click(object sender, EventArgs e)
         {
-            frmHocSinh f = new frmHocSinh();
+            frmHocSinh f = new frmHocSinh(Program.TK, Program.gV);
+            this.Hide();
             f.ShowDialog();
+            this.Show();
         }
 
         private void btnThongBao_Click(object sender, EventArgs e)

@@ -43,10 +43,10 @@
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsLop = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.btnDiem = new System.Windows.Forms.Button();
             this.btnThongBaoChung = new System.Windows.Forms.Button();
             this.btnThongBao = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnThoiKhoaBieu = new System.Windows.Forms.Button();
             this.btnPCMonHoc = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -234,6 +234,18 @@
             // 
             this.bsLop.DataSource = typeof(DTO.Lop);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 55);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Danh sách lớp";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnDiem
             // 
             this.btnDiem.BackColor = System.Drawing.Color.DarkOrange;
@@ -284,18 +296,6 @@
             this.btnThongBao.Text = "Thông báo Chung";
             this.btnThongBao.UseVisualStyleBackColor = false;
             this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 55);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Danh sách lớp";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnThoiKhoaBieu
             // 
