@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvDSTB = new System.Windows.Forms.DataGridView();
             this.cboChonLoaiTB = new System.Windows.Forms.ComboBox();
             this.lblNhapNoiDung = new System.Windows.Forms.Label();
             this.rtbNhapNoiDung = new System.Windows.Forms.RichTextBox();
-            this.bsThongBaoTruong = new System.Windows.Forms.BindingSource(this.components);
-            this.bsThongBaoLop = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvDSTB = new System.Windows.Forms.DataGridView();
             this.cboChonLop = new System.Windows.Forms.ComboBox();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.bsThongBaoTruong = new System.Windows.Forms.BindingSource(this.components);
+            this.bsThongBaoLop = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).BeginInit();
@@ -68,19 +68,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.061489F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1049, 618);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // dgvDSTB
-            // 
-            this.dgvDSTB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDSTB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDSTB.Location = new System.Drawing.Point(3, 22);
-            this.dgvDSTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvDSTB.Name = "dgvDSTB";
-            this.tableLayoutPanel1.SetRowSpan(this.dgvDSTB, 4);
-            this.dgvDSTB.RowTemplate.Height = 24;
-            this.dgvDSTB.Size = new System.Drawing.Size(605, 594);
-            this.dgvDSTB.TabIndex = 0;
             // 
             // cboChonLoaiTB
             // 
@@ -115,13 +102,20 @@
             this.rtbNhapNoiDung.TabIndex = 4;
             this.rtbNhapNoiDung.Text = "";
             // 
-            // bsThongBaoTruong
+            // dgvDSTB
             // 
-            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
-            // 
-            // bsThongBaoLop
-            // 
-            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
+            this.dgvDSTB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDSTB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDSTB.Location = new System.Drawing.Point(3, 22);
+            this.dgvDSTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDSTB.Name = "dgvDSTB";
+            this.tableLayoutPanel1.SetRowSpan(this.dgvDSTB, 4);
+            this.dgvDSTB.RowTemplate.Height = 24;
+            this.dgvDSTB.Size = new System.Drawing.Size(605, 594);
+            this.dgvDSTB.TabIndex = 0;
+            this.dgvDSTB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSTB_CellClick);
+            this.dgvDSTB.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDSTB_UserDeletingRow);
             // 
             // cboChonLop
             // 
@@ -146,6 +140,15 @@
             this.btnLuu.TabIndex = 6;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // bsThongBaoTruong
+            // 
+            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
+            // 
+            // bsThongBaoLop
+            // 
+            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
             // 
             // frmThongBao
             // 

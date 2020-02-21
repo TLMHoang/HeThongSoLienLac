@@ -30,12 +30,12 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.radNgayNghi = new System.Windows.Forms.RadioButton();
             this.radSotietNghi = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.cboMa = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,6 +48,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -58,8 +59,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.listBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(452, 411);
-            this.splitContainer1.SplitterDistance = 99;
+            this.splitContainer1.Size = new System.Drawing.Size(603, 506);
+            this.splitContainer1.SplitterDistance = 121;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
@@ -68,20 +70,13 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 99);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(603, 121);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(452, 308);
-            this.listBox1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -93,21 +88,23 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboMa, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 23);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 78);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(595, 94);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // radNgayNghi
             // 
             this.radNgayNghi.AutoSize = true;
-            this.radNgayNghi.Location = new System.Drawing.Point(226, 3);
+            this.radNgayNghi.Location = new System.Drawing.Point(301, 4);
+            this.radNgayNghi.Margin = new System.Windows.Forms.Padding(4);
             this.radNgayNghi.Name = "radNgayNghi";
-            this.radNgayNghi.Size = new System.Drawing.Size(99, 20);
+            this.radNgayNghi.Size = new System.Drawing.Size(116, 24);
             this.radNgayNghi.TabIndex = 0;
             this.radNgayNghi.TabStop = true;
             this.radNgayNghi.Text = "Ngày Nghỉ";
@@ -116,9 +113,10 @@
             // radSotietNghi
             // 
             this.radSotietNghi.AutoSize = true;
-            this.radSotietNghi.Location = new System.Drawing.Point(226, 32);
+            this.radSotietNghi.Location = new System.Drawing.Point(301, 38);
+            this.radSotietNghi.Margin = new System.Windows.Forms.Padding(4);
             this.radSotietNghi.Name = "radSotietNghi";
-            this.radSotietNghi.Size = new System.Drawing.Size(112, 20);
+            this.radSotietNghi.Size = new System.Drawing.Size(134, 24);
             this.radSotietNghi.TabIndex = 1;
             this.radSotietNghi.TabStop = true;
             this.radSotietNghi.Text = "Số Tiết Nghỉ";
@@ -127,9 +125,10 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 29);
+            this.label1.Size = new System.Drawing.Size(289, 34);
             this.label1.TabIndex = 2;
             this.label1.Text = "MÃ:";
             // 
@@ -137,17 +136,30 @@
             // 
             this.cboMa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMa.FormattingEnabled = true;
-            this.cboMa.Location = new System.Drawing.Point(3, 32);
+            this.cboMa.Location = new System.Drawing.Point(4, 38);
+            this.cboMa.Margin = new System.Windows.Forms.Padding(4);
             this.cboMa.Name = "cboMa";
-            this.cboMa.Size = new System.Drawing.Size(217, 24);
+            this.cboMa.Size = new System.Drawing.Size(289, 28);
             this.cboMa.TabIndex = 3;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(603, 380);
+            this.listBox1.TabIndex = 0;
             // 
             // frmChiTiet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 411);
+            this.ClientSize = new System.Drawing.Size(603, 506);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChiTiet";
             this.Text = "CHI TIẾT";
             this.splitContainer1.Panel1.ResumeLayout(false);
