@@ -36,5 +36,10 @@ namespace GUI
             if (ret == DialogResult.Yes)
                 this.Close();
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

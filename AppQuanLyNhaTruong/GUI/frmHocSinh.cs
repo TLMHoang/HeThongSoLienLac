@@ -103,7 +103,7 @@ namespace GUI
         public async void xoa()
         {
             int id = int.Parse(txtMa.Text);
-            await new ThongTinGVBAL().Xoa(id);
+            await new ThongTinHSBAL().Xoa(id);
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
