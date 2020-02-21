@@ -17,13 +17,6 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            uctTimTiemHS uct = new uctTimTiemHS();
-            tabPage2.Controls.Add(uct);
-            
-        }
-
         private void uctTimTiemHS1_Load(object sender, EventArgs e)
         {
 

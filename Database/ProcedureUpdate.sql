@@ -87,7 +87,7 @@ AS
 BEGIN
     Update dbo.TaiKhoanPH
     SET	
-        MatKhau = @MatKhau  -- MatKhau - varchar(500)
+        MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2)  -- MatKhau - varchar(500)
 	WHERE ID = @ID
 END
 GO
@@ -100,7 +100,7 @@ AS
 BEGIN
     Update dbo.TaiKhoanTruong
     SET	
-        MatKhau = @MatKhau,  -- MatKhau - varchar(500)
+        MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2),  -- MatKhau - varchar(500)
 		Loai = @Loai
 	WHERE ID = @ID
 END
