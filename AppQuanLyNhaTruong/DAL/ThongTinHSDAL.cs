@@ -69,5 +69,13 @@ namespace DAL
         {
             return await ExecuteNonQuery("DeleteThongTinHS", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
         }
+
+        public async Task<DataTable> LayDanhSach(int IDLop)
+        {
+            return await ExecuteQuery(
+                "LayDanhSachTheoLop",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop }
+                );
+        }
     }
 }

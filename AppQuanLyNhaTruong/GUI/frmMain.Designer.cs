@@ -158,6 +158,7 @@
             this.txtLopHoc.Name = "txtLopHoc";
             this.txtLopHoc.Size = new System.Drawing.Size(242, 26);
             this.txtLopHoc.TabIndex = 4;
+            this.txtLopHoc.TextChanged += new System.EventHandler(this.txtLopHoc_TextChanged);
             // 
             // tableLayoutPanel1
             // 

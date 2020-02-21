@@ -64,7 +64,6 @@ namespace DTO
 			Ten = dr["Ten"].ToString();
 			NgaySinh = Convert.ToDateTime(dr["NgaySinh"]);
 			GioiTinh = Convert.ToByte(dr["GioiTinh"]);
-            
 			NoiSinh = dr["NoiSinh"].ToString();
 			DanToc = dr["DanToc"].ToString();
 			TonGiao = dr["TonGiao"].ToString();

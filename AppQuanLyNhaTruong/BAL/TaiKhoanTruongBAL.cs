@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BAL
 {
-    public class TaiKhoangTruongBAL : CInterface<TaiKhoanTruong>
+    public class TaiKhoanTruongBAL : CInterface<TaiKhoanTruong>
     {
         TaiKhoanTruongDAL val = new TaiKhoanTruongDAL();
         public async Task<int> CapNhap(TaiKhoanTruong obj)

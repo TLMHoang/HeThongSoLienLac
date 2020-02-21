@@ -13,7 +13,7 @@ namespace GUI
 {
     public partial class frmDoiMatKhau : Form
     {
-        TaiKhoangTruongBAL tkBAL = new TaiKhoangTruongBAL();
+        TaiKhoanTruongBAL tkBAL = new TaiKhoanTruongBAL();
         public frmDoiMatKhau()
         {
             InitializeComponent();

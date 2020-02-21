@@ -51,7 +51,7 @@
     <Compile Include="LopBAL.cs" />
     <Compile Include="MonHocBAL.cs" />
     <Compile Include="PhanCongBAL.cs" />
-    <Compile Include="TaiKhoangTruongBAL.cs" />
+    <Compile Include="TaiKhoanTruongBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanPHBAL.cs" />
     <Compile Include="ThoiKhoaBieuBAL.cs" />

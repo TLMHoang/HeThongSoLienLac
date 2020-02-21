@@ -19,7 +19,8 @@ namespace BAL
 
         public async Task<DataTable> LayDT()
         {
-            return await hs.Lay();
+            DataTable dt = await hs.Lay();
+            return dt;
         }
 
         public async Task<List<ThongTinHS>> LayLst()
@@ -47,6 +48,11 @@ namespace BAL
         public async Task<DataTable> LayID(int ID)
         {
             return await hs.Lay(ID);
+        }
+
+        public async Task<DataTable> LayDanhSach(int IDLop)
+        {
+            return await hs.LayDanhSach(IDLop);
         }
     }
 }

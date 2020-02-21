@@ -7,3 +7,10 @@ CREATE PROCEDURE DangNhapTruong
 AS
 SELECT * FROM dbo.TaiKhoanTruong WHERE TaiKhoan = @TaiKhoan AND MatKhau = CONVERT(VARCHAR(32),HASHBYTES('MD5', @MatKhau),2)
 GO
+
+CREATE PROCEDURE LayDanhSachTheoLop
+@IDLop INT
+AS	
+BEGIN
+    SELECT * FROM dbo.ThongTinHS WHERE IDLop = @IDLop
+END

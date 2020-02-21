@@ -56,7 +56,7 @@ CREATE TABLE ThongTinHS
 (
 	ID INT IDENTITY(1,1) PRIMARY KEY,
 	Ten NVARCHAR(200),
-	NgaySinh DATETIME,
+	NgaySinh DATE,
 	GioiTinh BIT,
 	NoiSinh NVARCHAR(250),
 	DanToc NVARCHAR(100),
@@ -77,8 +77,8 @@ CREATE TABLE DiemDanh
 (
 	STT INT IDENTITY(1,1) PRIMARY KEY,
 	IDHocSinh INT,
-	NghiTu DATETIME,
-	NghiDen DATETIME,
+	NghiTu DATE,
+	NghiDen DATE,
 	SoNgayNghi INT,
 	Phep BIT DEFAULT 0,
 
@@ -102,7 +102,7 @@ CREATE TABLE CupHoc
 (
 	STT INT IDENTITY(1,1) PRIMARY KEY,
 	IDHocSinh INT,
-	Ngay DATETIME,
+	Ngay DATE,
 	NghiTu INT,
 	NghiDen INT,
 	SoTietNghi INT,

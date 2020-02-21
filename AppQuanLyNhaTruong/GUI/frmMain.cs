@@ -43,6 +43,12 @@ namespace GUI
 
                 dgvDanhSachLop.ResumeLayout();
                 bsLop.ResumeBinding();
+
+                Program.lstLop = await lopBAL.LayLst();
+                if (Program.TK.Loai == 0)
+                {
+                    Program.gV = new ThongTinGV((await new ThongTinGVBAL().LayID(Program.TK.ID)).Rows[0]);
+                }
             }
             else
             {
@@ -226,6 +232,11 @@ namespace GUI
             f.ShowDialog();
 
             this.Show();
+        }
+
+        private void txtLopHoc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
