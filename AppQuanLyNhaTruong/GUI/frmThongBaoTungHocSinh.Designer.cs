@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.rtbNhapNoiDung = new System.Windows.Forms.RichTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblNhapNoiDung = new System.Windows.Forms.Label();
+            this.rtbNhapNoiDung = new System.Windows.Forms.RichTextBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -46,7 +46,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.06696F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.93304F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 0, 5);
@@ -69,15 +69,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1049, 618);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox2
-            // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(3, 305);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(559, 22);
-            this.textBox2.TabIndex = 2;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -87,7 +78,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 3);
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(559, 269);
+            this.dataGridView1.Size = new System.Drawing.Size(558, 269);
             this.dataGridView1.TabIndex = 0;
             // 
             // textBox1
@@ -96,7 +87,7 @@
             this.textBox1.Location = new System.Drawing.Point(3, 2);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(559, 22);
+            this.textBox1.Size = new System.Drawing.Size(558, 22);
             this.textBox1.TabIndex = 1;
             // 
             // dataGridView2
@@ -108,30 +99,39 @@
             this.dataGridView2.Name = "dataGridView2";
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView2, 2);
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(559, 287);
+            this.dataGridView2.Size = new System.Drawing.Size(558, 287);
             this.dataGridView2.TabIndex = 3;
             // 
-            // rtbNhapNoiDung
+            // textBox2
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.rtbNhapNoiDung, 2);
-            this.rtbNhapNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbNhapNoiDung.Location = new System.Drawing.Point(568, 32);
-            this.rtbNhapNoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtbNhapNoiDung.Name = "rtbNhapNoiDung";
-            this.tableLayoutPanel1.SetRowSpan(this.rtbNhapNoiDung, 5);
-            this.rtbNhapNoiDung.Size = new System.Drawing.Size(478, 523);
-            this.rtbNhapNoiDung.TabIndex = 4;
-            this.rtbNhapNoiDung.Text = "";
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(3, 305);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(558, 22);
+            this.textBox2.TabIndex = 2;
             // 
             // lblNhapNoiDung
             // 
             this.lblNhapNoiDung.AutoSize = true;
             this.lblNhapNoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhapNoiDung.Location = new System.Drawing.Point(568, 0);
+            this.lblNhapNoiDung.Location = new System.Drawing.Point(567, 0);
             this.lblNhapNoiDung.Name = "lblNhapNoiDung";
             this.lblNhapNoiDung.Size = new System.Drawing.Size(136, 20);
             this.lblNhapNoiDung.TabIndex = 5;
             this.lblNhapNoiDung.Text = "Nhập Nội Dung";
+            // 
+            // rtbNhapNoiDung
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.rtbNhapNoiDung, 2);
+            this.rtbNhapNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbNhapNoiDung.Location = new System.Drawing.Point(567, 32);
+            this.rtbNhapNoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtbNhapNoiDung.Name = "rtbNhapNoiDung";
+            this.tableLayoutPanel1.SetRowSpan(this.rtbNhapNoiDung, 5);
+            this.rtbNhapNoiDung.Size = new System.Drawing.Size(479, 523);
+            this.rtbNhapNoiDung.TabIndex = 4;
+            this.rtbNhapNoiDung.Text = "";
             // 
             // btnLuu
             // 
@@ -141,9 +141,9 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(898, 560);
+            this.btnLuu.Location = new System.Drawing.Point(897, 560);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(148, 55);
+            this.btnLuu.Size = new System.Drawing.Size(149, 55);
             this.btnLuu.TabIndex = 6;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;

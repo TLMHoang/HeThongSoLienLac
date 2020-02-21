@@ -35,16 +35,16 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.tabPageTaiKhoanPH = new System.Windows.Forms.TabPage();
             this.tlpTKPH = new System.Windows.Forms.TableLayoutPanel();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnDatLaiMK = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPageQLTK = new System.Windows.Forms.TabControl();
-            this.btnDatLaiMK = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsDSGV)).BeginInit();
             this.tabPageTaiKhoanTruong.SuspendLayout();
             this.tlpTKT.SuspendLayout();
@@ -78,7 +78,7 @@
             this.tlpTKT.ColumnCount = 3;
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.12903F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87097F));
-            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tlpTKT.Controls.Add(this.dataGridView3, 0, 1);
             this.tlpTKT.Controls.Add(this.textBox3, 0, 0);
             this.tlpTKT.Controls.Add(this.dataGridView4, 1, 0);
@@ -103,7 +103,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.tlpTKT.SetRowSpan(this.dataGridView3, 2);
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(373, 571);
+            this.dataGridView3.Size = new System.Drawing.Size(372, 571);
             this.dataGridView3.TabIndex = 0;
             // 
             // textBox3
@@ -113,7 +113,7 @@
             this.textBox3.Location = new System.Drawing.Point(3, 2);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(373, 27);
+            this.textBox3.Size = new System.Drawing.Size(372, 27);
             this.textBox3.TabIndex = 1;
             // 
             // dataGridView4
@@ -121,13 +121,28 @@
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tlpTKT.SetColumnSpan(this.dataGridView4, 2);
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(382, 2);
+            this.dataGridView4.Location = new System.Drawing.Point(381, 2);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView4.Name = "dataGridView4";
             this.tlpTKT.SetRowSpan(this.dataGridView4, 2);
             this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(400, 525);
+            this.dataGridView4.Size = new System.Drawing.Size(401, 525);
             this.dataGridView4.TabIndex = 2;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLuu.FlatAppearance.BorderSize = 0;
+            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(622, 532);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(160, 60);
+            this.btnLuu.TabIndex = 9;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = false;
             // 
             // tabPageTaiKhoanPH
             // 
@@ -163,6 +178,36 @@
             this.tlpTKPH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tlpTKPH.Size = new System.Drawing.Size(785, 595);
             this.tlpTKPH.TabIndex = 0;
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(363, 536);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(208, 56);
+            this.btnThem.TabIndex = 8;
+            this.btnThem.Text = "Lưu";
+            this.btnThem.UseVisualStyleBackColor = false;
+            // 
+            // btnDatLaiMK
+            // 
+            this.btnDatLaiMK.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDatLaiMK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDatLaiMK.FlatAppearance.BorderSize = 0;
+            this.btnDatLaiMK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDatLaiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatLaiMK.ForeColor = System.Drawing.Color.White;
+            this.btnDatLaiMK.Location = new System.Drawing.Point(577, 536);
+            this.btnDatLaiMK.Name = "btnDatLaiMK";
+            this.btnDatLaiMK.Size = new System.Drawing.Size(205, 56);
+            this.btnDatLaiMK.TabIndex = 7;
+            this.btnDatLaiMK.Text = "Đặt Lại Mật Khẩu";
+            this.btnDatLaiMK.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
@@ -218,51 +263,6 @@
             this.tabPageQLTK.SelectedIndex = 0;
             this.tabPageQLTK.Size = new System.Drawing.Size(799, 628);
             this.tabPageQLTK.TabIndex = 0;
-            // 
-            // btnDatLaiMK
-            // 
-            this.btnDatLaiMK.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnDatLaiMK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDatLaiMK.FlatAppearance.BorderSize = 0;
-            this.btnDatLaiMK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatLaiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDatLaiMK.ForeColor = System.Drawing.Color.White;
-            this.btnDatLaiMK.Location = new System.Drawing.Point(577, 536);
-            this.btnDatLaiMK.Name = "btnDatLaiMK";
-            this.btnDatLaiMK.Size = new System.Drawing.Size(205, 56);
-            this.btnDatLaiMK.TabIndex = 7;
-            this.btnDatLaiMK.Text = "Đặt Lại Mật Khẩu";
-            this.btnDatLaiMK.UseVisualStyleBackColor = false;
-            // 
-            // btnThem
-            // 
-            this.btnThem.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThem.FlatAppearance.BorderSize = 0;
-            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(363, 536);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(208, 56);
-            this.btnThem.TabIndex = 8;
-            this.btnThem.Text = "Lưu";
-            this.btnThem.UseVisualStyleBackColor = false;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(623, 532);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(159, 60);
-            this.btnLuu.TabIndex = 9;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = false;
             // 
             // frmAccountManager
             // 

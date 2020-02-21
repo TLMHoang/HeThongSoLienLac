@@ -15,6 +15,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("UpdateThongBaoLop",
                 new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung }
                 );
         }
