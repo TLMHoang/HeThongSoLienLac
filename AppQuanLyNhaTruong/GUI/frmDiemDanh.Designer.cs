@@ -70,10 +70,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(895, 567);
+            this.tabPage1.Size = new System.Drawing.Size(895, 563);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Vắng";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 557);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cbxLop
@@ -107,13 +107,13 @@
             this.cbxLop.FormattingEnabled = true;
             this.cbxLop.Location = new System.Drawing.Point(3, 3);
             this.cbxLop.Name = "cbxLop";
-            this.cbxLop.Size = new System.Drawing.Size(144, 24);
+            this.cbxLop.Size = new System.Drawing.Size(144, 28);
             this.cbxLop.TabIndex = 0;
             // 
             // btnBack
             // 
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBack.Location = new System.Drawing.Point(742, 504);
+            this.btnBack.Location = new System.Drawing.Point(742, 500);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(144, 54);
             this.btnBack.TabIndex = 4;
@@ -127,7 +127,7 @@
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtTimKiem.Location = new System.Drawing.Point(153, 3);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(733, 23);
+            this.txtTimKiem.Size = new System.Drawing.Size(733, 26);
             this.txtTimKiem.TabIndex = 1;
             // 
             // dgvDSHS
@@ -148,7 +148,7 @@
             this.dgvDSHS.Name = "dgvDSHS";
             this.dgvDSHS.ReadOnly = true;
             this.dgvDSHS.RowHeadersVisible = false;
-            this.dgvDSHS.Size = new System.Drawing.Size(883, 465);
+            this.dgvDSHS.Size = new System.Drawing.Size(883, 461);
             this.dgvDSHS.TabIndex = 2;
             // 
             // ID
@@ -202,7 +202,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnChiTiet, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnLuu, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 501);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 497);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -233,7 +233,7 @@
             // btnKiemTra
             // 
             this.btnKiemTra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnKiemTra.Location = new System.Drawing.Point(3, 504);
+            this.btnKiemTra.Location = new System.Drawing.Point(3, 500);
             this.btnKiemTra.Name = "btnKiemTra";
             this.btnKiemTra.Size = new System.Drawing.Size(144, 54);
             this.btnKiemTra.TabIndex = 4;
@@ -243,11 +243,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(895, 567);
+            this.tabPage2.Size = new System.Drawing.Size(895, 563);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cúp học";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -267,12 +267,12 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(889, 561);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(889, 557);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // frmDiemDanh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 596);
             this.Controls.Add(this.tabControl1);
