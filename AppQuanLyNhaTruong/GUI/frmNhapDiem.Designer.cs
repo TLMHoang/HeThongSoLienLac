@@ -34,6 +34,10 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +48,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -82,8 +82,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(778, 34);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -132,13 +132,53 @@
             this.tableLayoutPanel4.Controls.Add(this.btnXoa, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnThoat, 3, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 268);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 267);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(772, 57);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(772, 58);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThem.Location = new System.Drawing.Point(3, 3);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(184, 52);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "THÊM";
+            this.btnThem.UseVisualStyleBackColor = true;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSua.Location = new System.Drawing.Point(193, 3);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(184, 52);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "SỬA";
+            this.btnSua.UseVisualStyleBackColor = true;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoa.Location = new System.Drawing.Point(383, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(203, 52);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "XÓA";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThoat.Location = new System.Drawing.Point(592, 3);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(177, 52);
+            this.btnThoat.TabIndex = 3;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -156,7 +196,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(772, 259);
+            this.dataGridView1.Size = new System.Drawing.Size(772, 258);
             this.dataGridView1.TabIndex = 1;
             // 
             // Column1
@@ -203,46 +243,6 @@
             // 
             this.Column8.HeaderText = "Loại Điểm";
             this.Column8.Name = "Column8";
-            // 
-            // btnThem
-            // 
-            this.btnThem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThem.Location = new System.Drawing.Point(3, 3);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(184, 51);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "THÊM";
-            this.btnThem.UseVisualStyleBackColor = true;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSua.Location = new System.Drawing.Point(193, 3);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(184, 51);
-            this.btnSua.TabIndex = 1;
-            this.btnSua.Text = "SỬA";
-            this.btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnXoa.Location = new System.Drawing.Point(383, 3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(203, 51);
-            this.btnXoa.TabIndex = 2;
-            this.btnXoa.Text = "XÓA";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThoat.Location = new System.Drawing.Point(592, 3);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(177, 51);
-            this.btnThoat.TabIndex = 3;
-            this.btnThoat.Text = "THOÁT";
-            this.btnThoat.UseVisualStyleBackColor = true;
             // 
             // frmNhapDiem
             // 
