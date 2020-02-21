@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanel1.Controls.Add(this.cboChonLoaiTB, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNhapNoiDung, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.rtbNhapNoiDung, 1, 1);
@@ -76,7 +76,7 @@
             this.cboChonLoaiTB.Location = new System.Drawing.Point(3, 2);
             this.cboChonLoaiTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLoaiTB.Name = "cboChonLoaiTB";
-            this.cboChonLoaiTB.Size = new System.Drawing.Size(282, 24);
+            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 28);
             this.cboChonLoaiTB.TabIndex = 2;
             this.cboChonLoaiTB.SelectedIndexChanged += new System.EventHandler(this.cboChonLoaiTB_SelectedIndexChanged);
             // 
@@ -86,9 +86,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lblNhapNoiDung, 2);
             this.lblNhapNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNhapNoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhapNoiDung.Location = new System.Drawing.Point(291, 0);
+            this.lblNhapNoiDung.Location = new System.Drawing.Point(290, 0);
             this.lblNhapNoiDung.Name = "lblNhapNoiDung";
-            this.lblNhapNoiDung.Size = new System.Drawing.Size(681, 17);
+            this.lblNhapNoiDung.Size = new System.Drawing.Size(682, 17);
             this.lblNhapNoiDung.TabIndex = 3;
             this.lblNhapNoiDung.Text = "Nhập Nội Dung";
             this.lblNhapNoiDung.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,11 +97,11 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.rtbNhapNoiDung, 2);
             this.rtbNhapNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbNhapNoiDung.Location = new System.Drawing.Point(291, 19);
+            this.rtbNhapNoiDung.Location = new System.Drawing.Point(290, 19);
             this.rtbNhapNoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbNhapNoiDung.Name = "rtbNhapNoiDung";
             this.tableLayoutPanel1.SetRowSpan(this.rtbNhapNoiDung, 3);
-            this.rtbNhapNoiDung.Size = new System.Drawing.Size(681, 463);
+            this.rtbNhapNoiDung.Size = new System.Drawing.Size(682, 463);
             this.rtbNhapNoiDung.TabIndex = 4;
             this.rtbNhapNoiDung.Text = "";
             // 
@@ -115,17 +115,19 @@
             this.dgvDSTB.Name = "dgvDSTB";
             this.tableLayoutPanel1.SetRowSpan(this.dgvDSTB, 4);
             this.dgvDSTB.RowTemplate.Height = 24;
-            this.dgvDSTB.Size = new System.Drawing.Size(282, 513);
+            this.dgvDSTB.Size = new System.Drawing.Size(281, 513);
             this.dgvDSTB.TabIndex = 0;
+            this.dgvDSTB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSTB_CellClick);
+            this.dgvDSTB.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDSTB_UserDeletingRow);
             // 
             // cboChonLop
             // 
             this.cboChonLop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboChonLop.FormattingEnabled = true;
-            this.cboChonLop.Location = new System.Drawing.Point(291, 486);
+            this.cboChonLop.Location = new System.Drawing.Point(290, 486);
             this.cboChonLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(530, 24);
+            this.cboChonLop.Size = new System.Drawing.Size(527, 28);
             this.cboChonLop.TabIndex = 5;
             // 
             // btnLuu
@@ -136,13 +138,14 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(827, 486);
+            this.btnLuu.Location = new System.Drawing.Point(823, 486);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(145, 46);
+            this.btnLuu.Size = new System.Drawing.Size(149, 46);
             this.btnLuu.TabIndex = 6;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // bsThongBaoTruong
             // 
@@ -154,7 +157,7 @@
             // 
             // frmThongBao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(975, 534);
