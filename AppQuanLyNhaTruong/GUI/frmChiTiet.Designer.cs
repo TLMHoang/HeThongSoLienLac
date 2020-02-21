@@ -30,27 +30,25 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboLop = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnXem = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.radNgayNghi = new System.Windows.Forms.RadioButton();
-            this.radSoTietNghi = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.radSotietNghi = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboMa = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -60,132 +58,117 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(651, 410);
-            this.splitContainer1.SplitterDistance = 99;
+            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(603, 506);
+            this.splitContainer1.SplitterDistance = 121;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cboLop);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnXem);
-            this.groupBox1.Controls.Add(this.radNgayNghi);
-            this.groupBox1.Controls.Add(this.radSoTietNghi);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(651, 99);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(603, 121);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết";
             // 
-            // cboLop
+            // tableLayoutPanel1
             // 
-            this.cboLop.FormattingEnabled = true;
-            this.cboLop.Location = new System.Drawing.Point(125, 21);
-            this.cboLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cboLop.Name = "cboLop";
-            this.cboLop.Size = new System.Drawing.Size(160, 28);
-            this.cboLop.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Lớp";
-            // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(500, 37);
-            this.btnXem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(113, 50);
-            this.btnXem.TabIndex = 2;
-            this.btnXem.Text = "XEM";
-            this.btnXem.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.radNgayNghi, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.radSotietNghi, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboMa, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 23);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(595, 94);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // radNgayNghi
             // 
             this.radNgayNghi.AutoSize = true;
-            this.radNgayNghi.Location = new System.Drawing.Point(329, 60);
-            this.radNgayNghi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radNgayNghi.Location = new System.Drawing.Point(301, 4);
+            this.radNgayNghi.Margin = new System.Windows.Forms.Padding(4);
             this.radNgayNghi.Name = "radNgayNghi";
             this.radNgayNghi.Size = new System.Drawing.Size(116, 24);
-            this.radNgayNghi.TabIndex = 1;
+            this.radNgayNghi.TabIndex = 0;
+            this.radNgayNghi.TabStop = true;
             this.radNgayNghi.Text = "Ngày Nghỉ";
             this.radNgayNghi.UseVisualStyleBackColor = true;
             // 
-            // radSoTietNghi
+            // radSotietNghi
             // 
-            this.radSoTietNghi.AutoSize = true;
-            this.radSoTietNghi.Checked = true;
-            this.radSoTietNghi.Location = new System.Drawing.Point(329, 22);
-            this.radSoTietNghi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radSoTietNghi.Name = "radSoTietNghi";
-            this.radSoTietNghi.Size = new System.Drawing.Size(134, 24);
-            this.radSoTietNghi.TabIndex = 0;
-            this.radSoTietNghi.TabStop = true;
-            this.radSoTietNghi.Text = "Số Tiết Nghỉ";
-            this.radSoTietNghi.UseVisualStyleBackColor = true;
+            this.radSotietNghi.AutoSize = true;
+            this.radSotietNghi.Location = new System.Drawing.Point(301, 38);
+            this.radSotietNghi.Margin = new System.Windows.Forms.Padding(4);
+            this.radSotietNghi.Name = "radSotietNghi";
+            this.radSotietNghi.Size = new System.Drawing.Size(134, 24);
+            this.radSotietNghi.TabIndex = 1;
+            this.radSotietNghi.TabStop = true;
+            this.radSotietNghi.Text = "Số Tiết Nghỉ";
+            this.radSotietNghi.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // label1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(651, 306);
-            this.dataGridView1.TabIndex = 0;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(289, 34);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "MÃ:";
             // 
-            // comboBox1
+            // cboMa
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 55);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 28);
-            this.comboBox1.TabIndex = 6;
+            this.cboMa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboMa.FormattingEnabled = true;
+            this.cboMa.Location = new System.Drawing.Point(4, 38);
+            this.cboMa.Margin = new System.Windows.Forms.Padding(4);
+            this.cboMa.Name = "cboMa";
+            this.cboMa.Size = new System.Drawing.Size(289, 28);
+            this.cboMa.TabIndex = 3;
             // 
-            // label2
+            // listBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 58);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Học Sinh";
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(603, 380);
+            this.listBox1.TabIndex = 0;
             // 
             // frmChiTiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 410);
+            this.ClientSize = new System.Drawing.Size(603, 506);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChiTiet";
-            this.Text = "frmChiTiet";
+            this.Text = "CHI TIẾT";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -194,13 +177,11 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cboLop;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RadioButton radNgayNghi;
-        private System.Windows.Forms.RadioButton radSoTietNghi;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton radSotietNghi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboMa;
     }
 }
