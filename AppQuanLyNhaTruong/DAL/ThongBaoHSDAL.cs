@@ -13,8 +13,9 @@ namespace DAL
     {
         public async Task<int> CapNhap(ThongBaoHS obj)
         {
-            return await ExecuteNonQuery("UpdateThongBaoH", 
+            return await ExecuteNonQuery("UpdateThongBaoHS", 
                 new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung }
                 );
         }
@@ -31,7 +32,8 @@ namespace DAL
 
         public async Task<int> Them(ThongBaoHS obj)
         {
-            return await ExecuteNonQuery("InsertThongBaoH",
+            return await ExecuteNonQuery("InsertThongBaoHS",
+                new SqlParameter("@IDHocSinh", SqlDbType.NVarChar) { Value = obj.IDHocSinh },
                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung }
                 );
         }

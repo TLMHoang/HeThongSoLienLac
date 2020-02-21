@@ -95,55 +95,6 @@ namespace GUI
         #endregion
 
 
-
-        private void dgvDSTB_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = dgvDSTB.Rows[e.RowIndex];
-            if (row.Cells[0].Value.ToString() != "")
-            {
-                if (cboChonLoaiTB.SelectedIndex != 1)
-                {
-                    if (e.RowIndex >= 0)
-                    {
-                        id = int.Parse(row.Cells[0].Value.ToString());
-                        rtbNhapNoiDung.Text = row.Cells[1].Value.ToString();
-                    }
-                }
-                else
-                {
-                    if (e.RowIndex >= 0)
-                    {
-                        id = int.Parse(row.Cells[0].Value.ToString());
-                        idLop = int.Parse(row.Cells[1].Value.ToString());
-                        rtbNhapNoiDung.Text = row.Cells[2].Value.ToString();
-                    }
-                }
-            }
-
-        }
-
-        private async void dgvDSTB_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                if (cboChonLoaiTB.SelectedIndex != 1)
-                {
-                    await tbt.Xoa(id);
-                    XoaRTB();
-                }
-
-                else
-                {
-                    await tbl.Xoa(id);
-                    XoaRTB();
-                }
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
         private async void btnLuu_Click(object sender, EventArgs e)
         {
             if (id != -1)
@@ -178,6 +129,54 @@ namespace GUI
                     MessageBox.Show("Thêm Thành Công !");
                     LoadDGVLop();
                     XoaRTB();
+                }
+            }
+        }
+
+        private async void dgvDSTB_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (cboChonLoaiTB.SelectedIndex != 1)
+                {
+                    await tbt.Xoa(id);
+                    XoaRTB();
+                }
+
+                else
+                {
+                    await tbl.Xoa(id);
+                    XoaRTB();
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void dgvDSTB_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            DataGridViewRow row = dgvDSTB.Rows[e.RowIndex];
+            if (row.Cells[0].Value.ToString() != "")
+            {
+                if (cboChonLoaiTB.SelectedIndex != 1)
+                {
+                    if (e.RowIndex >= 0)
+                    {
+                        id = int.Parse(row.Cells[0].Value.ToString());
+                        rtbNhapNoiDung.Text = row.Cells[1].Value.ToString();
+                    }
+                }
+                else
+                {
+                    if (e.RowIndex >= 0)
+                    {
+                        id = int.Parse(row.Cells[0].Value.ToString());
+                        idLop = int.Parse(row.Cells[1].Value.ToString());
+                        rtbNhapNoiDung.Text = row.Cells[2].Value.ToString();
+                    }
                 }
             }
         }
