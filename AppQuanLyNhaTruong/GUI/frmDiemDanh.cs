@@ -104,5 +104,29 @@ namespace GUI
                 txt.ForeColor = Color.Gray;
             }
         }
+
+        private void btnKiemTra_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if (dgv.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
+            {
+                if (dgv.Columns[e.ColumnIndex].Name.Equals("Vangp"))
+                {
+                    if ((bool)dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value)
+                    {
+
+                    }
+                }
+                else if (dgv.Columns[e.ColumnIndex].Name.Equals("VangK"))
+                {
+
+                }
+            }
+        }
     }
 }

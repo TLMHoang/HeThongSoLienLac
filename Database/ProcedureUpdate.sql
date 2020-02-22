@@ -4,7 +4,7 @@ GO
 CREATE PROCEDURE UpdateCupHoc
 @STT INT,
 @IDHocSinh INT,
-@Ngay DATETIME,
+@Ngay DATE,
 @NghiTu INT,
 @NghiDen INT,
 @SoTietNghi INT
@@ -13,7 +13,7 @@ BEGIN
     Update dbo.CupHoc
     SET	
         IDHocSinh = @IDHocSinh,         -- IDHocSinh - int
-        Ngay = @Ngay, -- Ngay - datetime
+        Ngay = @Ngay, -- Ngay - DATE
         NghiTu = @NghiTu,         -- NghiTu - int
         NghiDen = @NghiDen,         -- NghiDen - int
         SoTietNghi = @SoTietNghi          -- SoTietNghi - int
@@ -24,18 +24,14 @@ GO
 CREATE PROCEDURE UpdateDiemDanh
 @STT INT,
 @IDHocSinh INT,
-@NghiTu DATETIME,
-@NghiDen DATETIME,
-@SoNgayNghi INT,
+@NgayNghi DATE,
 @Phep BIT
 AS
 BEGIN
     Update dbo.DiemDanh
     SET	
         IDHocSinh = @IDHocSinh,         -- IDHocSinh - int
-        NghiTu = @NghiTu, -- NghiTu - datetime
-        NghiDen = @NghiDen, -- NghiDen - datetime
-        SoNgayNghi = @SoNgayNghi,         -- SoNgayNghi - int
+        NgayNghi = @NgayNghi, -- NghiTu - DATE
         Phep = @Phep       -- Phep - bit
 	WHERE STT = @STT
 END
@@ -181,7 +177,7 @@ GO
 CREATE PROCEDURE UpdateThongTinHS
 @ID INT,
 @Ten NVARCHAR(200),
-@NgaySinh DATETIME,
+@NgaySinh DATE,
 @GioiTinh BIT,
 @NoiSinh NVARCHAR(250),
 @DanToc NVARCHAR(100),
@@ -197,7 +193,7 @@ BEGIN
     Update	dbo.ThongTinHS
     SET	
         Ten = @Ten,       -- Ten - nvarchar(200)
-        NgaySinh = @NgaySinh, -- NgaySinh - datetime
+        NgaySinh = @NgaySinh, -- NgaySinh - DATE
         GioiTinh = @GioiTinh,      -- GioiTinh - bit
         NoiSinh = @NoiSinh,       -- NoiSinh - nvarchar(250)
         DanToc = @DanToc,       -- DanToc - nvarchar(100)
@@ -215,16 +211,16 @@ GO
 CREATE PROCEDURE UpdateXinPhep
 @STT INT,
 @IDHocSinh INT,
-@NghiTu DATETIME,
-@NghiDen DATETIME,
+@NghiTu DATE,
+@NghiDen DATE,
 @SoNgayNghi INT
 AS
 BEGIN
     Update dbo.XinPhep
     SET	
         IDHocSinh = @IDHocSinh,         -- IDHocSinh - int
-        NghiTu = @NghiTu, -- NghiTu - datetime
-        NghiDen = @NghiDen, -- NghiDen - datetime
+        NghiTu = @NghiTu, -- NghiTu - DATE
+        NghiDen = @NghiDen, -- NghiDen - DATE
         SoNgayNghi = @SoNgayNghi          -- SoNgayNghi - int
     WHERE STT = @STT
 END

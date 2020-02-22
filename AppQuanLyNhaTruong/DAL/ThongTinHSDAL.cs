@@ -16,7 +16,7 @@ namespace DAL
             return await ExecuteNonQuery("UpdateThongTinHS",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
                 new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = obj.Ten},
-                new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = obj.NgaySinh},
+                new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = obj.NgaySinh},
                 new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = obj.GioiTinh},
                 new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = obj.NoiSinh},
                 new SqlParameter("@DanhToc", SqlDbType.NVarChar) { Value = obj.DanToc },
@@ -50,7 +50,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("InsertThongTinHS",
                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = obj.Ten },
-               new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = obj.NgaySinh },
+               new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = obj.NgaySinh },
                new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = obj.GioiTinh },
                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = obj.NoiSinh },
                new SqlParameter("@DanhToc", SqlDbType.NVarChar) { Value = obj.DanToc },
