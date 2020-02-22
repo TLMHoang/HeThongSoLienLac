@@ -68,10 +68,11 @@ namespace GUI
         }
         private void txtTimKiemID_TextChanged(object sender, EventArgs e)
         {
-            if (txtTimKiemID.Text != "Nhập ID Hoặc Tên Để Tìm")
+            TextBox txt = sender as TextBox;
+            if (txt.Text != "Nhập ID Hoặc Tên Để Tìm")
             {
                 if (txtTimKiemID.TextLength > 0)
-                    bsHS.Filter = String.Format("CONVERT(ID,System.String)='{0}' OR [Ten] LIKE '%{0}%'",txtTimKiemID.Text);
+                    bsHS.Filter = String.Format("CONVERT(ID,System.String)='{0}' OR [Ten] LIKE '%{0}%'",txt.Text);
                 else
                     bsHS.RemoveFilter();
             }
