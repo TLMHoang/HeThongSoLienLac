@@ -88,8 +88,8 @@ CREATE TABLE XinPhep
 (
 	STT INT IDENTITY(1,1) PRIMARY KEY,
 	IDHocSinh INT,
-	NghiTu DATETIME,
-	NghiDen DATETIME,
+	NghiTu DATE,
+	NghiDen DATE,
 	SoNgayNghi INT,
 
 	FOREIGN KEY (IDHocSinh) REFERENCES dbo.ThongTinHS(ID)

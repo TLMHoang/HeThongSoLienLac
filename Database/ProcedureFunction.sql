@@ -14,3 +14,24 @@ AS
 BEGIN
     SELECT * FROM dbo.ThongTinHS WHERE IDLop = @IDLop
 END
+GO	
+
+CREATE PROCEDURE UpdateTKQLyHS
+@ID INT,
+@IDTK INT
+AS	
+BEGIN
+    UPDATE dbo.ThongTinHS
+	SET	IDTaiKhoan = @IDTK
+	WHERE ID = @ID
+END
+GO	
+
+CREATE PROCEDURE LaySTTDiemDanh
+@IDHS INT,
+@NgayNghi DATE
+AS	
+BEGIN
+    SELECT * FROM dbo.DiemDanh WHERE IDHocSinh = @IDHS AND  NgayNghi = @NgayNghi
+END
+GO

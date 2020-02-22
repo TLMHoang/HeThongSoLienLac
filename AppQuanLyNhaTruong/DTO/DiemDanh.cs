@@ -22,11 +22,11 @@ namespace DTO
 			Phep = 0;
 		}
 
-		public DiemDanh(int sTT, int iDHocSinh, DateTime nghiTu, DateTime nghiDen, int soNgayNghi, byte phep)
+		public DiemDanh(int sTT, int iDHocSinh, DateTime ngayNghi, byte phep)
 		{
 			STT = sTT;
 			IDHocSinh = iDHocSinh;
-			NgayNghi = nghiTu;
+			NgayNghi = ngayNghi;
 			Phep = phep;
 		}
 
