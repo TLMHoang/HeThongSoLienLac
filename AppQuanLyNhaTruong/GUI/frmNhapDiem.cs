@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BAL;
 
 namespace GUI
 {
     public partial class frmNhapDiem : Form
     {
+        DiemHeSoHaiBAL d2 = new DiemHeSoHaiBAL();
+        DiemHeSoMotBAL d1 = new DiemHeSoMotBAL();
+        DiemHocKyBAL dhk = new DiemHocKyBAL();
+        ThongTinHSBAL tt = new ThongTinHSBAL();
         public frmNhapDiem()
         {
             InitializeComponent();
@@ -32,14 +38,31 @@ namespace GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            DialogResult ret = MessageBox.Show("Bạn có muốn thoát không", "Hỏi thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ret == DialogResult.Yes)
+            
                 this.Close();
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void frmNhapDiem_Load(object sender, EventArgs e)
+        {
+            loadhs();
+        }
+
+        private async void loadhs()
+        {
+            bsHocSinh.SuspendBinding();
+            dgvNhapDiem.SuspendLayout();
+            foreach (Lop l in Program.lstLop)
+            {
+                cboLop.Items.Add(l.ID + "-" + l.TenLop);
+            }
+            dgvNhapDiem.DataSource = await new ThongTinHSBAL().LayDT();
+            bsHocSinh.ResumeBinding();
+            dgvNhapDiem.ResumeLayout();
         }
     }
 }
