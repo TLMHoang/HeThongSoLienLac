@@ -3,7 +3,7 @@ GO
 
 CREATE PROCEDURE InsertCupHoc
 @IDHocSinh INT,
-@Ngay DATETIME,
+@Ngay DATE,
 @NghiTu INT,
 @NghiDen INT,
 @SoTietNghi INT
@@ -19,7 +19,7 @@ BEGIN
     )
     VALUES
     (   @IDHocSinh,         -- IDHocSinh - int
-        @Ngay, -- Ngay - datetime
+        @Ngay, -- Ngay - DATE
         @NghiTu,         -- NghiTu - int
         @NghiDen,         -- NghiDen - int
         @SoTietNghi          -- SoTietNghi - int
@@ -29,25 +29,19 @@ GO
 
 CREATE PROCEDURE InsertDiemDanh
 @IDHocSinh INT,
-@NghiTu DATETIME,
-@NghiDen DATETIME,
-@SoNgayNghi INT,
+@NgayNghi DATE,
 @Phep BIT
 AS
 BEGIN
     INSERT dbo.DiemDanh
     (
         IDHocSinh,
-        NghiTu,
-        NghiDen,
-        SoNgayNghi,
+        NgayNghi,
         Phep
     )
     VALUES
     (   @IDHocSinh,         -- IDHocSinh - int
-        @NghiTu, -- NghiTu - datetime
-        @NghiDen, -- NghiDen - datetime
-        @SoNgayNghi,         -- SoNgayNghi - int
+        @NgayNghi, -- NghiTu - DATE
         @Phep       -- Phep - bit
         )
 END
@@ -247,7 +241,7 @@ GO
 
 CREATE PROCEDURE InsertThongTinHS
 @Ten NVARCHAR(200),
-@NgaySinh DATETIME,
+@NgaySinh DATE,
 @GioiTinh BIT,
 @NoiSinh NVARCHAR(250),
 @DanToc NVARCHAR(100),
@@ -277,7 +271,7 @@ BEGIN
     )
     VALUES
     (   @Ten,       -- Ten - nvarchar(200)
-        @NgaySinh, -- NgaySinh - datetime
+        @NgaySinh, -- NgaySinh - DATE
         @GioiTinh,      -- GioiTinh - bit
         @NoiSinh,       -- NoiSinh - nvarchar(250)
         @DanToc,       -- DanToc - nvarchar(100)
@@ -298,8 +292,8 @@ GO
 
 CREATE PROCEDURE InsertXinPhep
 @IDHocSinh INT,
-@NghiTu DATETIME,
-@NghiDen DATETIME,
+@NghiTu DATE,
+@NghiDen DATE,
 @SoNgayNghi INT
 AS
 BEGIN
@@ -312,8 +306,8 @@ BEGIN
     )
     VALUES
     (   @IDHocSinh,         -- IDHocSinh - int
-        @NghiTu, -- NghiTu - datetime
-        @NghiDen, -- NghiDen - datetime
+        @NghiTu, -- NghiTu - DATE
+        @NghiDen, -- NghiDen - DATE
         @SoNgayNghi          -- SoNgayNghi - int
         )
 END

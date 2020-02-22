@@ -77,9 +77,7 @@ CREATE TABLE DiemDanh
 (
 	STT INT IDENTITY(1,1) PRIMARY KEY,
 	IDHocSinh INT,
-	NghiTu DATE,
-	NghiDen DATE,
-	SoNgayNghi INT,
+	NgayNghi DATE,
 	Phep BIT DEFAULT 0,
 
 	FOREIGN KEY (IDHocSinh) REFERENCES dbo.ThongTinHS(ID)

@@ -16,9 +16,7 @@ namespace DAL
             return await ExecuteNonQuery("UpdateDiemDanh", 
                 new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh},
-                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = obj.NghiTu},
-                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = obj.NghiDen},
-                new SqlParameter("@SoNgayNghi", SqlDbType.Int) { Value = obj.SoNgayNghi },
+                new SqlParameter("@NgayNghi", SqlDbType.Date) { Value = obj.NgayNghi },
                 new SqlParameter("@Phep", SqlDbType.Bit) { Value = obj.Phep }
             );
         }
@@ -43,9 +41,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("InsertDiemDanh",
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
-                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = obj.NghiTu },
-                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = obj.NghiDen },
-                new SqlParameter("@SoNgayNghi", SqlDbType.Int) { Value = obj.SoNgayNghi },
+                new SqlParameter("@NgayNghi", SqlDbType.Date) { Value = obj.NgayNghi },
                 new SqlParameter("@Phep", SqlDbType.Bit) { Value = obj.Phep }
             );
         }
