@@ -28,148 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.radNgayNghi = new System.Windows.Forms.RadioButton();
-            this.radSotietNghi = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboMa = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.lblThongTin = new System.Windows.Forms.Label();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.bsDiemDanh = new System.Windows.Forms.BindingSource(this.components);
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNghi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phep = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemDanh)).BeginInit();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(452, 411);
-            this.splitContainer1.SplitterDistance = 98;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 98);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chi Tiết";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.radNgayNghi, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.radSotietNghi, 1, 1);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboMa, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblThongTin, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvData, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 77);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(455, 506);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // radNgayNghi
-            // 
-            this.radNgayNghi.AutoSize = true;
-            this.radNgayNghi.Location = new System.Drawing.Point(226, 3);
-            this.radNgayNghi.Name = "radNgayNghi";
-            this.radNgayNghi.Size = new System.Drawing.Size(99, 20);
-            this.radNgayNghi.TabIndex = 0;
-            this.radNgayNghi.TabStop = true;
-            this.radNgayNghi.Text = "Ngày Nghỉ";
-            this.radNgayNghi.UseVisualStyleBackColor = true;
-            // 
-            // radSotietNghi
-            // 
-            this.radSotietNghi.AutoSize = true;
-            this.radSotietNghi.Location = new System.Drawing.Point(226, 31);
-            this.radSotietNghi.Name = "radSotietNghi";
-            this.radSotietNghi.Size = new System.Drawing.Size(112, 20);
-            this.radSotietNghi.TabIndex = 1;
-            this.radSotietNghi.TabStop = true;
-            this.radSotietNghi.Text = "Số Tiết Nghỉ";
-            this.radSotietNghi.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 28);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "MÃ:";
+            this.label1.Size = new System.Drawing.Size(447, 49);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bảng chi tiết ngày nghỉ học";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cboMa
+            // lblThongTin
             // 
-            this.cboMa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMa.FormattingEnabled = true;
-            this.cboMa.Location = new System.Drawing.Point(3, 31);
-            this.cboMa.Name = "cboMa";
-            this.cboMa.Size = new System.Drawing.Size(217, 24);
-            this.cboMa.TabIndex = 3;
+            this.lblThongTin.AutoSize = true;
+            this.lblThongTin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblThongTin.Location = new System.Drawing.Point(4, 49);
+            this.lblThongTin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblThongTin.Name = "lblThongTin";
+            this.lblThongTin.Size = new System.Drawing.Size(447, 31);
+            this.lblThongTin.TabIndex = 0;
+            this.lblThongTin.Text = "Tên + Lớp";
+            this.lblThongTin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox1
+            // dgvData
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(452, 309);
-            this.listBox1.TabIndex = 0;
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AutoGenerateColumns = false;
+            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.NgayNghi,
+            this.Phep});
+            this.dgvData.DataSource = this.bsDiemDanh;
+            this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvData.Location = new System.Drawing.Point(3, 83);
+            this.dgvData.Name = "dgvData";
+            this.dgvData.Size = new System.Drawing.Size(449, 420);
+            this.dgvData.TabIndex = 1;
+            this.dgvData.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellEndEdit);
+            this.dgvData.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvData_UserDeletingRow);
+            // 
+            // bsDiemDanh
+            // 
+            this.bsDiemDanh.DataSource = typeof(DTO.DiemDanh);
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.FillWeight = 73.85786F;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // NgayNghi
+            // 
+            this.NgayNghi.DataPropertyName = "NgayNghi";
+            this.NgayNghi.FillWeight = 152.2843F;
+            this.NgayNghi.HeaderText = "Ngày nghỉ";
+            this.NgayNghi.Name = "NgayNghi";
+            this.NgayNghi.ReadOnly = true;
+            // 
+            // Phep
+            // 
+            this.Phep.DataPropertyName = "Phep";
+            this.Phep.FillWeight = 73.85786F;
+            this.Phep.HeaderText = "Có phép hay không";
+            this.Phep.Name = "Phep";
+            this.Phep.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Phep.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmChiTiet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 411);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(455, 506);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmChiTiet";
-            this.Text = "CHI TIẾT";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.Text = "CHI TIẾT VẮNG HỌC";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmChiTiet_FormClosing);
+            this.Load += new System.EventHandler(this.frmChiTiet_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemDanh)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.RadioButton radNgayNghi;
-        private System.Windows.Forms.RadioButton radSotietNghi;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboMa;
+        private System.Windows.Forms.Label lblThongTin;
+        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.BindingSource bsDiemDanh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNghi;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Phep;
     }
 }

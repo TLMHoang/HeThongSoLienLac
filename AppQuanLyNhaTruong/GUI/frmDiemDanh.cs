@@ -14,9 +14,10 @@ namespace GUI
 {
     public partial class frmDiemDanh : Form
     {
-        ThongTinHSBAL hSBAL = new ThongTinHSBAL();
-        DiemDanhBAL ddBAL = new DiemDanhBAL();
-        CupHocBAL cupBAL = new CupHocBAL();
+        private ThongTinHSBAL hSBAL = new ThongTinHSBAL();
+        private DiemDanhBAL ddBAL = new DiemDanhBAL();
+        private CupHocBAL cupBAL = new CupHocBAL();
+        private frmChiTiet f = new frmChiTiet();
         public frmDiemDanh()
         {
             InitializeComponent();
@@ -338,8 +339,23 @@ namespace GUI
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            frmChiTiet f = new frmChiTiet();
-            f.ShowDialog();
+            f.IDHS = Convert.ToInt32(dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["ID"].Value);
+            f.TenH = dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["Ten"].Value.ToString() + " - " + cbxLop.Text;
+            f.frmChiTiet_Load(null, null);
+            if (!f.Visible)
+            {
+                f.Visible = true;
+            }
+            f.Focus();
+        }
+
+        private async void dgvChiTiet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int y = dgvChiTiet.CurrentCell.RowIndex;
+            if (await cupBAL.CapNhap(new CupHoc(Convert.ToInt32(dgvChiTiet.Rows[y].Cells["STT"].Value), int.Parse(txtID.Text), Convert.ToDateTime(dgvChiTiet.Rows[y].Cells["Ngay"].Value), Convert.ToInt32(dgvChiTiet.Rows[y].Cells["Tiet"].Value))) == 0)
+            {
+                btnXemChiTiet_Click(null, null);
+            }
         }
     }
 }
