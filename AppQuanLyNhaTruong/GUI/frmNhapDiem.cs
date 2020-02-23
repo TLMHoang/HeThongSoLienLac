@@ -14,7 +14,9 @@ namespace GUI
 {
     public partial class frmNhapDiem : Form
     {
-        
+        DiemHeSoMotBAL d1 = new DiemHeSoMotBAL();
+        DiemHeSoHaiBAL d2 = new DiemHeSoHaiBAL();
+        DiemHocKyBAL d3 = new DiemHocKyBAL();
         ThongTinHSBAL tt = new ThongTinHSBAL();
        
         public frmNhapDiem()
@@ -135,6 +137,11 @@ namespace GUI
             {
                 bsHocSinh.DataSource = await tt.LayDT();
             }
+        }
+
+        private void dgvNhapDiem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dt = (DataGridView)sender;
         }
     }
 }
