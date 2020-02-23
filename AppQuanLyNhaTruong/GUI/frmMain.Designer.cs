@@ -64,7 +64,7 @@
             this.btnDiemDanh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiemDanh.ForeColor = System.Drawing.Color.White;
             this.btnDiemDanh.Location = new System.Drawing.Point(248, 82);
-            this.btnDiemDanh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiemDanh.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiemDanh.Name = "btnDiemDanh";
             this.btnDiemDanh.Size = new System.Drawing.Size(238, 76);
             this.btnDiemDanh.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.btnAccountManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccountManagement.ForeColor = System.Drawing.Color.White;
             this.btnAccountManagement.Location = new System.Drawing.Point(248, 482);
-            this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccountManagement.Name = "btnAccountManagement";
             this.btnAccountManagement.Size = new System.Drawing.Size(238, 76);
             this.btnAccountManagement.TabIndex = 1;
@@ -98,7 +98,7 @@
             this.btnStudentManagement.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudentManagement.ForeColor = System.Drawing.Color.White;
             this.btnStudentManagement.Location = new System.Drawing.Point(248, 2);
-            this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStudentManagement.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudentManagement.Name = "btnStudentManagement";
             this.tableLayoutPanel1.SetRowSpan(this.btnStudentManagement, 2);
             this.btnStudentManagement.Size = new System.Drawing.Size(238, 76);
@@ -154,7 +154,7 @@
             this.txtLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLopHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtLopHoc.Location = new System.Drawing.Point(2, 57);
-            this.txtLopHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLopHoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtLopHoc.Name = "txtLopHoc";
             this.txtLopHoc.Size = new System.Drawing.Size(242, 26);
             this.txtLopHoc.TabIndex = 4;
@@ -178,7 +178,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnPCMonHoc, 1, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
@@ -204,7 +204,7 @@
             this.dgvDanhSachLop.DataSource = this.bsLop;
             this.dgvDanhSachLop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSachLop.Location = new System.Drawing.Point(2, 82);
-            this.dgvDanhSachLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDanhSachLop.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDanhSachLop.Name = "dgvDanhSachLop";
             this.dgvDanhSachLop.RowHeadersWidth = 30;
             this.tableLayoutPanel1.SetRowSpan(this.dgvDanhSachLop, 7);
@@ -256,7 +256,7 @@
             this.btnDiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiem.ForeColor = System.Drawing.Color.White;
             this.btnDiem.Location = new System.Drawing.Point(248, 242);
-            this.btnDiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiem.Name = "btnDiem";
             this.btnDiem.Size = new System.Drawing.Size(238, 76);
             this.btnDiem.TabIndex = 3;
@@ -273,7 +273,7 @@
             this.btnThongBaoChung.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongBaoChung.ForeColor = System.Drawing.Color.White;
             this.btnThongBaoChung.Location = new System.Drawing.Point(248, 322);
-            this.btnThongBaoChung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThongBaoChung.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongBaoChung.Name = "btnThongBaoChung";
             this.btnThongBaoChung.Size = new System.Drawing.Size(238, 76);
             this.btnThongBaoChung.TabIndex = 3;
@@ -290,7 +290,7 @@
             this.btnThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongBao.ForeColor = System.Drawing.Color.White;
             this.btnThongBao.Location = new System.Drawing.Point(248, 402);
-            this.btnThongBao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThongBao.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongBao.Name = "btnThongBao";
             this.btnThongBao.Size = new System.Drawing.Size(238, 76);
             this.btnThongBao.TabIndex = 3;
@@ -307,7 +307,7 @@
             this.btnThoiKhoaBieu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoiKhoaBieu.ForeColor = System.Drawing.Color.White;
             this.btnThoiKhoaBieu.Location = new System.Drawing.Point(248, 162);
-            this.btnThoiKhoaBieu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThoiKhoaBieu.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoiKhoaBieu.Name = "btnThoiKhoaBieu";
             this.btnThoiKhoaBieu.Size = new System.Drawing.Size(238, 76);
             this.btnThoiKhoaBieu.TabIndex = 6;
@@ -324,7 +324,7 @@
             this.btnPCMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPCMonHoc.ForeColor = System.Drawing.Color.White;
             this.btnPCMonHoc.Location = new System.Drawing.Point(248, 562);
-            this.btnPCMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPCMonHoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnPCMonHoc.Name = "btnPCMonHoc";
             this.btnPCMonHoc.Size = new System.Drawing.Size(238, 91);
             this.btnPCMonHoc.TabIndex = 7;
@@ -342,7 +342,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";

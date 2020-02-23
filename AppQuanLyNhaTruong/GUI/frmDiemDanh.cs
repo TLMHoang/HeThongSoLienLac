@@ -231,5 +231,19 @@ namespace GUI
         {
             this.Close();
         }
+
+        private void frmDiemDanh_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.Font = new Font("Microsoft Sans Serif", (float)9.75);
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.Font = new Font("Microsoft Sans Serif", (float)14);
+                this.Size = new Size(1024, 635);
+                dgvDSHS.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+        }
     }
 }
