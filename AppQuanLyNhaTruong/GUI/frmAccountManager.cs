@@ -317,7 +317,7 @@ namespace GUI
         {
             try
             {
-                if (dgvThongTinGV.CurrentRow.Cells[0] != null)
+                if (dgvThongTinGV.CurrentRow.Cells[0] != null && text != "")
                 {
                     DataGridViewRow dvr = dgvThongTinGV.CurrentRow;
                     await ttGV.Them(new ThongTinGV(
@@ -329,7 +329,22 @@ namespace GUI
                     dgvThongTinGV.DataSource = await ttGV.LayDT();
                     MessageBox.Show("Thêm Thông Tin Thành Công !");
                     dgvTaiKhoanTruong.ReadOnly = false;
+                    text = "";
                     dgvTaiKhoanTruong.CurrentCell = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
+                }else if(dgvThongTinGV.CurrentRow.Cells[0] != null && text == "")
+                {
+                    if (dgvThongTinGV.CurrentRow != null)
+                    {
+                        DataGridViewRow dvr = dgvThongTinGV.CurrentRow;
+                        await ttGV.CapNhap(new ThongTinGV(
+                            int.Parse(dvr.Cells[0].Value.ToString()),
+                            dvr.Cells[1].Value.ToString(),
+                            dvr.Cells[2].Value.ToString(),
+                            Convert.ToInt32(dvr.Cells[3].Value), Convert.ToInt32(dvr.Cells[4].Value)
+                            ));
+                        dgvThongTinGV.DataSource = await ttGV.LayDT();
+                        MessageBox.Show("Cập nhật Thông Tin Thành Công !");
+                    }
                 }
             }
             catch (Exception) { MessageBox.Show("Lỗi !"); }
@@ -413,29 +428,12 @@ namespace GUI
                 txtTimGV.ForeColor = Color.Black;
             }
         }
-        private async void dgvThongTinGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (dgvThongTinGV.CurrentRow != null)
-                {
-                    DataGridViewRow dvr = dgvThongTinGV.CurrentRow;
-                    await ttGV.CapNhap(new ThongTinGV(
-                        int.Parse(dvr.Cells[0].Value.ToString()),
-                        dvr.Cells[1].Value.ToString(),
-                        dvr.Cells[2].Value.ToString(),
-                        Convert.ToInt32(dvr.Cells[3].Value), Convert.ToInt32(dvr.Cells[4].Value)
-                        ));
-                    dgvThongTinGV.DataSource = await ttGV.LayDT();
-                    MessageBox.Show("Cập nhật Thông Tin Thành Công !");
-                }
-            }
-            catch (Exception) { MessageBox.Show("Lỗi !"); }
-        }
+        
+
 
 
         #endregion
 
-
+    
     }
 }
