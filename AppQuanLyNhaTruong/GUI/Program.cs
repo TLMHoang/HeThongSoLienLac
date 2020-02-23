@@ -15,6 +15,7 @@ namespace GUI
         public static ThongTinGV gV = new ThongTinGV();
         //List
         public static List<Lop> lstLop = new List<Lop>();
+        public static List<MonHoc> lstMonHoc = new List<MonHoc>();
         
         /// <summary>
         /// The main entry point for the application.

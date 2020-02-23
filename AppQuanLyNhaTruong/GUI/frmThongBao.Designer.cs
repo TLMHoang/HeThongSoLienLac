@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             this.tableLayoutPanel1.Controls.Add(this.cboChonLoaiTB, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNhapNoiDung, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.rtbNhapNoiDung, 1, 1);
@@ -76,7 +76,7 @@
             this.cboChonLoaiTB.Location = new System.Drawing.Point(3, 2);
             this.cboChonLoaiTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLoaiTB.Name = "cboChonLoaiTB";
-            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 28);
+            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 24);
             this.cboChonLoaiTB.TabIndex = 2;
             this.cboChonLoaiTB.SelectedIndexChanged += new System.EventHandler(this.cboChonLoaiTB_SelectedIndexChanged);
             // 
@@ -127,7 +127,7 @@
             this.cboChonLop.Location = new System.Drawing.Point(290, 486);
             this.cboChonLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(527, 28);
+            this.cboChonLop.Size = new System.Drawing.Size(527, 24);
             this.cboChonLop.TabIndex = 5;
             // 
             // btnLuu
@@ -157,7 +157,7 @@
             // 
             // frmThongBao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(975, 534);
