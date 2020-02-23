@@ -155,22 +155,22 @@ namespace GUI
 
         private async void radDiemMieng_CheckedChanged(object sender, EventArgs e)
         {
-            if(radDiemMieng.Checked)
-            {
-                await d1.CapNhap(new DiemHeSoMot(())
-            }
-            if(rad15p.Checked)
-            {
-                await d1.CapNhap(new DiemHeSoMot)
-            }
-            if(rad1tiet.Checked)
-            {
-                await d2.CapNhap(new DiemHeSoHai)
-            }
-            if(radHocKy.Checked)
-            {
-                await d3.CapNhap(new DiemHocKy)
-            }
+            //if (radDiemMieng.Checked)
+            //{
+            //    await d1.CapNhap(new DiemHeSoMot());
+            //}
+            //if (rad15p.Checked)
+            //{
+            //    await d1.CapNhap(new DiemHeSoMot)
+            //    }
+            //if (rad1tiet.Checked)
+            //{
+            //    await d2.CapNhap(new DiemHeSoHai)
+            //    }
+            //if (radHocKy.Checked)
+            //{
+            //    await d3.CapNhap(new DiemHocKy)
+            //    }
         }
     }
 }
