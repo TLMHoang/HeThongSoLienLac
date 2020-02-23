@@ -172,17 +172,14 @@ namespace GUI
         string tenTkt = "";
         string matkhauTruong = "";
         byte loai;
-
+        string text;
         public async void LoadDGVTruong()
         {
             bsTaiKhoanTruong.SuspendBinding();
             dgvTaiKhoanTruong.SuspendLayout();
             dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
 
-            DataGridViewCheckBoxColumn l = (DataGridViewCheckBoxColumn)dgvTaiKhoanTruong.Columns[1];
-            l.DataPropertyName = "Loai";
-            l.TrueValue = Convert.ToByte(1);
-            l.FalseValue = Convert.ToByte(0);
+            
 
             bsTaiKhoanTruong.ResumeBinding();
             dgvTaiKhoanTruong.ResumeLayout();
@@ -198,20 +195,32 @@ namespace GUI
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
-            if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.Rows.Count - 1].Cells[0].Value == null)
-            {                            
-                await tkTruong.Them(new TaiKhoanTruong(idTruong, dgvTaiKhoanTruong.CurrentRow.Cells[2].Value.ToString(), dgvTaiKhoanTruong.CurrentRow.Cells[3].Value.ToString(),chk.Value == chk.TrueValue?(byte)1:(byte)0));
-                dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();                
+            
+            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[3];
+
+            if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[0].Value == null)
+            {
+                DataGridViewRow dvr = dgvTaiKhoanTruong.CurrentRow;                          
+                await tkTruong.Them(new TaiKhoanTruong(
+                    idTruong, 
+                    dvr.Cells[1].Value.ToString(),
+                    dvr.Cells[2].Value.ToString(),
+                    chk.Value == chk.TrueValue ?(byte)1:(byte)0));
+                dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
+                text = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount -2 ].Cells[0].Value.ToString();
                 dgvThongTinGV.DataSource = await ttGV.LayDT();
+                
                 MessageBox.Show("Thêm Thành Công , Nhập Thông Tin Ở bảng bên và nhấn lưu !");                
             }
-            string text;
-            text = dgvTaiKhoanTruong.CurrentRow.Cells[0].Value.ToString() ;
+            
+            DataTable dataTable = (DataTable)dgvThongTinGV.DataSource;
+            DataRow drToAdd = dataTable.NewRow();
+            drToAdd["IDTKT"] = text;
+            dataTable.Rows.Add(drToAdd);
+            dataTable.AcceptChanges();
 
-            dgvThongTinGV.Rows.Add(text);
-
-            dgvThongTinGV.CurrentCell = dgvThongTinGV.Rows[dgvThongTinGV.RowCount - 1].Cells[0];
+            dgvThongTinGV.CurrentCell = dgvThongTinGV.Rows[dgvThongTinGV.RowCount - 2].Cells[1];
+            dgvThongTinGV.ReadOnly = false;
         }
         public async void loadCBO()
         {
@@ -224,12 +233,31 @@ namespace GUI
             cbo1.DisplayMember = "TenLop";
             cbo1.ValueMember = "ID";
         }
+        private async void btnLuuTTGV_Click(object sender, EventArgs e)
+        {
+
+            if (dgvThongTinGV.CurrentRow.Cells[0] != null)
+            {
+                DataGridViewRow dvr = dgvThongTinGV.CurrentRow;
+                await ttGV.Them(new ThongTinGV(
+                    int.Parse(dvr.Cells[0].Value.ToString()),
+                    dvr.Cells[1].Value.ToString(),
+                    dvr.Cells[2].Value.ToString(),
+                    Convert.ToInt32(dvr.Cells[3].Value), Convert.ToInt32(dvr.Cells[4].Value)
+                    ));
+                dgvThongTinGV.DataSource = await ttGV.LayDT();
+                MessageBox.Show("Thêm Thông Tin Thành Công !");
+                dgvThongTinGV.ReadOnly = true;
+                dgvTaiKhoanTruong.CurrentCell = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
+            }
+        }
+
+
+
 
 
         #endregion
 
 
-
-       
     }
 }
