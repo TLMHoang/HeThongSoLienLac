@@ -141,7 +141,36 @@ namespace GUI
 
         private void dgvNhapDiem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dt = (DataGridView)sender;
+            DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
+            if (drv == null)
+            {
+                return;
+            }
+        }
+
+        private void dgvNhapDiem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+        }
+
+        private async void radDiemMieng_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radDiemMieng.Checked)
+            {
+                await d1.CapNhap(new DiemHeSoMot(())
+            }
+            if(rad15p.Checked)
+            {
+                await d1.CapNhap(new DiemHeSoMot)
+            }
+            if(rad1tiet.Checked)
+            {
+                await d2.CapNhap(new DiemHeSoHai)
+            }
+            if(radHocKy.Checked)
+            {
+                await d3.CapNhap(new DiemHocKy)
+            }
         }
     }
 }

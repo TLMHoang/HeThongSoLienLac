@@ -54,5 +54,9 @@ namespace BAL
         {
             return await hs.LayDanhSach(IDLop);
         }
+        public async Task<DataTable> CapNhatID(int ID,int IDTK)
+        {
+            return await hs.CapNhatID(ID, IDTK);
+        }
     }
 }
