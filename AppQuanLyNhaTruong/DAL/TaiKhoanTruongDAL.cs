@@ -41,7 +41,6 @@ namespace DAL
         {
             return await ExecuteNonQuery(
                 "InsertTaiKhoanTruong",
-                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
                 new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
                 new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
                 new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai }

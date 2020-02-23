@@ -77,5 +77,12 @@ namespace DAL
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop }
                 );
         }
+        public async Task<DataTable> CapNhatID(int ID, int IDTK)
+        {
+            return await ExecuteQuery(
+                "UpdateTKQLyHS",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID },
+                new SqlParameter("@IDTK", SqlDbType.Int) { Value = IDTK });
+        }
     }
 }

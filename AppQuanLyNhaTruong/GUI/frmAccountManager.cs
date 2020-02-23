@@ -14,11 +14,11 @@ namespace GUI
 {
     public partial class frmAccountManager : Form
     {
+        TaiKhoanTruongBAL tkTruong = new TaiKhoanTruongBAL();
         ThongTinGVBAL ttGV = new ThongTinGVBAL();
         TaiKhoanPHBAL tkPH = new TaiKhoanPHBAL();
         ThongTinHSBAL ttHS = new ThongTinHSBAL();
-        int id = -1;
-        string tenTK = "";
+        
         public frmAccountManager()
         {
             InitializeComponent();
@@ -28,8 +28,15 @@ namespace GUI
         {
             LoadDGVDSHS();
             LoadDGVTKPH();
+            LoadDGVGV();
+            LoadDGVTruong();
+            loadCBO();
         }
         #region TabTaiKhoanPH
+        int id = -1;
+        string tenTK = "";
+        int idTKPH = -1;
+        int idHS = -1;
         public async void LoadDGVTKPH()
         {
             bsTKPH.SuspendBinding();
@@ -85,6 +92,8 @@ namespace GUI
                     await tkPH.Them(ph);
                     LoadDGVTKPH();
                     MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
+                    idTKPH = int.Parse(drv.Row.ItemArray[0].ToString());
+                    dgvTKPH.ReadOnly = true;
                     dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                 }
             }
@@ -96,11 +105,16 @@ namespace GUI
 
         private async void btnThemTK_Click(object sender, EventArgs e)
         {
-            DataGridViewCheckBoxCell check = dgvDSHS.CurrentRow.Cells[0] as DataGridViewCheckBoxCell;
-            if ((bool)check.Value == true)
-            {
-                //đợi proc
-                MessageBox.Show("OK");
+
+            if (idHS != -1)
+            {                
+                await ttHS.CapNhatID(idHS,idTKPH);
+                MessageBox.Show("Liên Kết Thành Công");
+                idTKPH = -1;
+                idHS = -1;
+                dgvTKPH.ReadOnly = false;
+                LoadDGVDSHS();
+                dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
             }
             else
             {
@@ -112,13 +126,24 @@ namespace GUI
         private void dgvTKPH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dgvTKPH.Rows[e.RowIndex];
-            if (int.Parse(row.Cells[0].Value.ToString()) != -1)
+            if (row.Cells[0].Value.ToString() != "")
             {
-                id = int.Parse(row.Cells[0].Value.ToString());
-                tenTK = row.Cells[1].Value.ToString();
+                if (int.Parse(row.Cells[0].Value.ToString()) != -1)
+                {
+                    id = int.Parse(row.Cells[0].Value.ToString());
+                    tenTK = row.Cells[1].Value.ToString();
+                }
             }
         }
-
+        private void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewButtonCell btn = dgvDSHS.Rows[e.RowIndex].Cells[0] as DataGridViewButtonCell;
+            if(MessageBox.Show("Chọn Học Sinh " + dgvDSHS.CurrentRow.Cells[2].Value.ToString(),"Notification !",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)== DialogResult.OK)
+            {
+                btn.Style.BackColor = Color.DarkOrange;
+                idHS = Convert.ToInt32(dgvDSHS.CurrentRow.Cells[1].Value.ToString());
+            }
+        }
         private async void btnDatLaiMK_Click(object sender, EventArgs e)
         {
             try
@@ -138,12 +163,73 @@ namespace GUI
             }
             catch (Exception) { MessageBox.Show("Lỗi !"); }
         }
+
+
         #endregion
 
         #region TabTaiKhoanTruong
+        int idTruong = -1;
+        string tenTkt = "";
+        string matkhauTruong = "";
+        byte loai;
+
+        public async void LoadDGVTruong()
+        {
+            bsTaiKhoanTruong.SuspendBinding();
+            dgvTaiKhoanTruong.SuspendLayout();
+            dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
+
+            DataGridViewCheckBoxColumn l = (DataGridViewCheckBoxColumn)dgvTaiKhoanTruong.Columns[1];
+            l.DataPropertyName = "Loai";
+            l.TrueValue = Convert.ToByte(1);
+            l.FalseValue = Convert.ToByte(0);
+
+            bsTaiKhoanTruong.ResumeBinding();
+            dgvTaiKhoanTruong.ResumeLayout();
+        }
+        public async void LoadDGVGV()
+        {
+            bsDSGV.SuspendBinding();
+            dgvThongTinGV.SuspendLayout();
+            dgvThongTinGV.DataSource = await ttGV.LayDT();
+            bsDSGV.ResumeBinding();
+            dgvThongTinGV.ResumeLayout();
+        }
+
+        private async void btnLuu_Click(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
+            if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.Rows.Count - 1].Cells[0].Value == null)
+            {                            
+                await tkTruong.Them(new TaiKhoanTruong(idTruong, dgvTaiKhoanTruong.CurrentRow.Cells[2].Value.ToString(), dgvTaiKhoanTruong.CurrentRow.Cells[3].Value.ToString(),chk.Value == chk.TrueValue?(byte)1:(byte)0));
+                dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();                
+                dgvThongTinGV.DataSource = await ttGV.LayDT();
+                MessageBox.Show("Thêm Thành Công , Nhập Thông Tin Ở bảng bên và nhấn lưu !");                
+            }
+            string text;
+            text = dgvTaiKhoanTruong.CurrentRow.Cells[0].Value.ToString() ;
+
+            dgvThongTinGV.Rows.Add(text);
+
+            dgvThongTinGV.CurrentCell = dgvThongTinGV.Rows[dgvThongTinGV.RowCount - 1].Cells[0];
+        }
+        public async void loadCBO()
+        {
+            DataGridViewComboBoxColumn cbo = dgvThongTinGV.Columns[3] as DataGridViewComboBoxColumn;
+            cbo.DataSource = await new MonHocBAL().LayDT();
+            cbo.DisplayMember = "TenMon";
+            cbo.ValueMember = "ID";
+            DataGridViewComboBoxColumn cbo1 = dgvThongTinGV.Columns[4] as DataGridViewComboBoxColumn;
+            cbo1.DataSource = await new LopBAL().LayDT();
+            cbo1.DisplayMember = "TenLop";
+            cbo1.ValueMember = "ID";
+        }
+
+
         #endregion
 
 
 
+       
     }
 }
