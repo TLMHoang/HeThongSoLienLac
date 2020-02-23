@@ -1,0 +1,10 @@
+*Bug1: khong thêm IDTKPH lien kết với hs
+*Bug2: KO them dc tkT (ẩn Pass đi ko hiện pass ra)
+*Note (ko dc quyền nhập ID, STT .. dể col đó readonly)
+*Bug 3: ở thông báo chung. khi chọn vào 1 thông báo có sẵn chưa nếu đổi lớp thì ko tự tạo mới mà update cho thông báo đó
+gọi ý Fix: cbx.Enable = false khi chọn vào dòng có STT
+*Note dgv.RowIndex chu về vị trí cuối cùng
+
+*Logic form:frmThongBaoRieng. Nên khi chọn vào 1 row hs thì dgv danh sách thông báo chỉ hiện mình thông báo của HS đó thôi
+	frmThongBaoCung- Lớp; tương tự trên
+

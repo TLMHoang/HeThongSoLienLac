@@ -31,23 +31,23 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboLop = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -118,6 +118,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(236, 266);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(133, 67);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 4;
+            this.textBox2.Tag = "Tiết 2";
+            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -155,14 +163,6 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Tag = "Tiết 1";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(133, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Tag = "Tiết 2";
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(133, 99);
@@ -198,7 +198,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             this.tableLayoutPanel2.Controls.Add(this.textBox12, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox11, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox10, 5, 0);
@@ -216,13 +216,67 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(510, 289);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // textBox12
+            // 
+            this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox12.Location = new System.Drawing.Point(446, 3);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(61, 22);
+            this.textBox12.TabIndex = 7;
+            this.textBox12.Tag = "Chủ Nhật";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox11.Location = new System.Drawing.Point(382, 3);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(58, 22);
+            this.textBox11.TabIndex = 6;
+            this.textBox11.Tag = "Thứ 7";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox10.Location = new System.Drawing.Point(305, 3);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(71, 22);
+            this.textBox10.TabIndex = 5;
+            this.textBox10.Tag = "Thứ 6";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox9.Location = new System.Drawing.Point(246, 3);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(53, 22);
+            this.textBox9.TabIndex = 4;
+            this.textBox9.Tag = "Thứ 5";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox8.Location = new System.Drawing.Point(184, 3);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(56, 22);
+            this.textBox8.TabIndex = 3;
+            this.textBox8.Tag = "Thứ 4";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox7.Location = new System.Drawing.Point(122, 3);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(56, 22);
+            this.textBox7.TabIndex = 2;
+            this.textBox7.Tag = "Thứ 3";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 29);
+            this.label3.Size = new System.Drawing.Size(53, 28);
             this.label3.TabIndex = 0;
             this.label3.Text = "Thứ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -235,60 +289,6 @@
             this.textBox6.Size = new System.Drawing.Size(54, 22);
             this.textBox6.TabIndex = 1;
             this.textBox6.Tag = "Thứ 2";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(122, 3);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(56, 22);
-            this.textBox7.TabIndex = 2;
-            this.textBox7.Tag = "Thứ 3";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(184, 3);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(56, 22);
-            this.textBox8.TabIndex = 3;
-            this.textBox8.Tag = "Thứ 4";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(246, 3);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(53, 22);
-            this.textBox9.TabIndex = 4;
-            this.textBox9.Tag = "Thứ 5";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Location = new System.Drawing.Point(305, 3);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(71, 22);
-            this.textBox10.TabIndex = 5;
-            this.textBox10.Tag = "Thứ 6";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Location = new System.Drawing.Point(382, 3);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(58, 22);
-            this.textBox11.TabIndex = 6;
-            this.textBox11.Tag = "Thứ 7";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Location = new System.Drawing.Point(446, 3);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(61, 22);
-            this.textBox12.TabIndex = 7;
-            this.textBox12.Tag = "Chủ Nhật";
             // 
             // frmThoiKhoaBieu
             // 

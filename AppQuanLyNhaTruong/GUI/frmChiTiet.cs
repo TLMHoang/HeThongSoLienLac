@@ -24,6 +24,7 @@ namespace GUI
 
         public async void frmChiTiet_Load(object sender, EventArgs e)
         {
+            lblThongTin.Text = TenH;
             bsDiemDanh.SuspendBinding();
             dgvData.SuspendLayout();
 
@@ -48,7 +49,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    await ddBAL.Xoa(Convert.ToInt32(dgvData.Rows[dgvData.CurrentCell.RowIndex].Cells["STT"]));
+                    await ddBAL.Xoa(Convert.ToInt32(dgvData.Rows[dgvData.CurrentCell.RowIndex].Cells["STT"].Value));
                 }
                 else
                 {

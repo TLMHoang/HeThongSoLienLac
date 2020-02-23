@@ -187,7 +187,6 @@ namespace GUI
                             if (cbxLop.SelectedIndex == 0)
                             {
                                 dgvVangP.Rows.Add(ID, dgv.Rows[e.RowIndex].Cells["Ten"].Value, await Lop(ID));
-                                //await ddBAL.Them(new DiemDanh(-1, Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value), DateTime.Today, 1));
                             }
                             else
                             {
@@ -221,13 +220,12 @@ namespace GUI
                             if (cbxLop.SelectedIndex == 0)
                             {
                                 dgvVangK.Rows.Add(ID, dgv.Rows[e.RowIndex].Cells["Ten"].Value, await Lop(ID));
-                                //await ddBAL.Them(new DiemDanh(-1, Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value), DateTime.Today, 0));
                             }
                             else
                             {
                                 dgvVangK.Rows.Add(ID, dgv.Rows[e.RowIndex].Cells["Ten"].Value, cbxLop.Text);
-                                //await ddBAL.Them(new DiemDanh(-1, Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value), DateTime.Today, 0));
                             }
+                            await ddBAL.Them(new DiemDanh(-1, ID, DateTime.Today, 0));
                         }
                     }
                     else
@@ -337,10 +335,17 @@ namespace GUI
             }
         }
 
-        private void btnChiTiet_Click(object sender, EventArgs e)
+        private async void btnChiTiet_Click(object sender, EventArgs e)
         {
             f.IDHS = Convert.ToInt32(dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["ID"].Value);
-            f.TenH = dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["Ten"].Value.ToString() + " - " + cbxLop.Text;
+            if (cbxLop.SelectedIndex == 0)
+            {
+                f.TenH = dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["Ten"].Value.ToString() + " - Lớp " + (await Lop(f.IDHS));
+            }
+            else
+            {
+                f.TenH = dgvDSHS.Rows[dgvDSHS.CurrentCell.RowIndex].Cells["Ten"].Value.ToString() + " - Lớp " + cbxLop.Text;
+            }
             f.frmChiTiet_Load(null, null);
             if (!f.Visible)
             {
