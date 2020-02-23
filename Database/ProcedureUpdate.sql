@@ -5,18 +5,14 @@ CREATE PROCEDURE UpdateCupHoc
 @STT INT,
 @IDHocSinh INT,
 @Ngay DATE,
-@NghiTu INT,
-@NghiDen INT,
-@SoTietNghi INT
+@Tiet INT
 AS
 BEGIN
     Update dbo.CupHoc
     SET	
         IDHocSinh = @IDHocSinh,         -- IDHocSinh - int
         Ngay = @Ngay, -- Ngay - DATE
-        NghiTu = @NghiTu,         -- NghiTu - int
-        NghiDen = @NghiDen,         -- NghiDen - int
-        SoTietNghi = @SoTietNghi          -- SoTietNghi - int
+        Tiet = @Tiet         -- NghiTu - int
 	WHERE STT = @STT
 END
 GO

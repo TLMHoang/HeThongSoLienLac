@@ -16,6 +16,7 @@ namespace GUI
     {
         ThongTinHSBAL hSBAL = new ThongTinHSBAL();
         DiemDanhBAL ddBAL = new DiemDanhBAL();
+        CupHocBAL cupBAL = new CupHocBAL();
         public frmDiemDanh()
         {
             InitializeComponent();
@@ -65,14 +66,46 @@ namespace GUI
             }
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        private void txtTimKiem_TextChanged(object sender, EventArgs e) //Tìm kiếm tab vắng học
         {
             TextBox txt = sender as TextBox;
             if (txt.Text != "Nhập ID hoặc Tên học sinh")
             {
                 if (txt.TextLength != 0)
                 {
-                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text); //CONVERT(ID, System.String)='{0}' OR [TenHang] LIKE '%{0}%'
+                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
+                }
+                else
+                {
+                    bsHocSinh.RemoveFilter();
+                }
+            }
+            else
+            {
+                bsHocSinh.RemoveFilter();
+
+            }
+        }
+
+        private async void txtFindC_TextChanged(object sender, EventArgs e) // Tìm kiếm tab Cup hoc
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.Text != "Nhập ID hoặc Tên học sinh")
+            {
+                if (txt.TextLength != 0)
+                {
+                    int y = dgvDSHSC.CurrentCell.RowIndex;
+                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
+                    txtID.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+                    txtTen.Text = dgvDSHSC.Rows[y].Cells["TenC"].Value.ToString();
+                    if (cbxLopC.SelectedIndex == 0)
+                    {
+                        txtLop.Text = await Lop(int.Parse(txtID.Text));
+                    }
+                    else
+                    {
+                    txtLop.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+                    }
                 }
                 else
                 {
@@ -106,10 +139,6 @@ namespace GUI
             }
         }
 
-        private void btnKiemTra_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         public Task<bool> CheckToDelete(DataGridView dgv, int ID)
         {
@@ -142,7 +171,7 @@ namespace GUI
             return Program.lstLop.FirstOrDefault(p => p.ID == h.IDLop).TenLop;
         }
 
-        private async void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e) // event click DataGridViewButtonColumn
         {
             DataGridView dgv = (DataGridView)sender;
             if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
@@ -217,7 +246,7 @@ namespace GUI
             }
         }
 
-        private async void dgvVangP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvVangP_CellContentClick(object sender, DataGridViewCellEventArgs e) // event click DataGridViewButtonColumn xóa
         {
             DataGridView dgv = (DataGridView)sender;
             if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0 && e.ColumnIndex == 3)
@@ -244,6 +273,73 @@ namespace GUI
                 this.Size = new Size(1024, 635);
                 dgvDSHS.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
+        }
+
+        private void numtTu_ValueChanged(object sender, EventArgs e)
+        {
+            numDen.Minimum = numTu.Value;
+        }
+
+        private async void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            bsCupHoc.SuspendBinding();
+            dgvChiTiet.SuspendLayout();
+
+            bsCupHoc.DataSource = await cupBAL.LayID(int.Parse(txtID.Text));
+
+            dgvChiTiet.ResumeLayout();
+            bsCupHoc.ResumeBinding();
+        }
+
+        private async void btnCapNhap_Click(object sender, EventArgs e)
+        {
+            CupHoc c = new CupHoc(-1, int.Parse(txtID.Text), DateTime.Today, -1);
+            for (int i = (int)numTu.Value; i <= (int)numDen.Value; i++)
+            {
+                c.Tiet = i;
+                await cupBAL.Them(c);
+            }
+        }
+
+        private async void dgvDSHSC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int y = dgvDSHSC.CurrentCell.RowIndex;
+            txtID.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+            txtTen.Text = dgvDSHSC.Rows[y].Cells["TenC"].Value.ToString();
+            if (cbxLopC.SelectedIndex == 0)
+            {
+                txtLop.Text = await Lop(int.Parse(txtID.Text));
+            }
+            else
+            {
+                txtLop.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+            }
+        }
+
+        private async void dgvChiTiet_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if ((sender as DataGridView).SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    await cupBAL.Xoa(Convert.ToInt32(dgvChiTiet.Rows[dgvChiTiet.CurrentCell.RowIndex].Cells["STT"]));
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thể xóa nhiều");
+                e.Cancel = true;
+            }
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            frmChiTiet f = new frmChiTiet();
+            f.ShowDialog();
         }
     }
 }

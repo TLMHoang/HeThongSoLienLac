@@ -101,9 +101,7 @@ CREATE TABLE CupHoc
 	STT INT IDENTITY(1,1) PRIMARY KEY,
 	IDHocSinh INT,
 	Ngay DATE,
-	NghiTu INT,
-	NghiDen INT,
-	SoTietNghi INT,
+	Tiet INT,
 
 	FOREIGN KEY (IDHocSinh) REFERENCES dbo.ThongTinHS(ID)
 )

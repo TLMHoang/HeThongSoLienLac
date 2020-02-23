@@ -17,9 +17,7 @@ namespace DAL
                 new SqlParameter("@STT", SqlDbType.Int) { Value=obj.STT},
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh},
                 new SqlParameter("@Ngay", SqlDbType.Date) { Value = obj.Ngay },
-                new SqlParameter("@NghiTu", SqlDbType.Int) { Value = obj.NghiTu },
-                new SqlParameter("@NghiDen", SqlDbType.Int) { Value = obj.NghiDen },
-                new SqlParameter("@SoTietNghi", SqlDbType.Int) { Value = obj.SoTietNghi }
+                new SqlParameter("@Tiet", SqlDbType.Int) { Value = obj.Tiet }
             );
         }
 
@@ -38,15 +36,12 @@ namespace DAL
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = ID }
                 );
         }
-
         public async Task<int> Them(CupHoc obj)
         {
-            return await ExecuteNonQuery("UpdateCupHoc",
+            return await ExecuteNonQuery("InsertCupHoc",
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@Ngay", SqlDbType.Date) { Value = obj.Ngay },
-                new SqlParameter("@NghiTu", SqlDbType.Int) { Value = obj.NghiTu },
-                new SqlParameter("@NghiDen", SqlDbType.Int) { Value = obj.NghiDen },
-                new SqlParameter("@SoTietNghi", SqlDbType.Int) { Value = obj.SoTietNghi }
+                new SqlParameter("@Tiet", SqlDbType.Int) { Value = obj.Tiet }
             );
         }
 

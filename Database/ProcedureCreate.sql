@@ -4,25 +4,19 @@ GO
 CREATE PROCEDURE InsertCupHoc
 @IDHocSinh INT,
 @Ngay DATE,
-@NghiTu INT,
-@NghiDen INT,
-@SoTietNghi INT
+@Tiet INT
 AS
 BEGIN
     INSERT dbo.CupHoc
     (
         IDHocSinh,
         Ngay,
-        NghiTu,
-        NghiDen,
-        SoTietNghi
+        Tiet
     )
     VALUES
     (   @IDHocSinh,         -- IDHocSinh - int
         @Ngay, -- Ngay - DATE
-        @NghiTu,         -- NghiTu - int
-        @NghiDen,         -- NghiDen - int
-        @SoTietNghi          -- SoTietNghi - int
+        @Tiet        -- Tiet - int
         )
 END
 GO

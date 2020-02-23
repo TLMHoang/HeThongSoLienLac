@@ -39,9 +39,17 @@ namespace DAL.SQL
                         return await cmd.ExecuteNonQueryAsync();
                     }
                 }
+                //Message = "The transaction ended in the trigger. The batch has been aborted."
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi \n\n" + ex.ToString());
+                    if (ex.Message.Equals("The transaction ended in the trigger. The batch has been aborted."))
+                    {
+                        MessageBox.Show("Dữ liệu đã có không thể thêm lại 1 lần nữa.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi \n\n" + ex.ToString());
+                    }
                 }
                 finally
                 {
