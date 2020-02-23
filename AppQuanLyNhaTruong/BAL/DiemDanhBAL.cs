@@ -49,5 +49,11 @@ namespace BAL
         {
             return await diemdanh.Xoa(ID);
         }
+
+        public async Task<int> LaySTT(int IDHS, DateTime NgayNghi)
+        {
+            DiemDanh dd = new DiemDanh((await diemdanh.LaySTT(IDHS, NgayNghi)).Rows[0]);
+            return dd.STT;
+        }
     }
 }

@@ -2,8 +2,8 @@ USE HeThongSoLienLac
 GO	
 
 
-CREATE TRIGGER Trg_UpdatePhanCong
-ON dbo.
+CREATE TRIGGER Trg_InsertVangHoc
+ON dbo.DiemDanh
 FOR INSERT
 AS
 BEGIN

@@ -46,9 +46,18 @@ namespace DAL
             );
         }
 
-        public Task<int> Xoa(int ID)
+        public async Task<int> Xoa(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("DeleteDiemDanh", new SqlParameter("@STT", SqlDbType.Int) { Value = ID });
+        }
+
+        public async Task<DataTable> LaySTT(int IDHS, DateTime NgayNghi)
+        {
+            return await ExecuteQuery(
+                "LaySTTDiemDanh",
+                new SqlParameter("@IDHS", SqlDbType.Int) { Value = IDHS },
+                new SqlParameter("@NgayNghi", SqlDbType.Date) { Value = NgayNghi}
+                );
         }
     }
 }
