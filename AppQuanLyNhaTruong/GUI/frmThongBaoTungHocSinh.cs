@@ -24,8 +24,8 @@ namespace GUI
         }
         private void frmThongBaoTungHocSinh_Load(object sender, EventArgs e)
         {
-            LoadDGVHS();
-            LoadDGVTB();
+            LoadDGV();
+            
         }
         private void txtTimKiemID_Enter(object sender, EventArgs e)
         {
@@ -44,21 +44,21 @@ namespace GUI
                 txtTimKiemID.ForeColor = Color.Gray;
             }
         }
-        public async void LoadDGVHS()
+        public async void LoadDGV()
         {
             bsHS.SuspendBinding();
-            dgvDSHS.SuspendLayout();
-            dgvDSHS.DataSource = await new ThongTinHSBAL().LayDT();
-            bsHS.ResumeBinding();
-            dgvDSHS.ResumeLayout();
-        }
-        public async void LoadDGVTB()
-        {
             bsThongBao.SuspendBinding();
+            dgvDSHS.SuspendLayout();
             dgvDSTB.SuspendLayout();
-            dgvDSTB.DataSource = await tb.LayDT();
-            bsThongBao.ResumeBinding();
+
+            bsHS.DataSource = await tt.LayDT();
+            bsThongBao.DataSource = await tb.LayDT();
+
+            dgvDSHS.ResumeLayout();
             dgvDSTB.ResumeLayout();
+            bsHS.ResumeBinding();
+            bsThongBao.ResumeBinding();
+
         }
         public void XoaRTB()
         {
@@ -92,14 +92,15 @@ namespace GUI
                     {
                         await tb.CapNhap(new ThongBaoHS(idTB, id, rtbNhapNoiDung.Text));
                         MessageBox.Show("Cập Nhật Thành Công ! ");
-                        LoadDGVTB();
+                        dgvDSTB.DataSource =await tb.LayDT();
+                        bsHS.RemoveFilter();
                         XoaRTB();
                     }
                     else
                     {
                         await tb.Them(new ThongBaoHS(-1, id, rtbNhapNoiDung.Text));
                         MessageBox.Show("Thêm Thành Công !");
-                        LoadDGVTB();
+                        dgvDSTB.DataSource =await tb.LayDT();
                         XoaRTB();
                     }
                 }
@@ -122,6 +123,7 @@ namespace GUI
                 idTB = int.Parse(row.Cells[0].Value.ToString());
                 id = int.Parse(row.Cells[1].Value.ToString());
                 rtbNhapNoiDung.Text = row.Cells[2].Value.ToString();
+                bsHS.Filter = String.Format("CONVERT(ID,System.String)='{0}'", id);
             }
         }
         private void dgvDSHS_CellClick(object sender, DataGridViewCellEventArgs e)

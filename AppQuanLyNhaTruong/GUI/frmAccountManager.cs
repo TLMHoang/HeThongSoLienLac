@@ -41,7 +41,7 @@ namespace GUI
         {
             bsTKPH.SuspendBinding();
             dgvTKPH.SuspendLayout();
-            dgvTKPH.DataSource =await tkPH.LayDT();
+            bsTKPH.DataSource =await tkPH.LayDT();
             dgvTKPH.ResumeLayout();
             bsTKPH.ResumeBinding();
         }
@@ -49,7 +49,7 @@ namespace GUI
         {
             bsTTHS.SuspendBinding();
             dgvDSHS.SuspendLayout();
-            dgvDSHS.DataSource = await ttHS.LayDT();
+            bsTTHS.DataSource = await ttHS.LayDT();
             dgvDSHS.ResumeLayout();
             bsTTHS.ResumeBinding();
         }
@@ -87,14 +87,19 @@ namespace GUI
                     return;
                 }
                 TaiKhoanPH ph = new TaiKhoanPH(-1, drv.Row.ItemArray[1].ToString(), drv.Row.ItemArray[1].ToString());
-                if (ph.ID == -1)
+                if (ph.ID == -1 && drv.Row.ItemArray[1].ToString() != "")
                 {
                     await tkPH.Them(ph);
                     LoadDGVTKPH();
-                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
-                    idTKPH = int.Parse(drv.Row.ItemArray[0].ToString());
+                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");                    
                     dgvTKPH.ReadOnly = true;
+                    idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
                     dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có thông tin tài khoản !");
+                    dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[1];
                 }
             }
             catch (Exception)
@@ -105,20 +110,26 @@ namespace GUI
 
         private async void btnThemTK_Click(object sender, EventArgs e)
         {
-
-            if (idHS != -1)
-            {                
-                await ttHS.CapNhatID(idHS,idTKPH);
-                MessageBox.Show("Liên Kết Thành Công");
-                idTKPH = -1;
-                idHS = -1;
-                dgvTKPH.ReadOnly = false;
-                LoadDGVDSHS();
-                dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
-            }
-            else
+            try
             {
-                MessageBox.Show("Vui Lòng Chọn Tài Khoản Học Sinh Liên Kết !");
+                
+                if (idHS != -1)
+                {
+                    await ttHS.CapNhatID(idHS, idTKPH);
+                    MessageBox.Show("Liên Kết Thành Công");
+                    idTKPH = -1;
+                    idHS = -1;
+                    dgvTKPH.ReadOnly = false;
+                    LoadDGVDSHS();
+                    dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                }
+                else
+                {
+                    MessageBox.Show("Vui Lòng Chọn Tài Khoản Học Sinh Liên Kết !");
+                }
+            }catch(Exception)
+            {
+                MessageBox.Show("Lỗi !");
             }
 
         }
@@ -131,6 +142,7 @@ namespace GUI
                 if (int.Parse(row.Cells[0].Value.ToString()) != -1)
                 {
                     id = int.Parse(row.Cells[0].Value.ToString());
+                    idTKPH = int.Parse(row.Cells[0].Value.ToString());
                     tenTK = row.Cells[1].Value.ToString();
                 }
             }
@@ -138,7 +150,7 @@ namespace GUI
         private void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewButtonCell btn = dgvDSHS.Rows[e.RowIndex].Cells[0] as DataGridViewButtonCell;
-            if(MessageBox.Show("Chọn Học Sinh " + dgvDSHS.CurrentRow.Cells[2].Value.ToString(),"Notification !",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)== DialogResult.OK)
+            if(MessageBox.Show("Chọn Học Sinh  " + dgvDSHS.CurrentRow.Cells[3].Value.ToString(),"Notification !",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)== DialogResult.OK)
             {
                 btn.Style.BackColor = Color.DarkOrange;
                 idHS = Convert.ToInt32(dgvDSHS.CurrentRow.Cells[1].Value.ToString());
@@ -208,16 +220,16 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    bsDSGV.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
+                    bsTTHS.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
                 }
                 else
                 {
-                    bsDSGV.RemoveFilter();
+                    bsTTHS.RemoveFilter();
                 }
             }
             else
             {
-                bsDSGV.RemoveFilter();
+                bsTTHS.RemoveFilter();
 
             }
         }
@@ -242,19 +254,13 @@ namespace GUI
         #endregion
 
         #region TabTaiKhoanTruong
-        int idTruong = -1;
-        string tenTkt = "";
-        string matkhauTruong = "";
-        byte loai;
+        int idTruong = -1;        
         string text;
         public async void LoadDGVTruong()
         {
             bsTaiKhoanTruong.SuspendBinding();
             dgvTaiKhoanTruong.SuspendLayout();
-            dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
-
-            
-
+            bsTaiKhoanTruong.DataSource = await tkTruong.LayDT();
             bsTaiKhoanTruong.ResumeBinding();
             dgvTaiKhoanTruong.ResumeLayout();
         }
@@ -262,7 +268,7 @@ namespace GUI
         {
             bsDSGV.SuspendBinding();
             dgvThongTinGV.SuspendLayout();
-            dgvThongTinGV.DataSource = await ttGV.LayDT();
+            bsDSGV.DataSource = await ttGV.LayDT();
             bsDSGV.ResumeBinding();
             dgvThongTinGV.ResumeLayout();
         }
@@ -282,7 +288,7 @@ namespace GUI
         private async void btnLuu_Click(object sender, EventArgs e)
         {
             
-            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[3];
+            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[2];
             try
             {
                 if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[0].Value == null)
@@ -291,7 +297,7 @@ namespace GUI
                     await tkTruong.Them(new TaiKhoanTruong(
                         idTruong,
                         dvr.Cells[1].Value.ToString(),
-                        dvr.Cells[2].Value.ToString(),
+                        dvr.Cells[1].Value.ToString(),
                         chk.Value == chk.TrueValue ? (byte)1 : (byte)0));
                     dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
                     text = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 2].Cells[0].Value.ToString();
@@ -308,6 +314,7 @@ namespace GUI
 
                 dgvThongTinGV.CurrentCell = dgvThongTinGV.Rows[dgvThongTinGV.RowCount - 2].Cells[1];
                 dgvTaiKhoanTruong.ReadOnly = true;
+                btnThemTaiKhoan.Enabled = false;
 
             }
             catch(Exception) { MessageBox.Show("Lỗi !"); }
@@ -330,6 +337,7 @@ namespace GUI
                     MessageBox.Show("Thêm Thông Tin Thành Công !");
                     dgvTaiKhoanTruong.ReadOnly = false;
                     text = "";
+                    btnThemTaiKhoan.Enabled = true;
                     dgvTaiKhoanTruong.CurrentCell = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
                 }else if(dgvThongTinGV.CurrentRow.Cells[0] != null && text == "")
                 {
@@ -378,7 +386,7 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    bsDSGV.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [TenGV] LIKE '%{0}%'", txt.Text);
+                    bsDSGV.Filter = String.Format("CONVERT(IDTKT, System.String)='{0}' OR [TenGV] LIKE '%{0}%'", txt.Text);
                 }
                 else
                 {
@@ -429,8 +437,6 @@ namespace GUI
             }
         }
         
-
-
 
         #endregion
 
