@@ -1,6 +1,10 @@
 ﻿USE HeThongSoLienLac
 GO	
 
+DROP TRIGGER dbo.Trg_InsertCupHoc
+DROP TRIGGER dbo.Trg_InsertDiemDanh
+DROP TRIGGER dbo.Trg_InsertTKT
+DROP TRIGGER dbo.Trg_UpdateCupHoc
 
 CREATE TRIGGER Trg_InsertCupHoc
 ON dbo.CupHoc
@@ -59,3 +63,16 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER Trg_InsertTKT
+ON dbo.TaiKhoanTruong
+FOR INSERT
+AS
+BEGIN
+	IF (SELECT COUNT(dbo.TaiKhoanTruong.TaiKhoan)
+		FROM dbo.TaiKhoanTruong
+		JOIN Inserted ON Inserted.TaiKhoan = dbo.TaiKhoanTruong.TaiKhoan) = 2
+	BEGIN
+		PRINT N'tài khoản đã tồn tại không thểm thêm'
+	    ROLLBACK TRANSACTION
+	END
+END
