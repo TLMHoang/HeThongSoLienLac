@@ -37,7 +37,7 @@ namespace DAL
 
         public async Task<int> Them(PhanCong obj)
         {
-            return await ExecuteNonQuery("InsertPhanCong",           
+            return await ExecuteNonQuery("InsertPhanCong",  
                 new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien },
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                 new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon }
