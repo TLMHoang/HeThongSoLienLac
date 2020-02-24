@@ -101,7 +101,7 @@
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.81123F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.18877F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tlpTKT.Controls.Add(this.dgvThongTinGV, 1, 1);
             this.tlpTKT.Controls.Add(this.dgvTaiKhoanTruong, 0, 1);
             this.tlpTKT.Controls.Add(this.txtTimTKTruong, 0, 0);
@@ -133,10 +133,10 @@
             this.tlpTKT.SetColumnSpan(this.dgvThongTinGV, 3);
             this.dgvThongTinGV.DataSource = this.bsDSGV;
             this.dgvThongTinGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvThongTinGV.Location = new System.Drawing.Point(370, 32);
+            this.dgvThongTinGV.Location = new System.Drawing.Point(369, 32);
             this.dgvThongTinGV.Name = "dgvThongTinGV";
             this.dgvThongTinGV.RowTemplate.Height = 24;
-            this.dgvThongTinGV.Size = new System.Drawing.Size(731, 494);
+            this.dgvThongTinGV.Size = new System.Drawing.Size(732, 494);
             this.dgvThongTinGV.TabIndex = 11;
             // 
             // iDTKTDataGridViewTextBoxColumn
@@ -199,7 +199,7 @@
             this.dgvTaiKhoanTruong.Name = "dgvTaiKhoanTruong";
             this.tlpTKT.SetRowSpan(this.dgvTaiKhoanTruong, 2);
             this.dgvTaiKhoanTruong.RowTemplate.Height = 24;
-            this.dgvTaiKhoanTruong.Size = new System.Drawing.Size(361, 562);
+            this.dgvTaiKhoanTruong.Size = new System.Drawing.Size(360, 562);
             this.dgvTaiKhoanTruong.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn2
@@ -234,7 +234,7 @@
             this.txtTimTKTruong.Location = new System.Drawing.Point(3, 2);
             this.txtTimTKTruong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimTKTruong.Name = "txtTimTKTruong";
-            this.txtTimTKTruong.Size = new System.Drawing.Size(361, 27);
+            this.txtTimTKTruong.Size = new System.Drawing.Size(360, 27);
             this.txtTimTKTruong.TabIndex = 1;
             this.txtTimTKTruong.TextChanged += new System.EventHandler(this.txtTimTKTruong_TextChanged);
             this.txtTimTKTruong.Enter += new System.EventHandler(this.txtTimTKTruong_Enter);
@@ -248,7 +248,7 @@
             this.btnThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnThemTaiKhoan.Location = new System.Drawing.Point(786, 532);
+            this.btnThemTaiKhoan.Location = new System.Drawing.Point(785, 532);
             this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             this.btnThemTaiKhoan.Size = new System.Drawing.Size(153, 60);
             this.btnThemTaiKhoan.TabIndex = 9;
@@ -261,9 +261,9 @@
             this.tlpTKT.SetColumnSpan(this.txtTimGV, 3);
             this.txtTimGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimGV.Location = new System.Drawing.Point(370, 3);
+            this.txtTimGV.Location = new System.Drawing.Point(369, 3);
             this.txtTimGV.Name = "txtTimGV";
-            this.txtTimGV.Size = new System.Drawing.Size(731, 27);
+            this.txtTimGV.Size = new System.Drawing.Size(732, 27);
             this.txtTimGV.TabIndex = 10;
             this.txtTimGV.TextChanged += new System.EventHandler(this.txtTimGV_TextChanged);
             this.txtTimGV.Enter += new System.EventHandler(this.txtTimGV_Enter);
@@ -277,9 +277,9 @@
             this.btnLuuTTGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTTGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuuTTGV.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTTGV.Location = new System.Drawing.Point(945, 532);
+            this.btnLuuTTGV.Location = new System.Drawing.Point(944, 532);
             this.btnLuuTTGV.Name = "btnLuuTTGV";
-            this.btnLuuTTGV.Size = new System.Drawing.Size(156, 60);
+            this.btnLuuTTGV.Size = new System.Drawing.Size(157, 60);
             this.btnLuuTTGV.TabIndex = 12;
             this.btnLuuTTGV.Text = "Lưu Thông Tin GV";
             this.btnLuuTTGV.UseVisualStyleBackColor = false;

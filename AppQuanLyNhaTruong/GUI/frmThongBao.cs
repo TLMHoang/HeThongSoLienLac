@@ -25,6 +25,7 @@ namespace GUI
 
         private void frmThongBao_Load(object sender, EventArgs e)
         {
+            lblThongTinLop.Visible = false;
             cboChonLop.Visible = false;
             LoadCBO();
             LoadDGVTruong();
@@ -75,7 +76,6 @@ namespace GUI
         {
             cboChonLoaiTB.Items.Add("Thông Báo Trường");
             cboChonLoaiTB.Items.Add("Thông Báo Lớp");
-            cboChonLoaiTB.Text = "-----Chọn Loại Thông Báo-----";
 
         }
         public async void LoadCBOChonLop()
@@ -112,6 +112,8 @@ namespace GUI
                     await tbl.CapNhap(new ThongBaoLop(id, idLop, rtbNhapNoiDung.Text));
                     MessageBox.Show("Cập Nhật Thành Công !");
                     cboChonLoaiTB.Enabled = true;
+                    cboChonLop.Visible = true;
+                    lblThongTinLop.Visible = false;
                     LoadDGVLop();
                     XoaRTB();
                 }
@@ -179,6 +181,9 @@ namespace GUI
                         id = int.Parse(row.Cells[0].Value.ToString());
                         idLop = int.Parse(row.Cells[1].Value.ToString());
                         rtbNhapNoiDung.Text = row.Cells[2].Value.ToString();
+                        lblThongTinLop.Visible = true;
+                        cboChonLop.Visible = false;
+                        lblThongTinLop.Text = "Lớp Đang Chọn : "  + Program.lstLop.FirstOrDefault(p => p.ID == idLop).TenLop;
                         cboChonLoaiTB.Enabled = false;
                     }
                 }

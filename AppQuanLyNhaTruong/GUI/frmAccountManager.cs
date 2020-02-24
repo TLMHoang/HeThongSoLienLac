@@ -41,7 +41,7 @@ namespace GUI
         {
             bsTKPH.SuspendBinding();
             dgvTKPH.SuspendLayout();
-            dgvTKPH.DataSource =await tkPH.LayDT();
+            bsTKPH.DataSource =await tkPH.LayDT();
             dgvTKPH.ResumeLayout();
             bsTKPH.ResumeBinding();
         }
@@ -49,7 +49,7 @@ namespace GUI
         {
             bsTTHS.SuspendBinding();
             dgvDSHS.SuspendLayout();
-            dgvDSHS.DataSource = await ttHS.LayDT();
+            bsTTHS.DataSource = await ttHS.LayDT();
             dgvDSHS.ResumeLayout();
             bsTTHS.ResumeBinding();
         }
@@ -220,16 +220,16 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    bsDSGV.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
+                    bsTTHS.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
                 }
                 else
                 {
-                    bsDSGV.RemoveFilter();
+                    bsTTHS.RemoveFilter();
                 }
             }
             else
             {
-                bsDSGV.RemoveFilter();
+                bsTTHS.RemoveFilter();
 
             }
         }
@@ -260,10 +260,7 @@ namespace GUI
         {
             bsTaiKhoanTruong.SuspendBinding();
             dgvTaiKhoanTruong.SuspendLayout();
-            dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
-
-            
-
+            bsTaiKhoanTruong.DataSource = await tkTruong.LayDT();
             bsTaiKhoanTruong.ResumeBinding();
             dgvTaiKhoanTruong.ResumeLayout();
         }
@@ -271,7 +268,7 @@ namespace GUI
         {
             bsDSGV.SuspendBinding();
             dgvThongTinGV.SuspendLayout();
-            dgvThongTinGV.DataSource = await ttGV.LayDT();
+            bsDSGV.DataSource = await ttGV.LayDT();
             bsDSGV.ResumeBinding();
             dgvThongTinGV.ResumeLayout();
         }
@@ -317,6 +314,7 @@ namespace GUI
 
                 dgvThongTinGV.CurrentCell = dgvThongTinGV.Rows[dgvThongTinGV.RowCount - 2].Cells[1];
                 dgvTaiKhoanTruong.ReadOnly = true;
+                btnThemTaiKhoan.Enabled = false;
 
             }
             catch(Exception) { MessageBox.Show("Lỗi !"); }
@@ -339,6 +337,7 @@ namespace GUI
                     MessageBox.Show("Thêm Thông Tin Thành Công !");
                     dgvTaiKhoanTruong.ReadOnly = false;
                     text = "";
+                    btnThemTaiKhoan.Enabled = true;
                     dgvTaiKhoanTruong.CurrentCell = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
                 }else if(dgvThongTinGV.CurrentRow.Cells[0] != null && text == "")
                 {
@@ -387,7 +386,7 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    bsDSGV.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [TenGV] LIKE '%{0}%'", txt.Text);
+                    bsDSGV.Filter = String.Format("CONVERT(IDTKT, System.String)='{0}' OR [TenGV] LIKE '%{0}%'", txt.Text);
                 }
                 else
                 {
@@ -438,8 +437,6 @@ namespace GUI
             }
         }
         
-
-
 
         #endregion
 

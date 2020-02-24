@@ -108,6 +108,7 @@
             this.dgvDSHS.Location = new System.Drawing.Point(3, 27);
             this.dgvDSHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDSHS.Name = "dgvDSHS";
+            this.dgvDSHS.ReadOnly = true;
             this.dgvDSHS.RowTemplate.Height = 24;
             this.dgvDSHS.Size = new System.Drawing.Size(428, 268);
             this.dgvDSHS.TabIndex = 2;
@@ -118,30 +119,35 @@
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID Học Sinh";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tenDataGridViewTextBoxColumn
             // 
             this.tenDataGridViewTextBoxColumn.DataPropertyName = "Ten";
             this.tenDataGridViewTextBoxColumn.HeaderText = "Tên";
             this.tenDataGridViewTextBoxColumn.Name = "tenDataGridViewTextBoxColumn";
+            this.tenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ngaySinhDataGridViewTextBoxColumn
             // 
             this.ngaySinhDataGridViewTextBoxColumn.DataPropertyName = "NgaySinh";
             this.ngaySinhDataGridViewTextBoxColumn.HeaderText = "Ngày Sinh";
             this.ngaySinhDataGridViewTextBoxColumn.Name = "ngaySinhDataGridViewTextBoxColumn";
+            this.ngaySinhDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gioiTinhDataGridViewTextBoxColumn
             // 
             this.gioiTinhDataGridViewTextBoxColumn.DataPropertyName = "GioiTinh";
             this.gioiTinhDataGridViewTextBoxColumn.HeaderText = "Giới Tính";
             this.gioiTinhDataGridViewTextBoxColumn.Name = "gioiTinhDataGridViewTextBoxColumn";
+            this.gioiTinhDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // noiSinhDataGridViewTextBoxColumn
             // 
             this.noiSinhDataGridViewTextBoxColumn.DataPropertyName = "NoiSinh";
             this.noiSinhDataGridViewTextBoxColumn.HeaderText = "Nơi Sinh";
             this.noiSinhDataGridViewTextBoxColumn.Name = "noiSinhDataGridViewTextBoxColumn";
+            this.noiSinhDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bsHS
             // 
@@ -160,6 +166,7 @@
             this.dgvDSTB.Location = new System.Drawing.Point(3, 327);
             this.dgvDSTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDSTB.Name = "dgvDSTB";
+            this.dgvDSTB.ReadOnly = true;
             this.tableLayoutPanel1.SetRowSpan(this.dgvDSTB, 2);
             this.dgvDSTB.RowTemplate.Height = 24;
             this.dgvDSTB.Size = new System.Drawing.Size(428, 289);
