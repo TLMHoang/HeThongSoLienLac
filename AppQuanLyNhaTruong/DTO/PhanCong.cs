@@ -27,7 +27,7 @@ namespace DTO
             STT = stt;
             IDGiaoVien = idGiaoVien;
             IDLop = idLop;
-            IDMon = IDMon;
+            IDMon = idMon;
         }
         public PhanCong(DataRow dr)
         {

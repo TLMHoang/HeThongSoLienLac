@@ -130,6 +130,7 @@ namespace GUI
         int idGV = -1;
         int idMon = -1;
         int idLop = -1;
+        int stt = -1;
         public async void loadDataPhanCong()
         {
             bsView.SuspendBinding();
@@ -185,8 +186,8 @@ namespace GUI
                     }
                     else
                     {
-                        await pcBAL.Them(new PhanCong(0,idGV, idLop, idMon));
-                         bsView.DataSource = await pcBAL.LayDT();
+                        await pcBAL.Them(new PhanCong(stt, idGV, idLop, idMon));
+                        bsView.DataSource = await pcBAL.LayDT();
                         MessageBox.Show("Thêm Thành Công !");
                     }
                 }
