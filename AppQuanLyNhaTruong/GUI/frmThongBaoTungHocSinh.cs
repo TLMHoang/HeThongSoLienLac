@@ -101,6 +101,7 @@ namespace GUI
                         await tb.Them(new ThongBaoHS(-1, id, rtbNhapNoiDung.Text));
                         MessageBox.Show("Thêm Thành Công !");
                         dgvDSTB.DataSource =await tb.LayDT();
+                        bsThongBao.RemoveFilter();
                         XoaRTB();
                     }
                 }
@@ -131,6 +132,7 @@ namespace GUI
             DataGridViewRow row = dgvDSHS.Rows[e.RowIndex];
             if (row.Cells[0].Value.ToString() != "")
                 id = int.Parse(row.Cells[0].Value.ToString());
+            bsThongBao.Filter = String.Format("CONVERT(IDHocSinh,System.String)='{0}'", id);
         }
         private async void dgvDSTB_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
