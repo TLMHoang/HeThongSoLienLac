@@ -87,14 +87,18 @@ namespace GUI
                     return;
                 }
                 TaiKhoanPH ph = new TaiKhoanPH(-1, drv.Row.ItemArray[1].ToString(), drv.Row.ItemArray[1].ToString());
-                if (ph.ID == -1)
+                if (ph.ID == -1 && drv.Row.ItemArray[1].ToString() != "")
                 {
                     await tkPH.Them(ph);
                     LoadDGVTKPH();
-                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
-                    idTKPH = int.Parse(drv.Row.ItemArray[0].ToString());
+                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");                    
                     dgvTKPH.ReadOnly = true;
                     dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có thông tin tài khoản !");
+                    dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[1];
                 }
             }
             catch (Exception)
@@ -105,20 +109,26 @@ namespace GUI
 
         private async void btnThemTK_Click(object sender, EventArgs e)
         {
-
-            if (idHS != -1)
-            {                
-                await ttHS.CapNhatID(idHS,idTKPH);
-                MessageBox.Show("Liên Kết Thành Công");
-                idTKPH = -1;
-                idHS = -1;
-                dgvTKPH.ReadOnly = false;
-                LoadDGVDSHS();
-                dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
-            }
-            else
+            try
             {
-                MessageBox.Show("Vui Lòng Chọn Tài Khoản Học Sinh Liên Kết !");
+                idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
+                if (idHS != -1)
+                {
+                    await ttHS.CapNhatID(idHS, idTKPH);
+                    MessageBox.Show("Liên Kết Thành Công");
+                    idTKPH = -1;
+                    idHS = -1;
+                    dgvTKPH.ReadOnly = false;
+                    LoadDGVDSHS();
+                    dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                }
+                else
+                {
+                    MessageBox.Show("Vui Lòng Chọn Tài Khoản Học Sinh Liên Kết !");
+                }
+            }catch(Exception)
+            {
+                MessageBox.Show("Lỗi !");
             }
 
         }
