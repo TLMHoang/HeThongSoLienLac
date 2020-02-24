@@ -22,9 +22,9 @@ namespace BAL
             return await pc.Lay();
         }
 
-        public Task<DataTable> LayID(int ID)
+        public async Task<DataTable> LayID(int ID)
         {
-            throw new NotImplementedException();
+            return await pc.Lay(ID);
         }
 
         public async Task<List<PhanCong>> LayLst()
@@ -47,6 +47,11 @@ namespace BAL
         public async Task<int> Xoa(int ID)
         {
             return await pc.Xoa(ID);
+        }
+
+        public async Task<int> KiemTra(int IDLop, int IDMon)
+        {
+            return await pc.KiemTra(IDLop, IDMon);
         }
     }
 }

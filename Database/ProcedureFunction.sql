@@ -35,3 +35,12 @@ BEGIN
     SELECT * FROM dbo.DiemDanh WHERE IDHocSinh = @IDHS AND  NgayNghi = @NgayNghi
 END
 GO
+
+CREATE PROCEDURE KiemTraLopMon
+@IDLop INT,
+@IDMon INT
+AS	
+BEGIN
+    SELECT COUNT(STT) FROM dbo.PhanCong WHERE IDLop = @IDLop AND  IdMon = @IDMon
+END
+GO

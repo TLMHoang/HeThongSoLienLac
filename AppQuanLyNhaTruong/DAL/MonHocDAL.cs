@@ -15,7 +15,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("UpdateMonhoc",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
-                new SqlParameter("@TenMon", SqlDbType.Int) { Value = obj.TenMon },
+                new SqlParameter("@TenMon", SqlDbType.NVarChar) { Value = obj.TenMon },
                 new SqlParameter("@LoaiDiem", SqlDbType.Int) { Value = obj.LoaiDiem }
             );
         }
@@ -39,8 +39,7 @@ namespace DAL
         public async Task<int> Them(MonHoc obj)
         {
             return await ExecuteNonQuery("InsertMonhoc",
-                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
-                 new SqlParameter("@TenMon", SqlDbType.Int) { Value = obj.TenMon },
+                 new SqlParameter("@TenMon", SqlDbType.NVarChar) { Value = obj.TenMon },
                  new SqlParameter("@LoaiDiem", SqlDbType.Int) { Value = obj.LoaiDiem }
                 );
         }

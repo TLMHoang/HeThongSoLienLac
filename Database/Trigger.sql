@@ -1,10 +1,10 @@
 ﻿USE HeThongSoLienLac
 GO	
 
-DROP TRIGGER dbo.Trg_InsertCupHoc
+/*DROP TRIGGER dbo.Trg_InsertCupHoc
 DROP TRIGGER dbo.Trg_InsertDiemDanh
 DROP TRIGGER dbo.Trg_InsertTKT
-DROP TRIGGER dbo.Trg_UpdateCupHoc
+DROP TRIGGER dbo.Trg_UpdateCupHoc*/
 
 CREATE TRIGGER Trg_InsertCupHoc
 ON dbo.CupHoc

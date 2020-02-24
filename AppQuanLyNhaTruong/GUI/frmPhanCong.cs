@@ -56,21 +56,29 @@ namespace GUI
         private async void dgvMon_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
+
                 if (dgv.Rows[e.RowIndex].Cells["Col_TenMon"].Value.ToString() == "")
                 {
                     return;
                 }
+            byte loaiMon = Convert.IsDBNull(dgv.Rows[e.RowIndex].Cells["Col_Loai"].Value) ? Convert.ToByte(0) : Convert.ToByte(dgv.Rows[e.RowIndex].Cells["Col_Loai"].Value);
             if (Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value) == -1)
             {
                 // add row here
-                await monBAL.Them(new MonHoc(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value), dgv.Rows[e.RowIndex].Cells["Col_TenMon"].Value.ToString(), Convert.ToByte(dgv.Rows[e.RowIndex].Cells["Col_Loai"].Value)));
+                await monBAL.Them(new MonHoc(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value), dgv.Rows[e.RowIndex].Cells["Col_TenMon"].Value.ToString(), loaiMon));
                 bsMon.DataSource = await monBAL.LayDT();
             }
             else
             {
                 //Update here
-                await monBAL.CapNhap(new MonHoc(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value), dgv.Rows[e.RowIndex].Cells["Col_TenMon"].Value.ToString(), Convert.ToByte(dgv.Rows[e.RowIndex].Cells["Col_Loai"].Value)));
+                await monBAL.CapNhap(new MonHoc(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value), dgv.Rows[e.RowIndex].Cells["Col_TenMon"].Value.ToString(), loaiMon));
             }
+        }
+
+        private void frmPhanCong_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            txtTimMoi.Focus();
+
         }
     }
 }

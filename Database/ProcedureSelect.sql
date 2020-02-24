@@ -190,8 +190,16 @@ END
 GO
 
 CREATE PROC SelectPhanCong
+@IDLop INT
 as
-begin
-	select * from dbo.PhanCong
+BEGIN
+	IF	@IDlop = -1
+	BEGIN
+		select * from dbo.PhanCong
+	END
+	ELSE
+	BEGIN
+	    SELECT * FROM dbo.PhanCong WHERE IDLop = @IDLop
+	END
 end
 go

@@ -23,12 +23,16 @@ namespace DAL
 
         public async Task<DataTable> Lay()
         {
-            return await ExecuteQuery("SelectPhanCong");
+            return await ExecuteQuery("SelectPhanCong",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = -1}
+                );
         }
 
-        public Task<DataTable> Lay(int ID)
+        public async Task<DataTable> Lay(int ID)
         {
-            throw new NotImplementedException();
+            return await ExecuteQuery("SelectPhanCong",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = ID }
+                );
         }
 
         public async Task<int> Them(PhanCong obj)
@@ -43,6 +47,15 @@ namespace DAL
         public async Task<int> Xoa(int STT)
         {
             return await ExecuteNonQuery("DeletePhanCong", new SqlParameter("@STT", SqlDbType.Int) { Value = STT });
+        }
+
+        public async Task<int> KiemTra(int IDLop, int IDMon)
+        {
+            return await ExecuteScalar<int>(
+                "KiemTraLopMon",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = IDMon}
+                );
         }
     }
 }

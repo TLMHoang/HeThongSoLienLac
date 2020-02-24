@@ -76,19 +76,17 @@ END
 GO
 
 CREATE PROCEDURE InsertMonhoc
-@ID INT,
 @TenMon NVARCHAR(200),
 @LoaiDiem INT
 AS
 BEGIN
     Insert dbo.MonHoc
     (
-        ID,
         TenMon,
         LoaiDiem
     )
     VALUES
-    (   @ID,   -- ID - int
+    (
         @TenMon, -- TenMon - nvarchar(200)
         @LoaiDiem -- LoaiDiem - bit
         )
