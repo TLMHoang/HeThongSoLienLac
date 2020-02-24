@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BAL
 {
-    class PhanCongBAL : CInterface<PhanCong>
+    public class PhanCongBAL : CInterface<PhanCong>
     {
         PhanCongDAL pc = new PhanCongDAL();
         public async Task<int> CapNhap(PhanCong obj)

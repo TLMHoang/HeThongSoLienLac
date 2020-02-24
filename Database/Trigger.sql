@@ -1,4 +1,4 @@
-USE HeThongSoLienLac
+﻿USE HeThongSoLienLac
 GO	
 
 
@@ -11,6 +11,7 @@ BEGIN
 	FROM dbo.CupHoc
 	JOIN Inserted ON Inserted.IDHocSinh = dbo.CupHoc.IDHocSinh AND Inserted.Ngay = dbo.CupHoc.Ngay AND	Inserted.Tiet = dbo.CupHoc.Tiet ) = 2
 	BEGIN
+		PRINT N'Đã ghi nhận học sinh cúp học trong tiết này rồi không cần lặp lại'
 	    ROLLBACK TRANSACTION
 	END
 END
@@ -23,6 +24,7 @@ AS
 BEGIN
 	IF ((SELECT Tiet FROM Inserted) > 15)
 	BEGIN
+		PRINT N'Số tiết không thể quá 15'
 	    ROLLBACK TRANSACTION
 	END
 END
@@ -40,6 +42,7 @@ BEGIN
 	FROM dbo.DiemDanh
 	JOIN Inserted ON Inserted.IDHocSinh = dbo.DiemDanh.IDHocSinh AND Inserted.NgayNghi = dbo.DiemDanh.NgayNghi AND Inserted.Phep = DiemDanh.Phep) = 2
 	BEGIN
+		PRINT N'Đã ghi nhận học sinh vắng học rồi không cần lặp lại'
 		ROLLBACK TRANSACTION
 	END
 	ELSE
@@ -49,8 +52,10 @@ BEGIN
 		JOIN Inserted ON Inserted.IDHocSinh = dbo.DiemDanh.IDHocSinh AND Inserted.NgayNghi = dbo.DiemDanh.NgayNghi) = 2
 		BEGIN
 		    UPDATE dbo.DiemDanh SET Phep = @Phep WHERE IDHocSinh = @IDHS AND NgayNghi = @Ngay
+			PRINT N'Đã cập nhập lại thông tin'
 			ROLLBACK TRANSACTION
 		END
 	END
 END
 GO
+

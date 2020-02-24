@@ -42,9 +42,9 @@ namespace DAL.SQL
                 //Message = "The transaction ended in the trigger. The batch has been aborted."
                 catch (Exception ex)
                 {
-                    if (ex.Message.Equals("The transaction ended in the trigger. The batch has been aborted."))
+                    if (ex.Message.Contains("transaction ended"))
                     {
-                        MessageBox.Show("Dữ liệu đã có không thể thêm lại 1 lần nữa.");
+                        MessageBox.Show(SlipString(ex.Message));
                     }
                     else
                     {
@@ -139,6 +139,15 @@ namespace DAL.SQL
 
                 return default(T);
             }
+        }
+
+        public string SlipString(string str)
+        {
+            string strReturn = str;
+
+            strReturn = strReturn.Remove(0, str.IndexOf("\r\n"));
+
+            return strReturn;
         }
     }
 }

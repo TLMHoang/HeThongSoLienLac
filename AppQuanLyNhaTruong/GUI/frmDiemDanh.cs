@@ -95,17 +95,20 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    int y = dgvDSHSC.CurrentCell.RowIndex;
                     bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
-                    txtID.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
-                    txtTen.Text = dgvDSHSC.Rows[y].Cells["TenC"].Value.ToString();
-                    if (cbxLopC.SelectedIndex == 0)
+                    if (dgvDSHSC.RowCount > 0)
                     {
-                        txtLop.Text = await Lop(int.Parse(txtID.Text));
-                    }
-                    else
-                    {
-                    txtLop.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+                        int y = dgvDSHSC.CurrentCell.RowIndex;
+                        txtID.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+                        txtTen.Text = dgvDSHSC.Rows[y].Cells["TenC"].Value.ToString();
+                        if (cbxLopC.SelectedIndex == 0)
+                        {
+                            txtLop.Text = await Lop(int.Parse(txtID.Text));
+                        }
+                        else
+                        {
+                            txtLop.Text = dgvDSHSC.Rows[y].Cells["IDC"].Value.ToString();
+                        }
                     }
                 }
                 else
@@ -284,7 +287,14 @@ namespace GUI
             bsCupHoc.SuspendBinding();
             dgvChiTiet.SuspendLayout();
 
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("Vui Lòng chọn học sinh");
+            }
+            else
+            { 
             bsCupHoc.DataSource = await cupBAL.LayID(int.Parse(txtID.Text));
+            }
 
             dgvChiTiet.ResumeLayout();
             bsCupHoc.ResumeBinding();
@@ -292,11 +302,18 @@ namespace GUI
 
         private async void btnCapNhap_Click(object sender, EventArgs e)
         {
-            CupHoc c = new CupHoc(-1, int.Parse(txtID.Text), DateTime.Today, -1);
-            for (int i = (int)numTu.Value; i <= (int)numDen.Value; i++)
+            if (txtID.Text == "")
             {
-                c.Tiet = i;
-                await cupBAL.Them(c);
+                MessageBox.Show("Vui Lòng chọn học sinh");
+            }
+            else
+            {
+                CupHoc c = new CupHoc(-1, int.Parse(txtID.Text), DateTime.Today, -1);
+                for (int i = (int)numTu.Value; i <= (int)numDen.Value; i++)
+                {
+                    c.Tiet = i;
+                    await cupBAL.Them(c);
+                }
             }
         }
 
