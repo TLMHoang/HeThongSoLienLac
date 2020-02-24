@@ -88,6 +88,7 @@
             this.txtTimKiemID.Name = "txtTimKiemID";
             this.txtTimKiemID.Size = new System.Drawing.Size(428, 26);
             this.txtTimKiemID.TabIndex = 0;
+            this.txtTimKiemID.Text = "Nhập ID Hoặc Tên Để Tìm";
             this.txtTimKiemID.TextChanged += new System.EventHandler(this.txtTimKiemID_TextChanged);
             this.txtTimKiemID.Enter += new System.EventHandler(this.txtTimKiemID_Enter);
             this.txtTimKiemID.Leave += new System.EventHandler(this.txtTimKiemID_Leave);

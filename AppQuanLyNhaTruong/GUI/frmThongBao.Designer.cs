@@ -76,7 +76,7 @@
             this.cboChonLoaiTB.Location = new System.Drawing.Point(3, 2);
             this.cboChonLoaiTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLoaiTB.Name = "cboChonLoaiTB";
-            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 24);
+            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 28);
             this.cboChonLoaiTB.TabIndex = 2;
             this.cboChonLoaiTB.SelectedIndexChanged += new System.EventHandler(this.cboChonLoaiTB_SelectedIndexChanged);
             // 
@@ -127,7 +127,7 @@
             this.cboChonLop.Location = new System.Drawing.Point(290, 486);
             this.cboChonLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(527, 24);
+            this.cboChonLop.Size = new System.Drawing.Size(527, 28);
             this.cboChonLop.TabIndex = 5;
             // 
             // btnLuu
@@ -157,7 +157,7 @@
             // 
             // frmThongBao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(975, 534);

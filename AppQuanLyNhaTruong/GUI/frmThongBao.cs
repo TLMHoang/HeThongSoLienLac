@@ -103,6 +103,7 @@ namespace GUI
                 {
                     await tbt.CapNhap(new ThongBaoTruong(id, rtbNhapNoiDung.Text));
                     MessageBox.Show("Cập Nhật Thành Công !");
+                    cboChonLoaiTB.Enabled = true;
                     LoadDGVTruong();
                     XoaRTB();
                 }
@@ -110,6 +111,7 @@ namespace GUI
                 {
                     await tbl.CapNhap(new ThongBaoLop(id, idLop, rtbNhapNoiDung.Text));
                     MessageBox.Show("Cập Nhật Thành Công !");
+                    cboChonLoaiTB.Enabled = true;
                     LoadDGVLop();
                     XoaRTB();
                 }
@@ -167,6 +169,7 @@ namespace GUI
                     {
                         id = int.Parse(row.Cells[0].Value.ToString());
                         rtbNhapNoiDung.Text = row.Cells[1].Value.ToString();
+                        cboChonLoaiTB.Enabled = false;
                     }
                 }
                 else
@@ -176,6 +179,7 @@ namespace GUI
                         id = int.Parse(row.Cells[0].Value.ToString());
                         idLop = int.Parse(row.Cells[1].Value.ToString());
                         rtbNhapNoiDung.Text = row.Cells[2].Value.ToString();
+                        cboChonLoaiTB.Enabled = false;
                     }
                 }
             }

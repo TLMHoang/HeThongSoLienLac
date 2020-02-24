@@ -48,17 +48,17 @@ namespace GUI
         {
             bsHS.SuspendBinding();
             dgvDSHS.SuspendLayout();
-            dgvDSHS.DataSource = await new ThongTinHSBAL().LayDT();
-            bsHS.ResumeBinding();
+            dgvDSHS.DataSource = await new ThongTinHSBAL().LayDT();            
             dgvDSHS.ResumeLayout();
+            bsHS.ResumeBinding();
         }
         public async void LoadDGVTB()
         {
             bsThongBao.SuspendBinding();
             dgvDSTB.SuspendLayout();
-            dgvDSTB.DataSource = await tb.LayDT();
-            bsThongBao.ResumeBinding();
+            dgvDSTB.DataSource = await tb.LayDT();            
             dgvDSTB.ResumeLayout();
+            bsThongBao.ResumeBinding();
         }
         public void XoaRTB()
         {
