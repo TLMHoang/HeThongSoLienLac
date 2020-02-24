@@ -28,7 +28,7 @@ namespace GUI
             loadDataMonHoc();
             loadDataPhanCong();
         }
-        #region tabPhanCong
+        #region tabMonHoc
         private void dgvMon_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
@@ -126,7 +126,7 @@ namespace GUI
         }
         #endregion
 
-        #region PhanCong
+        #region tabPhanCong
         int idGV = -1;
         int idMon = -1;
         int idLop = -1;
@@ -185,7 +185,7 @@ namespace GUI
                     }
                     else
                     {
-                        await pcBAL.Them(new PhanCong(-1, idGV, idLop, idMon));
+                        await pcBAL.Them(new PhanCong(0,idGV, idLop, idMon));
                          bsView.DataSource = await pcBAL.LayDT();
                         MessageBox.Show("Thêm Thành Công !");
                     }
