@@ -93,6 +93,7 @@ namespace GUI
                     LoadDGVTKPH();
                     MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");                    
                     dgvTKPH.ReadOnly = true;
+                    idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
                     dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                 }
                 else
@@ -111,7 +112,7 @@ namespace GUI
         {
             try
             {
-                idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
+                
                 if (idHS != -1)
                 {
                     await ttHS.CapNhatID(idHS, idTKPH);
@@ -141,6 +142,7 @@ namespace GUI
                 if (int.Parse(row.Cells[0].Value.ToString()) != -1)
                 {
                     id = int.Parse(row.Cells[0].Value.ToString());
+                    idTKPH = int.Parse(row.Cells[0].Value.ToString());
                     tenTK = row.Cells[1].Value.ToString();
                 }
             }
@@ -148,7 +150,7 @@ namespace GUI
         private void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewButtonCell btn = dgvDSHS.Rows[e.RowIndex].Cells[0] as DataGridViewButtonCell;
-            if(MessageBox.Show("Chọn Học Sinh " + dgvDSHS.CurrentRow.Cells[2].Value.ToString(),"Notification !",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)== DialogResult.OK)
+            if(MessageBox.Show("Chọn Học Sinh  " + dgvDSHS.CurrentRow.Cells[3].Value.ToString(),"Notification !",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)== DialogResult.OK)
             {
                 btn.Style.BackColor = Color.DarkOrange;
                 idHS = Convert.ToInt32(dgvDSHS.CurrentRow.Cells[1].Value.ToString());
@@ -252,10 +254,7 @@ namespace GUI
         #endregion
 
         #region TabTaiKhoanTruong
-        int idTruong = -1;
-        string tenTkt = "";
-        string matkhauTruong = "";
-        byte loai;
+        int idTruong = -1;        
         string text;
         public async void LoadDGVTruong()
         {
@@ -292,7 +291,7 @@ namespace GUI
         private async void btnLuu_Click(object sender, EventArgs e)
         {
             
-            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[3];
+            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[2];
             try
             {
                 if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[0].Value == null)
@@ -301,7 +300,7 @@ namespace GUI
                     await tkTruong.Them(new TaiKhoanTruong(
                         idTruong,
                         dvr.Cells[1].Value.ToString(),
-                        dvr.Cells[2].Value.ToString(),
+                        dvr.Cells[1].Value.ToString(),
                         chk.Value == chk.TrueValue ? (byte)1 : (byte)0));
                     dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
                     text = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 2].Cells[0].Value.ToString();
