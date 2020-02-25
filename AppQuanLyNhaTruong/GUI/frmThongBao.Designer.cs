@@ -36,9 +36,9 @@
             this.dgvDSTB = new System.Windows.Forms.DataGridView();
             this.cboChonLop = new System.Windows.Forms.ComboBox();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.lblThongTinLop = new System.Windows.Forms.Label();
             this.bsThongBaoTruong = new System.Windows.Forms.BindingSource(this.components);
             this.bsThongBaoLop = new System.Windows.Forms.BindingSource(this.components);
-            this.lblThongTinLop = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsThongBaoTruong)).BeginInit();
@@ -153,14 +153,6 @@
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // bsThongBaoTruong
-            // 
-            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
-            // 
-            // bsThongBaoLop
-            // 
-            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
-            // 
             // lblThongTinLop
             // 
             this.lblThongTinLop.AutoSize = true;
@@ -170,6 +162,14 @@
             this.lblThongTinLop.Size = new System.Drawing.Size(70, 25);
             this.lblThongTinLop.TabIndex = 7;
             this.lblThongTinLop.Text = "label1";
+            // 
+            // bsThongBaoTruong
+            // 
+            this.bsThongBaoTruong.DataSource = typeof(DTO.ThongBaoTruong);
+            // 
+            // bsThongBaoLop
+            // 
+            this.bsThongBaoLop.DataSource = typeof(DTO.ThongBaoLop);
             // 
             // frmThongBao
             // 

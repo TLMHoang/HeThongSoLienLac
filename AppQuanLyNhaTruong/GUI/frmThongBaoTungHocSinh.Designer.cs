@@ -179,18 +179,21 @@
             this.sTTDataGridViewTextBoxColumn.DataPropertyName = "STT";
             this.sTTDataGridViewTextBoxColumn.HeaderText = "STT";
             this.sTTDataGridViewTextBoxColumn.Name = "sTTDataGridViewTextBoxColumn";
+            this.sTTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDHocSinhDataGridViewTextBoxColumn
             // 
             this.iDHocSinhDataGridViewTextBoxColumn.DataPropertyName = "IDHocSinh";
             this.iDHocSinhDataGridViewTextBoxColumn.HeaderText = "ID Học Sinh";
             this.iDHocSinhDataGridViewTextBoxColumn.Name = "iDHocSinhDataGridViewTextBoxColumn";
+            this.iDHocSinhDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // noiDungDataGridViewTextBoxColumn
             // 
             this.noiDungDataGridViewTextBoxColumn.DataPropertyName = "NoiDung";
             this.noiDungDataGridViewTextBoxColumn.HeaderText = "Nội Dung";
             this.noiDungDataGridViewTextBoxColumn.Name = "noiDungDataGridViewTextBoxColumn";
+            this.noiDungDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bsThongBao
             // 

@@ -26,6 +26,7 @@ namespace GUI
 
         private void frmAccountManager_Load(object sender, EventArgs e)
         {
+            
             LoadDGVDSHS();
             LoadDGVTKPH();
             LoadDGVGV();
