@@ -44,9 +44,9 @@ namespace GUI
             else
             {
                 cbxLop.Enabled = cbxLopC.Enabled = false;
-                cbxLop.Text = cbxLopC.Text = Program.lstLop.FirstOrDefault(p => p.ID == Program.gV.IDLop).TenLop;
-                bsHocSinh.DataSource = await hSBAL.LayDanhSach(Program.gV.IDLop);
-                
+                //cbxLop.Text = cbxLopC.Text = Program.lstLop.FirstOrDefault(p => p.ID == Program.gV.IDLop).TenLop;
+                //bsHocSinh.DataSource = await hSBAL.LayDanhSach(Program.gV.IDLop);
+
             }
 
             dgvDSHS.ResumeLayout();
