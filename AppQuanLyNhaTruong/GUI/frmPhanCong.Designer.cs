@@ -46,9 +46,14 @@
             this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.btnBack = new System.Windows.Forms.Button();
             this.dgvView = new System.Windows.Forms.DataGridView();
+            this.sTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_IDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_IDLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_IDMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsView = new System.Windows.Forms.BindingSource(this.components);
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
+            this.txtTimLop = new System.Windows.Forms.TextBox();
             this.tabMon = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvMon = new System.Windows.Forms.DataGridView();
@@ -57,11 +62,6 @@
             this.Col_Loai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsMon = new System.Windows.Forms.BindingSource(this.components);
             this.txtTimMoi = new System.Windows.Forms.TextBox();
-            this.sTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_IDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_IDLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_IDMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTimLop = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPhanCongMon.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel1.Controls.Add(this.txtTimKiemGV, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgvDSGV, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgvDSLop, 3, 1);
@@ -249,10 +249,10 @@
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(424, 188);
+            this.btnBack.Location = new System.Drawing.Point(423, 188);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(141, 56);
+            this.btnBack.Size = new System.Drawing.Size(142, 56);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Trở lại";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -278,6 +278,30 @@
             this.dgvView.TabIndex = 8;
             this.dgvView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvView_CellClick);
             this.dgvView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvView_UserDeletingRow);
+            // 
+            // sTTDataGridViewTextBoxColumn
+            // 
+            this.sTTDataGridViewTextBoxColumn.DataPropertyName = "STT";
+            this.sTTDataGridViewTextBoxColumn.HeaderText = "STT";
+            this.sTTDataGridViewTextBoxColumn.Name = "sTTDataGridViewTextBoxColumn";
+            // 
+            // col_IDGV
+            // 
+            this.col_IDGV.DataPropertyName = "IDGiaoVien";
+            this.col_IDGV.HeaderText = "ID Giáo Viên";
+            this.col_IDGV.Name = "col_IDGV";
+            // 
+            // col_IDLop
+            // 
+            this.col_IDLop.DataPropertyName = "IDLop";
+            this.col_IDLop.HeaderText = "ID Lớp";
+            this.col_IDLop.Name = "col_IDLop";
+            // 
+            // col_IDMonHoc
+            // 
+            this.col_IDMonHoc.DataPropertyName = "IDMon";
+            this.col_IDMonHoc.HeaderText = "Môn Dạy";
+            this.col_IDMonHoc.Name = "col_IDMonHoc";
             // 
             // bsView
             // 
@@ -312,6 +336,21 @@
             this.btnXacNhan.Text = "Xác Nhận";
             this.btnXacNhan.UseVisualStyleBackColor = false;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
+            // 
+            // txtTimLop
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtTimLop, 2);
+            this.txtTimLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTimLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtTimLop.ForeColor = System.Drawing.Color.Gray;
+            this.txtTimLop.Location = new System.Drawing.Point(367, 3);
+            this.txtTimLop.Name = "txtTimLop";
+            this.txtTimLop.Size = new System.Drawing.Size(198, 27);
+            this.txtTimLop.TabIndex = 9;
+            this.txtTimLop.Text = "Nhập ID hoặc Tên Lớp";
+            this.txtTimLop.TextChanged += new System.EventHandler(this.txtTimLop_TextChanged);
+            this.txtTimLop.Enter += new System.EventHandler(this.txtTimLop_Enter);
+            this.txtTimLop.Leave += new System.EventHandler(this.txtTimLop_Leave);
             // 
             // tabMon
             // 
@@ -398,45 +437,6 @@
             this.txtTimMoi.TextChanged += new System.EventHandler(this.txtTimMoi_TextChanged);
             this.txtTimMoi.Enter += new System.EventHandler(this.txtTimMoi_Enter);
             this.txtTimMoi.Leave += new System.EventHandler(this.txtTimMoi_Leave);
-            // 
-            // sTTDataGridViewTextBoxColumn
-            // 
-            this.sTTDataGridViewTextBoxColumn.DataPropertyName = "STT";
-            this.sTTDataGridViewTextBoxColumn.HeaderText = "STT";
-            this.sTTDataGridViewTextBoxColumn.Name = "sTTDataGridViewTextBoxColumn";
-            // 
-            // col_IDGV
-            // 
-            this.col_IDGV.DataPropertyName = "IDGiaoVien";
-            this.col_IDGV.HeaderText = "ID Giáo Viên";
-            this.col_IDGV.Name = "col_IDGV";
-            // 
-            // col_IDLop
-            // 
-            this.col_IDLop.DataPropertyName = "IDLop";
-            this.col_IDLop.HeaderText = "ID Lớp";
-            this.col_IDLop.Name = "col_IDLop";
-            // 
-            // col_IDMonHoc
-            // 
-            this.col_IDMonHoc.DataPropertyName = "IDMon";
-            this.col_IDMonHoc.HeaderText = "Môn Dạy";
-            this.col_IDMonHoc.Name = "col_IDMonHoc";
-            // 
-            // txtTimLop
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.txtTimLop, 2);
-            this.txtTimLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTimLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimLop.ForeColor = System.Drawing.Color.Gray;
-            this.txtTimLop.Location = new System.Drawing.Point(367, 3);
-            this.txtTimLop.Name = "txtTimLop";
-            this.txtTimLop.Size = new System.Drawing.Size(198, 27);
-            this.txtTimLop.TabIndex = 9;
-            this.txtTimLop.Text = "Nhập ID hoặc Tên Lớp";
-            this.txtTimLop.TextChanged += new System.EventHandler(this.txtTimLop_TextChanged);
-            this.txtTimLop.Enter += new System.EventHandler(this.txtTimLop_Enter);
-            this.txtTimLop.Leave += new System.EventHandler(this.txtTimLop_Leave);
             // 
             // frmPhanCong
             // 

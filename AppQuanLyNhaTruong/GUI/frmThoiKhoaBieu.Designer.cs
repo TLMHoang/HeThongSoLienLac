@@ -298,6 +298,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThoiKhoaBieu";
             this.Text = "Thời Khóa Biểu";
+            this.Load += new System.EventHandler(this.frmThoiKhoaBieu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).EndInit();

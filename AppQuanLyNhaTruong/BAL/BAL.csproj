@@ -47,6 +47,7 @@
     <Compile Include="DiemHeSoHaiBAL.cs" />
     <Compile Include="DiemHeSoMotBAL.cs" />
     <Compile Include="DiemHocKyBAL.cs" />
+    <Compile Include="GVCNBAL.cs" />
     <Compile Include="HanhKiemBAL.cs" />
     <Compile Include="LopBAL.cs" />
     <Compile Include="MonHocBAL.cs" />

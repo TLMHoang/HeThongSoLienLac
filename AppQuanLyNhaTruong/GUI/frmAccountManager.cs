@@ -335,8 +335,8 @@ namespace GUI
                         int.Parse(dvr.Cells[0].Value.ToString()),
                         dvr.Cells[1].Value.ToString(),
                         dvr.Cells[2].Value.ToString(),
-                        Convert.ToInt32(dvr.Cells[3].Value), Convert.ToInt32(dvr.Cells[4].Value)
-                        ));
+                        Convert.ToInt32(dvr.Cells[3].Value))
+                        );
                     dgvThongTinGV.DataSource = await ttGV.LayDT();
                     MessageBox.Show("Thêm Thông Tin Thành Công !");
                     dgvTaiKhoanTruong.ReadOnly = false;
@@ -352,7 +352,7 @@ namespace GUI
                             int.Parse(dvr.Cells[0].Value.ToString()),
                             dvr.Cells[1].Value.ToString(),
                             dvr.Cells[2].Value.ToString(),
-                            Convert.ToInt32(dvr.Cells[3].Value), Convert.ToInt32(dvr.Cells[4].Value)
+                            Convert.ToInt32(dvr.Cells[3].Value)
                             ));
                         dgvThongTinGV.DataSource = await ttGV.LayDT();
                         MessageBox.Show("Cập nhật Thông Tin Thành Công !");

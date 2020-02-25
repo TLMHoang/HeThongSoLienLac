@@ -33,10 +33,10 @@ namespace GUI
             {
                 lblNameFrom.Text += "toàn trường";
             }
-            else
-            {
-                lblNameFrom.Text += "lớp " + Program.lstLop.FirstOrDefault(p => p.ID == gV.IDLop).TenLop;
-            }
+            //else
+            //{
+            //    lblNameFrom.Text += "lớp " + Program.lstLop.FirstOrDefault(p => p.ID == gV.IDLop).TenLop;
+            //}
         }
 
         private void frmHocSinh_FormClosing(object sender, FormClosingEventArgs e)
