@@ -28,28 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvTKB = new System.Windows.Forms.DataGridView();
+            this.iDLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tietDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDMonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsTKB = new System.Windows.Forms.BindingSource(this.components);
             this.cboChonThu = new System.Windows.Forms.ComboBox();
             this.cboChonLop = new System.Windows.Forms.ComboBox();
-            this.cboChonBuoi = new System.Windows.Forms.ComboBox();
-            this.lblSoTiet = new System.Windows.Forms.Label();
-            this.lblTiet1 = new System.Windows.Forms.Label();
-            this.lblTiet2 = new System.Windows.Forms.Label();
-            this.lblTiet3 = new System.Windows.Forms.Label();
-            this.lblTiet4 = new System.Windows.Forms.Label();
             this.lblTiet5 = new System.Windows.Forms.Label();
+            this.lblTiet4 = new System.Windows.Forms.Label();
+            this.lblTiet3 = new System.Windows.Forms.Label();
+            this.lblTiet2 = new System.Windows.Forms.Label();
+            this.lblTiet1 = new System.Windows.Forms.Label();
+            this.lblSoTiet = new System.Windows.Forms.Label();
+            this.cboChonBuoi = new System.Windows.Forms.ComboBox();
             this.lblChonBuoi = new System.Windows.Forms.Label();
             this.lblChonLop = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.cboMonTiet1 = new System.Windows.Forms.ComboBox();
+            this.bsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.cboMonTiet2 = new System.Windows.Forms.ComboBox();
             this.cboMonTiet3 = new System.Windows.Forms.ComboBox();
             this.cboMonTiet4 = new System.Windows.Forms.ComboBox();
             this.cboMonTiet5 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTKB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -100,15 +109,57 @@
             // 
             // dgvTKB
             // 
+            this.dgvTKB.AutoGenerateColumns = false;
+            this.dgvTKB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTKB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTKB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDLopDataGridViewTextBoxColumn,
+            this.thuDataGridViewTextBoxColumn,
+            this.tietDataGridViewTextBoxColumn,
+            this.iDMonDataGridViewTextBoxColumn});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvTKB, 2);
+            this.dgvTKB.DataSource = this.bsTKB;
             this.dgvTKB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTKB.Location = new System.Drawing.Point(312, 3);
             this.dgvTKB.Name = "dgvTKB";
+            this.dgvTKB.ReadOnly = true;
             this.tableLayoutPanel1.SetRowSpan(this.dgvTKB, 12);
             this.dgvTKB.RowTemplate.Height = 24;
             this.dgvTKB.Size = new System.Drawing.Size(649, 539);
             this.dgvTKB.TabIndex = 0;
+            this.dgvTKB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTKB_CellClick);
+            // 
+            // iDLopDataGridViewTextBoxColumn
+            // 
+            this.iDLopDataGridViewTextBoxColumn.DataPropertyName = "IDLop";
+            this.iDLopDataGridViewTextBoxColumn.HeaderText = "ID Lớp";
+            this.iDLopDataGridViewTextBoxColumn.Name = "iDLopDataGridViewTextBoxColumn";
+            this.iDLopDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // thuDataGridViewTextBoxColumn
+            // 
+            this.thuDataGridViewTextBoxColumn.DataPropertyName = "Thu";
+            this.thuDataGridViewTextBoxColumn.HeaderText = "Thứ ";
+            this.thuDataGridViewTextBoxColumn.Name = "thuDataGridViewTextBoxColumn";
+            this.thuDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tietDataGridViewTextBoxColumn
+            // 
+            this.tietDataGridViewTextBoxColumn.DataPropertyName = "Tiet";
+            this.tietDataGridViewTextBoxColumn.HeaderText = "Tiết";
+            this.tietDataGridViewTextBoxColumn.Name = "tietDataGridViewTextBoxColumn";
+            this.tietDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDMonDataGridViewTextBoxColumn
+            // 
+            this.iDMonDataGridViewTextBoxColumn.DataPropertyName = "IDMon";
+            this.iDMonDataGridViewTextBoxColumn.HeaderText = "ID Môn";
+            this.iDMonDataGridViewTextBoxColumn.Name = "iDMonDataGridViewTextBoxColumn";
+            this.iDMonDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsTKB
+            // 
+            this.bsTKB.DataSource = typeof(DTO.ThoiKhoaBieu);
             // 
             // cboChonThu
             // 
@@ -130,16 +181,52 @@
             this.cboChonLop.Name = "cboChonLop";
             this.cboChonLop.Size = new System.Drawing.Size(303, 28);
             this.cboChonLop.TabIndex = 3;
+            this.cboChonLop.SelectedIndexChanged += new System.EventHandler(this.cboChonLop_SelectedIndexChanged);
             // 
-            // cboChonBuoi
+            // lblTiet5
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.cboChonBuoi, 2);
-            this.cboChonBuoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboChonBuoi.FormattingEnabled = true;
-            this.cboChonBuoi.Location = new System.Drawing.Point(3, 184);
-            this.cboChonBuoi.Name = "cboChonBuoi";
-            this.cboChonBuoi.Size = new System.Drawing.Size(303, 28);
-            this.cboChonBuoi.TabIndex = 4;
+            this.lblTiet5.AutoSize = true;
+            this.lblTiet5.Location = new System.Drawing.Point(3, 439);
+            this.lblTiet5.Name = "lblTiet5";
+            this.lblTiet5.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet5.TabIndex = 10;
+            this.lblTiet5.Text = "Tiết 5";
+            // 
+            // lblTiet4
+            // 
+            this.lblTiet4.AutoSize = true;
+            this.lblTiet4.Location = new System.Drawing.Point(3, 392);
+            this.lblTiet4.Name = "lblTiet4";
+            this.lblTiet4.Size = new System.Drawing.Size(63, 20);
+            this.lblTiet4.TabIndex = 9;
+            this.lblTiet4.Text = "Tiết 4 ";
+            // 
+            // lblTiet3
+            // 
+            this.lblTiet3.AutoSize = true;
+            this.lblTiet3.Location = new System.Drawing.Point(3, 346);
+            this.lblTiet3.Name = "lblTiet3";
+            this.lblTiet3.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet3.TabIndex = 8;
+            this.lblTiet3.Text = "Tiết 3";
+            // 
+            // lblTiet2
+            // 
+            this.lblTiet2.AutoSize = true;
+            this.lblTiet2.Location = new System.Drawing.Point(3, 302);
+            this.lblTiet2.Name = "lblTiet2";
+            this.lblTiet2.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet2.TabIndex = 7;
+            this.lblTiet2.Text = "Tiết 2";
+            // 
+            // lblTiet1
+            // 
+            this.lblTiet1.AutoSize = true;
+            this.lblTiet1.Location = new System.Drawing.Point(3, 259);
+            this.lblTiet1.Name = "lblTiet1";
+            this.lblTiet1.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet1.TabIndex = 6;
+            this.lblTiet1.Text = "Tiết 1";
             // 
             // lblSoTiet
             // 
@@ -151,50 +238,16 @@
             this.lblSoTiet.TabIndex = 5;
             this.lblSoTiet.Text = "Nhập Vào Số Tiết";
             // 
-            // lblTiet1
+            // cboChonBuoi
             // 
-            this.lblTiet1.AutoSize = true;
-            this.lblTiet1.Location = new System.Drawing.Point(3, 259);
-            this.lblTiet1.Name = "lblTiet1";
-            this.lblTiet1.Size = new System.Drawing.Size(57, 20);
-            this.lblTiet1.TabIndex = 6;
-            this.lblTiet1.Text = "Tiết 1";
-            // 
-            // lblTiet2
-            // 
-            this.lblTiet2.AutoSize = true;
-            this.lblTiet2.Location = new System.Drawing.Point(3, 302);
-            this.lblTiet2.Name = "lblTiet2";
-            this.lblTiet2.Size = new System.Drawing.Size(57, 20);
-            this.lblTiet2.TabIndex = 7;
-            this.lblTiet2.Text = "Tiết 2";
-            // 
-            // lblTiet3
-            // 
-            this.lblTiet3.AutoSize = true;
-            this.lblTiet3.Location = new System.Drawing.Point(3, 346);
-            this.lblTiet3.Name = "lblTiet3";
-            this.lblTiet3.Size = new System.Drawing.Size(57, 20);
-            this.lblTiet3.TabIndex = 8;
-            this.lblTiet3.Text = "Tiết 3";
-            // 
-            // lblTiet4
-            // 
-            this.lblTiet4.AutoSize = true;
-            this.lblTiet4.Location = new System.Drawing.Point(3, 392);
-            this.lblTiet4.Name = "lblTiet4";
-            this.lblTiet4.Size = new System.Drawing.Size(63, 20);
-            this.lblTiet4.TabIndex = 9;
-            this.lblTiet4.Text = "Tiết 4 ";
-            // 
-            // lblTiet5
-            // 
-            this.lblTiet5.AutoSize = true;
-            this.lblTiet5.Location = new System.Drawing.Point(3, 439);
-            this.lblTiet5.Name = "lblTiet5";
-            this.lblTiet5.Size = new System.Drawing.Size(57, 20);
-            this.lblTiet5.TabIndex = 10;
-            this.lblTiet5.Text = "Tiết 5";
+            this.tableLayoutPanel1.SetColumnSpan(this.cboChonBuoi, 2);
+            this.cboChonBuoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboChonBuoi.FormattingEnabled = true;
+            this.cboChonBuoi.Location = new System.Drawing.Point(3, 184);
+            this.cboChonBuoi.Name = "cboChonBuoi";
+            this.cboChonBuoi.Size = new System.Drawing.Size(303, 28);
+            this.cboChonBuoi.TabIndex = 4;
+            this.cboChonBuoi.SelectedIndexChanged += new System.EventHandler(this.cboChonBuoi_SelectedIndexChanged);
             // 
             // lblChonBuoi
             // 
@@ -229,6 +282,7 @@
             this.btnLuu.TabIndex = 18;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -243,51 +297,71 @@
             this.btnSua.TabIndex = 19;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // cboMonTiet1
             // 
+            this.cboMonTiet1.DataSource = this.bsMonHoc;
+            this.cboMonTiet1.DisplayMember = "TenMon";
             this.cboMonTiet1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet1.FormattingEnabled = true;
             this.cboMonTiet1.Location = new System.Drawing.Point(157, 262);
             this.cboMonTiet1.Name = "cboMonTiet1";
             this.cboMonTiet1.Size = new System.Drawing.Size(149, 28);
             this.cboMonTiet1.TabIndex = 20;
+            this.cboMonTiet1.ValueMember = "ID";
+            // 
+            // bsMonHoc
+            // 
+            this.bsMonHoc.DataSource = typeof(DTO.MonHoc);
             // 
             // cboMonTiet2
             // 
+            this.cboMonTiet2.DataSource = this.bsMonHoc;
+            this.cboMonTiet2.DisplayMember = "TenMon";
             this.cboMonTiet2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet2.FormattingEnabled = true;
             this.cboMonTiet2.Location = new System.Drawing.Point(157, 305);
             this.cboMonTiet2.Name = "cboMonTiet2";
             this.cboMonTiet2.Size = new System.Drawing.Size(149, 28);
             this.cboMonTiet2.TabIndex = 21;
+            this.cboMonTiet2.ValueMember = "ID";
             // 
             // cboMonTiet3
             // 
+            this.cboMonTiet3.DataSource = this.bsMonHoc;
+            this.cboMonTiet3.DisplayMember = "TenMon";
             this.cboMonTiet3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet3.FormattingEnabled = true;
             this.cboMonTiet3.Location = new System.Drawing.Point(157, 349);
             this.cboMonTiet3.Name = "cboMonTiet3";
             this.cboMonTiet3.Size = new System.Drawing.Size(149, 28);
             this.cboMonTiet3.TabIndex = 22;
+            this.cboMonTiet3.ValueMember = "ID";
             // 
             // cboMonTiet4
             // 
+            this.cboMonTiet4.DataSource = this.bsMonHoc;
+            this.cboMonTiet4.DisplayMember = "TenMon";
             this.cboMonTiet4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet4.FormattingEnabled = true;
             this.cboMonTiet4.Location = new System.Drawing.Point(157, 395);
             this.cboMonTiet4.Name = "cboMonTiet4";
             this.cboMonTiet4.Size = new System.Drawing.Size(149, 28);
             this.cboMonTiet4.TabIndex = 23;
+            this.cboMonTiet4.ValueMember = "ID";
             // 
             // cboMonTiet5
             // 
+            this.cboMonTiet5.DataSource = this.bsMonHoc;
+            this.cboMonTiet5.DisplayMember = "TenMon";
             this.cboMonTiet5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet5.FormattingEnabled = true;
             this.cboMonTiet5.Location = new System.Drawing.Point(157, 442);
             this.cboMonTiet5.Name = "cboMonTiet5";
             this.cboMonTiet5.Size = new System.Drawing.Size(149, 28);
             this.cboMonTiet5.TabIndex = 24;
+            this.cboMonTiet5.ValueMember = "ID";
             // 
             // frmThoiKhoaBieu
             // 
@@ -298,11 +372,14 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThoiKhoaBieu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thời Khóa Biểu";
             this.Load += new System.EventHandler(this.frmThoiKhoaBieu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTKB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +406,11 @@
         private System.Windows.Forms.ComboBox cboMonTiet3;
         private System.Windows.Forms.ComboBox cboMonTiet4;
         private System.Windows.Forms.ComboBox cboMonTiet5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDLopDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tietDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDMonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsTKB;
+        private System.Windows.Forms.BindingSource bsMonHoc;
     }
 }
