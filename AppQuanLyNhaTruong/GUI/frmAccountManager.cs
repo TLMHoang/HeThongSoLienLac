@@ -285,10 +285,10 @@ namespace GUI
             cbo.DataSource = await new MonHocBAL().LayDT();
             cbo.DisplayMember = "TenMon";
             cbo.ValueMember = "ID";
-            DataGridViewComboBoxColumn cbo1 = dgvThongTinGV.Columns[4] as DataGridViewComboBoxColumn;
-            cbo1.DataSource = await new LopBAL().LayDT();
-            cbo1.DisplayMember = "TenLop";
-            cbo1.ValueMember = "ID";
+            //DataGridViewComboBoxColumn cbo1 = dgvThongTinGV.Columns[4] as DataGridViewComboBoxColumn;
+            //cbo1.DataSource = await new LopBAL().LayDT();
+            //cbo1.DisplayMember = "TenLop";
+            //cbo1.ValueMember = "ID";
         }
 
         private async void btnLuu_Click(object sender, EventArgs e)

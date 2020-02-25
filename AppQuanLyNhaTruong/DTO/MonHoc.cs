@@ -25,7 +25,7 @@ namespace DTO
         public MonHoc(DataRow dr)
         {
             ID = Convert.IsDBNull(dr["ID"]) ? -1 : Convert.ToInt32(dr["ID"]);
-            TenMon = dr["MonHoc"].ToString();
+            TenMon = dr["TenMon"].ToString();
             LoaiDiem = Convert.ToByte(dr["LoaiDiem"]);
         }
     }

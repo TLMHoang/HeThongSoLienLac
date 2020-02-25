@@ -39,6 +39,18 @@ namespace BAL
             return lst;
         }
 
+        public async Task<List<PhanCong>> LayLst(int IDGV)
+        {
+            List<PhanCong> lst = new List<PhanCong>();
+
+            foreach (DataRow dr in (await pc.LayLopDay(IDGV)).Rows)
+            {
+                lst.Add(new PhanCong(dr));
+            }
+
+            return lst;
+        }
+
         public async Task<int> Them(PhanCong obj)
         {
             return await pc.Them(obj);

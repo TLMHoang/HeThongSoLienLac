@@ -33,22 +33,21 @@
             this.btnAccountManagement = new System.Windows.Forms.Button();
             this.btnStudentManagement = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.UserNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtLopHoc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDanhSachLop = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnDiem = new System.Windows.Forms.Button();
-            this.btnThongBaoChung = new System.Windows.Forms.Button();
+            this.btnThongBaoHS = new System.Windows.Forms.Button();
             this.btnThongBao = new System.Windows.Forms.Button();
             this.btnThoiKhoaBieu = new System.Windows.Forms.Button();
             this.btnPCMonHoc = new System.Windows.Forms.Button();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).BeginInit();
@@ -111,7 +110,6 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UserNameToolStripMenuItem,
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -120,32 +118,26 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // UserNameToolStripMenuItem
-            // 
-            this.UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
-            this.UserNameToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.UserNameToolStripMenuItem.Text = "Xin chào ";
-            // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
             this.LogOutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menuToolStripMenuItem.Text = "Menu";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.menuToolStripMenuItem.Text = "Xin chào ";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.adminToolStripMenuItem.Text = "Đổi mật khẩu";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
             // LogOutToolStripMenuItem
             // 
             this.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem";
-            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.LogOutToolStripMenuItem.Text = "Đăng Xuất";
             this.LogOutToolStripMenuItem.Click += new System.EventHandler(this.LogOutToolStripMenuItem_Click);
             // 
@@ -171,7 +163,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDiem, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAccountManagement, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.btnThongBaoChung, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnThongBaoHS, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnThongBao, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.btnDiemDanh, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnThoiKhoaBieu, 1, 3);
@@ -216,25 +208,6 @@
             this.dgvDanhSachLop.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDanhSachLop_UserAddedRow);
             this.dgvDanhSachLop.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDanhSachLop_UserDeletingRow);
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "Mã lớp";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // tenLopDataGridViewTextBoxColumn
-            // 
-            this.tenLopDataGridViewTextBoxColumn.DataPropertyName = "TenLop";
-            this.tenLopDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
-            this.tenLopDataGridViewTextBoxColumn.Name = "tenLopDataGridViewTextBoxColumn";
-            this.tenLopDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // bsLop
-            // 
-            this.bsLop.DataSource = typeof(DTO.Lop);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -264,22 +237,22 @@
             this.btnDiem.UseVisualStyleBackColor = false;
             this.btnDiem.Click += new System.EventHandler(this.btnDiem_Click);
             // 
-            // btnThongBaoChung
+            // btnThongBaoHS
             // 
-            this.btnThongBaoChung.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnThongBaoChung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnThongBaoChung.FlatAppearance.BorderSize = 0;
-            this.btnThongBaoChung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongBaoChung.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongBaoChung.ForeColor = System.Drawing.Color.White;
-            this.btnThongBaoChung.Location = new System.Drawing.Point(248, 322);
-            this.btnThongBaoChung.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThongBaoChung.Name = "btnThongBaoChung";
-            this.btnThongBaoChung.Size = new System.Drawing.Size(238, 76);
-            this.btnThongBaoChung.TabIndex = 3;
-            this.btnThongBaoChung.Text = "Thông báo riêng học sinh";
-            this.btnThongBaoChung.UseVisualStyleBackColor = false;
-            this.btnThongBaoChung.Click += new System.EventHandler(this.btnThongBaoChung_Click);
+            this.btnThongBaoHS.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnThongBaoHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongBaoHS.FlatAppearance.BorderSize = 0;
+            this.btnThongBaoHS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongBaoHS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongBaoHS.ForeColor = System.Drawing.Color.White;
+            this.btnThongBaoHS.Location = new System.Drawing.Point(248, 322);
+            this.btnThongBaoHS.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThongBaoHS.Name = "btnThongBaoHS";
+            this.btnThongBaoHS.Size = new System.Drawing.Size(238, 76);
+            this.btnThongBaoHS.TabIndex = 3;
+            this.btnThongBaoHS.Text = "Thông báo riêng học sinh";
+            this.btnThongBaoHS.UseVisualStyleBackColor = false;
+            this.btnThongBaoHS.Click += new System.EventHandler(this.btnThongBaoChung_Click);
             // 
             // btnThongBao
             // 
@@ -332,6 +305,25 @@
             this.btnPCMonHoc.UseVisualStyleBackColor = false;
             this.btnPCMonHoc.Click += new System.EventHandler(this.btnPCMonHoc_Click);
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "Mã lớp";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // tenLopDataGridViewTextBoxColumn
+            // 
+            this.tenLopDataGridViewTextBoxColumn.DataPropertyName = "TenLop";
+            this.tenLopDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
+            this.tenLopDataGridViewTextBoxColumn.Name = "tenLopDataGridViewTextBoxColumn";
+            this.tenLopDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bsLop
+            // 
+            this.bsLop.DataSource = typeof(DTO.Lop);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,10 +362,9 @@
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LogOutToolStripMenuItem;
         private System.Windows.Forms.TextBox txtLopHoc;
-        private System.Windows.Forms.ToolStripMenuItem UserNameToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnThongBao;
-        private System.Windows.Forms.Button btnThongBaoChung;
+        private System.Windows.Forms.Button btnThongBaoHS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bsLop;
         private System.Windows.Forms.DataGridView dgvDanhSachLop;

@@ -32,7 +32,7 @@ namespace DAL
         public async Task<DataTable> Lay(GVCN obj)
         {
             return await ExecuteQuery(
-                "UpdateGVCN",
+                "SelectGVCN",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                 new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien }
                 );
@@ -46,7 +46,7 @@ namespace DAL
         public async Task<int> Them(GVCN obj)
         {
             return await ExecuteNonQuery(
-                "UpdateGVCN",
+                "InsertGVCN",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                 new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien }
                 );
@@ -59,7 +59,7 @@ namespace DAL
         public async Task<int> Xoa(GVCN obj)
         {
             return await ExecuteNonQuery(
-                "UpdateGVCN",
+                "DeleteGVCN",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                 new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien }
                 );

@@ -33,28 +33,70 @@ namespace GUI
             this.Visible = false;
             if (f.ShowDialog() == DialogResult.Yes)
             {
-                UserNameToolStripMenuItem.Text += "\n" + Program.TK.TaiKhoan;
+                menuToolStripMenuItem.Text += "\n" + Program.TK.TaiKhoan;
                 this.Visible = true;
 
-                bsLop.SuspendBinding();
-                dgvDanhSachLop.SuspendLayout();
+                await LoadValue();
 
-                bsLop.DataSource = await lopBAL.LayDT();
-
-                dgvDanhSachLop.ResumeLayout();
-                bsLop.ResumeBinding();
-
-                Program.lstLop = await lopBAL.LayLst();
-                if (Program.TK.Loai == 0)
-                {
-                    Program.gV = new ThongTinGV((await new ThongTinGVBAL().LayID(Program.TK.ID)).Rows[0]);
-                }
+                await LoadLogin();
+                
             }
             else
             {
                 this.FormClosing -= frmMain_FormClosing;
                 this.Close();
             }
+        }
+
+        public async Task LoadLogin()
+        {
+            if (Program.TK.Loai == 0)
+            {
+                btnPCMonHoc.Enabled = false;
+                btnAccountManagement.Enabled = false;
+                dgvDanhSachLop.ReadOnly = true;
+                Program.gV = new ThongTinGV((await new ThongTinGVBAL().LayID(Program.TK.ID)).Rows[0]);
+                DataTable dt = await new GVCNBAL().LayDT(new GVCN(Program.TK.ID, -1));
+                if (dt.Rows.Count > 0)
+                {
+                    Program.gvcn = new GVCN(dt.Rows[0]);
+                }
+                Program.lstLopQL = await new PhanCongBAL().LayLst(Program.TK.ID);
+
+                if (Program.gvcn.IDLop == -1)
+                {
+                    btnThongBaoHS.Enabled = false;
+                    btnThoiKhoaBieu.Enabled = false;
+                    btnDiemDanh.Enabled = false;
+                    btnStudentManagement.Enabled = false;
+
+                }
+            }
+            else
+            {
+                dgvDanhSachLop.ReadOnly = false;
+                btnStudentManagement.Enabled = true;
+                btnThongBaoHS.Enabled = true;
+                btnThoiKhoaBieu.Enabled = true;
+                btnDiemDanh.Enabled = true;
+                btnPCMonHoc.Enabled = true;
+                btnAccountManagement.Enabled = true;
+            }
+        }
+
+
+        public async Task LoadValue()
+        {
+            bsLop.SuspendBinding();
+            dgvDanhSachLop.SuspendLayout();
+
+            bsLop.DataSource = await lopBAL.LayDT();
+
+            dgvDanhSachLop.ResumeLayout();
+            bsLop.ResumeBinding();
+
+            Program.lstLop = await lopBAL.LayLst();
+            Program.lstMonHoc = await new MonHocBAL().LayLst();
         }
 
         private void btnStudentManagement_Click(object sender, EventArgs e)
@@ -132,25 +174,33 @@ namespace GUI
 
         private async void dgvDanhSachLop_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
-            if (drv == null)
+            try
             {
-                return;
-            }
-            Lop l = new Lop(Convert.ToInt32(drv.Row.ItemArray[0]), drv.Row.ItemArray[1].ToString());
-            if (l.ID == -1)
-            {
-                await lopBAL.Them(l);
-                bsLop.DataSource = await lopBAL.LayDT();
-                dgvDanhSachLop.CurrentCell = dgvDanhSachLop.Rows[dgvDanhSachLop.RowCount - 1].Cells[1];
-            }
-            else
-            {
-                if (OldName != l.TenLop)
+                DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
+                if (drv == null)
                 {
-                    await lopBAL.CapNhap(OldName,l);
+                    return;
                 }
-            }  
+                Lop l = new Lop(Convert.ToInt32(drv.Row.ItemArray[0]), drv.Row.ItemArray[1].ToString());
+                if (l.ID == -1)
+                {
+                    await lopBAL.Them(l);
+                    bsLop.DataSource = await lopBAL.LayDT();
+                    dgvDanhSachLop.CurrentCell = dgvDanhSachLop.Rows[dgvDanhSachLop.RowCount - 1].Cells[1];
+                }
+                else
+                {
+                    if (OldName != l.TenLop)
+                    {
+                        await lopBAL.CapNhap(OldName, l);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void dgvDanhSachLop_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -171,7 +221,7 @@ namespace GUI
             this.Show();
         }
 
-        private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmLogin f = new frmLogin();
             this.Hide();
@@ -180,6 +230,15 @@ namespace GUI
             {
                 this.FormClosing -= frmMain_FormClosing;
                 this.Close();
+            }
+            else
+            {
+                menuToolStripMenuItem.Text += "\n" + Program.TK.TaiKhoan;
+                this.Visible = true;
+
+                await LoadValue();
+
+                await LoadLogin();
             }
             this.Show();
         }

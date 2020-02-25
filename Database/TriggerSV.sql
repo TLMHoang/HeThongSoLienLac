@@ -182,6 +182,18 @@ BEGIN
 END
 GO	
 
+CREATE TRIGGER Trg_DeleteTKT
+ON nxtckedu_USTeam.TaiKhoanTruong
+FOR DELETE
+AS
+BEGIN
+	DECLARE @ID INT = (SELECT ID FROM Deleted)
+	DELETE nxtckedu_USTeam.ThongTinGV WHERE IDTKT = @ID
+	DELETE nxtckedu_USTeam.PhanCong WHERE IDGiaoVien = @ID
+	DELETE nxtckedu_USTeam.GVCN WHERE IDGiaoVien = @ID
+END
+GO	
+
 CREATE TRIGGER Trg_InsertTKPH
 ON nxtckedu_USTeam.TaiKhoanPH
 FOR INSERT
@@ -196,3 +208,31 @@ BEGIN
 	END
 END
 GO	
+
+
+CREATE TRIGGER Trg_DeleteTKPH
+ON nxtckedu_USTeam.TaiKhoanPH
+FOR DELETE
+AS
+BEGIN
+	IF (SELECT COUNT(nxtckedu_USTeam.ThongTinHS.ID) 
+	FROM nxtckedu_USTeam.ThongTinHS
+	JOIN Deleted ON Deleted.ID = ThongTinHS.IDTaiKhoan) > 0
+	BEGIN
+		PRINT N'Không thể xóa tài khoản vì tài khoản dang còn quản lý học sinh'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO	
+
+
+CREATE TRIGGER Trg_DeleteTTGV
+ON nxtckedu_USTeam.ThongTinGV
+FOR DELETE
+AS
+BEGIN
+	PRINT N'Không thể xóa Giáo vien bằng cách này.\nNếu muốn xóa chỉ có thể xóa tài khoản GV'
+	ROLLBACK TRANSACTION
+END
+GO
+

@@ -9,7 +9,7 @@ using DTO;
 
 namespace BAL
 {
-    class GVCNBAL : CInterface<GVCN>
+    public class GVCNBAL : CInterface<GVCN>
     {
         GVCNDAL gv = new GVCNDAL();
         public async Task<int> CapNhap(GVCN obj)

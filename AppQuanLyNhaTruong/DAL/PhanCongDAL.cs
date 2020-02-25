@@ -35,6 +35,14 @@ namespace DAL
                 );
         }
 
+        public async Task<DataTable> LayLopDay(int ID)
+        {
+            return await ExecuteQuery("SelectLopDay",
+                new SqlParameter("@IDGV", SqlDbType.Int) { Value = ID }
+                );
+        }
+
+
         public async Task<int> Them(PhanCong obj)
         {
             return await ExecuteNonQuery("InsertPhanCong",

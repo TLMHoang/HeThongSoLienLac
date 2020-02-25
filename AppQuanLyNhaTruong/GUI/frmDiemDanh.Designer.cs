@@ -79,10 +79,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvChiTiet = new System.Windows.Forms.DataGridView();
-            this.bsCupHoc = new System.Windows.Forms.BindingSource(this.components);
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsCupHoc = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -750,10 +750,6 @@
             this.dgvChiTiet.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTiet_CellEndEdit);
             this.dgvChiTiet.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvChiTiet_UserDeletingRow);
             // 
-            // bsCupHoc
-            // 
-            this.bsCupHoc.DataSource = typeof(DTO.CupHoc);
-            // 
             // STT
             // 
             this.STT.DataPropertyName = "STT";
@@ -773,6 +769,10 @@
             this.Ngay.HeaderText = "Ngày";
             this.Ngay.Name = "Ngay";
             this.Ngay.ReadOnly = true;
+            // 
+            // bsCupHoc
+            // 
+            this.bsCupHoc.DataSource = typeof(DTO.CupHoc);
             // 
             // frmDiemDanh
             // 
