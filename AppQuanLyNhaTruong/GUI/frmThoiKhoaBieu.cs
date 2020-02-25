@@ -27,7 +27,7 @@ namespace GUI
 
         private void frmThoiKhoaBieu_Load(object sender, EventArgs e)
         {
-
+            LoadCBO();
         }
         public void LoadCBO()
         {
