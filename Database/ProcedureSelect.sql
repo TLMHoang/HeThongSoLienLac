@@ -202,4 +202,28 @@ BEGIN
 	    SELECT * FROM dbo.PhanCong WHERE IDLop = @IDLop
 	END
 end
-go
+GO
+
+CREATE PROC SelectGVCN
+@IDGiaoVien INT,
+@IDLop INT
+AS
+BEGIN
+	IF @IDLop = -1 AND @IDGiaoVien = -1
+	BEGIN
+		SELECT * FROM dbo.GVCN
+	END
+	ELSE
+	BEGIN
+	    IF	@IDLop = -1
+		BEGIN
+			SELECT * FROM dbo.GVCN WHERE IDGiaoVien = @IDGiaoVien
+		END
+		ELSE
+		BEGIN
+			SELECT * FROM dbo.GVCN WHERE @IDLop = @IDLop
+		END
+	END
+	
+END
+Go

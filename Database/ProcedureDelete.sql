@@ -104,3 +104,19 @@ BEGIN
 	Delete dbo.PhanCong where STT = @STT
 END
 GO
+
+CREATE PROC DeleteGVCN
+@IDGiaoVien INT,
+@IDLop INT
+AS
+BEGIN
+	IF	@IDLop = -1
+	BEGIN
+	    DELETE dbo.GVCN WHERE IDGiaoVien = @IDGiaoVien
+	END
+	ELSE
+	BEGIN
+	    DELETE dbo.GVCN WHERE @IDLop = @IDLop
+	END
+END
+Go

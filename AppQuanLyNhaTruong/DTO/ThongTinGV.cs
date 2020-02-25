@@ -13,7 +13,6 @@ namespace DTO
         public string TenGV { get; set; }
         public string SDT { get; set; }
         public int IDMonHoc { get; set; }
-        public int IDLop { get; set; }
 
         public ThongTinGV()
         {
@@ -21,16 +20,14 @@ namespace DTO
             TenGV = "";
             SDT = "";
             IDMonHoc = -1;
-            IDLop = -1;
         }
 
-        public ThongTinGV(int iDTKT, string tenGV, string sDT, int iDMonHoc, int iDLop)
+        public ThongTinGV(int iDTKT, string tenGV, string sDT, int iDMonHoc)
         {
             IDTKT = iDTKT;
             TenGV = tenGV;
             SDT = sDT;
             IDMonHoc = iDMonHoc;
-            IDLop = iDLop;
         }
 
         public ThongTinGV(DataRow dr)
@@ -39,7 +36,6 @@ namespace DTO
             TenGV = dr["TenGV"].ToString();
             SDT = dr["SDT"].ToString();
             IDMonHoc = Convert.IsDBNull(dr["IDMonHoc"]) ? -1 : Convert.ToInt32(dr["IDMonHoc"]);
-            IDLop = Convert.IsDBNull(dr["IDLop"]) ? -1 : Convert.ToInt32(dr["IDLop"]);
         }
     }
 }

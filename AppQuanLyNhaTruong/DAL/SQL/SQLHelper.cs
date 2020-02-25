@@ -12,8 +12,10 @@ namespace DAL.SQL
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "<Pending>")]
 
-    public class SQLHelper : stringConnect
+    public class SQLHelper
     {
+        public string connStr = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+
         public async Task<int> ExecuteNonQuery(string ProcName, params SqlParameter[] parameters)
         {
             using (SqlConnection con = new SqlConnection(connStr))

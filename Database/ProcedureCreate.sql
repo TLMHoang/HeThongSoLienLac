@@ -209,8 +209,7 @@ CREATE PROCEDURE InsertThongTinGV
 @IDTKT INT,
 @TenGV NVARCHAR(200),
 @SDT VARCHAR(12),
-@IDMonHoc INT,
-@IDLop INT
+@IDMonHoc INT
 AS
 BEGIN
     Insert dbo.ThongTinGV
@@ -218,15 +217,13 @@ BEGIN
         IDTKT,
         TenGV,
 		SDT,
-        IDMonHoc,
-        IDLop
+        IDMonHoc
     )
     VALUES
     (   @IDTKT,   -- IDTKT - int
         @TenGV, -- TenGV - nvarchar(200)
 		@SDT,     -- SDT - varchar (12)
-		@IDMonHoc,   -- IDMonHoc - int
-        @IDLop    -- IDLop - int
+		@IDMonHoc   -- IDMonHoc - int
         )
 END
 GO
@@ -322,6 +319,24 @@ BEGIN
 	@IDGiaoVien ,
 	@IDLop,
 	@IDMon 
+	)
+END
+GO
+
+CREATE PROC InsertGVCN
+@IDGiaoVien INT,
+@IDLop INT
+AS
+BEGIN
+	Insert dbo.GVCN
+	(
+		IDGiaoVien ,
+		IDLop
+	)
+	values
+	(
+	@IDGiaoVien ,
+	@IDLop
 	)
 END
 GO

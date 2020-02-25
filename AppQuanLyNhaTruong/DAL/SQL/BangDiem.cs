@@ -6,11 +6,13 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace DAL.SQL
 {
-    public class BangDiem : stringConnect
+    public class BangDiem
     {
+        public string connStr = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;  // string connect database
         #region Bảng điểm hệ số một
 
         public async Task BangDiemHeSoMot(string TenLop)

@@ -156,16 +156,14 @@ CREATE PROCEDURE UpdateThongTinGV
 @IDTKT INT,
 @TenGV NVARCHAR(200),
 @SDT VARCHAR(12),
-@IDMonHoc INT,
-@IDLop INT	
+@IDMonHoc INT
 AS
 BEGIN
     Update dbo.ThongTinGV
     SET	
         TenGV = @TenGV, -- TenGV - nvarchar(200)
 		SDT = @SDT,	-- SDT - varchar(12)
-		IDMonHoc = @IDMonHoc,   -- IDMonHoc - int
-        IDLop = @IDLop    -- IDLop - int
+		IDMonHoc = @IDMonHoc   -- IDMonHoc - int
     WHERE  IDTKT = @IDTKT
 END
 GO
@@ -222,18 +220,29 @@ BEGIN
 END
 GO
 
-Create PROC UpdatePhanCong
+CREATE PROC UpdatePhanCong
 @STT INT,
 @IDGiaoVien INT,
-@IDLop INT,
-@IDMon INT
+@IDLop INT
 AS
 BEGIN
 	Update dbo.PhanCong
 	SET 
 		IDGiaoVien = @IDGiaoVien,
-		IDLop = @IDLop,
-		IDMon = @IDMon
+		IDLop = @IDLop
 	WHERE STT = @STT
 END
 GO
+
+
+CREATE PROC UpdateGVCN
+@IDGiaoVien INT,
+@IDLop INT
+AS
+BEGIN
+	UPDATE dbo.GVCN
+	SET
+	IDGiaoVien = @IDGiaoVien
+	WHERE IDLop = @IDLop
+END
+Go
