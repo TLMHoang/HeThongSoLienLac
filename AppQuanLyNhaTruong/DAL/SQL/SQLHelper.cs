@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,16 +10,10 @@ using System.Windows.Forms;
 
 namespace DAL.SQL
 {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "<Pending>")]
+
     public class SQLHelper : stringConnect
     {
-        //Hoàng
-        //private string connStr = @"Data Source=DESKTOP-MPFCGCF;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
-        //Phong
-        //private string connStr = @"Data Source=VHP;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
-        //Trường
-        //private string connStr = @"Data Source=TRUONGTRAN\MSSQLSERVER1;Initial Catalog=HeThongSoLienLac;Integrated Security=True";
-
-
         public async Task<int> ExecuteNonQuery(string ProcName, params SqlParameter[] parameters)
         {
             using (SqlConnection con = new SqlConnection(connStr))

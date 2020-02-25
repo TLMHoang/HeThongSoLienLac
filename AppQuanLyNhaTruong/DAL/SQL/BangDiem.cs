@@ -47,7 +47,7 @@ namespace DAL.SQL
         public async Task CreateBDHSM(string TenLop)
         {
             string TenBang = "DHSM" + TenLop;
-            string Query = "CREATE PROCEDURE Create" +
+            string Query = "CREATE PROCEDURE Insert" +
                 TenBang +
                 " @IDHocSinh INT," +
                 " @IDMonHoc INT," +
@@ -58,7 +58,7 @@ namespace DAL.SQL
                 " @HocKy BIT" +
                 " AS" +
                 " BEGIN" +
-                " INSERT dbo." + TenBang + " VALUES ( @IDHocSinh, @IDMonHoc, @Diem, @CotThu, @DiemMieng, @Loai, @HocKy )" +
+                " INSERT nxtckedu_USTeam." + TenBang + " VALUES ( @IDHocSinh, @IDMonHoc, @Diem, @CotThu, @DiemMieng, @Loai, @HocKy )" +
                 " END";
 
 
@@ -73,7 +73,7 @@ namespace DAL.SQL
                 " @STT INT" +
                 " AS" +
                 " BEGIN" +
-                " DELETE dbo." + TenBang + " WHERE STT = @STT" +
+                " DELETE nxtckedu_USTeam." + TenBang + " WHERE STT = @STT" +
                 " END";
 
 
@@ -90,11 +90,11 @@ namespace DAL.SQL
                 " BEGIN" +
                 " IF @IDHocSinh = -1" +
                 " BEGIN" +
-                " SELECT * FROM dbo." + TenBang +
+                " SELECT * FROM nxtckedu_USTeam." + TenBang +
                 " END" +
                 " ELSE" +
                 " BEGIN" +
-                " SELECT * FROM dbo." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
+                " SELECT * FROM nxtckedu_USTeam." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
                 " END" +
                 " END";
 
@@ -117,7 +117,7 @@ namespace DAL.SQL
                 " @HocKy BIT" +
                 " AS" +
                 " BEGIN" +
-                " UPDATE dbo." + TenBang + " SET" +
+                " UPDATE nxtckedu_USTeam." + TenBang + " SET" +
                 " IDHocSinh = @IDHocSinh," +
                 " IDMon = @IDMonHoc," +
                 " Diem = @Diem," +
@@ -166,7 +166,7 @@ namespace DAL.SQL
         public async Task CreateBDHSH(string TenLop)
         {
             string TenBang = "DHSH" + TenLop;
-            string Query = "CREATE PROCEDURE Create" +
+            string Query = "CREATE PROCEDURE Insert" +
                 TenBang +
                 " @IDHocSinh INT," +
                 " @IDMonHoc INT," +
@@ -176,7 +176,7 @@ namespace DAL.SQL
                 " @HocKy BIT" +
                 " AS" +
                 " BEGIN" +
-                " INSERT dbo." + TenBang + " VALUES ( @IDHocSinh, @IDMonHoc, @Diem, @CotThu, @Loai, @HocKy )" +
+                " INSERT nxtckedu_USTeam." + TenBang + " VALUES ( @IDHocSinh, @IDMonHoc, @Diem, @CotThu, @Loai, @HocKy )" +
                 " END";
 
 
@@ -191,7 +191,7 @@ namespace DAL.SQL
                 " @STT INT" +
                 " AS" +
                 " BEGIN" +
-                " DELETE dbo." + TenBang + " WHERE STT = @STT" +
+                " DELETE nxtckedu_USTeam." + TenBang + " WHERE STT = @STT" +
                 " END";
 
 
@@ -208,11 +208,11 @@ namespace DAL.SQL
                 " BEGIN" +
                 " IF @IDHocSinh = -1" +
                 " BEGIN" +
-                " SELECT * FROM dbo." + TenBang +
+                " SELECT * FROM nxtckedu_USTeam." + TenBang +
                 " END" +
                 " ELSE" +
                 " BEGIN" +
-                " SELECT * FROM dbo." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
+                " SELECT * FROM nxtckedu_USTeam." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
                 " END" +
                 " END";
 
@@ -234,7 +234,7 @@ namespace DAL.SQL
                 " @HocKy BIT" +
                 " AS" +
                 " BEGIN" +
-                " UPDATE dbo." + TenBang + " SET" +
+                " UPDATE nxtckedu_USTeam." + TenBang + " SET" +
                 " IDHocSinh = @IDHocSinh," +
                 " IDMon = @IDMonHoc," +
                 " Diem = @Diem," +
@@ -280,7 +280,7 @@ namespace DAL.SQL
         public async Task CreateBDHK(string TenLop) 
         {
             string TenBang = "DHK" + TenLop;
-            string Query = "CREATE PROCEDURE Create" +
+            string Query = "CREATE PROCEDURE Insert" +
                 TenBang +
                 " @IDHocSinh INT," +
                 " @IDMonHoc INT," +
@@ -289,7 +289,7 @@ namespace DAL.SQL
                 " @HocKy BIT" +
                 " AS" +
                 " BEGIN" +
-                " INSERT dbo." + TenBang + " VALUES ( @IDHocSinh, @IDMonHoc, @Diem, @Loai, @HocKy )" +
+                " INSERT nxtckedu_USTeam." + TenBang + " VALUES ( @IDHocSinh, @IDMonHoc, @Diem, @Loai, @HocKy )" +
                 " END";
 
 
@@ -304,7 +304,7 @@ namespace DAL.SQL
                 " @STT INT" +
                 " AS" +
                 " BEGIN" +
-                " DELETE dbo." + TenBang + " WHERE STT = @STT" +
+                " DELETE nxtckedu_USTeam." + TenBang + " WHERE STT = @STT" +
                 " END";
 
 
@@ -321,11 +321,11 @@ namespace DAL.SQL
                 " BEGIN" +
                 " IF @IDHocSinh = -1" +
                 " BEGIN" +
-                " SELECT * FROM dbo." + TenBang +
+                " SELECT * FROM nxtckedu_USTeam." + TenBang +
                 " END" +
                 " ELSE" +
                 " BEGIN" +
-                " SELECT * FROM dbo." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
+                " SELECT * FROM nxtckedu_USTeam." + TenBang + " WHERE IDHocSinh = @IDHocSinh" +
                 " END" +
                 " END";
 
@@ -346,7 +346,7 @@ namespace DAL.SQL
                 " @HocKy BIT" +
                 " AS" +
                 " BEGIN" +
-                " UPDATE dbo." + TenBang + " SET" +
+                " UPDATE nxtckedu_USTeam." + TenBang + " SET" +
                 " IDHocSinh = @IDHocSinh," +
                 " IDMon = @IDMonHoc," +
                 " Diem = @Diem," +
@@ -391,17 +391,17 @@ namespace DAL.SQL
         {
             await DeleteFK(OldName);
             await ConnectDB("EXEC sys.sp_rename DHSM" + OldName + ", DHSM" + NewName);
-            await ConnectDB("EXEC sys.sp_rename CreateDHSM" + OldName + ", CreateDHSM" + NewName);
+            await ConnectDB("EXEC sys.sp_rename InsertDHSM" + OldName + ", InsertDHSM" + NewName);
             await ConnectDB("EXEC sys.sp_rename DeleteDHSM" + OldName + ", DeleteDHSM" + NewName);
             await ConnectDB("EXEC sys.sp_rename SelectDHSM" + OldName + ", SelectDHSM" + NewName);
             await ConnectDB("EXEC sys.sp_rename UpdateDHSM" + OldName + ", UpdateDHSM" + NewName);
             await ConnectDB("EXEC sys.sp_rename DHSH" + OldName + ", DHSH" + NewName);
-            await ConnectDB("EXEC sys.sp_rename CreateDHSH" + OldName + ", CreateDHSH" + NewName);
+            await ConnectDB("EXEC sys.sp_rename InsertDHSH" + OldName + ", InsertDHSH" + NewName);
             await ConnectDB("EXEC sys.sp_rename DeleteDHSH" + OldName + ", DeleteDHSH" + NewName);
             await ConnectDB("EXEC sys.sp_rename SelectDHSH" + OldName + ", SelectDHSH" + NewName);
             await ConnectDB("EXEC sys.sp_rename UpdateDHSH" + OldName + ", UpdateDHSH" + NewName);
             await ConnectDB("EXEC sys.sp_rename DHK" + OldName + ", DHK" + NewName);
-            await ConnectDB("EXEC sys.sp_rename CreateDHK" + OldName + ", CreateDHK" + NewName);
+            await ConnectDB("EXEC sys.sp_rename InsertDHK" + OldName + ", InsertDHK" + NewName);
             await ConnectDB("EXEC sys.sp_rename DeleteDHK" + OldName + ", DeleteDHK" + NewName);
             await ConnectDB("EXEC sys.sp_rename SelectDHK" + OldName + ", SelectDHK" + NewName);
             await ConnectDB("EXEC sys.sp_rename UpdateDHK" + OldName + ", UpdateDHK" + NewName);
@@ -419,15 +419,15 @@ namespace DAL.SQL
         public async Task DeleteTable(string ClassName)
         {
             await DeleteFK(ClassName);
-            await ConnectDB("DROP PROCEDURE CreateDHSM" + ClassName );
+            await ConnectDB("DROP PROCEDURE InsertDHSM" + ClassName );
             await ConnectDB("DROP PROCEDURE  DeleteDHSM" + ClassName );
             await ConnectDB("DROP PROCEDURE  SelectDHSM" + ClassName );
             await ConnectDB("DROP PROCEDURE  UpdateDHSM" + ClassName );
-            await ConnectDB("DROP PROCEDURE  CreateDHSH" + ClassName);
+            await ConnectDB("DROP PROCEDURE  InsertDHSH" + ClassName);
             await ConnectDB("DROP PROCEDURE  DeleteDHSH" + ClassName );
             await ConnectDB("DROP PROCEDURE  SelectDHSH" + ClassName );
             await ConnectDB("DROP PROCEDURE  UpdateDHSH" + ClassName);
-            await ConnectDB("DROP PROCEDURE  CreateDHK" + ClassName );
+            await ConnectDB("DROP PROCEDURE  InsertDHK" + ClassName );
             await ConnectDB("DROP PROCEDURE  DeleteDHK" + ClassName );
             await ConnectDB("DROP PROCEDURE  SelectDHK" + ClassName );
             await ConnectDB("DROP PROCEDURE  UpdateDHK" + ClassName );
@@ -439,22 +439,22 @@ namespace DAL.SQL
 
         public async Task DeleteFK(string ClassName) // delete FOREIGN KEY
         {
-            await ConnectDB("ALTER TABLE dbo.DHSM" + ClassName + " DROP fk_DHSM" + ClassName + "_IDHocSinh");
-            await ConnectDB("ALTER TABLE dbo.DHSM" + ClassName + " DROP fk_DHSM" + ClassName + "_IDMonHoc");
-            await ConnectDB("ALTER TABLE dbo.DHSH" + ClassName + " DROP fk_DHSH" + ClassName + "_IDHocSinh");
-            await ConnectDB("ALTER TABLE dbo.DHSH" + ClassName + " DROP fk_DHSH" + ClassName + "_IDMonHoc");
-            await ConnectDB("ALTER TABLE dbo.DHK" + ClassName + " DROP fk_DHK" + ClassName + "_IDHocSinh");
-            await ConnectDB("ALTER TABLE dbo.DHK" + ClassName + " DROP fk_DHK" + ClassName + "_IDMonHoc");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSM" + ClassName + " DROP fk_DHSM" + ClassName + "_IDHocSinh");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSM" + ClassName + " DROP fk_DHSM" + ClassName + "_IDMonHoc");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSH" + ClassName + " DROP fk_DHSH" + ClassName + "_IDHocSinh");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSH" + ClassName + " DROP fk_DHSH" + ClassName + "_IDMonHoc");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHK" + ClassName + " DROP fk_DHK" + ClassName + "_IDHocSinh");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHK" + ClassName + " DROP fk_DHK" + ClassName + "_IDMonHoc");
         } 
 
         public async Task CreateFK(string ClassName) // create FOREIGN KEY
         {
-            await ConnectDB("ALTER TABLE dbo.DHSM" + ClassName + " ADD CONSTRAINT fk_DHSM" + ClassName + "_IDHocSinh FOREIGN KEY (IDHocSinh) REFERENCES dbo.ThongTinHS(ID)");
-            await ConnectDB("ALTER TABLE dbo.DHSM" + ClassName + " ADD CONSTRAINT fk_DHSM" + ClassName + "_IDMonHoc FOREIGN KEY(IDMon) REFERENCES dbo.MonHoc(ID)");
-            await ConnectDB("ALTER TABLE dbo.DHSH" + ClassName + " ADD CONSTRAINT fk_DHSH" + ClassName + "_IDHocSinh FOREIGN KEY (IDHocSinh) REFERENCES dbo.ThongTinHS(ID)");
-            await ConnectDB("ALTER TABLE dbo.DHSH" + ClassName + " ADD CONSTRAINT fk_DHSH" + ClassName + "_IDMonHoc FOREIGN KEY(IDMon) REFERENCES dbo.MonHoc(ID)");
-            await ConnectDB("ALTER TABLE dbo.DHK" + ClassName + " ADD CONSTRAINT fk_DHK" + ClassName + "_IDHocSinh FOREIGN KEY (IDHocSinh) REFERENCES dbo.ThongTinHS(ID)");
-            await ConnectDB("ALTER TABLE dbo.DHK" + ClassName + " ADD CONSTRAINT fk_DHK" + ClassName + "_IDMonHoc FOREIGN KEY(IDMon) REFERENCES dbo.MonHoc(ID)");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSM" + ClassName + " ADD CONSTRAINT fk_DHSM" + ClassName + "_IDHocSinh FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_USTeam.ThongTinHS(ID)");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSM" + ClassName + " ADD CONSTRAINT fk_DHSM" + ClassName + "_IDMonHoc FOREIGN KEY(IDMon) REFERENCES nxtckedu_USTeam.MonHoc(ID)");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSH" + ClassName + " ADD CONSTRAINT fk_DHSH" + ClassName + "_IDHocSinh FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_USTeam.ThongTinHS(ID)");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHSH" + ClassName + " ADD CONSTRAINT fk_DHSH" + ClassName + "_IDMonHoc FOREIGN KEY(IDMon) REFERENCES nxtckedu_USTeam.MonHoc(ID)");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHK" + ClassName + " ADD CONSTRAINT fk_DHK" + ClassName + "_IDHocSinh FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_USTeam.ThongTinHS(ID)");
+            await ConnectDB("ALTER TABLE nxtckedu_USTeam.DHK" + ClassName + " ADD CONSTRAINT fk_DHK" + ClassName + "_IDMonHoc FOREIGN KEY(IDMon) REFERENCES nxtckedu_USTeam.MonHoc(ID)");
         }
 
     }
