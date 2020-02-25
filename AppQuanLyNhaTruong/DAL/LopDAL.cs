@@ -20,8 +20,10 @@ namespace DAL
                 new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }
                 //new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
                 ) ;
-
-            await val.RenameTable(OldName, obj.TenLop);
+            if (a == 1)
+            {
+                await val.RenameTable(OldName, obj.TenLop);
+            }
             return a;
         }
 
@@ -49,8 +51,10 @@ namespace DAL
                 new SqlParameter("@TenLop", SqlDbType.NVarChar) { Value = obj.TenLop }
                 //new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien}
                 );
-
-            await val.CreateTable(obj.TenLop);
+            if (a == 1)
+            {
+                await val.CreateTable(obj.TenLop);
+            }
 
             return a;
         }
@@ -59,7 +63,10 @@ namespace DAL
         {
             var a = await ExecuteNonQuery("DeleteLop", new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID });
 
-            await val.DeleteTable(obj.TenLop);
+            if (a == 1)
+            {
+                await val.DeleteTable(obj.TenLop);
+            }
 
             return a;
         }

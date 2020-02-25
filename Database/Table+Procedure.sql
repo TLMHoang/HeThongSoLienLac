@@ -103,7 +103,7 @@ GO
 
 CREATE TABLE HanhKiem
 (
-	IDHocSinh INT PRIMARY KEY,
+	IDHocSinh INT,
 	Loai NVARCHAR(20),
 	HocKy BIT DEFAULT 0,
 

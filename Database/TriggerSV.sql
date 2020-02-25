@@ -78,3 +78,121 @@ BEGIN
 	    ROLLBACK TRANSACTION
 	END
 END
+GO	
+
+
+CREATE TRIGGER Trg_InsertHanhKiem
+ON nxtckedu_USTeam.HanhKiem
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF ((SELECT COUNT(nxtckedu_USTeam.HanhKiem.IDHocSinh) 
+	FROM nxtckedu_USTeam.HanhKiem
+	JOIN Inserted ON Inserted.IDHocSinh = nxtckedu_USTeam.HanhKiem.IDHocSinh AND Inserted.HocKy = HanhKiem.HocKy) = 2)
+	BEGIN
+	    PRINT N'Học sinh này đã được giá hạnh kiểm rồi!\nko cần dánh giá lại!'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO
+
+CREATE TRIGGER Trg_InsertLop
+ON nxtckedu_USTeam.Lop
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF ((SELECT COUNT(nxtckedu_USTeam.Lop.TenLop) 
+	FROM nxtckedu_USTeam.Lop
+	JOIN Inserted ON Inserted.TenLop = Lop.TenLop) = 2)
+	BEGIN
+	    PRINT N'Lớp đã tồn tại!'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO
+
+CREATE TRIGGER Trg_DeleteLop
+ON nxtckedu_USTeam.Lop
+FOR DELETE
+AS
+BEGIN
+	DECLARE @IDLop INT = (SELECT Deleted.ID FROM Deleted)
+    DELETE nxtckedu_USTeam.ThongBaoLop WHERE IDLop = @IDLop
+	DELETE nxtckedu_USTeam.ThongTinHS WHERE IDLop = @IDLop
+	DELETE nxtckedu_USTeam.ThoiKhoaBieu WHERE IDLop = @IDLop
+	DELETE nxtckedu_USTeam.PhanCong WHERE IDLop = @IDLop
+	DELETE nxtckedu_USTeam.GVCN WHERE IDLop = @IDLop
+END
+GO
+
+CREATE TRIGGER Trg_InsertMonHoc
+ON nxtckedu_USTeam.MonHoc
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF ((SELECT COUNT(nxtckedu_USTeam.MonHoc.TenMon) 
+	FROM nxtckedu_USTeam.MonHoc
+	JOIN Inserted ON Inserted.TenMon = MonHoc.TenMon) = 2)
+	BEGIN
+	    PRINT N'Môn học này đã có đã tồn tại!'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO
+
+CREATE TRIGGER Trg_DeleteMonHoc
+ON nxtckedu_USTeam.MonHoc
+FOR DELETE
+AS
+BEGIN
+    DECLARE @IDMon INT = (SELECT Deleted.ID FROM Deleted)
+	DELETE nxtckedu_USTeam.ThoiKhoaBieu WHERE IDMon = @IDMon
+	DELETE nxtckedu_USTeam.PhanCong WHERE IDLop = @IDMon
+	DELETE nxtckedu_USTeam.ThongTinGV WHERE IDMonHoc = @IDMon
+END
+GO
+
+CREATE TRIGGER Trg_InsertPhanCong
+ON nxtckedu_USTeam.PhanCong
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF ((SELECT COUNT(nxtckedu_USTeam.PhanCong.IDGiaoVien) 
+	FROM nxtckedu_USTeam.PhanCong
+	JOIN Inserted ON Inserted.IDLop = PhanCong.IDLop AND Inserted.IDMon = PhanCong.IDMon) = 2)
+	BEGIN
+		PRINT N'Lớp đã có giáo viên bộ môn này rồi!'
+		ROLLBACK TRANSACTION
+	END
+END
+GO
+
+CREATE TRIGGER Trg_InsertTKT
+ON nxtckedu_USTeam.TaiKhoanTruong
+FOR INSERT
+AS
+BEGIN
+	IF (SELECT COUNT(TaiKhoanTruong.TaiKhoan)
+		FROM nxtckedu_USTeam.TaiKhoanTruong
+		JOIN Inserted ON Inserted.TaiKhoan = TaiKhoanTruong.TaiKhoan) = 2
+	BEGIN
+		PRINT N'Tài khoản đã tồn tại không thểm thêm'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO	
+
+CREATE TRIGGER Trg_InsertTKPH
+ON nxtckedu_USTeam.TaiKhoanPH
+FOR INSERT
+AS
+BEGIN
+	IF (SELECT COUNT(nxtckedu_USTeam.TaiKhoanPH.TaiKhoan)
+		FROM nxtckedu_USTeam.TaiKhoanPH
+		JOIN Inserted ON Inserted.TaiKhoan = nxtckedu_USTeam.TaiKhoanPH.TaiKhoan) = 2
+	BEGIN
+		PRINT N'Tài khoản đã tồn tại không thểm thêm'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO	

@@ -38,7 +38,7 @@ namespace DAL
                 );
         }
 
-        public async Task<DataTable> Lay(int ID)
+        public Task<DataTable> Lay(int ID)
         {
             throw new NotImplementedException();
         }
