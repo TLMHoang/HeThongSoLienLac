@@ -16,5 +16,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void cboChonLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

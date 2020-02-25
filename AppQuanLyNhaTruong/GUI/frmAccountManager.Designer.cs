@@ -101,7 +101,7 @@
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.81123F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.18877F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
             this.tlpTKT.Controls.Add(this.dgvThongTinGV, 1, 1);
             this.tlpTKT.Controls.Add(this.dgvTaiKhoanTruong, 0, 1);
             this.tlpTKT.Controls.Add(this.txtTimTKTruong, 0, 0);
@@ -250,7 +250,7 @@
             this.btnThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnThemTaiKhoan.Location = new System.Drawing.Point(781, 531);
+            this.btnThemTaiKhoan.Location = new System.Drawing.Point(780, 531);
             this.btnThemTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             this.btnThemTaiKhoan.Size = new System.Drawing.Size(153, 62);
@@ -281,10 +281,10 @@
             this.btnLuuTTGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTTGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuuTTGV.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTTGV.Location = new System.Drawing.Point(940, 531);
+            this.btnLuuTTGV.Location = new System.Drawing.Point(939, 531);
             this.btnLuuTTGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuuTTGV.Name = "btnLuuTTGV";
-            this.btnLuuTTGV.Size = new System.Drawing.Size(160, 62);
+            this.btnLuuTTGV.Size = new System.Drawing.Size(161, 62);
             this.btnLuuTTGV.TabIndex = 12;
             this.btnLuuTTGV.Text = "Lưu Thông Tin GV";
             this.btnLuuTTGV.UseVisualStyleBackColor = false;
