@@ -222,16 +222,18 @@ BEGIN
 END
 GO
 
-CREATE PROC UpdatePhanCong
+Create PROC UpdatePhanCong
 @STT INT,
 @IDGiaoVien INT,
-@IDLop INT
+@IDLop INT,
+@IDMon INT
 AS
 BEGIN
 	Update dbo.PhanCong
 	SET 
 		IDGiaoVien = @IDGiaoVien,
-		IDLop = @IDLop
+		IDLop = @IDLop,
+		IDMon = @IDMon
 	WHERE STT = @STT
 END
 GO

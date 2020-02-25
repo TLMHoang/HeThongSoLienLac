@@ -26,6 +26,7 @@ namespace GUI
 
         private void frmAccountManager_Load(object sender, EventArgs e)
         {
+            
             LoadDGVDSHS();
             LoadDGVTKPH();
             LoadDGVGV();
@@ -254,13 +255,18 @@ namespace GUI
         #endregion
 
         #region TabTaiKhoanTruong
-        int idTruong = -1;        
+        int idTruong = -1;
+        byte loaiAdmin;   
         string text;
         public async void LoadDGVTruong()
         {
             bsTaiKhoanTruong.SuspendBinding();
             dgvTaiKhoanTruong.SuspendLayout();
             bsTaiKhoanTruong.DataSource = await tkTruong.LayDT();
+
+            col_Loai.TrueValue = Convert.ToByte(1);
+            col_Loai.FalseValue = Convert.ToByte(0);
+
             bsTaiKhoanTruong.ResumeBinding();
             dgvTaiKhoanTruong.ResumeLayout();
         }
@@ -286,19 +292,17 @@ namespace GUI
         }
 
         private async void btnLuu_Click(object sender, EventArgs e)
-        {
-            
-            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[2];
+        {                       
             try
             {
                 if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[0].Value == null)
-                {
+                {                    
                     DataGridViewRow dvr = dgvTaiKhoanTruong.CurrentRow;
                     await tkTruong.Them(new TaiKhoanTruong(
                         idTruong,
                         dvr.Cells[1].Value.ToString(),
                         dvr.Cells[1].Value.ToString(),
-                        chk.Value == chk.TrueValue ? (byte)1 : (byte)0));
+                        loaiAdmin));
                     dgvTaiKhoanTruong.DataSource = await tkTruong.LayDT();
                     text = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 2].Cells[0].Value.ToString();
                     dgvThongTinGV.DataSource = await ttGV.LayDT();
@@ -436,10 +440,15 @@ namespace GUI
                 txtTimGV.ForeColor = Color.Black;
             }
         }
-        
+
+
 
         #endregion
 
-    
+        private void dgvTaiKhoanTruong_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            loaiAdmin = Convert.IsDBNull(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value) ? Convert.ToByte(0) : Convert.ToByte(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value);
+        }
     }
 }
