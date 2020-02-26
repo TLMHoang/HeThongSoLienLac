@@ -224,7 +224,7 @@ namespace GUI
             {
                 if (idGV != -1 && idLop != -1)
                 {
-                    await pcBAL.CapNhap(new PhanCong(stt, idGV, idLop, idMon));
+                    await pcBAL.CapNhap(new PhanCong(stt, idGV, idLop, -1));
                     MessageBox.Show("Cập Nhật Thành Công !");
                     btnXacNhan.Enabled = true;
                     btnSua.Enabled = false;
