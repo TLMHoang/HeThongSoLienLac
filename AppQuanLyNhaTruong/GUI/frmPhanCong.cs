@@ -28,6 +28,7 @@ namespace GUI
             btnSua.Enabled = false;
             loadDataMonHoc();
             loadDataPhanCong();
+            LoadDataGVCN();
         }
         #region tabMonHoc
         private void dgvMon_UserAddedRow(object sender, DataGridViewRowEventArgs e)
@@ -134,7 +135,7 @@ namespace GUI
         int stt = -1;
         public async void loadDataPhanCong()
         {
-            
+
             bsView.SuspendBinding();
             bsLop.SuspendBinding();
             bsDSGV.SuspendBinding();
@@ -152,7 +153,7 @@ namespace GUI
             bsDSGV.ResumeBinding();
             bsLop.ResumeBinding();
             bsView.ResumeBinding();
-        }        
+        }
 
         private void dgvDSGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -240,12 +241,13 @@ namespace GUI
 
         private void dgvView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            if(MessageBox.Show("Bạn Có Muốn Sửa","Notification !", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+
+            if (MessageBox.Show("Bạn Có Muốn Sửa", "Notification !", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
+                stt = int.Parse(dgvView.Rows[e.RowIndex].Cells[0].Value.ToString());
                 btnXacNhan.Enabled = false;
                 btnSua.Enabled = true;
-            }            
+            }
         }
 
         private void txtTimKiemGV_Enter(object sender, EventArgs e)
@@ -310,6 +312,140 @@ namespace GUI
             }
             else
                 bsDSGV.RemoveFilter();
+        }
+
+        #endregion
+
+        #region tabGVCN
+
+
+
+        
+        GVCNBAL gvcn = new GVCNBAL();
+        int idGVCN = -1;
+        public async void LoadDataGVCN()
+        {
+            btnSuaGVCN.Enabled = false;
+            bsGVCN.SuspendBinding();
+            bsDSGVCN.SuspendBinding();
+            dgvGVCN.SuspendLayout();
+            dgvChonGVCN.SuspendLayout();
+            bsGVCN.DataSource = await gvcn.LayDT();
+            bsDSGVCN.DataSource = await gvBAL.LayDT();
+            dgvChonGVCN.ResumeLayout();
+            dgvGVCN.ResumeLayout();
+            bsGVCN.ResumeBinding();
+            bsDSGVCN.ResumeBinding();
+
+            cboChonLop.DataSource = await lopBAL.LayDT();
+            cboChonLop.DisplayMember = "TenLop";
+            cboChonLop.ValueMember = "ID";
+        }
+        private void txtTimGVCN_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.Text != "Nhập ID hoặc Tên GV")
+            {
+                if (txt.TextLength > 0)
+                    bsDSGVCN.Filter = String.Format("CONVERT(IDTKT,System.String)='{0}' OR [TenGV] LIKE '%{0}%'", txt.Text);
+                else
+                    bsDSGVCN.RemoveFilter();
+            }
+            else
+                bsDSGVCN.RemoveFilter();
+        }
+
+        private void txtTimGVCN_Leave(object sender, EventArgs e)
+        {
+            if (txtTimGVCN.TextLength == 0)
+            {
+                txtTimGVCN.Text = "Nhập ID hoặc Tên GV";
+                txtTimGVCN.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtTimGVCN_Enter(object sender, EventArgs e)
+        {
+            if (txtTimGVCN.Text == "Nhập ID hoặc Tên GV")
+            {
+                txtTimGVCN.Text = "";
+                txtTimGVCN.ForeColor = Color.Black;
+            }
+        }
+
+        private void dgvChonGVCN_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            idGVCN = int.Parse(dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private async void btnLuuGVCN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idGVCN != -1)
+                {
+                    await gvcn.Them(new GVCN(idGVCN, int.Parse(cboChonLop.SelectedValue.ToString())));
+                    MessageBox.Show("Thêm Thành Công !");
+                    bsGVCN.DataSource = await gvcn.LayDT();
+                    idGVCN = -1;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi !");
+            }
+        }
+
+        private async void btnSuaGVCN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idGVCN != -1)
+                {
+                    await gvcn.CapNhap(new GVCN(idGVCN, int.Parse(cboChonLop.SelectedValue.ToString())));
+                    MessageBox.Show("Cập Nhật Thành Công !");
+                    bsDSGVCN.RemoveFilter();
+                    bsGVCN.DataSource = await gvcn.LayDT();
+                    btnLuuGVCN.Enabled = true;
+                    btnSuaGVCN.Enabled = false;
+                    idGVCN = -1;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi !");
+            }
+        }
+
+        private async void dgvGVCN_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if ((sender as DataGridView).SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    GVCN g = new GVCN((e.Row.DataBoundItem as DataRowView).Row);
+                    await gvcn.Xoa(g);
+                    bsGVCN.DataSource = await gvcn.LayDT();
+                }
+                else
+                    e.Cancel = true;
+            }
+            else
+            {
+                MessageBox.Show("Bạn không thể xóa được nhiều dòng !");
+                e.Cancel = true;
+            }
+        }
+
+        private void dgvGVCN_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            MessageBox.Show("Vui Lòng Chọn Lại Lớp Giáo Viên Chủ Nhiệm");
+            idGVCN = int.Parse(dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
+            bsDSGVCN.Filter = String.Format("CONVERT(IDTKT,System.String)='{0}' ", idGVCN);
+            btnSuaGVCN.Enabled = true;
+            btnLuuGVCN.Enabled = false;
         }
         #endregion
     }

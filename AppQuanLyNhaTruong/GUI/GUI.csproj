@@ -181,6 +181,7 @@
     <None Include="Properties\DataSources\DTO.DiemHeSoHai.datasource" />
     <None Include="Properties\DataSources\DTO.DiemHeSoMot.datasource" />
     <None Include="Properties\DataSources\DTO.DiemHocKy.datasource" />
+    <None Include="Properties\DataSources\DTO.GVCN.datasource" />
     <None Include="Properties\DataSources\DTO.HanhKiem.datasource" />
     <None Include="Properties\DataSources\DTO.Lop.datasource" />
     <None Include="Properties\DataSources\DTO.MonHoc.datasource" />
