@@ -50,15 +50,23 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.cboMonTiet1 = new System.Windows.Forms.ComboBox();
-            this.bsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.cboMonTiet2 = new System.Windows.Forms.ComboBox();
             this.cboMonTiet3 = new System.Windows.Forms.ComboBox();
             this.cboMonTiet4 = new System.Windows.Forms.ComboBox();
             this.cboMonTiet5 = new System.Windows.Forms.ComboBox();
+            this.bsMonHoc = new System.Windows.Forms.BindingSource(this.components);
+            this.bsMonHoc2 = new System.Windows.Forms.BindingSource(this.components);
+            this.bsMonHoc3 = new System.Windows.Forms.BindingSource(this.components);
+            this.bsMonHoc4 = new System.Windows.Forms.BindingSource(this.components);
+            this.bsMonHoc5 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTKB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc5)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -311,13 +319,9 @@
             this.cboMonTiet1.TabIndex = 20;
             this.cboMonTiet1.ValueMember = "ID";
             // 
-            // bsMonHoc
-            // 
-            this.bsMonHoc.DataSource = typeof(DTO.MonHoc);
-            // 
             // cboMonTiet2
             // 
-            this.cboMonTiet2.DataSource = this.bsMonHoc;
+            this.cboMonTiet2.DataSource = this.bsMonHoc2;
             this.cboMonTiet2.DisplayMember = "TenMon";
             this.cboMonTiet2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet2.FormattingEnabled = true;
@@ -329,7 +333,7 @@
             // 
             // cboMonTiet3
             // 
-            this.cboMonTiet3.DataSource = this.bsMonHoc;
+            this.cboMonTiet3.DataSource = this.bsMonHoc3;
             this.cboMonTiet3.DisplayMember = "TenMon";
             this.cboMonTiet3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet3.FormattingEnabled = true;
@@ -341,7 +345,7 @@
             // 
             // cboMonTiet4
             // 
-            this.cboMonTiet4.DataSource = this.bsMonHoc;
+            this.cboMonTiet4.DataSource = this.bsMonHoc4;
             this.cboMonTiet4.DisplayMember = "TenMon";
             this.cboMonTiet4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet4.FormattingEnabled = true;
@@ -353,7 +357,7 @@
             // 
             // cboMonTiet5
             // 
-            this.cboMonTiet5.DataSource = this.bsMonHoc;
+            this.cboMonTiet5.DataSource = this.bsMonHoc5;
             this.cboMonTiet5.DisplayMember = "TenMon";
             this.cboMonTiet5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet5.FormattingEnabled = true;
@@ -362,6 +366,26 @@
             this.cboMonTiet5.Size = new System.Drawing.Size(149, 28);
             this.cboMonTiet5.TabIndex = 24;
             this.cboMonTiet5.ValueMember = "ID";
+            // 
+            // bsMonHoc
+            // 
+            this.bsMonHoc.DataSource = typeof(DTO.MonHoc);
+            // 
+            // bsMonHoc2
+            // 
+            this.bsMonHoc2.DataSource = typeof(DTO.MonHoc);
+            // 
+            // bsMonHoc3
+            // 
+            this.bsMonHoc3.DataSource = typeof(DTO.MonHoc);
+            // 
+            // bsMonHoc4
+            // 
+            this.bsMonHoc4.DataSource = typeof(DTO.MonHoc);
+            // 
+            // bsMonHoc5
+            // 
+            this.bsMonHoc5.DataSource = typeof(DTO.MonHoc);
             // 
             // frmThoiKhoaBieu
             // 
@@ -380,6 +404,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTKB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMonHoc5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,5 +440,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDMonDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bsTKB;
         private System.Windows.Forms.BindingSource bsMonHoc;
+        private System.Windows.Forms.BindingSource bsMonHoc2;
+        private System.Windows.Forms.BindingSource bsMonHoc3;
+        private System.Windows.Forms.BindingSource bsMonHoc4;
+        private System.Windows.Forms.BindingSource bsMonHoc5;
     }
 }

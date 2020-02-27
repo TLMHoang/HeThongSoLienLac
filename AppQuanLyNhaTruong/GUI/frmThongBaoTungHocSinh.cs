@@ -90,19 +90,37 @@ namespace GUI
                 {
                     if (idTB != -1)
                     {
-                        await tb.CapNhap(new ThongBaoHS(idTB, id, rtbNhapNoiDung.Text));
-                        MessageBox.Show("Cập Nhật Thành Công ! ");
-                        dgvDSTB.DataSource =await tb.LayDT();
-                        bsHS.RemoveFilter();
-                        XoaRTB();
+                        if((await tb.CapNhap(new ThongBaoHS(idTB, id, rtbNhapNoiDung.Text))) != 0)
+                        {
+                            MessageBox.Show("Cập Nhật Thành Công ! ");
+                            dgvDSTB.DataSource = await tb.LayDT();
+                            bsHS.RemoveFilter();
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập Nhật Thất Bại ! ");
+                            dgvDSTB.DataSource = await tb.LayDT();
+                            bsHS.RemoveFilter();
+                            XoaRTB();
+                        }                       
                     }
                     else
                     {
-                        await tb.Them(new ThongBaoHS(-1, id, rtbNhapNoiDung.Text));
-                        MessageBox.Show("Thêm Thành Công !");
-                        dgvDSTB.DataSource =await tb.LayDT();
-                        bsThongBao.RemoveFilter();
-                        XoaRTB();
+                        if((await tb.Them(new ThongBaoHS(-1, id, rtbNhapNoiDung.Text))) != 0)
+                        {
+                            MessageBox.Show("Thêm Thành Công !");
+                            dgvDSTB.DataSource = await tb.LayDT();
+                            bsThongBao.RemoveFilter();
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm Thất Bại !");
+                            dgvDSTB.DataSource = await tb.LayDT();
+                            bsThongBao.RemoveFilter();
+                            XoaRTB();
+                        }                       
                     }
                 }
                 else
@@ -110,9 +128,9 @@ namespace GUI
                     MessageBox.Show("Vui Lòng Chọn Học Sinh !");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("lỗi !");
+                MessageBox.Show("lỗi !\n"+ex.Message);
             }
         }
 
@@ -138,9 +156,22 @@ namespace GUI
         {
             if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                
-                    await tb.Xoa(idTB);
-                    XoaRTB();
+                try
+                {
+                    if ((await tb.Xoa(idTB)) != 0)
+                    {
+                        XoaRTB();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa Thất Bại !");
+                        XoaRTB();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi !\n" + ex.Message);
+                }              
             }
             else
             {
