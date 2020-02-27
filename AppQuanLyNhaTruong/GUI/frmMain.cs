@@ -299,7 +299,39 @@ namespace GUI
 
         private void txtLopHoc_TextChanged(object sender, EventArgs e)
         {
+            TextBox txt = (TextBox)sender;
+            if (txt.Text.Equals("Nhập ID hoặc Tên lớp"))
+            {
+                bsLop.RemoveFilter();
+            }
+            else
+            {
+                if (txt.TextLength > 0)
+                {
+                    bsLop.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [TenLop] LIKE '%{0}%'", txt.Text);
+                }
+                else
+                {
+                    bsLop.RemoveFilter();
+                }
+            }
+        }
 
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.ForeColor == Color.Gray)
+            {
+                txt.Text = "";
+                txt.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+                txt.Text = "Nhập ID hoặc Tên lớp";
+                txt.ForeColor = Color.Gray;
         }
     }
 }

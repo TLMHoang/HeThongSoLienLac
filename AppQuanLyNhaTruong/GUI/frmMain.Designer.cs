@@ -145,12 +145,16 @@
             // 
             this.txtLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLopHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtLopHoc.ForeColor = System.Drawing.Color.Gray;
             this.txtLopHoc.Location = new System.Drawing.Point(2, 57);
             this.txtLopHoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtLopHoc.Name = "txtLopHoc";
             this.txtLopHoc.Size = new System.Drawing.Size(242, 26);
             this.txtLopHoc.TabIndex = 4;
+            this.txtLopHoc.Text = "Nhập ID hoặc Tên lớp";
             this.txtLopHoc.TextChanged += new System.EventHandler(this.txtLopHoc_TextChanged);
+            this.txtLopHoc.Enter += new System.EventHandler(this.txtTimKiem_Enter);
+            this.txtLopHoc.Leave += new System.EventHandler(this.txtTimKiem_Leave);
             // 
             // tableLayoutPanel1
             // 
