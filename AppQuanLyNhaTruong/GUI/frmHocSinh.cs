@@ -183,6 +183,7 @@ namespace GUI
             if (tTHS.ID == -1)
             {
                 dgvHocSinh.Rows.RemoveAt(dgvHocSinh.CurrentCell.RowIndex);
+                return;
             }
             string strTTHS = tTHS.Ten + " - Lớp " + Program.lstLop.FirstOrDefault(p => p.ID == tTHS.IDLop).TenLop;
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa " +  strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -194,6 +195,7 @@ namespace GUI
                         MessageBox.Show("Xóa Thành Công");
                         bsThongTinHS.DataSource = await tt.LayDT();
                         dgvHocSinh.Invalidate();
+                        dgvHocSinh_CellClick(null, null);
                     }
                     else
                     {
@@ -241,7 +243,7 @@ namespace GUI
 
         private async void btnLamMoi_Click(object sender, EventArgs e)
         {
-            await ReNew();
+            await loadHS();
         }
         private async Task ReNew()
         {
@@ -250,6 +252,10 @@ namespace GUI
             txtID.Text = "-1";
             tTHS = new ThongTinHS();
             dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].Cells["ID"].Value = -1;
+            if (IDLopChuNhiem != -1)
+            {
+                dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].Cells["IDLop"].Value = IDLopChuNhiem;
+            }
             if (dgvHocSinh.RowCount != 3)
             {
                 for (int i = dgvHocSinh.RowCount - 2; i >= dgvHocSinh.RowCount - 3; i--)
@@ -354,12 +360,6 @@ namespace GUI
             }
         }
 
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtSDTMe_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != (char)Keys.Back) 
@@ -393,7 +393,10 @@ namespace GUI
                     return;
                 }
             }
-            tTHS = new ThongTinHS(drv.Row);
+            if (Convert.ToInt32(drv.Row["ID"]) != -1 && !drv.Row["ID"].ToString().Equals(""))
+            {
+                tTHS = new ThongTinHS(drv.Row);
+            }
         }
 
         private async void dgvHocSinh_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -401,6 +404,7 @@ namespace GUI
             if (tTHS.ID == -1)
             {
                 dgvHocSinh.Rows.RemoveAt(dgvHocSinh.CurrentCell.RowIndex);
+                return;
             }
             string strTTHS = tTHS.Ten + " - Lớp " + Program.lstLop.FirstOrDefault(p => p.ID == tTHS.IDLop).TenLop;
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa " + strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -422,6 +426,62 @@ namespace GUI
                 {
                     MessageBox.Show("Lỗi !\n" + ex.Message);
                 }
+            }
+        }
+
+        private void txtTen_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = (TextBox)sender;
+            string[] s = txt.Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string Ten = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                s[i] = s[i].ToLower();
+                char[] a = s[i].ToArray();
+                a[0] = char.ToUpper(a[0]);
+                Ten += new string(a) + " ";
+            }
+            txt.Text = Ten.Trim();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = (TextBox)sender;
+            if (txt.Text.Equals("Nhập ID hoặc Tên học sinh"))
+            {
+                bsThongTinHS.RemoveFilter();
+            }
+            else
+            {
+                if (txt.TextLength > 0)
+                {
+                    bsThongTinHS.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
+                }
+                else
+                {
+                    bsThongTinHS.RemoveFilter();
+                }
+            }
+        }
+
+
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.ForeColor == Color.Gray)
+            {
+                txt.Text = "";
+                txt.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.Text == "")
+            {
+                txt.Text = "Nhập ID hoặc Tên học sinh";
+                txt.ForeColor = Color.Gray;
             }
         }
     }

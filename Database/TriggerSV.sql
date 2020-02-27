@@ -250,3 +250,19 @@ BEGIN
 	END
 END
 GO	
+
+
+CREATE TRIGGER Trg_InsertThoiKhoaBieu
+ON nxtckedu_USTeam.ThoiKhoaBieu
+FOR INSERT
+AS
+BEGIN
+    IF ((SELECT COUNT(nxtckedu_USTeam.ThoiKhoaBieu.Tiet) 
+	FROM nxtckedu_USTeam.ThoiKhoaBieu
+	JOIN Inserted ON Inserted.IDLop = ThoiKhoaBieu.IDLop AND Inserted.IDMon = ThoiKhoaBieu.IDMon AND Inserted.Thu = ThoiKhoaBieu.Thu AND	Inserted.Tiet = ThoiKhoaBieu.Tiet) = 2)
+	BEGIN
+		PRINT N'Tiết này đã có không thể thêm.\nGợi ý: Sửa thời khoá biểu quản lý!'
+		ROLLBACK TRANSACTION
+	END
+END
+GO	
