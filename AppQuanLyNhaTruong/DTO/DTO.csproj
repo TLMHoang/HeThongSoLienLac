@@ -51,6 +51,7 @@
     <Compile Include="Lop.cs" />
     <Compile Include="MonHoc.cs" />
     <Compile Include="PhanCong.cs" />
+    <Compile Include="QuanLyHS.cs" />
     <Compile Include="TaiKhoanPH.cs" />
     <Compile Include="TaiKhoanTruong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

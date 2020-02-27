@@ -24,21 +24,21 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void frmAccountManager_Load(object sender, EventArgs e)
+        private async void frmAccountManager_Load(object sender, EventArgs e)
         {
             
-            LoadDGVDSHS();
-            LoadDGVTKPH();
-            LoadDGVGV();
-            LoadDGVTruong();
-            loadCBO();
+            await LoadDGVDSHS();
+            await LoadDGVTKPH();
+            await LoadDGVGV();
+            await LoadDGVTruong();
+            await loadCBO();
         }
         #region TabTaiKhoanPH
         int id = -1;
         string tenTK = "";
         int idTKPH = -1;
         int idHS = -1;
-        public async void LoadDGVTKPH()
+        public async Task LoadDGVTKPH()
         {
             bsTKPH.SuspendBinding();
             dgvTKPH.SuspendLayout();
@@ -46,7 +46,7 @@ namespace GUI
             dgvTKPH.ResumeLayout();
             bsTKPH.ResumeBinding();
         }
-        public async void LoadDGVDSHS()
+        public async Task LoadDGVDSHS()
         {
             bsTTHS.SuspendBinding();
             dgvDSHS.SuspendLayout();
@@ -258,7 +258,7 @@ namespace GUI
         int idTruong = -1;
         byte loaiAdmin;   
         string text;
-        public async void LoadDGVTruong()
+        public async Task LoadDGVTruong()
         {
             bsTaiKhoanTruong.SuspendBinding();
             dgvTaiKhoanTruong.SuspendLayout();
@@ -270,7 +270,7 @@ namespace GUI
             bsTaiKhoanTruong.ResumeBinding();
             dgvTaiKhoanTruong.ResumeLayout();
         }
-        public async void LoadDGVGV()
+        public async Task LoadDGVGV()
         {
             bsDSGV.SuspendBinding();
             dgvThongTinGV.SuspendLayout();
@@ -279,10 +279,10 @@ namespace GUI
             dgvThongTinGV.ResumeLayout();
         }
 
-        public async void loadCBO()
+        public async Task loadCBO()
         {
             DataGridViewComboBoxColumn cbo = dgvThongTinGV.Columns[3] as DataGridViewComboBoxColumn;
-            cbo.DataSource = await new MonHocBAL().LayDT();
+            cbo.DataSource = Program.lstMonHoc;
             cbo.DisplayMember = "TenMon";
             cbo.ValueMember = "ID";
         }

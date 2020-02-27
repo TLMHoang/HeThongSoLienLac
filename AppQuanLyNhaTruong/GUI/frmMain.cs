@@ -33,7 +33,7 @@ namespace GUI
             this.Visible = false;
             if (f.ShowDialog() == DialogResult.Yes)
             {
-                menuToolStripMenuItem.Text += "\n" + Program.TK.TaiKhoan;
+                menuToolStripMenuItem.Text = "Xin chào - " + Program.TK.TaiKhoan;
                 this.Visible = true;
 
                 await LoadValue();
@@ -74,13 +74,7 @@ namespace GUI
             }
             else
             {
-                dgvDanhSachLop.ReadOnly = false;
-                btnStudentManagement.Enabled = true;
-                btnThongBaoHS.Enabled = true;
-                btnThoiKhoaBieu.Enabled = true;
-                btnDiemDanh.Enabled = true;
-                btnPCMonHoc.Enabled = true;
-                btnAccountManagement.Enabled = true;
+                
             }
         }
 
@@ -101,7 +95,7 @@ namespace GUI
 
         private void btnStudentManagement_Click(object sender, EventArgs e)
         {
-            frmHocSinh f = new frmHocSinh(Program.TK, Program.gV);
+            frmHocSinh f = new frmHocSinh(Program.TK, Program.gvcn);
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -225,7 +219,15 @@ namespace GUI
         {
             frmLogin f = new frmLogin();
             this.Hide();
-
+            #region reset button
+            dgvDanhSachLop.ReadOnly = false;
+            btnStudentManagement.Enabled = true;
+            btnThongBaoHS.Enabled = true;
+            btnThoiKhoaBieu.Enabled = true;
+            btnDiemDanh.Enabled = true;
+            btnPCMonHoc.Enabled = true;
+            btnAccountManagement.Enabled = true;
+            #endregion
             if (f.ShowDialog() == DialogResult.No)
             {
                 this.FormClosing -= frmMain_FormClosing;
@@ -239,8 +241,10 @@ namespace GUI
                 await LoadValue();
 
                 await LoadLogin();
+
+                this.Show();
             }
-            this.Show();
+            
         }
 
         private void btnDiemDanh_Click(object sender, EventArgs e)

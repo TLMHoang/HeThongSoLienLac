@@ -857,8 +857,6 @@
         private System.Windows.Forms.TextBox txtLop;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvChiTiet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nghiTuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nghiDenDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bsCupHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiet;

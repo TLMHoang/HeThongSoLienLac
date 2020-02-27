@@ -18,7 +18,6 @@ namespace DTO
 		public string DanToc { get; set; }
 		public string TonGiao { get; set; }
 		public int IDLop { get; set; }
-		public int IDTaiKhoan { get; set; }
 		public string TenMe { get; set; }
 		public string SDTMe { get; set; }
 		public string TenBo { get; set; }
@@ -34,14 +33,13 @@ namespace DTO
 			DanToc = "";
 			TonGiao = "";
 			IDLop = -1;
-			IDTaiKhoan = -1;
 			TenMe = "";
 			SDTMe = "";
 			TenBo = "";
 			SDTBo = "";
 		}
 
-		public ThongTinHS(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int iDLop, int iDTaiKhoan, string tenMe, string sDTMe, string tenBo, string sDTBo)
+		public ThongTinHS(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int iDLop,  string tenMe, string sDTMe, string tenBo, string sDTBo)
 		{
 			ID = iD;
 			Ten = ten;
@@ -51,7 +49,6 @@ namespace DTO
 			DanToc = danToc;
 			TonGiao = tonGiao;
 			IDLop = iDLop;
-			IDTaiKhoan = iDTaiKhoan;
 			TenMe = tenMe;
 			SDTMe = sDTMe;
 			TenBo = tenBo;
@@ -68,7 +65,6 @@ namespace DTO
 			DanToc = dr["DanToc"].ToString();
 			TonGiao = dr["TonGiao"].ToString();
 			IDLop = Convert.IsDBNull(dr["IDLop"]) ? -1 : Convert.ToInt32(dr["IDLop"]);
-			IDTaiKhoan = Convert.IsDBNull(dr["IDTaiKhoan"]) ? -1 : Convert.ToInt32(dr["IDTaiKhoan"]);
 			TenMe = dr["TenMe"].ToString();
 			SDTMe = dr["SDTMe"].ToString();
 			TenBo = dr["TenBo"].ToString();

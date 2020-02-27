@@ -54,6 +54,7 @@
     <Compile Include="LopDAL.cs" />
     <Compile Include="MonHocDAL.cs" />
     <Compile Include="PhanCongDAL.cs" />
+    <Compile Include="QuanLyHSDAL.cs" />
     <Compile Include="SQL\BangDiem.cs" />
     <Compile Include="TaiKhoanPHDAL.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />

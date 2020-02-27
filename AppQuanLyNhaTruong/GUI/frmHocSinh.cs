@@ -19,13 +19,15 @@ namespace GUI
     {
 
        ThongTinHSBAL tt = new ThongTinHSBAL();
+        ThongTinHS tTHS = new ThongTinHS();
+        int IDLopChuNhiem = -1;
 
         public frmHocSinh()
         {
             InitializeComponent();
         }
 
-        public frmHocSinh(TaiKhoanTruong tK, ThongTinGV gV)
+        public frmHocSinh(TaiKhoanTruong tK, GVCN gV)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -33,10 +35,13 @@ namespace GUI
             {
                 lblNameFrom.Text += "toàn trường";
             }
-            //else
-            //{
-            //    lblNameFrom.Text += "lớp " + Program.lstLop.FirstOrDefault(p => p.ID == gV.IDLop).TenLop;
-            //}
+            else
+            {
+                lblNameFrom.Text += "lớp " + Program.lstLop.FirstOrDefault(p => p.ID == gV.IDLop).TenLop;
+                cbxLop.Enabled = false;
+            }
+
+            IDLopChuNhiem = gV.IDLop; 
         }
 
         private void frmHocSinh_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,172 +57,372 @@ namespace GUI
             this.Close();
         }
 
+        public Task<int> CheckNullText(DataRowView drv)
+        {
+            int dem = 0;
+            foreach (var i in drv.Row.ItemArray)
+            {
+                if (i.ToString().Equals(""))
+                {
+                    dem++;
+                }
+            }
+            return Task.FromResult(dem);
+        }
+
+        private int CheckTTHS(params ThongTinHS[] obj)
+        {
+            int dem = 0;
+            if (obj[0].ID != obj[1].ID)
+            {
+                dem++;
+            }
+            if (obj[0].Ten != obj[1].Ten)
+            {
+                dem++;
+            }
+            if (obj[0].IDLop != obj[1].IDLop)
+            {
+                dem++;
+            }
+            if (obj[0].NgaySinh != obj[1].NgaySinh)
+            {
+                dem++;
+            }
+            if (obj[0].NoiSinh != obj[1].NoiSinh)
+            {
+                dem++;
+            }
+            if (obj[0].SDTBo != obj[1].SDTBo)
+            {
+                dem++;
+            }
+            if (obj[0].SDTMe != obj[1].SDTMe)
+            {
+                dem++;
+            }
+            if (obj[0].TenBo != obj[1].TenBo)
+            {
+                dem++;
+            }
+            if (obj[0].TenMe != obj[1].TenMe)
+            {
+                dem++;
+            }
+            if (obj[0].TonGiao != obj[1].TonGiao)
+            {
+                dem++;
+            }
+            if (obj[0].DanToc != obj[1].DanToc)
+            {
+                dem++;
+            }
+            if (obj[0].GioiTinh != obj[1].GioiTinh)
+            {
+                dem++;
+            }
+            return dem;
+        }
+
         private async void btnThem_Click(object sender, EventArgs e)
         {
-            if ( await tt.Them(new ThongTinHS(
-                int.Parse(txtMa.Text),
-                txtTen.Text,
-                dtpNgaySinh.Value,
-                Convert.ToByte(radNam.Checked),
-                txtNoiSinh.Text,
-                txtDanToc.Text,
-                txtTonGiao.Text,
-                -1,
-                int.Parse(cbxLop.Text),
-                txtTenMe.Text,
-                txtSDTMe.Text,
-                txtTenBa.Text,
-                txtSDTBa.Text
-                )) == 1)
+            if (!txtID.Text.Equals(""))
             {
-                MessageBox.Show("Thêm Thành Công !");
+                DataRowView drv = dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].DataBoundItem as DataRowView;
+                tTHS.ID = int.Parse(txtID.Text);
+                dgvHocSinh.Focus();
+                if (dgvHocSinh.CurrentCell.RowIndex == dgvHocSinh.RowCount - 2 && dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].Cells["ID"].Value.ToString().Equals(""))
+                {
+                    if (await CheckNullText(drv) > 0)
+                    {
+                        if (MessageBox.Show("Bạn có dữ liêu nhập chưa xong hoặc chưa lưu.\nBạn có muốn tiếp tục tạo mới không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            dgvHocSinh.Rows.RemoveAt(dgvHocSinh.CurrentCell.RowIndex);
+                            await ReNew();
+                            return;
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    await ReNew();
+                }
+                else
+                {
+                    if (await CheckNullText(drv) > 0)
+                    {
+                        await ReNew();
+                    }
+                    else
+                    {
+                        
+                        if (CheckTTHS(tTHS, new ThongTinHS(drv.Row)) > 0)
+                        {
+                            if (MessageBox.Show("Bạn có thay đổi cột nhưng chưa lưu.\nYes để lưu và tạo mới.\nNo để tạo mới Không lưu.", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            {
+                                await tt.CapNhap(tTHS);
+                                await ReNew();
+                            }
+                        }
+                        else
+                        {
+                            await ReNew();
+                        }
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Thêm thất bại !");
+                await ReNew();
             }
+        }
 
-        }
-        public async void xoa()
+        private async void btnXoa_Click(object sender, EventArgs e)
         {
-            await new ThongTinGVBAL().Xoa(int.Parse(txtMa.Text));
-        }
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa ?", "Hỏi Xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (tTHS.ID == -1)
+            {
+                dgvHocSinh.Rows.RemoveAt(dgvHocSinh.CurrentCell.RowIndex);
+            }
+            string strTTHS = tTHS.Ten + " - Lớp " + Program.lstLop.FirstOrDefault(p => p.ID == tTHS.IDLop).TenLop;
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa " +  strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 try
                 {
-                    xoa();
-                    MessageBox.Show("Xóa Thành Công");
-                    New();
-                    loadHS();
+                    if (await tt.Xoa(int.Parse(txtID.Text)) == 1)
+                    {
+                        MessageBox.Show("Xóa Thành Công");
+                        bsThongTinHS.DataSource = await tt.LayDT();
+                        dgvHocSinh.Invalidate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi !");
+                    MessageBox.Show("Lỗi !\n" + ex.Message);
                 }
             }
         }
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            if (await new ThongTinHSBAL().LayID(int.Parse(txtMa.Text)) == null)
-                MessageBox.Show("TK Không Tồn Tại");
+            txtID.Focus();
+            dgvHocSinh.Focus();
+            DataRowView drv = dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].DataBoundItem as DataRowView;
+            if (drv == null)
+            {
+                return;
+            }
+            if (await CheckNullText(drv) > 0)
+            {
+                MessageBox.Show("Nhập đầy đủ thông tin học sinh mới có thể lưu", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            ThongTinHS hs = new ThongTinHS(drv.Row);
+            if (hs.ID == -1)
+            {
+                // add here
+                await tt.Them(hs);
+            }
             else
             {
-                try
+                // update here
+                await tt.CapNhap(hs);
+            }
+
+            bsThongTinHS.DataSource = await tt.LayDT();
+            dgvHocSinh.Invalidate();
+        }
+
+        private async void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            await ReNew();
+        }
+        private async Task ReNew()
+        {
+            dgvHocSinh.CurrentCell = dgvHocSinh.Rows[dgvHocSinh.RowCount - 1].Cells["ID"];
+            bsThongTinHS.AddNew();
+            txtID.Text = "-1";
+            tTHS = new ThongTinHS();
+            dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].Cells["ID"].Value = -1;
+            if (dgvHocSinh.RowCount != 3)
+            {
+                for (int i = dgvHocSinh.RowCount - 2; i >= dgvHocSinh.RowCount - 3; i--)
                 {
-                    update();
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    New();
-                    loadHS();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Lỗi !");
+                    DataRowView drv = dgvHocSinh.Rows[i].DataBoundItem as DataRowView;
+                    if (drv == null)
+                    {
+                        dgvHocSinh.Rows.RemoveAt(i);
+                        i--;
+                    }
+                    else if (await CheckNullText(drv) == 12)
+                    {
+                        dgvHocSinh.Rows.RemoveAt(i);
+                        i--;
+                    }
                 }
             }
-        }
-
-        private async void update()
-        {
-            await tt.CapNhap(new ThongTinHS(
-                int.Parse(txtMa.Text),
-                txtTen.Text,
-                dtpNgaySinh.Value,
-                Convert.ToByte(radNam.Checked),
-                txtNoiSinh.Text,
-                txtDanToc.Text,
-                txtTonGiao.Text,
-                -1,
-                int.Parse(cbxLop.Text),
-                txtTenMe.Text,
-                txtSDTMe.Text,
-                txtTenBa.Text,
-                txtSDTBa.Text
-                ));
-            
-        }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            
-            New();
-        }
-        private void New()
-        {
-            txtMa.Text = "";
-            txtTen.Text = "";
-            radNam.Checked = true;
-            txtNoiSinh.Text = "";
-            dtpNgaySinh.Text="";
-            txtDanToc.Text = "";
-            txtTonGiao.Text = "";
-            cbxLop.SelectedItem = cbxLop.Items[0];
-            txtTenBa.Text = "";
-            txtSDTBa.Text = "";
-            txtTenMe.Text = "";
-            txtSDTMe.Text = "";
             txtTen.Focus();
         }
 
         
-        private  void frmHocSinh_Load(object sender, EventArgs e)
+        private async void frmHocSinh_Load(object sender, EventArgs e)
         {
-            bsThongTinHS.SuspendBinding();
-            dgvHocSinh.SuspendLayout();
+            await loadHS();
+        }
 
-            foreach (Lop l in Program.lstLop)
+        private async Task loadHS()
+        {
+            if (IDLopChuNhiem == -1)
             {
-                cbxLop.Items.Add(l.ID + "-" + l.TenLop);
+                cbxLop.DataSource = Program.lstLop;
+                cbxLop.DisplayMember = "TenLop";
+                cbxLop.ValueMember = "ID";
+
+                bsThongTinHS.SuspendBinding();
+                dgvHocSinh.SuspendLayout();
+
+                bsThongTinHS.DataSource = await tt.LayDT();
+
+                IDLop.DataSource = Program.lstLop;
+                IDLop.DisplayMember = "TenLop";
+                IDLop.ValueMember = "ID";
+
+                dgvHocSinh.ResumeLayout();
+                bsThongTinHS.ResumeBinding();
+
+                dgvHocSinh_CellClick(null, null);
             }
+            else
+            {
+                //cbxLop.DataSource = Program.lstLop;
+                //cbxLop.DisplayMember = "TenLop";
+                //cbxLop.ValueMember = "ID";
+                //cbxLop.Enabled = false;
 
-            loadHS();
+                bsThongTinHS.SuspendBinding();
+                dgvHocSinh.SuspendLayout();
 
-            dgvHocSinh.ResumeLayout();
-            bsThongTinHS.ResumeBinding();
+                bsThongTinHS.DataSource = await tt.LayDanhSach(IDLopChuNhiem);
+
+
+                cbxLop.Text = Program.lstLop.FirstOrDefault(p => p.ID == IDLopChuNhiem).TenLop;
+                IDLop.DataSource = Program.lstLop;
+                IDLop.DisplayMember = "TenLop";
+                IDLop.ValueMember = "ID";
+
+                dgvHocSinh.ResumeLayout();
+                bsThongTinHS.ResumeBinding();
+
+                dgvHocSinh_CellClick(null, null);
+            }
         }
 
-        private async void loadHS()
+        private void frmHocSinh_KeyUp(object sender, KeyEventArgs e)
         {
-            bsThongTinHS.DataSource = await tt.LayDT();
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.S)
+                {
+                    //Event save
+                    btnLuu_Click(null, null);
+                    return;
+                }
+                if (e.KeyCode == Keys.N)
+                {
+                    //event new
+                    btnThem_Click(null, null);
+                    return;
+                }
+                if (e.KeyCode == Keys.Delete)
+                {
+                    //event delete
+                    btnXoa_Click(null, null);
+                    return;
+                }
+                if (e.KeyCode == Keys.F)
+                {
+                    //event Find
+                    MessageBox.Show(e.KeyCode.ToString());
+                    return;
+                }
+            }
         }
 
-        private void dgvHocSinh_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dgvHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void txtSDTMe_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //int i;
-            //i = e.RowIndex;
-            //txtMa.Text = dgvHocSinh.Rows[i].Cells[0].Value.ToString();
-            //txtTen.Text = dgvHocSinh.Rows[i].Cells[1].Value.ToString();
-            //string GioiTinh;
-            //GioiTinh = dgvHocSinh.Rows[i].Cells[2].Value.ToString();
-            //if (GioiTinh == "Nữ")
-            //{
-            //    radNu.Checked = true;
-            //}
-            //else
-            //{
-            //    radNam.Checked = true;
-            //}
-            //txtNoiSinh.Text = dgvHocSinh.Rows[i].Cells[3].Value.ToString();
-            //dtpNgaySinh.Text = dgvHocSinh.Rows[i].Cells[4].Value.ToString();
+            if (e.KeyChar != (char)Keys.Back) 
+            {
+                e.Handled = !char.IsDigit(e.KeyChar);//  Cancel key not number
+            }
+        }
 
-            //txtDanToc.Text = dgvHocSinh.Rows[i].Cells[5].Value.ToString();
-            //txtTonGiao.Text = dgvHocSinh.Rows[i].Cells[6].Value.ToString();
-            //txtMaLop.Text = dgvHocSinh.Rows[i].Cells[7].Value.ToString();
-            //txtMaTK.Text = dgvHocSinh.Rows[i].Cells[8].Value.ToString();
+        private async void dgvHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (dgvHocSinh.CurrentCell == null)
+            {
+                return;
+            }
+            if (dgvHocSinh.CurrentCell.RowIndex == -1)
+            {
+                return;
+            }
+            DataRowView drv = dgvHocSinh.Rows[dgvHocSinh.CurrentCell.RowIndex].DataBoundItem as DataRowView;
+            if (drv == null)
+            {
+                tTHS = new ThongTinHS();
+                return;
+            }
+            else
+            {
+                if (await CheckNullText(drv) > 0)
+                {
+                    tTHS = new ThongTinHS();
+                    return;
+                }
+            }
+            tTHS = new ThongTinHS(drv.Row);
+        }
 
-            //txtTenBa.Text = dgvHocSinh.Rows[i].Cells[9].Value.ToString();
-            //txtSDTBa.Text = dgvHocSinh.Rows[i].Cells[10].Value.ToString();
-            //txtTenMe.Text = dgvHocSinh.Rows[i].Cells[11].Value.ToString();
-            //txtSDTMe.Text = dgvHocSinh.Rows[i].Cells[12].Value.ToString();
-
+        private async void dgvHocSinh_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (tTHS.ID == -1)
+            {
+                dgvHocSinh.Rows.RemoveAt(dgvHocSinh.CurrentCell.RowIndex);
+            }
+            string strTTHS = tTHS.Ten + " - Lớp " + Program.lstLop.FirstOrDefault(p => p.ID == tTHS.IDLop).TenLop;
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa " + strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                try
+                {
+                    if (await tt.Xoa(int.Parse(txtID.Text)) == 1)
+                    {
+                        MessageBox.Show("Xóa Thành Công");
+                        bsThongTinHS.DataSource = await tt.LayDT();
+                        dgvHocSinh.Invalidate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi !\n" + ex.Message);
+                }
+            }
         }
     }
 }

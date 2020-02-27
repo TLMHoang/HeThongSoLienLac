@@ -17,10 +17,6 @@ namespace GUI
     {
         ThoiKhoaBieuBAL tkb = new ThoiKhoaBieuBAL();
         MonHocBAL mh = new MonHocBAL();
-        int idLop = -1;
-        int thu = -1;
-        int tiet = -1;
-        int mon = -1;
         public frmThoiKhoaBieu()
         {
             InitializeComponent();

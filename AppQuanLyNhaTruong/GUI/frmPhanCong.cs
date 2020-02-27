@@ -26,9 +26,9 @@ namespace GUI
         private async void frmPhanCong_Load(object sender, EventArgs e)
         {
             btnSua.Enabled = false;
-            loadDataMonHoc();
-            loadDataPhanCong();
-            LoadDataGVCN();
+            await loadDataMonHoc();
+            await loadDataPhanCong();
+            await LoadDataGVCN();
         }
         #region tabMonHoc
         private void dgvMon_UserAddedRow(object sender, DataGridViewRowEventArgs e)
@@ -36,7 +36,7 @@ namespace GUI
             DataGridView dgv = (DataGridView)sender;
             dgv.Rows[e.Row.Index - 1].Cells[0].Value = -1;
         }
-        public async void loadDataMonHoc()
+        public async Task loadDataMonHoc()
         {
             bsDSGV.SuspendBinding();
             bsMon.SuspendBinding();
@@ -79,6 +79,8 @@ namespace GUI
                 //Update here
                 await monBAL.CapNhap(new MonHoc(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value), dgv.Rows[e.RowIndex].Cells["Col_TenMon"].Value.ToString(), loaiMon));
             }
+
+            dgv.Invalidate();
         }
 
         private void frmPhanCong_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,7 +135,7 @@ namespace GUI
         int idMon = -1;
         int idLop = -1;
         int stt = -1;
-        public async void loadDataPhanCong()
+        public async Task loadDataPhanCong()
         {
 
             bsView.SuspendBinding();
@@ -323,7 +325,7 @@ namespace GUI
         
         GVCNBAL gvcn = new GVCNBAL();
         int idGVCN = -1;
-        public async void LoadDataGVCN()
+        public async Task LoadDataGVCN()
         {
             btnSuaGVCN.Enabled = false;
             bsGVCN.SuspendBinding();

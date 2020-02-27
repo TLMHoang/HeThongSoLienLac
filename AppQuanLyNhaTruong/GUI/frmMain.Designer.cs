@@ -39,15 +39,15 @@
             this.txtLopHoc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDanhSachLop = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnDiem = new System.Windows.Forms.Button();
             this.btnThongBaoHS = new System.Windows.Forms.Button();
             this.btnThongBao = new System.Windows.Forms.Button();
             this.btnThoiKhoaBieu = new System.Windows.Forms.Button();
             this.btnPCMonHoc = new System.Windows.Forms.Button();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsLop = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).BeginInit();
@@ -130,14 +130,14 @@
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.adminToolStripMenuItem.Text = "Đổi mật khẩu";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
             // LogOutToolStripMenuItem
             // 
             this.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem";
-            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.LogOutToolStripMenuItem.Text = "Đăng Xuất";
             this.LogOutToolStripMenuItem.Click += new System.EventHandler(this.LogOutToolStripMenuItem_Click);
             // 
@@ -207,6 +207,25 @@
             this.dgvDanhSachLop.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachLop_CellEndEdit);
             this.dgvDanhSachLop.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDanhSachLop_UserAddedRow);
             this.dgvDanhSachLop.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDanhSachLop_UserDeletingRow);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "Mã lớp";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // tenLopDataGridViewTextBoxColumn
+            // 
+            this.tenLopDataGridViewTextBoxColumn.DataPropertyName = "TenLop";
+            this.tenLopDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
+            this.tenLopDataGridViewTextBoxColumn.Name = "tenLopDataGridViewTextBoxColumn";
+            this.tenLopDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bsLop
+            // 
+            this.bsLop.DataSource = typeof(DTO.Lop);
             // 
             // label1
             // 
@@ -304,25 +323,6 @@
             this.btnPCMonHoc.Text = "Quản lý dạy";
             this.btnPCMonHoc.UseVisualStyleBackColor = false;
             this.btnPCMonHoc.Click += new System.EventHandler(this.btnPCMonHoc_Click);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "Mã lớp";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // tenLopDataGridViewTextBoxColumn
-            // 
-            this.tenLopDataGridViewTextBoxColumn.DataPropertyName = "TenLop";
-            this.tenLopDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
-            this.tenLopDataGridViewTextBoxColumn.Name = "tenLopDataGridViewTextBoxColumn";
-            this.tenLopDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // bsLop
-            // 
-            this.bsLop.DataSource = typeof(DTO.Lop);
             // 
             // frmMain
             // 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class GVCNDAL : SQL.SQLHelper, CInterface<GVCN>
+    public class GVCNDAL : SQL.SQLHelper
     {
         public async Task<int> CapNhap(GVCN obj)
         {
@@ -38,11 +38,6 @@ namespace DAL
                 );
         }
 
-        public Task<DataTable> Lay(int ID)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<int> Them(GVCN obj)
         {
             return await ExecuteNonQuery(
@@ -52,10 +47,6 @@ namespace DAL
                 );
         }
 
-        public Task<int> Xoa(int ID)
-        {
-            throw new NotImplementedException();
-        }
         public async Task<int> Xoa(GVCN obj)
         {
             return await ExecuteNonQuery(

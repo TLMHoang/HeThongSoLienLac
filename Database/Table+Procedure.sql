@@ -56,16 +56,24 @@ CREATE TABLE ThongTinHS
 	DanToc NVARCHAR(100),
 	TonGiao NVARCHAR(100),
 	IDLop INT,
-	IDTaiKhoan INT,
 	TenMe NVARCHAR(150),
 	SDTMe VARCHAR(12),
 	TenBo NVARCHAR(150),
 	SDTBo VARCHAR(12),
 
-	FOREIGN KEY (IDTaiKhoan) REFERENCES nxtckedu_USTeam.TaiKhoanPH(ID),
 	FOREIGN KEY (IDLop) REFERENCES nxtckedu_USTeam.Lop(ID)
 )
 GO
+
+CREATE TABLE QuanLyHS
+(
+	IDHocSinh INT PRIMARY KEY,
+	IDTaiKhoan INT,
+
+	FOREIGN KEY(IDHocSinh) REFERENCES nxtckedu_USTeam.ThongTinHS(ID),
+	FOREIGN KEY (IDTaiKhoan) REFERENCES nxtckedu_USTeam.TaiKhoanPH(ID)
+)
+GO	 
 
 CREATE TABLE DiemDanh
 (
@@ -409,7 +417,6 @@ CREATE PROCEDURE InsertThongTinHS
 @DanToc NVARCHAR(100),
 @TonGiao NVARCHAR(100),
 @IDLop INT,
-@IDTaiKhoan INT,
 @TenMe NVARCHAR(150),
 @SDTMe NVARCHAR(12),
 @TenBo NVARCHAR(150),
@@ -425,7 +432,6 @@ BEGIN
         DanToc,
         TonGiao,
         IDLop,
-        IDTaiKhoan,
         TenMe,
         SDTMe,
         TenBo,
@@ -439,16 +445,11 @@ BEGIN
         @DanToc,       -- DanToc - nvarchar(100)
         @TonGiao,       -- TonGiao - nvarchar(100)
         @IDLop,         -- IDLop - int
-        @IDTaiKhoan,         -- IDTaiKhoan - int
         @TenMe,       -- TenMe - nvarchar(150)
         @SDTMe,        -- SDTMe - varchar(12)
         @TenBo,       -- TenBo - nvarchar(150)
         @SDTBo         -- SDTBo - varchar(12)
         )
-	EXEC nxtckedu_USTeam.InsertHanhKiem @IDHocSinh = @IDLop, -- int
-	                        @Loai = N'',    -- nvarchar(20)
-	                        @HocKy = NULL   -- bit
-	
 END
 GO
 
@@ -511,6 +512,23 @@ BEGIN
 	@IDGiaoVien ,
 	@IDLop
 	)
+END
+GO
+
+CREATE PROC InsertQuanLyHS
+@IDHocSinh INT,
+@IDTaiKhoan INT
+AS
+BEGIN
+	INSERT nxtckedu_USTeam.QuanLyHS
+	(
+	    IDHocSinh,
+	    IDTaiKhoan
+	)
+	VALUES
+	(   @IDHocSinh, -- IDHocSinh - int
+	    @IDTaiKhoan  -- IDTaiKhoan - int
+	    )
 END
 GO
 
@@ -631,7 +649,23 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-	    DELETE nxtckedu_USTeam.GVCN WHERE @IDLop = @IDLop
+	    DELETE nxtckedu_USTeam.GVCN WHERE IDLop = @IDLop
+	END
+END
+GO
+
+CREATE PROC DeleteQuanLyHS
+@IDHocSinh INT,
+@IDTaiKhoan INT
+AS
+BEGIN
+	IF	@IDHocSinh = -1
+	BEGIN
+	    DELETE nxtckedu_USTeam.QuanLyHS WHERE IDTaiKhoan = @IDTaiKhoan
+	END
+	ELSE
+	BEGIN
+	    DELETE nxtckedu_USTeam.QuanLyHS WHERE IDHocSinh = @IDHocSinh
 	END
 END
 GO
@@ -865,6 +899,30 @@ BEGIN
 END
 GO
 
+
+CREATE PROC SelectQuanLyHS
+@IDHocSinh INT,
+@IDTaiKhoan INT
+AS
+BEGIN
+	IF @IDHocSinh = -1 AND @IDTaiKhoan = -1
+	BEGIN
+		SELECT * FROM nxtckedu_USTeam.QuanLyHS
+	END
+	ELSE
+	BEGIN
+	    IF	@IDTaiKhoan = -1
+		BEGIN
+			SELECT * FROM nxtckedu_USTeam.QuanLyHS WHERE IDHocSinh = @IDHocSinh
+		END
+		ELSE
+		BEGIN
+			SELECT * FROM nxtckedu_USTeam.QuanLyHS WHERE IDTaiKhoan = @IDTaiKhoan
+		END
+	END
+END
+GO
+
 -- proc update
 
 
@@ -1044,7 +1102,6 @@ CREATE PROCEDURE UpdateThongTinHS
 @DanToc NVARCHAR(100),
 @TonGiao NVARCHAR(100),
 @IDLop INT,
-@IDTaiKhoan INT,
 @TenMe NVARCHAR(150),
 @SDTMe NVARCHAR(12),
 @TenBo NVARCHAR(150),
@@ -1060,7 +1117,6 @@ BEGIN
         DanToc = @DanToc,       -- DanToc - nvarchar(100)
         TonGiao = @TonGiao,       -- TonGiao - nvarchar(100)
         IDLop = @IDLop,         -- IDLop - int
-        IDTaiKhoan = @IDTaiKhoan,         -- IDTaiKhoan - int
         TenMe = @TenMe,       -- TenMe - nvarchar(150)
         SDTMe = @SDTMe,        -- SDTMe - varchar(12)
         TenBo = @TenBo,       -- TenBo - nvarchar(150)
@@ -1114,6 +1170,17 @@ BEGIN
 END
 GO
 
+CREATE PROC UpdateQuanLyHS
+@IDHocSinh INT,
+@IDTaiKhoan INT
+AS
+BEGIN
+	UPDATE nxtckedu_USTeam.QuanLyHS
+	SET
+	IDTaiKhoan = @IDTaiKhoan
+	WHERE IDHocSinh = @IDHocSinh
+END
+GO
 
 -- proc function
 
@@ -1160,3 +1227,13 @@ BEGIN
     SELECT COUNT(STT) FROM nxtckedu_USTeam.PhanCong WHERE IDLop = @IDLop AND  IdMon = @IDMon
 END
 GO
+
+CREATE PROCEDURE SelectLopDay
+@IDGV INT
+AS	
+BEGIN
+    SELECT * FROM nxtckedu_USTeam.PhanCong WHERE IDGiaoVien = @IDGV
+END
+GO
+
+

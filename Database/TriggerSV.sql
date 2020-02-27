@@ -60,7 +60,7 @@ GO
 
 CREATE TRIGGER Trg_InsertGVCN
 ON nxtckedu_USTeam.GVCN
-FOR INSERT, UPDATE
+FOR INSERT
 AS
 BEGIN
 	IF ((SELECT COUNT(nxtckedu_USTeam.GVCN.IDLop) 
@@ -236,3 +236,17 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER Trg_InsertQuanLyHS
+ON nxtckedu_USTeam.QuanLyHS
+FOR INSERT
+AS
+BEGIN
+	IF ((SELECT COUNT(nxtckedu_USTeam.QuanLyHS.IDHocSinh) 
+	FROM nxtckedu_USTeam.QuanLyHS
+	JOIN Inserted ON Inserted.IDHocSinh = QuanLyHS.IDHocSinh) = 2)
+	BEGIN
+		PRINT N'Học sinh đã có quản lý không thể thêm.\nGợi ý: Sửa tài khoản quản lý!'
+	    ROLLBACK TRANSACTION
+	END
+END
+GO	
