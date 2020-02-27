@@ -97,65 +97,129 @@ namespace GUI
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            if (id != -1)
+            try
             {
-                if (cboChonLoaiTB.SelectedIndex != 1)
+                if (id != -1)
                 {
-                    await tbt.CapNhap(new ThongBaoTruong(id, rtbNhapNoiDung.Text));
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    cboChonLoaiTB.Enabled = true;
-                    LoadDGVTruong();
-                    XoaRTB();
+                    if (cboChonLoaiTB.SelectedIndex != 1)
+                    {
+                        if((await tbt.CapNhap(new ThongBaoTruong(id, rtbNhapNoiDung.Text))) != 0)
+                        {
+                            MessageBox.Show("Cập Nhật Thành Công !");
+                            cboChonLoaiTB.Enabled = true;
+                            LoadDGVTruong();
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập Nhật Thất Bại !");
+                            cboChonLoaiTB.Enabled = true;
+                            LoadDGVTruong();
+                            XoaRTB();
+                        }
+                        
+                    }
+                    else
+                    {
+                        if((await tbl.CapNhap(new ThongBaoLop(id, idLop, rtbNhapNoiDung.Text))) != 0)
+                        {
+                            MessageBox.Show("Cập Nhật Thành Công !");
+                            cboChonLoaiTB.Enabled = true;
+                            cboChonLop.Visible = true;
+                            lblThongTinLop.Visible = false;
+                            LoadDGVLop();
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập Nhật Thất Bại !");
+                            cboChonLoaiTB.Enabled = true;
+                            cboChonLop.Visible = true;
+                            lblThongTinLop.Visible = false;
+                            LoadDGVLop();
+                            XoaRTB();
+                        }                        
+                    }
                 }
                 else
                 {
-                    await tbl.CapNhap(new ThongBaoLop(id, idLop, rtbNhapNoiDung.Text));
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    cboChonLoaiTB.Enabled = true;
-                    cboChonLop.Visible = true;
-                    lblThongTinLop.Visible = false;
-                    LoadDGVLop();
-                    XoaRTB();
+                    if (cboChonLoaiTB.SelectedIndex != 1)
+                    {
+                        if((await tbt.Them(new ThongBaoTruong(-1, rtbNhapNoiDung.Text))) != 0)
+                        {
+                            MessageBox.Show("Thêm Thành Công !");
+                            LoadDGVTruong();
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm Thất Bại !");
+                            LoadDGVTruong();
+                            XoaRTB();
+                        }                        
+                    }
+                    else
+                    {
+                        if((await tbl.Them(new ThongBaoLop(-1, int.Parse(cboChonLop.SelectedValue.ToString()), rtbNhapNoiDung.Text))) != 0)
+                        {
+                            MessageBox.Show("Thêm Thành Công !");
+                            LoadDGVLop();
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm Thất Bại !");
+                            LoadDGVLop();
+                            XoaRTB();
+                        }                       
+                    }
                 }
-            }
-            else
+            }catch(Exception ex)
             {
-                if (cboChonLoaiTB.SelectedIndex != 1)
-                {
-                    await tbt.Them(new ThongBaoTruong(-1, rtbNhapNoiDung.Text));
-                    MessageBox.Show("Thêm Thành Công !");
-                    LoadDGVTruong();
-                    XoaRTB();
-                }
-                else
-                {
-                    await tbl.Them(new ThongBaoLop(-1, int.Parse(cboChonLop.SelectedValue.ToString()), rtbNhapNoiDung.Text));
-                    MessageBox.Show("Thêm Thành Công !");
-                    LoadDGVLop();
-                    XoaRTB();
-                }
+                MessageBox.Show("Lỗi !\n" + ex.Message);
             }
         }
 
         private async void dgvDSTB_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            try
             {
-                if (cboChonLoaiTB.SelectedIndex != 1)
+                if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    await tbt.Xoa(id);
-                    XoaRTB();
-                }
+                    if (cboChonLoaiTB.SelectedIndex != 1)
+                    {
+                        if((await tbt.Xoa(id)) != 0)
+                        {
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa Thất Bại !");
+                            XoaRTB();
+                        }                       
+                    }
 
+                    else
+                    {
+                        if((await tbl.Xoa(id)) != 0)
+                        {
+                            XoaRTB();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa Thất Bại");
+                            XoaRTB();
+                        }                        
+                    }
+                }
                 else
                 {
-                    await tbl.Xoa(id);
-                    XoaRTB();
+                    e.Cancel = true;
                 }
             }
-            else
+            catch ( Exception ex)
             {
-                e.Cancel = true;
+                MessageBox.Show("Lỗi !\n" + ex.Message);
             }
         }
 

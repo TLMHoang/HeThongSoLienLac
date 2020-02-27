@@ -188,16 +188,26 @@ namespace GUI
                     }
                     else
                     {
-                        await pcBAL.Them(new PhanCong(stt, idGV, idLop, idMon));
-                        bsView.DataSource = await pcBAL.LayDT();
-                        MessageBox.Show("Thêm Thành Công !");
-                        idGV = -1;
-                        idMon = -1;
-                        idLop = -1;
+                        if((await pcBAL.Them(new PhanCong(stt, idGV, idLop, idMon))) != 0)
+                        {
+                            bsView.DataSource = await pcBAL.LayDT();
+                            MessageBox.Show("Thêm Thành Công !");
+                            idGV = -1;
+                            idMon = -1;
+                            idLop = -1;
+                        }
+                        else
+                        {
+                            bsView.DataSource = await pcBAL.LayDT();
+                            MessageBox.Show("Thêm Thất Bại !");
+                            idGV = -1;
+                            idMon = -1;
+                            idLop = -1;
+                        }                       
                     }
                 }
             }
-            catch (Exception) { MessageBox.Show("lỗi !"); }
+            catch (Exception ex) { MessageBox.Show("lỗi !\n" + ex.Message); }
         }
 
         private async void dgvView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -206,9 +216,24 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    PhanCong pc = new PhanCong((e.Row.DataBoundItem as DataRowView).Row);
-                    await pcBAL.Xoa(pc.STT);
-                    bsView.DataSource = await pcBAL.LayDT();
+                    try
+                    {
+                        PhanCong pc = new PhanCong((e.Row.DataBoundItem as DataRowView).Row);
+                        if((await pcBAL.Xoa(pc.STT)) == 1)
+                        {
+                            bsView.DataSource = await pcBAL.LayDT();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa Thất Bại !");
+                            bsView.DataSource = await pcBAL.LayDT();
+                        }
+                        
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Lỗi \n" + ex.Message);
+                    }
                 }
                 else
                     e.Cancel = true;
@@ -226,11 +251,20 @@ namespace GUI
             {
                 if (idGV != -1 && idLop != -1)
                 {
-                    await pcBAL.CapNhap(new PhanCong(stt, idGV, idLop, -1));
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    btnXacNhan.Enabled = true;
-                    btnSua.Enabled = false;
-                    bsView.DataSource = await pcBAL.LayDT();
+                    if((await pcBAL.CapNhap(new PhanCong(stt, idGV, idLop, -1)) != 0)){
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        btnXacNhan.Enabled = true;
+                        btnSua.Enabled = false;
+                        bsView.DataSource = await pcBAL.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        btnXacNhan.Enabled = true;
+                        btnSua.Enabled = false;
+                        bsView.DataSource = await pcBAL.LayDT();
+                    }
+                    
                 }
                 else
                 {
@@ -238,7 +272,7 @@ namespace GUI
                     dgvDSGV.Focus();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Lỗi !\n" + ex.Message); }
         }
 
         private void dgvView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -387,15 +421,24 @@ namespace GUI
             {
                 if (idGVCN != -1)
                 {
-                    await gvcn.Them(new GVCN(idGVCN, int.Parse(cboChonLop.SelectedValue.ToString())));
-                    MessageBox.Show("Thêm Thành Công !");
-                    bsGVCN.DataSource = await gvcn.LayDT();
-                    idGVCN = -1;
+                    if((await gvcn.Them(new GVCN(idGVCN, int.Parse(cboChonLop.SelectedValue.ToString())))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsGVCN.DataSource = await gvcn.LayDT();
+                        idGVCN = -1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm Thất Bại !");
+                        bsGVCN.DataSource = await gvcn.LayDT();
+                        idGVCN = -1;
+                    }
+                    
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi !");
+                MessageBox.Show("Lỗi !\n" + ex.Message);
             }
         }
 
@@ -405,13 +448,25 @@ namespace GUI
             {
                 if (idGVCN != -1)
                 {
-                    await gvcn.CapNhap(new GVCN(idGVCN, int.Parse(cboChonLop.SelectedValue.ToString())));
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    bsDSGVCN.RemoveFilter();
-                    bsGVCN.DataSource = await gvcn.LayDT();
-                    btnLuuGVCN.Enabled = true;
-                    btnSuaGVCN.Enabled = false;
-                    idGVCN = -1;
+                    if((await gvcn.CapNhap(new GVCN(idGVCN, int.Parse(cboChonLop.SelectedValue.ToString())))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsDSGVCN.RemoveFilter();
+                        bsGVCN.DataSource = await gvcn.LayDT();
+                        btnLuuGVCN.Enabled = true;
+                        btnSuaGVCN.Enabled = false;
+                        idGVCN = -1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsDSGVCN.RemoveFilter();
+                        bsGVCN.DataSource = await gvcn.LayDT();
+                        btnLuuGVCN.Enabled = true;
+                        btnSuaGVCN.Enabled = false;
+                        idGVCN = -1;
+                    }
+                    
                 }
             }
             catch (Exception)
@@ -427,8 +482,22 @@ namespace GUI
                 if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     GVCN g = new GVCN((e.Row.DataBoundItem as DataRowView).Row);
-                    await gvcn.Xoa(g);
-                    bsGVCN.DataSource = await gvcn.LayDT();
+                    try
+                    {
+                        if((await gvcn.Xoa(g)) == 1)
+                        {
+                            bsGVCN.DataSource = await gvcn.LayDT();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa Thất Bại !");
+                            bsGVCN.DataSource = await gvcn.LayDT();
+                        }                       
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }                   
                 }
                 else
                     e.Cancel = true;

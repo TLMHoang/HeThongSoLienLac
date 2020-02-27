@@ -59,6 +59,10 @@ namespace GUI
             cboChonBuoi.DataSource = buoi;
 
             bsMonHoc.SuspendBinding();
+            bsMonHoc2.SuspendBinding();
+            bsMonHoc3.SuspendBinding();
+            bsMonHoc4.SuspendBinding();
+            bsMonHoc5.SuspendBinding();
             cboMonTiet1.SuspendLayout();
             cboMonTiet2.SuspendLayout();
             cboMonTiet3.SuspendLayout();
@@ -66,6 +70,10 @@ namespace GUI
             cboMonTiet5.SuspendLayout();
 
             bsMonHoc.DataSource = await mh.LayDT();
+            bsMonHoc2.DataSource = await mh.LayDT();
+            bsMonHoc3.DataSource = await mh.LayDT();
+            bsMonHoc4.DataSource = await mh.LayDT();
+            bsMonHoc5.DataSource = await mh.LayDT();
 
             cboMonTiet1.ResumeLayout();
             cboMonTiet2.ResumeLayout();
@@ -73,6 +81,10 @@ namespace GUI
             cboMonTiet4.ResumeLayout();
             cboMonTiet5.ResumeLayout();
             bsMonHoc.ResumeBinding();
+            bsMonHoc2.ResumeBinding();
+            bsMonHoc3.ResumeBinding();
+            bsMonHoc4.ResumeBinding();
+            bsMonHoc5.ResumeBinding();
         }
         public async void LoadDGV()
         {
@@ -89,11 +101,12 @@ namespace GUI
             {                
                     if (cboChonBuoi.SelectedIndex == 0)
                     {
-                        await tkb.Them(new ThoiKhoaBieu(
+                        if((await tkb.Them(new ThoiKhoaBieu(
                             Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
                             Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
                             1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
-                            ));//Tiet 1
+                            ))) != 0)
+                    {
                         await tkb.Them(new ThoiKhoaBieu(
                             int.Parse(cboChonLop.SelectedValue.ToString()),
                             int.Parse(cboChonThu.SelectedValue.ToString()),
@@ -119,11 +132,19 @@ namespace GUI
                     }
                     else
                     {
-                        await tkb.Them(new ThoiKhoaBieu(
+                        MessageBox.Show("Thêm Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                        
+                    }
+                    else
+                    {
+                        if((await tkb.Them(new ThoiKhoaBieu(
                             int.Parse(cboChonLop.SelectedValue.ToString()),
                             int.Parse(cboChonThu.SelectedValue.ToString()),
                             6, int.Parse(cboMonTiet1.SelectedValue.ToString())
-                            ));//Tiet 6
+                            )))!=0)//Tiet 6
+                    {
                         await tkb.Them(new ThoiKhoaBieu(
                             int.Parse(cboChonLop.SelectedValue.ToString()),
                             int.Parse(cboChonThu.SelectedValue.ToString()),
@@ -146,6 +167,13 @@ namespace GUI
                             ));//Tiet 10
                         MessageBox.Show("Thêm Thành Công !");
                         bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                        
                     }
 
             }
@@ -181,6 +209,15 @@ namespace GUI
             btnLuu.Enabled = false;
             cboChonLop.Enabled = false;
             MessageBox.Show("Chọn Lại Môn Cần Cập Nhật !");
+            if(int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString())>0 && int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString()) < 6)
+            {
+                cboChonBuoi.SelectedValue = 1;
+            }
+            else
+            {
+                cboChonBuoi.SelectedValue = 2;
+            }
+            cboChonThu.SelectedValue = int.Parse(dgvTKB.Rows[e.RowIndex].Cells[1].Value.ToString());           
         }
 
         private void cboChonLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,75 +232,95 @@ namespace GUI
             {
                 if (cboChonBuoi.SelectedIndex == 0)
                 {
-                    await tkb.CapNhap(new ThoiKhoaBieu(
+                    if((await tkb.CapNhap(new ThoiKhoaBieu(
                         Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
                         Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
                         1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
-                        ));//Tiet 1
-                    await tkb.CapNhap(new ThoiKhoaBieu(
+                        ))) != 0)
+                    {
+                        await tkb.CapNhap(new ThoiKhoaBieu(
                         int.Parse(cboChonLop.SelectedValue.ToString()),
                         int.Parse(cboChonThu.SelectedValue.ToString()),
                         2, int.Parse(cboMonTiet2.SelectedValue.ToString())
                         ));//Tiet 2
-                    await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        3, int.Parse(cboMonTiet3.SelectedValue.ToString())
-                        ));//Tiet 3
-                    await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        4, int.Parse(cboMonTiet4.SelectedValue.ToString())
-                        ));//Tiet 4
-                    await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        5, int.Parse(cboMonTiet5.SelectedValue.ToString())
-                        ));//Tiet 5
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    bsTKB.DataSource = await tkb.LayDT();
-                    btnSua.Enabled = false;
-                    btnLuu.Enabled = true;
-                    cboChonLop.Enabled = true;
+                        await tkb.CapNhap(new ThoiKhoaBieu(
+                            int.Parse(cboChonLop.SelectedValue.ToString()),
+                            int.Parse(cboChonThu.SelectedValue.ToString()),
+                            3, int.Parse(cboMonTiet3.SelectedValue.ToString())
+                            ));//Tiet 3
+                        await tkb.CapNhap(new ThoiKhoaBieu(
+                            int.Parse(cboChonLop.SelectedValue.ToString()),
+                            int.Parse(cboChonThu.SelectedValue.ToString()),
+                            4, int.Parse(cboMonTiet4.SelectedValue.ToString())
+                            ));//Tiet 4
+                        await tkb.CapNhap(new ThoiKhoaBieu(
+                            int.Parse(cboChonLop.SelectedValue.ToString()),
+                            int.Parse(cboChonThu.SelectedValue.ToString()),
+                            5, int.Parse(cboMonTiet5.SelectedValue.ToString())
+                            ));//Tiet 5
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                        btnSua.Enabled = false;
+                        btnLuu.Enabled = true;
+                        cboChonLop.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                        btnSua.Enabled = false;
+                        btnLuu.Enabled = true;
+                        cboChonLop.Enabled = true;
+                    }
+                    
                 }
                 else
                 {
-                    await tkb.CapNhap(new ThoiKhoaBieu(
+                    if((await tkb.CapNhap(new ThoiKhoaBieu(
                         int.Parse(cboChonLop.SelectedValue.ToString()),
                         int.Parse(cboChonThu.SelectedValue.ToString()),
                         6, int.Parse(cboMonTiet1.SelectedValue.ToString())
-                        ));//Tiet 6
-                    await tkb.CapNhap(new ThoiKhoaBieu(
+                        ))) != 0)
+                    {
+                        await tkb.CapNhap(new ThoiKhoaBieu(
                         int.Parse(cboChonLop.SelectedValue.ToString()),
                         int.Parse(cboChonThu.SelectedValue.ToString()),
                         7, int.Parse(cboMonTiet2.SelectedValue.ToString())
                         ));//Tiet 7
-                    await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        8, int.Parse(cboMonTiet3.SelectedValue.ToString())
-                        ));//Tiet 8
-                    await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        9, int.Parse(cboMonTiet4.SelectedValue.ToString())
-                        ));//Tiet 9
-                    await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        10, int.Parse(cboMonTiet5.SelectedValue.ToString())
-                        ));//Tiet 10
-                    MessageBox.Show("Cập Nhật Thành Công !");
-                    bsTKB.DataSource = await tkb.LayDT();
-                    btnSua.Enabled = false;
-                    btnLuu.Enabled = true;
-                    cboChonLop.Enabled = true;
+                        await tkb.CapNhap(new ThoiKhoaBieu(
+                            int.Parse(cboChonLop.SelectedValue.ToString()),
+                            int.Parse(cboChonThu.SelectedValue.ToString()),
+                            8, int.Parse(cboMonTiet3.SelectedValue.ToString())
+                            ));//Tiet 8
+                        await tkb.CapNhap(new ThoiKhoaBieu(
+                            int.Parse(cboChonLop.SelectedValue.ToString()),
+                            int.Parse(cboChonThu.SelectedValue.ToString()),
+                            9, int.Parse(cboMonTiet4.SelectedValue.ToString())
+                            ));//Tiet 9
+                        await tkb.CapNhap(new ThoiKhoaBieu(
+                            int.Parse(cboChonLop.SelectedValue.ToString()),
+                            int.Parse(cboChonThu.SelectedValue.ToString()),
+                            10, int.Parse(cboMonTiet5.SelectedValue.ToString())
+                            ));//Tiet 10
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                        btnSua.Enabled = false;
+                        btnLuu.Enabled = true;
+                        cboChonLop.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                        btnSua.Enabled = false;
+                        btnLuu.Enabled = true;
+                        cboChonLop.Enabled = true;
+                    }                    
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi !\n" + ex.Message);
             }
         }
     }
