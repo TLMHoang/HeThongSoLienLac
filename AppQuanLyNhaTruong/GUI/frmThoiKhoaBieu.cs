@@ -24,10 +24,11 @@ namespace GUI
 
 
         private void frmThoiKhoaBieu_Load(object sender, EventArgs e)
-        {
+        {           
             btnSua.Enabled = false;
             LoadCBO();
             LoadDGV();
+            bsTKB.Filter = String.Format("CONVERT(IDLop, System.String)='{0}' ", cboChonLop.SelectedValue);
         }
         public async void LoadCBO()
         {
