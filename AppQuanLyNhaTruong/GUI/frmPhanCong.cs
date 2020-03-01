@@ -373,7 +373,18 @@ namespace GUI
             bsGVCN.ResumeBinding();
             bsDSGVCN.ResumeBinding();
 
-            cboChonLop.DataSource = await lopBAL.LayDT();
+            await LoadCBOChonLop();
+
+        }
+        public async Task LoadCBOChonLop()
+        {
+            DataTable dt = await gvcn.LayDT();
+            List<Lop> lstLop = await lopBAL.LayLst();            
+            foreach (DataRow l in dt.Rows)
+            {
+                lstLop.Remove(lstLop.FirstOrDefault(p => p.ID == int.Parse(l[0].ToString())));
+            }
+            cboChonLop.DataSource = lstLop;
             cboChonLop.DisplayMember = "TenLop";
             cboChonLop.ValueMember = "ID";
         }
@@ -425,6 +436,7 @@ namespace GUI
                     {
                         MessageBox.Show("Thêm Thành Công !");
                         bsGVCN.DataSource = await gvcn.LayDT();
+                        await LoadCBOChonLop();
                         idGVCN = -1;
                     }
                     else
@@ -453,6 +465,7 @@ namespace GUI
                         MessageBox.Show("Cập Nhật Thành Công !");
                         bsDSGVCN.RemoveFilter();
                         bsGVCN.DataSource = await gvcn.LayDT();
+                        await LoadCBOChonLop();
                         btnLuuGVCN.Enabled = true;
                         btnSuaGVCN.Enabled = false;
                         idGVCN = -1;
@@ -469,9 +482,9 @@ namespace GUI
                     
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi !");
+                MessageBox.Show("Lỗi !\n"+ex.Message);
             }
         }
 
@@ -487,6 +500,7 @@ namespace GUI
                         if((await gvcn.Xoa(g)) == 1)
                         {
                             bsGVCN.DataSource = await gvcn.LayDT();
+                            await LoadCBOChonLop();
                         }
                         else
                         {
@@ -496,7 +510,7 @@ namespace GUI
                     }
                     catch (Exception ex)
                     {
-
+                        MessageBox.Show("Lỗi !\n" + ex.Message);
                     }                   
                 }
                 else
