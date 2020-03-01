@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -119,15 +119,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Lớp";
             // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 348);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 24);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Học Sinh";
-            // 
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -136,6 +127,15 @@
             this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 5;
             this.label5.Text = "Môn Học";
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(3, 348);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Học Sinh";
             // 
             // comboBox1
             // 

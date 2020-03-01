@@ -104,7 +104,7 @@ namespace GUI
                 if (ph.ID == -1 && drv.Row.ItemArray[1].ToString() != "")
                 {
                     await tkPH.Them(ph);
-                    LoadDGVTKPH();
+                    await LoadDGVTKPH();
                     MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");                    
                     dgvTKPH.ReadOnly = true;
                     idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
@@ -136,7 +136,7 @@ namespace GUI
                             idTKPH = -1;
                             idHS = -1;
                             dgvTKPH.ReadOnly = false;
-                            LoadDGVDSHS();
+                            await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
                         else
@@ -145,7 +145,7 @@ namespace GUI
                             idTKPH = -1;
                             idHS = -1;
                             dgvTKPH.ReadOnly = false;
-                            LoadDGVDSHS();
+                            await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
                     }
@@ -157,7 +157,7 @@ namespace GUI
                             idTKPH = -1;
                             idHS = -1;
                             dgvTKPH.ReadOnly = false;
-                            LoadDGVDSHS();
+                            await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
                         else
@@ -166,7 +166,7 @@ namespace GUI
                             idTKPH = -1;
                             idHS = -1;
                             dgvTKPH.ReadOnly = false;
-                            LoadDGVDSHS();
+                            await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
                     }                   
@@ -212,7 +212,7 @@ namespace GUI
                 {
                     if((await tkPH.CapNhap(new TaiKhoanPH(id, tenTK, tenTK))) != 0)
                     {
-                        LoadDGVTKPH();
+                        await LoadDGVTKPH();
                         id = -1;
                         tenTK = "";
                         MessageBox.Show("MK đã được đặt lại (Tên TK là MK)!");
@@ -220,7 +220,7 @@ namespace GUI
                     else
                     {
                         MessageBox.Show("Đăt Lại Mật Khẩu Thất Bại !");
-                        LoadDGVTKPH();
+                        await LoadDGVTKPH();
                         id = -1;
                         tenTK = "";
                     }                    

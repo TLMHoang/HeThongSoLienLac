@@ -35,6 +35,10 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.cboLop = new System.Windows.Forms.ComboBox();
             this.cboMonHoc = new System.Windows.Forms.ComboBox();
+            this.radDiemMieng = new System.Windows.Forms.RadioButton();
+            this.rad15p = new System.Windows.Forms.RadioButton();
+            this.rad1tiet = new System.Windows.Forms.RadioButton();
+            this.radHocKy = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,10 +47,6 @@
             this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaySinhDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.radDiemMieng = new System.Windows.Forms.RadioButton();
-            this.rad15p = new System.Windows.Forms.RadioButton();
-            this.rad1tiet = new System.Windows.Forms.RadioButton();
-            this.radHocKy = new System.Windows.Forms.RadioButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsHocSinh)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
@@ -134,6 +134,51 @@
             this.cboMonHoc.Size = new System.Drawing.Size(203, 24);
             this.cboMonHoc.TabIndex = 4;
             this.cboMonHoc.Text = "----MÔN HỌC---";
+            // 
+            // radDiemMieng
+            // 
+            this.radDiemMieng.AutoSize = true;
+            this.radDiemMieng.Location = new System.Drawing.Point(3, 31);
+            this.radDiemMieng.Name = "radDiemMieng";
+            this.radDiemMieng.Size = new System.Drawing.Size(97, 20);
+            this.radDiemMieng.TabIndex = 6;
+            this.radDiemMieng.TabStop = true;
+            this.radDiemMieng.Text = "Điểm Miệng";
+            this.radDiemMieng.UseVisualStyleBackColor = true;
+            this.radDiemMieng.CheckedChanged += new System.EventHandler(this.radDiemMieng_CheckedChanged);
+            // 
+            // rad15p
+            // 
+            this.rad15p.AutoSize = true;
+            this.rad15p.Location = new System.Drawing.Point(201, 31);
+            this.rad15p.Name = "rad15p";
+            this.rad15p.Size = new System.Drawing.Size(82, 20);
+            this.rad15p.TabIndex = 7;
+            this.rad15p.TabStop = true;
+            this.rad15p.Text = "Điểm 15p";
+            this.rad15p.UseVisualStyleBackColor = true;
+            // 
+            // rad1tiet
+            // 
+            this.rad1tiet.AutoSize = true;
+            this.rad1tiet.Location = new System.Drawing.Point(430, 31);
+            this.rad1tiet.Name = "rad1tiet";
+            this.rad1tiet.Size = new System.Drawing.Size(93, 20);
+            this.rad1tiet.TabIndex = 8;
+            this.rad1tiet.TabStop = true;
+            this.rad1tiet.Text = "Điểm 1 Tiết";
+            this.rad1tiet.UseVisualStyleBackColor = true;
+            // 
+            // radHocKy
+            // 
+            this.radHocKy.AutoSize = true;
+            this.radHocKy.Location = new System.Drawing.Point(639, 31);
+            this.radHocKy.Name = "radHocKy";
+            this.radHocKy.Size = new System.Drawing.Size(99, 20);
+            this.radHocKy.TabIndex = 9;
+            this.radHocKy.TabStop = true;
+            this.radHocKy.Text = "Điểm học kỳ";
+            this.radHocKy.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel11
             // 
@@ -227,51 +272,6 @@
             this.ngaySinhDataGridViewTextBoxColumn2.DataPropertyName = "NgaySinh";
             this.ngaySinhDataGridViewTextBoxColumn2.HeaderText = "NgaySinh";
             this.ngaySinhDataGridViewTextBoxColumn2.Name = "ngaySinhDataGridViewTextBoxColumn2";
-            // 
-            // radDiemMieng
-            // 
-            this.radDiemMieng.AutoSize = true;
-            this.radDiemMieng.Location = new System.Drawing.Point(3, 31);
-            this.radDiemMieng.Name = "radDiemMieng";
-            this.radDiemMieng.Size = new System.Drawing.Size(97, 20);
-            this.radDiemMieng.TabIndex = 6;
-            this.radDiemMieng.TabStop = true;
-            this.radDiemMieng.Text = "Điểm Miệng";
-            this.radDiemMieng.UseVisualStyleBackColor = true;
-            this.radDiemMieng.CheckedChanged += new System.EventHandler(this.radDiemMieng_CheckedChanged);
-            // 
-            // rad15p
-            // 
-            this.rad15p.AutoSize = true;
-            this.rad15p.Location = new System.Drawing.Point(201, 31);
-            this.rad15p.Name = "rad15p";
-            this.rad15p.Size = new System.Drawing.Size(82, 20);
-            this.rad15p.TabIndex = 7;
-            this.rad15p.TabStop = true;
-            this.rad15p.Text = "Điểm 15p";
-            this.rad15p.UseVisualStyleBackColor = true;
-            // 
-            // rad1tiet
-            // 
-            this.rad1tiet.AutoSize = true;
-            this.rad1tiet.Location = new System.Drawing.Point(430, 31);
-            this.rad1tiet.Name = "rad1tiet";
-            this.rad1tiet.Size = new System.Drawing.Size(93, 20);
-            this.rad1tiet.TabIndex = 8;
-            this.rad1tiet.TabStop = true;
-            this.rad1tiet.Text = "Điểm 1 Tiết";
-            this.rad1tiet.UseVisualStyleBackColor = true;
-            // 
-            // radHocKy
-            // 
-            this.radHocKy.AutoSize = true;
-            this.radHocKy.Location = new System.Drawing.Point(639, 31);
-            this.radHocKy.Name = "radHocKy";
-            this.radHocKy.Size = new System.Drawing.Size(99, 20);
-            this.radHocKy.TabIndex = 9;
-            this.radHocKy.TabStop = true;
-            this.radHocKy.Text = "Điểm học kỳ";
-            this.radHocKy.UseVisualStyleBackColor = true;
             // 
             // Column1
             // 
