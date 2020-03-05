@@ -25,7 +25,6 @@ namespace GUI
 
         private void frmThoiKhoaBieu_Load(object sender, EventArgs e)
         {           
-            btnSua.Enabled = false;
             LoadCBO();
             LoadDGV();
             bsTKB.Filter = String.Format("CONVERT(IDLop, System.String)='{0}' ", cboChonLop.SelectedValue);
@@ -96,94 +95,7 @@ namespace GUI
             bsTKB.ResumeBinding();
         }
 
-        private async void btnLuu_Click(object sender, EventArgs e)
-        {
-            try
-            {                
-                    if (cboChonBuoi.SelectedIndex == 0)
-                    {
-                        if((await tkb.Them(new ThoiKhoaBieu(
-                            Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
-                            Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
-                            1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
-                            ))) != 0)
-                    {
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            2, int.Parse(cboMonTiet2.SelectedValue.ToString())
-                            ));//Tiet 2
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            3, int.Parse(cboMonTiet3.SelectedValue.ToString())
-                            ));//Tiet 3
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            4, int.Parse(cboMonTiet4.SelectedValue.ToString())
-                            ));//Tiet 4
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            5, int.Parse(cboMonTiet5.SelectedValue.ToString())
-                            ));//Tiet 5
-                        MessageBox.Show("Thêm Thành Công !");
-                        bsTKB.DataSource = await tkb.LayDT();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm Thất Bại !");
-                        bsTKB.DataSource = await tkb.LayDT();
-                    }
-                        
-                    }
-                    else
-                    {
-                        if((await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            6, int.Parse(cboMonTiet1.SelectedValue.ToString())
-                            )))!=0)//Tiet 6
-                    {
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            7, int.Parse(cboMonTiet2.SelectedValue.ToString())
-                            ));//Tiet 7
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            8, int.Parse(cboMonTiet3.SelectedValue.ToString())
-                            ));//Tiet 8
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            9, int.Parse(cboMonTiet4.SelectedValue.ToString())
-                            ));//Tiet 9
-                        await tkb.Them(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            10, int.Parse(cboMonTiet5.SelectedValue.ToString())
-                            ));//Tiet 10
-                        MessageBox.Show("Thêm Thành Công !");
-                        bsTKB.DataSource = await tkb.LayDT();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm Thất Bại !");
-                        bsTKB.DataSource = await tkb.LayDT();
-                    }
-                        
-                    }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+        
         private void cboChonBuoi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboChonBuoi.SelectedIndex == 0)
@@ -203,11 +115,8 @@ namespace GUI
                 lblTiet5.Text = "Tiết 10";
             }
         }
-
         private void dgvTKB_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnSua.Enabled = true;
-            btnLuu.Enabled = false;
+        {            
             cboChonLop.Enabled = false;
             MessageBox.Show("Chọn Lại Môn Cần Cập Nhật !");
             if(int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString())>0 && int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString()) < 6)
@@ -226,104 +135,631 @@ namespace GUI
             ComboBox cbx = sender as ComboBox;
             bsTKB.Filter = String.Format("CONVERT(IDLop, System.String)='{0}' ", cbx.SelectedValue);
         }
-
-        private async void btnSua_Click(object sender, EventArgs e)
+       
+        private async void bntLuuTiet1_Click(object sender, EventArgs e)
         {
             try
             {
                 if (cboChonBuoi.SelectedIndex == 0)
                 {
-                    if((await tkb.CapNhap(new ThoiKhoaBieu(
-                        Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
-                        Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
-                        1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
-                        ))) != 0)
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
+                           ))) != 0)
                     {
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        2, int.Parse(cboMonTiet2.SelectedValue.ToString())
-                        ));//Tiet 2
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            3, int.Parse(cboMonTiet3.SelectedValue.ToString())
-                            ));//Tiet 3
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            4, int.Parse(cboMonTiet4.SelectedValue.ToString())
-                            ));//Tiet 4
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            5, int.Parse(cboMonTiet5.SelectedValue.ToString())
-                            ));//Tiet 5
-                        MessageBox.Show("Cập Nhật Thành Công !");
+                        MessageBox.Show("Thêm Thành Công !");
                         bsTKB.DataSource = await tkb.LayDT();
-                        btnSua.Enabled = false;
-                        btnLuu.Enabled = true;
-                        cboChonLop.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Cập Nhật Thất Bại !");
                         bsTKB.DataSource = await tkb.LayDT();
-                        btnSua.Enabled = false;
-                        btnLuu.Enabled = true;
-                        cboChonLop.Enabled = true;
                     }
-                    
                 }
                 else
                 {
-                    if((await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        6, int.Parse(cboMonTiet1.SelectedValue.ToString())
-                        ))) != 0)
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           6, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
+                           ))) != 0)
                     {
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                        int.Parse(cboChonLop.SelectedValue.ToString()),
-                        int.Parse(cboChonThu.SelectedValue.ToString()),
-                        7, int.Parse(cboMonTiet2.SelectedValue.ToString())
-                        ));//Tiet 7
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            8, int.Parse(cboMonTiet3.SelectedValue.ToString())
-                            ));//Tiet 8
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            9, int.Parse(cboMonTiet4.SelectedValue.ToString())
-                            ));//Tiet 9
-                        await tkb.CapNhap(new ThoiKhoaBieu(
-                            int.Parse(cboChonLop.SelectedValue.ToString()),
-                            int.Parse(cboChonThu.SelectedValue.ToString()),
-                            10, int.Parse(cboMonTiet5.SelectedValue.ToString())
-                            ));//Tiet 10
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }           
+        }
+
+        private async void btnSuaTiet1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
+                           ))) != 0)
+                    {
                         MessageBox.Show("Cập Nhật Thành Công !");
                         bsTKB.DataSource = await tkb.LayDT();
-                        btnSua.Enabled = false;
-                        btnLuu.Enabled = true;
-                        cboChonLop.Enabled = true;
                     }
                     else
                     {
                         MessageBox.Show("Cập Nhật Thất Bại !");
                         bsTKB.DataSource = await tkb.LayDT();
-                        btnSua.Enabled = false;
-                        btnLuu.Enabled = true;
-                        cboChonLop.Enabled = true;
-                    }                    
+                    }
+                }
+                else
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           6, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi !\n" + ex.Message);
+                MessageBox.Show("Lỗi !" + ex.Message);
             }
         }
+
+        private async void btnLuuTiet2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           2, Convert.ToInt32(cboMonTiet2.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           7, Convert.ToInt32(cboMonTiet2.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnSuaTiet2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           2, Convert.ToInt32(cboMonTiet2.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           7, Convert.ToInt32(cboMonTiet2.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnLuuTiet3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           3, Convert.ToInt32(cboMonTiet3.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           8, Convert.ToInt32(cboMonTiet3.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnSuaTiet3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           3, Convert.ToInt32(cboMonTiet3.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           8, Convert.ToInt32(cboMonTiet3.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnLuuTiet4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           4, Convert.ToInt32(cboMonTiet4.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           9, Convert.ToInt32(cboMonTiet4.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnSuaTiet4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           4, Convert.ToInt32(cboMonTiet4.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           9, Convert.ToInt32(cboMonTiet4.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnLuuTiet5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           5, Convert.ToInt32(cboMonTiet5.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.Them(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           10, Convert.ToInt32(cboMonTiet5.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Thêm Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        private async void btnSuaTiet5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboChonBuoi.SelectedIndex == 0)
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           5, Convert.ToInt32(cboMonTiet5.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+                else
+                {
+                    if ((await tkb.CapNhap(new ThoiKhoaBieu(
+                           Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+                           Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+                           10, Convert.ToInt32(cboMonTiet5.SelectedValue.ToString())
+                           ))) != 0)
+                    {
+                        MessageBox.Show("Cập Nhật Thành Công !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhật Thất Bại !");
+                        bsTKB.DataSource = await tkb.LayDT();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi !" + ex.Message);
+            }
+        }
+
+        //private async void btnLuu_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {                
+        //            if (cboChonBuoi.SelectedIndex == 0)
+        //            {
+        //                if((await tkb.Them(new ThoiKhoaBieu(
+        //                    Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+        //                    Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+        //                    1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
+        //                    ))) != 0)
+        //            {
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    2, int.Parse(cboMonTiet2.SelectedValue.ToString())
+        //                    ));//Tiet 2
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    3, int.Parse(cboMonTiet3.SelectedValue.ToString())
+        //                    ));//Tiet 3
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    4, int.Parse(cboMonTiet4.SelectedValue.ToString())
+        //                    ));//Tiet 4
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    5, int.Parse(cboMonTiet5.SelectedValue.ToString())
+        //                    ));//Tiet 5
+        //                MessageBox.Show("Thêm Thành Công !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Thêm Thất Bại !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //            }
+
+        //            }
+        //            else
+        //            {
+        //                if((await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    6, int.Parse(cboMonTiet1.SelectedValue.ToString())
+        //                    )))!=0)//Tiet 6
+        //            {
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    7, int.Parse(cboMonTiet2.SelectedValue.ToString())
+        //                    ));//Tiet 7
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    8, int.Parse(cboMonTiet3.SelectedValue.ToString())
+        //                    ));//Tiet 8
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    9, int.Parse(cboMonTiet4.SelectedValue.ToString())
+        //                    ));//Tiet 9
+        //                await tkb.Them(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    10, int.Parse(cboMonTiet5.SelectedValue.ToString())
+        //                    ));//Tiet 10
+        //                MessageBox.Show("Thêm Thành Công !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Thêm Thất Bại !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //            }
+
+        //            }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private async void btnSua_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (cboChonBuoi.SelectedIndex == 0)
+        //        {
+        //            if((await tkb.CapNhap(new ThoiKhoaBieu(
+        //                Convert.ToInt32(cboChonLop.SelectedValue.ToString()),
+        //                Convert.ToInt32(cboChonThu.SelectedValue.ToString()),
+        //                1, Convert.ToInt32(cboMonTiet1.SelectedValue.ToString())
+        //                ))) != 0)
+        //            {
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                2, int.Parse(cboMonTiet2.SelectedValue.ToString())
+        //                ));//Tiet 2
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    3, int.Parse(cboMonTiet3.SelectedValue.ToString())
+        //                    ));//Tiet 3
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    4, int.Parse(cboMonTiet4.SelectedValue.ToString())
+        //                    ));//Tiet 4
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    5, int.Parse(cboMonTiet5.SelectedValue.ToString())
+        //                    ));//Tiet 5
+        //                MessageBox.Show("Cập Nhật Thành Công !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //                btnSua.Enabled = false;
+        //                btnLuu.Enabled = true;
+        //                cboChonLop.Enabled = true;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Cập Nhật Thất Bại !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //                btnSua.Enabled = false;
+        //                btnLuu.Enabled = true;
+        //                cboChonLop.Enabled = true;
+        //            }
+
+        //        }
+        //        else
+        //        {
+        //            if((await tkb.CapNhap(new ThoiKhoaBieu(
+        //                int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                6, int.Parse(cboMonTiet1.SelectedValue.ToString())
+        //                ))) != 0)
+        //            {
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                7, int.Parse(cboMonTiet2.SelectedValue.ToString())
+        //                ));//Tiet 7
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    8, int.Parse(cboMonTiet3.SelectedValue.ToString())
+        //                    ));//Tiet 8
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    9, int.Parse(cboMonTiet4.SelectedValue.ToString())
+        //                    ));//Tiet 9
+        //                await tkb.CapNhap(new ThoiKhoaBieu(
+        //                    int.Parse(cboChonLop.SelectedValue.ToString()),
+        //                    int.Parse(cboChonThu.SelectedValue.ToString()),
+        //                    10, int.Parse(cboMonTiet5.SelectedValue.ToString())
+        //                    ));//Tiet 10
+        //                MessageBox.Show("Cập Nhật Thành Công !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //                btnSua.Enabled = false;
+        //                btnLuu.Enabled = true;
+        //                cboChonLop.Enabled = true;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Cập Nhật Thất Bại !");
+        //                bsTKB.DataSource = await tkb.LayDT();
+        //                btnSua.Enabled = false;
+        //                btnLuu.Enabled = true;
+        //                cboChonLop.Enabled = true;
+        //            }                    
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi !\n" + ex.Message);
+        //    }
+        //}
     }
-    
+
 }
