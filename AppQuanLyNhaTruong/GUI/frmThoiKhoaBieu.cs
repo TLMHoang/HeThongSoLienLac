@@ -115,20 +115,6 @@ namespace GUI
                 lblTiet5.Text = "Tiết 10";
             }
         }
-        private void dgvTKB_CellClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            cboChonLop.Enabled = false;
-            MessageBox.Show("Chọn Lại Môn Cần Cập Nhật !");
-            if(int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString())>0 && int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString()) < 6)
-            {
-                cboChonBuoi.SelectedValue = 1;
-            }
-            else
-            {
-                cboChonBuoi.SelectedValue = 2;
-            }
-            cboChonThu.SelectedValue = int.Parse(dgvTKB.Rows[e.RowIndex].Cells[1].Value.ToString());           
-        }
 
         private void cboChonLop_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -760,6 +746,21 @@ namespace GUI
         //        MessageBox.Show("Lỗi !\n" + ex.Message);
         //    }
         //}
+        //private void dgvTKB_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    cboChonLop.Enabled = false;
+        //    MessageBox.Show("Chọn Lại Môn Cần Cập Nhật !");
+        //    if (int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString()) > 0 && int.Parse(dgvTKB.Rows[e.RowIndex].Cells[2].Value.ToString()) < 6)
+        //    {
+        //        cboChonBuoi.SelectedValue = 1;
+        //    }
+        //    else
+        //    {
+        //        cboChonBuoi.SelectedValue = 2;
+        //    }
+        //    cboChonThu.SelectedValue = int.Parse(dgvTKB.Rows[e.RowIndex].Cells[1].Value.ToString());
+        //}
+
     }
 
 }

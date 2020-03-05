@@ -118,18 +118,17 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.79909F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.041752F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.95652F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.564291F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.758652F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.957713F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.156771F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.554893F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.753952F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.766755F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.914805F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.182263F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.74942F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.1951F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.715229F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.601449F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.876812F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.42029F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.601449F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.057971F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.139678F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(964, 552);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -153,7 +152,6 @@
             this.dgvTKB.RowTemplate.Height = 24;
             this.dgvTKB.Size = new System.Drawing.Size(458, 546);
             this.dgvTKB.TabIndex = 0;
-            this.dgvTKB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTKB_CellClick);
             // 
             // iDLopDataGridViewTextBoxColumn
             // 
@@ -193,7 +191,7 @@
             this.cboChonThu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboChonThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboChonThu.FormattingEnabled = true;
-            this.cboChonThu.Location = new System.Drawing.Point(3, 73);
+            this.cboChonThu.Location = new System.Drawing.Point(3, 74);
             this.cboChonThu.Name = "cboChonThu";
             this.cboChonThu.Size = new System.Drawing.Size(494, 28);
             this.cboChonThu.TabIndex = 2;
@@ -212,7 +210,7 @@
             // lblTiet5
             // 
             this.lblTiet5.AutoSize = true;
-            this.lblTiet5.Location = new System.Drawing.Point(3, 498);
+            this.lblTiet5.Location = new System.Drawing.Point(3, 507);
             this.lblTiet5.Name = "lblTiet5";
             this.lblTiet5.Size = new System.Drawing.Size(57, 20);
             this.lblTiet5.TabIndex = 10;
@@ -221,7 +219,7 @@
             // lblTiet4
             // 
             this.lblTiet4.AutoSize = true;
-            this.lblTiet4.Location = new System.Drawing.Point(3, 445);
+            this.lblTiet4.Location = new System.Drawing.Point(3, 457);
             this.lblTiet4.Name = "lblTiet4";
             this.lblTiet4.Size = new System.Drawing.Size(63, 20);
             this.lblTiet4.TabIndex = 9;
@@ -230,7 +228,7 @@
             // lblTiet3
             // 
             this.lblTiet3.AutoSize = true;
-            this.lblTiet3.Location = new System.Drawing.Point(3, 393);
+            this.lblTiet3.Location = new System.Drawing.Point(3, 404);
             this.lblTiet3.Name = "lblTiet3";
             this.lblTiet3.Size = new System.Drawing.Size(57, 20);
             this.lblTiet3.TabIndex = 8;
@@ -239,7 +237,7 @@
             // lblTiet2
             // 
             this.lblTiet2.AutoSize = true;
-            this.lblTiet2.Location = new System.Drawing.Point(3, 343);
+            this.lblTiet2.Location = new System.Drawing.Point(3, 352);
             this.lblTiet2.Name = "lblTiet2";
             this.lblTiet2.Size = new System.Drawing.Size(57, 20);
             this.lblTiet2.TabIndex = 7;
@@ -248,7 +246,7 @@
             // lblTiet1
             // 
             this.lblTiet1.AutoSize = true;
-            this.lblTiet1.Location = new System.Drawing.Point(3, 294);
+            this.lblTiet1.Location = new System.Drawing.Point(3, 303);
             this.lblTiet1.Name = "lblTiet1";
             this.lblTiet1.Size = new System.Drawing.Size(57, 20);
             this.lblTiet1.TabIndex = 6;
@@ -258,7 +256,7 @@
             // 
             this.lblSoTiet.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.lblSoTiet, 4);
-            this.lblSoTiet.Location = new System.Drawing.Point(3, 246);
+            this.lblSoTiet.Location = new System.Drawing.Point(3, 250);
             this.lblSoTiet.Name = "lblSoTiet";
             this.lblSoTiet.Size = new System.Drawing.Size(156, 20);
             this.lblSoTiet.TabIndex = 5;
@@ -269,7 +267,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.cboChonBuoi, 4);
             this.cboChonBuoi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboChonBuoi.FormattingEnabled = true;
-            this.cboChonBuoi.Location = new System.Drawing.Point(3, 208);
+            this.cboChonBuoi.Location = new System.Drawing.Point(3, 211);
             this.cboChonBuoi.Name = "cboChonBuoi";
             this.cboChonBuoi.Size = new System.Drawing.Size(494, 28);
             this.cboChonBuoi.TabIndex = 4;
@@ -278,7 +276,7 @@
             // lblChonBuoi
             // 
             this.lblChonBuoi.AutoSize = true;
-            this.lblChonBuoi.Location = new System.Drawing.Point(3, 139);
+            this.lblChonBuoi.Location = new System.Drawing.Point(3, 141);
             this.lblChonBuoi.Name = "lblChonBuoi";
             this.lblChonBuoi.Size = new System.Drawing.Size(96, 20);
             this.lblChonBuoi.TabIndex = 16;
@@ -301,7 +299,7 @@
             this.cboMonTiet1.DisplayMember = "TenMon";
             this.cboMonTiet1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet1.FormattingEnabled = true;
-            this.cboMonTiet1.Location = new System.Drawing.Point(147, 297);
+            this.cboMonTiet1.Location = new System.Drawing.Point(147, 306);
             this.cboMonTiet1.Name = "cboMonTiet1";
             this.cboMonTiet1.Size = new System.Drawing.Size(153, 28);
             this.cboMonTiet1.TabIndex = 20;
@@ -317,7 +315,7 @@
             this.cboMonTiet2.DisplayMember = "TenMon";
             this.cboMonTiet2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet2.FormattingEnabled = true;
-            this.cboMonTiet2.Location = new System.Drawing.Point(147, 346);
+            this.cboMonTiet2.Location = new System.Drawing.Point(147, 355);
             this.cboMonTiet2.Name = "cboMonTiet2";
             this.cboMonTiet2.Size = new System.Drawing.Size(153, 28);
             this.cboMonTiet2.TabIndex = 21;
@@ -333,7 +331,7 @@
             this.cboMonTiet3.DisplayMember = "TenMon";
             this.cboMonTiet3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet3.FormattingEnabled = true;
-            this.cboMonTiet3.Location = new System.Drawing.Point(147, 396);
+            this.cboMonTiet3.Location = new System.Drawing.Point(147, 407);
             this.cboMonTiet3.Name = "cboMonTiet3";
             this.cboMonTiet3.Size = new System.Drawing.Size(153, 28);
             this.cboMonTiet3.TabIndex = 22;
@@ -349,7 +347,7 @@
             this.cboMonTiet4.DisplayMember = "TenMon";
             this.cboMonTiet4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet4.FormattingEnabled = true;
-            this.cboMonTiet4.Location = new System.Drawing.Point(147, 448);
+            this.cboMonTiet4.Location = new System.Drawing.Point(147, 460);
             this.cboMonTiet4.Name = "cboMonTiet4";
             this.cboMonTiet4.Size = new System.Drawing.Size(153, 28);
             this.cboMonTiet4.TabIndex = 23;
@@ -365,7 +363,7 @@
             this.cboMonTiet5.DisplayMember = "TenMon";
             this.cboMonTiet5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMonTiet5.FormattingEnabled = true;
-            this.cboMonTiet5.Location = new System.Drawing.Point(147, 501);
+            this.cboMonTiet5.Location = new System.Drawing.Point(147, 510);
             this.cboMonTiet5.Name = "cboMonTiet5";
             this.cboMonTiet5.Size = new System.Drawing.Size(153, 28);
             this.cboMonTiet5.TabIndex = 24;
@@ -382,7 +380,7 @@
             this.bntLuuTiet1.FlatAppearance.BorderSize = 0;
             this.bntLuuTiet1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntLuuTiet1.ForeColor = System.Drawing.Color.White;
-            this.bntLuuTiet1.Location = new System.Drawing.Point(306, 297);
+            this.bntLuuTiet1.Location = new System.Drawing.Point(306, 306);
             this.bntLuuTiet1.Name = "bntLuuTiet1";
             this.bntLuuTiet1.Size = new System.Drawing.Size(91, 43);
             this.bntLuuTiet1.TabIndex = 25;
@@ -397,7 +395,7 @@
             this.btnSuaTiet1.FlatAppearance.BorderSize = 0;
             this.btnSuaTiet1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaTiet1.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTiet1.Location = new System.Drawing.Point(403, 297);
+            this.btnSuaTiet1.Location = new System.Drawing.Point(403, 306);
             this.btnSuaTiet1.Name = "btnSuaTiet1";
             this.btnSuaTiet1.Size = new System.Drawing.Size(94, 43);
             this.btnSuaTiet1.TabIndex = 26;
@@ -412,9 +410,9 @@
             this.btnLuuTiet2.FlatAppearance.BorderSize = 0;
             this.btnLuuTiet2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTiet2.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTiet2.Location = new System.Drawing.Point(306, 346);
+            this.btnLuuTiet2.Location = new System.Drawing.Point(306, 355);
             this.btnLuuTiet2.Name = "btnLuuTiet2";
-            this.btnLuuTiet2.Size = new System.Drawing.Size(91, 44);
+            this.btnLuuTiet2.Size = new System.Drawing.Size(91, 46);
             this.btnLuuTiet2.TabIndex = 27;
             this.btnLuuTiet2.Text = "Lưu";
             this.btnLuuTiet2.UseVisualStyleBackColor = false;
@@ -427,9 +425,9 @@
             this.btnSuaTiet2.FlatAppearance.BorderSize = 0;
             this.btnSuaTiet2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaTiet2.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTiet2.Location = new System.Drawing.Point(403, 346);
+            this.btnSuaTiet2.Location = new System.Drawing.Point(403, 355);
             this.btnSuaTiet2.Name = "btnSuaTiet2";
-            this.btnSuaTiet2.Size = new System.Drawing.Size(94, 44);
+            this.btnSuaTiet2.Size = new System.Drawing.Size(94, 46);
             this.btnSuaTiet2.TabIndex = 28;
             this.btnSuaTiet2.Text = "Sửa";
             this.btnSuaTiet2.UseVisualStyleBackColor = false;
@@ -442,9 +440,9 @@
             this.btnLuuTiet3.FlatAppearance.BorderSize = 0;
             this.btnLuuTiet3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTiet3.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTiet3.Location = new System.Drawing.Point(306, 396);
+            this.btnLuuTiet3.Location = new System.Drawing.Point(306, 407);
             this.btnLuuTiet3.Name = "btnLuuTiet3";
-            this.btnLuuTiet3.Size = new System.Drawing.Size(91, 46);
+            this.btnLuuTiet3.Size = new System.Drawing.Size(91, 47);
             this.btnLuuTiet3.TabIndex = 29;
             this.btnLuuTiet3.Text = "Lưu";
             this.btnLuuTiet3.UseVisualStyleBackColor = false;
@@ -457,9 +455,9 @@
             this.btnSuaTiet3.FlatAppearance.BorderSize = 0;
             this.btnSuaTiet3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaTiet3.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTiet3.Location = new System.Drawing.Point(403, 396);
+            this.btnSuaTiet3.Location = new System.Drawing.Point(403, 407);
             this.btnSuaTiet3.Name = "btnSuaTiet3";
-            this.btnSuaTiet3.Size = new System.Drawing.Size(94, 46);
+            this.btnSuaTiet3.Size = new System.Drawing.Size(94, 47);
             this.btnSuaTiet3.TabIndex = 30;
             this.btnSuaTiet3.Text = "Sửa";
             this.btnSuaTiet3.UseVisualStyleBackColor = false;
@@ -472,9 +470,9 @@
             this.btnLuuTiet4.FlatAppearance.BorderSize = 0;
             this.btnLuuTiet4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTiet4.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTiet4.Location = new System.Drawing.Point(306, 448);
+            this.btnLuuTiet4.Location = new System.Drawing.Point(306, 460);
             this.btnLuuTiet4.Name = "btnLuuTiet4";
-            this.btnLuuTiet4.Size = new System.Drawing.Size(91, 47);
+            this.btnLuuTiet4.Size = new System.Drawing.Size(91, 44);
             this.btnLuuTiet4.TabIndex = 31;
             this.btnLuuTiet4.Text = "Lưu";
             this.btnLuuTiet4.UseVisualStyleBackColor = false;
@@ -487,9 +485,9 @@
             this.btnSuaTiet4.FlatAppearance.BorderSize = 0;
             this.btnSuaTiet4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaTiet4.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTiet4.Location = new System.Drawing.Point(403, 448);
+            this.btnSuaTiet4.Location = new System.Drawing.Point(403, 460);
             this.btnSuaTiet4.Name = "btnSuaTiet4";
-            this.btnSuaTiet4.Size = new System.Drawing.Size(94, 47);
+            this.btnSuaTiet4.Size = new System.Drawing.Size(94, 44);
             this.btnSuaTiet4.TabIndex = 32;
             this.btnSuaTiet4.Text = "Sửa";
             this.btnSuaTiet4.UseVisualStyleBackColor = false;
@@ -502,9 +500,9 @@
             this.btnLuuTiet5.FlatAppearance.BorderSize = 0;
             this.btnLuuTiet5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTiet5.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTiet5.Location = new System.Drawing.Point(306, 501);
+            this.btnLuuTiet5.Location = new System.Drawing.Point(306, 510);
             this.btnLuuTiet5.Name = "btnLuuTiet5";
-            this.btnLuuTiet5.Size = new System.Drawing.Size(91, 48);
+            this.btnLuuTiet5.Size = new System.Drawing.Size(91, 39);
             this.btnLuuTiet5.TabIndex = 33;
             this.btnLuuTiet5.Text = "Lưu";
             this.btnLuuTiet5.UseVisualStyleBackColor = false;
@@ -517,9 +515,9 @@
             this.btnSuaTiet5.FlatAppearance.BorderSize = 0;
             this.btnSuaTiet5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaTiet5.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTiet5.Location = new System.Drawing.Point(403, 501);
+            this.btnSuaTiet5.Location = new System.Drawing.Point(403, 510);
             this.btnSuaTiet5.Name = "btnSuaTiet5";
-            this.btnSuaTiet5.Size = new System.Drawing.Size(94, 48);
+            this.btnSuaTiet5.Size = new System.Drawing.Size(94, 39);
             this.btnSuaTiet5.TabIndex = 34;
             this.btnSuaTiet5.Text = "Sửa";
             this.btnSuaTiet5.UseVisualStyleBackColor = false;
