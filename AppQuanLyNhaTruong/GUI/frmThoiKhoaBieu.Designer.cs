@@ -193,7 +193,7 @@
             this.cboChonThu.FormattingEnabled = true;
             this.cboChonThu.Location = new System.Drawing.Point(3, 74);
             this.cboChonThu.Name = "cboChonThu";
-            this.cboChonThu.Size = new System.Drawing.Size(494, 28);
+            this.cboChonThu.Size = new System.Drawing.Size(494, 25);
             this.cboChonThu.TabIndex = 2;
             // 
             // cboChonLop
@@ -203,7 +203,7 @@
             this.cboChonLop.FormattingEnabled = true;
             this.cboChonLop.Location = new System.Drawing.Point(3, 35);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(494, 28);
+            this.cboChonLop.Size = new System.Drawing.Size(494, 24);
             this.cboChonLop.TabIndex = 3;
             this.cboChonLop.SelectedIndexChanged += new System.EventHandler(this.cboChonLop_SelectedIndexChanged);
             // 
@@ -212,7 +212,7 @@
             this.lblTiet5.AutoSize = true;
             this.lblTiet5.Location = new System.Drawing.Point(3, 507);
             this.lblTiet5.Name = "lblTiet5";
-            this.lblTiet5.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet5.Size = new System.Drawing.Size(47, 16);
             this.lblTiet5.TabIndex = 10;
             this.lblTiet5.Text = "Tiết 5";
             // 
@@ -221,7 +221,7 @@
             this.lblTiet4.AutoSize = true;
             this.lblTiet4.Location = new System.Drawing.Point(3, 457);
             this.lblTiet4.Name = "lblTiet4";
-            this.lblTiet4.Size = new System.Drawing.Size(63, 20);
+            this.lblTiet4.Size = new System.Drawing.Size(51, 16);
             this.lblTiet4.TabIndex = 9;
             this.lblTiet4.Text = "Tiết 4 ";
             // 
@@ -230,7 +230,7 @@
             this.lblTiet3.AutoSize = true;
             this.lblTiet3.Location = new System.Drawing.Point(3, 404);
             this.lblTiet3.Name = "lblTiet3";
-            this.lblTiet3.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet3.Size = new System.Drawing.Size(47, 16);
             this.lblTiet3.TabIndex = 8;
             this.lblTiet3.Text = "Tiết 3";
             // 
@@ -239,7 +239,7 @@
             this.lblTiet2.AutoSize = true;
             this.lblTiet2.Location = new System.Drawing.Point(3, 352);
             this.lblTiet2.Name = "lblTiet2";
-            this.lblTiet2.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet2.Size = new System.Drawing.Size(47, 16);
             this.lblTiet2.TabIndex = 7;
             this.lblTiet2.Text = "Tiết 2";
             // 
@@ -248,7 +248,7 @@
             this.lblTiet1.AutoSize = true;
             this.lblTiet1.Location = new System.Drawing.Point(3, 303);
             this.lblTiet1.Name = "lblTiet1";
-            this.lblTiet1.Size = new System.Drawing.Size(57, 20);
+            this.lblTiet1.Size = new System.Drawing.Size(47, 16);
             this.lblTiet1.TabIndex = 6;
             this.lblTiet1.Text = "Tiết 1";
             // 
@@ -258,7 +258,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lblSoTiet, 4);
             this.lblSoTiet.Location = new System.Drawing.Point(3, 250);
             this.lblSoTiet.Name = "lblSoTiet";
-            this.lblSoTiet.Size = new System.Drawing.Size(156, 20);
+            this.lblSoTiet.Size = new System.Drawing.Size(131, 16);
             this.lblSoTiet.TabIndex = 5;
             this.lblSoTiet.Text = "Nhập Vào Số Tiết";
             // 
@@ -269,7 +269,7 @@
             this.cboChonBuoi.FormattingEnabled = true;
             this.cboChonBuoi.Location = new System.Drawing.Point(3, 211);
             this.cboChonBuoi.Name = "cboChonBuoi";
-            this.cboChonBuoi.Size = new System.Drawing.Size(494, 28);
+            this.cboChonBuoi.Size = new System.Drawing.Size(494, 24);
             this.cboChonBuoi.TabIndex = 4;
             this.cboChonBuoi.SelectedIndexChanged += new System.EventHandler(this.cboChonBuoi_SelectedIndexChanged);
             // 
@@ -278,7 +278,7 @@
             this.lblChonBuoi.AutoSize = true;
             this.lblChonBuoi.Location = new System.Drawing.Point(3, 141);
             this.lblChonBuoi.Name = "lblChonBuoi";
-            this.lblChonBuoi.Size = new System.Drawing.Size(96, 20);
+            this.lblChonBuoi.Size = new System.Drawing.Size(78, 16);
             this.lblChonBuoi.TabIndex = 16;
             this.lblChonBuoi.Text = "Chọn Buổi";
             // 
@@ -301,7 +301,7 @@
             this.cboMonTiet1.FormattingEnabled = true;
             this.cboMonTiet1.Location = new System.Drawing.Point(147, 306);
             this.cboMonTiet1.Name = "cboMonTiet1";
-            this.cboMonTiet1.Size = new System.Drawing.Size(153, 28);
+            this.cboMonTiet1.Size = new System.Drawing.Size(153, 24);
             this.cboMonTiet1.TabIndex = 20;
             this.cboMonTiet1.ValueMember = "ID";
             // 
@@ -317,7 +317,7 @@
             this.cboMonTiet2.FormattingEnabled = true;
             this.cboMonTiet2.Location = new System.Drawing.Point(147, 355);
             this.cboMonTiet2.Name = "cboMonTiet2";
-            this.cboMonTiet2.Size = new System.Drawing.Size(153, 28);
+            this.cboMonTiet2.Size = new System.Drawing.Size(153, 24);
             this.cboMonTiet2.TabIndex = 21;
             this.cboMonTiet2.ValueMember = "ID";
             // 
@@ -333,7 +333,7 @@
             this.cboMonTiet3.FormattingEnabled = true;
             this.cboMonTiet3.Location = new System.Drawing.Point(147, 407);
             this.cboMonTiet3.Name = "cboMonTiet3";
-            this.cboMonTiet3.Size = new System.Drawing.Size(153, 28);
+            this.cboMonTiet3.Size = new System.Drawing.Size(153, 24);
             this.cboMonTiet3.TabIndex = 22;
             this.cboMonTiet3.ValueMember = "ID";
             // 
@@ -349,7 +349,7 @@
             this.cboMonTiet4.FormattingEnabled = true;
             this.cboMonTiet4.Location = new System.Drawing.Point(147, 460);
             this.cboMonTiet4.Name = "cboMonTiet4";
-            this.cboMonTiet4.Size = new System.Drawing.Size(153, 28);
+            this.cboMonTiet4.Size = new System.Drawing.Size(153, 24);
             this.cboMonTiet4.TabIndex = 23;
             this.cboMonTiet4.ValueMember = "ID";
             // 
@@ -365,7 +365,7 @@
             this.cboMonTiet5.FormattingEnabled = true;
             this.cboMonTiet5.Location = new System.Drawing.Point(147, 510);
             this.cboMonTiet5.Name = "cboMonTiet5";
-            this.cboMonTiet5.Size = new System.Drawing.Size(153, 28);
+            this.cboMonTiet5.Size = new System.Drawing.Size(153, 24);
             this.cboMonTiet5.TabIndex = 24;
             this.cboMonTiet5.ValueMember = "ID";
             // 
@@ -525,7 +525,7 @@
             // 
             // frmThoiKhoaBieu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 552);
             this.Controls.Add(this.tableLayoutPanel1);

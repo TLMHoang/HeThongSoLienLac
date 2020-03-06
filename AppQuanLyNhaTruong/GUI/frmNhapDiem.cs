@@ -60,15 +60,15 @@ namespace GUI
         private async void loadhs()
         {
             
-            bsHocSinh.SuspendBinding();
-            dgvNhapDiem.SuspendLayout();
-            foreach (Lop l in Program.lstLop)
-            {
-                cboLop.Items.Add(l.TenLop);
-            }
-            dgvNhapDiem.DataSource = await new ThongTinHSBAL().LayDT();
-            bsHocSinh.ResumeBinding();
-            dgvNhapDiem.ResumeLayout();
+            //bsHocSinh.SuspendBinding();
+            //dgvNhapDiem.SuspendLayout();
+            //foreach (Lop l in Program.lstLop)
+            //{
+            //    cboLop.Items.Add(l.TenLop);
+            //}
+            //dgvNhapDiem.DataSource = await new ThongTinHSBAL().LayDT();
+            //bsHocSinh.ResumeBinding();
+            //dgvNhapDiem.ResumeLayout();
             
         }
 
