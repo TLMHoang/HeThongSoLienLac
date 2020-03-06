@@ -11,13 +11,10 @@ using BAL;
 using DTO;
 
 
-
-
 namespace GUI
 {
     public partial class frmHocSinh : Form
     {
-
        ThongTinHSBAL tt = new ThongTinHSBAL();
         ThongTinHS tTHS = new ThongTinHS();
         int IDLopChuNhiem = -1;
@@ -186,7 +183,7 @@ namespace GUI
                 return;
             }
             string strTTHS = tTHS.Ten + " - Lớp " + Program.lstLop.FirstOrDefault(p => p.ID == tTHS.IDLop).TenLop;
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa " +  strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa " +  strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 try
                 {
@@ -407,7 +404,7 @@ namespace GUI
                 return;
             }
             string strTTHS = tTHS.Ten + " - Lớp " + Program.lstLop.FirstOrDefault(p => p.ID == tTHS.IDLop).TenLop;
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa " + strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa " + strTTHS + " Không?", "Hỏi xóa !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 try
                 {
@@ -426,6 +423,10 @@ namespace GUI
                 {
                     MessageBox.Show("Lỗi !\n" + ex.Message);
                 }
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
 
