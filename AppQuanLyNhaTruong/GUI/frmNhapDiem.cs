@@ -22,32 +22,8 @@ namespace GUI
         public frmNhapDiem()
         {
             InitializeComponent();
-        }
-
-        private void frmNhapDiem_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult ret = MessageBox.Show("Bạn có thoát không", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ret == DialogResult.Yes)
-            {
-                e.Cancel = false;
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            
-                this.Close();
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        }      
+          
         private void frmNhapDiem_Load(object sender, EventArgs e)
         {
             loadhs();
@@ -59,17 +35,14 @@ namespace GUI
 
         private async void loadhs()
         {
+
+            bsHocSinh.SuspendBinding();
+            dgvNhapDiem.SuspendLayout();
             
-            //bsHocSinh.SuspendBinding();
-            //dgvNhapDiem.SuspendLayout();
-            //foreach (Lop l in Program.lstLop)
-            //{
-            //    cboLop.Items.Add(l.TenLop);
-            //}
-            //dgvNhapDiem.DataSource = await new ThongTinHSBAL().LayDT();
-            //bsHocSinh.ResumeBinding();
-            //dgvNhapDiem.ResumeLayout();
-            
+            dgvNhapDiem.DataSource = await new ThongTinHSBAL().LayDT();
+            bsHocSinh.ResumeBinding();
+            dgvNhapDiem.ResumeLayout();
+
         }
 
         private void txtTimKiem_Leave(object sender, EventArgs e)
@@ -99,7 +72,7 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text); 
+                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
                 }
                 else
                 {
@@ -138,15 +111,7 @@ namespace GUI
                 bsHocSinh.DataSource = await tt.LayDT();
             }
         }
-
-        private void dgvNhapDiem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
-            if (drv == null)
-            {
-                return;
-            }
-        }
+       
 
         private void dgvNhapDiem_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -155,22 +120,8 @@ namespace GUI
 
         private async void radDiemMieng_CheckedChanged(object sender, EventArgs e)
         {
-            //if (radDiemMieng.Checked)
-            //{
-            //    await d1.CapNhap(new DiemHeSoMot(())
-            //}
-            //if (rad15p.Checked)
-            //{
-            //    await d1.CapNhap(new DiemHeSoMot)
-            //}
-            //if (rad1tiet.Checked)
-            //{
-            //    await d2.CapNhap(new DiemHeSoHai)
-            //}
-            //if (radHocKy.Checked)
-            //{
-            //    await d3.CapNhap(new DiemHocKy)
-            //}
+            
         }
+            
     }
 }
