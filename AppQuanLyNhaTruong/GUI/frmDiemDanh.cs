@@ -338,7 +338,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn muốn xóa dữ liệu không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    await cupBAL.Xoa(Convert.ToInt32(dgvChiTiet.Rows[dgvChiTiet.CurrentCell.RowIndex].Cells["STT"]));
+                    await cupBAL.Xoa(Convert.ToInt32(dgvChiTiet.Rows[dgvChiTiet.CurrentCell.RowIndex].Cells["STT"].Value));
                 }
                 else
                 {
