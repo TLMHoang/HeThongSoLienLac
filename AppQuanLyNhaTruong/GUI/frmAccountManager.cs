@@ -18,7 +18,7 @@ namespace GUI
         ThongTinGVBAL ttGV = new ThongTinGVBAL();
         TaiKhoanPHBAL tkPH = new TaiKhoanPHBAL();
         ThongTinHSBAL ttHS = new ThongTinHSBAL();
-        
+
         public frmAccountManager()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace GUI
 
         private async void frmAccountManager_Load(object sender, EventArgs e)
         {
-            
+
             await LoadDGVDSHS();
             await LoadDGVTKPH();
             await LoadDGVGV();
@@ -42,7 +42,7 @@ namespace GUI
         {
             bsTKPH.SuspendBinding();
             dgvTKPH.SuspendLayout();
-            bsTKPH.DataSource =await tkPH.LayDT();
+            bsTKPH.DataSource = await tkPH.LayDT();
             dgvTKPH.ResumeLayout();
             bsTKPH.ResumeBinding();
         }
@@ -68,19 +68,19 @@ namespace GUI
                     TaiKhoanPH tk = new TaiKhoanPH((e.Row.DataBoundItem as DataRowView).Row);
                     try
                     {
-                        if((await tkPH.Xoa(tk.ID)) == 1)
+                        if ((await tkPH.Xoa(tk.ID)) == 1)
                         {
                             return;
                         }
-                            else
+                        else
                         {
                             MessageBox.Show("Xóa Thất Bại !");
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Lỗi !\n" + ex.Message);
-                    }                   
+                    }
                 }
                 else
                     e.Cancel = true;
@@ -105,7 +105,7 @@ namespace GUI
                 {
                     await tkPH.Them(ph);
                     await LoadDGVTKPH();
-                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");                    
+                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
                     dgvTKPH.ReadOnly = true;
                     idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
                     dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
@@ -125,7 +125,7 @@ namespace GUI
         private async void btnThemTK_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 if (idHS != -1)
                 {
                     if (await CheckIDHS(idHS, idTKPH) == 1)
@@ -169,13 +169,14 @@ namespace GUI
                             await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
-                    }                   
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Vui Lòng Chọn Tài Khoản Học Sinh Liên Kết !");
                 }
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Lỗi !");
             }
@@ -198,7 +199,7 @@ namespace GUI
         private void dgvDSHS_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewButtonCell btn = dgvDSHS.Rows[e.RowIndex].Cells[0] as DataGridViewButtonCell;
-            if(MessageBox.Show("Chọn Học Sinh  " + dgvDSHS.CurrentRow.Cells[2].Value.ToString(),"Notification !",MessageBoxButtons.OKCancel,MessageBoxIcon.Information)== DialogResult.OK)
+            if (MessageBox.Show("Chọn Học Sinh  " + dgvDSHS.CurrentRow.Cells[2].Value.ToString(), "Notification !", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 btn.Style.BackColor = Color.DarkOrange;
                 idHS = Convert.ToInt32(dgvDSHS.CurrentRow.Cells[1].Value.ToString());
@@ -210,7 +211,7 @@ namespace GUI
             {
                 if (id != -1)
                 {
-                    if((await tkPH.CapNhap(new TaiKhoanPH(id, tenTK, tenTK))) != 0)
+                    if ((await tkPH.CapNhap(new TaiKhoanPH(id, tenTK, tenTK))) != 0)
                     {
                         await LoadDGVTKPH();
                         id = -1;
@@ -223,7 +224,7 @@ namespace GUI
                         await LoadDGVTKPH();
                         id = -1;
                         tenTK = "";
-                    }                    
+                    }
                 }
                 else
                 {
@@ -308,12 +309,12 @@ namespace GUI
                 txtTimHocSinh.ForeColor = Color.Gray;
             }
         }
-        private async Task<int> CheckIDHS(int id,int tk)
+        private async Task<int> CheckIDHS(int id, int tk)
         {
             DataTable dt = await new QuanLyHSBAL().LayDT();
-            foreach (DataRow item in dt.Rows )
+            foreach (DataRow item in dt.Rows)
             {
-                if(int.Parse(item.ItemArray[0].ToString()).Equals(id) && int.Parse(item.ItemArray[1].ToString()).Equals(tk))
+                if (int.Parse(item.ItemArray[0].ToString()).Equals(id) && int.Parse(item.ItemArray[1].ToString()).Equals(tk))
                 {
                     return 1;
                 }
@@ -324,7 +325,7 @@ namespace GUI
 
         #region TabTaiKhoanTruong
         int idTruong = -1;
-        byte loaiAdmin;   
+        byte loaiAdmin;
         string text;
         public async Task LoadDGVTruong()
         {
@@ -356,13 +357,13 @@ namespace GUI
         }
 
         private async void btnLuu_Click(object sender, EventArgs e)
-        {                       
+        {
             try
             {
                 if (dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[0].Value == null)
-                {                    
+                {
                     DataGridViewRow dvr = dgvTaiKhoanTruong.CurrentRow;
-                    if((await tkTruong.Them(new TaiKhoanTruong(
+                    if ((await tkTruong.Them(new TaiKhoanTruong(
                         idTruong,
                         dvr.Cells[1].Value.ToString(),
                         dvr.Cells[1].Value.ToString(),
@@ -386,12 +387,12 @@ namespace GUI
                     else
                     {
                         bsTaiKhoanTruong.DataSource = await tkTruong.LayDT();
-                    }                    
+                    }
                 }
             }
-            catch(Exception ex) { MessageBox.Show("Lỗi ! \n" + ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Lỗi ! \n" + ex.Message); }
         }
-       
+
         private async void btnLuuTTGV_Click(object sender, EventArgs e)
         {
             try
@@ -399,7 +400,7 @@ namespace GUI
                 if (dgvThongTinGV.CurrentRow.Cells[0] != null && text != "")
                 {
                     DataGridViewRow dvr = dgvThongTinGV.CurrentRow;
-                    if((await ttGV.Them(new ThongTinGV(
+                    if ((await ttGV.Them(new ThongTinGV(
                         int.Parse(dvr.Cells[0].Value.ToString()),
                         dvr.Cells[1].Value.ToString(),
                         dvr.Cells[2].Value.ToString(),
@@ -422,13 +423,14 @@ namespace GUI
                         btnThemTaiKhoan.Enabled = true;
                         dgvTaiKhoanTruong.CurrentCell = dgvTaiKhoanTruong.Rows[dgvTaiKhoanTruong.RowCount - 1].Cells[1];
                     }
-                    
-                }else if(dgvThongTinGV.CurrentRow.Cells[0] != null && text == "")
+
+                }
+                else if (dgvThongTinGV.CurrentRow.Cells[0] != null && text == "")
                 {
                     if (dgvThongTinGV.CurrentRow != null)
                     {
                         DataGridViewRow dvr = dgvThongTinGV.CurrentRow;
-                        if((await ttGV.CapNhap(new ThongTinGV(
+                        if ((await ttGV.CapNhap(new ThongTinGV(
                             int.Parse(dvr.Cells[0].Value.ToString()),
                             dvr.Cells[1].Value.ToString(),
                             dvr.Cells[2].Value.ToString(),
@@ -442,11 +444,11 @@ namespace GUI
                         {
                             MessageBox.Show("Cập Nhật Thất Bại !");
                             bsDSGV.DataSource = await ttGV.LayDT();
-                        }                        
+                        }
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Lỗi ! \n"+ ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Lỗi ! \n" + ex.Message); }
         }
 
         private void txtTimTKTruong_TextChanged(object sender, EventArgs e) // Tim kiem tai Khoan truong
@@ -510,7 +512,7 @@ namespace GUI
         }
 
         private void txtTimGV_Leave(object sender, EventArgs e)
-        {            
+        {
             if (txtTimGV.Text == "")
             {
                 txtTimGV.Text = "Nhập ID hoặc Tên GV";
@@ -519,7 +521,7 @@ namespace GUI
         }
 
         private void txtTimGV_Enter(object sender, EventArgs e)
-        {           
+        {
             if (txtTimGV.ForeColor == Color.Gray)
             {
                 txtTimGV.Text = "";
@@ -532,12 +534,12 @@ namespace GUI
             try
             {
                 if (dgv.Rows[e.RowIndex].Cells["col_ID"].Value.ToString() == "")
-            {
-                loaiAdmin = Convert.IsDBNull(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value) ? Convert.ToByte(0) : Convert.ToByte(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value);
-            }
-            else
-            {                                   
-                    if((await tkTruong.CapNhap(new TaiKhoanTruong(int.Parse(dgv.Rows[e.RowIndex].Cells[0].Value.ToString()),
+                {
+                    loaiAdmin = Convert.IsDBNull(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value) ? Convert.ToByte(0) : Convert.ToByte(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value);
+                }
+                else
+                {
+                    if ((await tkTruong.CapNhap(new TaiKhoanTruong(int.Parse(dgv.Rows[e.RowIndex].Cells[0].Value.ToString()),
                         dgv.Rows[e.RowIndex].Cells[1].Value.ToString(),
                         dgv.Rows[e.RowIndex].Cells[1].Value.ToString(),
                         Convert.IsDBNull(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value) ? Convert.ToByte(0) : Convert.ToByte(dgv.Rows[e.RowIndex].Cells["col_Loai"].Value
@@ -550,8 +552,8 @@ namespace GUI
                     else
                     {
                         MessageBox.Show("Cập Nhật Thất Bại!");
-                    }                
-            }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -560,8 +562,31 @@ namespace GUI
         }
 
 
+
         #endregion
 
-
+        private void dgvThongTinGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);//Tạo even
+            if (dgvThongTinGV.CurrentCell.ColumnIndex == 2) //chọn cột mong muốn
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                }
+            }
+        }
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)Keys.Back)
+            {
+                if (!char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = true;
+                    MessageBox.Show("Chỉ Nhập Số !");
+                }
+            }
+        }
     }
 }
