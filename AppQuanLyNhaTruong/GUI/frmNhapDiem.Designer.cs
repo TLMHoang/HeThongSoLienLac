@@ -53,28 +53,31 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chbxDat = new System.Windows.Forms.CheckBox();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.bsDiemHeSoMot = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDiemHeSoHai = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDiemHocKy = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvDiemHeSoMot = new System.Windows.Forms.DataGridView();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dgvDiemHeSoHai = new System.Windows.Forms.DataGridView();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dgvDiemHocKy = new System.Windows.Forms.DataGridView();
             this.STT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDMon1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMon1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Diem1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loai1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DiemMieng1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HocKy1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsDiemHeSoMot = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvDiemHeSoHai = new System.Windows.Forms.DataGridView();
             this.STT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDMon2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMon2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Diem2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loai2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HocKy2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsDiemHeSoHai = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvDiemHocKy = new System.Windows.Forms.DataGridView();
             this.STTHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDMonHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMonHK = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DiemHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LoaiHK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HocKyHK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsDiemHocKy = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHS)).BeginInit();
@@ -84,12 +87,15 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDiem)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoMot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoMot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoHai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoHai)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHocKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDiemHocKy)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoMot)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoHai)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHocKy)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -99,9 +105,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dgvDiemHeSoMot, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dgvDiemHeSoHai, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dgvDiemHocKy, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox5, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox6, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -429,6 +435,29 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // bsDiemHeSoMot
+            // 
+            this.bsDiemHeSoMot.DataSource = typeof(DTO.DiemHeSoMot);
+            // 
+            // bsDiemHeSoHai
+            // 
+            this.bsDiemHeSoHai.DataSource = typeof(DTO.DiemHeSoHai);
+            // 
+            // bsDiemHocKy
+            // 
+            this.bsDiemHocKy.DataSource = typeof(DTO.DiemHocKy);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgvDiemHeSoMot);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(603, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(649, 231);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Điểm hệ số 1 - Điểm miệng + điểm 15 phút";
+            // 
             // dgvDiemHeSoMot
             // 
             this.dgvDiemHeSoMot.AllowUserToAddRows = false;
@@ -444,11 +473,79 @@
             this.HocKy1});
             this.dgvDiemHeSoMot.DataSource = this.bsDiemHeSoMot;
             this.dgvDiemHeSoMot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDiemHeSoMot.Location = new System.Drawing.Point(603, 3);
+            this.dgvDiemHeSoMot.Location = new System.Drawing.Point(3, 18);
             this.dgvDiemHeSoMot.Name = "dgvDiemHeSoMot";
-            this.dgvDiemHeSoMot.Size = new System.Drawing.Size(649, 231);
-            this.dgvDiemHeSoMot.TabIndex = 3;
+            this.dgvDiemHeSoMot.Size = new System.Drawing.Size(643, 210);
+            this.dgvDiemHeSoMot.TabIndex = 4;
             this.dgvDiemHeSoMot.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHeSoMot_CellBeginEdit);
+            this.dgvDiemHeSoMot.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiemHeSoMot_CellEndEdit);
+            this.dgvDiemHeSoMot.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDiemHeSoMot_UserDeletingRow);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dgvDiemHeSoHai);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(603, 240);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(649, 231);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Điểm hệ số 2 - 1 Tiết";
+            // 
+            // dgvDiemHeSoHai
+            // 
+            this.dgvDiemHeSoHai.AllowUserToAddRows = false;
+            this.dgvDiemHeSoHai.AutoGenerateColumns = false;
+            this.dgvDiemHeSoHai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDiemHeSoHai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiemHeSoHai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT2,
+            this.IDMon2,
+            this.Diem2,
+            this.Loai2,
+            this.HocKy2});
+            this.dgvDiemHeSoHai.DataSource = this.bsDiemHeSoHai;
+            this.dgvDiemHeSoHai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDiemHeSoHai.Location = new System.Drawing.Point(3, 18);
+            this.dgvDiemHeSoHai.Name = "dgvDiemHeSoHai";
+            this.dgvDiemHeSoHai.Size = new System.Drawing.Size(643, 210);
+            this.dgvDiemHeSoHai.TabIndex = 4;
+            this.dgvDiemHeSoHai.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHeSoHai_CellBeginEdit);
+            this.dgvDiemHeSoHai.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiemHeSoHai_CellEndEdit);
+            this.dgvDiemHeSoHai.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDiemHeSoHai_UserDeletingRow);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dgvDiemHocKy);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(603, 477);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(649, 235);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Điểm học kỳ";
+            // 
+            // dgvDiemHocKy
+            // 
+            this.dgvDiemHocKy.AllowUserToAddRows = false;
+            this.dgvDiemHocKy.AutoGenerateColumns = false;
+            this.dgvDiemHocKy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDiemHocKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiemHocKy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STTHK,
+            this.IDMonHK,
+            this.DiemHK,
+            this.LoaiHK,
+            this.HocKyHK});
+            this.dgvDiemHocKy.DataSource = this.bsDiemHocKy;
+            this.dgvDiemHocKy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDiemHocKy.Location = new System.Drawing.Point(3, 18);
+            this.dgvDiemHocKy.Name = "dgvDiemHocKy";
+            this.dgvDiemHocKy.Size = new System.Drawing.Size(643, 214);
+            this.dgvDiemHocKy.TabIndex = 4;
+            this.dgvDiemHocKy.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHocKy_CellBeginEdit);
+            this.dgvDiemHocKy.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiemHocKy_CellEndEdit);
+            this.dgvDiemHocKy.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDiemHocKy_UserDeletingRow);
             // 
             // STT1
             // 
@@ -463,6 +560,8 @@
             this.IDMon1.HeaderText = "Môn";
             this.IDMon1.Name = "IDMon1";
             this.IDMon1.ReadOnly = true;
+            this.IDMon1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IDMon1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Diem1
             // 
@@ -496,30 +595,6 @@
             this.HocKy1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HocKy1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // bsDiemHeSoMot
-            // 
-            this.bsDiemHeSoMot.DataSource = typeof(DTO.DiemHeSoMot);
-            // 
-            // dgvDiemHeSoHai
-            // 
-            this.dgvDiemHeSoHai.AllowUserToAddRows = false;
-            this.dgvDiemHeSoHai.AutoGenerateColumns = false;
-            this.dgvDiemHeSoHai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDiemHeSoHai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiemHeSoHai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT2,
-            this.IDMon2,
-            this.Diem2,
-            this.Loai2,
-            this.HocKy2});
-            this.dgvDiemHeSoHai.DataSource = this.bsDiemHeSoHai;
-            this.dgvDiemHeSoHai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDiemHeSoHai.Location = new System.Drawing.Point(603, 240);
-            this.dgvDiemHeSoHai.Name = "dgvDiemHeSoHai";
-            this.dgvDiemHeSoHai.Size = new System.Drawing.Size(649, 231);
-            this.dgvDiemHeSoHai.TabIndex = 3;
-            this.dgvDiemHeSoHai.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHeSoHai_CellBeginEdit);
-            // 
             // STT2
             // 
             this.STT2.DataPropertyName = "STT";
@@ -533,6 +608,8 @@
             this.IDMon2.HeaderText = "Môn";
             this.IDMon2.Name = "IDMon2";
             this.IDMon2.ReadOnly = true;
+            this.IDMon2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IDMon2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Diem2
             // 
@@ -557,36 +634,13 @@
             this.HocKy2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HocKy2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // bsDiemHeSoHai
-            // 
-            this.bsDiemHeSoHai.DataSource = typeof(DTO.DiemHeSoHai);
-            // 
-            // dgvDiemHocKy
-            // 
-            this.dgvDiemHocKy.AllowUserToAddRows = false;
-            this.dgvDiemHocKy.AutoGenerateColumns = false;
-            this.dgvDiemHocKy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDiemHocKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiemHocKy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STTHK,
-            this.IDMonHK,
-            this.DiemHK,
-            this.LoaiHK,
-            this.HocKyHK});
-            this.dgvDiemHocKy.DataSource = this.bsDiemHocKy;
-            this.dgvDiemHocKy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDiemHocKy.Location = new System.Drawing.Point(603, 477);
-            this.dgvDiemHocKy.Name = "dgvDiemHocKy";
-            this.dgvDiemHocKy.Size = new System.Drawing.Size(649, 235);
-            this.dgvDiemHocKy.TabIndex = 3;
-            this.dgvDiemHocKy.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHocKy_CellBeginEdit);
-            // 
             // STTHK
             // 
             this.STTHK.DataPropertyName = "STT";
             this.STTHK.HeaderText = "STT";
             this.STTHK.Name = "STTHK";
             this.STTHK.ReadOnly = true;
+            this.STTHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // IDMonHK
             // 
@@ -594,6 +648,8 @@
             this.IDMonHK.HeaderText = "Môn";
             this.IDMonHK.Name = "IDMonHK";
             this.IDMonHK.ReadOnly = true;
+            this.IDMonHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IDMonHK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // DiemHK
             // 
@@ -617,10 +673,6 @@
             this.HocKyHK.ReadOnly = true;
             this.HocKyHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HocKyHK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // bsDiemHocKy
-            // 
-            this.bsDiemHocKy.DataSource = typeof(DTO.DiemHocKy);
             // 
             // frmNhapDiem
             // 
@@ -650,12 +702,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.numDiem)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoMot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoMot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoHai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoHai)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHocKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDiemHocKy)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoMot)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoHai)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHocKy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,28 +737,31 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox chbxDat;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.DataGridView dgvDiemHeSoMot;
         private System.Windows.Forms.BindingSource bsDiemHeSoMot;
-        private System.Windows.Forms.DataGridView dgvDiemHeSoHai;
         private System.Windows.Forms.BindingSource bsDiemHeSoHai;
-        private System.Windows.Forms.DataGridView dgvDiemHocKy;
         private System.Windows.Forms.BindingSource bsDiemHocKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dgvDiemHeSoMot;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView dgvDiemHeSoHai;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.DataGridView dgvDiemHocKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDMon1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn IDMon1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Diem1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Loai1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DiemMieng1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HocKy1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDMon2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn IDMon2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Diem2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Loai2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HocKy2;
         private System.Windows.Forms.DataGridViewTextBoxColumn STTHK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDMonHK;
+        private System.Windows.Forms.DataGridViewComboBoxColumn IDMonHK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemHK;
         private System.Windows.Forms.DataGridViewCheckBoxColumn LoaiHK;
         private System.Windows.Forms.DataGridViewCheckBoxColumn HocKyHK;

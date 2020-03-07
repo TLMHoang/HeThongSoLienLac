@@ -95,6 +95,18 @@ namespace GUI
                     bsDiemHeSoHai.DataSource = await d2.LayID(cbxLop.Text, IDHS);
                     bsDiemHocKy.DataSource = await d3.LayID(cbxLop.Text, IDHS);
                 }
+
+                IDMon1.DataSource = Program.lstMonHoc;
+                IDMon1.DisplayMember = "TenMon";
+                IDMon1.ValueMember = "ID";
+
+                IDMon2.DataSource = Program.lstMonHoc;
+                IDMon2.DisplayMember = "TenMon";
+                IDMon2.ValueMember = "ID";
+
+                IDMonHK.DataSource = Program.lstMonHoc;
+                IDMonHK.DisplayMember = "TenMon";
+                IDMonHK.ValueMember = "ID";
             }
             catch (Exception ex)
             {
@@ -239,6 +251,16 @@ namespace GUI
         {
             try
             {
+                if (!numDiem.Enabled && !chbxDat.Enabled)
+                {
+                    MessageBox.Show("Chưa chọn môn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (dhm.IDHocSinh == -1 || dhh.IDHocSinh == -1 || dhk.IDHocSinh == -1)
+                {
+                    MessageBox.Show("Chưa chọn học sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 int IDHS = Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value);
                 string ClassName = cbxLop.Text;
                 if (cbxLop.SelectedIndex <= 0)
@@ -310,7 +332,7 @@ namespace GUI
             {
                 if (Convert.ToInt32(dgvDiemHeSoMot.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) == -1)
                 {
-                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt");
+                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
             }
@@ -318,7 +340,7 @@ namespace GUI
             {
                 if (Convert.ToInt32(dgvDiemHeSoMot.Rows[e.RowIndex].Cells["Diem1"].Value) != -1)
                 {
-                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.");
+                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
             }
@@ -330,7 +352,7 @@ namespace GUI
             {
                 if (Convert.ToInt32(dgvDiemHeSoHai.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) == -1)
                 {
-                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt");
+                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
             }
@@ -338,7 +360,7 @@ namespace GUI
             {
                 if (Convert.ToInt32(dgvDiemHeSoHai.Rows[e.RowIndex].Cells["Diem2"].Value) != -1)
                 {
-                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.");
+                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
             }
@@ -350,17 +372,137 @@ namespace GUI
             {
                 if (Convert.ToInt32(dgvDiemHocKy.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) == -1)
                 {
-                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt");
+                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
             }
-            else if (dgvDiemHocKy.Columns[e.ColumnIndex].Name.Equals("Loai3"))
+            else if (dgvDiemHocKy.Columns[e.ColumnIndex].Name.Equals("LoaiHK"))
             {
-                if (Convert.ToInt32(dgvDiemHocKy.Rows[e.RowIndex].Cells["Diem3"].Value) != -1)
+                if (Convert.ToInt32(dgvDiemHocKy.Rows[e.RowIndex].Cells["DiemHK"].Value) != -1)
                 {
-                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.");
+                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private async void dgvDiemHeSoMot_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+
+            if (MessageBox.Show("Bạn chắc chắn xóa không??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (cbxLop.SelectedIndex == 0)
+                {
+                    await d1.Xoa(await GetClassName(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value)), Convert.ToInt32(dgvDiemHeSoMot.Rows[dgvDiemHeSoMot.CurrentCell.RowIndex].Cells["STT1"].Value));
+                }
+                else
+                {
+                    await d1.Xoa(cbxLop.Text, Convert.ToInt32(dgvDiemHeSoMot.Rows[dgvDiemHeSoMot.CurrentCell.RowIndex].Cells["STT1"].Value));
+                }
+                
+            }
+        }
+
+        private async void dgvDiemHeSoHai_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+
+            if (MessageBox.Show("Bạn chắc chắn xóa không??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (cbxLop.SelectedIndex == 0)
+                {
+                    await d2.Xoa(await GetClassName(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value)), Convert.ToInt32(dgvDiemHeSoHai.Rows[dgvDiemHeSoHai.CurrentCell.RowIndex].Cells["STT2"].Value));
+                }
+                else
+                {
+                    await d2.Xoa(cbxLop.Text, Convert.ToInt32(dgvDiemHeSoHai.Rows[dgvDiemHeSoHai.CurrentCell.RowIndex].Cells["STT2"].Value));
+                }
+
+            }
+        }
+
+        private async void dgvDiemHocKy_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+
+            if (MessageBox.Show("Bạn chắc chắn xóa không??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (cbxLop.SelectedIndex == 0)
+                {
+                    await d3.Xoa(await GetClassName(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value)), Convert.ToInt32(dgvDiemHocKy.Rows[dgvDiemHocKy.CurrentCell.RowIndex].Cells["STTHK"].Value));
+                }
+                else
+                {
+                    await d3.Xoa(cbxLop.Text, Convert.ToInt32(dgvDiemHocKy.Rows[dgvDiemHocKy.CurrentCell.RowIndex].Cells["STTHK"].Value));
+                }
+
+            }
+        }
+
+        private async void dgvDiemHeSoMot_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataRowView drv = dgvDiemHeSoMot.Rows[dgvDiemHeSoMot.CurrentCell.RowIndex].DataBoundItem as DataRowView;
+
+                if (cbxLop.SelectedIndex == 0)
+                {
+                    await d1.CapNhap(await GetClassName(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDiemHeSoMot.CurrentCell.RowIndex].Cells["ID"].Value)), new DiemHeSoMot(drv.Row));
+                }
+                else
+                {
+                    await d1.CapNhap(cbxLop.Text, new DiemHeSoMot(drv.Row));
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void dgvDiemHeSoHai_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataRowView drv = dgvDiemHeSoHai.Rows[dgvDiemHeSoHai.CurrentCell.RowIndex].DataBoundItem as DataRowView;
+
+                if (cbxLop.SelectedIndex == 0)
+                {
+                    await d2.CapNhap(await GetClassName(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value)), new DiemHeSoHai(drv.Row));
+                }
+                else
+                {
+                    await d2.CapNhap(cbxLop.Text, new DiemHeSoHai(drv.Row));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void dgvDiemHocKy_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataRowView drv = dgvDiemHocKy.Rows[dgvDiemHocKy.CurrentCell.RowIndex].DataBoundItem as DataRowView;
+
+                if (cbxLop.SelectedIndex == 0)
+                {
+                    await d3.CapNhap(await GetClassName(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value)), new DiemHocKy(drv.Row));
+                }
+                else
+                {
+                    await d3.CapNhap(cbxLop.Text, new DiemHocKy(drv.Row));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

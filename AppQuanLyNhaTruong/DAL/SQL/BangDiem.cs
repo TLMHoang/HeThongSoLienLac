@@ -127,6 +127,7 @@ namespace DAL.SQL
                 " DiemMieng = @DiemMieng," +
                 " Loai = @Loai," +
                 " HocKy = @HocKy" +
+                " WHERE STT = @STT" +
                 " END";
 
             await ConnectDB(Query);
@@ -243,6 +244,7 @@ namespace DAL.SQL
                 " CotThu = @CotThu," +
                 " Loai = @Loai," +
                 " HocKy = @HocKy" +
+                " WHERE STT = @STT" +
                 " END";
 
             await ConnectDB(Query);
@@ -354,6 +356,7 @@ namespace DAL.SQL
                 " Diem = @Diem," +
                 " Loai = @Loai," +
                 " HocKy = @HocKy" +
+                " WHERE STT = @STT" +
                 " END";
 
             await ConnectDB(Query);
