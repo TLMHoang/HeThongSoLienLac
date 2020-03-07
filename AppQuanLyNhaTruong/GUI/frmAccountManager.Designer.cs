@@ -32,12 +32,11 @@
             this.tabPageTaiKhoanTruong = new System.Windows.Forms.TabPage();
             this.tlpTKT = new System.Windows.Forms.TableLayoutPanel();
             this.dgvThongTinGV = new System.Windows.Forms.DataGridView();
-            this.iDTKTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenGVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDMonHocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsDSGV = new System.Windows.Forms.BindingSource(this.components);
             this.dgvTaiKhoanTruong = new System.Windows.Forms.DataGridView();
+            this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taiKhoanDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Loai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsTaiKhoanTruong = new System.Windows.Forms.BindingSource(this.components);
             this.txtTimTKTruong = new System.Windows.Forms.TextBox();
             this.btnThemTaiKhoan = new System.Windows.Forms.Button();
@@ -63,9 +62,10 @@
             this.btnDatLaiMK = new System.Windows.Forms.Button();
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tabPageQLTK = new System.Windows.Forms.TabControl();
-            this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taiKhoanDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Loai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.iDTKTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenGVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_STD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDMonHocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabPageTaiKhoanTruong.SuspendLayout();
             this.tlpTKT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinGV)).BeginInit();
@@ -99,7 +99,7 @@
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.81123F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.18877F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tlpTKT.Controls.Add(this.dgvThongTinGV, 1, 1);
             this.tlpTKT.Controls.Add(this.dgvTaiKhoanTruong, 0, 1);
             this.tlpTKT.Controls.Add(this.txtTimTKTruong, 0, 0);
@@ -125,48 +125,18 @@
             this.dgvThongTinGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDTKTDataGridViewTextBoxColumn,
             this.tenGVDataGridViewTextBoxColumn,
-            this.sDTDataGridViewTextBoxColumn,
+            this.col_STD,
             this.iDMonHocDataGridViewTextBoxColumn});
             this.tlpTKT.SetColumnSpan(this.dgvThongTinGV, 3);
             this.dgvThongTinGV.DataSource = this.bsDSGV;
             this.dgvThongTinGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvThongTinGV.Location = new System.Drawing.Point(363, 31);
+            this.dgvThongTinGV.Location = new System.Drawing.Point(362, 31);
             this.dgvThongTinGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvThongTinGV.Name = "dgvThongTinGV";
             this.dgvThongTinGV.RowTemplate.Height = 24;
-            this.dgvThongTinGV.Size = new System.Drawing.Size(737, 496);
+            this.dgvThongTinGV.Size = new System.Drawing.Size(738, 496);
             this.dgvThongTinGV.TabIndex = 11;
-            // 
-            // iDTKTDataGridViewTextBoxColumn
-            // 
-            this.iDTKTDataGridViewTextBoxColumn.DataPropertyName = "IDTKT";
-            this.iDTKTDataGridViewTextBoxColumn.FillWeight = 110.8629F;
-            this.iDTKTDataGridViewTextBoxColumn.HeaderText = "ID Tài Khoản";
-            this.iDTKTDataGridViewTextBoxColumn.Name = "iDTKTDataGridViewTextBoxColumn";
-            this.iDTKTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tenGVDataGridViewTextBoxColumn
-            // 
-            this.tenGVDataGridViewTextBoxColumn.DataPropertyName = "TenGV";
-            this.tenGVDataGridViewTextBoxColumn.FillWeight = 110.8629F;
-            this.tenGVDataGridViewTextBoxColumn.HeaderText = "Tên Giáo Viên";
-            this.tenGVDataGridViewTextBoxColumn.Name = "tenGVDataGridViewTextBoxColumn";
-            // 
-            // sDTDataGridViewTextBoxColumn
-            // 
-            this.sDTDataGridViewTextBoxColumn.DataPropertyName = "SDT";
-            this.sDTDataGridViewTextBoxColumn.FillWeight = 110.8629F;
-            this.sDTDataGridViewTextBoxColumn.HeaderText = "SĐT";
-            this.sDTDataGridViewTextBoxColumn.Name = "sDTDataGridViewTextBoxColumn";
-            // 
-            // iDMonHocDataGridViewTextBoxColumn
-            // 
-            this.iDMonHocDataGridViewTextBoxColumn.DataPropertyName = "IDMonHoc";
-            this.iDMonHocDataGridViewTextBoxColumn.FillWeight = 110.8629F;
-            this.iDMonHocDataGridViewTextBoxColumn.HeaderText = "Môn Dạy";
-            this.iDMonHocDataGridViewTextBoxColumn.Name = "iDMonHocDataGridViewTextBoxColumn";
-            this.iDMonHocDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iDMonHocDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvThongTinGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvThongTinGV_EditingControlShowing);
             // 
             // bsDSGV
             // 
@@ -188,9 +158,30 @@
             this.dgvTaiKhoanTruong.Name = "dgvTaiKhoanTruong";
             this.tlpTKT.SetRowSpan(this.dgvTaiKhoanTruong, 2);
             this.dgvTaiKhoanTruong.RowTemplate.Height = 24;
-            this.dgvTaiKhoanTruong.Size = new System.Drawing.Size(354, 562);
+            this.dgvTaiKhoanTruong.Size = new System.Drawing.Size(353, 562);
             this.dgvTaiKhoanTruong.TabIndex = 0;
             this.dgvTaiKhoanTruong.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoanTruong_CellEndEdit);
+            // 
+            // col_ID
+            // 
+            this.col_ID.DataPropertyName = "ID";
+            this.col_ID.HeaderText = "ID";
+            this.col_ID.Name = "col_ID";
+            this.col_ID.ReadOnly = true;
+            // 
+            // taiKhoanDataGridViewTextBoxColumn1
+            // 
+            this.taiKhoanDataGridViewTextBoxColumn1.DataPropertyName = "TaiKhoan";
+            this.taiKhoanDataGridViewTextBoxColumn1.HeaderText = "Tài Khoản";
+            this.taiKhoanDataGridViewTextBoxColumn1.Name = "taiKhoanDataGridViewTextBoxColumn1";
+            // 
+            // col_Loai
+            // 
+            this.col_Loai.DataPropertyName = "Loai";
+            this.col_Loai.HeaderText = "Loại";
+            this.col_Loai.Name = "col_Loai";
+            this.col_Loai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_Loai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // bsTaiKhoanTruong
             // 
@@ -203,7 +194,7 @@
             this.txtTimTKTruong.Location = new System.Drawing.Point(3, 2);
             this.txtTimTKTruong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimTKTruong.Name = "txtTimTKTruong";
-            this.txtTimTKTruong.Size = new System.Drawing.Size(354, 27);
+            this.txtTimTKTruong.Size = new System.Drawing.Size(353, 27);
             this.txtTimTKTruong.TabIndex = 1;
             this.txtTimTKTruong.TextChanged += new System.EventHandler(this.txtTimTKTruong_TextChanged);
             this.txtTimTKTruong.Enter += new System.EventHandler(this.txtTimTKTruong_Enter);
@@ -217,7 +208,7 @@
             this.btnThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnThemTaiKhoan.Location = new System.Drawing.Point(772, 531);
+            this.btnThemTaiKhoan.Location = new System.Drawing.Point(771, 531);
             this.btnThemTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             this.btnThemTaiKhoan.Size = new System.Drawing.Size(153, 62);
@@ -231,10 +222,10 @@
             this.tlpTKT.SetColumnSpan(this.txtTimGV, 3);
             this.txtTimGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimGV.Location = new System.Drawing.Point(363, 2);
+            this.txtTimGV.Location = new System.Drawing.Point(362, 2);
             this.txtTimGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimGV.Name = "txtTimGV";
-            this.txtTimGV.Size = new System.Drawing.Size(737, 27);
+            this.txtTimGV.Size = new System.Drawing.Size(738, 27);
             this.txtTimGV.TabIndex = 10;
             this.txtTimGV.TextChanged += new System.EventHandler(this.txtTimGV_TextChanged);
             this.txtTimGV.Enter += new System.EventHandler(this.txtTimGV_Enter);
@@ -248,10 +239,10 @@
             this.btnLuuTTGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTTGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuuTTGV.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTTGV.Location = new System.Drawing.Point(931, 531);
+            this.btnLuuTTGV.Location = new System.Drawing.Point(930, 531);
             this.btnLuuTTGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuuTTGV.Name = "btnLuuTTGV";
-            this.btnLuuTTGV.Size = new System.Drawing.Size(169, 62);
+            this.btnLuuTTGV.Size = new System.Drawing.Size(170, 62);
             this.btnLuuTTGV.TabIndex = 12;
             this.btnLuuTTGV.Text = "Lưu Thông Tin GV";
             this.btnLuuTTGV.UseVisualStyleBackColor = false;
@@ -482,26 +473,36 @@
             this.tabPageQLTK.Size = new System.Drawing.Size(1117, 628);
             this.tabPageQLTK.TabIndex = 0;
             // 
-            // col_ID
+            // iDTKTDataGridViewTextBoxColumn
             // 
-            this.col_ID.DataPropertyName = "ID";
-            this.col_ID.HeaderText = "ID";
-            this.col_ID.Name = "col_ID";
-            this.col_ID.ReadOnly = true;
+            this.iDTKTDataGridViewTextBoxColumn.DataPropertyName = "IDTKT";
+            this.iDTKTDataGridViewTextBoxColumn.FillWeight = 110.8629F;
+            this.iDTKTDataGridViewTextBoxColumn.HeaderText = "ID Tài Khoản";
+            this.iDTKTDataGridViewTextBoxColumn.Name = "iDTKTDataGridViewTextBoxColumn";
+            this.iDTKTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // taiKhoanDataGridViewTextBoxColumn1
+            // tenGVDataGridViewTextBoxColumn
             // 
-            this.taiKhoanDataGridViewTextBoxColumn1.DataPropertyName = "TaiKhoan";
-            this.taiKhoanDataGridViewTextBoxColumn1.HeaderText = "Tài Khoản";
-            this.taiKhoanDataGridViewTextBoxColumn1.Name = "taiKhoanDataGridViewTextBoxColumn1";
+            this.tenGVDataGridViewTextBoxColumn.DataPropertyName = "TenGV";
+            this.tenGVDataGridViewTextBoxColumn.FillWeight = 110.8629F;
+            this.tenGVDataGridViewTextBoxColumn.HeaderText = "Tên Giáo Viên";
+            this.tenGVDataGridViewTextBoxColumn.Name = "tenGVDataGridViewTextBoxColumn";
             // 
-            // col_Loai
+            // col_STD
             // 
-            this.col_Loai.DataPropertyName = "Loai";
-            this.col_Loai.HeaderText = "Loại";
-            this.col_Loai.Name = "col_Loai";
-            this.col_Loai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_Loai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_STD.DataPropertyName = "SDT";
+            this.col_STD.FillWeight = 110.8629F;
+            this.col_STD.HeaderText = "SĐT";
+            this.col_STD.Name = "col_STD";
+            // 
+            // iDMonHocDataGridViewTextBoxColumn
+            // 
+            this.iDMonHocDataGridViewTextBoxColumn.DataPropertyName = "IDMonHoc";
+            this.iDMonHocDataGridViewTextBoxColumn.FillWeight = 110.8629F;
+            this.iDMonHocDataGridViewTextBoxColumn.HeaderText = "Môn Dạy";
+            this.iDMonHocDataGridViewTextBoxColumn.Name = "iDMonHocDataGridViewTextBoxColumn";
+            this.iDMonHocDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iDMonHocDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmAccountManager
             // 
@@ -556,10 +557,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bsTTHS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDTKTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenGVDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn iDMonHocDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnLuuTTGV;
         private System.Windows.Forms.DataGridViewButtonColumn btnChonTK;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
@@ -573,5 +570,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn col_Loai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDTKTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenGVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_STD;
+        private System.Windows.Forms.DataGridViewComboBoxColumn iDMonHocDataGridViewTextBoxColumn;
     }
 }
