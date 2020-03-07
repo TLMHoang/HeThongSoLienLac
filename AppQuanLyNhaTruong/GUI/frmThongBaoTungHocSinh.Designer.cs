@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongBaoTungHocSinh));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtTimKiemID = new System.Windows.Forms.TextBox();
             this.dgvDSHS = new System.Windows.Forms.DataGridView();
@@ -86,7 +87,7 @@
             this.txtTimKiemID.Location = new System.Drawing.Point(3, 2);
             this.txtTimKiemID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimKiemID.Name = "txtTimKiemID";
-            this.txtTimKiemID.Size = new System.Drawing.Size(428, 26);
+            this.txtTimKiemID.Size = new System.Drawing.Size(428, 22);
             this.txtTimKiemID.TabIndex = 0;
             this.txtTimKiemID.Text = "Nhập ID Hoặc Tên Để Tìm";
             this.txtTimKiemID.TextChanged += new System.EventHandler(this.txtTimKiemID_TextChanged);
@@ -156,6 +157,7 @@
             // dgvDSTB
             // 
             this.dgvDSTB.AutoGenerateColumns = false;
+            this.dgvDSTB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSTB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSTB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sTTDataGridViewTextBoxColumn,
@@ -247,18 +249,19 @@
             this.lblDSTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblDSTB.Location = new System.Drawing.Point(3, 297);
             this.lblDSTB.Name = "lblDSTB";
-            this.lblDSTB.Size = new System.Drawing.Size(197, 20);
+            this.lblDSTB.Size = new System.Drawing.Size(171, 17);
             this.lblDSTB.TabIndex = 7;
             this.lblDSTB.Text = "Danh Sách Thông Báo";
             // 
             // frmThongBaoTungHocSinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1049, 618);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmThongBaoTungHocSinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

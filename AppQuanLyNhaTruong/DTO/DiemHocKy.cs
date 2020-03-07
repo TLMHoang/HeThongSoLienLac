@@ -12,7 +12,7 @@ namespace DTO
         public int STT { get; set; }
         public int IDHocSinh { get; set; }
         public int IDMon { get; set; }
-        public double Diem { get; set; }
+        public float? Diem { get; set; }
         public byte? Loai { get; set; }
         public byte? HocKy { get; set; }
 
@@ -21,8 +21,8 @@ namespace DTO
             STT = -1;
             IDHocSinh = -1;
             IDMon = -1;
-            Diem = 0.0;
-            Loai = null;
+            Diem = (float)0.0;
+            Loai = 0;
             HocKy = 0;
         }
 
@@ -41,7 +41,7 @@ namespace DTO
             STT = Convert.IsDBNull(dr["STT"]) ? -1 : Convert.ToInt32(dr["STT"]);
             IDHocSinh = Convert.IsDBNull(dr["IDHocSinh"]) ? -1 : Convert.ToInt32(dr["IDHocSinh"]);
             IDMon = Convert.IsDBNull(dr["IDMon"]) ? -1 : Convert.ToInt32(dr["IDMon"]);
-            Diem = Convert.ToDouble(dr["Diem"]);
+            Diem = (float)Convert.ToDouble(dr["Diem"]);
             Loai = Convert.ToByte(dr["Loai"]);
             HocKy = Convert.ToByte(dr["HocKy"]);
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongBao));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cboChonLoaiTB = new System.Windows.Forms.ComboBox();
             this.lblNhapNoiDung = new System.Windows.Forms.Label();
@@ -79,7 +80,7 @@
             this.cboChonLoaiTB.Location = new System.Drawing.Point(3, 2);
             this.cboChonLoaiTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLoaiTB.Name = "cboChonLoaiTB";
-            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 28);
+            this.cboChonLoaiTB.Size = new System.Drawing.Size(281, 24);
             this.cboChonLoaiTB.TabIndex = 2;
             this.cboChonLoaiTB.Text = "Thông Báo Trường";
             this.cboChonLoaiTB.SelectedIndexChanged += new System.EventHandler(this.cboChonLoaiTB_SelectedIndexChanged);
@@ -132,7 +133,7 @@
             this.cboChonLop.Location = new System.Drawing.Point(290, 471);
             this.cboChonLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(527, 28);
+            this.cboChonLop.Size = new System.Drawing.Size(527, 24);
             this.cboChonLop.TabIndex = 5;
             // 
             // btnLuu
@@ -159,7 +160,7 @@
             this.lblThongTinLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblThongTinLop.Location = new System.Drawing.Point(290, 500);
             this.lblThongTinLop.Name = "lblThongTinLop";
-            this.lblThongTinLop.Size = new System.Drawing.Size(70, 25);
+            this.lblThongTinLop.Size = new System.Drawing.Size(57, 20);
             this.lblThongTinLop.TabIndex = 7;
             this.lblThongTinLop.Text = "label1";
             // 
@@ -173,12 +174,13 @@
             // 
             // frmThongBao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(975, 534);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmThongBao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

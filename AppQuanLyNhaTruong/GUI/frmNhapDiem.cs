@@ -18,77 +18,124 @@ namespace GUI
         DiemHeSoHaiBAL d2 = new DiemHeSoHaiBAL();
         DiemHocKyBAL d3 = new DiemHocKyBAL();
         ThongTinHSBAL tt = new ThongTinHSBAL();
+
+        MonHoc mh = new MonHoc();
+        DiemHeSoMot dhm = new DiemHeSoMot();
+        DiemHeSoHai dhh = new DiemHeSoHai();
+        DiemHocKy dhk = new DiemHocKy();
+
+        int LoaiDiem = 1;
        
         public frmNhapDiem()
         {
             InitializeComponent();
         }
 
-        private void frmNhapDiem_FormClosing(object sender, FormClosingEventArgs e)
+        private async void frmNhapDiem_Load(object sender, EventArgs e)
         {
-            DialogResult ret = MessageBox.Show("Bạn có thoát không", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ret == DialogResult.Yes)
+            bsHocSinh.SuspendBinding();
+            dgvDanhSachHS.SuspendLayout();
+
+            //load cbxLop, Mon là admin
+            if (Program.TK.Loai == 1)
             {
-                e.Cancel = false;
+
+                bsHocSinh.DataSource = await tt.LayDT();
+                foreach (Lop l in Program.lstLop)
+                {
+                    cbxLop.Items.Add(l.TenLop);
+                }
+                foreach (MonHoc mh in Program.lstMonHoc)
+                {
+                    cbxMon.Items.Add(mh.TenMon);
+                }
             }
             else
             {
-                e.Cancel = true;
+                //load cbxLop, Mon là GV
+                foreach (PhanCong pc in await new PhanCongBAL().LayLst(Program.TK.ID))
+                {
+                    cbxLop.Items.Add(Program.lstLop.FirstOrDefault(p => p.ID == pc.IDLop).TenLop);
+                }
+                cbxMon.Enabled = false;
+                cbxMon_SelectedIndexChanged(null, null);
+                cbxMon.Text = Program.lstMonHoc.FirstOrDefault(p => p.ID == Program.gV.IDMonHoc).TenMon;
+            }
+
+            dgvDanhSachHS.ResumeLayout();
+            bsHocSinh.ResumeBinding();
+            //load diểm khi có ds hs
+            if (dgvDanhSachHS.Rows.Count != 0)
+            {
+                await LoadDiemHS(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value));
             }
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
+        private async Task LoadDiemHS(int IDHS)
         {
-            
-                this.Close();
-        }
+            bsDiemHeSoMot.SuspendBinding();
+            bsDiemHeSoHai.SuspendBinding();
+            bsDiemHocKy.SuspendBinding();
+            dgvDiemHeSoMot.SuspendLayout();
+            dgvDiemHeSoHai.SuspendLayout();
+            dgvDiemHocKy.SuspendLayout();
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void frmNhapDiem_Load(object sender, EventArgs e)
-        {
-            loadhs();
-            foreach (MonHoc m in Program.lstMonHoc)
+            try
             {
-                cboMonHoc.Items.Add(m.TenMon);
+                if (cbxLop.SelectedIndex <= 0)
+                {
+                    string ClassName = await GetClassName(IDHS);
+                    bsDiemHeSoMot.DataSource = await d1.LayID(ClassName, IDHS);
+                    bsDiemHeSoHai.DataSource = await d2.LayID(ClassName, IDHS);
+                    bsDiemHocKy.DataSource = await d3.LayID(ClassName, IDHS);
+                }
+                else
+                {
+                    bsDiemHeSoMot.DataSource = await d1.LayID(cbxLop.Text, IDHS);
+                    bsDiemHeSoHai.DataSource = await d2.LayID(cbxLop.Text, IDHS);
+                    bsDiemHocKy.DataSource = await d3.LayID(cbxLop.Text, IDHS);
+                }
             }
-        }
-
-        private async void loadhs()
-        {
-            
-            //bsHocSinh.SuspendBinding();
-            //dgvNhapDiem.SuspendLayout();
-            //foreach (Lop l in Program.lstLop)
-            //{
-            //    cboLop.Items.Add(l.TenLop);
-            //}
-            //dgvNhapDiem.DataSource = await new ThongTinHSBAL().LayDT();
-            //bsHocSinh.ResumeBinding();
-            //dgvNhapDiem.ResumeLayout();
-            
-        }
-
-        private void txtTimKiem_Leave(object sender, EventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-            if (txt.Text == "")
+            catch (Exception ex)
             {
-                txt.Text = "Nhập ID hoặc Tên học sinh";
-                txt.ForeColor = Color.Gray;
+
+                MessageBox.Show(ex.Message);
             }
+
+            bsDiemHeSoMot.ResumeBinding();
+            bsDiemHeSoHai.ResumeBinding();
+            bsDiemHocKy.ResumeBinding();
+            dgvDiemHeSoMot.ResumeLayout();
+            dgvDiemHeSoHai.ResumeLayout();
+            dgvDiemHocKy.ResumeLayout();
+            
         }
 
-        private void txtTimKiem_Enter(object sender, EventArgs e)
+        public async Task<string> GetClassName(int IDHS)
         {
-            TextBox txt = sender as TextBox;
-            if (txt.ForeColor == Color.Gray)
+            DataRow dr = (await tt.LayID(IDHS)).Rows[0];
+            int IDLop = Convert.IsDBNull(dr["IDLop"]) ? -1 : Convert.ToInt32(dr["IDLop"]);
+            return Program.lstLop.FirstOrDefault(p => p.ID == IDLop).TenLop;
+        }
+
+        private async void cbxLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cbx = sender as ComboBox;
+            if (cbx.SelectedIndex != 0)
             {
-                txt.Text = "";
-                txt.ForeColor = Color.Black;
+                bsHocSinh.DataSource = await tt.LayDanhSach(Program.lstLop.FirstOrDefault(p => p.TenLop == cbx.Text).ID);
+                if (dgvDanhSachHS.Rows.Count != 0)
+                {
+                    await LoadDiemHS(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value));
+                }
+            }
+            else
+            {
+                bsHocSinh.DataSource = await tt.LayDT();
+                if (dgvDanhSachHS.Rows.Count != 0)
+                {
+                    await LoadDiemHS(Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value));
+                }
             }
         }
 
@@ -99,7 +146,7 @@ namespace GUI
             {
                 if (txt.TextLength != 0)
                 {
-                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text); 
+                    bsHocSinh.Filter = String.Format("CONVERT(ID, System.String)='{0}' OR [Ten] LIKE '%{0}%'", txt.Text);
                 }
                 else
                 {
@@ -113,64 +160,208 @@ namespace GUI
             }
         }
 
-        private async void cboLop_SelectedValueChanged(object sender, EventArgs e)
+        private void txtTimKiem_Enter(object sender, EventArgs e)
         {
-            ComboBox cbo = sender as ComboBox;
-            if (cbo.SelectedIndex != 0)
+            TextBox txt = sender as TextBox;
+            if (txt.ForeColor == Color.Gray)
             {
-                bsHocSinh.DataSource = await tt.LayDanhSach(Program.lstLop.FirstOrDefault(p => p.TenLop == cbo.Text).ID);
-            }
-            else
-            {
-                bsHocSinh.DataSource = await tt.LayDT();
+                txt.Text = "";
+                txt.ForeColor = Color.Black;
             }
         }
 
-        private async void cboMonHoc_SelectedValueChanged(object sender, EventArgs e)
+        private void txtTimKiem_Leave(object sender, EventArgs e)
         {
-            ComboBox cbo = sender as ComboBox;
-            if (cbo.SelectedIndex != 0)
+            TextBox txt = sender as TextBox;
+            if (txt.Text == "")
             {
-                bsHocSinh.DataSource = await tt.LayDanhSach(Program.lstMonHoc.FirstOrDefault(p => p.TenMon == cbo.Text).ID);
-            }
-            else
-            {
-                bsHocSinh.DataSource = await tt.LayDT();
+                txt.Text = "Nhập ID hoặc Tên học sinh";
+                txt.ForeColor = Color.Gray;
             }
         }
 
-        private void dgvNhapDiem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void radDiemMieng_CheckedChanged(object sender, EventArgs e)
         {
-            DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
-            if (drv == null)
+            if (radDiem15.Checked)
             {
+                dhm.DiemMieng = 0;
+                LoaiDiem = 1;
+                return;
+            }
+            if (radDiemMieng.Checked)
+            {
+                dhm.DiemMieng = 1;
+                LoaiDiem = 1;
+                return;
+            }
+            if (radDiemHK.Checked)
+            {
+                LoaiDiem = 3;
+                return;
+            }
+            if (radDiemMT.Checked)
+            {
+                LoaiDiem = 2;
                 return;
             }
         }
 
-        private void dgvNhapDiem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void cbxMon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataGridView dgv = (DataGridView)sender;
+            if (cbxMon.SelectedIndex <= 0)
+            {
+                chbxDat.Enabled = false;
+                numDiem.Enabled = false;
+                btnLuu.Enabled = false;
+                return;
+            }
+            mh = Program.lstMonHoc.FirstOrDefault(p => p.TenMon == cbxMon.Text);
+            if (mh.LoaiDiem == 1)
+            {
+                chbxDat.Enabled = false;
+                numDiem.Enabled = true;
+                btnLuu.Enabled = true;
+                numDiem.Value = (decimal)0.0;
+                dhm.Diem = dhh.Diem = dhk.Diem = (float)0.0;
+                dhm.Loai = dhh.Loai = dhk.Loai = 0;
+            }
+            else
+            {
+                chbxDat.Enabled = true;
+                numDiem.Enabled = false;
+                btnLuu.Enabled = true;
+                dhm.Diem = dhh.Diem = dhk.Diem = -1;
+                dhm.Loai = dhh.Loai = dhk.Loai = Convert.ToByte(chbxDat.Checked);
+            }
         }
 
-        private async void radDiemMieng_CheckedChanged(object sender, EventArgs e)
+        private async void btnLuu_Click(object sender, EventArgs e)
         {
-            //if (radDiemMieng.Checked)
-            //{
-            //    await d1.CapNhap(new DiemHeSoMot(())
-            //}
-            //if (rad15p.Checked)
-            //{
-            //    await d1.CapNhap(new DiemHeSoMot)
-            //}
-            //if (rad1tiet.Checked)
-            //{
-            //    await d2.CapNhap(new DiemHeSoHai)
-            //}
-            //if (radHocKy.Checked)
-            //{
-            //    await d3.CapNhap(new DiemHocKy)
-            //}
+            try
+            {
+                int IDHS = Convert.ToInt32(dgvDanhSachHS.Rows[dgvDanhSachHS.CurrentCell.RowIndex].Cells["ID"].Value);
+                string ClassName = cbxLop.Text;
+                if (cbxLop.SelectedIndex <= 0)
+                {
+                    ClassName = await GetClassName(IDHS);
+                }
+                switch (LoaiDiem)
+                {
+                    case 2:
+                        dhh.IDMon = mh.ID;
+                        await d2.Them(ClassName, dhh);
+                        break;
+                    case 3:
+                        dhk.IDMon = mh.ID;
+                        await d3.Them(ClassName, dhk);
+                        break;
+                    default:
+                        dhm.IDMon = mh.ID;
+                        await d1.Them(ClassName, dhm);
+                        break;
+                }
+
+                await LoadDiemHS(IDHS);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        private void numDiem_ValueChanged(object sender, EventArgs e)
+        {
+            dhm.Diem = dhh.Diem = dhk.Diem = (float)numDiem.Value;
+        }
+
+        private void chbxDat_CheckedChanged(object sender, EventArgs e)
+        {
+            dhm.Loai = dhh.Loai = dhk.Loai = Convert.ToByte(chbxDat.Checked);
+        }
+
+        private async void dgvDanhSachHS_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dhm.IDHocSinh = dhh.IDHocSinh = dhk.IDHocSinh = Convert.ToInt32(dgvDanhSachHS.Rows[e.RowIndex].Cells["ID"].Value);
+                await LoadDiemHS(dhm.IDHocSinh);
+            }
+        }
+
+        private void radHK2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radHK1.Checked)
+            {
+                dhm.HocKy = dhh.HocKy = dhk.HocKy = 0;
+                return;
+            }
+            if (radHK2.Checked)
+            {
+                dhm.HocKy = dhh.HocKy = dhk.HocKy = 1;
+                return;
+            }
+        }
+
+        private void dgvDiemHeSoMot_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvDiemHeSoMot.Columns[e.ColumnIndex].Name.Equals("Diem1"))
+            {
+                if (Convert.ToInt32(dgvDiemHeSoMot.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) == -1)
+                {
+                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt");
+                    e.Cancel = true;
+                }
+            }
+            else if (dgvDiemHeSoMot.Columns[e.ColumnIndex].Name.Equals("Loai1"))
+            {
+                if (Convert.ToInt32(dgvDiemHeSoMot.Rows[e.RowIndex].Cells["Diem1"].Value) != -1)
+                {
+                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.");
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void dgvDiemHeSoHai_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvDiemHeSoHai.Columns[e.ColumnIndex].Name.Equals("Diem2"))
+            {
+                if (Convert.ToInt32(dgvDiemHeSoHai.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) == -1)
+                {
+                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt");
+                    e.Cancel = true;
+                }
+            }
+            else if (dgvDiemHeSoHai.Columns[e.ColumnIndex].Name.Equals("Loai2"))
+            {
+                if (Convert.ToInt32(dgvDiemHeSoHai.Rows[e.RowIndex].Cells["Diem2"].Value) != -1)
+                {
+                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.");
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void dgvDiemHocKy_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvDiemHocKy.Columns[e.ColumnIndex].Name.Equals("Diem3"))
+            {
+                if (Convert.ToInt32(dgvDiemHocKy.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) == -1)
+                {
+                    MessageBox.Show("Môn này không thuộc loại hê số 10.\nNó thuộc loại Đạt hoặc Không Đạt");
+                    e.Cancel = true;
+                }
+            }
+            else if (dgvDiemHocKy.Columns[e.ColumnIndex].Name.Equals("Loai3"))
+            {
+                if (Convert.ToInt32(dgvDiemHocKy.Rows[e.RowIndex].Cells["Diem3"].Value) != -1)
+                {
+                    MessageBox.Show("Môn này không thuộc loại Đạt hoặc Không Đạt.\nNó thuộc loại hê số 10.");
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

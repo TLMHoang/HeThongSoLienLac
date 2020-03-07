@@ -17,7 +17,7 @@ namespace DAL
                 "UpdateDHSM" + TenLop,
                 new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
-                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon },
+                new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMon },
                 new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
                 new SqlParameter("@CotThu", SqlDbType.Int) { Value = obj.CotThu },
                 new SqlParameter("@DiemMieng", SqlDbType.Bit) { Value = obj.DiemMieng },
@@ -45,9 +45,9 @@ namespace DAL
         public async Task<int> Them(string TenLop, DiemHeSoMot obj)
         {
             return await ExecuteNonQuery(
-                "CreateDHSM" + TenLop,
+                "InsertDHSM" + TenLop,
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
-                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon },
+                new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMon },
                 new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
                 new SqlParameter("@CotThu", SqlDbType.Int) { Value = obj.CotThu },
                 new SqlParameter("@DiemMieng", SqlDbType.Bit) { Value = obj.DiemMieng },

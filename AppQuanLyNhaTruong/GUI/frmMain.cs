@@ -55,6 +55,7 @@ namespace GUI
                 btnPCMonHoc.Enabled = false;
                 btnAccountManagement.Enabled = false;
                 dgvDanhSachLop.ReadOnly = true;
+                dgvDanhSachLop.AllowUserToDeleteRows = false;
                 Program.gV = new ThongTinGV((await new ThongTinGVBAL().LayID(Program.TK.ID)).Rows[0]);
                 DataTable dt = await new GVCNBAL().LayDT(new GVCN(Program.TK.ID, -1));
                 if (dt.Rows.Count > 0)
@@ -71,10 +72,6 @@ namespace GUI
                     btnStudentManagement.Enabled = false;
 
                 }
-            }
-            else
-            {
-                
             }
         }
 
@@ -227,6 +224,7 @@ namespace GUI
             btnDiemDanh.Enabled = true;
             btnPCMonHoc.Enabled = true;
             btnAccountManagement.Enabled = true;
+            dgvDanhSachLop.AllowUserToDeleteRows = false;
             #endregion
             if (f.ShowDialog() == DialogResult.No)
             {
@@ -235,7 +233,7 @@ namespace GUI
             }
             else
             {
-                menuToolStripMenuItem.Text += "\n" + Program.TK.TaiKhoan;
+                menuToolStripMenuItem.Text = "Xin chào - " + Program.TK.TaiKhoan;
                 this.Visible = true;
 
                 await LoadValue();
@@ -287,12 +285,18 @@ namespace GUI
             this.Show();
         }
 
-        private void btnPCMonHoc_Click(object sender, EventArgs e)
+        private async void btnPCMonHoc_Click(object sender, EventArgs e)
         {
             frmPhanCong f = new frmPhanCong();
             this.Hide();
 
             f.ShowDialog();
+
+            Program.lstMonHoc = await new MonHocBAL().LayLst();
+            if (Program.TK.Loai == 0)
+            {
+                Program.lstLopQL = await new PhanCongBAL().LayLst(Program.TK.ID);
+            }
 
             this.Show();
         }

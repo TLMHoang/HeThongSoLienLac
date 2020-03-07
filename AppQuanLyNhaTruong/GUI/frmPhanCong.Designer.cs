@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhanCong));
             this.tabControlPhanCong = new System.Windows.Forms.TabControl();
             this.tabPhanCongMon = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -115,10 +116,10 @@
             // tabPhanCongMon
             // 
             this.tabPhanCongMon.Controls.Add(this.tableLayoutPanel1);
-            this.tabPhanCongMon.Location = new System.Drawing.Point(4, 29);
+            this.tabPhanCongMon.Location = new System.Drawing.Point(4, 25);
             this.tabPhanCongMon.Margin = new System.Windows.Forms.Padding(0);
             this.tabPhanCongMon.Name = "tabPhanCongMon";
-            this.tabPhanCongMon.Size = new System.Drawing.Size(568, 656);
+            this.tabPhanCongMon.Size = new System.Drawing.Size(568, 660);
             this.tabPhanCongMon.TabIndex = 0;
             this.tabPhanCongMon.Text = "Phân công giáo viên";
             this.tabPhanCongMon.UseVisualStyleBackColor = true;
@@ -150,7 +151,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(568, 656);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(568, 660);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // txtTimKiemGV
@@ -162,7 +163,7 @@
             this.txtTimKiemGV.Location = new System.Drawing.Point(3, 2);
             this.txtTimKiemGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimKiemGV.Name = "txtTimKiemGV";
-            this.txtTimKiemGV.Size = new System.Drawing.Size(357, 27);
+            this.txtTimKiemGV.Size = new System.Drawing.Size(357, 23);
             this.txtTimKiemGV.TabIndex = 1;
             this.txtTimKiemGV.Text = "Nhập ID hoặc Tên GV";
             this.txtTimKiemGV.TextChanged += new System.EventHandler(this.txtTimKiemGV_TextChanged);
@@ -188,7 +189,7 @@
             this.dgvDSGV.ReadOnly = true;
             this.dgvDSGV.RowHeadersVisible = false;
             this.dgvDSGV.RowTemplate.Height = 24;
-            this.dgvDSGV.Size = new System.Drawing.Size(357, 157);
+            this.dgvDSGV.Size = new System.Drawing.Size(357, 158);
             this.dgvDSGV.TabIndex = 2;
             this.dgvDSGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSGV_CellClick);
             // 
@@ -238,7 +239,7 @@
             this.dgvDSLop.Location = new System.Drawing.Point(366, 28);
             this.dgvDSLop.Name = "dgvDSLop";
             this.dgvDSLop.RowHeadersVisible = false;
-            this.dgvDSLop.Size = new System.Drawing.Size(199, 155);
+            this.dgvDSLop.Size = new System.Drawing.Size(199, 156);
             this.dgvDSLop.TabIndex = 6;
             this.dgvDSLop.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSLop_CellEndEdit);
             // 
@@ -272,7 +273,7 @@
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(422, 188);
+            this.btnBack.Location = new System.Drawing.Point(422, 189);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(143, 56);
@@ -294,10 +295,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.dgvView, 5);
             this.dgvView.DataSource = this.bsView;
             this.dgvView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvView.Location = new System.Drawing.Point(3, 249);
+            this.dgvView.Location = new System.Drawing.Point(3, 250);
             this.dgvView.Name = "dgvView";
             this.tableLayoutPanel1.SetRowSpan(this.dgvView, 2);
-            this.dgvView.Size = new System.Drawing.Size(562, 404);
+            this.dgvView.Size = new System.Drawing.Size(562, 407);
             this.dgvView.TabIndex = 8;
             this.dgvView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvView_CellClick);
             this.dgvView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvView_UserDeletingRow);
@@ -336,7 +337,7 @@
             this.btnSua.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(143, 188);
+            this.btnSua.Location = new System.Drawing.Point(143, 189);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(133, 56);
@@ -351,7 +352,7 @@
             this.btnXacNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
-            this.btnXacNhan.Location = new System.Drawing.Point(3, 188);
+            this.btnXacNhan.Location = new System.Drawing.Point(3, 189);
             this.btnXacNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(134, 56);
@@ -368,7 +369,7 @@
             this.txtTimLop.ForeColor = System.Drawing.Color.Gray;
             this.txtTimLop.Location = new System.Drawing.Point(366, 3);
             this.txtTimLop.Name = "txtTimLop";
-            this.txtTimLop.Size = new System.Drawing.Size(199, 27);
+            this.txtTimLop.Size = new System.Drawing.Size(199, 23);
             this.txtTimLop.TabIndex = 9;
             this.txtTimLop.Text = "Nhập ID hoặc Tên Lớp";
             this.txtTimLop.TextChanged += new System.EventHandler(this.txtTimLop_TextChanged);
@@ -378,10 +379,10 @@
             // tabMon
             // 
             this.tabMon.Controls.Add(this.tableLayoutPanel2);
-            this.tabMon.Location = new System.Drawing.Point(4, 29);
+            this.tabMon.Location = new System.Drawing.Point(4, 25);
             this.tabMon.Margin = new System.Windows.Forms.Padding(0);
             this.tabMon.Name = "tabMon";
-            this.tabMon.Size = new System.Drawing.Size(568, 656);
+            this.tabMon.Size = new System.Drawing.Size(568, 660);
             this.tabMon.TabIndex = 1;
             this.tabMon.Text = "Quản lý môn";
             this.tabMon.UseVisualStyleBackColor = true;
@@ -399,7 +400,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(568, 656);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(568, 660);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dgvMon
@@ -415,7 +416,7 @@
             this.dgvMon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMon.Location = new System.Drawing.Point(3, 28);
             this.dgvMon.Name = "dgvMon";
-            this.dgvMon.Size = new System.Drawing.Size(562, 625);
+            this.dgvMon.Size = new System.Drawing.Size(562, 629);
             this.dgvMon.TabIndex = 1;
             this.dgvMon.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMon_CellEndEdit);
             this.dgvMon.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvMon_UserAddedRow);
@@ -454,7 +455,7 @@
             this.txtTimMoi.ForeColor = System.Drawing.Color.Gray;
             this.txtTimMoi.Location = new System.Drawing.Point(3, 3);
             this.txtTimMoi.Name = "txtTimMoi";
-            this.txtTimMoi.Size = new System.Drawing.Size(562, 26);
+            this.txtTimMoi.Size = new System.Drawing.Size(562, 22);
             this.txtTimMoi.TabIndex = 0;
             this.txtTimMoi.Text = "Nhập ID hoặc Tên môn học";
             this.txtTimMoi.TextChanged += new System.EventHandler(this.txtTimMoi_TextChanged);
@@ -464,10 +465,10 @@
             // tabPageGVCN
             // 
             this.tabPageGVCN.Controls.Add(this.tableLayoutPanel3);
-            this.tabPageGVCN.Location = new System.Drawing.Point(4, 29);
+            this.tabPageGVCN.Location = new System.Drawing.Point(4, 25);
             this.tabPageGVCN.Name = "tabPageGVCN";
             this.tabPageGVCN.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGVCN.Size = new System.Drawing.Size(568, 656);
+            this.tabPageGVCN.Size = new System.Drawing.Size(568, 660);
             this.tabPageGVCN.TabIndex = 2;
             this.tabPageGVCN.Text = "Giáo Viên Chủ Nhiệm";
             this.tabPageGVCN.UseVisualStyleBackColor = true;
@@ -494,7 +495,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.23077F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.84615F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.61538F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(562, 650);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(562, 654);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // btnSuaGVCN
@@ -520,7 +521,7 @@
             this.txtTimGVCN.ForeColor = System.Drawing.Color.Gray;
             this.txtTimGVCN.Location = new System.Drawing.Point(3, 3);
             this.txtTimGVCN.Name = "txtTimGVCN";
-            this.txtTimGVCN.Size = new System.Drawing.Size(410, 27);
+            this.txtTimGVCN.Size = new System.Drawing.Size(410, 23);
             this.txtTimGVCN.TabIndex = 0;
             this.txtTimGVCN.Text = "Nhập ID hoặc Tên GV";
             this.txtTimGVCN.TextChanged += new System.EventHandler(this.txtTimGVCN_TextChanged);
@@ -540,7 +541,7 @@
             this.dgvGVCN.Location = new System.Drawing.Point(3, 309);
             this.dgvGVCN.Name = "dgvGVCN";
             this.dgvGVCN.RowTemplate.Height = 24;
-            this.dgvGVCN.Size = new System.Drawing.Size(556, 338);
+            this.dgvGVCN.Size = new System.Drawing.Size(556, 342);
             this.dgvGVCN.TabIndex = 2;
             this.dgvGVCN.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGVCN_CellDoubleClick);
             this.dgvGVCN.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvGVCN_UserDeletingRow);
@@ -614,7 +615,7 @@
             this.cboChonLop.FormattingEnabled = true;
             this.cboChonLop.Location = new System.Drawing.Point(419, 34);
             this.cboChonLop.Name = "cboChonLop";
-            this.cboChonLop.Size = new System.Drawing.Size(140, 28);
+            this.cboChonLop.Size = new System.Drawing.Size(140, 24);
             this.cboChonLop.TabIndex = 3;
             // 
             // lblChonLop
@@ -623,7 +624,7 @@
             this.lblChonLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblChonLop.Location = new System.Drawing.Point(419, 0);
             this.lblChonLop.Name = "lblChonLop";
-            this.lblChonLop.Size = new System.Drawing.Size(89, 20);
+            this.lblChonLop.Size = new System.Drawing.Size(77, 17);
             this.lblChonLop.TabIndex = 4;
             this.lblChonLop.Text = "Chọn Lớp";
             // 
@@ -645,12 +646,13 @@
             // 
             // frmPhanCong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(576, 689);
             this.Controls.Add(this.tabControlPhanCong);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmPhanCong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -24,7 +24,7 @@ namespace DTO
             IDMon = -1;
             Diem = (float)0.0;
             CotThu = 1;
-            Loai = null;
+            Loai = 0;
             HocKy = 0;
         }
 

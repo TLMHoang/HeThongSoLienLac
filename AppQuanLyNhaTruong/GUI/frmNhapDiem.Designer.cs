@@ -29,297 +29,633 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bsHocSinh = new System.Windows.Forms.BindingSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapDiem));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbxLop = new System.Windows.Forms.ComboBox();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.dgvDanhSachHS = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsHocSinh = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.cboHocKy = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtNhapDiem = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.cboNamHoc = new System.Windows.Forms.ComboBox();
-            this.cboMonHoc = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radDiemHK = new System.Windows.Forms.RadioButton();
+            this.radDiemMT = new System.Windows.Forms.RadioButton();
+            this.radDiem15 = new System.Windows.Forms.RadioButton();
             this.radDiemMieng = new System.Windows.Forms.RadioButton();
-            this.radDiem15p = new System.Windows.Forms.RadioButton();
-            this.radDiem1Tiet = new System.Windows.Forms.RadioButton();
-            this.radDiemThi = new System.Windows.Forms.RadioButton();
-            this.chkDat = new System.Windows.Forms.CheckBox();
-            this.chkKhongDat = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bsHocSinh)).BeginInit();
+            this.radHK1 = new System.Windows.Forms.RadioButton();
+            this.cbxMon = new System.Windows.Forms.ComboBox();
+            this.radHK2 = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numDiem = new System.Windows.Forms.NumericUpDown();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chbxDat = new System.Windows.Forms.CheckBox();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.dgvDiemHeSoMot = new System.Windows.Forms.DataGridView();
+            this.STT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMon1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diem1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loai1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DiemMieng1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HocKy1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsDiemHeSoMot = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvDiemHeSoHai = new System.Windows.Forms.DataGridView();
+            this.STT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMon2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diem2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loai2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HocKy2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsDiemHeSoHai = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvDiemHocKy = new System.Windows.Forms.DataGridView();
+            this.STTHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMonHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiHK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HocKyHK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsDiemHocKy = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsHocSinh)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiem)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoMot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoMot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoHai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoHai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHocKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemHocKy)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 600F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dgvDiemHeSoMot, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dgvDiemHeSoHai, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvDiemHocKy, 1, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1255, 715);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.cbxLop, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtTimKiem, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dgvDanhSachHS, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(600, 474);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // cbxLop
+            // 
+            this.cbxLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxLop.FormattingEnabled = true;
+            this.cbxLop.Items.AddRange(new object[] {
+            "-----------Lớp-----------"});
+            this.cbxLop.Location = new System.Drawing.Point(3, 3);
+            this.cbxLop.Name = "cbxLop";
+            this.cbxLop.Size = new System.Drawing.Size(144, 24);
+            this.cbxLop.TabIndex = 1;
+            this.cbxLop.Text = "-----------Lớp-----------";
+            this.cbxLop.SelectedIndexChanged += new System.EventHandler(this.cbxLop_SelectedIndexChanged);
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtTimKiem.ForeColor = System.Drawing.Color.Gray;
+            this.txtTimKiem.Location = new System.Drawing.Point(153, 3);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(444, 23);
+            this.txtTimKiem.TabIndex = 2;
+            this.txtTimKiem.Text = "Nhập ID hoặc Tên học sinh";
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.Enter += new System.EventHandler(this.txtTimKiem_Enter);
+            this.txtTimKiem.Leave += new System.EventHandler(this.txtTimKiem_Leave);
+            // 
+            // dgvDanhSachHS
+            // 
+            this.dgvDanhSachHS.AllowUserToAddRows = false;
+            this.dgvDanhSachHS.AllowUserToDeleteRows = false;
+            this.dgvDanhSachHS.AutoGenerateColumns = false;
+            this.dgvDanhSachHS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDanhSachHS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachHS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Ten,
+            this.NgaySinh});
+            this.tableLayoutPanel2.SetColumnSpan(this.dgvDanhSachHS, 2);
+            this.dgvDanhSachHS.DataSource = this.bsHocSinh;
+            this.dgvDanhSachHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDanhSachHS.Location = new System.Drawing.Point(3, 28);
+            this.dgvDanhSachHS.Name = "dgvDanhSachHS";
+            this.dgvDanhSachHS.ReadOnly = true;
+            this.dgvDanhSachHS.RowHeadersVisible = false;
+            this.dgvDanhSachHS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDanhSachHS.Size = new System.Drawing.Size(594, 443);
+            this.dgvDanhSachHS.TabIndex = 3;
+            this.dgvDanhSachHS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachHS_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.FillWeight = 30.99354F;
+            this.ID.HeaderText = "Mã";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Ten
+            // 
+            this.Ten.DataPropertyName = "Ten";
+            this.Ten.FillWeight = 182.7411F;
+            this.Ten.HeaderText = "Tên học sinh";
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.FillWeight = 86.26535F;
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
             // 
             // bsHocSinh
             // 
             this.bsHocSinh.DataSource = typeof(DTO.ThongTinHS);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 376);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(410, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(401, 370);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.txtTimKiem, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.633907F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.3661F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(401, 370);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTimKiem.ForeColor = System.Drawing.Color.Gray;
-            this.txtTimKiem.Location = new System.Drawing.Point(3, 3);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(395, 22);
-            this.txtTimKiem.TabIndex = 0;
-            this.txtTimKiem.Text = "---Nhập id hoặc tên---";
-            // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 0);
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.radHK1, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.cbxMon, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.radHK2, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox3, 3, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btnLuu, 3, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 27);
+            this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 474);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(395, 340);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(600, 241);
+            this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // tableLayoutPanel4
+            // groupBox1
             // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.cboHocKy, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(200, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.45752F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.54248F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(192, 334);
-            this.tableLayoutPanel4.TabIndex = 0;
+            this.tableLayoutPanel3.SetColumnSpan(this.groupBox1, 2);
+            this.groupBox1.Controls.Add(this.radDiemHK);
+            this.groupBox1.Controls.Add(this.radDiemMT);
+            this.groupBox1.Controls.Add(this.radDiem15);
+            this.groupBox1.Controls.Add(this.radDiemMieng);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.SetRowSpan(this.groupBox1, 4);
+            this.groupBox1.Size = new System.Drawing.Size(294, 235);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chọn loại điểm";
             // 
-            // cboHocKy
+            // radDiemHK
             // 
-            this.cboHocKy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboHocKy.ForeColor = System.Drawing.Color.Gray;
-            this.cboHocKy.FormattingEnabled = true;
-            this.cboHocKy.Location = new System.Drawing.Point(3, 3);
-            this.cboHocKy.Name = "cboHocKy";
-            this.cboHocKy.Size = new System.Drawing.Size(186, 24);
-            this.cboHocKy.TabIndex = 0;
-            this.cboHocKy.Text = "--Học Kỳ--";
+            this.radDiemHK.AutoSize = true;
+            this.radDiemHK.Location = new System.Drawing.Point(66, 193);
+            this.radDiemHK.Name = "radDiemHK";
+            this.radDiemHK.Size = new System.Drawing.Size(132, 28);
+            this.radDiemHK.TabIndex = 0;
+            this.radDiemHK.Text = "Điểm học kỳ";
+            this.radDiemHK.UseVisualStyleBackColor = true;
+            this.radDiemHK.CheckedChanged += new System.EventHandler(this.radDiemMieng_CheckedChanged);
             // 
-            // tableLayoutPanel5
+            // radDiemMT
             // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.txtNhapDiem, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 37);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.19403F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.80597F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(186, 294);
-            this.tableLayoutPanel5.TabIndex = 1;
+            this.radDiemMT.AutoSize = true;
+            this.radDiemMT.Location = new System.Drawing.Point(66, 141);
+            this.radDiemMT.Name = "radDiemMT";
+            this.radDiemMT.Size = new System.Drawing.Size(115, 28);
+            this.radDiemMT.TabIndex = 0;
+            this.radDiemMT.Text = "Điểm 1 tiết";
+            this.radDiemMT.UseVisualStyleBackColor = true;
+            this.radDiemMT.CheckedChanged += new System.EventHandler(this.radDiemMieng_CheckedChanged);
             // 
-            // txtNhapDiem
+            // radDiem15
             // 
-            this.txtNhapDiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNhapDiem.Location = new System.Drawing.Point(3, 3);
-            this.txtNhapDiem.Name = "txtNhapDiem";
-            this.txtNhapDiem.Size = new System.Drawing.Size(180, 22);
-            this.txtNhapDiem.TabIndex = 0;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.46073F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.53927F));
-            this.tableLayoutPanel6.Controls.Add(this.chkKhongDat, 0, 7);
-            this.tableLayoutPanel6.Controls.Add(this.radDiemThi, 0, 5);
-            this.tableLayoutPanel6.Controls.Add(this.radDiem1Tiet, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.radDiem15p, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.cboMonHoc, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.cboNamHoc, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.radDiemMieng, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.chkDat, 0, 6);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 9;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.61111F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.38889F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(191, 334);
-            this.tableLayoutPanel6.TabIndex = 1;
-            // 
-            // cboNamHoc
-            // 
-            this.cboNamHoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboNamHoc.ForeColor = System.Drawing.Color.Gray;
-            this.cboNamHoc.FormattingEnabled = true;
-            this.cboNamHoc.Location = new System.Drawing.Point(3, 3);
-            this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(185, 24);
-            this.cboNamHoc.TabIndex = 0;
-            this.cboNamHoc.Text = "--Năm Học--";
-            // 
-            // cboMonHoc
-            // 
-            this.cboMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMonHoc.ForeColor = System.Drawing.Color.Gray;
-            this.cboMonHoc.FormattingEnabled = true;
-            this.cboMonHoc.Location = new System.Drawing.Point(3, 34);
-            this.cboMonHoc.Name = "cboMonHoc";
-            this.cboMonHoc.Size = new System.Drawing.Size(185, 24);
-            this.cboMonHoc.TabIndex = 1;
-            this.cboMonHoc.Text = "--Môn Học--";
+            this.radDiem15.AutoSize = true;
+            this.radDiem15.Location = new System.Drawing.Point(66, 89);
+            this.radDiem15.Name = "radDiem15";
+            this.radDiem15.Size = new System.Drawing.Size(108, 28);
+            this.radDiem15.TabIndex = 0;
+            this.radDiem15.Text = "Điểm 15p";
+            this.radDiem15.UseVisualStyleBackColor = true;
+            this.radDiem15.CheckedChanged += new System.EventHandler(this.radDiemMieng_CheckedChanged);
             // 
             // radDiemMieng
             // 
             this.radDiemMieng.AutoSize = true;
-            this.radDiemMieng.Location = new System.Drawing.Point(3, 66);
+            this.radDiemMieng.Checked = true;
+            this.radDiemMieng.Location = new System.Drawing.Point(66, 37);
             this.radDiemMieng.Name = "radDiemMieng";
-            this.radDiemMieng.Size = new System.Drawing.Size(97, 20);
-            this.radDiemMieng.TabIndex = 2;
+            this.radDiemMieng.Size = new System.Drawing.Size(130, 28);
+            this.radDiemMieng.TabIndex = 0;
             this.radDiemMieng.TabStop = true;
-            this.radDiemMieng.Text = "Điểm Miệng";
+            this.radDiemMieng.Text = "Điểm miệng";
             this.radDiemMieng.UseVisualStyleBackColor = true;
+            this.radDiemMieng.CheckedChanged += new System.EventHandler(this.radDiemMieng_CheckedChanged);
             // 
-            // radDiem15p
+            // radHK1
             // 
-            this.radDiem15p.AutoSize = true;
-            this.radDiem15p.Location = new System.Drawing.Point(3, 106);
-            this.radDiem15p.Name = "radDiem15p";
-            this.radDiem15p.Size = new System.Drawing.Size(82, 20);
-            this.radDiem15p.TabIndex = 3;
-            this.radDiem15p.TabStop = true;
-            this.radDiem15p.Text = "Điểm 15p";
-            this.radDiem15p.UseVisualStyleBackColor = true;
+            this.radHK1.AutoSize = true;
+            this.radHK1.Checked = true;
+            this.radHK1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radHK1.Location = new System.Drawing.Point(303, 63);
+            this.radHK1.Name = "radHK1";
+            this.radHK1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.radHK1.Size = new System.Drawing.Size(144, 54);
+            this.radHK1.TabIndex = 6;
+            this.radHK1.TabStop = true;
+            this.radHK1.Text = "Học Kỳ 1";
+            this.radHK1.UseVisualStyleBackColor = true;
+            this.radHK1.CheckedChanged += new System.EventHandler(this.radHK2_CheckedChanged);
             // 
-            // radDiem1Tiet
+            // cbxMon
             // 
-            this.radDiem1Tiet.AutoSize = true;
-            this.radDiem1Tiet.Location = new System.Drawing.Point(3, 152);
-            this.radDiem1Tiet.Name = "radDiem1Tiet";
-            this.radDiem1Tiet.Size = new System.Drawing.Size(87, 20);
-            this.radDiem1Tiet.TabIndex = 4;
-            this.radDiem1Tiet.TabStop = true;
-            this.radDiem1Tiet.Text = "Điểm 1 tiết";
-            this.radDiem1Tiet.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel3.SetColumnSpan(this.cbxMon, 2);
+            this.cbxMon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbxMon.FormattingEnabled = true;
+            this.cbxMon.Items.AddRange(new object[] {
+            "-----------------Môn-----------------"});
+            this.cbxMon.Location = new System.Drawing.Point(300, 15);
+            this.cbxMon.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.cbxMon.Name = "cbxMon";
+            this.cbxMon.Size = new System.Drawing.Size(300, 32);
+            this.cbxMon.TabIndex = 1;
+            this.cbxMon.Text = "-----------------Môn-----------------";
+            this.cbxMon.SelectedIndexChanged += new System.EventHandler(this.cbxMon_SelectedIndexChanged);
             // 
-            // radDiemThi
+            // radHK2
             // 
-            this.radDiemThi.AutoSize = true;
-            this.radDiemThi.Location = new System.Drawing.Point(3, 189);
-            this.radDiemThi.Name = "radDiemThi";
-            this.radDiemThi.Size = new System.Drawing.Size(73, 20);
-            this.radDiemThi.TabIndex = 5;
-            this.radDiemThi.TabStop = true;
-            this.radDiemThi.Text = "Điểm thi";
-            this.radDiemThi.UseVisualStyleBackColor = true;
+            this.radHK2.AutoSize = true;
+            this.radHK2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radHK2.Location = new System.Drawing.Point(453, 63);
+            this.radHK2.Name = "radHK2";
+            this.radHK2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.radHK2.Size = new System.Drawing.Size(144, 54);
+            this.radHK2.TabIndex = 5;
+            this.radHK2.Text = "Học Kỳ 2";
+            this.radHK2.UseVisualStyleBackColor = true;
+            this.radHK2.CheckedChanged += new System.EventHandler(this.radHK2_CheckedChanged);
             // 
-            // chkDat
+            // groupBox2
             // 
-            this.chkDat.AutoSize = true;
-            this.chkDat.Location = new System.Drawing.Point(3, 234);
-            this.chkDat.Name = "chkDat";
-            this.chkDat.Size = new System.Drawing.Size(47, 20);
-            this.chkDat.TabIndex = 6;
-            this.chkDat.Text = "Đạt";
-            this.chkDat.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.numDiem);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.groupBox2.Location = new System.Drawing.Point(300, 120);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.groupBox2.Size = new System.Drawing.Size(150, 54);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Loại điểm hệ số 10";
             // 
-            // chkKhongDat
+            // numDiem
             // 
-            this.chkKhongDat.AutoSize = true;
-            this.chkKhongDat.Location = new System.Drawing.Point(3, 272);
-            this.chkKhongDat.Name = "chkKhongDat";
-            this.chkKhongDat.Size = new System.Drawing.Size(88, 20);
-            this.chkKhongDat.TabIndex = 7;
-            this.chkKhongDat.Text = "Không Đạt";
-            this.chkKhongDat.UseVisualStyleBackColor = true;
+            this.numDiem.DecimalPlaces = 2;
+            this.numDiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numDiem.Enabled = false;
+            this.numDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.numDiem.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numDiem.Location = new System.Drawing.Point(20, 18);
+            this.numDiem.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numDiem.Name = "numDiem";
+            this.numDiem.Size = new System.Drawing.Size(110, 29);
+            this.numDiem.TabIndex = 4;
+            this.numDiem.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.numDiem.ValueChanged += new System.EventHandler(this.numDiem_ValueChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chbxDat);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.groupBox3.Location = new System.Drawing.Point(450, 120);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(40, 3, 30, 3);
+            this.groupBox3.Size = new System.Drawing.Size(150, 60);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Loại Đạt - Không Đạt";
+            // 
+            // chbxDat
+            // 
+            this.chbxDat.AutoSize = true;
+            this.chbxDat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chbxDat.Enabled = false;
+            this.chbxDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.chbxDat.Location = new System.Drawing.Point(40, 18);
+            this.chbxDat.Name = "chbxDat";
+            this.chbxDat.Size = new System.Drawing.Size(80, 39);
+            this.chbxDat.TabIndex = 3;
+            this.chbxDat.Text = "Đạt";
+            this.chbxDat.UseVisualStyleBackColor = true;
+            this.chbxDat.CheckedChanged += new System.EventHandler(this.chbxDat_CheckedChanged);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLuu.Location = new System.Drawing.Point(453, 183);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(144, 55);
+            this.btnLuu.TabIndex = 9;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // dgvDiemHeSoMot
+            // 
+            this.dgvDiemHeSoMot.AllowUserToAddRows = false;
+            this.dgvDiemHeSoMot.AutoGenerateColumns = false;
+            this.dgvDiemHeSoMot.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDiemHeSoMot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiemHeSoMot.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT1,
+            this.IDMon1,
+            this.Diem1,
+            this.Loai1,
+            this.DiemMieng1,
+            this.HocKy1});
+            this.dgvDiemHeSoMot.DataSource = this.bsDiemHeSoMot;
+            this.dgvDiemHeSoMot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDiemHeSoMot.Location = new System.Drawing.Point(603, 3);
+            this.dgvDiemHeSoMot.Name = "dgvDiemHeSoMot";
+            this.dgvDiemHeSoMot.Size = new System.Drawing.Size(649, 231);
+            this.dgvDiemHeSoMot.TabIndex = 3;
+            this.dgvDiemHeSoMot.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHeSoMot_CellBeginEdit);
+            // 
+            // STT1
+            // 
+            this.STT1.DataPropertyName = "STT";
+            this.STT1.HeaderText = "STT";
+            this.STT1.Name = "STT1";
+            this.STT1.ReadOnly = true;
+            // 
+            // IDMon1
+            // 
+            this.IDMon1.DataPropertyName = "IDMon";
+            this.IDMon1.HeaderText = "Môn";
+            this.IDMon1.Name = "IDMon1";
+            this.IDMon1.ReadOnly = true;
+            // 
+            // Diem1
+            // 
+            this.Diem1.DataPropertyName = "Diem";
+            this.Diem1.HeaderText = "Điểm";
+            this.Diem1.Name = "Diem1";
+            // 
+            // Loai1
+            // 
+            this.Loai1.DataPropertyName = "Loai";
+            this.Loai1.HeaderText = "Đạt";
+            this.Loai1.Name = "Loai1";
+            this.Loai1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Loai1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DiemMieng1
+            // 
+            this.DiemMieng1.DataPropertyName = "DiemMieng";
+            this.DiemMieng1.HeaderText = "Điểm miệng";
+            this.DiemMieng1.Name = "DiemMieng1";
+            this.DiemMieng1.ReadOnly = true;
+            this.DiemMieng1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DiemMieng1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HocKy1
+            // 
+            this.HocKy1.DataPropertyName = "HocKy";
+            this.HocKy1.HeaderText = "Học Kỳ I";
+            this.HocKy1.Name = "HocKy1";
+            this.HocKy1.ReadOnly = true;
+            this.HocKy1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HocKy1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // bsDiemHeSoMot
+            // 
+            this.bsDiemHeSoMot.DataSource = typeof(DTO.DiemHeSoMot);
+            // 
+            // dgvDiemHeSoHai
+            // 
+            this.dgvDiemHeSoHai.AllowUserToAddRows = false;
+            this.dgvDiemHeSoHai.AutoGenerateColumns = false;
+            this.dgvDiemHeSoHai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDiemHeSoHai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiemHeSoHai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT2,
+            this.IDMon2,
+            this.Diem2,
+            this.Loai2,
+            this.HocKy2});
+            this.dgvDiemHeSoHai.DataSource = this.bsDiemHeSoHai;
+            this.dgvDiemHeSoHai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDiemHeSoHai.Location = new System.Drawing.Point(603, 240);
+            this.dgvDiemHeSoHai.Name = "dgvDiemHeSoHai";
+            this.dgvDiemHeSoHai.Size = new System.Drawing.Size(649, 231);
+            this.dgvDiemHeSoHai.TabIndex = 3;
+            this.dgvDiemHeSoHai.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHeSoHai_CellBeginEdit);
+            // 
+            // STT2
+            // 
+            this.STT2.DataPropertyName = "STT";
+            this.STT2.HeaderText = "STT";
+            this.STT2.Name = "STT2";
+            this.STT2.ReadOnly = true;
+            // 
+            // IDMon2
+            // 
+            this.IDMon2.DataPropertyName = "IDMon";
+            this.IDMon2.HeaderText = "Môn";
+            this.IDMon2.Name = "IDMon2";
+            this.IDMon2.ReadOnly = true;
+            // 
+            // Diem2
+            // 
+            this.Diem2.DataPropertyName = "Diem";
+            this.Diem2.HeaderText = "Điểm";
+            this.Diem2.Name = "Diem2";
+            // 
+            // Loai2
+            // 
+            this.Loai2.DataPropertyName = "Loai";
+            this.Loai2.HeaderText = "Đạt";
+            this.Loai2.Name = "Loai2";
+            this.Loai2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Loai2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HocKy2
+            // 
+            this.HocKy2.DataPropertyName = "HocKy";
+            this.HocKy2.HeaderText = "Học Kỳ I";
+            this.HocKy2.Name = "HocKy2";
+            this.HocKy2.ReadOnly = true;
+            this.HocKy2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HocKy2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // bsDiemHeSoHai
+            // 
+            this.bsDiemHeSoHai.DataSource = typeof(DTO.DiemHeSoHai);
+            // 
+            // dgvDiemHocKy
+            // 
+            this.dgvDiemHocKy.AllowUserToAddRows = false;
+            this.dgvDiemHocKy.AutoGenerateColumns = false;
+            this.dgvDiemHocKy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDiemHocKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiemHocKy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STTHK,
+            this.IDMonHK,
+            this.DiemHK,
+            this.LoaiHK,
+            this.HocKyHK});
+            this.dgvDiemHocKy.DataSource = this.bsDiemHocKy;
+            this.dgvDiemHocKy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDiemHocKy.Location = new System.Drawing.Point(603, 477);
+            this.dgvDiemHocKy.Name = "dgvDiemHocKy";
+            this.dgvDiemHocKy.Size = new System.Drawing.Size(649, 235);
+            this.dgvDiemHocKy.TabIndex = 3;
+            this.dgvDiemHocKy.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDiemHocKy_CellBeginEdit);
+            // 
+            // STTHK
+            // 
+            this.STTHK.DataPropertyName = "STT";
+            this.STTHK.HeaderText = "STT";
+            this.STTHK.Name = "STTHK";
+            this.STTHK.ReadOnly = true;
+            // 
+            // IDMonHK
+            // 
+            this.IDMonHK.DataPropertyName = "IDMon";
+            this.IDMonHK.HeaderText = "Môn";
+            this.IDMonHK.Name = "IDMonHK";
+            this.IDMonHK.ReadOnly = true;
+            // 
+            // DiemHK
+            // 
+            this.DiemHK.DataPropertyName = "Diem";
+            this.DiemHK.HeaderText = "Điểm";
+            this.DiemHK.Name = "DiemHK";
+            // 
+            // LoaiHK
+            // 
+            this.LoaiHK.DataPropertyName = "Loai";
+            this.LoaiHK.HeaderText = "Đạt";
+            this.LoaiHK.Name = "LoaiHK";
+            this.LoaiHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.LoaiHK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HocKyHK
+            // 
+            this.HocKyHK.DataPropertyName = "HocKy";
+            this.HocKyHK.HeaderText = "Học Kỳ I";
+            this.HocKyHK.Name = "HocKyHK";
+            this.HocKyHK.ReadOnly = true;
+            this.HocKyHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HocKyHK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // bsDiemHocKy
+            // 
+            this.bsDiemHocKy.DataSource = typeof(DTO.DiemHocKy);
             // 
             // frmNhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(814, 376);
+            this.ClientSize = new System.Drawing.Size(1255, 715);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNhapDiem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập Điểm ";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNhapDiem_FormClosing);
             this.Load += new System.EventHandler(this.frmNhapDiem_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bsHocSinh)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsHocSinh)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numDiem)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoMot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoMot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHeSoHai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemHeSoHai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiemHocKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDiemHocKy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,23 +664,49 @@
 
         private System.Windows.Forms.BindingSource bsHocSinh;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ComboBox cbxLop;
         private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.DataGridView dgvDanhSachHS;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.ComboBox cboHocKy;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.TextBox txtNhapDiem;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.CheckBox chkKhongDat;
-        private System.Windows.Forms.RadioButton radDiemThi;
-        private System.Windows.Forms.RadioButton radDiem1Tiet;
-        private System.Windows.Forms.RadioButton radDiem15p;
-        private System.Windows.Forms.ComboBox cboMonHoc;
-        private System.Windows.Forms.ComboBox cboNamHoc;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radDiemHK;
+        private System.Windows.Forms.RadioButton radDiemMT;
+        private System.Windows.Forms.RadioButton radDiem15;
         private System.Windows.Forms.RadioButton radDiemMieng;
-        private System.Windows.Forms.CheckBox chkDat;
+        private System.Windows.Forms.ComboBox cbxMon;
+        private System.Windows.Forms.RadioButton radHK1;
+        private System.Windows.Forms.RadioButton radHK2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.NumericUpDown numDiem;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox chbxDat;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.DataGridView dgvDiemHeSoMot;
+        private System.Windows.Forms.BindingSource bsDiemHeSoMot;
+        private System.Windows.Forms.DataGridView dgvDiemHeSoHai;
+        private System.Windows.Forms.BindingSource bsDiemHeSoHai;
+        private System.Windows.Forms.DataGridView dgvDiemHocKy;
+        private System.Windows.Forms.BindingSource bsDiemHocKy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDMon1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diem1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Loai1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DiemMieng1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HocKy1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDMon2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diem2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Loai2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HocKy2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STTHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDMonHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiemHK;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn LoaiHK;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HocKyHK;
     }
 }
 

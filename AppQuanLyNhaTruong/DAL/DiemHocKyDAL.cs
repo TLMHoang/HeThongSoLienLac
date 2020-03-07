@@ -17,7 +17,7 @@ namespace DAL
                 "UpdateDHK" + TenLop,
                 new SqlParameter("@STT", SqlDbType.Int) { Value = obj.STT },
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
-                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon },
+                new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMon },
                 new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
                 new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai },
                 new SqlParameter("@HocKy", SqlDbType.Bit) { Value = obj.HocKy }
@@ -43,9 +43,9 @@ namespace DAL
         public async Task<int> Them(string TenLop, DiemHocKy obj)
         {
             return await ExecuteNonQuery(
-                "CreateDHK" + TenLop,
+                "InsertDHK" + TenLop,
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
-                new SqlParameter("@IDMon", SqlDbType.Int) { Value = obj.IDMon },
+                new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMon },
                 new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
                 new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai },
                 new SqlParameter("@HocKy", SqlDbType.Bit) { Value = obj.HocKy }
