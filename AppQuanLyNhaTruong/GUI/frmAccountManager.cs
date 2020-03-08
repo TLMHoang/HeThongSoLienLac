@@ -83,7 +83,7 @@ namespace GUI
                     TaiKhoanPH tk = new TaiKhoanPH((e.Row.DataBoundItem as DataRowView).Row);
                     try
                     {
-                        if(await CheckIDTK()== false)
+                        if (await CheckIDTK() == false)
                         {
                             if ((await tkPH.Xoa(tk.ID)) == 1)
                             {
@@ -101,7 +101,7 @@ namespace GUI
                             bsTKPH.DataSource = await tkPH.LayDT();
                             dgvTKPH.Refresh();
                         }
-                        
+
                     }
                     catch (Exception)
                     {
@@ -129,11 +129,18 @@ namespace GUI
                 TaiKhoanPH ph = new TaiKhoanPH(-1, drv.Row.ItemArray[1].ToString(), drv.Row.ItemArray[1].ToString());
                 if (ph.ID == -1 && drv.Row.ItemArray[1].ToString() != "")
                 {
-                    await tkPH.Them(ph);
-                    await LoadDGVTKPH();
-                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");                    
-                    idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
-                    dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                    if ((await tkPH.Them(ph)) != 0)
+                    {
+                        await LoadDGVTKPH();
+                        MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
+                        idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
+                        dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                    }
+                    else
+                    {
+                        bsTKPH.DataSource = await tkPH.LayDT();
+                        dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                    }
                 }
                 else
                 {
@@ -150,7 +157,7 @@ namespace GUI
         private async Task<bool> CheckIDHS()
         {
             DataTable dt = await new QuanLyHSBAL().LayDT(new QuanLyHS(idHS, -1));
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 return true;
             }
@@ -169,7 +176,7 @@ namespace GUI
                         {
                             MessageBox.Show("Liên Kết Thành Công");
                             idTKPH = -1;
-                            idHS = -1;                            
+                            idHS = -1;
                             await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
