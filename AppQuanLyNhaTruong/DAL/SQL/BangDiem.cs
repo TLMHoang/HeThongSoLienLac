@@ -263,6 +263,8 @@ namespace DAL.SQL
             await DeleteBDHK(TenLop);
             await SelectBDHK(TenLop);
             await UpdateBDHK(TenLop);
+
+           
         }
 
         public async Task DiemHocKy(string TenLop)// Create table database
@@ -396,20 +398,32 @@ namespace DAL.SQL
         {
             await DeleteFK(OldName);
             await ConnectDB("EXEC sys.sp_rename DHSM" + OldName + ", DHSM" + NewName);
-            await ConnectDB("EXEC sys.sp_rename InsertDHSM" + OldName + ", InsertDHSM" + NewName);
-            await ConnectDB("EXEC sys.sp_rename DeleteDHSM" + OldName + ", DeleteDHSM" + NewName);
-            await ConnectDB("EXEC sys.sp_rename SelectDHSM" + OldName + ", SelectDHSM" + NewName);
-            await ConnectDB("EXEC sys.sp_rename UpdateDHSM" + OldName + ", UpdateDHSM" + NewName);
+            await ConnectDB("DROP PROCEDURE InsertDHSM" + OldName);
+            await ConnectDB("DROP PROCEDURE  DeleteDHSM" + OldName);
+            await ConnectDB("DROP PROCEDURE  SelectDHSM" + OldName);
+            await ConnectDB("DROP PROCEDURE  UpdateDHSM" + OldName);
+            await CreateBDHSM(NewName);
+            await DeleteBDHSM(NewName);
+            await SelectBDHSM(NewName);
+            await UpdateBDHSM(NewName);
             await ConnectDB("EXEC sys.sp_rename DHSH" + OldName + ", DHSH" + NewName);
-            await ConnectDB("EXEC sys.sp_rename InsertDHSH" + OldName + ", InsertDHSH" + NewName);
-            await ConnectDB("EXEC sys.sp_rename DeleteDHSH" + OldName + ", DeleteDHSH" + NewName);
-            await ConnectDB("EXEC sys.sp_rename SelectDHSH" + OldName + ", SelectDHSH" + NewName);
-            await ConnectDB("EXEC sys.sp_rename UpdateDHSH" + OldName + ", UpdateDHSH" + NewName);
+            await ConnectDB("DROP PROCEDURE  InsertDHSH" + OldName);
+            await ConnectDB("DROP PROCEDURE  DeleteDHSH" + OldName);
+            await ConnectDB("DROP PROCEDURE  SelectDHSH" + OldName);
+            await ConnectDB("DROP PROCEDURE  UpdateDHSH" + OldName);
+            await CreateBDHSH(NewName);
+            await DeleteBDHSH(NewName);
+            await SelectBDHSH(NewName);
+            await UpdateBDHSH(NewName);
             await ConnectDB("EXEC sys.sp_rename DHK" + OldName + ", DHK" + NewName);
-            await ConnectDB("EXEC sys.sp_rename InsertDHK" + OldName + ", InsertDHK" + NewName);
-            await ConnectDB("EXEC sys.sp_rename DeleteDHK" + OldName + ", DeleteDHK" + NewName);
-            await ConnectDB("EXEC sys.sp_rename SelectDHK" + OldName + ", SelectDHK" + NewName);
-            await ConnectDB("EXEC sys.sp_rename UpdateDHK" + OldName + ", UpdateDHK" + NewName);
+            await ConnectDB("DROP PROCEDURE  InsertDHK" + OldName);
+            await ConnectDB("DROP PROCEDURE  DeleteDHK" + OldName);
+            await ConnectDB("DROP PROCEDURE  SelectDHK" + OldName);
+            await ConnectDB("DROP PROCEDURE  UpdateDHK" + OldName);
+            await CreateBDHK(NewName);
+            await DeleteBDHK(NewName);
+            await SelectBDHK(NewName);
+            await UpdateBDHK(NewName);
             await CreateFK(NewName);
         }
 

@@ -215,9 +215,9 @@ ON nxtckedu_USTeam.TaiKhoanPH
 FOR DELETE
 AS
 BEGIN
-	IF (SELECT COUNT(nxtckedu_USTeam.ThongTinHS.ID) 
-	FROM nxtckedu_USTeam.ThongTinHS
-	JOIN Deleted ON Deleted.ID = ThongTinHS.IDTaiKhoan) > 0
+	IF (SELECT COUNT(nxtckedu_USTeam.QuanLyHS.IDTaiKhoan) 
+	FROM nxtckedu_USTeam.QuanLyHS
+	JOIN Deleted ON Deleted.ID = nxtckedu_USTeam.QuanLyHS.IDTaiKhoan) > 0
 	BEGIN
 		PRINT N'Không thể xóa tài khoản vì tài khoản dang còn quản lý học sinh'
 	    ROLLBACK TRANSACTION

@@ -86,9 +86,9 @@
             // 
             this.tabPageTaiKhoanTruong.Controls.Add(this.tlpTKT);
             this.tabPageTaiKhoanTruong.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTaiKhoanTruong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageTaiKhoanTruong.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageTaiKhoanTruong.Name = "tabPageTaiKhoanTruong";
-            this.tabPageTaiKhoanTruong.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageTaiKhoanTruong.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageTaiKhoanTruong.Size = new System.Drawing.Size(830, 484);
             this.tabPageTaiKhoanTruong.TabIndex = 1;
             this.tabPageTaiKhoanTruong.Text = "Tài Khoản Trường";
@@ -100,7 +100,7 @@
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.81123F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.18877F));
             this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
-            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.tlpTKT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tlpTKT.Controls.Add(this.dgvThongTinGV, 1, 1);
             this.tlpTKT.Controls.Add(this.dgvTaiKhoanTruong, 0, 1);
             this.tlpTKT.Controls.Add(this.txtTimTKTruong, 0, 0);
@@ -109,7 +109,7 @@
             this.tlpTKT.Controls.Add(this.btnLuuTTGV, 3, 2);
             this.tlpTKT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTKT.Location = new System.Drawing.Point(2, 2);
-            this.tlpTKT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpTKT.Margin = new System.Windows.Forms.Padding(2);
             this.tlpTKT.Name = "tlpTKT";
             this.tlpTKT.RowCount = 3;
             this.tlpTKT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.511811F));
@@ -131,11 +131,11 @@
             this.tlpTKT.SetColumnSpan(this.dgvThongTinGV, 3);
             this.dgvThongTinGV.DataSource = this.bsDSGV;
             this.dgvThongTinGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvThongTinGV.Location = new System.Drawing.Point(271, 25);
-            this.dgvThongTinGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvThongTinGV.Location = new System.Drawing.Point(270, 25);
+            this.dgvThongTinGV.Margin = new System.Windows.Forms.Padding(2);
             this.dgvThongTinGV.Name = "dgvThongTinGV";
             this.dgvThongTinGV.RowTemplate.Height = 24;
-            this.dgvThongTinGV.Size = new System.Drawing.Size(553, 399);
+            this.dgvThongTinGV.Size = new System.Drawing.Size(554, 399);
             this.dgvThongTinGV.TabIndex = 11;
             this.dgvThongTinGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvThongTinGV_EditingControlShowing);
             // 
@@ -186,11 +186,11 @@
             this.dgvTaiKhoanTruong.DataSource = this.bsTaiKhoanTruong;
             this.dgvTaiKhoanTruong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTaiKhoanTruong.Location = new System.Drawing.Point(2, 25);
-            this.dgvTaiKhoanTruong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTaiKhoanTruong.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTaiKhoanTruong.Name = "dgvTaiKhoanTruong";
             this.tlpTKT.SetRowSpan(this.dgvTaiKhoanTruong, 2);
             this.dgvTaiKhoanTruong.RowTemplate.Height = 24;
-            this.dgvTaiKhoanTruong.Size = new System.Drawing.Size(265, 453);
+            this.dgvTaiKhoanTruong.Size = new System.Drawing.Size(264, 453);
             this.dgvTaiKhoanTruong.TabIndex = 0;
             this.dgvTaiKhoanTruong.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoanTruong_CellEndEdit);
             // 
@@ -224,9 +224,9 @@
             this.txtTimTKTruong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimTKTruong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimTKTruong.Location = new System.Drawing.Point(2, 2);
-            this.txtTimTKTruong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTimTKTruong.Margin = new System.Windows.Forms.Padding(2);
             this.txtTimTKTruong.Name = "txtTimTKTruong";
-            this.txtTimTKTruong.Size = new System.Drawing.Size(265, 23);
+            this.txtTimTKTruong.Size = new System.Drawing.Size(264, 23);
             this.txtTimTKTruong.TabIndex = 1;
             this.txtTimTKTruong.TextChanged += new System.EventHandler(this.txtTimTKTruong_TextChanged);
             this.txtTimTKTruong.Enter += new System.EventHandler(this.txtTimTKTruong_Enter);
@@ -240,8 +240,8 @@
             this.btnThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnThemTaiKhoan.Location = new System.Drawing.Point(576, 428);
-            this.btnThemTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThemTaiKhoan.Location = new System.Drawing.Point(575, 428);
+            this.btnThemTaiKhoan.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             this.btnThemTaiKhoan.Size = new System.Drawing.Size(115, 50);
             this.btnThemTaiKhoan.TabIndex = 9;
@@ -254,10 +254,10 @@
             this.tlpTKT.SetColumnSpan(this.txtTimGV, 3);
             this.txtTimGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimGV.Location = new System.Drawing.Point(271, 2);
-            this.txtTimGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTimGV.Location = new System.Drawing.Point(270, 2);
+            this.txtTimGV.Margin = new System.Windows.Forms.Padding(2);
             this.txtTimGV.Name = "txtTimGV";
-            this.txtTimGV.Size = new System.Drawing.Size(553, 23);
+            this.txtTimGV.Size = new System.Drawing.Size(554, 23);
             this.txtTimGV.TabIndex = 10;
             this.txtTimGV.TextChanged += new System.EventHandler(this.txtTimGV_TextChanged);
             this.txtTimGV.Enter += new System.EventHandler(this.txtTimGV_Enter);
@@ -271,10 +271,10 @@
             this.btnLuuTTGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuTTGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuuTTGV.ForeColor = System.Drawing.Color.White;
-            this.btnLuuTTGV.Location = new System.Drawing.Point(695, 428);
-            this.btnLuuTTGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLuuTTGV.Location = new System.Drawing.Point(694, 428);
+            this.btnLuuTTGV.Margin = new System.Windows.Forms.Padding(2);
             this.btnLuuTTGV.Name = "btnLuuTTGV";
-            this.btnLuuTTGV.Size = new System.Drawing.Size(129, 50);
+            this.btnLuuTTGV.Size = new System.Drawing.Size(130, 50);
             this.btnLuuTTGV.TabIndex = 12;
             this.btnLuuTTGV.Text = "Lưu Thông Tin GV";
             this.btnLuuTTGV.UseVisualStyleBackColor = false;
@@ -284,9 +284,9 @@
             // 
             this.tabPageTaiKhoanPH.Controls.Add(this.tlpTKPH);
             this.tabPageTaiKhoanPH.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTaiKhoanPH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageTaiKhoanPH.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageTaiKhoanPH.Name = "tabPageTaiKhoanPH";
-            this.tabPageTaiKhoanPH.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageTaiKhoanPH.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageTaiKhoanPH.Size = new System.Drawing.Size(830, 484);
             this.tabPageTaiKhoanPH.TabIndex = 0;
             this.tabPageTaiKhoanPH.Text = "Tài Khoản Phụ Huynh";
@@ -307,7 +307,7 @@
             this.tlpTKPH.Controls.Add(this.btnThemTK, 2, 2);
             this.tlpTKPH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTKPH.Location = new System.Drawing.Point(2, 2);
-            this.tlpTKPH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpTKPH.Margin = new System.Windows.Forms.Padding(2);
             this.tlpTKPH.Name = "tlpTKPH";
             this.tlpTKPH.RowCount = 3;
             this.tlpTKPH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.753199F));
@@ -321,7 +321,7 @@
             this.tlpTKPH.SetColumnSpan(this.txtTimHocSinh, 3);
             this.txtTimHocSinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimHocSinh.Location = new System.Drawing.Point(247, 2);
-            this.txtTimHocSinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTimHocSinh.Margin = new System.Windows.Forms.Padding(2);
             this.txtTimHocSinh.Name = "txtTimHocSinh";
             this.txtTimHocSinh.Size = new System.Drawing.Size(577, 20);
             this.txtTimHocSinh.TabIndex = 3;
@@ -340,7 +340,7 @@
             this.dgvTKPH.DataSource = this.bsTKPH;
             this.dgvTKPH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTKPH.Location = new System.Drawing.Point(2, 22);
-            this.dgvTKPH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTKPH.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTKPH.Name = "dgvTKPH";
             this.tlpTKPH.SetRowSpan(this.dgvTKPH, 2);
             this.dgvTKPH.RowTemplate.Height = 24;
@@ -372,7 +372,7 @@
             // 
             this.txtTimTK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimTK.Location = new System.Drawing.Point(2, 2);
-            this.txtTimTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTimTK.Margin = new System.Windows.Forms.Padding(2);
             this.txtTimTK.Name = "txtTimTK";
             this.txtTimTK.Size = new System.Drawing.Size(241, 20);
             this.txtTimTK.TabIndex = 1;
@@ -396,7 +396,7 @@
             this.dgvDSHS.DataSource = this.bsTTHS;
             this.dgvDSHS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDSHS.Location = new System.Drawing.Point(247, 22);
-            this.dgvDSHS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDSHS.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDSHS.Name = "dgvDSHS";
             this.dgvDSHS.ReadOnly = true;
             this.dgvDSHS.RowTemplate.Height = 24;
@@ -468,7 +468,7 @@
             this.btnDatLaiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatLaiMK.ForeColor = System.Drawing.Color.White;
             this.btnDatLaiMK.Location = new System.Drawing.Point(706, 428);
-            this.btnDatLaiMK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDatLaiMK.Margin = new System.Windows.Forms.Padding(2);
             this.btnDatLaiMK.Name = "btnDatLaiMK";
             this.btnDatLaiMK.Size = new System.Drawing.Size(118, 50);
             this.btnDatLaiMK.TabIndex = 7;
@@ -485,7 +485,7 @@
             this.btnThemTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTK.ForeColor = System.Drawing.Color.White;
             this.btnThemTK.Location = new System.Drawing.Point(587, 428);
-            this.btnThemTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThemTK.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(115, 50);
             this.btnThemTK.TabIndex = 8;
@@ -499,7 +499,7 @@
             this.tabPageQLTK.Controls.Add(this.tabPageTaiKhoanTruong);
             this.tabPageQLTK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPageQLTK.Location = new System.Drawing.Point(0, 0);
-            this.tabPageQLTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageQLTK.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageQLTK.Name = "tabPageQLTK";
             this.tabPageQLTK.SelectedIndex = 0;
             this.tabPageQLTK.Size = new System.Drawing.Size(838, 510);
@@ -513,7 +513,7 @@
             this.ClientSize = new System.Drawing.Size(838, 510);
             this.Controls.Add(this.tabPageQLTK);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAccountManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Tài Khoản";
