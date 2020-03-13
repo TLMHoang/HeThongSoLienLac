@@ -53,10 +53,25 @@ namespace GUI
             bsTTHS.DataSource = await ttHS.LayDT();
             dgvDSHS.ResumeLayout();
             bsTTHS.ResumeBinding();
+
+            foreach (Lop l in Program.lstLop)
+            {
+                cboChonLop.Items.Add(l.TenLop);
+            }
         }
         private void dgvTKPH_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             dgvTKPH.Rows[e.Row.Index - 1].Cells[0].Value = -1;
+        }
+
+        private async Task<bool> CheckIDTK()
+        {
+            DataTable dt = await new QuanLyHSBAL().LayDT(new QuanLyHS(-1, id));
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         private async void dgvTKPH_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -68,18 +83,29 @@ namespace GUI
                     TaiKhoanPH tk = new TaiKhoanPH((e.Row.DataBoundItem as DataRowView).Row);
                     try
                     {
-                        if ((await tkPH.Xoa(tk.ID)) == 1)
+                        if (await CheckIDTK() == false)
                         {
-                            return;
+                            if ((await tkPH.Xoa(tk.ID)) == 1)
+                            {
+                                bsTKPH.DataSource = await tkPH.LayDT();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa Thất Bại !");
+                                bsTKPH.DataSource = await tkPH.LayDT();
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Xóa Thất Bại !");
+                            MessageBox.Show("Xóa Thất Bại ,Tài Khoản Đang Được Liên Kết Với Học Sinh !");
+                            bsTKPH.DataSource = await tkPH.LayDT();
+                            dgvTKPH.Refresh();
                         }
+
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Lỗi !\n" + ex.Message);
+                        MessageBox.Show("Lỗi !");
                     }
                 }
                 else
@@ -104,12 +130,18 @@ namespace GUI
                 TaiKhoanPH ph = new TaiKhoanPH(-1, drv.Row.ItemArray[1].ToString(), drv.Row.ItemArray[1].ToString());
                 if (ph.ID == -1 && drv.Row.ItemArray[1].ToString() != "")
                 {
-                    await tkPH.Them(ph);
-                    await LoadDGVTKPH();
-                    MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
-                    dgvTKPH.ReadOnly = true;
-                    idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
-                    dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                    if ((await tkPH.Them(ph)) != 0)
+                    {
+                        await LoadDGVTKPH();
+                        MessageBox.Show("Vui lòng chọn học sinh và nhấn lưu ;");
+                        idTKPH = Convert.ToInt32(dgvTKPH.Rows[dgvTKPH.RowCount - 2].Cells[0].Value.ToString());
+                        dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                    }
+                    else
+                    {
+                        bsTKPH.DataSource = await tkPH.LayDT();
+                        dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                    }
                 }
                 else
                 {
@@ -123,41 +155,29 @@ namespace GUI
             }
         }
 
+        private async Task<bool> CheckIDHS()
+        {
+            DataTable dt = await new QuanLyHSBAL().LayDT(new QuanLyHS(idHS, -1));
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private async void btnThemTK_Click(object sender, EventArgs e)
         {
             try
             {
                 if (idHS != -1)
                 {
-                    if (await CheckIDHS(idHS, idTKPH) == 1)
-                    {
-                        if ((await new QuanLyHSBAL().CapNhap(new QuanLyHS(idHS, idTKPH))) != 0)
-                        {
-                            MessageBox.Show("Cập Nhật Liên Kết Thành Công");
-                            idTKPH = -1;
-                            idHS = -1;
-                            dgvTKPH.ReadOnly = false;
-                            await LoadDGVDSHS();
-                            dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cập Nhật Liên Kết Thất Bại");
-                            idTKPH = -1;
-                            idHS = -1;
-                            dgvTKPH.ReadOnly = false;
-                            await LoadDGVDSHS();
-                            dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
-                        }
-                    }
-                    else
+                    if ((await CheckIDHS()) == false)
                     {
                         if ((await new QuanLyHSBAL().Them(new QuanLyHS(idHS, idTKPH))) != 0)
                         {
                             MessageBox.Show("Liên Kết Thành Công");
                             idTKPH = -1;
                             idHS = -1;
-                            dgvTKPH.ReadOnly = false;
                             await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
                         }
@@ -166,9 +186,30 @@ namespace GUI
                             MessageBox.Show("Liên Kết Thất Bại");
                             idTKPH = -1;
                             idHS = -1;
-                            dgvTKPH.ReadOnly = false;
                             await LoadDGVDSHS();
                             dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                        }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Bạn Muốn Cập Nhật Lại Liên Kết ?", "Thông Báo !", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                        {
+                            if ((await new QuanLyHSBAL().CapNhap(new QuanLyHS(idHS, idTKPH))) != 0)
+                            {
+                                MessageBox.Show("Cập Nhật Liên Kết Thành Công");
+                                idTKPH = -1;
+                                idHS = -1;
+                                await LoadDGVDSHS();
+                                dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cập Nhật Liên Kết Thất Bại");
+                                idTKPH = -1;
+                                idHS = -1;
+                                await LoadDGVDSHS();
+                                dgvTKPH.CurrentCell = dgvTKPH.Rows[dgvTKPH.RowCount - 1].Cells[1];
+                            }
                         }
                     }
                 }
@@ -310,17 +351,17 @@ namespace GUI
                 txtTimHocSinh.ForeColor = Color.Gray;
             }
         }
-        private async Task<int> CheckIDHS(int id, int tk)
+        private async void cboChonLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = await new QuanLyHSBAL().LayDT();
-            foreach (DataRow item in dt.Rows)
+            ComboBox cbx = sender as ComboBox;
+            if (cbx.SelectedIndex != 0)
             {
-                if (int.Parse(item.ItemArray[0].ToString()).Equals(id) && int.Parse(item.ItemArray[1].ToString()).Equals(tk))
-                {
-                    return 1;
-                }
+                bsTTHS.DataSource = await ttHS.LayDanhSach(Program.lstLop.FirstOrDefault(p => p.TenLop == cbx.Text).ID);
             }
-            return 0;
+            else
+            {
+                bsTTHS.DataSource = await ttHS.LayDT();
+            }
         }
         #endregion
 
@@ -561,11 +602,6 @@ namespace GUI
                 MessageBox.Show("Lỗi !\n" + ex.Message);
             }
         }
-
-
-
-        #endregion
-
         private void dgvThongTinGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);//Tạo even
@@ -589,5 +625,12 @@ namespace GUI
                 }
             }
         }
+
+
+        #endregion
+
+
+
+
     }
 }
