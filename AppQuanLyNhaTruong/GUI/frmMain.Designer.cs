@@ -131,14 +131,14 @@
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.adminToolStripMenuItem.Text = "Đổi mật khẩu";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
             // LogOutToolStripMenuItem
             // 
             this.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem";
-            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LogOutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.LogOutToolStripMenuItem.Text = "Đăng Xuất";
             this.LogOutToolStripMenuItem.Click += new System.EventHandler(this.LogOutToolStripMenuItem_Click);
             // 

@@ -172,7 +172,11 @@ namespace GUI
                 {
                     return;
                 }
-                Lop l = new Lop(Convert.ToInt32(drv.Row.ItemArray[0]), drv.Row.ItemArray[1].ToString());
+                Lop l = new Lop(drv.Row);
+                if (l.TenLop == "")
+                {
+                    return;
+                }
                 if (l.ID == -1)
                 {
                     await lopBAL.Them(l);

@@ -91,6 +91,7 @@ namespace GUI
                 e.Cancel = true;
             }
         }
+
         private async void dgvTKPH_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             DataRowView drv = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as DataRowView);
