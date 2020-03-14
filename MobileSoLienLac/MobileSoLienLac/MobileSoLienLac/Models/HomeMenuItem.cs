@@ -7,7 +7,12 @@ namespace MobileSoLienLac.Models
     public enum MenuItemType
     {
         TrangChu,
-        ThongTin,
+        Diem, // Diểm + HK
+        ChuyenCan,
+        ThoiKhoaBieu,
+        ThongTinHS,
+        ThongTinGV,
+        DoiMatKhau,
         DangXuat
     }
     public class HomeMenuItem

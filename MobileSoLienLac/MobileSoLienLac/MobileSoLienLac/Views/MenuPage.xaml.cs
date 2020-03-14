@@ -21,7 +21,8 @@ namespace MobileSoLienLac.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.TrangChu, Title="Trang chủ" },
-                new HomeMenuItem {Id = MenuItemType.ThongTin, Title="Thông tin học sinh" },
+                new HomeMenuItem {Id = MenuItemType.Diem, Title="Điểm, " },
+                new HomeMenuItem {Id = MenuItemType.ThongTinHS, Title="Thông tin học sinh" },
                 new HomeMenuItem {Id = MenuItemType.DangXuat, Title="Đăng xuất"}
 
             };
