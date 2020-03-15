@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=vietnamese');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: darkorange;
+    background-size: cover;
+}
+.main-section{
+    margin: 175px auto;
+    padding: 0;
+}
+
+.modal-content{
+    background-color: #f5f5f5;
+    padding: 0 18px;
+    box-shadow: 0px 0px 3px #848484;
+}
+
+.user-img{
+    margin-top: -90px;
+    margin-bottom: 40px;
+    
+}
+
+.user-img img{
+    height: 150x;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px #848484;
+}
+.form-group{
+    margin-bottom: 25px;
+}
+.form-group input{
+    height: 42px;
+    border-radius: 5px;
+    border: 0;
+    padding-left: 60px;
+}
+.icon-pass,.icon-user{  
+    position: absolute;
+    font-size: 22px;
+    color: #555e60;
+    left: 28px;
+    padding-top: 4px;
+}
+button{
+    width: 70%;
+    margin: 5px 0 25px;
+}
+.btn{
+    background-color: darkorange;
+    color: #fff;
+    font-size:  19px;
+    padding: 7px 14px;
+    border-radius: 5px; 
+    box-shadow: 0px 0px 3px #848484;
+}
+.btn:hover , .btn:focus{
+    background-color: rgb(255, 152, 25 , 0.95) !important;
+}
+.fa-sign-in-alt{
+    padding-right: 15px;
+}
+.forgot{
+    padding: 5px 0 25px;
+}
+.forgot a{
+    color: darkorange;
+}
+
