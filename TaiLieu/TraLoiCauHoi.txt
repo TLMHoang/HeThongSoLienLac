@@ -1,0 +1,20 @@
+1.Đã có chức năng xin nghỉ học 
+2.Thêm 1 Trang đăng ký bảo hiểm y tế , trang đó hiên thị thông tin BHYT có ph chỉ được chọn có hoặc không
+3.Xem phiếu đánh giá học tập
+4.có thêm trang xem điểm cuối kỳ và tổng kết 
+5.phụ huynh chỉ được cập nhật dân tộc ,tôn giáo, sđt 
+
+
+8.phụ huynh học sinh khi quên mật khẩu 
+trả lời : sẽ có link lấy lấy mật khẩu khi phía nhà trường xét duyệt xong
+9.giáo viên có được sửa điểm lớp không khác
+trả lời : chỉ được cập nhật điểm cho lớp mình phụ trách
+10.các loại xép loại học sinh giỏi hay tiên tiến 
+trả lời : sẽ xử lý kết quả trên web
+11.giáo viên có được gửi thông báo cho toàn trường
+trả lời : không được gửi thông báo cho toàn trường
+12.trang chủ web là trang nào 
+trả lời : trang chủ web sẽ là trang thông báo báo gồm các thông báo toàn trường và các thông báo cá nhân (có thể lớp hoặc cá nhân)
+13.nếu 1 tài khoản phụ huynh có 2 học sinh liên kết
+trả lời : sẽ có page thông báo để chọn học sinh xem thông tin 
+14.
