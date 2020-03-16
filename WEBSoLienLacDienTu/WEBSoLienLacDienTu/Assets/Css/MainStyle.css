@@ -155,6 +155,13 @@ ul ul a {
 }
 .Icon-team{
     color : darkorange !important;    
+    padding-left : 40px;
+}
+.Icon-user:hover  {
+    color : darkorange;
+}
+.dropdown{
+    padding-left:80px;
 }
 
 
