@@ -155,7 +155,7 @@ ul ul a {
 }
 .Icon-team{
     color : darkorange !important;    
-    padding-left : 40px;
+    padding-left : 50px !important;
 }
 .Icon-user:hover  {
     color : darkorange;
