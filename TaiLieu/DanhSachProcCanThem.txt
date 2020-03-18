@@ -1,3 +1,0 @@
-proc đăng nhập phụ huynh
-proc lấy thông tin học sinh liên kết với tk phụ huynh
-
