@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Thông Tin Học Sinh</h2>
+<form>
+    <label for="sel1">Chọn Lớp:</label>
+    <div class="input-group mb-3">
+        <select class="form-control" id="sel1" name="sellist1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <button type="submit" class="btn btn-warning">Chọn</button>
+    </div>
+</form>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+                    
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                       
+                    </tbody>
+                </table>
+                <a href="#" class="text-primary">Thêm Học Sinh</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
