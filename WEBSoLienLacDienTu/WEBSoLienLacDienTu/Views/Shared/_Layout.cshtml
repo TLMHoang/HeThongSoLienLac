@@ -68,7 +68,7 @@
                     </ul>
                 </li>
                 <li class="active"><a href="#">Đăng Ký Nghỉ Phép</a></li>
-
+                <li class="active"><a href="#">Thông Tin Giáo Viên</a></li>
                 @*<li>
                         <a href="#">About</a>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
@@ -109,11 +109,43 @@
                     </a>
                     <div class="dropdown">
                         <button type="button" class="btn Icon-user" data-toggle="dropdown">
-                            <i class="fas fa-user"></i>                           
+                            <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#section41">Đổi Mật Khẩu</a>
+                            <a class="dropdown-item" href="#section41" data-toggle="modal" data-target="#myModal">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" href="#section42">Đăng Xuất</a>
+                        </div>
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Thay Đổi Mật Khẩu</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="Pass">Mật Khẩu Cũ:</label>
+                                                <input type="password" class="form-control" id="Pass" placeholder="Nhập Mật Khẩu Cũ..." name="MKC">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="NewPass">Mật Khẩu Mới:</label>
+                                                <input type="password" class="form-control" id="NewPass" placeholder="Nhập Mật Khẩu Mới..." name="MKM">
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-warning">Xác Nhận</button>
+                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
