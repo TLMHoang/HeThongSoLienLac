@@ -33,7 +33,7 @@ namespace MobileSoLienLac.Views
                     case (int)MenuItemType.TrangChu:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.ThongTin:
+                    case (int)MenuItemType.ThongTinHS:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.DangXuat:
