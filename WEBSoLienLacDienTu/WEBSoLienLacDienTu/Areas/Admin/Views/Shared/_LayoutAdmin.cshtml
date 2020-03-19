@@ -54,15 +54,15 @@
                 <li class="active"><a href="#">Quản Lý Thời Khóa Biểu</a></li>
                 <li class="active">
 
-                <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu1">
-                    <li>
-                        <a href="#">Tài Khoản Giáo Viên</a>
-                    </li>
-                    <li>
-                        <a href="#">Tài Khoản Trường</a>
-                    </li>
-                </ul>
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                        <li>
+                            <a href="#">Tài Khoản Giáo Viên</a>
+                        </li>
+                        <li>
+                            <a href="#">Tài Khoản Trường</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="active"><a href="#">Phân Công Giáo Viên Bộ Môn</a></li>
                 <li class="active"><a href="#">Phân Công Giáo Viên Chủ Nhiệm</a></li>
@@ -111,8 +111,40 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#section41">Đổi Mật Khẩu</a>
+                            <a class="dropdown-item" href="#section41" data-toggle="modal" data-target="#myModal">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" href="#section42">Đăng Xuất</a>
+                        </div>
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Thay Đổi Mật Khẩu</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="Pass">Mật Khẩu Cũ:</label>
+                                                <input type="password" class="form-control" id="Pass" placeholder="Nhập Mật Khẩu Cũ..." name="MKC">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="NewPass">Mật Khẩu Mới:</label>
+                                                <input type="password" class="form-control" id="NewPass" placeholder="Nhập Mật Khẩu Mới..." name="MKM">
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-warning">Xác Nhận</button>
+                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
