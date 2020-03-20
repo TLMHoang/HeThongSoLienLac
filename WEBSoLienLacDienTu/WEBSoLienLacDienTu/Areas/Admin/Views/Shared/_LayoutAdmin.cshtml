@@ -50,12 +50,22 @@
                 </li>
                 <li class="active"><a href="#">Nhập Điểm Học Sinh</a></li>
                 <li class="active">@Html.ActionLink("Quản Lý Thông Tin Học Sinh","Index","QuanLyThongTinHS")</li>
-                <li class="active"><a href="#">Điểm Danh</a></li>
+                <li class="active">
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                        <li>
+                            @Html.ActionLink("Vắng", "Index", "DiemDanh")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cúp Học", "CupHoc", "DiemDanh")
+                        </li>
+                    </ul>
+                </li>
                 <li class="active"><a href="#">Quản Lý Thời Khóa Biểu</a></li>
                 <li class="active">
 
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
                             <a href="#">Tài Khoản Giáo Viên</a>
                         </li>
