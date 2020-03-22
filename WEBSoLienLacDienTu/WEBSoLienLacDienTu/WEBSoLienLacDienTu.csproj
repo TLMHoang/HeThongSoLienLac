@@ -125,6 +125,8 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyThongTinHSController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanTruongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -154,6 +156,8 @@
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\CupHoc.cshtml" />
+    <Content Include="Areas\Admin\Views\ThoiKhoaBieu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongBaoCaNhan\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
