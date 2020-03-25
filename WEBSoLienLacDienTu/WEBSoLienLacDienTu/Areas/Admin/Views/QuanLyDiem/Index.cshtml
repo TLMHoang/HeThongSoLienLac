@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Nhập Điểm Học Sinh</h2>
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form class="form-group">
+                <label for="sel1">Chọn Lớp:</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel1" name="sellist1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+
+                </div>
+                <label for="sel2">Môn Dạy</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel2" name="sellist2">
+                        <option>Toán</option>
+                        <option>Lý</option>
+                        <option>Hóa</option>
+                        <option>Văn</option>
+                    </select>
+
+                </div>
+                <label for="sel3">Chọn Học Kỳ</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel3" name="sellist3">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+
+                </div>
+                <label for="sel4">Loại Điểm</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel4" name="sellist4">
+                        <option>Điểm miệng</option>
+                        <option>Điểm 15p</option>                       
+                    </select>
+
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-warning">Chọn</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Nhập Điểm</th>
+                            <th>Chi Tiết điểm</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable"></tbody>
+                </table>
+                <a href="#" class="text-primary">Xem Điểm Theo Danh Sách</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
