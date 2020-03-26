@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xin Phép Vắng Học</h2>
+<<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <from class="form-group"></from>
+            <label for="text1">Họ và Tên</label>
+            <div class="input-group mb-3">
+                <input id="text1" type="text"  />
+            </div>
+            <label for="text2">Lớp</label>
+            <div class="input-group mb-3">
+                <input id="text1" type="text" />
+            </div>
+
+            <label for="text3">Nghỉ từ ngày</label>
+            <div class="input-group mb-3">
+                <input id="text3" type="date"  />
+            </div>
+
+            <label for="text4">Đến Ngày</label>
+            <div class="input-group mb-3">
+                <input id="text4" type="date"  />
+            </div>
+            <label for="text5">Số ngày nghỉ</label>
+            <div class="input-group mb-3">
+                <input id="text5" type="text"  />
+            </div>
+
+            <input id="Submit1" type="submit" value="Gửi" />
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh Xin Nghỉ</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Nghỉ từ</th>
+                            <th>Nghỉ Đến</th>
+                            <th>Số ngày Nghỉ</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
