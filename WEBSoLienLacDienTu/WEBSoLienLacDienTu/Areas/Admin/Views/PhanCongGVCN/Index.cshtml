@@ -5,4 +5,52 @@
 }
 
 <h2>Phân công giáo viên chủ nhiệm</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <from class="form-group"></from>
+            <label for="text1">Họ và Tên Giáo Viên</label>
+            <div class="input-group mb-3">
+                <input id="text1" type="text" size="50" />
+            </div>
+            <label for="sel1">Lớp</label>
+            <div class="input-group mb-3">
+                <select class="form-control" id="sel1" name="sellist1"></select>
+            </div>
+            <input id="Button1" type="button" value="Thêm" />
+            <input id="Button1" type="button" value="Sửa" />
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Lớp Học</h6>
 
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Lớp Học">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ Và Tên Giáo Viên</th>
+                            <th>Lớp</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

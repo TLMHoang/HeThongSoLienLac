@@ -1,10 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cập Nhật Thông Tin Học Sinh</h2>
+<h2>Thông Tin Học Sinh</h2>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3"></div>
@@ -15,34 +16,34 @@
                 <input id="text1" type="text" size="50" />
             </div>
 
-            <label for="text2">Giới tính</label>
+            <label for="sel2">Lớp</label>
             <div class="input-group mb-3">
-                <input id="text2" type="text" size="50" />
+                <select class="form-control" id="sel2" name="sellist1"></select>
             </div>
-
-            <label for="text3">Ngày Sinh</label>
-            <div class="input-group mb-3">
-                <input id="text3" type="text" size="50" />
-            </div>
-
-            <label for="text4">Dân tộc</label>
+          
+            <label for="text4">Ngày Sinh</label>
             <div class="input-group mb-3">
                 <input id="text4" type="text" size="50" />
             </div>
 
-            <label for="text5">Tôn giáo</label>
+            <label for="text5">Giới Tính</label>
             <div class="input-group mb-3">
                 <input id="text5" type="text" size="50" />
             </div>
-            <label for="sel1">Lớp</label>
+
+            <label for="text6">Dân Tộc</label>
             <div class="input-group mb-3">
-                <select class="form-control" id="sel1" name="sellist1"></select>
+                <input id="text6" type="text" size="50" />
             </div>
 
-            <input id="Button1" type="button" value="Cập Nhật Thông Tin" />
+            <label for="text7">Tôn Giáo</label>
+            <div class="input-group mb-3">
+                <input id="text7" type="text" size="50" />
+            </div>
+           
+            <input id="Button1" type="button" value="Cập Nhật" />
+            
         </div>
     </div>
 </div>
-  
-            
 
