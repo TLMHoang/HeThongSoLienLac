@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WEBSoLienLacDienTu",
     "\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu",
+    "\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\Areas",
+    "\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\Areas\\Admin\\Views\\TaiKhoanTruong",
+    "\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\Controllers",
     "\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\Views"
   ],
-  "SelectedNode": "\\TaiLieu",
+  "SelectedNode": "\\WEBSoLienLacDienTu",
   "PreviewInSolutionExplorer": false
 }
