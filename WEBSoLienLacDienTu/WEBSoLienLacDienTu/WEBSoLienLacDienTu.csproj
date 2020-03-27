@@ -130,6 +130,7 @@
     <Compile Include="Areas\Admin\Controllers\TaiKhoanTruongController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongTinHocSinhController.cs" />
     <Compile Include="Areas\Admin\Controllers\XemDiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\XinPhepController.cs" />
@@ -170,6 +171,10 @@
     <Content Include="Areas\Admin\Views\ThongTinHocSinh\Index.cshtml" />
     <Content Include="Areas\Admin\Views\XemDiemDanh\Index.cshtml" />
     <Content Include="Areas\Admin\Views\XinPhep\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongBaoChung\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongBaoChung\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

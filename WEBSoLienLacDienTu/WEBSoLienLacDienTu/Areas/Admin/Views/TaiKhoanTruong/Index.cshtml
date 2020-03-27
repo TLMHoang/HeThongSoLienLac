@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Tài Khoản Trường</h2>
+<hr />
+<a href="@Url.Action("Create","TaiKhoanTruong")" class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus-square"></i>
+    </span>
+    <span>Thêm Tài Khoản</span>
+</a>
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Tài Khoản</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable"  cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>STT</th>
+                            <th>Loại Tài Khoản</th>
+                            <th>Tên Tài Khoản</th>                           
+                            <th>Tên Giáo Viên</th>
+                            <th>SĐT</th>
+                            <th>Môn Dạy</th>
+                            <th>Chủ Nhiệm Lớp</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        <tr>
+                            <td width="15%">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="#" class="btn btn-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-pen-square"></i>
+                                            </span>
+                                            <span>Sửa</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span>Xóa</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Admin</td>
+                            <td>Phong</td>
+                            <td>VHP</td>
+                            <td>SĐT</td>
+                            <td>Lý</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

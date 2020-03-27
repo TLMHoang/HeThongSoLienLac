@@ -6,18 +6,14 @@ using System.Web.Mvc;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
-    public class TaiKhoanTruongController : Controller
+    public class ThongBaoChungController : Controller
     {
-        // GET: Admin/TaiKhoanTruong
+        // GET: Admin/ThongBaoChung
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Create()
-        {
-            return View();
-        }
-        public ActionResult Login()
         {
             return View();
         }
