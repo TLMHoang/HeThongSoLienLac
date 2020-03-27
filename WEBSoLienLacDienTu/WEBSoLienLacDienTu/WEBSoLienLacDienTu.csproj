@@ -131,9 +131,6 @@
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ThongTinHocSinhController.cs" />
-    <Compile Include="Areas\Admin\Controllers\XemDiemDanhController.cs" />
-    <Compile Include="Areas\Admin\Controllers\XinPhepController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,9 +165,6 @@
     <Content Include="Areas\Admin\Views\QuanLyDiem\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HocPhi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongGVCN\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ThongTinHocSinh\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\XemDiemDanh\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\XinPhep\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ThongBaoChung\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ThongBaoChung\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Index.cshtml" />
