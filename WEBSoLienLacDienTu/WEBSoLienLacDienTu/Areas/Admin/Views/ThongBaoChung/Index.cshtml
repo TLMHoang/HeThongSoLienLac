@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Thông Báo Toàn Trường</h2>
+<a href="@Url.Action("Create","ThongBaoChung")" class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus-square"></i>
+    </span>
+    <span>Thêm Thông Báo</span>
+</a>
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Thông Báo</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>STT</th>
+                            <th>Nội Dung</th>
+                            <th>Ngày</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        <tr>
+                            <td width="15%">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="#" class="btn btn-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-pen-square"></i>
+                                            </span>
+                                            <span>Sửa</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span>Xóa</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Nội Dung</td>
+                            <td>Ngày</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
