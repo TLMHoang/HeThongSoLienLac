@@ -124,8 +124,10 @@
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhanCongDayController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongGVCNController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyDiemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyMonHocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyThongTinHSController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanTruongController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
@@ -172,6 +174,10 @@
     <Content Include="Areas\Admin\Views\ThongBaoChung\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyMonHoc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyMonHoc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

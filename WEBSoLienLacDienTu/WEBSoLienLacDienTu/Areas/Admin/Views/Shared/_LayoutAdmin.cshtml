@@ -41,7 +41,7 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Thông Báo Chung</a>
+                            <a href="#">@Html.ActionLink("Thông Báo Chung", "Index", "ThongBaoChung")</a>
                         </li>
                         <li>
                             <a href="#">@Html.ActionLink("Thông Báo Cá Nhân", "Index", "ThongBaoCaNhan")</a>
@@ -63,8 +63,8 @@
                 </li>
                 <li class="active">@Html.ActionLink("Quản Lý Thời Khóa Biểu", "Index", "ThoiKhoaBieu")</li>
                 <li class="active">
-
-                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    @Html.ActionLink("Quản Lý Tài Khoản", "Index", "TaiKhoanTruong")
+                    @*<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
                             <a href="#">Tài Khoản Giáo Viên</a>
@@ -72,11 +72,11 @@
                         <li>
                             <a href="#">Tài Khoản Trường</a>
                         </li>
-                    </ul>
+                    </ul>*@
                 </li>
-                <li class="active"><a href="#">Phân Công Giáo Viên Bộ Môn</a></li>
+                <li class="active">@Html.ActionLink("Phân Công Giáo Viên Bộ Môn", "Index", "PhanCongDay")</li>
                 <li class="active"><a href="#">Phân Công Giáo Viên Chủ Nhiệm</a></li>
-                <li class="active"><a href="#">Quản Lý Môn Học</a></li>
+                <li class="active">@Html.ActionLink("Quản lý Môn Học", "Index", "QuanLyMonHoc")</li>
                 <li class="active">@Html.ActionLink("Quản lý thông tin học phí", "Index", "HocPhi")</li>
                 @*<li>
                         <a href="#">About</a>
