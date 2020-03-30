@@ -55,9 +55,21 @@ namespace ConnectDB.DAL
             return lst;
         }
 
-        public Task<int> Them(ThongTinHS obj)
+        public async Task<int> Them(ThongTinHS obj)
         {
-            throw new NotImplementedException();
+            return await ExecuteNonQuery("InsertThongTinHS",
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = obj.Ten },
+                new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = obj.NgaySinh },
+                new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = obj.GioiTinh },
+                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = obj.NoiSinh },
+                new SqlParameter("@DanToc", SqlDbType.NVarChar) { Value = obj.DanToc },
+                new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = obj.TonGiao },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
+                new SqlParameter("@IDLoaiHocSinh", SqlDbType.Int) { Value = obj.IDLoaiHocSinh },
+                new SqlParameter("@HKI", SqlDbType.Int) { Value = obj.HKI },
+                new SqlParameter("@HKII", SqlDbType.Int) { Value = obj.HKII },
+                new SqlParameter("@CaNam", SqlDbType.Int) { Value = obj.CaNam }
+            );
         }
 
         public async Task<int> Xoa(int ID)
