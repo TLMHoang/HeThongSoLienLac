@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "..\AppQuanLyNhaTruon
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{6126CDDE-8EDC-4B46-853C-7CF557662FED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDB", "ConnectDB\ConnectDB.csproj", "{8F5E6128-081C-44C4-87F4-9FE23FED747E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{C0032786-F375-43E9-9F44-212949D26EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0032786-F375-43E9-9F44-212949D26EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0032786-F375-43E9-9F44-212949D26EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5E6128-081C-44C4-87F4-9FE23FED747E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5E6128-081C-44C4-87F4-9FE23FED747E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5E6128-081C-44C4-87F4-9FE23FED747E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5E6128-081C-44C4-87F4-9FE23FED747E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
