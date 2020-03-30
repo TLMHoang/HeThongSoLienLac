@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -161,7 +162,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiKhoanTruong\Login.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\CupHoc.cshtml" />
@@ -178,6 +178,7 @@
     <Content Include="Areas\Admin\Views\QuanLyMonHoc\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -209,7 +210,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -226,13 +226,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AppQuanLyNhaTruong\BAL\BAL.csproj">
-      <Project>{c0032786-f375-43e9-9f44-212949d26ef2}</Project>
-      <Name>BAL</Name>
+    <ProjectReference Include="..\..\AppQuanLyNhaTruong\DAL\DAL.csproj">
+      <Project>{2EE0178C-A4EB-4D72-AE7A-2BFE64585156}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\AppQuanLyNhaTruong\DTO\DTO.csproj">
-      <Project>{e863ffe3-2699-4f24-8de4-5cab7459e635}</Project>
-      <Name>DTO</Name>
+    <ProjectReference Include="..\ConnectDB\ConnectDB.csproj">
+      <Project>{8f5e6128-081c-44c4-87f4-9fe23fed747e}</Project>
+      <Name>ConnectDB</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
