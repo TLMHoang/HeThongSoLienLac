@@ -81,5 +81,14 @@ namespace ConnectDB.DAL
                 new SqlParameter("@TaiKhoan", SqlDbType.NVarChar) { Value = TaiKhoan },
                 new SqlParameter("@MatKhau", SqlDbType.NVarChar) { Value = MatKhau });
         }
+        public async Task<DataTable> DoiMatKhau(int ID, string MatKhauCu,string MatKhauMoi)
+        {
+            return await ExecuteQuery(
+                "DoiMatKhauTruong",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID },
+                new SqlParameter("@MatKhauCu", SqlDbType.NVarChar) { Value = MatKhauCu },
+                new SqlParameter("@MatKhauMoi", SqlDbType.NVarChar) { Value = MatKhauMoi }
+                );
+        }
     }
 }

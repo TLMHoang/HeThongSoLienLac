@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Code\CheckSession.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
+    <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -179,6 +181,7 @@
     <Content Include="Areas\Admin\Views\PhanCongDay\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ChangePassModal.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

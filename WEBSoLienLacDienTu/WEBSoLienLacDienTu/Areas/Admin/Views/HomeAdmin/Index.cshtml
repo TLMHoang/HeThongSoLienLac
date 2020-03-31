@@ -2,10 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-    if (Session["TaiKhoan"] == null)
-     {
-        Response.Redirect("~/Admin/TaiKhoanTruong/Login");
-     }
+    
 }
 
 <h2>Trang Chủ</h2>

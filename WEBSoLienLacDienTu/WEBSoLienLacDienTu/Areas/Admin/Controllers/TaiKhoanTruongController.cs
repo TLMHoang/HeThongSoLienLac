@@ -13,6 +13,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     public class TaiKhoanTruongController : Controller
     {
+        private int ID;
         // GET: Admin/TaiKhoanTruong
         public ActionResult Index()
         {
@@ -35,10 +36,16 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 DataTable dt = await new TaiKhoanTruongDAL().DangNhap(lg.TaiKhoan, lg.MatKhau);
+                
                 if (dt.Rows.Count == 1)
                 {
+                    foreach (var VARIABLE in dt.Rows)
+                    {
+                        ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                    }
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan,true);
                     Session["TaiKhoan"] = lg.TaiKhoan.ToString();
+                    Session["MatKhau"] = lg.MatKhau.ToString();
                     return RedirectToAction("Index", "HomeAdmin");
                 }
                 else
@@ -48,6 +55,29 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
 
             return View();
+        }
+        [HttpGet]
+        public ActionResult ChangePass()
+        {
+            return PartialView("_ChangePassModal");
+        }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult ChangePass(ChangePassModel changePass)
+        {
+            if (ModelState.IsValid)
+            {
+                
+            }
+            return PartialView("_ChangePassModal");
+
+        }
+
+        public ActionResult Logout()
+        {
+            Session["TaiKhoan"] = null;
+            Session["MatKhau"] = null;
+            ID = -1;
+            return RedirectToAction("Login");
         }
     }
 }

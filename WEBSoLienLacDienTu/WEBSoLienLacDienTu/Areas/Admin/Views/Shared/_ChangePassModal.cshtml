@@ -1,0 +1,56 @@
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.ChangePassModel
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thay Đổi Mật Khẩu</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <form>
+                        <div class="form-group">
+                            <label for="Pass">Mật Khẩu Cũ:</label>
+                            @Html.TextBoxFor(model => model.MatKhauCu, new { @class = "form-control", @placeholder = "Mật Khẩu Cũ...", @type = "password" })
+                            @Html.ValidationMessageFor(model => model.MatKhauCu, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="NewPass">Mật Khẩu Mới:</label>
+                            @Html.TextBoxFor(model => model.MatKhauMoi, new { @class = "form-control", @placeholder = "Mật Khẩu Mới...", @type = "password" })
+                            @Html.ValidationMessageFor(model => model.MatKhauMoi, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="NewPass">Nhập Lại Mật Khẩu Mới:</label>
+                            @Html.TextBoxFor(model => model.ConfirmMatKhauMoi, new { @class = "form-control", @placeholder = "Nhập Lại Mật Khẩu Mới...", @type = "password" })
+                            @Html.ValidationMessageFor(model => model.ConfirmMatKhauMoi, "", new { @class = "text-danger" })
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning">Xác Nhận</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*<script>
+    $(document).ready(function(){
+        $(".show-modal").click(function(){
+            $("#myModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+    });
+</script>*@
