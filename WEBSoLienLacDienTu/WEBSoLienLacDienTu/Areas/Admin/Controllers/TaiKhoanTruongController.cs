@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
+
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
@@ -36,7 +38,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 DataTable dt = await new TaiKhoanTruongDAL().DangNhap(lg.TaiKhoan, lg.MatKhau);
-                
+
                 if (dt.Rows.Count == 1)
                 {
                     foreach (var VARIABLE in dt.Rows)
@@ -57,18 +59,20 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
         [HttpGet]
+        [SessionTimeout]
         public ActionResult ChangePass()
         {
-            return PartialView("_ChangePassModal");
+            return View();
         }
         [HttpPost, ValidateAntiForgeryToken]
+        [SessionTimeout]
         public ActionResult ChangePass(ChangePassModel changePass)
         {
             if (ModelState.IsValid)
             {
                 
             }
-            return PartialView("_ChangePassModal");
+            return View();
 
         }
 

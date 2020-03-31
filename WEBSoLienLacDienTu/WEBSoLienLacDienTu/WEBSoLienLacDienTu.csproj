@@ -181,7 +181,7 @@
     <Content Include="Areas\Admin\Views\PhanCongDay\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_ChangePassModal.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\ChangePass.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -229,13 +229,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AppQuanLyNhaTruong\DAL\DAL.csproj">
-      <Project>{2EE0178C-A4EB-4D72-AE7A-2BFE64585156}</Project>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{7185aaec-38a0-4c26-8d2f-d4bb385358e9}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ConnectDB\ConnectDB.csproj">
-      <Project>{8f5e6128-081c-44c4-87f4-9fe23fed747e}</Project>
-      <Name>ConnectDB</Name>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{498481a8-eb6e-4651-b5cf-2d0619dbdafc}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

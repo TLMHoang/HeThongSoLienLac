@@ -1,0 +1,49 @@
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.ChangePassModel
+
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row justify-content-center">
+        <h2>Thay Đổi Mật Khẩu</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <form>
+                <div class="form-group">
+                    <label for="Pass">Mật Khẩu Cũ:</label>
+                    @Html.TextBoxFor(model => model.MatKhauCu, new { @class = "form-control", @placeholder = "Mật Khẩu Cũ...", @type = "password" })
+                    @Html.ValidationMessageFor(model => model.MatKhauCu, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="NewPass">Mật Khẩu Mới:</label>
+                    @Html.TextBoxFor(model => model.MatKhauMoi, new { @class = "form-control", @placeholder = "Mật Khẩu Mới...", @type = "password" })
+                    @Html.ValidationMessageFor(model => model.MatKhauMoi, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="NewPass">Nhập Lại Mật Khẩu Mới:</label>
+                    @Html.TextBoxFor(model => model.ConfirmMatKhauMoi, new { @class = "form-control", @placeholder = "Nhập Lại Mật Khẩu Mới...", @type = "password" })
+                    @Html.ValidationMessageFor(model => model.ConfirmMatKhauMoi, "", new { @class = "text-danger" })
+                </div>
+            </form>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Xác Nhận" class="btn btn-warning" />
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div class="col-lg-3"></div>
+
+    </div>
+}
