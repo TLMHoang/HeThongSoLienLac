@@ -44,6 +44,14 @@
             <hr />
         </div>
         <div class="col-lg-3"></div>
-
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewBag.Message");
+                    window.location.href = "/Admin/HomeAdmin/Index";
+                }
+            </script>
+        }
     </div>
 }

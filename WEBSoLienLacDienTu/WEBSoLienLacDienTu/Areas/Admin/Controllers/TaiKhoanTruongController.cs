@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using DTO;
 using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
 
@@ -15,7 +16,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     public class TaiKhoanTruongController : Controller
     {
-        private int ID;
+        public static TaiKhoanTruong TK = new TaiKhoanTruong();
         // GET: Admin/TaiKhoanTruong
         public ActionResult Index()
         {
@@ -34,25 +35,23 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel lg)
         {
-           
+
             if (ModelState.IsValid)
             {
                 DataTable dt = await new TaiKhoanTruongDAL().DangNhap(lg.TaiKhoan, lg.MatKhau);
 
                 if (dt.Rows.Count == 1)
                 {
-                    foreach (var VARIABLE in dt.Rows)
-                    {
-                        ID = int.Parse(dt.Rows[0]["ID"].ToString());
-                    }
-                    FormsAuthentication.SetAuthCookie(lg.TaiKhoan,true);
+                    List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
+                    TK = new TaiKhoanTruong(dt.Rows[0]);
+                    FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
                     Session["TaiKhoan"] = lg.TaiKhoan.ToString();
                     Session["MatKhau"] = lg.MatKhau.ToString();
                     return RedirectToAction("Index", "HomeAdmin");
                 }
                 else
                 {
-                   ModelState.AddModelError("","Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng !");
+                    ModelState.AddModelError("", "Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng !");
                 }
             }
 
@@ -66,11 +65,28 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         }
         [HttpPost, ValidateAntiForgeryToken]
         [SessionTimeout]
-        public ActionResult ChangePass(ChangePassModel changePass)
+        public async Task<ActionResult> ChangePass(ChangePassModel changePass)
         {
             if (ModelState.IsValid)
             {
-                
+                if (Session["MatKhau"].Equals(changePass.MatKhauCu))
+                {
+                    if ((await new TaiKhoanTruongDAL().DoiMatKhau(TK.ID, changePass.MatKhauCu, changePass.MatKhauMoi)) != 0)
+                    {
+                        TK.MatKhau = changePass.MatKhauMoi;
+                        Session["MatKhau"] = changePass.MatKhauMoi;
+                        ViewBag.Message = "Update Success!";
+                        return View();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Đổi Mật Khẩu Thất Bại !");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Mật Khẩu Cũ Không Đúng !");
+                }
             }
             return View();
 
@@ -80,7 +96,6 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         {
             Session["TaiKhoan"] = null;
             Session["MatKhau"] = null;
-            ID = -1;
             return RedirectToAction("Login");
         }
     }

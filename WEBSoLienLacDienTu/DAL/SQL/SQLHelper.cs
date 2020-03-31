@@ -107,7 +107,7 @@ namespace DAL.SQL
 
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
                 finally
                 {
                     if (con.State == ConnectionState.Open)
