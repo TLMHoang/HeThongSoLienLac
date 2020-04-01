@@ -164,7 +164,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyThongTinHS\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\CupHoc.cshtml" />
     <Content Include="Areas\Admin\Views\ThoiKhoaBieu\Index.cshtml" />
@@ -182,6 +181,7 @@
     <Content Include="Areas\Admin\Views\PhanCongDay\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Login.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\ChangePass.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyThongTinHS\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

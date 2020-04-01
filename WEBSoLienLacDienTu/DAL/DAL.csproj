@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="BangDiemDAL.cs" />
     <Compile Include="CInterface.cs" />
+    <Compile Include="KhoiDAL.cs" />
+    <Compile Include="LopDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\SQLHelper.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />
