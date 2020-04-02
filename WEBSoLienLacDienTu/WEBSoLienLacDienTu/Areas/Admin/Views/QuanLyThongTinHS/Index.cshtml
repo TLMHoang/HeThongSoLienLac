@@ -25,7 +25,7 @@
                 <div class="input-group mb-3 ">
                     @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp ", new { @class = "form-control" })
                 </div>
-                <button type="submit" class="btn btn-warning">Chọn</button>
+                <button type="submit" id="TaiDuLieu" class="btn btn-warning">Chọn</button>
             </form>
         </div>
         <div class="col-lg-3"></div>
@@ -106,6 +106,15 @@
                             $("#ID").append("<option value='" + row.value + "'>" + row.Text + "</option>")
                         });
                     });
+                })
+            });
+
+            $(document).ready(function () {
+                $('#TaiDuLieu').click(function() {
+                    $.get("/QuanLyThongTinHS/LoadTable", { Id: $('#ID').val() },
+                        function(data) {
+
+                        });
                 })
             });
         </script>

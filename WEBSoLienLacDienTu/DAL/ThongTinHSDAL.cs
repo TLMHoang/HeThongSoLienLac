@@ -79,5 +79,13 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
+
+        public async Task<DataTable> LayDT_ByIDLop(int ID)
+        {
+            return await ExecuteQuery(
+                "SelectThongTinHSTheoLop",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
+        }
     }
 }

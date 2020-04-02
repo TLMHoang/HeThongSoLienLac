@@ -18,10 +18,12 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     {
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
         // GET: Admin/TaiKhoanTruong
+        [SessionTimeout]
         public ActionResult Index()
         {
             return View();
         }
+        [SessionTimeout]
         public ActionResult Create()
         {
             return View();
@@ -71,16 +73,23 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 if (Session["MatKhau"].Equals(changePass.MatKhauCu))
                 {
-                    if ((await new TaiKhoanTruongDAL().DoiMatKhau(TK.ID, changePass.MatKhauCu, changePass.MatKhauMoi)) != 0)
+                    if(Session["MatKhau"].Equals(changePass.MatKhauMoi))
                     {
-                        TK.MatKhau = changePass.MatKhauMoi;
-                        Session["MatKhau"] = changePass.MatKhauMoi;
-                        ViewBag.Message = "Update Success!";
-                        return View();
+                        ModelState.AddModelError("", "Mật Khẩu Mới Không Được Giống Mật Khẩu Cũ !");
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Đổi Mật Khẩu Thất Bại !");
+                        if ((await new TaiKhoanTruongDAL().DoiMatKhau(TK.ID, changePass.MatKhauCu, changePass.MatKhauMoi)) != 0)
+                        {
+                            TK.MatKhau = changePass.MatKhauMoi;
+                            Session["MatKhau"] = changePass.MatKhauMoi;
+                            ViewBag.Message = "Update Success!";
+                            return View();
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Đổi Mật Khẩu Thất Bại !");
+                        }
                     }
                 }
                 else

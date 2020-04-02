@@ -38,5 +38,15 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
             return Json( li,JsonRequestBehavior.AllowGet);
         }
+
+        public async Task<JsonResult> LoadTable(int Id)
+        {
+            List<ThongTinHS> li = new List<ThongTinHS>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(Id)).Rows)
+            {
+                li.Add(new ThongTinHS(dr));
+            }
+            return Json(li,JsonRequestBehavior.AllowGet);
+        }
     }
 }

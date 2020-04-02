@@ -21,24 +21,27 @@
             <form>
                 <div class="form-group">
                     <label for="Pass">Mật Khẩu Cũ:</label>
-                    @Html.TextBoxFor(model => model.MatKhauCu, new { @class = "form-control", @placeholder = "Mật Khẩu Cũ...", @type = "password" })
+                    @Html.TextBoxFor(model => model.MatKhauCu, new { @class = "form-control", @placeholder = "Mật Khẩu Cũ...", @type = "password", id = "myInput" })
                     @Html.ValidationMessageFor(model => model.MatKhauCu, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label for="NewPass">Mật Khẩu Mới:</label>
-                    @Html.TextBoxFor(model => model.MatKhauMoi, new { @class = "form-control", @placeholder = "Mật Khẩu Mới...", @type = "password" })
+                    @Html.TextBoxFor(model => model.MatKhauMoi, new { @class = "form-control", @placeholder = "Mật Khẩu Mới...", @type = "password", id = "myInput1" })
                     @Html.ValidationMessageFor(model => model.MatKhauMoi, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label for="NewPass">Nhập Lại Mật Khẩu Mới:</label>
-                    @Html.TextBoxFor(model => model.ConfirmMatKhauMoi, new { @class = "form-control", @placeholder = "Nhập Lại Mật Khẩu Mới...", @type = "password" })
+                    @Html.TextBoxFor(model => model.ConfirmMatKhauMoi, new { @class = "form-control", @placeholder = "Nhập Lại Mật Khẩu Mới...", @type = "password" , id = "myInput2" })
                     @Html.ValidationMessageFor(model => model.ConfirmMatKhauMoi, "", new { @class = "text-danger" })
                 </div>
+                <input type="checkbox" onclick="myFunction()">Hiển Thị Mật Khẩu
+                
             </form>
-
+            
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Xác Nhận" class="btn btn-warning" />
+                    <br />
+                    <input type="submit" value="Xác Nhận" class="btn btn-warning"/>
                 </div>
             </div>
             <hr />
@@ -53,5 +56,21 @@
                 }
             </script>
         }
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                var x1 = document.getElementById("myInput1");
+                var x2 = document.getElementById("myInput2");
+                if (x.type === "password" && x1.type === "password" && x2.type === "password") {
+                    x.type = "text";
+                    x1.type = "text";
+                    x2.type = "text";
+                } else {
+                    x.type = "password";
+                    x1.type = "password";
+                    x2.type = "password";
+                }
+            }
+        </script>
     </div>
 }
