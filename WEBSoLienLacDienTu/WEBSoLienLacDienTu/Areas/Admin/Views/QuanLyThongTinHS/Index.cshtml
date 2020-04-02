@@ -1,76 +1,112 @@
-﻿@model DTO.Lop
-    @{
-        ViewBag.Title = "Index";
-        Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-    }
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <h2>Quản Lý Thông Tin Học Sinh</h2>
-        <hr />
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">
+﻿
+@model WEBSoLienLacDienTu.Areas.Admin.Models.GetClassModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2>Quản Lý Thông Tin Học Sinh</h2>
+    <hr />
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form>
+                <label for="sel1">Chọn Khối:</label>
+                <div class="input-group mb-3 ">
+                    @if (ViewBag.LstKhoi != null)
+                    {
+                        @Html.DropDownListFor(model => model.IDKhoi, ViewBag.LstKhoi as SelectList, "Vui Lòng Chọn Khối", new { @class = "form-control" })
+                    }
+                </div>
+                <label for="sel1">Chọn Lớp:</label>
+                <div class="input-group mb-3 ">
+                    @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp ", new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-warning">Chọn</button>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    <hr />
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
                 <form>
-                    <label for="sel1">Chọn Khối:</label>
-                    <div class="input-group mb-3 ">
-                        @Html.DropDownList("LstKhoi")
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+
                     </div>
-                    <label for="sel1">Chọn Lớp:</label>
-                    <div class="input-group mb-3 ">
-                        @Html.DropDownList("LstLop")
-                    </div>
-                    <button type="submit" class="btn btn-warning">Chọn</button>
                 </form>
             </div>
-            <div class="col-lg-3"></div>
-        </div>
-        <hr />
-        <div class="container-fluid">
-            <!-- Page Heading -->
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <form>
-                        <div class="input-group mb-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+            <div class="card-body">
+                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Học Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Ngày Sinh</th>
+                                <th>Dân Tộc</th>
+                                <th>Tôn Giáo</th>
+                            </tr>
+                        </thead>
 
-                        </div>
-                    </form>
-                </div>
-                <div class="card-body">
-                    <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
-                    <br>
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Tên Học Sinh</th>
-                                    <th>Giới Tính</th>
-                                    <th>Ngày Sinh</th>
-                                    <th>Dân Tộc</th>
-                                    <th>Tôn Giáo</th>
-                                </tr>
-                            </thead>
-
-                            <tbody id="myTable"></tbody>
-                        </table>
-                        <a href="#" class="text-primary">Thêm Học Sinh</a>
-                    </div>
+                        <tbody id="myTable">
+                            <tr>
+                                <td>ID</td>
+                                <td>Phong</td>
+                                <td>Nam</td>
+                                <td>01/07/1999</td>
+                                <td>Dân Tộc</td>
+                                <td>Tôn Giáo</td>
+                            </tr>
+                            <tr>
+                                <td>ID</td>
+                                <td>Hien</td>
+                                <td>Nu</td>
+                                <td>01/07/1999</td>
+                                <td>Dân Tộc</td>
+                                <td>Tôn Giáo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" class="text-primary">Thêm Học Sinh</a>
                 </div>
             </div>
-
         </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
         <script>
             $(document).ready(function () {
-                $("#myInput").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $("#IDKhoi").change(function () {
+                    $.get("/QuanLyThongTinHS/LoadListLop", { IDKhoi: $("#IDKhoi").val() }, function (data) {
+                        $("#ID").empty();
+                        $.each(data, function (index, row) {
+                            $("#ID").append("<option value='" + row.value + "'>" + row.Text + "</option>")
+                        });
                     });
-                });
+                })
             });
         </script>
-    }
+}

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -7,6 +10,7 @@ using System.Web.Mvc;
 using DAL;
 using DTO;
 using WEBSoLienLacDienTu.Areas.Admin.Code;
+using WEBSoLienLacDienTu.Areas.Admin.Models;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
@@ -18,21 +22,21 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public async Task<ActionResult> Index()
         {
             await LoadListKhoi();
-            
-            await LoadListLop();
             return View();
         }
         public async Task LoadListKhoi()
         {
-            ViewData["lstKhoi"] = new SelectList(await new KhoiDAL().LayLst(), "ID", "TenKhoi");
+            ViewBag.LstKhoi = new SelectList(await new KhoiDAL().LayLst(), "ID", "TenKhoi");
         }
-        public async Task LoadListLop()
+
+        public async Task<JsonResult> LoadListLop(int IdKhoi)
         {
-            int ID = int.Parse(Request.Form["lstKhoi"].ToString());
-            List<Lop> lstLop = new List<Lop>();
-            lstLop = await new LopDAL().LayLst();
-            lstLop.FirstOrDefault(p => p.ID == ID);
-            ViewData["lstLop"] = new SelectList(lstLop, "ID", "TenLop");
+            List<SelectListItem> li = new List<SelectListItem>();
+            foreach (DataRow dr in (await new LopDAL().LayDTLopTheoKhoi(IdKhoi)).Rows)
+            {
+                li.Add(new SelectListItem {Text = dr["TenLop"].ToString(),Value = dr["ID"].ToString() });
+            }
+            return Json( li,JsonRequestBehavior.AllowGet);
         }
     }
 }
