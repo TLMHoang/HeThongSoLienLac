@@ -1,11 +1,10 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Quản lý thông tin học phí</h2>
-<br />
+<h2>Xem Học Phí</h2>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3"></div>
@@ -15,7 +14,7 @@
             <div class="input-group mb-3">
                 <select class="form-control" id="sel1" name="sellist1">
                     <option>Nội Trú</option>
-                    <option>Ngoại Trú</option>                                       
+                    <option>Ngoại Trú</option>
                 </select>
             </div>
             <label for="sel2">Khối Lớp</label>
@@ -24,56 +23,14 @@
                     <option>10</option>
                     <option>11</option>
                     <option>12</option>
-                    
-                </select>               
+
+                </select>
             </div>
             <label for="sel2">Tháng</label>
             <div class="input-group mb-3">
-                <select class="form-control" id="sel2" name="sellist1"></select>
+                <select class="form-control" id="sel3" name="sellist1"></select>
             </div>
-
-            
-
-            <label for="text4">Số ngày học</label>
-            <div class="input-group mb-3">
-                <input id="text4" type="text" size="50" />
-            </div>
-
-            <label for="text5">Tiền học phí</label>
-            <div class="input-group mb-3">
-                <input id="text5" type="text" size="50" />
-            </div>
-
-            <label for="text6">Tiền ăn</label>
-            <div class="input-group mb-3">
-                <input id="text6" type="text" size="50" />
-            </div>
-
-            <label for="text7">Tiền điện</label>
-            <div class="input-group mb-3">
-                <input id="text7" type="text" size="50" />
-            </div>
-
-            <label for="text8">Tiền nước</label>
-            <div class="input-group mb-3">
-                <input id="text8" type="text" size="50" />
-            </div>
-
-            <label for="text9">Tiền vệ sinh</label>
-            <div class="input-group mb-3">
-                <input id="text9" type="text" size="50" />
-            </div>
-
-            <label for="text10">Tiền trang thiết bị</label>
-            <div class="input-group mb-3">
-                <input id="text10" type="text" size="50" />
-            </div>
-
-            <label for="text11">Tiền tài liệu</label>
-            <div class="input-group mb-3">
-                <input id="text11" type="text" size="50" />
-            </div>
-            <input id="Submit1" type="submit" value="Thêm vào danh sách" />
+            <input id="Button1" type="button" value="Xem" size="30" />      
         </div>
     </div>
 </div>
@@ -112,9 +69,10 @@
                     <tbody id="myTable">
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>
 
 </div>
+

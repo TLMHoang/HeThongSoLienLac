@@ -140,7 +140,12 @@
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ThongBaoTruongCaNhanController.cs" />
     <Compile Include="Controllers\ThongTinHocSinh1Controller.cs" />
+    <Compile Include="Controllers\TraCuuController.cs" />
+    <Compile Include="Controllers\XemDiemController.cs" />
+    <Compile Include="Controllers\XemHocPhiController.cs" />
+    <Compile Include="Controllers\XemTKBController.cs" />
     <Compile Include="Controllers\XinPhep1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +216,12 @@
     <Content Include="Views\ChiTietDiemDanh\Index.cshtml" />
     <Content Include="Views\ThongTinHocSinh1\Index.cshtml" />
     <Content Include="Views\XinPhep1\Index.cshtml" />
+    <Content Include="Views\XemTKB\Index.cshtml" />
+    <Content Include="Views\XemHocPhi\Index.cshtml" />
+    <Content Include="Views\XemDiem\Index.cshtml" />
+    <Content Include="Views\TraCuu\Index.cshtml" />
+    <Content Include="Views\ThongBaoTruongCaNhan\Index.cshtml" />
+    <Content Include="Views\TraCuu\GVBM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
