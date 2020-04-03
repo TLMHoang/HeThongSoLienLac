@@ -13,88 +13,51 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
+            <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
             <form>
                 <label for="sel1">Chọn Khối:</label>
                 <div class="input-group mb-3 ">
                     @if (ViewBag.LstKhoi != null)
                     {
-                        @Html.DropDownListFor(model => model.IDKhoi, ViewBag.LstKhoi as SelectList, "Vui Lòng Chọn Khối", new { @class = "form-control" })
+                        @Html.DropDownListFor(model => model.IDKhoi, ViewBag.LstKhoi as SelectList, "Vui Lòng Chọn Khối", new {@class = "form-control"})
                     }
                 </div>
                 <label for="sel1">Chọn Lớp:</label>
                 <div class="input-group mb-3 ">
-                    @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp ", new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp", new {@class = "form-control"})
                 </div>
-                <button type="submit" id="TaiDuLieu" class="btn btn-warning">
-                    @Html.ActionLink("Chọn","LoadTable","QuanLyThongTinHS")
+
+                <button type="submit" id="TaiDuLieu" class="btn btn-warning">Chọn
+                    @*@Html.ActionLink("Chọn", "LoadTable", "QuanLyThongTinHS", null, new {@id = "viewLink"})*@
                 </button>
             </form>
         </div>
         <div class="col-lg-3"></div>
     </div>
     <hr />
-    <div class="container-fluid">
-        <!-- Page Heading -->
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <form>
-                    <div class="input-group mb-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
-
-                    </div>
-                </form>
-            </div>
-            <div class="card-body">
-                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
-                <br>
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Tên Học Sinh</th>
-                                <th>Giới Tính</th>
-                                <th>Ngày Sinh</th>
-                                <th>Dân Tộc</th>
-                                <th>Tôn Giáo</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="myTable">
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
+        
         $(document).ready(function () {
             $("#IDKhoi").change(function () {
                 $.get("/QuanLyThongTinHS/LoadListLop", { IDKhoi: $("#IDKhoi").val() }, function (data) {
                     $("#ID").empty();
                     $.each(data, function (index, row) {
-                        $("#ID").append("<option value='" + row.value + "'>" + row.Text + "</option>")
+                        $("#ID").append("<option value='" + row.Value + "'>" + row.Text + "</option>")
                     });
                 });
             })
         });
-        @*$('#TaiDuLieu').click(function () {
-            var idListLop = $('#idListLop').val();
-            var path = '@Url.Content("~/QuanLyThongTinHS/LoadTable")' + "?Id=" + idListLop
-            $(this).attr("href", path);
+        @*$(function () {
+
+            $(document).on("click", "#TaiDuLieu", function (e) {
+                e.preventDefault();
+                var newUrl = "@Url.Action("LoadTable","QuanLyThongTinHS")?id=" + $("#ID").val();
+                window.location.href = newUrl;
+            });
+
         });*@
     </script>
 
