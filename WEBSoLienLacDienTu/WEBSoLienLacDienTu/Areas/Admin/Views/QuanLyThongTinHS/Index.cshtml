@@ -25,7 +25,9 @@
                 <div class="input-group mb-3 ">
                     @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp ", new { @class = "form-control" })
                 </div>
-                <button type="submit" id="TaiDuLieu" class="btn btn-warning">Chọn</button>
+                <button type="submit" id="TaiDuLieu" class="btn btn-warning">
+                    @Html.ActionLink("Chọn","LoadTable","QuanLyThongTinHS")
+                </button>
             </form>
         </div>
         <div class="col-lg-3"></div>
@@ -60,25 +62,9 @@
                         </thead>
 
                         <tbody id="myTable">
-                            <tr>
-                                <td>ID</td>
-                                <td>Phong</td>
-                                <td>Nam</td>
-                                <td>01/07/1999</td>
-                                <td>Dân Tộc</td>
-                                <td>Tôn Giáo</td>
-                            </tr>
-                            <tr>
-                                <td>ID</td>
-                                <td>Hien</td>
-                                <td>Nu</td>
-                                <td>01/07/1999</td>
-                                <td>Dân Tộc</td>
-                                <td>Tôn Giáo</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
-                    <a href="#" class="text-primary">Thêm Học Sinh</a>
                 </div>
             </div>
         </div>
@@ -95,27 +81,21 @@
                 });
             });
         });
+        $(document).ready(function () {
+            $("#IDKhoi").change(function () {
+                $.get("/QuanLyThongTinHS/LoadListLop", { IDKhoi: $("#IDKhoi").val() }, function (data) {
+                    $("#ID").empty();
+                    $.each(data, function (index, row) {
+                        $("#ID").append("<option value='" + row.value + "'>" + row.Text + "</option>")
+                    });
+                });
+            })
+        });
+        @*$('#TaiDuLieu').click(function () {
+            var idListLop = $('#idListLop').val();
+            var path = '@Url.Content("~/QuanLyThongTinHS/LoadTable")' + "?Id=" + idListLop
+            $(this).attr("href", path);
+        });*@
     </script>
 
-        <script>
-            $(document).ready(function () {
-                $("#IDKhoi").change(function () {
-                    $.get("/QuanLyThongTinHS/LoadListLop", { IDKhoi: $("#IDKhoi").val() }, function (data) {
-                        $("#ID").empty();
-                        $.each(data, function (index, row) {
-                            $("#ID").append("<option value='" + row.value + "'>" + row.Text + "</option>")
-                        });
-                    });
-                })
-            });
-
-            $(document).ready(function () {
-                $('#TaiDuLieu').click(function() {
-                    $.get("/QuanLyThongTinHS/LoadTable", { Id: $('#ID').val() },
-                        function(data) {
-
-                        });
-                })
-            });
-        </script>
 }
