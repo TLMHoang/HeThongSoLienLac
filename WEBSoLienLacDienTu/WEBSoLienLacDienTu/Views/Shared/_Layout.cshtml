@@ -43,13 +43,13 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Tình Hình Học Tập </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Xem Điểm</a>
+                            <a href="#">@Html.ActionLink("Xem Điểm", "Index", "XemDiem")</a>
                         </li>
                         <li>
                             <a href="#">Tổng Kết Cuối Kỳ</a>
                         </li>
                         <li>
-                            <a href="#">Thời Khóa Biểu Của Học Sinh</a>
+                            <a href="#">@Html.ActionLink("Xem Thời Khóa Biểu", "Index", "XemTKB")</a>
                         </li>
                         <li>
                             <a href="#">Cúp Học Nghỉ Học</a>
@@ -60,15 +60,25 @@
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            <a href="#">Cập Nhật Thông Tin</a>
+                            <a href="#">@Html.ActionLink("Thông Tin Hoc Sinh", "Index", "ThongTInHocSinh1")</a>
                         </li>
                         <li>
                             <a href="#">Bảo Hiểm Y Tế</a>
                         </li>
                     </ul>
                 </li>
-                <li class="active"><a href="#">Đăng Ký Nghỉ Phép</a></li>
-                <li class="active"><a href="#">Thông Tin Giáo Viên</a></li>
+                <li class="active"><a href="#">@Html.ActionLink("Xin Phép", "Index", "XinPhep1")</a></li>
+                @*<<li class="active">
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                        <li>
+                            @Html.ActionLink("Tra Cứu Giáo Viên Chủ Nhiệm", "Index", "TraCuu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Tra Cứu Giáo Viên Bộ Môn", "GVBM", "TraCuu")
+                        </li>
+                    </ul>
+                </li>*@
                 @*<li>
                         <a href="#">About</a>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
