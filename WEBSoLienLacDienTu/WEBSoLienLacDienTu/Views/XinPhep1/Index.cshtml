@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xin Phép Vắng Học</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <from class="form-group"></from>
+            <label for="text1">Họ và Tên</label>
+            <div class="input-group mb-3">
+                <input id="text1" type="text"  />
+            </div>
+            <label for="text4">Nghỉ từ</label>
+            <div class="input-group mb-3">
+                <input id="text4" type="date" size="20" />
+            </div>
+            <label for="text5">Đến Ngày</label>
+            <div class="input-group mb-3">
+                <input id="text5" type="date" size="20" />
+            </div>
+            <label for="text6">Số Ngày Xin Nghỉ</label>
+            <div class="input-group mb-3">
+                <input id="text6" type="text"  />
+            </div>
+            <input id="Submit1" type="submit" value="Gửi" size="20"/>        
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Thông Tin Học Sinh Xin Phép</h6>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">          
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ Và Tên</th>                            <
+                            <th>Nghỉ từ</th>
+                            <th>Đến Ngày</th>
+                            <th>Số Ngày Nghỉ</th>                           
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

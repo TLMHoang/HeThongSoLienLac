@@ -1,0 +1,111 @@
+﻿@model IEnumerable<DTO.ThongTinHS>
+
+@{
+    ViewBag.Title = "LoadTable";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<hr />
+<div class="row">
+    <div>
+
+        <a href="@Url.Action("ThemHS")" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Học Sinh</span>
+        </a>
+    </div>
+    <div style="margin-left: 10px">
+        <a href="#" class="btn btn-success btn-icon-split" id="Excel">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Học Sinh Bằng Excel</span>
+        </a>
+    </div>
+</div>
+
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh <span></span></h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    HS00<span>@Html.DisplayFor(modelitem => item.ID)</span>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Ten)
+                                </td>
+                                <td>
+                                    @if (item.GioiTinh == 1)
+                                    {
+                                        @Html.Label("Nam")
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Nữ")
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.NgaySinh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.DanToc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TonGiao)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    $(document).ready(function() {
+        $('#Excel').click(function() {
+            alert("Xin Lỗi , Chức Năng Đang Trong Quá Trình Phát Triển !");
+        })
+    });
+</script>
+

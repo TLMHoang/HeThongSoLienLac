@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xem Điểm Học Sinh</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form class="form-group">
+                <label for="sel1">Tên Học Sinh:</label>
+                <div class="input-group mb-3">
+                    <input id="text1" type="text" size="50" />
+                </div>
+                <label for="sel1">Học Kỳ:</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel1" name="sellist1">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </div>
+                <label for="sel1">Loại Điểm:</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel2" name="sellist1">
+                        <option>Học Kỳ</option>
+                        <option>1 Tiết</option>
+                    </select>
+                </div>
+                <label for="sel1">Môn Học:</label>
+                <div class="input-group mb-3">
+                    <select class="form-control" id="sel3" name="sellist1">
+                        <option>Toán</option>
+                    </select>
+                </div>
+            </form>
+            <input id="Button1" type="button" value="Lọc" size="30" />
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Điểm</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Học Kỳ</th>
+                            <th>Loại ĐIểm</th>
+                            <th>Môn Học</th>
+                            <th>Điểm</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

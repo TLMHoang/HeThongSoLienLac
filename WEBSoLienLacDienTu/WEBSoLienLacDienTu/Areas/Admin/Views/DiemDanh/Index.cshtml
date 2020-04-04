@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Học Sinh Vắng</h2>
+<form>
+    <label for="sel1">Chọn Lớp:</label>
+    <div class="input-group mb-3">
+        <select class="form-control" id="sel1" name="sellist1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <button type="submit" class="btn btn-warning">Chọn</button>
+    </div>
+</form>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">          
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Vắng</th>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        <tr>
+                            <td width="10%">
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="radio1">
+                                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">CP
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="radio2">
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">KP
+                                    </label>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>Phong</td>
+                            <td>Nam</td>
+                            <td>Ngày Sinh</td>
+                            <td>Dân Tộc</td>
+                            <td>Tôn Giáo</td>
+                        </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+

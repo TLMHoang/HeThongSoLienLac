@@ -115,10 +115,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1000, 567);
+            this.tabPage1.Size = new System.Drawing.Size(1000, 563);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Vắng";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 557);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cbxLop
@@ -161,7 +161,7 @@
             "-----------Lớp-----------"});
             this.cbxLop.Location = new System.Drawing.Point(3, 3);
             this.cbxLop.Name = "cbxLop";
-            this.cbxLop.Size = new System.Drawing.Size(144, 24);
+            this.cbxLop.Size = new System.Drawing.Size(144, 28);
             this.cbxLop.TabIndex = 0;
             this.cbxLop.Text = "-----------Lớp-----------";
             this.cbxLop.SelectedValueChanged += new System.EventHandler(this.cbxLop_SelectedValueChanged);
@@ -173,7 +173,7 @@
             this.txtTimKiem.ForeColor = System.Drawing.Color.Gray;
             this.txtTimKiem.Location = new System.Drawing.Point(153, 3);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(372, 23);
+            this.txtTimKiem.Size = new System.Drawing.Size(372, 26);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Text = "Nhập ID hoặc Tên học sinh";
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
@@ -182,7 +182,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(843, 503);
+            this.btnBack.Location = new System.Drawing.Point(843, 499);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(144, 54);
             this.btnBack.TabIndex = 4;
@@ -192,7 +192,7 @@
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(3, 503);
+            this.btnChiTiet.Location = new System.Drawing.Point(3, 499);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(144, 54);
             this.btnChiTiet.TabIndex = 4;
@@ -219,7 +219,7 @@
             this.dgvDSHS.Name = "dgvDSHS";
             this.dgvDSHS.RowHeadersVisible = false;
             this.tableLayoutPanel1.SetRowSpan(this.dgvDSHS, 3);
-            this.dgvDSHS.Size = new System.Drawing.Size(522, 469);
+            this.dgvDSHS.Size = new System.Drawing.Size(522, 465);
             this.dgvDSHS.TabIndex = 5;
             this.dgvDSHS.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSHS_CellContentClick);
             // 
@@ -286,7 +286,7 @@
             this.dgvVangP.Name = "dgvVangP";
             this.dgvVangP.ReadOnly = true;
             this.dgvVangP.RowHeadersVisible = false;
-            this.dgvVangP.Size = new System.Drawing.Size(460, 219);
+            this.dgvVangP.Size = new System.Drawing.Size(460, 217);
             this.dgvVangP.TabIndex = 7;
             this.dgvVangP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVangP_CellContentClick);
             // 
@@ -333,11 +333,11 @@
             this.XoaK});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvVangK, 3);
             this.dgvVangK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvVangK.Location = new System.Drawing.Point(531, 278);
+            this.dgvVangK.Location = new System.Drawing.Point(531, 276);
             this.dgvVangK.Name = "dgvVangK";
             this.dgvVangK.ReadOnly = true;
             this.dgvVangK.RowHeadersVisible = false;
-            this.dgvVangK.Size = new System.Drawing.Size(460, 219);
+            this.dgvVangK.Size = new System.Drawing.Size(460, 217);
             this.dgvVangK.TabIndex = 7;
             this.dgvVangK.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVangP_CellContentClick);
             // 
@@ -389,7 +389,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label4, 3);
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(531, 250);
+            this.label4.Location = new System.Drawing.Point(531, 248);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(460, 25);
             this.label4.TabIndex = 8;
@@ -399,11 +399,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1000, 567);
+            this.tabPage2.Size = new System.Drawing.Size(1000, 563);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cúp học";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -451,7 +451,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(994, 561);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(994, 557);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // dgvDSHSC
@@ -473,7 +473,7 @@
             this.dgvDSHSC.RowHeadersVisible = false;
             this.tableLayoutPanel3.SetRowSpan(this.dgvDSHSC, 8);
             this.dgvDSHSC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDSHSC.Size = new System.Drawing.Size(538, 469);
+            this.dgvDSHSC.Size = new System.Drawing.Size(538, 465);
             this.dgvDSHSC.TabIndex = 5;
             this.dgvDSHSC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSHSC_CellClick);
             // 
@@ -507,7 +507,7 @@
             this.txtFindC.ForeColor = System.Drawing.Color.Gray;
             this.txtFindC.Location = new System.Drawing.Point(153, 3);
             this.txtFindC.Name = "txtFindC";
-            this.txtFindC.Size = new System.Drawing.Size(388, 23);
+            this.txtFindC.Size = new System.Drawing.Size(388, 26);
             this.txtFindC.TabIndex = 4;
             this.txtFindC.Text = "Nhập ID hoặc Tên học sinh";
             this.txtFindC.TextChanged += new System.EventHandler(this.txtFindC_TextChanged);
@@ -522,7 +522,7 @@
             "-----------Lớp-----------"});
             this.cbxLopC.Location = new System.Drawing.Point(3, 3);
             this.cbxLopC.Name = "cbxLopC";
-            this.cbxLopC.Size = new System.Drawing.Size(144, 24);
+            this.cbxLopC.Size = new System.Drawing.Size(144, 28);
             this.cbxLopC.TabIndex = 3;
             this.cbxLopC.Text = "-----------Lớp-----------";
             this.cbxLopC.SelectedValueChanged += new System.EventHandler(this.cbxLop_SelectedValueChanged);
@@ -536,7 +536,7 @@
             this.label5.Location = new System.Drawing.Point(547, 0);
             this.label5.Name = "label5";
             this.tableLayoutPanel3.SetRowSpan(this.label5, 2);
-            this.label5.Size = new System.Drawing.Size(444, 78);
+            this.label5.Size = new System.Drawing.Size(444, 77);
             this.label5.TabIndex = 12;
             this.label5.Text = "Thông tin học sinh cúp học";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -544,7 +544,7 @@
             // btnCapNhap
             // 
             this.btnCapNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCapNhap.Location = new System.Drawing.Point(847, 186);
+            this.btnCapNhap.Location = new System.Drawing.Point(847, 185);
             this.btnCapNhap.Name = "btnCapNhap";
             this.tableLayoutPanel3.SetRowSpan(this.btnCapNhap, 2);
             this.btnCapNhap.Size = new System.Drawing.Size(144, 64);
@@ -556,7 +556,7 @@
             // btnXemChiTiet
             // 
             this.btnXemChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnXemChiTiet.Location = new System.Drawing.Point(697, 503);
+            this.btnXemChiTiet.Location = new System.Drawing.Point(697, 499);
             this.btnXemChiTiet.Name = "btnXemChiTiet";
             this.btnXemChiTiet.Size = new System.Drawing.Size(144, 55);
             this.btnXemChiTiet.TabIndex = 9;
@@ -567,7 +567,7 @@
             // btnBack1
             // 
             this.btnBack1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBack1.Location = new System.Drawing.Point(847, 503);
+            this.btnBack1.Location = new System.Drawing.Point(847, 499);
             this.btnBack1.Name = "btnBack1";
             this.btnBack1.Size = new System.Drawing.Size(144, 55);
             this.btnBack1.TabIndex = 8;
@@ -579,7 +579,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(547, 193);
+            this.label1.Location = new System.Drawing.Point(547, 192);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 10, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 25);
@@ -590,7 +590,7 @@
             // numTu
             // 
             this.numTu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numTu.Location = new System.Drawing.Point(697, 193);
+            this.numTu.Location = new System.Drawing.Point(697, 192);
             this.numTu.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.numTu.Maximum = new decimal(new int[] {
             14,
@@ -603,7 +603,7 @@
             0,
             0});
             this.numTu.Name = "numTu";
-            this.numTu.Size = new System.Drawing.Size(144, 22);
+            this.numTu.Size = new System.Drawing.Size(144, 26);
             this.numTu.TabIndex = 10;
             this.numTu.Value = new decimal(new int[] {
             1,
@@ -615,7 +615,7 @@
             // numDen
             // 
             this.numDen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numDen.Location = new System.Drawing.Point(697, 228);
+            this.numDen.Location = new System.Drawing.Point(697, 227);
             this.numDen.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.numDen.Maximum = new decimal(new int[] {
             15,
@@ -628,7 +628,7 @@
             0,
             0});
             this.numDen.Name = "numDen";
-            this.numDen.Size = new System.Drawing.Size(144, 22);
+            this.numDen.Size = new System.Drawing.Size(144, 26);
             this.numDen.TabIndex = 11;
             this.numDen.Value = new decimal(new int[] {
             1,
@@ -640,7 +640,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(547, 228);
+            this.label2.Location = new System.Drawing.Point(547, 227);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 10, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 25);
@@ -652,18 +652,18 @@
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.txtLop, 2);
             this.txtLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLop.Location = new System.Drawing.Point(697, 158);
+            this.txtLop.Location = new System.Drawing.Point(697, 157);
             this.txtLop.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtLop.Name = "txtLop";
             this.txtLop.ReadOnly = true;
-            this.txtLop.Size = new System.Drawing.Size(294, 22);
+            this.txtLop.Size = new System.Drawing.Size(294, 26);
             this.txtLop.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(547, 158);
+            this.label8.Location = new System.Drawing.Point(547, 157);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 10, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 25);
@@ -675,7 +675,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(547, 123);
+            this.label7.Location = new System.Drawing.Point(547, 122);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 10, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 25);
@@ -687,29 +687,29 @@
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.txtTen, 2);
             this.txtTen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTen.Location = new System.Drawing.Point(697, 123);
+            this.txtTen.Location = new System.Drawing.Point(697, 122);
             this.txtTen.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtTen.Name = "txtTen";
             this.txtTen.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(294, 22);
+            this.txtTen.Size = new System.Drawing.Size(294, 26);
             this.txtTen.TabIndex = 15;
             // 
             // txtID
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.txtID, 2);
             this.txtID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtID.Location = new System.Drawing.Point(697, 88);
+            this.txtID.Location = new System.Drawing.Point(697, 87);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(294, 22);
+            this.txtID.Size = new System.Drawing.Size(294, 26);
             this.txtID.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(547, 88);
+            this.label6.Location = new System.Drawing.Point(547, 87);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 10, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 25);
@@ -723,7 +723,7 @@
             this.tableLayoutPanel3.SetColumnSpan(this.label9, 3);
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(547, 253);
+            this.label9.Location = new System.Drawing.Point(547, 252);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(444, 35);
             this.label9.TabIndex = 16;
@@ -744,9 +744,9 @@
             this.tableLayoutPanel3.SetColumnSpan(this.dgvChiTiet, 3);
             this.dgvChiTiet.DataSource = this.bsCupHoc;
             this.dgvChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvChiTiet.Location = new System.Drawing.Point(547, 291);
+            this.dgvChiTiet.Location = new System.Drawing.Point(547, 290);
             this.dgvChiTiet.Name = "dgvChiTiet";
-            this.dgvChiTiet.Size = new System.Drawing.Size(444, 206);
+            this.dgvChiTiet.Size = new System.Drawing.Size(444, 203);
             this.dgvChiTiet.TabIndex = 17;
             this.dgvChiTiet.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTiet_CellEndEdit);
             this.dgvChiTiet.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvChiTiet_UserDeletingRow);
@@ -777,7 +777,7 @@
             // 
             // frmDiemDanh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 596);
             this.Controls.Add(this.tabControl1);

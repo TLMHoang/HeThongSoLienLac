@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -41,33 +42,43 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Thông Báo Chung</a>
+                            <a href="#">@Html.ActionLink("Thông Báo Chung", "Index", "ThongBaoChung")</a>
                         </li>
                         <li>
-                            <a href="#">Thông Báo Cá Nhân</a>
+                            <a href="#">@Html.ActionLink("Thông Báo Cá Nhân", "Index", "ThongBaoCaNhan")</a>
                         </li>
                     </ul>
                 </li>
-                <li class="active"><a href="#">Nhập Điểm Học Sinh</a></li>
+                <li class="active">@Html.ActionLink("Nhập Điểm", "Index", "QuanLyDiem")</li>
                 <li class="active">@Html.ActionLink("Quản Lý Thông Tin Học Sinh","Index","QuanLyThongTinHS")</li>
-                <li class="active"><a href="#">Điểm Danh</a></li>
-                <li class="active"><a href="#">Quản Lý Thời Khóa Biểu</a></li>
                 <li class="active">
-
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
+                        <li>
+                            @Html.ActionLink("Vắng", "Index", "DiemDanh")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cúp Học", "CupHoc", "DiemDanh")
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">@Html.ActionLink("Quản Lý Thời Khóa Biểu", "Index", "ThoiKhoaBieu")</li>
+                <li class="active">
+                    @Html.ActionLink("Quản Lý Tài Khoản", "Index", "TaiKhoanTruong")
+                    @*<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
                             <a href="#">Tài Khoản Giáo Viên</a>
                         </li>
                         <li>
                             <a href="#">Tài Khoản Trường</a>
                         </li>
-                    </ul>
+                    </ul>*@
                 </li>
-                <li class="active"><a href="#">Phân Công Giáo Viên Bộ Môn</a></li>
+                <li class="active">@Html.ActionLink("Phân Công Giáo Viên Bộ Môn", "Index", "PhanCongDay")</li>
                 <li class="active"><a href="#">Phân Công Giáo Viên Chủ Nhiệm</a></li>
-                <li class="active"><a href="#">Quản Lý Môn Học</a></li>
-                <li class="active"><a href="#">Quản Lý Học Phí</a></li>
+                <li class="active">@Html.ActionLink("Quản lý Môn Học", "Index", "QuanLyMonHoc")</li>
+                <li class="active">@Html.ActionLink("Quản lý thông tin học phí", "Index", "HocPhi")</li>
                 @*<li>
                         <a href="#">About</a>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
@@ -103,7 +114,7 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-warning">
                         <i class="fas fa-align-left"></i>
                     </button>
-                    <a href="#" class="navbar-brand justify-content-center Icon-team">
+                    <a href="/Admin/HomeAdmin/Index" class="navbar-brand justify-content-center Icon-team">
                         <strong>E-School By US</strong>
                     </a>
                     <div class="dropdown">
@@ -111,41 +122,10 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#section41" data-toggle="modal" data-target="#myModal">Đổi Mật Khẩu</a>
-                            <a class="dropdown-item" href="#section42">Đăng Xuất</a>
+                            <a class="dropdown-item" href="/Admin/TaiKhoanTruong/ChangePass">Đổi Mật Khẩu</a>
+                            <a class="dropdown-item" href="/Admin/TaiKhoanTruong/logout">Đăng Xuất</a>
                         </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Thay Đổi Mật Khẩu</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="Pass">Mật Khẩu Cũ:</label>
-                                                <input type="password" class="form-control" id="Pass" placeholder="Nhập Mật Khẩu Cũ..." name="MKC">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="NewPass">Mật Khẩu Mới:</label>
-                                                <input type="password" class="form-control" id="NewPass" placeholder="Nhập Mật Khẩu Mới..." name="MKM">
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-warning">Xác Nhận</button>
-                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </nav>
@@ -157,8 +137,8 @@
 
     <div class="overlay"></div>
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- jQuery CDN -  version (=without AJAX) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
