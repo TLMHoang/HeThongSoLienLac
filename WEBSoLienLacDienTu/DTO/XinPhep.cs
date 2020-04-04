@@ -21,7 +21,9 @@ namespace DTO
         [Column(TypeName = "date")]
         public DateTime NghiDen { get; set; }
 
-        public int SoNgayNghi { get; set; }
+        public byte TrangThai { get; set; }
+        public byte ChoHuy { get; set; }
+        public string LyDo { get; set; }
 
         public XinPhep()
         {
@@ -29,15 +31,19 @@ namespace DTO
             IDHocSinh = -1;
             NghiTu = DateTime.Now;
             NghiDen = DateTime.Now;
-            SoNgayNghi = -1;
+            TrangThai = 0;
+            ChoHuy = 0;
+            LyDo = "";
         }
-        public XinPhep(int iD, int idHocSinh, DateTime nghiTu, DateTime nghiDen, int soNgayNghi)
+        public XinPhep(int iD, int idHocSinh, DateTime nghiTu, DateTime nghiDen, byte trangThai,byte choHuy,string lyDo)
         {
             ID = iD;
             IDHocSinh = idHocSinh;
             NghiTu = nghiTu;
             NghiDen = nghiDen;
-            SoNgayNghi = soNgayNghi;
+            TrangThai = trangThai;
+            ChoHuy = choHuy;
+            LyDo = lyDo;
         }
 
         public XinPhep(DataRow dr)
@@ -46,7 +52,9 @@ namespace DTO
             IDHocSinh = Convert.IsDBNull(dr["IDHocSinh"]) ? -1 : Convert.ToInt32(dr["IDHocSinh"]);
             NghiTu = Convert.ToDateTime(dr["NghiTu"]);
             NghiDen = Convert.ToDateTime(dr["NghiDen"]);
-            SoNgayNghi = Convert.IsDBNull(dr["SoNgayNghi"]) ? -1 : Convert.ToInt32(dr["SoNgayNghi"]);
+            TrangThai = Convert.ToByte(dr["TrangThai"]);
+            ChoHuy = Convert.ToByte(dr["ChoHuy"]);
+            LyDo = dr["LyDo"].ToString();
         }
     }
 }

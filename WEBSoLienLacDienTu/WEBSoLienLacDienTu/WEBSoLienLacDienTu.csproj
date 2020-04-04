@@ -190,6 +190,7 @@
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\LoadTable.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\ThemHS.cshtml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
