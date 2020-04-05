@@ -44,20 +44,41 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên Học Sinh</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Dân Tộc</th>
-                            <th>Tôn Giáo</th>
-                        </tr>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>Tên Học Sinh</th>
+                        <th>Giới Tính</th>
+                        <th>Ngày Sinh</th>
+                        <th>Dân Tộc</th>
+                        <th>Tôn Giáo</th>
+                    </tr>
                     </thead>
 
                     <tbody id="myTable">
                         @foreach (var item in Model)
                         {
                             <tr>
+                                <td width="15%">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="@Url.Action("CapNhatHS","QuanLyThongTinHS", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="@Url.Action("DeleteHS","QuanLyThongTinHS", new { @id = item.ID })" class="btn btn-danger btn-icon-split" id="myRow">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     HS00<span>@Html.DisplayFor(modelitem => item.ID)</span>
                                 </td>
@@ -107,5 +128,6 @@
             alert("Xin Lỗi , Chức Năng Đang Trong Quá Trình Phát Triển !");
         })
     });
+
 </script>
 

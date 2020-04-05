@@ -12,6 +12,7 @@ namespace DTO
     [Table("nxtckedu_sa.ThongTinHS")]
     public class ThongTinHS
     {
+
         public int ID { get; set; }
 
         [StringLength(200)]
@@ -35,11 +36,11 @@ namespace DTO
 
         public int IDLoaiHocSinh { get; set; }
 
-        public int HKI { get; set; }
+        public int? HKI { get; set; }
 
-        public int HKII { get; set; }
+        public int? HKII { get; set; }
 
-        public int CaNam { get; set; }
+        public int? CaNam { get; set; }
 
         public ThongTinHS()
         {
@@ -56,7 +57,7 @@ namespace DTO
             HKII = -1;
             CaNam = -1;
         }
-        public ThongTinHS(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int idLop, int idLoaiHocSinh, int hki, int hkii, int caNam)
+        public ThongTinHS(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int idLop, int idLoaiHocSinh, int? hki, int? hkii, int? caNam)
         {
             ID = iD;
             Ten = ten;

@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thêm Học Sinh Mới</h2>
+<h2>Cập Nhật Thông Tin Học Sinh</h2>
 
 @using (Html.BeginForm())
 {
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label>Ngày Sinh</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.NgaySinh, new { @class = "form-control" , type = "date" } )
+                    @Html.TextBoxFor(model => model.NgaySinh, new { @class = "form-control"})
                     @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="col-md-10">
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            Nam @Html.RadioButtonFor(model => model.GioiTinh,"1")
+                            Nam @Html.RadioButtonFor(model => model.GioiTinh, "1")
                         </label>
                     </div>
                     <div class="form-check-inline">
@@ -83,7 +83,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Thêm Học Sinh" class="btn btn-warning" />
+                    <input type="submit" value="Cập Nhật Học Sinh" class="btn btn-warning" />
                 </div>
             </div>
         </div>

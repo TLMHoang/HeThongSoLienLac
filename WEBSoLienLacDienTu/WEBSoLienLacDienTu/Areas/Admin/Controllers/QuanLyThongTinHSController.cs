@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -18,7 +19,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     public class QuanLyThongTinHSController : Controller
     {
         // GET: Admin/QuanLyThongTinHS
-        private int iDLop = -1;
+        public static Lop lop = new Lop();
         public async Task<ActionResult> Index()
         {
             await LoadListKhoi();
@@ -39,14 +40,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult ThemHS()
-        {
-            return View();
-        }
-
+        
         public async Task<ActionResult> LoadTable(int id)
         {
-            iDLop = id;
+            lop.ID = id;
             List<ThongTinHS> lst = new List<ThongTinHS>();
             foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(id)).Rows)
             {
@@ -55,6 +52,57 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View(lst);
         }
 
+        public async Task<ActionResult> ThemHS()
+        {
+            await LoadLoaiHocSinh();
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> ThemHS(ThongTinHS ttHocSinh)
+        {
+            if(await new ThongTinHSDAL().ThemTTHS(ttHocSinh.Ten, ttHocSinh.NgaySinh, ttHocSinh.GioiTinh, ttHocSinh.NoiSinh, ttHocSinh.DanToc, ttHocSinh.TonGiao,lop.ID, ttHocSinh.IDLoaiHocSinh)!= 0)
+            {
+                return RedirectToAction("LoadTable", "QuanLyThongTinHS", new { id = lop.ID });
+            }
+            else
+            {
+                ModelState.AddModelError("","Thêm Không Thành Công,Vui Lòng Nhập Đủ Thông Tin !");
+                await LoadLoaiHocSinh();
+            }
+
+            return View();
+        }
+
+        public async Task<ActionResult> CapNhatHS(int id)
+        {
+            DataTable dt = new DataTable();
+            dt = await new ThongTinHSDAL().LayDT(id);
+            ThongTinHS tt = new ThongTinHS(dt.Rows[0]);
+            await LoadLoaiHocSinh();
+            return View(tt);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CapNhatHS(int id,ThongTinHS ttHocSinh)
+        {
+            if(await new ThongTinHSDAL().CapNhapTTHS(id,ttHocSinh.Ten,ttHocSinh.NgaySinh,ttHocSinh.GioiTinh,ttHocSinh.NoiSinh,ttHocSinh.DanToc,ttHocSinh.TonGiao,lop.ID,ttHocSinh.IDLoaiHocSinh)!=0)
+            {
+                return RedirectToAction("LoadTable", "QuanLyThongTinHS", new { id = lop.ID });
+            }
+            else
+            {
+                ModelState.AddModelError("", "Cập Không Thành Công !");
+                await LoadLoaiHocSinh();
+            }
+
+            return View();
+        }
+        
+        public async Task<ActionResult> DeleteHS(int id)
+        {
+            await new ThongTinHSDAL().Xoa(id);
+            return RedirectToAction("LoadTable", new {id = lop.ID});
+        }
         public async Task LoadListKhoi()
         {
             ViewBag.LstKhoi = new SelectList(await new KhoiDAL().LayLst(), "ID", "TenKhoi");
@@ -71,14 +119,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return Json( li,JsonRequestBehavior.AllowGet);
         }
 
-        //public async Task<JsonResult> LoadTable(int Id)
-        //{
-        //    List<ThongTinHS> li = new List<ThongTinHS>();
-        //    foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(Id)).Rows)
-        //    {
-        //        li.Add(new ThongTinHS(dr));
-        //    }
-        //    return Json(li,JsonRequestBehavior.AllowGet);
-        //}
+        public async Task LoadLoaiHocSinh()
+        {
+            ViewBag.LstLoaiHocSinh = new SelectList(await new LoaiHocSinhDAL().LayLst(), "ID", "TenLoai");
+        }
     }
 }

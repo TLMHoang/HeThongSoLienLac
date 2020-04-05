@@ -87,6 +87,32 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
-
+        public async Task<int> ThemTTHS(string ten,DateTime ngaySinh,byte gioiTinh,string noiSinh,string danToc,string TonGiao,int iDLop,int iDHocSinh)
+        {
+            return await ExecuteNonQuery("InsertQuanLyThongTinHS",
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = ten},
+                new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = ngaySinh },
+                new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = gioiTinh },
+                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = noiSinh },
+                new SqlParameter("@DanToc", SqlDbType.NVarChar) { Value = danToc },
+                new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = TonGiao },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = iDLop },
+                new SqlParameter("@IDLoaiHocSinh", SqlDbType.Int) { Value = iDHocSinh }
+            );
+        }
+        public async Task<int> CapNhapTTHS(int id,string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string TonGiao, int iDLop, int iDHocSinh)
+        {
+            return await ExecuteNonQuery("UpdateQuanLyThongTinHS",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = id },
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = ten },
+                new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = ngaySinh },
+                new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = gioiTinh },
+                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = noiSinh },
+                new SqlParameter("@DanToc", SqlDbType.NVarChar) { Value = danToc },
+                new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = TonGiao },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = iDLop },
+                new SqlParameter("@IDLoaiHocSinh", SqlDbType.Int) { Value = iDHocSinh }
+            );
+        }
     }
 }
