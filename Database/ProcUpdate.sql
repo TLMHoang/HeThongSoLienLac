@@ -8,7 +8,7 @@
 @HocKyI BIT	
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.BangDiem
+    UPDATE nxtckedu_sa.BangDiem
     SET	IDHocSinh = @IDHocSinh,
 		IDMonHoc = @IDMonHoc,
 		IDLoaiDiem = @IDLoaiDiem,
@@ -25,7 +25,7 @@ ALTER PROCEDURE UpdateBHYT
 @BHQD BIT
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.BHYT
+    UPDATE nxtckedu_sa.BHYT
     SET	DangKy = @DangKy,
         BHQD = @BHQD
     WHERE IDHocSinh = @IDHocSinh
@@ -49,7 +49,7 @@ ALTER PROCEDURE UpdateDiemDanh
 @Phep BIT
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.DiemDanh
+    UPDATE nxtckedu_sa.DiemDanh
     SET IDHocSinh = @IDHocSinh,
         NgayNghi = @NgayNghi,
         Phep = @Phep
@@ -62,7 +62,7 @@ ALTER PROCEDURE UpdateKhoi
 @TenKhoi NVARCHAR(20)
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.Khoi
+    UPDATE nxtckedu_sa.Khoi
     SET
         TenKhoi = @TenKhoi
     WHERE ID = @ID
@@ -74,7 +74,7 @@ ALTER PROCEDURE UpdateLienKetPHvsHS
 @IDTaiKhoan INT
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.LienKetPHvsHS
+    UPDATE nxtckedu_sa.LienKetPHvsHS
     SET
         IDTaiKhoan = IDTaiKhoan
     WHERE IDHocSinh = @IDHocSinh
@@ -86,7 +86,7 @@ ALTER PROCEDURE UpdateLoaiDiem
 @TenLoaiDiem nvarchar(50)
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.LoaiDiem
+    UPDATE nxtckedu_sa.LoaiDiem
     SET
         TenLoaiDiem = @TenLoaiDiem
     WHERE ID = @ID
@@ -98,7 +98,7 @@ ALTER PROCEDURE UpdateHanhKiem
 @TenHanhKiem nvarchar(60)
 AS
 BEGIN
-	UPDATE nxtckedu_Backup.LoaiHanhKiem
+	UPDATE nxtckedu_sa.LoaiHanhKiem
 	SET
 	    TenHanhKiem = @TenHanhKiem
 	WHERE ID = @ID
@@ -110,7 +110,7 @@ ALTER PROCEDURE UpdateLoaiHocSinh
 @TenLoai nvarchar(200)
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.LoaiHocSinh
+    UPDATE nxtckedu_sa.LoaiHocSinh
     SET
         TenLoai = @TenLoai
     WHERE ID = @ID
@@ -122,7 +122,7 @@ ALTER PROCEDURE UpdateLoaiThongBao
 @TenThongBao nvarchar(100)
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.LoaiThongBao
+    UPDATE nxtckedu_sa.LoaiThongBao
     SET
         TenThongBao = @TenThongBao
     WHERE ID = @ID
@@ -135,7 +135,7 @@ ALTER PROCEDURE UpdateLop
 @TenLop NVARCHAR(50)
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.Lop
+    UPDATE nxtckedu_sa.Lop
     SET
         IDKhoi = @IDKhoi,
         TenLop = @TenLop
@@ -149,7 +149,7 @@ ALTER PROCEDURE UpdateMonhoc
 @LoaiDiem INT
 AS
 BEGIN
-    Update nxtckedu_Backup.MonHoc
+    Update nxtckedu_sa.MonHoc
     SET	
         TenMon = @TenMon,
         LoaiDiem = @LoaiDiem
@@ -160,15 +160,13 @@ GO
 ALTER PROCEDURE UpdatePhanCongDay
 @ID INT,
 @IDGiaoVien INT,
-@IDLop INT,
-@IDMonHoc INT
+@IDLop INT
 AS
 BEGIN
-	Update nxtckedu_Backup.PhanCongDay
+	Update nxtckedu_sa.PhanCongDay
 	SET
 	    IDGiaoVien = @IDGiaoVien,
-	    IDLop = @IDLop,
-	    IDMonHoc = @IDMonHoc
+	    IDLop = @IDLop
     WHERE ID = @ID
 END
 GO
@@ -183,7 +181,7 @@ ALTER PROCEDURE UpdateTaiKhoanPH
 @SDTBo VARCHAR(12)
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.TaiKhoanPH
+    UPDATE nxtckedu_sa.TaiKhoanPH
     SET	
         TaiKhoan = @TaiKhoan,
         MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2),
@@ -206,7 +204,7 @@ ALTER PROCEDURE UpdateTaiKhoanTruong
 @IDLop INT
 AS
 BEGIN
-	UPDATE nxtckedu_Backup.TaiKhoanTruong
+	UPDATE nxtckedu_sa.TaiKhoanTruong
 	SET
 	    TaiKhoan = @TaiKhoan,
 	    MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2),
@@ -226,7 +224,7 @@ ALTER PROCEDURE UpdateThoiKhaoBieu
 @IDMonHoc INT
 AS
 BEGIN
-	UPDATE nxtckedu_Backup.ThoiKhoaBieu
+	UPDATE nxtckedu_sa.ThoiKhoaBieu
 	SET
 	    Tiet = @Tiet,
 	    IDMonHoc = @IDMonHoc
@@ -242,7 +240,7 @@ ALTER PROCEDURE UpdateThongBaoHS
 @IDLoaiThongBao INT
 AS
 BEGIN
-	UPDATE nxtckedu_Backup.ThongBaoHS
+	UPDATE nxtckedu_sa.ThongBaoHS
 	SET
 	    IDHocSinh = @IDHocSinh,
 	    NoiDung = @NoiDung,
@@ -261,7 +259,7 @@ ALTER PROCEDURE UpdateThongBaoLop
 @IDLoaiThongBao INT
 AS
 BEGIN
-    Update nxtckedu_Backup.ThongBaoLop
+    Update nxtckedu_sa.ThongBaoLop
     SET
 		IDLop = @IDLop,
         NoiDung = @NoiDung,
@@ -279,7 +277,7 @@ ALTER PROCEDURE UpdateThongBaoTruong
 @IDLoaiThongBao INT
 AS
 BEGIN
-    Update nxtckedu_Backup.ThongBaoTruong
+    Update nxtckedu_sa.ThongBaoTruong
     SET
         NoiDung = @NoiDung,
 	    Ngay= @Ngay,
@@ -305,7 +303,7 @@ ALTER PROCEDURE UpdateThongTinHS
 @CaNam INT
 AS
 BEGIN
-	UPDATE nxtckedu_Backup.ThongTinHS
+	UPDATE nxtckedu_sa.ThongTinHS
 	SET
 	    Ten = @Ten,
 	    NgaySinh = @NgaySinh,
@@ -338,7 +336,7 @@ ALTER PROCEDURE UpdateTienHocPhi
 @TienTaiLieu INT
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.TienHocPhi
+    UPDATE nxtckedu_sa.TienHocPhi
     SET
         Thang  = @Thang,
         IDLoaiHocSinh = @IDLoaiHocSinh,
@@ -361,15 +359,17 @@ ALTER PROCEDURE UpdateXinPhep
 @IDHocSinh INT,
 @NghiTu DATE,
 @NghiDen DATE,
-@SoNgayNghi INT
+@TrangThai BIT ,
+@ChoHuy BIT 
 AS
 BEGIN
-    UPDATE nxtckedu_Backup.XinPhep
+    UPDATE nxtckedu_sa.XinPhep
     SET
         IDHocSinh = @IDHocSinh,
         NghiTu = @NghiTu,
         NghiDen = @NghiDen,
-        SoNgayNghi = @SoNgayNghi
+        TrangThai = @TrangThai,
+		ChoHuy = @ChoHuy
      WHERE ID = @ID
     
 END

@@ -7,7 +7,7 @@ ALTER PROCEDURE InsertBangDiem
 @HocKyI BIT	
 AS
 BEGIN
-    INSERT nxtckedu_Backup.BangDiem
+    INSERT nxtckedu_sa.BangDiem
     (
         IDHocSinh,
         IDMonHoc,
@@ -33,7 +33,7 @@ ALTER PROCEDURE InsertBHYT
 @BHQD BIT
 AS
 BEGIN
-    INSERT nxtckedu_Backup.BHYT
+    INSERT nxtckedu_sa.BHYT
     (
         IDHocSinh,
         DangKy,
@@ -53,7 +53,7 @@ ALTER PROCEDURE InsertCupHoc
 @Tiet INT
 AS
 BEGIN
-    INSERT nxtckedu_Backup.CupHoc
+    INSERT nxtckedu_sa.CupHoc
     (
         IDHocSinh,
         Ngay,
@@ -73,7 +73,7 @@ ALTER PROCEDURE InsertDiemDanh
 @Phep BIT
 AS
 BEGIN
-    INSERT nxtckedu_Backup.DiemDanh
+    INSERT nxtckedu_sa.DiemDanh
     (
         IDHocSinh,
         NgayNghi,
@@ -91,7 +91,7 @@ ALTER PROCEDURE InsertKhoi
 @TenKhoi NVARCHAR(20)
 AS
 BEGIN
-    INSERT nxtckedu_Backup.Khoi
+    INSERT nxtckedu_sa.Khoi
     (
         TenKhoi
     )
@@ -106,7 +106,7 @@ ALTER PROCEDURE InsertLienKetPHvsHS
 @IDTaiKhoan INT
 AS
 BEGIN
-    INSERT nxtckedu_Backup.LienKetPHvsHS
+    INSERT nxtckedu_sa.LienKetPHvsHS
     (
         IDHocSinh,
         IDTaiKhoan
@@ -122,7 +122,7 @@ ALTER PROCEDURE InsertLoaiDiem
 @TenLoaiDiem nvarchar(50)
 AS
 BEGIN
-    INSERT nxtckedu_Backup.LoaiDiem
+    INSERT nxtckedu_sa.LoaiDiem
     (
         TenLoaiDiem
     )
@@ -136,7 +136,7 @@ ALTER PROCEDURE InsertHanhKiem
 @TenHanhKiem nvarchar(60)
 AS
 BEGIN
-	INSERT nxtckedu_Backup.LoaiHanhKiem
+	INSERT nxtckedu_sa.LoaiHanhKiem
 	(
 	    TenHanhKiem
 	)
@@ -150,7 +150,7 @@ ALTER PROCEDURE InsertLoaiHocSinh
 @TenLoai nvarchar(200)
 AS
 BEGIN
-    INSERT nxtckedu_Backup.LoaiHocSinh
+    INSERT nxtckedu_sa.LoaiHocSinh
     (
         TenLoai
     )
@@ -164,7 +164,7 @@ ALTER PROCEDURE InsertLoaiThongBao
 @TenThongBao nvarchar(100)
 AS
 BEGIN
-    INSERT nxtckedu_Backup.LoaiThongBao
+    INSERT nxtckedu_sa.LoaiThongBao
     (
         TenThongBao
     )
@@ -179,7 +179,7 @@ ALTER PROCEDURE InsertLop
 @TenLop NVARCHAR(50)
 AS
 BEGIN
-    INSERT nxtckedu_Backup.Lop
+    INSERT nxtckedu_sa.Lop
     (
         IDKhoi,
         TenLop
@@ -196,7 +196,7 @@ ALTER PROCEDURE InsertMonhoc
 @LoaiDiem INT
 AS
 BEGIN
-    Insert nxtckedu_Backup.MonHoc
+    Insert nxtckedu_sa.MonHoc
     (
         TenMon,
         LoaiDiem
@@ -211,20 +211,17 @@ GO
 
 ALTER PROCEDURE InsertPhanCongDay
 @IDGiaoVien INT,
-@IDLop INT,
-@IDMonHoc INT
+@IDLop INT
 AS
 BEGIN
-    INSERT nxtckedu_Backup.PhanCongDay
+    INSERT nxtckedu_sa.PhanCongDay
     (
         IDGiaoVien,
-        IDLop,
-        IDMonHoc
+        IDLop
     )
     VALUES
     (   @IDGiaoVien,
-        @IDLop,
-        @IDMonHoc
+        @IDLop
         )
 END
 GO
@@ -238,7 +235,7 @@ ALTER PROCEDURE InsertTaiKhoanPH
 @SDTBo VARCHAR(12)
 AS
 BEGIN
-    INSERT nxtckedu_Backup.TaiKhoanPH
+    INSERT nxtckedu_sa.TaiKhoanPH
     (
         TaiKhoan,
         MatKhau,
@@ -255,8 +252,8 @@ BEGIN
         @TenBo,
         @SDTBo
         )
-	DECLARE @I INT = (SELECT ID FROM nxtckedu_Backup.TaiKhoanPH WHERE MatKhau = @MatKhau AND TaiKhoan = @TaiKhoan)
-	UPDATE nxtckedu_Backup.TaiKhoanPH SET MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2) WHERE ID = @I
+	DECLARE @I INT = (SELECT ID FROM nxtckedu_sa.TaiKhoanPH WHERE MatKhau = @MatKhau AND TaiKhoan = @TaiKhoan)
+	UPDATE nxtckedu_sa.TaiKhoanPH SET MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2) WHERE ID = @I
 END
 GO
 
@@ -270,7 +267,7 @@ ALTER PROCEDURE InsertTaiKhoanTruong
 @IDLop INT
 AS
 BEGIN
-	INSERT nxtckedu_Backup.TaiKhoanTruong
+	INSERT nxtckedu_sa.TaiKhoanTruong
 	(
 	    TaiKhoan,
 	    MatKhau,
@@ -289,8 +286,8 @@ BEGIN
 		@IDMonHoc,
 		@IDLop
 	    )
-	DECLARE @I INT = (SELECT ID FROM nxtckedu_Backup.TaiKhoanTruong WHERE MatKhau = @MatKhau AND TaiKhoan = @TaiKhoan)
-	UPDATE nxtckedu_Backup.TaiKhoanTruong SET MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2) WHERE ID = @I
+	DECLARE @I INT = (SELECT ID FROM nxtckedu_sa.TaiKhoanTruong WHERE MatKhau = @MatKhau AND TaiKhoan = @TaiKhoan)
+	UPDATE nxtckedu_sa.TaiKhoanTruong SET MatKhau = CONVERT(VARCHAR(32), HASHBYTES('MD5', @MatKhau), 2) WHERE ID = @I
 END
 GO
 
@@ -301,7 +298,7 @@ ALTER PROCEDURE InsertThoiKhaoBieu
 @IDMonHoc INT
 AS
 BEGIN
-	INSERT nxtckedu_Backup.ThoiKhoaBieu
+	INSERT nxtckedu_sa.ThoiKhoaBieu
 	(
 	    IDLop,
 	    Thu,
@@ -324,7 +321,7 @@ ALTER PROCEDURE InsertThongBaoHS
 @IDLoaiThongBao INT
 AS
 BEGIN
-	INSERT nxtckedu_Backup.ThongBaoHS
+	INSERT nxtckedu_sa.ThongBaoHS
 	(
 	    IDHocSinh,
 	    NoiDung,
@@ -347,7 +344,7 @@ ALTER PROCEDURE InsertThongBaoLop
 @IDLoaiThongBao INT
 AS
 BEGIN
-    Insert nxtckedu_Backup.ThongBaoLop
+    Insert nxtckedu_sa.ThongBaoLop
     (
 		IDLop,
         NoiDung,
@@ -369,7 +366,7 @@ ALTER PROCEDURE InsertThongBaoTruong
 @IDLoaiThongBao INT
 AS
 BEGIN
-    Insert nxtckedu_Backup.ThongBaoTruong
+    Insert nxtckedu_sa.ThongBaoTruong
     (
         NoiDung,
 		Ngay,
@@ -398,7 +395,7 @@ ALTER PROCEDURE InsertThongTinHS
 @CaNam INT
 AS
 BEGIN
-	INSERT nxtckedu_Backup.ThongTinHS
+	INSERT nxtckedu_sa.ThongTinHS
 	(
 	    Ten,
 	    NgaySinh,
@@ -442,7 +439,7 @@ ALTER PROCEDURE InsertTienHocPhi
 @TienTaiLieu INT
 AS
 BEGIN
-    INSERT nxtckedu_Backup.TienHocPhi
+    INSERT nxtckedu_sa.TienHocPhi
     (
         Thang,
         IDLoaiHocSinh,
@@ -476,21 +473,24 @@ ALTER PROCEDURE InsertXinPhep
 @IDHocSinh INT,
 @NghiTu DATE,
 @NghiDen DATE,
-@SoNgayNghi INT
+@TrangThai BIT,
+@ChoHuy BIT 
 AS
 BEGIN
-    INSERT nxtckedu_Backup.XinPhep
+    INSERT nxtckedu_sa.XinPhep
     (
         IDHocSinh,
         NghiTu,
         NghiDen,
-        SoNgayNghi
+        TrangThai,
+		ChoHuy
     )
     VALUES
     (   @IDHocSinh,         -- IDHocSinh - int
         @NghiTu, -- NghiTu - DATE
         @NghiDen, -- NghiDen - DATE
-        @SoNgayNghi          -- SoNgayNghi - int
+        @TrangThai,         
+		@ChoHuy
         )
 END
 GO

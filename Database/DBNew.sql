@@ -1,4 +1,4 @@
-USE nxtckedu_Backup
+USE nxtckedu_sa
 GO	
 
 CREATE TABLE TaiKhoanPH
@@ -33,7 +33,7 @@ CREATE TABLE Lop
 	IDKhoi INT,
 	TenLop NVARCHAR(50),
 
-	CONSTRAINT FK_KhoiID_LopIDKhoi FOREIGN KEY (IDKhoi) REFERENCES nxtckedu_Backup.Khoi(ID) 
+	CONSTRAINT FK_KhoiID_LopIDKhoi FOREIGN KEY (IDKhoi) REFERENCES nxtckedu_sa.Khoi(ID) 
 )
 GO
 
@@ -48,7 +48,7 @@ CREATE TABLE TaiKhoanTruong
 	IDMonHoc INT,
 	IDLop INT,
 
-	FOREIGN KEY(IDLop) REFERENCES nxtckedu_Backup.Lop(ID)
+	FOREIGN KEY(IDLop) REFERENCES nxtckedu_sa.Lop(ID)
 )
 GO
 
@@ -79,11 +79,11 @@ CREATE TABLE ThongTinHS
 	HKII INT,
 	CaNam INT,
 
-	FOREIGN KEY (IDLop) REFERENCES nxtckedu_Backup.Lop(ID),
-	FOREIGN KEY (IDLoaiHocSinh) REFERENCES nxtckedu_Backup.LoaiHocSinh(ID),
-	FOREIGN KEY (HKI) REFERENCES nxtckedu_Backup.LoaiHanhKiem(ID),
-	FOREIGN KEY (HKII) REFERENCES nxtckedu_Backup.LoaiHanhKiem(ID),
-	FOREIGN KEY (CaNam) REFERENCES nxtckedu_Backup.LoaiHanhKiem(ID)
+	FOREIGN KEY (IDLop) REFERENCES nxtckedu_sa.Lop(ID),
+	FOREIGN KEY (IDLoaiHocSinh) REFERENCES nxtckedu_sa.LoaiHocSinh(ID),
+	FOREIGN KEY (HKI) REFERENCES nxtckedu_sa.LoaiHanhKiem(ID),
+	FOREIGN KEY (HKII) REFERENCES nxtckedu_sa.LoaiHanhKiem(ID),
+	FOREIGN KEY (CaNam) REFERENCES nxtckedu_sa.LoaiHanhKiem(ID)
 )
 GO
 
@@ -92,8 +92,8 @@ CREATE TABLE LienKetPHvsHS
 	IDHocSinh INT PRIMARY KEY,
 	IDTaiKhoan INT,
 
-	FOREIGN KEY(IDHocSinh) REFERENCES nxtckedu_Backup.ThongTinHS(ID),
-	FOREIGN KEY (IDTaiKhoan) REFERENCES nxtckedu_Backup.TaiKhoanPH(ID)
+	FOREIGN KEY(IDHocSinh) REFERENCES nxtckedu_sa.ThongTinHS(ID),
+	FOREIGN KEY (IDTaiKhoan) REFERENCES nxtckedu_sa.TaiKhoanPH(ID)
 )
 GO	 
 
@@ -104,7 +104,7 @@ CREATE TABLE DiemDanh
 	NgayNghi DATE,
 	Phep BIT DEFAULT 0,
 
-	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_Backup.ThongTinHS(ID)
+	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_sa.ThongTinHS(ID)
 )
 GO
 
@@ -116,7 +116,7 @@ CREATE TABLE XinPhep
 	NghiDen DATE,
 	SoNgayNghi INT,
 
-	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_Backup.ThongTinHS(ID)
+	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_sa.ThongTinHS(ID)
 )
 GO
 
@@ -127,7 +127,7 @@ CREATE TABLE CupHoc
 	Ngay DATE,
 	Tiet INT,
 
-	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_Backup.ThongTinHS(ID)
+	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_sa.ThongTinHS(ID)
 )
 GO
 
@@ -148,9 +148,9 @@ CREATE TABLE BangDiem
 	Diem FLOAT,
 	HocKyI BIT DEFAULT 1,
 
-	FOREIGN KEY (IDHocSinh) REFERENCES  nxtckedu_Backup.ThongTinHS(ID),
-	FOREIGN KEY (IDMonHoc) REFERENCES nxtckedu_Backup.MonHoc(ID),
-	FOREIGN KEY (IDLoaiDiem) REFERENCES nxtckedu_Backup.LoaiDiem(ID)
+	FOREIGN KEY (IDHocSinh) REFERENCES  nxtckedu_sa.ThongTinHS(ID),
+	FOREIGN KEY (IDMonHoc) REFERENCES nxtckedu_sa.MonHoc(ID),
+	FOREIGN KEY (IDLoaiDiem) REFERENCES nxtckedu_sa.LoaiDiem(ID)
 
 )
 GO 
@@ -162,8 +162,8 @@ CREATE TABLE ThoiKhoaBieu
 	Tiet INT,
 	IDMonHoc INT,
 
-	FOREIGN KEY (IDLop) REFERENCES  nxtckedu_Backup.Lop(ID),
-	FOREIGN KEY (IDMonHoc) REFERENCES nxtckedu_Backup.MonHoc(ID)
+	FOREIGN KEY (IDLop) REFERENCES  nxtckedu_sa.Lop(ID),
+	FOREIGN KEY (IDMonHoc) REFERENCES nxtckedu_sa.MonHoc(ID)
 )
 GO
 
@@ -181,7 +181,7 @@ CREATE TABLE ThongBaoTruong
 	Ngay DATE,
 	IDLoaiThongBao INT,
 
-	FOREIGN KEY (IDLoaiThongBao) REFERENCES nxtckedu_Backup.LoaiThongBao(ID)
+	FOREIGN KEY (IDLoaiThongBao) REFERENCES nxtckedu_sa.LoaiThongBao(ID)
 )
 GO	
 
@@ -193,8 +193,8 @@ CREATE TABLE ThongBaoLop
 	Ngay DATE,
 	IDLoaiThongBao INT,
 
-	FOREIGN KEY (IDLoaiThongBao) REFERENCES nxtckedu_Backup.LoaiThongBao(ID),
-	FOREIGN KEY (IDLop) REFERENCES nxtckedu_Backup.Lop(ID)
+	FOREIGN KEY (IDLoaiThongBao) REFERENCES nxtckedu_sa.LoaiThongBao(ID),
+	FOREIGN KEY (IDLop) REFERENCES nxtckedu_sa.Lop(ID)
 )
 GO
 
@@ -206,8 +206,8 @@ CREATE TABLE ThongBaoHS
 	Ngay DATE,
 	IDLoaiThongBao INT,
 
-	FOREIGN KEY (IDLoaiThongBao) REFERENCES nxtckedu_Backup.LoaiThongBao(ID),
-	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_Backup.ThongTinHS(ID)
+	FOREIGN KEY (IDLoaiThongBao) REFERENCES nxtckedu_sa.LoaiThongBao(ID),
+	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_sa.ThongTinHS(ID)
 )
 GO
 CREATE TABLE PhanCongDay
@@ -217,9 +217,9 @@ CREATE TABLE PhanCongDay
 	IDLop INT,
 	IDMonHoc INT,
 
-	FOREIGN KEY (IDGiaoVien) REFERENCES nxtckedu_Backup.TaiKhoanTruong(ID),
-	FOREIGN KEY (IDLop) REFERENCES nxtckedu_Backup.Lop(ID),
-	FOREIGN KEY (IDMonHoc) REFERENCES nxtckedu_Backup.MonHoc(ID)
+	FOREIGN KEY (IDGiaoVien) REFERENCES nxtckedu_sa.TaiKhoanTruong(ID),
+	FOREIGN KEY (IDLop) REFERENCES nxtckedu_sa.Lop(ID),
+	FOREIGN KEY (IDMonHoc) REFERENCES nxtckedu_sa.MonHoc(ID)
 )
 GO
 
@@ -238,8 +238,8 @@ CREATE TABLE TienHocPhi
 	TienTrangThietBi INT,
 	TienTaiLieu INT,
 
-	FOREIGN KEY (IDLoaiHocSinh) REFERENCES nxtckedu_Backup.LoaiHocSinh(ID),
-	FOREIGN KEY (IDKhoi) REFERENCES nxtckedu_Backup.Khoi(ID)
+	FOREIGN KEY (IDLoaiHocSinh) REFERENCES nxtckedu_sa.LoaiHocSinh(ID),
+	FOREIGN KEY (IDKhoi) REFERENCES nxtckedu_sa.Khoi(ID)
 )
 GO
 
@@ -249,7 +249,7 @@ CREATE TABLE BHYT
 	DangKy BIT	DEFAULT 0,
 	BHQD BIT DEFAULT 0,
 
-	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_Backup.ThongTinHS(ID)
+	FOREIGN KEY (IDHocSinh) REFERENCES nxtckedu_sa.ThongTinHS(ID)
 )
 GO
 

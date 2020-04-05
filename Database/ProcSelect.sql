@@ -4,11 +4,11 @@ AS
 BEGIN
 	IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.BangDiem
+	    SELECT * FROM nxtckedu_sa.BangDiem
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.BangDiem WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.BangDiem WHERE ID = @ID
 	END
 END
 GO
@@ -19,11 +19,11 @@ AS
 BEGIN
     IF @IDHocSinh = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.BHYT
+	    SELECT * FROM nxtckedu_sa.BHYT
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.BHYT WHERE IDHocSinh = @IDHocSinh 	
+		SELECT * FROM nxtckedu_sa.BHYT WHERE IDHocSinh = @IDHocSinh 	
 	END
 END
 GO	
@@ -44,11 +44,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.DiemDanh
+	    SELECT * FROM nxtckedu_sa.DiemDanh
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.DiemDanh WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.DiemDanh WHERE ID = @ID
 	END
 END
 GO
@@ -59,11 +59,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.Khoi
+	    SELECT * FROM nxtckedu_sa.Khoi WHERE ID <> @ID
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.Khoi WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.Khoi WHERE ID = @ID AND	ID <> -1
 	END
 END
 GO
@@ -74,11 +74,11 @@ AS
 BEGIN
 	IF @IDHocSinh = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.LienKetPHvsHS
+	    SELECT * FROM nxtckedu_sa.LienKetPHvsHS
 	END
 	ELSE 
 	BEGIN
-		SELECT * FROM nxtckedu_Backup.LienKetPHvsHS WHERE IDHocSinh = @IDHocSinh
+		SELECT * FROM nxtckedu_sa.LienKetPHvsHS WHERE IDHocSinh = @IDHocSinh
 	END
 END
 GO
@@ -89,11 +89,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.LoaiDiem
+	    SELECT * FROM nxtckedu_sa.LoaiDiem WHERE ID <> -1
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.LoaiDiem WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.LoaiDiem WHERE ID = @ID AND ID <> -1
 	END
 END
 GO 
@@ -104,11 +104,11 @@ AS
 BEGIN
 	IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.LoaiHanhKiem
+	    SELECT * FROM nxtckedu_sa.LoaiHanhKiem
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.LoaiHanhKiem WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.LoaiHanhKiem WHERE ID = @ID
 	END
 END
 GO 
@@ -119,11 +119,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.LoaiHocSinh
+	    SELECT * FROM nxtckedu_sa.LoaiHocSinh
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.LoaiHocSinh WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.LoaiHocSinh WHERE ID = @ID
 	END
 END
 GO 
@@ -134,11 +134,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.LoaiThongBao
+	    SELECT * FROM nxtckedu_sa.LoaiThongBao
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.LoaiThongBao WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.LoaiThongBao WHERE ID = @ID
 	END
 END
 GO 
@@ -149,11 +149,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.Lop WHERE ID <> 0
+	    SELECT * FROM nxtckedu_sa.Lop WHERE ID <> -1
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.Lop WHERE ID = @ID AND ID <> 0
+		SELECT * FROM nxtckedu_sa.Lop WHERE ID = @ID AND ID <> -1
 	END
 END
 GO
@@ -164,11 +164,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.MonHoc
+	    SELECT * FROM nxtckedu_sa.MonHoc
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.MonHoc WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.MonHoc WHERE ID = @ID
 	END
 END
 GO
@@ -179,11 +179,11 @@ AS
 BEGIN
 	IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.PhanCongDay
+	    SELECT * FROM nxtckedu_sa.PhanCongDay
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.PhanCongDay WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.PhanCongDay WHERE ID = @ID
 	END
 END
 GO
@@ -194,11 +194,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.TaiKhoanPH WHERE ID <> 0
+	    SELECT * FROM nxtckedu_sa.TaiKhoanPH WHERE ID <> -1
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.TaiKhoanPH WHERE ID = @ID AND ID <> 0
+		SELECT * FROM nxtckedu_sa.TaiKhoanPH WHERE ID = @ID AND ID <> -1
 	END
 END
 GO
@@ -209,11 +209,11 @@ AS
 BEGIN
 	IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.PhanCongDay
+	    SELECT * FROM nxtckedu_sa.PhanCongDay
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.PhanCongDay WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.PhanCongDay WHERE ID = @ID
 	END
 END
 GO
@@ -226,11 +226,11 @@ AS
 BEGIN
 	IF @Tiet = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.ThoiKhoaBieu WHERE IDLop = @IDLop AND Thu = @Thu
+	    SELECT * FROM nxtckedu_sa.ThoiKhoaBieu WHERE IDLop = @IDLop AND Thu = @Thu
 	END
 	ELSE
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.ThoiKhoaBieu WHERE IDLop = @IDLop AND Thu = @Thu AND	Tiet = @Tiet
+	    SELECT * FROM nxtckedu_sa.ThoiKhoaBieu WHERE IDLop = @IDLop AND Thu = @Thu AND	Tiet = @Tiet
 	END
 END
 GO
@@ -241,11 +241,11 @@ AS
 BEGIN
 	IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.ThongBaoHS
+	    SELECT * FROM nxtckedu_sa.ThongBaoHS
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.ThongBaoHS WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.ThongBaoHS WHERE ID = @ID
 	END
 	
 END
@@ -257,11 +257,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.ThongBaoLop
+	    SELECT * FROM nxtckedu_sa.ThongBaoLop
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.ThongBaoLop WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.ThongBaoLop WHERE ID = @ID
 	END
 
 END
@@ -273,11 +273,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.ThongBaoTruong
+	    SELECT * FROM nxtckedu_sa.ThongBaoTruong
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.ThongBaoTruong WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.ThongBaoTruong WHERE ID = @ID
 	END
     
 END
@@ -289,11 +289,11 @@ AS
 BEGIN
 	IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.ThongTinHS
+	    SELECT * FROM nxtckedu_sa.ThongTinHS
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.ThongTinHS WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.ThongTinHS WHERE ID = @ID
 	END
 	
 END
@@ -305,11 +305,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.TienHocPhi
+	    SELECT * FROM nxtckedu_sa.TienHocPhi
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.TienHocPhi WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.TienHocPhi WHERE ID = @ID
 	END
     
 END
@@ -321,11 +321,11 @@ AS
 BEGIN
     IF @ID = -1
 	BEGIN
-	    SELECT * FROM nxtckedu_Backup.XinPhep
+	    SELECT * FROM nxtckedu_sa.XinPhep
 	END
 	ELSE
 	BEGIN    
-		SELECT * FROM nxtckedu_Backup.XinPhep WHERE ID = @ID
+		SELECT * FROM nxtckedu_sa.XinPhep WHERE ID = @ID
 	END
     
 END
