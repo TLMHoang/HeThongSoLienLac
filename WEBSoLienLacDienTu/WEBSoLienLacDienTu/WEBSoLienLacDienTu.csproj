@@ -191,6 +191,8 @@
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\LoadTable.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\ThemHS.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\CapNhatHS.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDanh\Vang.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDanh\ThemHSVang.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
