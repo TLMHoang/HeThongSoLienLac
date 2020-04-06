@@ -49,15 +49,23 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
             return View(lst);
         }
-
-        public ActionResult ThemHSVang()
+        public async Task<JsonResult> ThemVang(DiemDanh dd)
         {
-            return View();
+            return Json( await new DiemDanhDAL().Them(dd), JsonRequestBehavior.AllowGet);
         }
+
 
         public ActionResult CupHoc()
         {
             return View();
+        }
+
+        public async Task<JsonResult> getById(int ID)
+        {
+            ThongTinHS tt = new ThongTinHS();
+            DataTable dt = await new ThongTinHSDAL().LayDT(ID);
+            tt = new ThongTinHS(dt.Rows[0]);
+            return Json(tt, JsonRequestBehavior.AllowGet);
         }
 
         public async Task LoadListKhoi()
