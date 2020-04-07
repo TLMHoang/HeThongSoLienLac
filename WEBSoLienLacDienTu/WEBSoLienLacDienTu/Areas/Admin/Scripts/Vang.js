@@ -28,6 +28,7 @@ function getById(ID) {
 
 function Them() {
     var d = new Date();
+    var phep = $("input[name='Phep']:checked").val();
     var res = validate();
     if (res == false) {
         return false;
@@ -36,7 +37,7 @@ function Them() {
         IDHocSinh: $('#IDModal').val(),
         Name: $('#TenModal').val(),
         NgayNghi : d.toLocaleDateString(),
-        Phep: $('input[Phep]').val()
+        Phep: phep
         
     };
     $.ajax({
@@ -46,7 +47,9 @@ function Them() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $('#myModal').modal('hide');
+            $('#myModal').modal('toggle');
+            alert("Thêm Thành Công");
+            location.reload();
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -54,10 +57,6 @@ function Them() {
     });
 }
 
-function clear() {
-    $('#Phep').prop('checked', false);
-    $('#Phep1').prop('checked', false);
-}
 
 function validate() {
     var isValid = true;

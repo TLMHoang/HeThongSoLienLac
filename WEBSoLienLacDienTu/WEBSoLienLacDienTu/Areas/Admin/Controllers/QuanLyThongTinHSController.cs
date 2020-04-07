@@ -98,10 +98,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
         
-        public async Task<ActionResult> DeleteHS(int id)
+        public async Task<JsonResult> DeleteHS(int id)
         {
-            await new ThongTinHSDAL().Xoa(id);
-            return RedirectToAction("LoadTable", new {id = lop.ID});
+            return Json(await new ThongTinHSDAL().Xoa(id),JsonRequestBehavior.AllowGet);
         }
         public async Task LoadListKhoi()
         {

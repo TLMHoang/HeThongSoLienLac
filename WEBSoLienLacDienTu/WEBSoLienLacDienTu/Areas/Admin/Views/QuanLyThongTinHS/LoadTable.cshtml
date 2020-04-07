@@ -23,6 +23,7 @@
             <span>Thêm Học Sinh Bằng Excel</span>
         </a>
     </div>
+    <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton"><i class="fas fa-sign-out-alt"></i></button>
 </div>
 
 <hr />
@@ -70,7 +71,7 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <a href="@Url.Action("DeleteHS","QuanLyThongTinHS", new { @id = item.ID })" class="btn btn-danger btn-icon-split" id="myRow">
+                                            <a href="#" class="btn btn-danger btn-icon-split" id="myRow" onclick="DeleleHS(@item.ID);">
                                                 <span class="icon">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
@@ -128,6 +129,29 @@
             alert("Xin Lỗi , Chức Năng Đang Trong Quá Trình Phát Triển !");
         })
     });
+    function DeleleHS(ID) {
+        var ans = confirm("Bạn Có Chắc Muốn Xóa Học Sinh Này ?");
+        if (ans) {
+            $.ajax({
+                url: "/QuanLyThongTinHS/DeleteHS/" + ID,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Xóa Thành Công");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+    }
 
+    $(document).ready(function() {
+        $('#ExitButton').click(function() {
+            window.location.href = "/Admin/QuanLyThongTinHS/Index";
+        })
+    });
 </script>
 

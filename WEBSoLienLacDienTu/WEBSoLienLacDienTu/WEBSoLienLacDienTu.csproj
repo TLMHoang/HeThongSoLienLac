@@ -153,6 +153,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
     <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
@@ -193,6 +194,7 @@
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\ThemHS.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\CapNhatHS.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\Vang.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDanh\ChiTietVang.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
