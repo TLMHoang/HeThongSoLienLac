@@ -138,7 +138,7 @@
                 contentType: "application/json;charset=UTF-8",
                 dataType: "json",
                 success: function (result) {
-                    $('#TenHocSinh').text("Học Sinh "+result.Ten);
+                    $('#TenHocSinh').text("Học Sinh : "+result.Ten);
                 },
                 error: function (errormessage) {
                     alert(errormessage.responseText);

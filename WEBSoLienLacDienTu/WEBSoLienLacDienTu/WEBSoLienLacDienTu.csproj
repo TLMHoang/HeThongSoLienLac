@@ -137,6 +137,7 @@
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
     <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
@@ -195,6 +197,7 @@
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\CapNhatHS.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\Vang.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\ChiTietVang.cshtml" />
+    <Content Include="Areas\Admin\Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
