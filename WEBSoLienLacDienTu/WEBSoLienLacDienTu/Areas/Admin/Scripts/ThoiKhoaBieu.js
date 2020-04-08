@@ -26,8 +26,8 @@ function Loadtable() {
                 });
             $('.tbody').html(html);
         },
-        error: function (errormessage) {
-            alert(errormessage.responseText);
+        error: function () {
+            alert("Vui Lòng Chọn Đầy Đủ Thông Tin !");
         }
     });
 };
@@ -45,7 +45,7 @@ function getbyID(tiet) {
             $('#TietModal').val(result.Tiet);
             $("[name='LstMon']").val(result.IDMonHoc);
 
-            $('#myModal').modal('show');
+            $('#MonHocModal').modal('show');
             
         },
         error: function (errormessage) {
@@ -69,6 +69,7 @@ function LoadDrop() {
 };
 
 function CapNhat() {
+    
     var Obj = {
         IDLop: $("[name='LstLop']").val(),
         Thu: $("[name='LstThu']").val(),
@@ -85,7 +86,10 @@ function CapNhat() {
         async: true,
         success: function (result) {
             Loadtable();
-            $('#myModal').modal('hide');
+            alert("Cập Nhật Thành Công !");
+            
+            $('#MonHocModal').modal('toggle'); //or  $('#IDModal').modal('hide');
+            
             
         },
         error: function (errormessage) {
