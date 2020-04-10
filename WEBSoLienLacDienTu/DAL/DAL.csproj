@@ -50,8 +50,10 @@
     <Compile Include="MonHocDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="TaiKhoanPhDAL.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />
     <Compile Include="ThoiKhoaBieuDAL.cs" />
+    <Compile Include="ThongTinHocPhiDAL.cs" />
     <Compile Include="ThongTinHSDAL.cs" />
   </ItemGroup>
   <ItemGroup>

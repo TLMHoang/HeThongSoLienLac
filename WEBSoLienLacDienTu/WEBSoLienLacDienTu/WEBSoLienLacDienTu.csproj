@@ -141,6 +141,7 @@
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TaiKhoanPhuHuynhController.cs" />
     <Compile Include="Controllers\ThongBaoTruongCaNhanController.cs" />
     <Compile Include="Controllers\ThongTinHocSinh1Controller.cs" />
     <Compile Include="Controllers\TraCuuController.cs" />
@@ -151,6 +152,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Home\CheckSession.cs" />
+    <Compile Include="Models\DangNhapModels.cs" />
+    <Compile Include="Models\DoiPassModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +202,9 @@
     <Content Include="Areas\Admin\Views\DiemDanh\Vang.cshtml" />
     <Content Include="Areas\Admin\Views\DiemDanh\ChiTietVang.cshtml" />
     <Content Include="Areas\Admin\Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
+    <Content Include="Areas\Admin\Views\HocPhi\AddHP.cshtml" />
+    <Content Include="Areas\Admin\Views\HocPhi\loadData.cshtml" />
+    <Content Include="Areas\Admin\Views\HocPhi\UpdateHP.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -235,10 +242,12 @@
     <Content Include="Views\TraCuu\Index.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\Index.cshtml" />
     <Content Include="Views\TraCuu\GVBM.cshtml" />
+    <Content Include="Views\TaiKhoanPhuHuynh\Index.cshtml" />
+    <Content Include="Views\TaiKhoanPhuHuynh\DangNhap.cshtml" />
+    <Content Include="Views\TaiKhoanPhuHuynh\DoiPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
