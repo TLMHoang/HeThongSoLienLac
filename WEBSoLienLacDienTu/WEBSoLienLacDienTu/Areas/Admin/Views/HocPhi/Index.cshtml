@@ -13,9 +13,9 @@
             <div class="col-lg-6">
                 <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
                 <from>
-                    <label for="sel1">Chọn Lớp:</label>
+                    <label for="sel1">Chọn Khối:</label>
                     <div class="input-group mb-3 ">
-                        @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp", new { @class = "form-control" })
+                        @Html.DropDownListFor(model => model.IDKhoi, new SelectList(" "), "Vui Lòng Chọn Khối", new { @class = "form-control" })
                     </div>
 
                     <button type="submit" id="TaiDuLieu" class="btn btn-warning">Chọn</button>
