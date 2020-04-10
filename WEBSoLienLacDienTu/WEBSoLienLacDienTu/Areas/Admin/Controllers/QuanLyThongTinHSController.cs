@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -73,6 +75,65 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
 
+        public ActionResult ThemHS_ByExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemHS_ByExcel(ImportExcel importExcel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    string path = Server.MapPath("~/Content/Upload/" + importExcel.file.FileName);
+                    importExcel.file.SaveAs(path);
+
+                    string excelConnectionString = @"Provider='Microsoft.ACE.OLEDB.12.0';Data Source='" + path + "';Extended Properties='Excel 12.0 Xml;IMEX=1;HDR=YES'";
+                    OleDbConnection excelConnection = new OleDbConnection(excelConnectionString);
+
+                    //Sheet Name
+                    excelConnection.Open();
+                    string tableName = excelConnection.GetSchema("Tables").Rows[0]["TABLE_NAME"].ToString();
+                    excelConnection.Close();
+                    //End
+
+                    OleDbCommand cmd = new OleDbCommand("Select * from [" + tableName + "]", excelConnection);
+
+                    excelConnection.Open();
+
+                    OleDbDataReader dReader;
+                    dReader = cmd.ExecuteReader();
+                    SqlBulkCopy sqlBulk = new SqlBulkCopy(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
+
+                    //Give your Destination table name
+                    sqlBulk.DestinationTableName = "ThongTinHS";
+
+                    //Mappings
+                    sqlBulk.ColumnMappings.Add("Tên", "Ten");
+                    sqlBulk.ColumnMappings.Add("Ngày Sinh", "NgaySinh");
+                    sqlBulk.ColumnMappings.Add("Giới Tính", "GioiTinh");
+                    sqlBulk.ColumnMappings.Add("Nơi Sinh", "NoiSinh");
+                    sqlBulk.ColumnMappings.Add("Dân Tộc", "DanToc");
+                    sqlBulk.ColumnMappings.Add("Tôn Giáo", "TonGiao");
+                    sqlBulk.ColumnMappings.Add("Mã Lớp", "IDLop");
+                    sqlBulk.ColumnMappings.Add("Mã Chương Trình Học", "IDLoaiHocSinh");
+
+                    sqlBulk.WriteToServer(dReader);
+                    excelConnection.Close();
+
+                    ViewBag.Result = "Nhập Dữ Liệu Thành Công !";
+                    return RedirectToAction("LoadTable", "QuanLyThongTinHS", new { id = lop.ID });
+                }
+            }
+            catch (Exception )
+            {
+                ViewBag.Loi = "Nhập Dữ Liệu Thất Bại ,Kiểm Tra Lại Định Dạng File Excel !";
+            }
+            
+            return View();
+        }
+        
         public async Task<ActionResult> CapNhatHS(int id)
         {
             DataTable dt = new DataTable();
@@ -121,6 +182,14 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public async Task LoadLoaiHocSinh()
         {
             ViewBag.LstLoaiHocSinh = new SelectList(await new LoaiHocSinhDAL().LayLst(), "ID", "TenLoai");
+        }
+
+        public async Task<JsonResult> LoadTenLopByID(int ID)
+        {
+            GetNameClassModel tt = new GetNameClassModel();
+            DataTable dt = await new LopDAL().LayTenLop(ID);
+            tt = new GetNameClassModel(dt.Rows[0]);
+            return Json(tt, JsonRequestBehavior.AllowGet);
         }
     }
 }
