@@ -17,8 +17,12 @@ function Loadtable() {
             $.each(result,
                 function (key, item) {
                     html += '<tr>';
-                    html += '<td><a href="#" onclick="return getbyID('+ item.Tiet +');" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#myModal"><span class="icon"><i class="fas fa-pen-square"></i></span><span>Sửa</span></a></td>';
-                    html += '<td>' + item.Thu + '</td>';
+                    html += '<td><a href="#" onclick="return getbyID(' + item.Tiet + ');" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#myModal"><span class="icon"><i class="fas fa-pen-square"></i></span><span>Sửa</span></a></td>';
+                    if (item.Thu == 1) {
+                        html += '<td>Chủ Nhật</td>';
+                    } else {
+                        html += '<td>' + item.Thu + '</td>';
+                    }
                     html += '<td>' + item.Tiet + '</td>';
                     html += '<td>' + item.IDMonHoc + '</td>';
                     html += '<td>' + item.TenMon + '</td>';
@@ -37,7 +41,7 @@ function getbyID(tiet) {
     var thu = $("[name='LstThu']").val();
     $.ajax({
         url: "/ThoiKhoaBieu/GetById/",
-        data: { IDLop: idlop, Thu: thu,Tiet:tiet },
+        data: { IDLop: idlop, Thu: thu, Tiet: tiet },
         typr: "GET",
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
@@ -46,7 +50,7 @@ function getbyID(tiet) {
             $("[name='LstMon']").val(result.IDMonHoc);
 
             $('#MonHocModal').modal('show');
-            
+
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -69,7 +73,7 @@ function LoadDrop() {
 };
 
 function CapNhat() {
-    
+
     var Obj = {
         IDLop: $("[name='LstLop']").val(),
         Thu: $("[name='LstThu']").val(),
@@ -87,10 +91,10 @@ function CapNhat() {
         success: function (result) {
             Loadtable();
             alert("Cập Nhật Thành Công !");
-            
+
             $('#MonHocModal').modal('toggle'); //or  $('#IDModal').modal('hide');
-            
-            
+
+
         },
         error: function (errormessage) {
             alert(errormessage.responseText);

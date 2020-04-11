@@ -11,7 +11,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Code
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             HttpContext ctx = HttpContext.Current;
-            if (HttpContext.Current.Session["TaiKhoan"] == null)
+            if (HttpContext.Current.Session["TaiKhoanNhaTruong"] == null)
             {
                 filterContext.Result = new RedirectResult("~/Admin/TaiKhoanTruong/Login");
                 return;

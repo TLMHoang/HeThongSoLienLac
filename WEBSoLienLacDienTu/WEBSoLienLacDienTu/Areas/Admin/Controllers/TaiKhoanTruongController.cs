@@ -47,7 +47,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                     List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
                     TK = new TaiKhoanTruong(dt.Rows[0]);
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
-                    Session["TaiKhoan"] = lg.TaiKhoan.ToString();
+                    Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
                     Session["MatKhau"] = lg.MatKhau.ToString();
                     return RedirectToAction("Index", "HomeAdmin");
                 }
@@ -103,7 +103,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public ActionResult Logout()
         {
-            Session["TaiKhoan"] = null;
+            Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("Login");
         }
