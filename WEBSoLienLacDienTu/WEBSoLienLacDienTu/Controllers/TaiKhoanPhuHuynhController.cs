@@ -46,7 +46,7 @@ namespace WEBSoLienLacDienTu.Controllers
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
                     Session["TaiKhoan"] = lg.TaiKhoan.ToString();
                     Session["MatKhau"] = lg.MatKhau.ToString();
-                    return RedirectToAction("Index", "HomeAdmin");
+                    return RedirectToAction("Index", "TaiKhoanPhuHuynh");
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace WEBSoLienLacDienTu.Controllers
                     }
                     else
                     {
-                        if ((await new TaiKhoanTruongDAL().DoiMatKhau(TK.ID, DoiPass.MatKhauCu, DoiPass.MatKhauMoi)) != 0)
+                        if ((await new TaiKhoanPhDal().DoiMatKhau(TK.ID, DoiPass.MatKhauCu, DoiPass.MatKhauMoi)) != 0)
                         {
                             TK.MatKhau = DoiPass.MatKhauMoi;
                             Session["MatKhau"] = DoiPass.MatKhauMoi;
@@ -99,9 +99,9 @@ namespace WEBSoLienLacDienTu.Controllers
         }
         public ActionResult Logout()
         {
-            Session["TaiKhoan"] = null;
+            Session["TaiKhoanPhuHuynh"] = null;
             Session["MatKhau"] = null;
-            return RedirectToAction("Login");
+            return RedirectToAction("DangNhap");
         }
 
     }
