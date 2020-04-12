@@ -129,6 +129,7 @@
     <Compile Include="Areas\Admin\Controllers\PhanCongDayController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongGVCNController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyDiemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyLopController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyMonHocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyThongTinHSController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanTruongController.cs" />
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
     <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
@@ -208,6 +210,7 @@
     <Content Include="Areas\Admin\Views\HocPhi\AddHP.cshtml" />
     <Content Include="Areas\Admin\Views\HocPhi\loadData.cshtml" />
     <Content Include="Areas\Admin\Views\HocPhi\UpdateHP.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLop\Index.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

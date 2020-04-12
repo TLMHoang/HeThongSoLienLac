@@ -45,7 +45,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 lst.Add(new ThoiKhoaBieuModel(dr));
             }
-            LoadListKhoi();
+            await LoadListKhoi();
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
 

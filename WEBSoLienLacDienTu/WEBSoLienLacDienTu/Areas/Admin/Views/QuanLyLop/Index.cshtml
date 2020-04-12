@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Lớp Học</h2>
+<hr />
+<div class="row">
+    <div style="margin-left: 10px">
+        <a href="#" class="btn btn-success btn-icon-split"  onclick="clearTextBox(); OpenModal();">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Lớp Mới</span>
+        </a>
+    </div>
+
+    <button class="btn btn-danger" style="margin-left:10px" id="ExitButton" onclick="history.back();"><i class="fas fa-sign-out-alt"></i></button>
+</div>
+<hr />
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
+        <form>
+            <label for="sel1">Chọn Khối:</label>
+            <div class="input-group mb-3 ">
+                @if (ViewBag.LstKhoi != null)
+                {
+                    @Html.DropDownList("LstKhoi", (IEnumerable<SelectListItem>) ViewBag.LstKhoi, "Vui Lòng Chọn Khối", new {@class = "form-control"})
+                }
+            </div>
+            <button type="submit" id="TaiDuLieu" class="btn btn-warning" style="color: white" onclick="Loadtable();">
+                <span>Chọn</span>
+            </button>
+        </form>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Quản Lý Lớp Học</h6>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="15%"></th>
+                            <th>Mã lớp</th>
+                            <th>Tên Lớp</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody"></tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal hide fade in" id="QuanLyLopModal" tabindex="-1" role="dialog" aria-labelledby="QuanLyLopModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label id="MaLopModal" style="display: none"></label>
+                    <div class="form-group">
+                        <label for="sel1">Chọn Khối:</label>
+                        @if (ViewBag.LstKhoi != null)
+                        {
+                            @Html.DropDownList("LstKhoiModal", (IEnumerable<SelectListItem>) ViewBag.LstKhoi, "Vui Lòng Chọn Khối", new {@class = "form-control"})
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label for="TenLopModal">Tên Lớp</label>
+                        <input type="text" class="form-control" id="TenLopModal"/>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Them();">Thêm</button>
+                <button type="button" class="btn btn-primary" style="display: none;" id="btnUpdate" onclick="CapNhat();">Cập Nhật</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Areas/Admin/Scripts/QuanLyLop.js"></script>
