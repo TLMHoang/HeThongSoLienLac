@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "LoadTable";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var ID = ViewContext.RouteData.Values["id"];
 }
 <hr />
 <div class="row">
@@ -16,24 +17,29 @@
         </a>
     </div>
     <div style="margin-left: 10px">
-        <a href="#" class="btn btn-success btn-icon-split" id="Excel">
+        <a href="@Url.Action("ThemHS_ByExcel")" class="btn btn-success btn-icon-split" id="Excel">
             <span class="icon text-white-50">
                 <i class="fas fa-plus-square"></i>
             </span>
             <span>Thêm Học Sinh Bằng Excel</span>
         </a>
     </div>
+    <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton"><i class="fas fa-sign-out-alt"></i></button>
 </div>
 
 <hr />
 <div class="container-fluid">
     <!-- Page Heading -->
     <!-- DataTales Example -->
+    <div style="border-style: groove">
+        <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
+        <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <form>
                 <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh <span></span></h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
 
                 </div>
             </form>
@@ -44,15 +50,15 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" cellspacing="0">
                     <thead>
-                    <tr>
-                        <th></th>
-                        <th>ID</th>
-                        <th>Tên Học Sinh</th>
-                        <th>Giới Tính</th>
-                        <th>Ngày Sinh</th>
-                        <th>Dân Tộc</th>
-                        <th>Tôn Giáo</th>
-                    </tr>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
+                        </tr>
                     </thead>
 
                     <tbody id="myTable">
@@ -70,7 +76,7 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <a href="@Url.Action("DeleteHS","QuanLyThongTinHS", new { @id = item.ID })" class="btn btn-danger btn-icon-split" id="myRow">
+                                            <a href="#" class="btn btn-danger btn-icon-split" id="myRow" onclick="DeleleHS(@item.ID);">
                                                 <span class="icon">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
@@ -123,11 +129,47 @@
             });
         });
     });
+
+    function DeleleHS(ID) {
+        var ans = confirm("Bạn Có Chắc Muốn Xóa Học Sinh Này ?");
+        if (ans) {
+            $.ajax({
+                url: "/QuanLyThongTinHS/DeleteHS/" + ID,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Xóa Thành Công");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+    }
+
     $(document).ready(function() {
-        $('#Excel').click(function() {
-            alert("Xin Lỗi , Chức Năng Đang Trong Quá Trình Phát Triển !");
+        $('#ExitButton').click(function() {
+            window.location.href = "/Admin/QuanLyThongTinHS/Index";
         })
     });
+
+    $(document).ready(
+        $.ajax({
+            url: "/QuanLyThongTinHS/LoadTenLopByID/" + @ID,
+            typr: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $('#maLop').text("Mã Lớp : "+result.ID);
+                $('#tenLop').text("Tên Lớp : "+result.TenKhoi + result.TenLop);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        })
+    );
 
 </script>
 

@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Code\CheckSession.cs" />
+    <Compile Include="Areas\Admin\Code\FileExt.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -136,10 +137,14 @@
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
+    <Compile Include="Areas\Admin\Models\GetNameClassModel.cs" />
+    <Compile Include="Areas\Admin\Models\ImportExcel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TaiKhoanPhuHuynhController.cs" />
     <Compile Include="Controllers\ThongBaoTruongCaNhanController.cs" />
     <Compile Include="Controllers\ThongTinHocSinh1Controller.cs" />
     <Compile Include="Controllers\TraCuuController.cs" />
@@ -150,9 +155,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Home\CheckSession.cs" />
+    <Compile Include="Models\DangNhapModels.cs" />
+    <Compile Include="Models\DoiPassModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
+    <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Assets\Img\logo_User.jpg" />
@@ -191,6 +202,12 @@
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\LoadTable.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\ThemHS.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyThongTinHS\CapNhatHS.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDanh\Vang.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemDanh\ChiTietVang.cshtml" />
+    <Content Include="Areas\Admin\Views\ThoiKhoaBieu\ThoiKhoaBieu.cshtml" />
+    <Content Include="Areas\Admin\Views\HocPhi\AddHP.cshtml" />
+    <Content Include="Areas\Admin\Views\HocPhi\loadData.cshtml" />
+    <Content Include="Areas\Admin\Views\HocPhi\UpdateHP.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -198,6 +215,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -226,10 +245,12 @@
     <Content Include="Views\TraCuu\Index.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\Index.cshtml" />
     <Content Include="Views\TraCuu\GVBM.cshtml" />
+    <Content Include="Views\TaiKhoanPhuHuynh\Index.cshtml" />
+    <Content Include="Views\TaiKhoanPhuHuynh\DangNhap.cshtml" />
+    <Content Include="Views\TaiKhoanPhuHuynh\DoiPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

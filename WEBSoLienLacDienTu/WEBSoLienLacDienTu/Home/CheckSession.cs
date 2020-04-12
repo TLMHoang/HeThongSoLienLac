@@ -4,16 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WEBSoLienLacDienTu.Areas.Admin.Code
+namespace WEBSoLienLacDienTu.Home
 {
     public class SessionTimeoutAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             HttpContext ctx = HttpContext.Current;
-            if (HttpContext.Current.Session["TaiKhoanNhaTruong"] == null)
+            if (HttpContext.Current.Session["TaiKhoan"] == null)
             {
-                filterContext.Result = new RedirectResult("~/Admin/TaiKhoanTruong/Login");
+                filterContext.Result = new RedirectResult("~/TaiKhoanPhuHuynh/DangNhap");
                 return;
             }
             base.OnActionExecuting(filterContext);

@@ -1,5 +1,4 @@
-﻿using DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,46 +7,44 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DTO;
-using WEBSoLienLacDienTu.Areas.Admin.Code;
-using WEBSoLienLacDienTu.Areas.Admin.Models;
+using DAL;
+using WEBSoLienLacDienTu.Models;
+using WEBSoLienLacDienTu.Home;
 
 
-namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
+namespace WEBSoLienLacDienTu.Controllers
 {
-    public class TaiKhoanTruongController : Controller
+    public class TaiKhoanPhuHuynhController : Controller
     {
-        public static TaiKhoanTruong TK = new TaiKhoanTruong();
-        // GET: Admin/TaiKhoanTruong
-        [SessionTimeout]
+        public static TaiKhoanPH TK = new TaiKhoanPH();
+        // GET: TaiKhoanPhuHuynh
+        //[SessionTimeout]
         public ActionResult Index()
         {
             return View();
         }
-        [SessionTimeout]
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //[SessionTimeout]
+
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult DangNhap()
         {
             return View();
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult> Login(LoginModel lg)
+        public async Task<ActionResult> DangNhap(DangNhapModels lg)
         {
 
             if (ModelState.IsValid)
             {
-                DataTable dt = await new TaiKhoanTruongDAL().DangNhap(lg.TaiKhoan, lg.MatKhau);
+                DataTable dt = await new TaiKhoanPhDal().DangNhap(lg.TaiKhoan, lg.MatKhau);
 
                 if (dt.Rows.Count == 1)
                 {
-                    List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
-                    TK = new TaiKhoanTruong(dt.Rows[0]);
+                    List<TaiKhoanPH> lst = new List<TaiKhoanPH>();
+                    TK = new TaiKhoanPH(dt.Rows[0]);
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
-                    Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
+                    Session["TaiKhoan"] = lg.TaiKhoan.ToString();
                     Session["MatKhau"] = lg.MatKhau.ToString();
                     return RedirectToAction("Index", "HomeAdmin");
                 }
@@ -61,29 +58,29 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         }
         [HttpGet]
         [SessionTimeout]
-        public ActionResult ChangePass()
+        public ActionResult DoiPass()
         {
             return View();
         }
         [HttpPost, ValidateAntiForgeryToken]
         [SessionTimeout]
-        public async Task<ActionResult> ChangePass(ChangePassModel changePass)
+        public async Task<ActionResult> DoiPass(DoiPassModels DoiPass)
         {
             if (ModelState.IsValid)
             {
-                if (Session["MatKhau"].Equals(changePass.MatKhauCu))
+                if (Session["MatKhau"].Equals(DoiPass.MatKhauCu))
                 {
-                    if(Session["MatKhau"].Equals(changePass.MatKhauMoi))
+                    if (Session["MatKhau"].Equals(DoiPass.MatKhauMoi))
                     {
                         ModelState.AddModelError("", "Mật Khẩu Mới Không Được Giống Mật Khẩu Cũ !");
                     }
                     else
                     {
-                        if ((await new TaiKhoanTruongDAL().DoiMatKhau(TK.ID, changePass.MatKhauCu, changePass.MatKhauMoi)) != 0)
+                        if ((await new TaiKhoanTruongDAL().DoiMatKhau(TK.ID, DoiPass.MatKhauCu, DoiPass.MatKhauMoi)) != 0)
                         {
-                            TK.MatKhau = changePass.MatKhauMoi;
-                            Session["MatKhau"] = changePass.MatKhauMoi;
-                            ViewBag.Message = "Update Success!";
+                            TK.MatKhau = DoiPass.MatKhauMoi;
+                            Session["MatKhau"] = DoiPass.MatKhauMoi;
+                            ViewBag.Message = "Đổi Thành Công";
                             return View();
                         }
                         else
@@ -100,12 +97,12 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
 
         }
-
         public ActionResult Logout()
         {
-            Session["TaiKhoanNhaTruong"] = null;
+            Session["TaiKhoan"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("Login");
         }
+
     }
 }

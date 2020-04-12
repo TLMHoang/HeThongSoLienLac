@@ -43,12 +43,17 @@
   <ItemGroup>
     <Compile Include="BangDiemDAL.cs" />
     <Compile Include="CInterface.cs" />
+    <Compile Include="DiemDanhDAL.cs" />
     <Compile Include="KhoiDAL.cs" />
     <Compile Include="LoaiHocSinhDAL.cs" />
     <Compile Include="LopDAL.cs" />
+    <Compile Include="MonHocDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="TaiKhoanPhDAL.cs" />
     <Compile Include="TaiKhoanTruongDAL.cs" />
+    <Compile Include="ThoiKhoaBieuDAL.cs" />
+    <Compile Include="ThongTinHocPhiDAL.cs" />
     <Compile Include="ThongTinHSDAL.cs" />
   </ItemGroup>
   <ItemGroup>

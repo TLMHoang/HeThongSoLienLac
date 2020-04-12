@@ -1,157 +1,118 @@
-﻿
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.ThoiKhoaBieuModel
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Trang Quản Lý Thời Khóa Biểu</h2>
-<form>
-    <label for="sel1">Chọn Lớp:</label>
-    <div class="input-group mb-3">
-        <select class="form-control" id="sel1" name="sellist1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-        <button type="submit" class="btn btn-warning">Chọn</button>
-    </div>
-</form>
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
+    <h2>Trang Quản Lý Thời Khóa Biểu</h2>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
             <form>
-                <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Quản Lý Thời Khóa Biểu</h6>
+                <label for="sel1">Chọn Khối:</label>
+                <div class="input-group mb-3 ">
 
+                    @if (ViewBag.LstKhoi != null)
+                    {
+                        @Html.DropDownList("LstKhoi", (IEnumerable<SelectListItem>) ViewBag.LstKhoi, "Vui Lòng Chọn Khối", new {@class = "form-control"})
+                    }
                 </div>
+                <label for="sel1">Chọn Lớp:</label>
+                <div class="input-group mb-3 ">
+                    @Html.DropDownList("LstLop", new SelectList(" "), "Vui Lòng Chọn Lớp", new {@class = "form-control"})
+                </div>
+                <label for="sel1">Chọn Thứ:</label>
+                <div class="input-group mb-3 ">
+                    @Html.DropDownList("LstThu",
+                        new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Tất Cả",Value = "-1"},
+                            new SelectListItem {Text = "Thứ 2",Value = "2"},
+                            new SelectListItem {Text = "Thứ 3",Value = "3"},
+                            new SelectListItem {Text = "Thứ 4",Value = "4"},
+                            new SelectListItem {Text = "Thứ 5",Value = "5"},
+                            new SelectListItem {Text = "Thứ 6",Value = "6"},
+                            new SelectListItem {Text = "Thứ 7",Value = "7"},
+                            new SelectListItem {Text = "Chủ Nhật",Value = "1"}
+                        }
+                        , "Vui Lòng Chọn Thứ", new { @class = "form-control" })
+                </div>
+                <button type="submit" id="TaiDuLieu" class="btn btn-warning" onclick="return Loadtable();">
+                    Chọn
+                </button>
             </form>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Thứ 2</th>
-                            <th>Thứ 3</th>
-                            <th>Thứ 4</th>
-                            <th>Thứ 5</th>
-                            <th>Thứ 6</th>
-                            <th>Thứ 7</th>
-                            <th>Chủ Nhật</th>
-                        </tr>
-                    </thead>
+        <div class="col-lg-3"></div>
+    </div>
+    <hr/>
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Quản Lý Thời Khóa Biểu</h6>
 
-                    <tbody>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                         <tr>
-                            <td>Tiết 1</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
+                            <th width="10%"></th>
+                            <th>Thứ</th>
+                            <th>Tiết</th>
+                            <th  width="7%">Mã Môn</th>
+                            <th>Tên Môn</th>
                         </tr>
-                        <tr>
-                            <td>Tiết 2</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 3</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 4</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 5</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 6</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 7</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 8</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 9</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 10</td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                            <td><a href="#">+</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
+                        </thead>
+
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal hide fade in" id="MonHocModal" tabindex="-1" role="dialog" aria-labelledby="MonHocModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="TietModal">Tiết</label>
+                            <input type="text" class="form-control" id="TietModal" disabled="disabled" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Chọn Môn:</label>
+                            <div class="input-group mb-3 ">
+                                @Html.DropDownList("LstMon", (IEnumerable<SelectListItem>)ViewBag.LstMon,new {@class = "form-control"})
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnUpdate" onclick="CapNhat();">Cập Nhật</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-
-</div>
-
+    
+    
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Areas/Admin/Scripts/ThoiKhoaBieu.js"></script>

@@ -1,0 +1,94 @@
+﻿@model DTO.TienHocPhi
+@{
+    ViewBag.Title = "AddHP";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tiền Học Phí</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>Tháng</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Thang, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Thang, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Số Ngày Học</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.SoNgayHoc, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SoNgayHoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Học Phí</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienHoc, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienHoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Ăn</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienAn, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienAn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Điện</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienDien, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienDien, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Nước</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienNuoc, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienNuoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Vệ Sinh</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienVeSinh, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienVeSinh, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Trang Thiết Bị</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienTrangThietBi, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienTrangThietBi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tiền Tài Liệu</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TienTaiLieu, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TienTaiLieu, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Loại Học Sinh</label>
+                    <div class="col-md-10">
+                        @if (ViewBag.LstLoaiHocSinh != null)
+                        {
+                            @Html.DropDownListFor(model => model.IDLoaiHocSinh, ViewBag.LstLoaiHocSinh as SelectList, "Vui Lòng Chọn Loại", new { @class = "form-control" })
+                        }
+                    </div>
+                </div>
+
+                <input id="Submit1" type="submit" value="Lưu vào Danh Sách" />
+            </div>
+        </div>
+    </div>
+}
+
