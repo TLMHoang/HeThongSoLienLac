@@ -1,13 +1,14 @@
 ﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.GetClassModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index2";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h2>Quản Lý Thông Báo Học Sinh</h2>
+    <h2>Quản Lý Thông Báo Lớp</h2>
     <hr />
     <div class="row">
         <div class="col-lg-3"></div>
@@ -62,4 +63,5 @@
     </script>
 
 }
+
 

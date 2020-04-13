@@ -165,6 +165,7 @@
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
+    <Content Include="Areas\Admin\Scripts\ThongBaoHS.js" />
     <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
@@ -211,6 +212,9 @@
     <Content Include="Areas\Admin\Views\HocPhi\loadData.cshtml" />
     <Content Include="Areas\Admin\Views\HocPhi\UpdateHP.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyLop\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongBaoCaNhan\ThongBaoHocSinh.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongBaoCaNhan\ThongBaoLop.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongBaoCaNhan\Index2.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
