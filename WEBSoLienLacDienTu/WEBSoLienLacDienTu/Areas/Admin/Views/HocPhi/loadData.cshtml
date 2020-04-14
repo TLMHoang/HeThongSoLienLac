@@ -25,8 +25,9 @@
                 <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th></th>                                                      
+                            <th></th>
                             <th>Tháng</th>
+                            <th>Loại</th>
                             <th>Số ngày học</th>
                             <th>Tiền học phí</th>
                             <th>Tiền ăn</th>
@@ -62,9 +63,25 @@
                                     </div>
                                 </div>
                             </td>
-                       
+
                             <td>
                                 @Html.DisplayFor(modelitem => item.Thang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.IDLoaiHocSinh)
+                                @if (item.IDLoaiHocSinh == 1)
+                                {
+                                    @Html.Label("Nội Trú")
+                                }
+                                else if (item.IDLoaiHocSinh == 2)
+                                {
+                                    @Html.Label("Bán Trú")
+                                }
+                                else if (item.IDLoaiHocSinh == 3)
+                                {
+                                    @Html.Label("Ngoại Trú")
+                                }
+
                             </td>
                             <td>
                                 @Html.DisplayFor(modelitem => item.SoNgayHoc)

@@ -69,7 +69,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddHP(TienHocPhi hp)
         {
-            if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
+            if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDLoaiHocSinh,khoi.ID, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
             {
                 return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
@@ -89,11 +89,12 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             await LoadLoaiHocSinh();
             return View(tt);
         }
-        public async Task<ActionResult> CapNhat(int id,TienHocPhi hp)
+        [HttpPost]
+        public async Task<ActionResult> UpdateHP(int id,TienHocPhi hp)
         {
-            if (await new ThongTinHocPhiDAL().CapNhatHp(hp.Thang, hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
+            if (await new ThongTinHocPhiDAL().CapNhatHp(id,hp.Thang, hp.IDLoaiHocSinh, khoi.ID, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id=khoi.ID });
             }
             else
             {
