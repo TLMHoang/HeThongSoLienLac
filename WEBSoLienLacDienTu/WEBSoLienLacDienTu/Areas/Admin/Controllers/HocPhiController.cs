@@ -17,7 +17,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
    
     public class HocPhiController : Controller
     {
-        public static Lop lop = new Lop();
+        public static Khoi khoi = new Khoi();
+
         // GET: Admin/HocPhi
         public async Task<ActionResult> Index()
         {
@@ -25,16 +26,16 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Index(GetClassModel lop)
+        public async Task<ActionResult> Index(getKhoiModel khoi)
         {
-            if (lop.ID == -10 || lop.IDKhoi == 0)
+            if (khoi.ID == -10 )
             {
                 await LoadListKhoi();
                 ViewData["Loi"] = "Vui Lòng Chọn Đầy Đủ Thông Tin !";
             }
             else
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = lop.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
             return View();
         }
@@ -56,9 +57,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<ActionResult>  loadData(int id)
         {
-            lop.ID = id;
+            khoi.ID = id;
             List<TienHocPhi> lst = new List<TienHocPhi>();
-            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT(id)).Rows)
+            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT_ByIDKhoi(id)).Rows)
             {
                 lst.Add(new TienHocPhi(dr));
             }
@@ -70,7 +71,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         {
             if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDKhoi,hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = lop.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
             else
             {
@@ -92,7 +93,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         {
             if (await new ThongTinHocPhiDAL().CapNhatHp(hp.Thang, hp.IDKhoi, hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = lop.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
             else
             {
@@ -101,16 +102,6 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
 
             return View();
-        }
-        public async Task<JsonResult> LoadListLop(int IdKhoi)
-        {
-            List<SelectListItem> li = new List<SelectListItem>();
-            li.Add(new SelectListItem { Text = "Vui Lòng Chọn Lớp", Value = "-10" });
-            foreach (DataRow dr in (await new LopDAL().LayDTLopTheoKhoi(IdKhoi)).Rows)
-            {
-                li.Add(new SelectListItem { Text = dr["TenLop"].ToString(), Value = dr["ID"].ToString() });
-            }
-            return Json(li, JsonRequestBehavior.AllowGet);
         }
     }
 }

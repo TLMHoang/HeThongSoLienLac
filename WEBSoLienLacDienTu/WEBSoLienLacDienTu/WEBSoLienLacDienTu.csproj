@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
+    <Compile Include="Areas\Admin\Models\getKhoiModel.cs" />
     <Compile Include="Areas\Admin\Models\GetNameClassModel.cs" />
     <Compile Include="Areas\Admin\Models\ImportExcel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
