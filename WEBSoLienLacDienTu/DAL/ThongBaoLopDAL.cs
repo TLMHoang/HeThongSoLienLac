@@ -18,7 +18,7 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung },
-                new SqlParameter("@Ngay", SqlDbType.NVarChar) { Value = obj.Ngay },
+                new SqlParameter("@Ngay", SqlDbType.DateTime) { Value = obj.Ngay },
                 new SqlParameter("@IDLoaiThongBao", SqlDbType.Int) { Value = obj.IDLoaiThongBao }
             );
         }
@@ -44,14 +44,25 @@ namespace DAL
             return lst;
         }
 
-        public async Task<int> Them(ThongBaoLop obj)
+        public async Task<List<ThongBaoLop>> LayLst(int id)
+        {
+            List<ThongBaoLop> lst = new List<ThongBaoLop>();
+            foreach (DataRow dr in (await LayDT(id)).Rows)
+            {
+                lst.Add(new ThongBaoLop(dr));
+            }
+
+            return lst;
+        }
+
+        public async Task<int> Them(int idlop,string noidung,DateTime ngay,int idloaithongbao)
         {
             return await ExecuteNonQuery(
                 "InsertThongBaoLop",
-                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop },
-                new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung },
-                new SqlParameter("@Ngay", SqlDbType.NVarChar) { Value = obj.Ngay },
-                new SqlParameter("@IDLoaiThongBao", SqlDbType.Int) { Value = obj.IDLoaiThongBao }
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = idlop },
+                new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = noidung },
+                new SqlParameter("@Ngay", SqlDbType.DateTime) { Value = ngay },
+                new SqlParameter("@IDLoaiThongBao", SqlDbType.Int) { Value = idloaithongbao }
             );
         }
 
@@ -66,6 +77,11 @@ namespace DAL
         public async Task<DataTable> LayDT_TheoLop(int ID)
         {
             return await ExecuteQuery("SelectThongBaoLopV2", new SqlParameter("@IDLop", SqlDbType.Int) { Value = ID });
+        }
+
+        public Task<int> Them(ThongBaoLop obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
