@@ -1,4 +1,4 @@
-﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.GetClassModel
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.getKhoiModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -17,7 +17,7 @@
                     <div class="input-group mb-3 ">
                         @if (ViewBag.LstKhoi != null)
                         {
-                            @Html.DropDownListFor(model => model.IDKhoi, ViewBag.LstKhoi as SelectList, "Vui Lòng Chọn Khối", new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.ID, ViewBag.LstKhoi as SelectList, "Vui Lòng Chọn Khối", new { @class = "form-control" })
                         }
                     </div>
 
