@@ -88,13 +88,13 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
-        public async Task<int> ThemHp(int Thang, int IdLoaiHs,int idKhoi,int songayhoc,int tienhoc,int tienAn,int tienDien,int tienNuoc,int tienVeSinh,int tienTrangThietBi, int tienTailieu)
+        public async Task<int> ThemHp(int Thang, int IdLoaiHs,int songayhoc,int tienhoc,int tienAn,int tienDien,int tienNuoc,int tienVeSinh,int tienTrangThietBi, int tienTailieu)
         {
             return await ExecuteNonQuery("InsertTienHocPhi",
                
                 new SqlParameter("@Thang", SqlDbType.NVarChar) { Value = Thang },
                 new SqlParameter("@IDLoaiHocSinh", SqlDbType.DateTime) { Value =  IdLoaiHs},
-                new SqlParameter("@IDKhoi", SqlDbType.Bit) { Value = idKhoi },
+                //new SqlParameter("@IDKhoi", SqlDbType.Bit) { Value = idKhoi },
                 new SqlParameter("@SoNgayHoc", SqlDbType.NVarChar) { Value =songayhoc},
                 new SqlParameter("@TienHoc", SqlDbType.NVarChar) { Value = tienhoc },
                 new SqlParameter("@TienAn", SqlDbType.NVarChar) { Value = tienAn },
@@ -105,13 +105,13 @@ namespace DAL
                 new SqlParameter("@TienTaiLieu", SqlDbType.Int) { Value =  tienTailieu}
                 );
         }
-        public async Task<int> CapNhatHp(int Thang, int IdLoaiHs, int idKhoi, int songayhoc, int tienhoc, int tienAn, int tienDien, int tienNuoc, int tienVeSinh, int tienTrangThietBi, int tienTailieu)
+        public async Task<int> CapNhatHp(int Thang, int IdLoaiHs, int songayhoc, int tienhoc, int tienAn, int tienDien, int tienNuoc, int tienVeSinh, int tienTrangThietBi, int tienTailieu)
         {
             return await ExecuteNonQuery("UpdateTienHocPhi",
 
                 new SqlParameter("@Thang", SqlDbType.NVarChar) { Value = Thang },
                 new SqlParameter("@IDLoaiHocSinh", SqlDbType.DateTime) { Value = IdLoaiHs },
-                new SqlParameter("@IDKhoi", SqlDbType.Bit) { Value = idKhoi },
+                //new SqlParameter("@IDKhoi", SqlDbType.Bit) { Value = idKhoi },
                 new SqlParameter("@SoNgayHoc", SqlDbType.NVarChar) { Value = songayhoc },
                 new SqlParameter("@TienHoc", SqlDbType.NVarChar) { Value = tienhoc },
                 new SqlParameter("@TienAn", SqlDbType.NVarChar) { Value = tienAn },

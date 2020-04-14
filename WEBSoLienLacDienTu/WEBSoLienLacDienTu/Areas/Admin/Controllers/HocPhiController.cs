@@ -69,7 +69,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddHP(TienHocPhi hp)
         {
-            if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDKhoi,hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
+            if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
             {
                 return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
@@ -91,17 +91,21 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         }
         public async Task<ActionResult> CapNhat(int id,TienHocPhi hp)
         {
-            if (await new ThongTinHocPhiDAL().CapNhatHp(hp.Thang, hp.IDKhoi, hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
+            if (await new ThongTinHocPhiDAL().CapNhatHp(hp.Thang, hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
             {
                 return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
             else
             {
-                ModelState.AddModelError("", "Thêm Không Thành Công,Vui Lòng Nhập Đủ Thông Tin !");
+                ModelState.AddModelError("", "Cập Nhật không thành Công!!");
                 await LoadLoaiHocSinh();
             }
 
             return View();
+        }
+        public async Task<JsonResult> DeleteHP(int id)
+        {
+            return Json(await new ThongTinHocPhiDAL().Xoa(id), JsonRequestBehavior.AllowGet);
         }
     }
 }
