@@ -9,14 +9,14 @@
 <div class="row">
     <div>
 
-        <a href="#" class="btn btn-success btn-icon-split" style="margin-left: 20px">
+        <a href="@Url.Action("ThemThongBaoLop")" class="btn btn-success btn-icon-split" style="margin-left: 20px">
             <span class="icon text-white-50">
                 <i class="fas fa-plus-square"></i>
             </span>
             <span>Thêm Thông Báo</span>
         </a>
     </div>
-    <button class="btn btn-danger" style="margin-left: 10px" onclick="history.back();" ><i class="fas fa-sign-out-alt"></i></button>
+    <button class="btn btn-danger"  style="margin-left: 10px" onclick="window.location.href='/Admin/ThongBaoCaNhan/index2'" ><i class="fas fa-sign-out-alt"></i></button>
 </div>
 
 <hr />
@@ -51,7 +51,7 @@
                                 <td width="15%">
                                     <div class="row">
                                         <div class="col">
-                                            <a href="#" class="btn btn-primary btn-icon-split" >
+                                            <a href="@Url.Action("CapNhatThongBaoLop","ThongBaoCaNhan",new {@id = item.ID})" class="btn btn-primary btn-icon-split" >
                                                 <span class="icon">
                                                     <i class="fas fa-pen-square"></i>
                                                 </span>
@@ -59,7 +59,7 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <a href="#" class="btn btn-danger btn-icon-split" >
+                                            <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoLop(@item.ID);" >
                                                 <span class="icon">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
@@ -82,4 +82,4 @@
         </div>
     </div>
 </div>
-
+<script src="~/Areas/Admin/Scripts/ThongBaoLop.js"></script>

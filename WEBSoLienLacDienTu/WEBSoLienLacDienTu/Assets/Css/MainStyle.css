@@ -186,3 +186,8 @@ ul ul a {
 .ql-cuphoc-item:hover{
     color:darkorange;
 }
+@media all and (max-width : 400px) {
+    .Icon-team {
+        display: none;
+    }
+}

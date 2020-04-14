@@ -18,7 +18,7 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung },
-                new SqlParameter("@Ngay", SqlDbType.NVarChar) { Value = obj.Ngay },
+                new SqlParameter("@Ngay", SqlDbType.DateTime) { Value = obj.Ngay },
                 new SqlParameter("@IDLoaiThongBao", SqlDbType.Int) { Value = obj.IDLoaiThongBao }
             );
         }
@@ -53,7 +53,7 @@ namespace DAL
                 "InsertThongBaoHS",
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@NoiDung", SqlDbType.NVarChar) { Value = obj.NoiDung },
-                new SqlParameter("@Ngay", SqlDbType.NVarChar) { Value = obj.Ngay },
+                new SqlParameter("@Ngay", SqlDbType.DateTime) { Value = obj.Ngay },
                 new SqlParameter("@IDLoaiThongBao", SqlDbType.Int) { Value = obj.IDLoaiThongBao }
             );
         }
@@ -61,6 +61,13 @@ namespace DAL
         public async Task<int> Xoa(int ID)
         {
             return await ExecuteNonQuery("DeleteThongBaoHS", new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
+        }
+
+        public async Task<DataTable> LayDT_TheoIDHS(int id)
+        {
+            return await ExecuteQuery("SelectThongBaoHSV2",
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = id }
+            );
         }
     }
 }

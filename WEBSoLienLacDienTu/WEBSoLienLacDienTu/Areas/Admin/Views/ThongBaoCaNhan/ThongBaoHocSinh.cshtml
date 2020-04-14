@@ -2,12 +2,13 @@
 @{
     ViewBag.Title = "ThongBaoHocSinh";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var ID = ViewContext.RouteData.Values["id"];
 }
 
 
 <hr />
 <div class="container-fluid">
-    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="history.back();"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Admin/ThongBaoCaNhan/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
     <div>
         <h2>Thông Báo Cho Học Sinh</h2>
 
@@ -20,6 +21,10 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <!-- DataTales Example -->
+    <div style="border-style: groove">
+        <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
+        <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
+    </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <form>
@@ -36,8 +41,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Thông Báo</th>
-                            <th>Danh Sách</th>
+                            <th>Chọn</th>
                             <th>ID</th>
                             <th>Tên Học Sinh</th>
                             <th>Giới Tính</th>
@@ -51,23 +55,13 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td width="8%">
+                                <td width="5%">
                                     <div>
-                                        <a href="#" class="btn btn-primary " style="margin-left:20px">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <a href="#" class="btn btn-success btn-icon-split" id="myRow">
+                                        <a href="@Url.Action("DanhSachChiTiet","ThongBaoCaNhan",new {@id = item.ID})" class="btn btn-success btn-icon-split" id="myRow">
                                             <span class="icon">
                                                 <i class="fas fa-list-alt"></i>
                                             </span>
-                                            <span>Chi Tiết </span>
+                                            <span>Chọn</span>
                                         </a>
                                     </div>
                                 </td>
@@ -101,47 +95,27 @@
     </div>
 
 </div>
-<div class="modal hide fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="IDModal">ID Học Sinh</label>
-                        <input type="text" class="form-control" id="IDModal" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="TenModal">Tên Học Sinh</label>
-                        <input type="text" class="form-control" id="TenModal" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Phep">Phép</label>
-                        <div class="col-md-10">
-                            <label class="radio-inline">
-                                <input type="radio" name="Phep" value="1" id="Phep">Có Phép
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="Phep" value="0" id="Phep1">Không Phép
-                            </label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="Them();">Thêm</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="~/Areas/Admin/Scripts/ThongBaoHS.js"></script>
-
+<script>
+    $(document).ready(
+        $.ajax({
+            url: "/ThongBaoCaNhan/LoadTenLopByID/" + @ID,
+            typr: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $('#maLop').text("Mã Lớp : "+result.ID);
+                $('#tenLop').text("Tên Lớp : "+result.TenKhoi + result.TenLop);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        })
+    );
+</script>
 

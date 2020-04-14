@@ -1,8 +1,8 @@
-﻿function XoaThongBaoHS(ID) {
+﻿function XoaThongBaoLop(ID) {
     var ans = confirm("Bạn Có Chắc Muốn Xóa ?");
     if (ans) {
         $.ajax({
-            url: "/ThongBaoCaNhan/XoaThongBaoHS/" + ID,
+            url: "/ThongBaoCaNhan/XoaThongBaoLop/" + ID,
             type: "POST",
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
@@ -15,11 +15,3 @@
         });
     }
 }
-$(document).ready(function () {
-    $("#myInput").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
