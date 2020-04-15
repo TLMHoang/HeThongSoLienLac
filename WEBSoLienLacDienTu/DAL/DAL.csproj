@@ -55,6 +55,7 @@
     <Compile Include="ThoiKhoaBieuDAL.cs" />
     <Compile Include="ThongBaoHSDAL.cs" />
     <Compile Include="ThongBaoLopDAL.cs" />
+    <Compile Include="ThongBaoTruongDAL.cs" />
     <Compile Include="ThongTinHocPhiDAL.cs" />
     <Compile Include="ThongTinHSDAL.cs" />
   </ItemGroup>
