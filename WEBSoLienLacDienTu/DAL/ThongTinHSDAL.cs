@@ -28,6 +28,7 @@ namespace DAL
                 new SqlParameter("@CaNam", SqlDbType.Int) { Value = obj.CaNam }
             );
         }
+       
 
         public async Task<DataTable> LayDT()
         {
@@ -87,6 +88,14 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
+        public async Task<DataTable> LayDT_ByIDTaiKhoan(int IDTaiKhoan)
+        {
+            return await ExecuteQuery(
+                "SelectHsvsPH",
+                new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = IDTaiKhoan }
+            );
+        }
+
         public async Task<int> ThemTTHS(string ten,DateTime ngaySinh,byte gioiTinh,string noiSinh,string danToc,string TonGiao,int iDLop,int iDHocSinh)
         {
             return await ExecuteNonQuery("InsertQuanLyThongTinHS",

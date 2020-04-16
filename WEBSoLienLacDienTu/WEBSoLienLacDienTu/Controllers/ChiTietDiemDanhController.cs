@@ -4,20 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WEBSoLienLacDienTu.Home;
+using DTO;
+using DAL;
+using System.Data;
+using System.Threading.Tasks;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
     [SessionTimeout]
     public class ChiTietDiemDanhController : Controller
     {
+        public static TaiKhoanPH tk = new TaiKhoanPH();
         // GET: ChiTietDiemDanh
-        public ActionResult Index()
+        public async Task<ActionResult> Index(int IDTaiKhoan)
         {
-            return View();
+            tk.ID = IDTaiKhoan;
+            List<ThongTinHS> lst = new List<ThongTinHS>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(IDTaiKhoan)).Rows)
+            {
+                lst.Add(new ThongTinHS(dr));
+            }
+            return View(lst);
+            
         }
-        public ActionResult ChiTiet()
+        public async Task<ActionResult> ChiTiet(int IDTaiKhoan)
         {
-            return View();
+            List<DiemDanh> lst = new List<DiemDanh>();
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(IDTaiKhoan)).Rows)
+            {
+                lst.Add(new DiemDanh(dr));
+            }
+            return View(lst);
         }
 
     }

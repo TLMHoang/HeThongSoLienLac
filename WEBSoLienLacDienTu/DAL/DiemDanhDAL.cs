@@ -66,5 +66,11 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
+        public async Task<DataTable> DanhSachDiemDanhPH(int IDTaiKhoan)
+        {
+            return await ExecuteQuery("SelectDiemDanhByIDHS",
+                new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = IDTaiKhoan }
+            );
+        }
     }
 }

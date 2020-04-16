@@ -161,6 +161,7 @@
     <Compile Include="Home\CheckSession.cs" />
     <Compile Include="Models\DangNhapModels.cs" />
     <Compile Include="Models\DoiPassModels.cs" />
+    <Compile Include="Models\LKPHvsHSModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DTO;
 using DAL;
-//using WEBSoLienLacDienTu.Areas.Admin.Code;
+using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
-    //[SessionTimeout]
-   
+    [SessionTimeout]
+
     public class HocPhiController : Controller
     {
         public static Khoi khoi = new Khoi();
