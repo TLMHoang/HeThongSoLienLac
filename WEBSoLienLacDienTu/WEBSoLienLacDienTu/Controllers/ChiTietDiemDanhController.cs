@@ -15,6 +15,10 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             return View();
         }
-        
+        public ActionResult ChiTiet()
+        {
+            return View();
+        }
+
     }
 }

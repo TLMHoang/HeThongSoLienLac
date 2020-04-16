@@ -37,11 +37,19 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#">Thông Báo</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">@Html.ActionLink("Thông Báo Trường", "Index", "ThongBaoTruongCaNhan")</a>
+                        </li>
+                        <li>
+                            <a href="#">@Html.ActionLink("Thông Báo Trường", "Index", "ThongBaoTruongCaNhan")</a>
+                        </li>                      
+                    </ul>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Tình Hình Học Tập </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Tình Hình Học Tập </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
                             <a href="#">@Html.ActionLink("Xem Điểm", "Index", "XemDiem")</a>
                         </li>
@@ -52,13 +60,13 @@
                             <a href="#">@Html.ActionLink("Xem Thời Khóa Biểu", "Index", "XemTKB")</a>
                         </li>
                         <li>
-                            <a href="#">Cúp Học Nghỉ Học</a>
+                            <a href="#">@Html.ActionLink("Điểm danh", "Index", "ChiTietDiemDanh")</a>
                         </li>
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
                             <a href="#">@Html.ActionLink("Thông Tin Hoc Sinh", "Index", "ThongTInHocSinh1")</a>
                         </li>
@@ -69,8 +77,8 @@
                 </li>
                 <li class="active"><a href="#">@Html.ActionLink("Xin Phép", "Index", "XinPhep1")</a></li>
                 <li class="active">
-                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu3">
                         <li>
                             @Html.ActionLink("Tra Cứu Giáo Viên Chủ Nhiệm", "Index", "TraCuu")
                         </li>

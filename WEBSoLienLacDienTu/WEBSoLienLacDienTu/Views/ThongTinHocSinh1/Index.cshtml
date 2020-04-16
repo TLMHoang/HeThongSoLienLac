@@ -5,50 +5,73 @@
 }
 
 <h2>Thông tin học sinh</h2>
+<hr />
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
-            <from class="form-group"></from>
-            <label for="text1">Họ và Tên</label>
-            <div class="input-group mb-3">
-                <input id="text1" type="text" size="50" />
-            </div>
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
+                        </tr>
+                    </thead>
 
-            <label for="sel2">Lớp</label>
-            <div class="input-group mb-3">
-                <select class="form-control" id="sel2" name="sellist1"></select>
+                    <tbody id="myTable">
+                        @*@foreach (var item in Model)
+                        {*@
+                            <tr>
+                                <td width="15%">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="@Url.Action("Edit","ThongTinHocSinh1" @*new { @id = item.ID }*@)" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelitem => item.Ten)
+                                </td>
+                                <td>
+                                    @if (item.GioiTinh == 1)
+                                    {
+                                        @Html.Label("Nam")
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Nữ")
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.NgaySinh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.DanToc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TonGiao)
+                                </td>
+                            </tr>
+                        }*@
+                    </tbody>
+                </table>
             </div>
-           
-
-            <label for="text4">Ngày Sinh</label>
-            <div class="input-group mb-3">
-                <input id="text4" type="text" size="50" />
-            </div>
-
-            <label for="text5">Giới Tính</label>
-            <div class="input-group mb-3">
-                <input id="text5" type="text" size="50" />
-            </div>
-
-            <label for="text6">Nơi Sinh</label>
-            <div class="input-group mb-3">
-                <input id="text6" type="text" size="50" />
-            </div>
-
-            <label for="text7">Dân Tộc</label>
-            <div class="input-group mb-3">
-                <input id="text7" type="text" size="50" />
-            </div>
-
-            <label for="text8">Tôn Giáo</label>
-            <div class="input-group mb-3">
-                <input id="text8" type="text" size="50" />
-            </div>
-
-            <input id="Button1" type="button" value="Cập Nhật" size="20" />          
-            
         </div>
     </div>
+
 </div>
 
