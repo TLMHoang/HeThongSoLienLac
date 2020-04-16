@@ -12,7 +12,8 @@
             $.each(result,
                 function (key, item) {
                     html += '<tr>';
-                    html += '<td><a href="#" onclick="return getbyID(' + item.ID + ');" class="btn btn-primary btn-icon-split" ><span class="icon"><i class="fas fa-pen-square"></i></span><span>Sửa</span></a><a href="#" onclick="return XoaLop(' + item.ID + ');" class="btn btn-danger btn-icon-split" style="margin-left:10px" ><span class="icon"><i class="fas fa-trash"></i></span><span>Xóa</span></a></td>';
+                    html += '<td><a href="#" onclick="return getbyID(' + item.ID + ');" class="btn btn-primary btn-icon-split" ><span class="icon"><i class="fas fa-pen-square"></i></span><span>Sửa</span></a></td>';
+                    html += '<td><a href="#" onclick="return XoaLop(' + item.ID + ');" class="btn btn-danger btn-icon-split" ><span class="icon"><i class="fas fa-trash"></i></span><span>Xóa</span></a></td>';
                     html += '<td>' + item.ID + '</td>';
                     html += '<td>' + item.TenLop + '</td>';
                     html += '</tr>';
