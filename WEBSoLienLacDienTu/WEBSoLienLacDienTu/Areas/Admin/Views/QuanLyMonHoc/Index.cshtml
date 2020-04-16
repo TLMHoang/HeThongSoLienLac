@@ -5,6 +5,7 @@
 }
 
 <h2>Trang Quản Lý Môn Học</h2>
+<hr />
 <a href="@Url.Action("Create","QuanLyMonHoc")" class="btn btn-success btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus-square"></i>
@@ -29,39 +30,52 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                             <th>Mã Môn</th>
                             <th>Tên Môn</th>
-                            <th>Loại Điểm</th>
+                            <th>Hệ Số 10</th>
                         </tr>
                     </thead>
 
                     <tbody id="myTable">
-                        <tr>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="#" class="btn btn-primary btn-icon-split">
+                        @foreach (var item in Model as IEnumerable<DTO.MonHoc>)
+                        {
+                            <tr>
+                                <td width="7%">
+                                    <div>
+                                        <a href="@Url.Action("Update","QuanLyMonHoc",new {@id=item.ID})" class="btn btn-primary btn-icon-split">
                                             <span class="icon">
                                                 <i class="fas fa-pen-square"></i>
                                             </span>
                                             <span>Sửa</span>
                                         </a>
                                     </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                </td>
+                                <td  width="7%">
+                                    <div>
+                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="Delete(@item.ID);">
                                             <span class="icon">
                                                 <i class="fas fa-trash"></i>
                                             </span>
                                             <span>Xóa</span>
                                         </a>
                                     </div>
-                                </div>
-                            </td>
-                            <td>1</td>
-                            <td>Toán</td>
-                            <td>10</td>
-                        </tr>
+                                </td>
+                                <td  width="10%" >@Html.DisplayFor(modelitem => item.ID)</td>
+                                <td>@Html.DisplayFor(modelitem => item.TenMon)</td>
+                                <td>
+                                    @if (item.LoaiDiem == 0)
+                                    {
+                                        <label>Không</label>
+                                    }
+                                    else
+                                    {
+                                        <label>Có</label>
+                                    }
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -69,5 +83,4 @@
     </div>
 
 </div>
-
-
+<script src="~/Areas/Admin/Scripts/QuanLyMonHoc.js"></script>
