@@ -8,6 +8,7 @@ using DTO;
 using DAL;
 using System.Data;
 using System.Threading.Tasks;
+using WEBSoLienLacDienTu.Models;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -15,18 +16,15 @@ namespace WEBSoLienLacDienTu.Controllers
     public class ChiTietDiemDanhController : Controller
     {
         public static TaiKhoanPH tk = new TaiKhoanPH();
+        ThongTinHSDAL tt = new ThongTinHSDAL();
         // GET: ChiTietDiemDanh
-        public async Task<ActionResult> Index(int IDTaiKhoan)
+        public async Task<ActionResult> Index(LKPHvsHS lk)
         {
-            tk.ID = IDTaiKhoan;
-            List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(IDTaiKhoan)).Rows)
-            {
-                lst.Add(new ThongTinHS(dr));
-            }
-            return View(lst);
-            
+            lk.IDTaiKhoan = 0;
+            return View(await tt.LayLst());                                           
         }
+     
+
         public async Task<ActionResult> ChiTiet(int IDTaiKhoan)
         {
             List<DiemDanh> lst = new List<DiemDanh>();

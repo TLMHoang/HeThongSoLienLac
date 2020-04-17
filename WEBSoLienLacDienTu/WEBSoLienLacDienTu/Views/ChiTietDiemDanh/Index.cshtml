@@ -26,8 +26,8 @@
                     </thead>
 
                     <tbody id="myTable" class="tbody">
-                        @*@foreach (var item in Model)
-                            {*@
+                        @foreach (var item in Model)
+                            {
                         <tr>
                             <td width="18%">
                                 <div class="row">
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                             </td>
-                            @*<td>HS00<span>@Html.DisplayFor(modelitem => item.ID)</span></td>
+                            <td>HS00<span>@Html.DisplayFor(modelitem => item.ID)</span></td>
                                         <td>@Html.DisplayFor(modelitem => item.Ten)</td>
                                         <td>
                                             @if (item.GioiTinh == 1)
@@ -71,7 +71,7 @@
                                             @Html.DisplayFor(modelitem => item.TonGiao)
                                         </td>
                                     </tr>
-                                }*@
+                                }
                     </tbody>
                 </table>
             </div>

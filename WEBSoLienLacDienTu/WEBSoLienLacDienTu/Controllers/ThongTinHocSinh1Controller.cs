@@ -8,6 +8,8 @@ using DAL;
 using DTO;
 using System.Threading.Tasks;
 using System.Data;
+using WEBSoLienLacDienTu.Models;
+
 
 
 namespace WEBSoLienLacDienTu.Controllers
@@ -17,20 +19,14 @@ namespace WEBSoLienLacDienTu.Controllers
     {
         // GET: ThongTinHocSinh1
         public static TaiKhoanPH tk = new TaiKhoanPH();
+        ThongTinHSDAL tt = new ThongTinHSDAL();
         
-        public async Task<ActionResult> Index(int id)
+        public async Task<ActionResult> Index(LKPHvsHS lk)
         {
-            tk.ID = id;
-            List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(id)).Rows)
-            {
-                lst.Add(new ThongTinHS(dr));
-            }
-            //await loadHs();
-            return View(lst);
-        }
-      
-
+            lk.IDTaiKhoan = 0;
+            return View(await tt.LayLst());
+        }      
+       
         public async Task<ActionResult> Edit(int id)
         {
             DataTable dt = new DataTable();
@@ -47,7 +43,7 @@ namespace WEBSoLienLacDienTu.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Cập Không Thành Công !");            
+                ModelState.AddModelError("", "Cập Nhật Không Thành Công !");            
             }
             return View();
         }

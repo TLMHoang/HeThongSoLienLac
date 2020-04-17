@@ -21,13 +21,13 @@ namespace DAL
 
         public async Task<DataTable> LayDT()
         {
-            return await ExecuteQuery("SelectLayHSQuanLy",
+            return await ExecuteQuery("SelectHsvsPH",
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = -1 });
         }
 
         public async Task<DataTable> LayDT(int IDTaiKhoan)
         {
-            return await ExecuteQuery("SelectLayHSQuanLy",
+            return await ExecuteQuery("SelectHsvsPH",
                 new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = IDTaiKhoan });
         }
 

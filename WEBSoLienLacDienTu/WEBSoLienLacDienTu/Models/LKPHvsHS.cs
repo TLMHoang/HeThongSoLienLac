@@ -5,9 +5,9 @@ using System.Web;
 
 namespace WEBSoLienLacDienTu.Models
 {
-    public class LKPHvsHSModels
+    public class LKPHvsHS
     {
-        public int IDPhuHuynh { get; set; }
+        public int IDTaiKhoan { get; set; }
         public int IDHocSinh { get; set; }
     }
 }

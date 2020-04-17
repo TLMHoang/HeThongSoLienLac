@@ -45,11 +45,20 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
-
         public async Task<List<ThongTinHS>> LayLst()
         {
             List<ThongTinHS> lst = new List<ThongTinHS>();
             foreach (DataRow dr in (await LayDT()).Rows)
+            {
+                lst.Add(new ThongTinHS(dr));
+            }
+            return lst;
+        }
+
+        public async Task<List<ThongTinHS>> LayLst(int IDTaiKhoan)
+        {
+            List<ThongTinHS> lst = new List<ThongTinHS>();
+            foreach (DataRow dr in (await LayDT_ByIDTaiKhoan(IDTaiKhoan)).Rows)
             {
                 lst.Add(new ThongTinHS(dr));
             }

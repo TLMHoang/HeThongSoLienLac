@@ -27,13 +27,13 @@
                     </thead>
 
                     <tbody id="myTable">
-                        @foreach (var item in Model )
+                        @foreach (var item in Model)
                         {
                         <tr>
                             <td width="15%">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="@Url.Action("Edit","ThongTinHocSinh1" ,new { @id = item.ID })" class="btn btn-primary btn-icon-split">
+                                        <a href="@Url.Action("Edit","ThongTinHocSinh1" @*,new { @id = item.ID }*@)" class="btn btn-primary btn-icon-split">
                                             <span class="icon">
                                                 <i class="fas fa-pen-square"></i>
                                             </span>
@@ -41,6 +41,9 @@
                                         </a>
                                     </div>
                                 </div>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.ID)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelitem => item.Ten)
@@ -76,4 +79,5 @@
     </div>
 
 </div>
+
 
