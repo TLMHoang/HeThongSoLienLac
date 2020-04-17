@@ -8,23 +8,23 @@ using DTO;
 using DAL;
 using System.Data;
 using System.Threading.Tasks;
-using WEBSoLienLacDienTu.Models;
+
 
 namespace WEBSoLienLacDienTu.Controllers
 {
     [SessionTimeout]
     public class ChiTietDiemDanhController : Controller
-    {
-        public static TaiKhoanPH tk = new TaiKhoanPH();
-        ThongTinHSDAL tt = new ThongTinHSDAL();
+    {        
         // GET: ChiTietDiemDanh
-        public async Task<ActionResult> Index(LKPHvsHS lk)
+        public async Task<ActionResult> Index()
         {
-            lk.IDTaiKhoan = 0;
-            return View(await tt.LayLst());                                           
-        }
-     
-
+            List<ThongTinHS> lst = new List<ThongTinHS>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+            {
+                lst.Add(new ThongTinHS(dr));
+            }
+            return View(lst);
+        }     
         public async Task<ActionResult> ChiTiet(int IDTaiKhoan)
         {
             List<DiemDanh> lst = new List<DiemDanh>();

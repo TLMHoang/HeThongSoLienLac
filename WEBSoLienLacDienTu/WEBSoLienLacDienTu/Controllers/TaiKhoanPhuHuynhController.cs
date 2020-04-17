@@ -29,7 +29,7 @@ namespace WEBSoLienLacDienTu.Controllers
         public ActionResult DangNhap()
         {
             return View();
-        }
+        }            
         [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult> DangNhap(DangNhapModels lg)

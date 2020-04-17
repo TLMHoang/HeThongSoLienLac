@@ -30,17 +30,9 @@
                             {
                         <tr>
                             <td width="18%">
-                                <div class="row">
-                                    @*<div class="col">
-                                            <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#myModal" onclick="getById(@item.ID);">
-                                                <span class="icon">
-                                                    <i class="fas fa-plus"></i>
-                                                </span>
-                                                <span>Vắng</span>
-                                            </a>
-                                        </div>*@
+                                <div class="row">                                   
                                     <div class="col">
-                                        <a href="@Url.Action("ChiTiet","ChiTietDiemDanh"@*,new {id = @item.ID}*@)" class="btn btn-success btn-icon-split" id="myRow">
+                                        <a href="@Url.Action("ChiTiet","ChiTietDiemDanh",new {id = @item.ID})" class="btn btn-success btn-icon-split" id="myRow">
                                             <span class="icon">
                                                 <i class="fas fa-list-alt"></i>
                                             </span>

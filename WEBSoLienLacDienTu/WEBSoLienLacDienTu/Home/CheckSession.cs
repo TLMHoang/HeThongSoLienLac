@@ -11,9 +11,9 @@ namespace WEBSoLienLacDienTu.Home
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             HttpContext ctx = HttpContext.Current;
-            if (HttpContext.Current.Session["TaiKhoan"] == null)
+            if (HttpContext.Current.Session["TaiKhoanPhuHuynh"] == null)
             {
-                filterContext.Result = new RedirectResult("~/TaiKhoanPhuHuynh/DangNhap");
+                filterContext.Result = new RedirectResult("~/TaiKhoanPhuHuynh/Index");
                 return;
             }
             base.OnActionExecuting(filterContext);
