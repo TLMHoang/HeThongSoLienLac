@@ -41,7 +41,6 @@ namespace WEBSoLienLacDienTu.Controllers
 
                 if (dt.Rows.Count == 1)
                 {
-                    List<TaiKhoanPH> lst = new List<TaiKhoanPH>();
                     TK = new TaiKhoanPH(dt.Rows[0]);
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
                     Session["TaiKhoan"] = lg.TaiKhoan.ToString();
