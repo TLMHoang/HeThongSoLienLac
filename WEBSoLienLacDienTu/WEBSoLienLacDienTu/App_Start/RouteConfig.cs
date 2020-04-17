@@ -12,11 +12,6 @@ namespace WEBSoLienLacDienTu
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapRoute(
-                "GiaoVien",
-                "GiaoVien/{controller}/{action}/{id}",
-                new { area = "GiaoVien", controller = "HomeGiaoVien", action = "Index", id = UrlParameter.Optional }
-            );
 
             routes.MapRoute(
                 name: "Default",
