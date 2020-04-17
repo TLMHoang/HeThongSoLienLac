@@ -89,4 +89,6 @@ function validate() {
     return isValid;
 }
 
-
+function openModal() {
+    $('#myModal').modal('show');
+}

@@ -14,6 +14,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Models;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class ThongBaoCaNhanController : Controller
     {
         public static int idhs;

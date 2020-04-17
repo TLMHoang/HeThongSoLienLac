@@ -1,0 +1,218 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>E-School | US Team</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- Our Custom CSS -->
+
+
+    <link href="~/Assets/Css/MainStyle.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Chức Năng</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            Thông Báo Học Sinh
+                        </li>
+                        <li>
+                            @Html.ActionLink("Thông Báo Lớp","Index","ThongBaoCaNhanGV")
+                        </li>
+                    </ul>
+                </li>
+                <li class="active"><a>Nhâp Điểm</a></li>
+                <li class="active"><a>Xét Duyệt Nghỉ Học</a></li>
+                <li class="active">
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                        <li>
+                            @Html.ActionLink("Vắng", "Index", "DiemDanh")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cúp Học", "CupHoc", "DiemDanh")
+                        </li>
+                    </ul>
+                </li>
+
+                @*<li>
+                        <a href="#">About</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>*@
+            </ul>
+
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-md navbar-light bg-light ">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-warning">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <a href="/GiaoVien/HomeGiaoVien/Index" class="navbar-brand justify-content-center Icon-team">
+                        <strong>E-School By US</strong>
+                    </a>
+                    <div class="dropdown">
+                        <button type="button" class="btn Icon-user" data-toggle="dropdown">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/Admin/TaiKhoanTruong/ChangePass">Đổi Mật Khẩu</a>
+                            <a class="dropdown-item" href="/Admin/TaiKhoanTruong/logout">Đăng Xuất</a>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                @RenderBody()
+                <hr />
+                <!-- Footer -->
+                <footer>
+                    <!-- Footer Links -->
+                    <div class="container text-center text-md-left mt-6">
+
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-5 col-xl-5 mx-auto mb-4">
+
+                                <!-- Content -->
+                                <h6 class="text-uppercase font-weight-bold">E-school By US</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    Hệ Thống Được Phát Triển Để Giúp Nhà Trường Và Phụ Huynh Kết Nối Với Nhau Dễ Dàng Hơn.
+                                </p>
+
+                            </div>
+                            <!-- Grid column -->
+                            <!-- Grid column -->
+                            <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
+
+                                <!-- Links -->
+                                <h6 class="text-uppercase font-weight-bold">Sản Phẩm Trong Hệ Thống</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    Web Sổ Liên Lạc
+                                </p>
+                                <p>
+                                    App Mobile Sổ Liên Lạc
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                                <!-- Links -->
+                                <h6 class="text-uppercase font-weight-bold">Liên Hệ Với Chúng Tôi</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    <i class="fas fa-home mr-3"></i> HUTECH University Of Technology
+                                </p>
+                                <p>
+                                    <i class="fas fa-envelope mr-3"></i> Emty@example.com
+                                </p>
+                                <p>
+                                    <i class="fas fa-phone mr-3"></i> + 0352908667
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+
+                        </div>
+                        <!-- Grid row -->
+
+                    </div>
+                    <!-- Footer Links -->
+                    <!-- Copyright -->
+                    <div class="text-center">
+                        <p>&copy; @DateTime.Now.Year - Đồ Án Phát Triển Bởi US Team</p>
+                    </div>
+                    <!-- Copyright -->
+                </footer>
+                <!-- Footer -->
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <!-- jQuery CDN -  version (=without AJAX) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>

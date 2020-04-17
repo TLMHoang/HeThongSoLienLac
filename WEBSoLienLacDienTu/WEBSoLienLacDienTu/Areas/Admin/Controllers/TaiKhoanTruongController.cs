@@ -19,11 +19,13 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
         // GET: Admin/TaiKhoanTruong
         [SessionTimeout]
+        [SessionAuthorize]
         public ActionResult Index()
         {
             return View();
         }
         [SessionTimeout]
+        [SessionAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -44,12 +46,21 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
                 if (dt.Rows.Count == 1)
                 {
-                    List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
                     TK = new TaiKhoanTruong(dt.Rows[0]);
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
-                    Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
-                    Session["MatKhau"] = lg.MatKhau.ToString();
-                    return RedirectToAction("Index", "HomeAdmin");
+                    if (TK.Loai == 1)
+                    {
+                        Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
+                        Session["MatKhau"] = lg.MatKhau.ToString();
+                        return RedirectToAction("Index", "HomeAdmin");
+                    }
+                    else
+                    {
+                        Session["TaiKhoanGiaoVien"] = lg.TaiKhoan.ToString();
+                        Session["MatKhau"] = lg.MatKhau.ToString();
+                        return RedirectToAction("GetTKTruong", "HomeGiaoVien",new {area="GiaoVien", tenTaiKhoan = lg.TaiKhoan, matKhauTaiKhoan =lg.MatKhau});
+                    }
+                    
                 }
                 else
                 {
@@ -103,6 +114,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public ActionResult Logout()
         {
+            Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("Login");

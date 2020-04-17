@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
-
+    [SessionAuthorize]
     public class HocPhiController : Controller
     {
         public static Khoi khoi = new Khoi();

@@ -7,10 +7,13 @@ using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DTO;
+using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
+    [SessionTimeout]
+    [SessionAuthorize]
     public class QuanLyLopController : Controller
     {
         // GET: Admin/QuanLyLop
