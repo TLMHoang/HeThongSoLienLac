@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Code\CheckSession.cs" />
+    <Compile Include="Areas\Admin\Code\CheckSessionAuthorize.cs" />
     <Compile Include="Areas\Admin\Code\FileExt.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
@@ -143,6 +144,9 @@
     <Compile Include="Areas\Admin\Models\ImportExcel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
+    <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -230,6 +234,11 @@
     <Content Include="Areas\Admin\Views\ThongBaoChung\Update.cshtml" />
     <Content Include="Areas\GiaoVien\Views\web.config" />
     <Content Include="Areas\Admin\Views\QuanLyMonHoc\Update.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\Shared\_LayoutGiaoVien.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HomeGiaoVien\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\ThemThongBaoLop.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\CapNhatThongBaoLop.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -275,9 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\GiaoVien\Controllers\" />
     <Folder Include="Areas\GiaoVien\Models\" />
-    <Folder Include="Areas\GiaoVien\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

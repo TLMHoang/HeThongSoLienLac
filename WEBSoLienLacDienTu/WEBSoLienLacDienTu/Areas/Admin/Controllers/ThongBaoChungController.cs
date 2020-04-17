@@ -11,7 +11,9 @@ using WEBSoLienLacDienTu.Areas.Admin.Code;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
+
     [SessionTimeout]
+    [SessionAuthorize]
     public class ThongBaoChungController : Controller
     {
         // GET: Admin/ThongBaoChung

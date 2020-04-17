@@ -57,7 +57,9 @@ function Them() {
     });
 }
 
-
+function openModal() {
+    $('#myModal').modal('show');
+}
 function validate() {
     var isValid = true;
     if ($('input[name="Phep"]:checked').length == 0) {

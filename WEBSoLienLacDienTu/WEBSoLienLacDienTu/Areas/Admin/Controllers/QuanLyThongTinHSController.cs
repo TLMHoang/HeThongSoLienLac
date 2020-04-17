@@ -18,6 +18,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Models;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class QuanLyThongTinHSController : Controller
     {
         // GET: Admin/QuanLyThongTinHS

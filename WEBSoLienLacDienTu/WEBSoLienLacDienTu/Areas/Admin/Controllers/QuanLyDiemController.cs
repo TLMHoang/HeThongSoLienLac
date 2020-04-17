@@ -8,6 +8,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Code;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class QuanLyDiemController : Controller
     {
         // GET: Admin/QuanLyDiem

@@ -12,6 +12,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Code;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class QuanLyMonHocController : Controller
     {
         MonHocDAL mh = new MonHocDAL();

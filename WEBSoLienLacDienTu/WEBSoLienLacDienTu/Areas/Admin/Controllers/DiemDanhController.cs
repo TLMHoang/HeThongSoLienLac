@@ -14,6 +14,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Models;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class DiemDanhController : Controller
     {
         // GET: Admin/DiemDanh
