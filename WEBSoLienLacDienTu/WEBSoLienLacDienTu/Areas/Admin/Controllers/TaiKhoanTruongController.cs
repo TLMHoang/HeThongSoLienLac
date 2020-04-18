@@ -16,7 +16,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     public class TaiKhoanTruongController : Controller
     {
-        public static TaiKhoanPH TK = new TaiKhoanPH();
+        public static TaiKhoanTruong TK = new TaiKhoanTruong();
         // GET: Admin/TaiKhoanTruong
         [SessionTimeout]
         [SessionAuthorize]
@@ -46,7 +46,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
                 if (dt.Rows.Count == 1)
                 {
-                    TK = new TaiKhoanPH(dt.Rows[0]);
+                    TK = new TaiKhoanTruong(dt.Rows[0]);
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
                     if (TK.Loai == 1)
                     {

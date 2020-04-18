@@ -15,14 +15,14 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
     public class HomeGiaoVienController : Controller
     {
         // GET: GiaoVien/HomeGiaoVien
-        public static LienKetPHvsHS TK = new LienKetPHvsHS();
+        public static TaiKhoanTruong TK = new TaiKhoanTruong();
 
         public async Task<ActionResult> GetTKTruong(string tenTaiKhoan, string matKhauTaiKhoan)
         {
-            DataTable dt = await new LienKetPhDAL().DangNhap(tenTaiKhoan, matKhauTaiKhoan);
+            DataTable dt = await new TaiKhoanTruongDAL().DangNhap(tenTaiKhoan, matKhauTaiKhoan);
             if (dt.Rows.Count != 0)
             {
-                TK = new LienKetPHvsHS(dt.Rows[0]);
+                TK = new TaiKhoanTruong(dt.Rows[0]);
                 return RedirectToAction("Index");
             }
 
