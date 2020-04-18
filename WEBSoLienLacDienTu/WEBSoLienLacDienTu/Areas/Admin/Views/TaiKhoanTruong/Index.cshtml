@@ -26,15 +26,17 @@
             </form>
         </div>
         <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Tài Khoản">
+            <br>
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable"  cellspacing="0">
-                    <thead>
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead style="background-color: darkorange; color: white;">
                         <tr>
                             <th></th>
-                            <th>STT</th>
-                            <th>Loại Tài Khoản</th>
-                            <th>Tên Tài Khoản</th>                           
+                            <th>Mã TK</th>
+                            <th>Tên Tài Khoản</th>
                             <th>Tên Giáo Viên</th>
+                            <th>Loại Tài Khoản</th>
                             <th>SĐT</th>
                             <th>Môn Dạy</th>
                             <th>Chủ Nhiệm Lớp</th>
@@ -42,35 +44,47 @@
                     </thead>
 
                     <tbody id="myTable">
-                        <tr>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="#" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Sửa</span>
-                                        </a>
+                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DanhSachTaiKhoanTruongModel>)
+                        {
+                            <tr>
+                                <td width="15%">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="#" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#" class="btn btn-danger btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span>Xóa</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>1</td>
-                            <td>Admin</td>
-                            <td>Phong</td>
-                            <td>VHP</td>
-                            <td>SĐT</td>
-                            <td>Lý</td>
-                            <td>1</td>
-                        </tr>
+                                </td>
+                                <td>@Html.DisplayFor(m=>item.ID)</td>
+                                <td>@Html.DisplayFor(m => item.TaiKhoan)</td>
+                                <td>@Html.DisplayFor(m => item.TenGV)</td>
+                                <td>
+                                    @if (item.Loai == 1)
+                                    {
+                                        <label>Quản Lý</label>
+                                    }
+                                    else
+                                    {
+                                        <label>Giáo Viên</label>
+                                    }
+                                </td>
+                                <td>@Html.DisplayFor(m => item.SDT)</td>
+                                <td>@Html.DisplayFor(m => item.TenMon)</td>
+                                <td><label>@item.TenKhoi@item.TenLop</label></td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

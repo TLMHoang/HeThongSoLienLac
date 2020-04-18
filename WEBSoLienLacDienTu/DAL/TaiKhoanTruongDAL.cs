@@ -90,5 +90,20 @@ namespace DAL
                 new SqlParameter("@MatKhauMoi", SqlDbType.NVarChar) { Value = MatKhauMoi }
                 );
         }
+
+        public async Task<DataTable> LayDanhSachTK()
+        {
+            return await ExecuteQuery(
+                "SelectTaiKhoanTruongV2",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
+            );
+        }
+        public async Task<DataTable> LayDanhSachTK(int id)
+        {
+            return await ExecuteQuery(
+                "SelectTaiKhoanTruongV2",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = id }
+            );
+        }
     }
 }

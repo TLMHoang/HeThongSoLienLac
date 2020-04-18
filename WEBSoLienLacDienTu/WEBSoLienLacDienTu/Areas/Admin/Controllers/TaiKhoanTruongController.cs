@@ -17,12 +17,18 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     public class TaiKhoanTruongController : Controller
     {
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
+        TaiKhoanTruongDAL tkDal = new TaiKhoanTruongDAL();
         // GET: Admin/TaiKhoanTruong
         [SessionTimeout]
         [SessionAuthorize]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            List<DanhSachTaiKhoanTruongModel> lst = new List<DanhSachTaiKhoanTruongModel>();
+            foreach (DataRow dr in (await tkDal.LayDanhSachTK()).Rows)
+            {
+                lst.Add(new DanhSachTaiKhoanTruongModel(dr));
+            }
+            return View(lst);
         }
         [SessionTimeout]
         [SessionAuthorize]
