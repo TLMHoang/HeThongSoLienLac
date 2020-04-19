@@ -6,12 +6,16 @@
 
 <h2>Quản Lý Tài Khoản Trường</h2>
 <hr />
-<a href="@Url.Action("Create","TaiKhoanTruong")" class="btn btn-success btn-icon-split">
-    <span class="icon text-white-50">
-        <i class="fas fa-plus-square"></i>
-    </span>
-    <span>Thêm Tài Khoản</span>
-</a>
+<div class="row">
+
+    <a href="@Url.Action("Create","TaiKhoanTruong")" class="btn btn-success btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-plus-square"></i>
+        </span>
+        <span>Thêm Tài Khoản</span>
+    </a>
+    <button class="btn btn-danger"  style="margin-left: 10px" onclick="window.location.href='/Admin/HomeAdmin/index'" ><i class="fas fa-sign-out-alt"></i></button>
+</div>
 <hr />
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -31,64 +35,65 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" cellspacing="0">
                     <thead style="background-color: darkorange; color: white;">
-                        <tr>
-                            <th></th>
-                            <th>Mã TK</th>
-                            <th>Tên Tài Khoản</th>
-                            <th>Tên Giáo Viên</th>
-                            <th>Loại Tài Khoản</th>
-                            <th>SĐT</th>
-                            <th>Môn Dạy</th>
-                            <th>Chủ Nhiệm Lớp</th>
-                        </tr>
+                    <tr>
+                        <th></th>
+                        <th>Mã TK</th>
+                        <th>Tên Tài Khoản</th>
+                        <th>Tên Giáo Viên</th>
+                        <th>Loại Tài Khoản</th>
+                        <th>SĐT</th>
+                        <th>Môn Dạy</th>
+                        <th>Chủ Nhiệm Lớp</th>
+                    </tr>
                     </thead>
 
                     <tbody id="myTable">
-                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DanhSachTaiKhoanTruongModel>)
-                        {
-                            <tr>
-                                <td width="15%">
-                                    <div class="row">
-                                        <div class="col">
-                                            <a href="#" class="btn btn-primary btn-icon-split">
-                                                <span class="icon">
-                                                    <i class="fas fa-pen-square"></i>
-                                                </span>
-                                                <span>Sửa</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="#" class="btn btn-danger btn-icon-split">
-                                                <span class="icon">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                <span>Xóa</span>
-                                            </a>
-                                        </div>
+                    @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DanhSachTaiKhoanTruongModel>)
+                    {
+                        <tr>
+                            <td width="15%">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="@Url.Action("Update","TaiKhoanTruong",new {@id=item.ID})" class="btn btn-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-pen-square"></i>
+                                            </span>
+                                            <span>Sửa</span>
+                                        </a>
                                     </div>
-                                </td>
-                                <td>@Html.DisplayFor(m=>item.ID)</td>
-                                <td>@Html.DisplayFor(m => item.TaiKhoan)</td>
-                                <td>@Html.DisplayFor(m => item.TenGV)</td>
-                                <td>
-                                    @if (item.Loai == 1)
-                                    {
-                                        <label>Quản Lý</label>
-                                    }
-                                    else
-                                    {
-                                        <label>Giáo Viên</label>
-                                    }
-                                </td>
-                                <td>@Html.DisplayFor(m => item.SDT)</td>
-                                <td>@Html.DisplayFor(m => item.TenMon)</td>
-                                <td><label>@item.TenKhoi@item.TenLop</label></td>
-                            </tr>
-                        }
+                                    <div class="col">
+                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="Delete(@item.ID);">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span>Xóa</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@Html.DisplayFor(m => item.ID)</td>
+                            <td>@Html.DisplayFor(m => item.TaiKhoan)</td>
+                            <td>@Html.DisplayFor(m => item.TenGV)</td>
+                            <td>
+                                @if (item.Loai == 1)
+                                {
+                                    <label>Quản Lý</label>
+                                }
+                                else
+                                {
+                                    <label>Giáo Viên</label>
+                                }
+                            </td>
+                            <td>@Html.DisplayFor(m => item.SDT)</td>
+                            <td>@Html.DisplayFor(m => item.TenMon)</td>
+                            <td><label>@item.TenKhoi@item.TenLop</label></td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Areas/Admin/Scripts/TaiKhoanTruong.js"></script>

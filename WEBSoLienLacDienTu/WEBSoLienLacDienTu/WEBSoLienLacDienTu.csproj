@@ -173,6 +173,7 @@
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />
+    <Content Include="Areas\Admin\Scripts\TaiKhoanTruong.js" />
     <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoChung.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoHS.js" />
@@ -180,6 +181,7 @@
     <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
+    <Content Include="Assets\Css\UpdateTKTruong.css" />
     <Content Include="Assets\Img\logo_User.jpg" />
     <Content Include="Assets\Img\Ust.png" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -240,6 +242,7 @@
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\ThemThongBaoLop.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\CapNhatThongBaoLop.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\Update.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

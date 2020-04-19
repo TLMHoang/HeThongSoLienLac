@@ -1,0 +1,103 @@
+﻿@model DTO.TaiKhoanTruong
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var x = Html.Raw(Json.Encode(Model));
+}
+<link href="~/Assets/Css/UpdateTKTruong.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="~/Assets/Img/logo_User.jpg" alt="Logo" />
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <h3>Cập Nhật Tài Khoản</h3>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="TenTk">Tên Tài Khoản:</label>
+                            @Html.TextBoxFor(m => m.TaiKhoan, new { @class = "form-control", @disabled = "disabled", id = "tenTK" })
+                        </div>
+                        <div class="form-group">
+                            <label for="TenGV">Tên Giáo Viên :</label>
+                            @Html.TextBoxFor(m => m.TenGV, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="SDT">SĐT :</label>
+                            @Html.TextBoxFor(m => m.SDT, new { @class = "form-control", @required = "required" })
+                            <div class="valid-feedback">Đã Nhập</div>
+                            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
+                        </div>
+                        <div class="form-group">
+
+                            <div>
+                                <label for="sel1">Chọn Môn Dạy :</label>
+                                @if (ViewBag.LstMon != null)
+                                {
+                                    @Html.DropDownListFor(m => m.IDMonHoc, ViewBag.LstMon as SelectList, "Vui Lòng Chọn Môn Dạy", new { @class = "form-control" })
+                                }
+                            </div>
+
+                            @Html.HiddenFor(m => m.ID, new { id = "maTK" })
+                            @Html.HiddenFor(m => m.Loai)
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="sel2">Chọn Lớp :</label>
+                                @if (ViewBag.LstLop1 != null)
+                                {
+                                    @Html.DropDownListFor(m => m.IDLop, ViewBag.LstLop1 as SelectList, "Vui Lòng Chọn Lớp Chủ Nhiệm ", new { @class = "form-control" })
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnSubmit" value="Cập Nhật" />
+                        </div>
+                        <div class="form-group">
+                            <input type="button" name="btnResetPass" class="btnResetPass" value="Đặt Lại Mật Khẩu" onclick="ResetPass();" />
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<script>
+    // Disable form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load',
+            function () {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms,
+                    function (form) {
+                        form.addEventListener('submit',
+                            function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            },
+                            false);
+                    });
+            },
+            false);
+    })();
+</script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Areas/Admin/Scripts/TaiKhoanTruong.js"></script>
