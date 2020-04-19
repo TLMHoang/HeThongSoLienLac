@@ -14,12 +14,14 @@ namespace WEBSoLienLacDienTu.Controllers
 {
     [SessionTimeout]
     public class ChiTietDiemDanhController : Controller
-    {        
+    {
         // GET: ChiTietDiemDanh
+        LienKetPHvsHS lk = new LienKetPHvsHS();
         public async Task<ActionResult> Index()
         {
+            TaiKhoanPhuHuynhController.TK.ID = lk.IDHocSinh;
             List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(lk.IDHocSinh)).Rows)
             {
                 lst.Add(new ThongTinHS(dr));
             }
