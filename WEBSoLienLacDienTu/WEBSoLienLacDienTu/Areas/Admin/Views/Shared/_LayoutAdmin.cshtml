@@ -67,16 +67,16 @@
                 </li>
                 <li class="active">@Html.ActionLink("Quản Lý Thời Khóa Biểu", "Index", "ThoiKhoaBieu")</li>
                 <li class="active">
-                    @Html.ActionLink("Quản Lý Tài Khoản", "Index", "TaiKhoanTruong")
-                    @*<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu2">
                             <li>
-                                <a href="#">Tài Khoản Giáo Viên</a>
+                                @Html.ActionLink("Quản Lý Tài Khoản Trường", "Index", "TaiKhoanTruong")
                             </li>
                             <li>
-                                <a href="#">Tài Khoản Trường</a>
+                                <a href="#">Tài Khoản Phụ Huynh</a>
                             </li>
-                        </ul>*@
+                        </ul>
                 </li>
                 <li class="active">@Html.ActionLink("Phân Công Giáo Viên Bộ Môn", "Index", "PhanCongDay")</li>
                 <li class="active">@Html.ActionLink("Quản Lý Lớp Học", "Index", "QuanLyLop")</li>

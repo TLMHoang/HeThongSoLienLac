@@ -17,17 +17,56 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     public class TaiKhoanTruongController : Controller
     {
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
+        MonHocDAL mh = new MonHocDAL();
+        TaiKhoanTruongDAL tkDal = new TaiKhoanTruongDAL();
+        LopDAL lop = new LopDAL();
         // GET: Admin/TaiKhoanTruong
         [SessionTimeout]
         [SessionAuthorize]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
+            List<DanhSachTaiKhoanTruongModel> lst = new List<DanhSachTaiKhoanTruongModel>();
+            foreach (DataRow dr in (await tkDal.LayDanhSachTK()).Rows)
+            {
+                lst.Add(new DanhSachTaiKhoanTruongModel(dr));
+            }
+            return View(lst);
+        }
+        [SessionTimeout]
+        [SessionAuthorize]
+        public async Task<ActionResult> Create()
+        {
+            await LoadDanhSachMon();
+            await LoadDanhSachLop();
             return View();
         }
         [SessionTimeout]
         [SessionAuthorize]
-        public ActionResult Create()
+        [HttpPost]
+        public async Task<ActionResult> Create(FormCollection f)
         {
+            await LoadDanhSachMon();
+            await LoadDanhSachLop();
+            var tenTk = f["TenTk"];
+            var tenGV = f["TenGV"];
+            var sdt = f["SDT"];
+            var mon = f["LstMon"];
+            var lopDay = f["LstLop"];
+            byte Loai;
+            Boolean chk = f["Loai"] != null ? true : false;
+            if (chk == true)
+            {
+                Loai = 1;
+            }
+            else
+            {
+                Loai = 0;
+            }
+
+            if (await tkDal.Them(new TaiKhoanTruong(-1, tenTk, tenTk, Loai, tenGV, sdt, int.Parse(mon), int.Parse(lopDay))) != 0)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
         [HttpGet]
@@ -118,6 +157,22 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("Login");
+        }
+
+        public async Task LoadDanhSachMon()
+        {
+            ViewBag.LstMon = new SelectList(await mh.LayLst(), "ID", "TenMon");
+        }
+
+        public async Task LoadDanhSachLop()
+        {
+            List<GetNameClassModel> lst = new List<GetNameClassModel>();
+            foreach (DataRow dr in (await lop.LayTenLop()).Rows)
+            {
+                lst.Add(new GetNameClassModel(dr));
+            }
+
+            ViewBag.LstLop = new SelectList(lst, "ID", "TenDayDu");
         }
     }
 }
