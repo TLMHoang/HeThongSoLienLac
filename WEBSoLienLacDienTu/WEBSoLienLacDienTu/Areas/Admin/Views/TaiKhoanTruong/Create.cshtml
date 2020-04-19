@@ -3,75 +3,84 @@
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<h2>Tạo Mới Tài Khoản Trường</h2>
-<hr />
-<div class="container">   
-    <form class="needs-validation" novalidate>
-        <div class="form-group">
-            <label for="TenTk">Tên Tài Khoản:</label>
-            <input type="text" class="form-control" id="TenTk" placeholder="Nhập Tên Tài Khoản ..." name="TenTk" required>
-            <div class="valid-feedback">Đã Nhập</div>
-            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
-        </div>
-        <div class="form-group">
-            <label for="TenGV">Tên Giáo Viên :</label>
-            <input type="text" class="form-control" id="TenGV" placeholder="Nhập Tên" name="TenGV" required>
-            <div class="valid-feedback">Đã Nhập</div>
-            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
-        </div>
-        <div class="form-group">
-            <label for="SDT">SĐT :</label>
-            <input type="text" class="form-control" id="SDT" placeholder="Nhập SĐT" name="SĐT" required>
-            <div class="valid-feedback">Đã Nhập</div>
-            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
-        </div>
-        <div class="form-group">
-            <label for="sel1">Chọn Môn Dạy :</label>
-            <select class="form-control" id="sel1" name="sellist1">
-                <option>Toán</option>
-                <option>Lý</option>
-                <option>Hóa</option>
-                <option>Văn</option>
-            </select>            
-        </div>
-        <div class="form-group">
-            <label for="sel2">Chọn Lớp :</label>
-            <select class="form-control" id="sel2" name="sellist2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember" required> Quyền Quản Lý               
-            </label>
-        </div>
-        <button type="submit" class="btn btn-primary">Thêm</button>
-    </form>
-</div>
+    <h2>Tạo Mới Tài Khoản Trường</h2>
+    <hr/>
+    <div class="container">
+        <form class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="TenTk">Tên Tài Khoản:</label>
+                <input type="text" class="form-control" id="TenTk" placeholder="Nhập Tên Tài Khoản ..." name="TenTk" required>
+                <div class="valid-feedback">Đã Nhập</div>
+                <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
+            </div>
+            <div class="form-group">
+                <label for="mk">Mật Khẩu:</label>
+                <input type="text" class="form-control" id="TenTk" name="mk" value="Mật Khẩu Khi Tạo Mới Là Tên Tài Khoản" disabled="disabled">
+            </div>
+            <div class="form-group">
+                <label for="TenGV">Tên Giáo Viên :</label>
+                <input type="text" class="form-control" id="TenGV" placeholder="Nhập Tên" name="TenGV" required>
+                <div class="valid-feedback">Đã Nhập</div>
+                <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
+            </div>
+            <div class="form-group">
+                <label for="SDT">SĐT :</label>
+                <input type="text" class="form-control" id="SDT" placeholder="Nhập SĐT" name="SDT" required>
+                <div class="valid-feedback">Đã Nhập</div>
+                <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
+            </div>
+            <div class="form-group">
+                <label for="sel1">Chọn Môn Dạy :</label>
+                @if (ViewBag.LstMon != null)
+                {
+                    @Html.DropDownList("LstMon", ViewBag.LstMon as SelectList, "Vui Lòng Chọn Môn Dạy", new {@class = "form-control"})
+                }
+            </div>
+            <div class="form-group">
+                <label for="sel2">Chọn Lớp :</label>
+                @if (ViewBag.LstLop != null)
+                {
+                    @Html.DropDownList("LstLop", ViewBag.LstLop as SelectList, "Vui Lòng Chọn Lớp Chủ Nhiệm ", new {@class = "form-control"})
+                }
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="Loai" > Quyền Quản Lý
+                </label>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <button type="submit" class="btn btn-warning">Thêm Mới</button>
+        </form>
+    </div>
 
-<script>
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
-<hr />
-
+    <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load',
+                function() {
+                    // Get the forms we want to add validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms,
+                        function(form) {
+                            form.addEventListener('submit',
+                                function(event) {
+                                    if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                },
+                                false);
+                        });
+                },
+                false);
+        })();
+    </script>
+    <hr/>
+}
