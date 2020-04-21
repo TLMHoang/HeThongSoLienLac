@@ -128,7 +128,6 @@
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongDayController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PhanCongGVCNController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyDiemController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyLopController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyMonHocController.cs" />
@@ -145,6 +144,7 @@
     <Compile Include="Areas\Admin\Models\GetNameClassModel.cs" />
     <Compile Include="Areas\Admin\Models\ImportExcel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\LopPhanCongDayModel.cs" />
     <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\PhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />
     <Content Include="Areas\Admin\Scripts\TaiKhoanTruong.js" />
@@ -248,6 +249,7 @@
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\NhapDiem.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\DanhSachDiem.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\PhanCong.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
