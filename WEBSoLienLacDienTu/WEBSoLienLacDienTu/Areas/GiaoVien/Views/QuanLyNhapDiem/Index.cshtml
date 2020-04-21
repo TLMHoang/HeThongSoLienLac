@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Mã Lớp : @Html.DisplayFor(m => item.ID)</h5>
                         <p class="card-text">Tên Lớp :@Html.DisplayFor(m => item.TenDayDu)</p>
-                        <a href="#" class="btn btn-primary" style="width: 100%">Chọn</a>
+                        <a href="@Url.Action("NhapDiem","QuanLyNhapDiem",new {@id = item.ID})" class="btn btn-primary" style="width: 100%">Chọn</a>
                     </div>
                 </div>
             </div>

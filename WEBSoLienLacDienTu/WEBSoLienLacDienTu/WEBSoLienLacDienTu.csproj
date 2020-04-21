@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
+    <Compile Include="Areas\Admin\Models\DanhSachBangDiemModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachTaiKhoanTruongModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
     <Compile Include="Areas\Admin\Models\getKhoiModel.cs" />
@@ -245,6 +246,8 @@
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\CapNhatThongBaoLop.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\Update.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\NhapDiem.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\DanhSachDiem.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "DanhSachDiem";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Bảng Điểm Đã Nhập</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Điểm Miệng</th>
+                            <th>15P Lần 1</th>
+                            <th>15P Lần 2</th>
+                            <th>15P Lần 3</th>
+                            <th>1 Tiết L1</th>
+                            <th>1 Tiết L2</th>
+                            <th>1 Tiết L3</th>
+                            <th>Học Kỳ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DanhSachBangDiemModel>)
+                        {
+                            <tr>
+                                <td>@item.Ten</td>
+                                <td>
+                                    @if (item.DiemMieng == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item.DiemMieng
+                                    }
+                                </td>
+                                <td>
+                                    @if (item._15p_1 == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item._15p_1
+                                    }
+                                </td>
+                                <td>
+                                    @if (item._15p_2 == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item._15p_2
+                                    }
+                                </td>
+                                <td>
+                                    @if (item._15p_3 == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item._15p_3
+                                    }
+                                </td>
+                                <td>
+                                    @if (item._1t_1== -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item._1t_1
+                                    }
+                                </td>
+                                <td>
+                                    @if (item._1t_2 == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item._1t_2
+                                    }
+                                </td>
+                                <td>
+                                    @if (item._1t_3 == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item._1t_3
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.HocKy == -1)
+                                    {
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        @item.HocKy
+                                    }
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
