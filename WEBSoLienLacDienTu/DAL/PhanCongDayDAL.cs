@@ -58,13 +58,13 @@ namespace DAL
         }
         public async Task<DataTable> DanhSachLopDay_ByIdGv(int ID)
         {
-            return await ExecuteQuery("SelectPhanCongDay_ByIdGv",
+            return await ExecuteQuery("W_SelectPhanCongDay_ByIdGv",
                 new SqlParameter("@IDGV", SqlDbType.Int) { Value = ID }
             );
         }
         public async Task<DataTable> LayDTPhanCongDay_ByIDLop(int ID)
         {
-            return await ExecuteQuery("SelectPhanCongDayV2",
+            return await ExecuteQuery("W_SelectPhanCongDayV2",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = ID }
             );
         }

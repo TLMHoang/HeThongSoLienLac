@@ -93,7 +93,7 @@ namespace DAL
         public async Task<DataTable> LayDT_ByIDLop(int ID)
         {
             return await ExecuteQuery(
-                "SelectThongTinHSTheoLop",
+                "W_SelectThongTinHSTheoLop",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }

@@ -65,7 +65,7 @@ namespace DAL
 
         public async Task<DataTable> LayDT_TheoIDHS(int id)
         {
-            return await ExecuteQuery("SelectThongBaoHSV2",
+            return await ExecuteQuery("W_SelectThongBaoHSV2",
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = id }
             );
         }

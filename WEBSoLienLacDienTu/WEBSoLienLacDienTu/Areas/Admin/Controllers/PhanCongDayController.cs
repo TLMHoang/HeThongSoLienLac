@@ -16,6 +16,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     [SessionAuthorize]
     public class PhanCongDayController : Controller
     {
+        public static MonHoc mh = new MonHoc();
+        public static Lop lop = new Lop();
+        PhanCongDayDAL pcDAL= new PhanCongDayDAL();
+        MonHocDAL mhDAL = new MonHocDAL();
         // GET: Admin/PhanCongDay
         public async Task<ActionResult> Index()
         {
@@ -27,8 +31,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
 
+        
         public async Task<ActionResult> PhanCong(int id)
         {
+            lop.ID = id;
             List<LopPhanCongDayModel> lst = new List<LopPhanCongDayModel>();
             foreach (DataRow dr in (await new PhanCongDayDAL().LayDTPhanCongDay_ByIDLop(id)).Rows)
             {
@@ -36,10 +42,44 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
             return View(lst);
         }
+        public ActionResult ThemPhanCong(int id)
+        {
+            mh.ID = id;
+            return View(lop);
+        }
         public async Task LoadListKhoi()
         {
             ViewBag.LstKhoi = new SelectList(await new KhoiDAL().LayLst(), "ID", "TenKhoi");
         }
-        
+        //public async Task LoadDanhSachMon()
+        //{
+        //    List<SelectListItem> li = new List<SelectListItem>();
+        //    li.Add(new SelectListItem { Text = "Tất Cả", Value = "-1" });
+        //    foreach (DataRow dr in (await mhDAL.LayDT()).Rows)
+        //    {
+        //        li.Add(new SelectListItem { Text = dr["TenMon"].ToString(), Value = dr["ID"].ToString() });
+        //    }
+        //    ViewBag.LstMon = new SelectList(li, "Value", "Text");
+        //}
+
+        public async Task<JsonResult> LoadDsgv()
+        {
+            List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
+            foreach (DataRow dr in (await new TaiKhoanTruongDAL().LayDT_ByIdMon(mh.ID)).Rows)
+            {
+                lst.Add(new TaiKhoanTruong(dr));
+            }
+
+            return Json(lst, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<JsonResult> ThemMoiPhanCong(int ID)
+        {
+            return Json(await pcDAL.Them(new PhanCongDay(-1, ID, lop.ID)), JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> XoaPhanCong(int ID)
+        {
+            return Json(await pcDAL.Xoa(ID), JsonRequestBehavior.AllowGet);
+        }
     }
 }

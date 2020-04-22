@@ -1,4 +1,5 @@
-﻿function Loadtable() {
+﻿
+function Loadtable() {
     var IDKhoi = $("[name='LstKhoi']").val();
     event.preventDefault();
     $.ajax({
@@ -26,4 +27,22 @@
 };
 function PhanCong(ID) {
     window.location.href = "/Admin/PhanCongDay/PhanCong/" + ID;
+}
+function Xoa(ID) {
+    var ans = confirm("Bạn Có Chắc Muốn Xóa Phân Công ?");
+    if (ans) {
+        $.ajax({
+            url: "/PhanCongDay/XoaPhanCong/" + ID,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                alert("Xóa Thành Công");
+                location.reload();
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
 }

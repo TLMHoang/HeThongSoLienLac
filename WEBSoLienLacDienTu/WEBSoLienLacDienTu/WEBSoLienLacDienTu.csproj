@@ -177,6 +177,7 @@
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />
     <Content Include="Areas\Admin\Scripts\TaiKhoanTruong.js" />
+    <Content Include="Areas\Admin\Scripts\ThemPhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoChung.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoHS.js" />
@@ -250,6 +251,7 @@
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\NhapDiem.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\DanhSachDiem.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\PhanCong.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\ThemPhanCong.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

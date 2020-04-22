@@ -92,22 +92,30 @@ namespace DAL
         public async Task<DataTable> LayDanhSachTK()
         {
             return await ExecuteQuery(
-                "SelectTaiKhoanTruongV2",
+                "W_SelectTaiKhoanTruongV2",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
             );
         }
         public async Task<DataTable> LayDanhSachTK(int id)
         {
             return await ExecuteQuery(
-                "SelectTaiKhoanTruongV2",
+                "W_SelectTaiKhoanTruongV2",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = id }
             );
         }
 
         public async Task<int> ResetPass(int ID)
         {
-            return await ExecuteNonQuery("UpdateResetPassTaiKhoanTruong",
+            return await ExecuteNonQuery("W_UpdateResetPassTaiKhoanTruong",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID}
+            );
+        }
+
+        public async Task<DataTable> LayDT_ByIdMon(int id)
+        {
+            return await ExecuteQuery(
+                "W_SelectTaiKhoanTruong_ByIdMon",
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = id }
             );
         }
     }

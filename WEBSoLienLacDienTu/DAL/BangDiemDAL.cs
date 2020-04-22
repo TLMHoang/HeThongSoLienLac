@@ -67,7 +67,7 @@ namespace DAL
         }
         public async Task<DataTable> LayDanhSachDiem_TheoLopMon(int idLop,int idMon)
         {
-            return await ExecuteQuery("SelectBangDiem_ByIdLopIdMon",
+            return await ExecuteQuery("W_SelectBangDiem_ByIdLopIdMon",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = idLop },
                 new SqlParameter("@IDMon", SqlDbType.Int) { Value = idMon }
                 );

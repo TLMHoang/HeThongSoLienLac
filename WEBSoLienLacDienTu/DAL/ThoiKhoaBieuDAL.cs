@@ -70,7 +70,7 @@ namespace DAL
         public async Task<DataTable> LayDT_CoTenMon(int idlop, int thu)
         {
             return await ExecuteQuery(
-                "SelectThoiKhoaBieuV2",
+                "W_SelectThoiKhoaBieuV2",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = idlop },
                 new SqlParameter("@Thu", SqlDbType.Int) { Value = thu }
             );
