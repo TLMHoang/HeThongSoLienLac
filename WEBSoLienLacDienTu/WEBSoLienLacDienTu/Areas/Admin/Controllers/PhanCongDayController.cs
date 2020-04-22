@@ -19,7 +19,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public static MonHoc mh = new MonHoc();
         public static Lop lop = new Lop();
         PhanCongDayDAL pcDAL= new PhanCongDayDAL();
-        MonHocDAL mhDAL = new MonHocDAL();
+        public static PhanCongDay pc = new PhanCongDay();
         // GET: Admin/PhanCongDay
         public async Task<ActionResult> Index()
         {
@@ -45,6 +45,13 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public ActionResult ThemPhanCong(int id)
         {
             mh.ID = id;
+            return View(lop);
+        }
+
+        public ActionResult CapNhatPhanCong(int id,int idPhanCong)
+        {
+            mh.ID = id;
+            pc.ID = idPhanCong;
             return View(lop);
         }
         public async Task LoadListKhoi()
@@ -76,6 +83,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public async Task<JsonResult> ThemMoiPhanCong(int ID)
         {
             return Json(await pcDAL.Them(new PhanCongDay(-1, ID, lop.ID)), JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> CapNhatPhanCong1(int ID)
+        {
+            return Json(await pcDAL.CapNhap(new PhanCongDay(pc.ID, ID, -1)), JsonRequestBehavior.AllowGet);
         }
         public async Task<JsonResult> XoaPhanCong(int ID)
         {

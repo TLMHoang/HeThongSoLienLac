@@ -172,6 +172,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\CapNhatPhanCong.js" />
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
     <Content Include="Areas\Admin\Scripts\PhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
@@ -252,6 +253,7 @@
     <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\DanhSachDiem.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\PhanCong.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\ThemPhanCong.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\CapNhatPhanCong.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

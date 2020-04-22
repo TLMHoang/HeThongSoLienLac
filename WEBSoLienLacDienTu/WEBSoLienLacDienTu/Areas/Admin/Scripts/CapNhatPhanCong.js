@@ -12,20 +12,16 @@ function Loadtable1() {
         dataType: "json",
         success: function (result) {
             var html = '';
-            if (result.length > 0) {
-                $.each(result,
-                    function (key, item) {
-                        html += '<tr>';
-                        html += '<td width="8%"><a href="#" onclick="ThemPhanCong(' + item.ID + ');" class="btn btn-primary btn-icon-split" ><span class="icon"><i class="fas fa-check-circle"></i></span><span>Chọn</span></a></td>';
-                        html += '<td>' + item.ID + '</td>';
-                        html += '<td>' + item.TenGV + '</td>';
-                        html += '<td>' + item.SDT + '</td>';
-                        html += '</tr>';
-                    });
-                $('.tbody1').html(html);
-            } else {
-                alert("Xin Lỗi, Hiện Chưa Có Giáo Viên Dạy Môn Này!");
-            }
+            $.each(result,
+                function (key, item) {
+                    html += '<tr>';
+                    html += '<td width="8%"><a href="#" onclick="CapNhatPhanCong(' + item.ID + ');" class="btn btn-primary btn-icon-split" ><span class="icon"><i class="fas fa-check-circle"></i></span><span>Chọn</span></a></td>';
+                    html += '<td>' + item.ID + '</td>';
+                    html += '<td>' + item.TenGV + '</td>';
+                    html += '<td>' + item.SDT + '</td>';
+                    html += '</tr>';
+                });
+            $('.tbody1').html(html);
         },
         error: function () {
             alert("Opps ! Lỗi Rồi @@");
@@ -41,12 +37,12 @@ $(document).ready(function () {
     });
 });
 
-function ThemPhanCong(ID) {
+function CapNhatPhanCong(ID) {
     var ans = confirm("Xác Nhận ?");
-    
+
     if (ans) {
         $.ajax({
-            url: "/PhanCongDay/ThemMoiPhanCong/" + ID,
+            url: "/PhanCongDay/CapNhatPhanCong1/" + ID,
             type: "POST",
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
@@ -54,12 +50,11 @@ function ThemPhanCong(ID) {
                 goBack();
             },
             error: function (errormessage) {
-                alert("Thêm Thất Bại");
+                alert("Cập Nhật Thất Bại");
             }
         });
     }
 }
-
 function goBack() {
     var idLop = $("#LayMaLop").val();
     window.location.href = '/Admin/PhanCongDay/PhanCong/' + idLop;

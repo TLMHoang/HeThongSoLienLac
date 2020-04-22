@@ -39,8 +39,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("UpdatePhanCongDay",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID},
-                new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien },
-                new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
+                new SqlParameter("@IDGiaoVien", SqlDbType.Int) { Value = obj.IDGiaoVien }
             );
         }
 
