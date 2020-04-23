@@ -8,7 +8,7 @@ using DTO;
 using DAL;
 using System.Data;
 using System.Threading.Tasks;
-
+using WEBSoLienLacDienTu.Models;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -19,23 +19,23 @@ namespace WEBSoLienLacDienTu.Controllers
         LienKetPHvsHS lk = new LienKetPHvsHS();
         public async Task<ActionResult> Index()
         {
-            TaiKhoanPhuHuynhController.TK.ID = lk.IDHocSinh;
-            List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(lk.IDHocSinh)).Rows)
+            List<LKPHvsHS> lst = new List<LKPHvsHS>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
             {
-                lst.Add(new ThongTinHS(dr));
+                lst.Add(new LKPHvsHS(dr));
             }
             return View(lst);
         }     
-        public async Task<ActionResult> ChiTiet(int IDTaiKhoan)
+        public async Task<ActionResult> ChiTiet(int id)
         {
             List<DiemDanh> lst = new List<DiemDanh>();
-            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(IDTaiKhoan)).Rows)
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(id)).Rows)
             {
                 lst.Add(new DiemDanh(dr));
             }
             return View(lst);
         }
+        
 
     }
 }

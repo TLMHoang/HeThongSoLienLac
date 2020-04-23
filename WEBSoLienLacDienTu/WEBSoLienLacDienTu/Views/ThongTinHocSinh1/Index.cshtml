@@ -1,83 +1,30 @@
-﻿@model IEnumerable<DTO.ThongTinHS>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Thông tin học sinh</h2>
-<hr />
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>ID</th>
-                            <th>Tên Học Sinh</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Nơi Sinh</th>
-                            <th>Dân Tộc</th>
-                            <th>Tôn Giáo</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="myTable">
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td width="15%">
-                                    <div class="row">
-                                        <div class="col">
-                                            <a href="@Url.Action("Edit","ThongTinHocSinh1" ,new { @id = item.ID })" class="btn btn-primary btn-icon-split">
-                                                <span class="icon">
-                                                    <i class="fas fa-pen-square"></i>
-                                                </span>
-                                                <span>Sửa</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.ID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.Ten)
-                                </td>
-                                <td>
-                                    @if (item.GioiTinh == 1)
-                                    {
-                                        @Html.Label("Nam")
-                                    }
-                                    else
-                                    {
-                                        @Html.Label("Nữ")
-                                    }
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.NgaySinh)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.NoiSinh)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.DanToc)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.TonGiao)
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div>
+        <p class="font-weight-bold " style="text-align: center; background-color: darkorange; color: white;">Con Em</p>
     </div>
+    <div class="row">
 
+        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.LKPHvsHS>)
+        {
+            <div class="col-6 col-md-3 col-lg-3 col-xl-3" style="padding: 10px;width:12rem;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@*Mã Học Sinh : @Html.DisplayFor(m => item.IDHocSinh)*@</h5>
+                        <p class="card-text">Tên Học Sinh :@Html.DisplayFor(m => item.Ten)</p>
+                        <a href="@Url.Action("Edit","ThongTinHocSinh1",new {@id = item.ID})" class="btn btn-primary" style="width: 100%">Xem</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
 </div>
 
 

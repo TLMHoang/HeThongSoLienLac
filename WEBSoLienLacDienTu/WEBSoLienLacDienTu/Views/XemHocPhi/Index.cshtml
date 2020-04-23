@@ -6,73 +6,24 @@
 
 <h2>Xem Học Phí</h2>
 <div class="container-fluid">
+    <div>
+        <p class="font-weight-bold " style="text-align: center; background-color: darkorange; color: white;">Con Em</p>
+    </div>
     <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
-            <from class="form-group"></from>
-            <label for="sel1">Loại Học Sinh</label>
-            <div class="input-group mb-3">
-                <select class="form-control" id="sel1" name="sellist1">
-                    <option>Nội Trú</option>
-                    <option>Ngoại Trú</option>
-                </select>
-            </div>
-            <label for="sel2">Khối Lớp</label>
-            <div class="input-group mb-3">
-                <select class="form-control" id="sel2" name="sellist1">
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
 
-                </select>
-            </div>
-            <label for="sel2">Tháng</label>
-            <div class="input-group mb-3">
-                <select class="form-control" id="sel3" name="sellist1"></select>
-            </div>
-            <input id="Button1" type="button" value="Xem" size="30" />      
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <form>
-                <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
-
+        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.LKPHvsHS>)
+        {
+            <div class="col-6 col-md-3 col-lg-3 col-xl-3" style="padding: 10px;width:12rem;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@*Mã Học Sinh : @Html.DisplayFor(m => item.IDHocSinh)*@</h5>
+                        <p class="card-text">Tên Học Sinh :@Html.DisplayFor(m => item.Ten)</p>
+                        <a href="@Url.Action("","Xem Học Phí",new {@id = item.ID})" class="btn btn-primary" style="width: 100%">Chi Tiết</a>
+                    </div>
                 </div>
-            </form>
-        </div>
-        <div class="card-body">
-            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
-            <br>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Loại Học Sinh</th>
-                            <th>Khối Lớp</th>
-                            <th>Tháng</th>
-                            <th>Số ngày học</th>
-                            <th>Tiền học phí</th>
-                            <th>Tiền ăn</th>
-                            <th>Tiền điện</th>
-                            <th>Tiền nước</th>
-                            <th>Tiền vệ sinh</th>
-                            <th>Tiền trang thiết bị</th>
-                            <th>Tiền tài liệu</th>
-                            <th>Tổng học phí</th>
-                        </tr>
-                    </thead>
-                    <tbody id="myTable">
-                    </tbody>
-                </table>
-
             </div>
-        </div>
-    </div>
+        }
 
+    </div>
 </div>
 
