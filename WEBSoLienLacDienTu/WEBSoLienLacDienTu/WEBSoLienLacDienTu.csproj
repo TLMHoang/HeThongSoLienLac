@@ -151,12 +151,14 @@
     <Compile Include="Areas\GiaoVien\Controllers\QuanLyNhapDiemController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
+    <Compile Include="Controllers\BaoHiemYTeController.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TaiKhoanPhuHuynhController.cs" />
     <Compile Include="Controllers\ThongBaoTruongCaNhanController.cs" />
     <Compile Include="Controllers\ThongTinHocSinh1Controller.cs" />
+    <Compile Include="Controllers\TongKetCuoiKyController.cs" />
     <Compile Include="Controllers\TraCuuController.cs" />
     <Compile Include="Controllers\XemDiemController.cs" />
     <Compile Include="Controllers\XemHocPhiController.cs" />
@@ -297,6 +299,8 @@
     <Content Include="Views\TaiKhoanPhuHuynh\DoiPass.cshtml" />
     <Content Include="Views\ChiTietDiemDanh\ChiTiet.cshtml" />
     <Content Include="Views\ThongTinHocSinh1\Edit.cshtml" />
+    <Content Include="Views\BaoHiemYTe\Index.cshtml" />
+    <Content Include="Views\TongKetCuoiKy\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
