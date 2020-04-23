@@ -63,11 +63,47 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                 Loai = 0;
             }
 
-            if (await tkDal.Them(new TaiKhoanTruong(-1, tenTk, tenTk, Loai, tenGV, sdt, int.Parse(mon), int.Parse(lopDay))) != 0)
+            if (mon != "" && lopDay != "")
+            {
+                if (await tkDal.Them(new TaiKhoanTruong(-1, tenTk, tenTk, Loai, tenGV, sdt, int.Parse(mon), int.Parse(lopDay))) != 0)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("","Vui Lòng Nhập Đầy Đủ Thông Tin !");
+            }
+
+            return View();
+        }
+        
+        public async Task<ActionResult> Update(int id)
+        {
+            await LoadDanhSachMon();
+            TaiKhoanTruong taiKhoan = new TaiKhoanTruong();
+            DataTable dt = await tkDal.LayDT(id);
+            taiKhoan = new TaiKhoanTruong(dt.Rows[0]);
+            await LoadDanhSachLop(taiKhoan.IDLop);
+            return View(taiKhoan);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Update(int id,TaiKhoanTruong tkTruong)
+        {
+            if (await tkDal.CapNhap(tkTruong) != 0)
             {
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public async Task<JsonResult> ResetPass(int ID)
+        {
+            return Json(await tkDal.ResetPass(ID), JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> Delete(int id)
+        {
+            return Json(await tkDal.Xoa(id), JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public ActionResult Login()
@@ -167,12 +203,22 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public async Task LoadDanhSachLop()
         {
             List<GetNameClassModel> lst = new List<GetNameClassModel>();
-            foreach (DataRow dr in (await lop.LayTenLop()).Rows)
+            foreach (DataRow dr in (await lop.LayTenLopChuaCoChuNhiem()).Rows)
             {
                 lst.Add(new GetNameClassModel(dr));
             }
 
             ViewBag.LstLop = new SelectList(lst, "ID", "TenDayDu");
+        }
+        public async Task LoadDanhSachLop(int id)
+        {
+            List<GetNameClassModel> lst = new List<GetNameClassModel>();
+            foreach (DataRow dr in (await lop.LayTenLopChuaCoChuNhiem(id)).Rows)
+            {
+                lst.Add(new GetNameClassModel(dr));
+            }
+
+            ViewBag.LstLop1 = new SelectList(lst, "ID", "TenDayDu");
         }
     }
 }

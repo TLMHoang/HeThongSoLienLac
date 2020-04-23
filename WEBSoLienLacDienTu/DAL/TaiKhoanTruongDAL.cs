@@ -16,10 +16,8 @@ namespace DAL
             return await ExecuteNonQuery(
                 "UpdateTaiKhoanTruong",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
-                new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
-                new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
                 new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai },
-                new SqlParameter("@TenGV", SqlDbType.VarChar) { Value = obj.TenGV },
+                new SqlParameter("@TenGV", SqlDbType.NVarChar) { Value = obj.TenGV },
                 new SqlParameter("@SDT", SqlDbType.VarChar) { Value = obj.SDT },
                 new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc },
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
@@ -60,7 +58,7 @@ namespace DAL
                 new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
                 new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
                 new SqlParameter("@Loai", SqlDbType.Bit) { Value = obj.Loai },
-                new SqlParameter("@TenGV", SqlDbType.VarChar) { Value = obj.TenGV },
+                new SqlParameter("@TenGV", SqlDbType.NVarChar) { Value = obj.TenGV },
                 new SqlParameter("@SDT", SqlDbType.VarChar) { Value = obj.SDT },
                 new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc },
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = obj.IDLop }
@@ -94,15 +92,30 @@ namespace DAL
         public async Task<DataTable> LayDanhSachTK()
         {
             return await ExecuteQuery(
-                "SelectTaiKhoanTruongV2",
+                "W_SelectTaiKhoanTruongV2",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
             );
         }
         public async Task<DataTable> LayDanhSachTK(int id)
         {
             return await ExecuteQuery(
-                "SelectTaiKhoanTruongV2",
+                "W_SelectTaiKhoanTruongV2",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = id }
+            );
+        }
+
+        public async Task<int> ResetPass(int ID)
+        {
+            return await ExecuteNonQuery("W_UpdateResetPassTaiKhoanTruong",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID}
+            );
+        }
+
+        public async Task<DataTable> LayDT_ByIdMon(int id)
+        {
+            return await ExecuteQuery(
+                "W_SelectTaiKhoanTruong_ByIdMon",
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = id }
             );
         }
     }

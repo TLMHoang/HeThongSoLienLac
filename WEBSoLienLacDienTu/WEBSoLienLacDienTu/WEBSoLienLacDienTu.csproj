@@ -128,7 +128,6 @@
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongDayController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PhanCongGVCNController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyDiemController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyLopController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyMonHocController.cs" />
@@ -138,15 +137,18 @@
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
+    <Compile Include="Areas\Admin\Models\DanhSachBangDiemModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachTaiKhoanTruongModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
     <Compile Include="Areas\Admin\Models\getKhoiModel.cs" />
     <Compile Include="Areas\Admin\Models\GetNameClassModel.cs" />
     <Compile Include="Areas\Admin\Models\ImportExcel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\LopPhanCongDayModel.cs" />
     <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\QuanLyNhapDiemController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
@@ -171,9 +173,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\CapNhatPhanCong.js" />
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\PhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />
+    <Content Include="Areas\Admin\Scripts\TaiKhoanTruong.js" />
+    <Content Include="Areas\Admin\Scripts\ThemPhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoChung.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoHS.js" />
@@ -181,6 +187,7 @@
     <Content Include="Areas\Admin\Scripts\Vang.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
+    <Content Include="Assets\Css\UpdateTKTruong.css" />
     <Content Include="Assets\Img\logo_User.jpg" />
     <Content Include="Assets\Img\Ust.png" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -241,6 +248,13 @@
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\ThemThongBaoLop.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\CapNhatThongBaoLop.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\Update.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\NhapDiem.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QuanLyNhapDiem\DanhSachDiem.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\PhanCong.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\ThemPhanCong.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanCongDay\CapNhatPhanCong.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

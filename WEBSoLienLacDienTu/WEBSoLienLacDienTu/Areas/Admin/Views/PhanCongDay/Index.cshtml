@@ -5,12 +5,26 @@
 }
 
 <h2>Trang Quản Lý Phân Công Dạy Học</h2>
-<a href="@Url.Action("Create","PhanCongDay")" class="btn btn-success btn-icon-split">
-    <span class="icon text-white-50">
-        <i class="fas fa-plus-square"></i>
-    </span>
-    <span>Thêm Mới</span>
-</a>
+<hr />
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
+        <form>
+            <label for="sel1">Chọn Khối:</label>
+            <div class="input-group mb-3 ">
+                @if (ViewBag.LstKhoi != null)
+                {
+                    @Html.DropDownList("LstKhoi", (IEnumerable<SelectListItem>)ViewBag.LstKhoi, "Vui Lòng Chọn Khối", new { @class = "form-control" })
+                }
+            </div>
+            <button type="submit" id="TaiDuLieu" class="btn btn-warning" style="color: white" onclick="Loadtable();">
+                <span>Chọn</span>
+            </button>
+        </form>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
 <hr />
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -19,7 +33,7 @@
         <div class="card-header py-3">
             <form>
                 <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Lớp Đã Được Phân Dạy Học</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Lớp</h6>
                 </div>
             </form>
         </div>
@@ -28,41 +42,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>ID Giáo Viên</th>
-                            <th>Tên Giáo Viên</th>
-                            <th>Môn Phụ Trách</th>
-                            <th>Lớp Phụ Trách</th>
+                            <th width="8%"></th>
+                            <th>Mã Lớp</th>
+                            <th>Tên Lớp</th>
                         </tr>
                     </thead>
-
-                    <tbody id="myTable">
-                        <tr>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="#" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Sửa</span>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span>Xóa</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>1</td>
-                            <td>a</td>
-                            <td>10</td>
-                            <td>10</td>
-                        </tr>
+                    <tbody id="myTable" class="tbody">
+                        
                     </tbody>
                 </table>
             </div>
@@ -70,5 +56,8 @@
     </div>
 
 </div>
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Areas/Admin/Scripts/PhanCongDay.js"></script>
 

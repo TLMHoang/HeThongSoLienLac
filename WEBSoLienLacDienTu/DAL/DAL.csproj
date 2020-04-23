@@ -49,6 +49,7 @@
     <Compile Include="LoaiHocSinhDAL.cs" />
     <Compile Include="LopDAL.cs" />
     <Compile Include="MonHocDAL.cs" />
+    <Compile Include="PhanCongDayDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\SQLHelper.cs" />
     <Compile Include="TaiKhoanPhDAL.cs" />
