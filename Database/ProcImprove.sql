@@ -32,7 +32,8 @@ BEGIN
            K.TenKhoi,
            LHS.TenLoai,
            L.TenLop,
-           HS.TonGiao
+           HS.TonGiao,
+		   HS.Tien
 	FROM nxtckedu_sa.ThongTinHS AS HS
 	JOIN nxtckedu_sa.Lop AS L
 	ON L.ID = HS.IDLop
@@ -40,7 +41,7 @@ BEGIN
 	ON K.ID = L.IDKhoi
 	JOIN nxtckedu_sa.LoaiHocSinh AS LHS
 	ON LHS.ID = HS.IDLoaiHocSinh
-	WHERE HS.ID = 3
+	WHERE HS.ID = @ID
 END
 GO	
 
@@ -79,7 +80,26 @@ BEGIN
 		SELECT COUNT(ID) FROM nxtckedu_sa.DiemDanh WHERE IDHocSinh = @IDHocSinh AND NgayNghi >= @StartDate AND NgayNghi < @EndDate AND	Phep = @Phep   
 	END
 END
-GO	
+GO
+
+ALTER PROCEDURE GetNgayNghiTrongThang
+@IDHocSinh INT,
+@Phep BIT
+AS
+BEGIN
+	DECLARE @Count INT
+	IF @Phep = -1
+	BEGIN
+		SET @Count = (SELECT COUNT(ID) FROM nxtckedu_sa.DiemDanh WHERE IDHocSinh = @IDHocSinh AND NgayNghi >= DATEADD(DAY,1, EOMONTH(GETDATE(), -2)) AND NgayNghi < EOMONTH(GETDATE(),-1))
+		RETURN @Count
+	END
+	ELSE
+	BEGIN
+		SET @Count = (SELECT COUNT(ID) FROM nxtckedu_sa.DiemDanh WHERE IDHocSinh = @IDHocSinh AND NgayNghi >= DATEADD(DAY,1, EOMONTH(GETDATE(), -2)) AND NgayNghi < EOMONTH(GETDATE(),-1) AND Phep = @Phep)
+		RETURN @Count
+	END
+END
+GO
 
 
 CREATE PROCEDURE InsertXinPhepV2
@@ -149,5 +169,40 @@ CREATE PROCEDURE SelectChiTiepDiemDanh
 AS
 BEGIN
     SELECT * FROM nxtckedu_sa.DiemDanh WHERE IDHocSinh = 1
+END
+GO
+
+CREATE PROCEDURE m_SelectThoiKhoaBieu
+@IDLop INT
+AS
+BEGIN
+    SELECT Thu, Tiet, TenMon FROM nxtckedu_sa.ThoiKhoaBieu
+	JOIN nxtckedu_sa.MonHoc
+	ON MonHoc.ID = ThoiKhoaBieu.IDMonHoc
+	WHERE IDLop = @IDLop
+END
+GO
+
+CREATE PROCEDURE SelectMonhocv2
+AS
+BEGIN
+	SELECT ID,TenMon,LoaiDiem FROM nxtckedu_sa.MonHoc WHERE CoDiem = 1
+END
+GO
+
+
+alter PROCEDURE SelectBangDiemv2
+@IDHocSinh INT 
+AS
+BEGIN
+	SELECT B.IDLoaiDiem,
+           B.IDMonHoc,
+           B.NgayNhap,
+           L.TenLoaiDiem,
+           B.HocKyI,
+           B.Diem FROM nxtckedu_sa.BangDiem AS B
+	JOIN nxtckedu_sa.LoaiDiem AS L
+	ON L.ID = B.IDLoaiDiem
+	WHERE IDHocSinh = @IDHocSinh
 END
 GO

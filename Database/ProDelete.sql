@@ -92,6 +92,11 @@ ALTER PROCEDURE DeleteLop
 @ID INT
 AS
 BEGIN
+	DELETE nxtckedu_sa.ThoiKhoaBieu WHERE IDLop = @ID
+	DELETE nxtckedu_sa.ThongBaoLop WHERE IDLop = @ID
+	DELETE nxtckedu_sa.PhanCongDay WHERE IDLop = @ID
+	UPDATE nxtckedu_sa.ThongTinHS SET IDLop = -1 WHERE IDLop = @ID
+	UPDATE nxtckedu_sa.TaiKhoanTruong SET IDLop = -1 WHERE IDLop = @ID
     DELETE nxtckedu_sa.Lop
     WHERE ID = @ID
 END
