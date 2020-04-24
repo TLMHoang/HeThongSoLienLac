@@ -30,9 +30,10 @@ namespace WEBSoLienLacDienTu.Controllers
         }     
 
         public async Task<ActionResult> Edit(int id)
-        {           
+        {
+            lk.IDTaiKhoan = id;
             DataTable dt = new DataTable();
-            dt = await new ThongTinHSDAL().LayDT(TaiKhoanPhuHuynhController.TK.ID);
+            dt = await new ThongTinHSDAL().LayDT(id);
             ThongTinHS tt = new ThongTinHS(dt.Rows[0]);          
             return View(tt);
         }
