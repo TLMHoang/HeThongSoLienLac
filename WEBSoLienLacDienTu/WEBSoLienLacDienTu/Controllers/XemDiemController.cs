@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using WEBSoLienLacDienTu.Home;
 using WEBSoLienLacDienTu.Models;
+using DTO;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -15,6 +16,7 @@ namespace WEBSoLienLacDienTu.Controllers
     public class XemDiemController : Controller
     {
         // GET: XemDiem
+        ThongTinHS tt = new ThongTinHS();
         public async Task<ActionResult> Index()
         {
 
@@ -22,6 +24,15 @@ namespace WEBSoLienLacDienTu.Controllers
             foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
             {
                 lst.Add(new ThongTinHSModels(dr));
+            }
+            return View(lst);
+        }
+        public async Task<ActionResult> BangDiem()
+        {
+            List<BangDiemModels> lst = new List<BangDiemModels>();
+            foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem_ID(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+            {
+                lst.Add(new BangDiemModels(dr));
             }
             return View(lst);
         }

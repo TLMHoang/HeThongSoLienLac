@@ -18,7 +18,8 @@ namespace WEBSoLienLacDienTu.Controllers
         // GET: ChiTietDiemDanh
         LienKetPHvsHS lk = new LienKetPHvsHS();
         ThongTinHS tt = new ThongTinHS();
-        TaiKhoanPH ph = new TaiKhoanPH();
+        
+
         public async Task<ActionResult> Index()
         {
 
@@ -29,11 +30,11 @@ namespace WEBSoLienLacDienTu.Controllers
             }
             return View(lst);
         }
-        public async Task<ActionResult> ChiTiet(int id)
+        public async Task<ActionResult> ChiTiet()
         {
 
             List<DiemDanh> lst = new List<DiemDanh>();
-            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(id)).Rows)
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(TaiKhoanPhuHuynhController.TK.ID)).Rows)
             {
                 lst.Add(new DiemDanh(dr));
             }

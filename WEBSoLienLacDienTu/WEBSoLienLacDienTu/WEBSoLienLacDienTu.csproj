@@ -168,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Home\CheckSession.cs" />
+    <Compile Include="Models\BangDiemModels.cs" />
     <Compile Include="Models\DangNhapModels.cs" />
     <Compile Include="Models\DoiPassModels.cs" />
     <Compile Include="Models\LKPHvsHS.cs" />
@@ -302,6 +303,7 @@
     <Content Include="Views\BaoHiemYTe\Index.cshtml" />
     <Content Include="Views\TongKetCuoiKy\Index.cshtml" />
     <Content Include="Views\XinPhep1\XinPhep.cshtml" />
+    <Content Include="Views\XemDiem\BangDiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

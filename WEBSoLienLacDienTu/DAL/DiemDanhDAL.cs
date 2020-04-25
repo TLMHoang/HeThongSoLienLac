@@ -70,6 +70,7 @@ namespace DAL
         {
             return await ExecuteQuery("SelectChiTietDD",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+                
             );
         }
     }

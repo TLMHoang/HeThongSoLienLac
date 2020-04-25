@@ -26,6 +26,7 @@ namespace WEBSoLienLacDienTu.Controllers
             }
             return View(lst);
         }
+        
         public async Task<ActionResult> XinPhep()
         {
             return View();
@@ -35,11 +36,11 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             //if (await new XinPhepDAL().XinPhepV2(xp.ID, xp.IDHocSinh, xp.NghiTu, xp.NghiDen, xp.LyDo) != 0)
             //{
-            //    return RedirectToAction("LoadTable", "QuanLyThongTinHS");
+            //    return RedirectToAction("", "");
             //}
             //else
             //{
-            //    ModelState.AddModelError("", "Thêm Không Thành Công,Vui Lòng Nhập Đủ Thông Tin !");
+            //    ModelState.AddModelError("", "Gửi Thất Bại,Vui Lòng Nhập Đủ Thông Tin !");
 
             //}
 
