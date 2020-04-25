@@ -60,6 +60,7 @@
     <Compile Include="ThongBaoTruongDAL.cs" />
     <Compile Include="ThongTinHocPhiDAL.cs" />
     <Compile Include="ThongTinHSDAL.cs" />
+    <Compile Include="XinPhepDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

@@ -301,6 +301,7 @@
     <Content Include="Views\ThongTinHocSinh1\Edit.cshtml" />
     <Content Include="Views\BaoHiemYTe\Index.cshtml" />
     <Content Include="Views\TongKetCuoiKy\Index.cshtml" />
+    <Content Include="Views\XinPhep1\XinPhep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,6 +321,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AppQuanLyNhaTruong\BAL\BAL.csproj">
+      <Project>{C0032786-F375-43E9-9F44-212949D26EF2}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{7185aaec-38a0-4c26-8d2f-d4bb385358e9}</Project>
       <Name>DAL</Name>

@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using WEBSoLienLacDienTu.Home;
 using WEBSoLienLacDienTu.Models;
+using DTO;
+
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -24,5 +26,26 @@ namespace WEBSoLienLacDienTu.Controllers
             }
             return View(lst);
         }
+        public async Task<ActionResult> XinPhep()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> XinPhep(XinPhep xp)
+        {
+            //if (await new XinPhepDAL().XinPhepV2(xp.ID, xp.IDHocSinh, xp.NghiTu, xp.NghiDen, xp.LyDo) != 0)
+            //{
+            //    return RedirectToAction("LoadTable", "QuanLyThongTinHS");
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "Thêm Không Thành Công,Vui Lòng Nhập Đủ Thông Tin !");
+
+            //}
+
+            return View();
+        }
+
+
     }
 }

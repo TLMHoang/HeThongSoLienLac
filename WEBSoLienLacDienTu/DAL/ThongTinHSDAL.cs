@@ -132,5 +132,18 @@ namespace DAL
                 new SqlParameter("@IDLoaiHocSinh", SqlDbType.Int) { Value = iDHocSinh }
             );
         }
+        public async Task<int> TTHS(int id, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string TonGiao)
+        {
+            return await ExecuteNonQuery("UpdateQuanLyThongTinHS",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = id },
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = ten },
+                new SqlParameter("@NgaySinh", SqlDbType.DateTime) { Value = ngaySinh },
+                new SqlParameter("@GioiTinh", SqlDbType.Bit) { Value = gioiTinh },
+                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = noiSinh },
+                new SqlParameter("@DanToc", SqlDbType.NVarChar) { Value = danToc },
+                new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = TonGiao }
+                
+            );
+        }
     }
 }
