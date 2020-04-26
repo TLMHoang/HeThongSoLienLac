@@ -33,7 +33,9 @@ BEGIN
            LHS.TenLoai,
            L.TenLop,
            HS.TonGiao,
-		   HS.Tien
+		   HS.Tien,
+		   BH.DangKy,
+		   BH.BHQD
 	FROM nxtckedu_sa.ThongTinHS AS HS
 	JOIN nxtckedu_sa.Lop AS L
 	ON L.ID = HS.IDLop
@@ -41,6 +43,8 @@ BEGIN
 	ON K.ID = L.IDKhoi
 	JOIN nxtckedu_sa.LoaiHocSinh AS LHS
 	ON LHS.ID = HS.IDLoaiHocSinh
+	JOIN nxtckedu_sa.BHYT AS BH
+	ON BH.IDHocSinh = HS.ID
 	WHERE HS.ID = @ID
 END
 GO	
@@ -206,3 +210,6 @@ BEGIN
 	WHERE IDHocSinh = @IDHocSinh
 END
 GO
+
+
+	

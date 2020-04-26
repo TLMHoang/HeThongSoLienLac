@@ -127,3 +127,10 @@ BEGIN
 	RETURN @TongTien
 END
 GO 
+
+
+CREATE PROCEDURE SelectFunctionOrder
+AS
+BEGIN
+    SELECT * FROM FunctionOrder
+END

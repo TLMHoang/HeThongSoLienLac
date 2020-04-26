@@ -129,3 +129,22 @@ BEGIN
 	END
 END
 GO
+
+
+CREATE TRIGGER trg_InsertThongTinHS
+ON nxtckedu_sa.ThongTinHS
+FOR INSERT
+AS
+BEGIN
+    INSERT nxtckedu_sa.BHYT
+    (
+        IDHocSinh,
+        DangKy,
+        BHQD
+    )
+    VALUES
+    (   (SELECT ID FROM Inserted),    -- IDHocSinh - int
+        0, -- DangKy - bit
+        0  -- BHQD - bit
+        )
+END
