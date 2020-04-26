@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "ThongBaoLop";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông Báo Lớp</h2>
+<hr />
+<div class="row">
+    <div>
+        <a href="@Url.Action("ThemThongBaoLop")" class="btn btn-success btn-icon-split" style="margin-left: 20px">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Thông Báo</span>
+        </a>
+    </div>
+    <button class="btn btn-danger"  style="margin-left: 10px" onclick="window.location.href='/Admin/ThongBaoCaNhan/index2'" ><i class="fas fa-sign-out-alt"></i></button>
+</div>
+
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Thông Báo</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Mã Thông Báo</th>
+                            <th>Nội Dung</th>
+                            <th>Ngày</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable" class="tbody">
+                        @foreach (var item in Model as IEnumerable<DTO.ThongBaoLop>)
+                        {
+                            <tr>
+                                <td width="15%">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="@Url.Action("CapNhatThongBaoLop","ThongBaoCaNhan",new {@id = item.ID})" class="btn btn-primary btn-icon-split" >
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoLop(@item.ID);" >
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@Html.DisplayFor(modelitem => item.ID)</td>
+                                <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Ngay)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Scripts/ThongBaoLop.js"></script>

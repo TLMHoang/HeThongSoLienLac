@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "CapNhatPhanCong";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Cập Nhật Lịch Phân Công Giáo Viên</h2>
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Phân Công</h6>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Mã GV</th>
+                            <th>Tên GV</th>
+                            <th>SĐT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable" class="tbody1"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<input type="text" value="@Model.ID" id="LayMaLop" style="display: none;" />
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Areas/Admin/Scripts/CapNhatPhanCong.js"></script>
+

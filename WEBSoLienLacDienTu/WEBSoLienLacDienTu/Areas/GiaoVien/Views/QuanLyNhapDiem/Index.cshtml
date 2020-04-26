@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+
+<div class="container-fluid">
+    <div>
+        <p class="font-weight-bold " style="text-align: center; background-color: darkorange; color: white;">Vui Lòng Chọn Lớp Để Nhập Điểm</p>
+    </div>
+    <div class="row">
+
+        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.GetNameClassModel>)
+        {
+            <div class="col-6 col-md-3 col-lg-3 col-xl-3" style="padding: 10px;width:12rem;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mã Lớp : @Html.DisplayFor(m => item.ID)</h5>
+                        <p class="card-text">Tên Lớp :@Html.DisplayFor(m => item.TenDayDu)</p>
+                        <a href="@Url.Action("NhapDiem","QuanLyNhapDiem",new {@id = item.ID})" class="btn btn-primary" style="width: 100%">Chọn</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+

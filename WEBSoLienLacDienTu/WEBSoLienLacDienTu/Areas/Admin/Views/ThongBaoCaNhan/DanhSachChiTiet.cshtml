@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "DanhSachChiTiet";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var ID = ViewContext.RouteData.Values["id"];
+}
+<hr />
+<div class="row">
+    <div>
+        <a href="@Url.Action("ThemThongBaoHS","ThongBaoCaNhan",new {id = ID})" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Thông Báo</span>
+        </a>
+    </div>
+    <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton" onclick="location.href='/Admin/ThongBaoCaNhan/Index'"><i class="fas fa-sign-out-alt"></i></button>
+</div>
+
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Thông Báo <span><label id="TenHocSinh" class="text-danger"></label></span></h6>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Nội Dung</th>
+                        <th>Ngày</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="myTable" class="tbody">
+                    @foreach (var item in Model as IEnumerable<DTO.ThongBaoHS>)
+                    {
+                        <tr>
+                            <td width="5%">
+                                <div>
+                                    <a href="@Url.Action("CapNhatThongBaoHS","ThongBaoCaNhan",new {@id = item.ID})" class="btn btn-primary btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-pen-square"></i>
+                                        </span>
+                                        <span>Sửa</span>
+                                    </a>
+                                </div>
+                            </td>
+                            <td  width="5%">
+                                <div>
+                                    <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoHS(@item.ID);">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span>Xóa</span>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
+                            <td>@Html.DisplayFor(modelitem => item.Ngay)</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/Areas/Admin/Scripts/ThongBaoHS.js"></script>
+<script>
+    $(document).ready(
+        $.ajax({
+            url: "/ThongBaoCaNhan/getById/" + @ID,
+            typr: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $('#TenHocSinh').text(result.Ten);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        })
+    );
+    
+</script>

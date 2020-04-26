@@ -14,6 +14,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Models;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class DiemDanhController : Controller
     {
         // GET: Admin/DiemDanh
@@ -52,8 +53,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<ActionResult> ChiTietVang(int id)
         {
+            
             List<DiemDanh> lst = new List<DiemDanh>();
-            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanh(id)).Rows)
+            foreach (DataRow dr in (await new DiemDanhDAL().LayDT(id)).Rows)
             {
                 lst.Add(new DiemDanh(dr));
             }

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.ThongTinHSModels>)
+                        {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelitem => item.Ten)
+                            </td>
+                            <td>
+                                @if (item.GioiTinh == 1)
+                                {
+                                    @Html.Label("Nam")
+                                }
+                                else
+                                {
+                                    @Html.Label("Nữ")
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.NgaySinh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.DanToc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.TonGiao)
+                            </td>
+                            <td width="15%">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="@Url.Action("","BaoHiemYTe", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-pen-square"></i>
+                                            </span>
+                                            <span>Đăng Ký</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

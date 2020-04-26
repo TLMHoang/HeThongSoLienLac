@@ -15,7 +15,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("UpdateMonHoc", new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID},
                 new SqlParameter("@TenMon", SqlDbType.NVarChar) { Value = obj.TenMon},
-                new SqlParameter("@LoaiDiem", SqlDbType.Int) { Value = obj.LoaiDiem}
+                new SqlParameter("@LoaiDiem", SqlDbType.Bit) { Value = obj.LoaiDiem}
             );
         }
 
@@ -44,7 +44,7 @@ namespace DAL
         {
             return await ExecuteNonQuery("InsertMonHoc",
                 new SqlParameter("@TenMon", SqlDbType.NVarChar) { Value = obj.TenMon },
-                new SqlParameter("@LoaiDiem", SqlDbType.Int) { Value = obj.LoaiDiem }
+                new SqlParameter("@LoaiDiem", SqlDbType.Bit) { Value = obj.LoaiDiem }
             );
         }
 

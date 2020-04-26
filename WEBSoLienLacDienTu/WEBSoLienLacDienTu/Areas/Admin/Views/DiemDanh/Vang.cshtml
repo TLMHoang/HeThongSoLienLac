@@ -39,14 +39,14 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td width="21%">
+                                <td width="18%">
                                     <div class="row">
                                         <div class="col">
-                                            <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#myModal" onclick="getById(@item.ID);">
+                                            <a href="#" class="btn btn-primary btn-icon-split" onclick="getById(@item.ID);openModal();">
                                                 <span class="icon">
-                                                    <i class="fas fa-pen-square"></i>
+                                                    <i class="fas fa-plus"></i>
                                                 </span>
-                                                <span>Thêm Vắng</span>
+                                                <span>Vắng</span>
                                             </a>
                                         </div>
                                         <div class="col">

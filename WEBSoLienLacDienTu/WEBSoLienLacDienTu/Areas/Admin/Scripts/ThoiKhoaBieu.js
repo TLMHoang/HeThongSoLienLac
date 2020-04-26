@@ -53,7 +53,7 @@ function getbyID(tiet) {
 
         },
         error: function (errormessage) {
-            alert(errormessage.responseText);
+            alert("Không Thể Sửa Trong Chế Độ Xem Tất Cả!");
         }
     });
     return false;

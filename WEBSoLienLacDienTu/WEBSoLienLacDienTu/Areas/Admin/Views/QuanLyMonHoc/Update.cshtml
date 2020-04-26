@@ -1,0 +1,39 @@
+﻿@model DTO.MonHoc
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <h2>Cập Nhật Môn Học</h2>
+    <hr />
+    <div class="container">
+        <form class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="TenMH">Nhập Tên Môn : </label>
+                @Html.TextBoxFor(model=>model.TenMon,new {@class="form-control",@placeholder="Nhập Tên Môn"})
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="valid-feedback">Đã Nhập</div>
+                <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
+            </div>
+            <div class="form-group">
+                <label for="HeSo10">Hệ Số 10 :</label>
+                @Html.DropDownListFor(model=>model.LoaiDiem, new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Có", Value = "1"},
+                    new SelectListItem {Text = "Không", Value = "0"},
+                }, null, new { @class = "form-control" })
+            </div>
+            <button type="submit" class="btn btn-primary">Cập Nhật</button>
+        </form>
+    </div>
+    <hr />
+
+<script src ="~/Areas/Admin/Scripts/QuanLyMonHoc.js"></script>
+
+
+}

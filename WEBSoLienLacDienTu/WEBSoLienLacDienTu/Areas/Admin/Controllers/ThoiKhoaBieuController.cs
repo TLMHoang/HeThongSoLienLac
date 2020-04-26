@@ -15,6 +15,7 @@ using WEBSoLienLacDienTu.Areas.Admin.Models;
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
     [SessionTimeout]
+    [SessionAuthorize]
     public class ThoiKhoaBieuController : Controller
     {
         // GET: Admin/ThoiKhoaBieu
@@ -45,7 +46,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 lst.Add(new ThoiKhoaBieuModel(dr));
             }
-            LoadListKhoi();
+            await LoadListKhoi();
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
 

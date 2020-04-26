@@ -6,65 +6,67 @@
 
 <h2>Thời Khóa Biểu Cá Nhân</h2>
 
-<div class="container-fluid">   
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <form>
-                <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Thời Khóa Biểu</h6>
-
-                </div>
-            </form>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>Tên Học Sinh</th>
+                            <th>Giới Tính</th>
+                            <th>Ngày Sinh</th>
+                            <th>Dân Tộc</th>
+                            <th>Tôn Giáo</th>
                             <th></th>
-                            <th>Thứ 2</th>
-                            <th>Thứ 3</th>
-                            <th>Thứ 4</th>
-                            <th>Thứ 5</th>
-                            <th>Thứ 6</th>
-                            <th>Thứ 7</th>
-                            <th>Chủ Nhật</th>
                         </tr>
                     </thead>
-                    <tbody>
+
+                    <tbody id="myTable">
+                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.ThongTinHSModels>)
+                        {
                         <tr>
-                            <td>Tiết 1</td>                          
+
+                            <td>
+                                @Html.DisplayFor(modelitem => item.Ten)
+                            </td>
+                            <td>
+                                @if (item.GioiTinh == 1)
+                                {
+                                    @Html.Label("Nam")
+                                }
+                                else
+                                {
+                                    @Html.Label("Nữ")
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.NgaySinh)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.DanToc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.TonGiao)
+                            </td>
+                            <td width="15%">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="@Url.Action("","XemTKB", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-pen-square"></i>
+                                            </span>
+                                            <span>Xem TKB</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Tiết 2</td>                            
-                        </tr>
-                        <tr>
-                            <td>Tiết 3</td>                            
-                        </tr>
-                        <tr>
-                            <td>Tiết 4</td>                           
-                        </tr>
-                        <tr>
-                            <td>Tiết 5</td>                           
-                        </tr>
-                        <tr>
-                            <td>Tiết 6</td>
-                        </tr>
-                        <tr>
-                            <td>Tiết 7</td>                           
-                        </tr>
-                        <tr>
-                            <td>Tiết 8</td>                            
-                        </tr>
-                        <tr>
-                            <td>Tiết 9</td>                            
-                        </tr>
-                        <tr>
-                            <td>Tiết 10</td>                           
-                        </tr>
+                        }
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>

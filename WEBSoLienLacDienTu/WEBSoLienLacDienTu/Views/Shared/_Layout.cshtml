@@ -37,40 +37,45 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#">Thông Báo</a>
-                </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Tình Hình Học Tập </a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">@Html.ActionLink("Xem Điểm", "Index", "XemDiem")</a>
-                        </li>
-                        <li>
-                            <a href="#">Tổng Kết Cuối Kỳ</a>
-                        </li>
-                        <li>
-                            <a href="#">@Html.ActionLink("Xem Thời Khóa Biểu", "Index", "XemTKB")</a>
-                        </li>
-                        <li>
-                            <a href="#">Cúp Học Nghỉ Học</a>
+                            @Html.ActionLink("Thông Báo Trường", "Index", "ThongBaoTruongCaNhan")
                         </li>
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Tình Hình Học Tập </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            <a href="#">@Html.ActionLink("Thông Tin Hoc Sinh", "Index", "ThongTInHocSinh1")</a>
+                            @Html.ActionLink("Xem Điểm", "Index", "XemDiem")
                         </li>
                         <li>
-                            <a href="#">Bảo Hiểm Y Tế</a>
+                            @Html.ActionLink("Tổng Kết Cuối Kỳ", "Index", "TongKetCuoiKy")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Xem Thời Khóa Biểu", "Index", "XemTKB")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Điểm danh", "Index", "ChiTietDiemDanh")
                         </li>
                     </ul>
                 </li>
-                <li class="active"><a href="#">@Html.ActionLink("Xin Phép", "Index", "XinPhep1")</a></li>
                 <li class="active">
-                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        <li>
+                            @Html.ActionLink("Thông Tin Hoc Sinh", "Index", "ThongTinHocSinh1")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Bảo Hiểm Y Tế", "Index", "BaoHiemYTe")
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">@Html.ActionLink("Xin Phép", "Index", "XinPhep1")</a></li>
+                <li class="active">
+                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu3">
                         <li>
                             @Html.ActionLink("Tra Cứu Giáo Viên Chủ Nhiệm", "Index", "TraCuu")
                         </li>
@@ -114,7 +119,7 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-warning">
                         <i class="fas fa-align-left"></i>
                     </button>
-                    <a href="#" class="navbar-brand justify-content-center Icon-team">
+                    <a href="/Home/Index" class="navbar-brand justify-content-center Icon-team">
                         <strong>E-School By US</strong>
                     </a>
                     <div class="dropdown">
@@ -122,46 +127,79 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#section41" data-toggle="modal" data-target="#myModal">Đổi Mật Khẩu</a>
-                            <a class="dropdown-item" href="#section42">Đăng Xuất</a>
+                            <a class="dropdown-item" href="/TaiKhoanPhuHuynh/DoiPass">Đổi Mật Khẩu</a>
+                            <a class="dropdown-item" href="/TaiKhoanPhuHuynh/Logout">Đăng Xuất</a>
                         </div>
-                        <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
 
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Thay Đổi Mật Khẩu</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="Pass">Mật Khẩu Cũ:</label>
-                                                <input type="password" class="form-control" id="Pass" placeholder="Nhập Mật Khẩu Cũ..." name="MKC">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="NewPass">Mật Khẩu Mới:</label>
-                                                <input type="password" class="form-control" id="NewPass" placeholder="Nhập Mật Khẩu Mới..." name="MKM">
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-warning">Xác Nhận</button>
-                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Đóng</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </nav>
             <div class="container-fluid">
                 @RenderBody()
+                <hr />
+                <!-- Footer -->
+                <footer>
+                    <!-- Footer Links -->
+                    <div class="container text-center text-md-left mt-6">
+
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-5 col-xl-5 mx-auto mb-4">
+
+                                <!-- Content -->
+                                <h6 class="text-uppercase font-weight-bold">E-school By US</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    Hệ Thống Được Phát Triển Để Giúp Nhà Trường Và Phụ Huynh Kết Nối Với Nhau Dễ Dàng Hơn.
+                                </p>
+
+                            </div>
+                            <!-- Grid column -->
+                            <!-- Grid column -->
+                            <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
+
+                                <!-- Links -->
+                                <h6 class="text-uppercase font-weight-bold">Sản Phẩm Trong Hệ Thống</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    Web Sổ Liên Lạc
+                                </p>
+                                <p>
+                                    App Mobile Sổ Liên Lạc
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                                <!-- Links -->
+                                <h6 class="text-uppercase font-weight-bold">Liên Hệ Với Chúng Tôi</h6>
+                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                <p>
+                                    <i class="fas fa-home mr-3"></i> HUTECH University Of Technology
+                                </p>
+                                <p>
+                                    <i class="fas fa-envelope mr-3"></i> Emty@example.com
+                                </p>
+                                <p>
+                                    <i class="fas fa-phone mr-3"></i> + 0352908667
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+
+                        </div>
+                        <!-- Grid row -->
+
+                    </div>
+                    <!-- Footer Links -->
+                    <!-- Copyright -->
+                    <div class="text-center">
+                        <p>&copy; @DateTime.Now.Year - Đồ Án Phát Triển Bởi US Team</p>
+                    </div>
+                    <!-- Copyright -->
+                </footer>
+                <!-- Footer -->
             </div>
         </div>
     </div>

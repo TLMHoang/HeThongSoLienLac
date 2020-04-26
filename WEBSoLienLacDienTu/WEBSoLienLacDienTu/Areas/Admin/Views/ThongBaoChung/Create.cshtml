@@ -4,18 +4,26 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thêm Mới Thông Báo Toàn Trường</h2>
-<hr />
-<div class="container">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <h2>Thêm Mới Thông Toàn Trường</h2>
+    <hr />
+    <div class="container">
 
         <form>
             <div class="form-group">
+
                 <label for="NoiDung">Nhập Nội Dung :</label>
                 <textarea class="form-control" rows="10" id="NoiDung" name="text"></textarea>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             </div>
             <button type="submit" class="btn btn-primary">Xác Nhận</button>
         </form>
 
-</div>
-<hr />
+    </div>
+    <hr />
+}
 

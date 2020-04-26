@@ -5,12 +5,19 @@
 }
 
 <h2>Quản Lý Thông Báo Toàn Trường</h2>
-<a href="@Url.Action("Create","ThongBaoChung")" class="btn btn-success btn-icon-split">
-    <span class="icon text-white-50">
-        <i class="fas fa-plus-square"></i>
-    </span>
-    <span>Thêm Thông Báo</span>
-</a>
+<hr />
+<div class="row">
+    <div>
+        <a href="@Url.Action("Create","ThongBaoChung")" class="btn btn-success btn-icon-split" style="margin-left: 20px">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Thông Báo</span>
+        </a>
+        <button class="btn btn-danger"  style="margin-left: 10px" onclick="window.location.href='/Admin/HomeAdmin'" ><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</div>
+
 <hr />
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -29,7 +36,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                             <th>STT</th>
                             <th>Nội Dung</th>
                             <th>Ngày</th>
@@ -37,31 +45,34 @@
                     </thead>
 
                     <tbody id="myTable">
-                        <tr>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="#" class="btn btn-primary btn-icon-split">
+                        @foreach (var item in Model as IEnumerable<DTO.ThongBaoTruong>)
+                        {
+                            <tr>
+                                <td width="10px">
+                                    <div>
+                                        <a href="@Url.Action("Update","ThongBaoChung",new {@id=item.ID})" class="btn btn-primary btn-icon-split">
                                             <span class="icon">
                                                 <i class="fas fa-pen-square"></i>
                                             </span>
                                             <span>Sửa</span>
                                         </a>
                                     </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                </td>
+                                <td width="10px">
+                                    <div>
+                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="Delete(@item.ID);">
                                             <span class="icon">
                                                 <i class="fas fa-trash"></i>
                                             </span>
                                             <span>Xóa</span>
                                         </a>
                                     </div>
-                                </div>
-                            </td>
-                            <td>1</td>
-                            <td>Nội Dung</td>
-                            <td>Ngày</td>
-                        </tr>
+                                </td>
+                                <td>@Html.DisplayFor(modelitem=>item.ID)</td>
+                                <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
+                                <td>@Html.DisplayFor(modelitem => item.Ngay)</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -69,3 +80,4 @@
     </div>
 
 </div>
+<script src="~/Areas/Admin/Scripts/ThongBaoChung.js"></script>

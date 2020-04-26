@@ -17,16 +17,93 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     public class TaiKhoanTruongController : Controller
     {
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
+        MonHocDAL mh = new MonHocDAL();
+        TaiKhoanTruongDAL tkDal = new TaiKhoanTruongDAL();
+        LopDAL lop = new LopDAL();
         // GET: Admin/TaiKhoanTruong
         [SessionTimeout]
-        public ActionResult Index()
+        [SessionAuthorize]
+        public async Task<ActionResult> Index()
         {
+            List<DanhSachTaiKhoanTruongModel> lst = new List<DanhSachTaiKhoanTruongModel>();
+            foreach (DataRow dr in (await tkDal.LayDanhSachTK()).Rows)
+            {
+                lst.Add(new DanhSachTaiKhoanTruongModel(dr));
+            }
+            return View(lst);
+        }
+        [SessionTimeout]
+        [SessionAuthorize]
+        public async Task<ActionResult> Create()
+        {
+            await LoadDanhSachMon();
+            await LoadDanhSachLop();
             return View();
         }
         [SessionTimeout]
-        public ActionResult Create()
+        [SessionAuthorize]
+        [HttpPost]
+        public async Task<ActionResult> Create(FormCollection f)
         {
+            await LoadDanhSachMon();
+            await LoadDanhSachLop();
+            var tenTk = f["TenTk"];
+            var tenGV = f["TenGV"];
+            var sdt = f["SDT"];
+            var mon = f["LstMon"];
+            var lopDay = f["LstLop"];
+            byte Loai;
+            Boolean chk = f["Loai"] != null ? true : false;
+            if (chk == true)
+            {
+                Loai = 1;
+            }
+            else
+            {
+                Loai = 0;
+            }
+
+            if (mon != "" && lopDay != "")
+            {
+                if (await tkDal.Them(new TaiKhoanTruong(-1, tenTk, tenTk, Loai, tenGV, sdt, int.Parse(mon), int.Parse(lopDay))) != 0)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("","Vui Lòng Nhập Đầy Đủ Thông Tin !");
+            }
+
             return View();
+        }
+        
+        public async Task<ActionResult> Update(int id)
+        {
+            await LoadDanhSachMon();
+            TaiKhoanTruong taiKhoan = new TaiKhoanTruong();
+            DataTable dt = await tkDal.LayDT(id);
+            taiKhoan = new TaiKhoanTruong(dt.Rows[0]);
+            await LoadDanhSachLop(taiKhoan.IDLop);
+            return View(taiKhoan);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Update(int id,TaiKhoanTruong tkTruong)
+        {
+            if (await tkDal.CapNhap(tkTruong) != 0)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<JsonResult> ResetPass(int ID)
+        {
+            return Json(await tkDal.ResetPass(ID), JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> Delete(int id)
+        {
+            return Json(await tkDal.Xoa(id), JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public ActionResult Login()
@@ -44,12 +121,21 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
                 if (dt.Rows.Count == 1)
                 {
-                    List<TaiKhoanTruong> lst = new List<TaiKhoanTruong>();
                     TK = new TaiKhoanTruong(dt.Rows[0]);
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
-                    Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
-                    Session["MatKhau"] = lg.MatKhau.ToString();
-                    return RedirectToAction("Index", "HomeAdmin");
+                    if (TK.Loai == 1)
+                    {
+                        Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
+                        Session["MatKhau"] = lg.MatKhau.ToString();
+                        return RedirectToAction("Index", "HomeAdmin");
+                    }
+                    else
+                    {
+                        Session["TaiKhoanGiaoVien"] = lg.TaiKhoan.ToString();
+                        Session["MatKhau"] = lg.MatKhau.ToString();
+                        return RedirectToAction("GetTKTruong", "HomeGiaoVien",new {area="GiaoVien", tenTaiKhoan = lg.TaiKhoan, matKhauTaiKhoan =lg.MatKhau});
+                    }
+                    
                 }
                 else
                 {
@@ -103,9 +189,36 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public ActionResult Logout()
         {
+            Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("Login");
+        }
+
+        public async Task LoadDanhSachMon()
+        {
+            ViewBag.LstMon = new SelectList(await mh.LayLst(), "ID", "TenMon");
+        }
+
+        public async Task LoadDanhSachLop()
+        {
+            List<GetNameClassModel> lst = new List<GetNameClassModel>();
+            foreach (DataRow dr in (await lop.LayTenLopChuaCoChuNhiem()).Rows)
+            {
+                lst.Add(new GetNameClassModel(dr));
+            }
+
+            ViewBag.LstLop = new SelectList(lst, "ID", "TenDayDu");
+        }
+        public async Task LoadDanhSachLop(int id)
+        {
+            List<GetNameClassModel> lst = new List<GetNameClassModel>();
+            foreach (DataRow dr in (await lop.LayTenLopChuaCoChuNhiem(id)).Rows)
+            {
+                lst.Add(new GetNameClassModel(dr));
+            }
+
+            ViewBag.LstLop1 = new SelectList(lst, "ID", "TenDayDu");
         }
     }
 }

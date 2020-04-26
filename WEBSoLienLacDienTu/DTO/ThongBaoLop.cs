@@ -30,7 +30,7 @@ namespace DTO
             Ngay = DateTime.Now;
             IDLoaiThongBao = -1;
         }
-        public ThongBaoLop(int iD, int idLop, string noiDung, DateTime ngay, int idLoaiThongBao)
+        public ThongBaoLop(int iD, int idLop, string noiDung,DateTime ngay,int idLoaiThongBao)
         {
             ID = iD;
             IDLop = idLop;

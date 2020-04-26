@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "PhanCong";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Phân Công</h6>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Tên Môn</th>
+                        <th>Tên Giáo Viên</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                    @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.LopPhanCongDayModel>)
+                    {
+                        <tr>
+                            <td>@item.TenMon</td>
+                            <td>
+                                @if (item.TenGV == "")
+                                {
+                                    <label>Trống</label>
+                                }
+                                else
+                                {
+                                    <label class="font-weight-bold text-danger">@item.TenGV</label>
+                                }
+                            </td>
+                            <td width="6%">
+                                @if (item.TenGV == "")
+                                {
+                                    <div>
+                                        <a href="@Url.Action("ThemPhanCong","PhanCongDay",new {@id = item.IDMon})" class="btn btn-success" style="margin: 2px 10px">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <a href="@Url.Action("CapNhatPhanCong","PhanCongDay",new {@id = item.IDMon,@idPhanCong = item.IDPhanCong})" class="btn btn-success" style="margin: 2px 10px">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                }
+                            </td>
+                            <td width="6%">
+                                <div>
+                                    <a href="#" onclick="Xoa(@item.IDPhanCong);" class="btn btn-danger" style="margin: 2px 10px">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Areas/Admin/Scripts/PhanCongDay.js"></script>

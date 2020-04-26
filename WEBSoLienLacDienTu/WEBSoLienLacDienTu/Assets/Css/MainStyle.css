@@ -186,3 +186,24 @@ ul ul a {
 .ql-cuphoc-item:hover{
     color:darkorange;
 }
+@media all and (max-width : 550px) {
+    .container-fluid {
+        padding: 0;
+    }
+    .card-body {
+        padding: 5px;
+    }
+    .wrapper #content {
+        padding: 5px;
+    }
+}
+@media all and (max-width : 480px) {
+    .Icon-team {
+        display: none;
+    }
+}
+@media all and (max-width : 325px) {
+    .wrapper #content {
+        padding: 1px;
+    }
+}

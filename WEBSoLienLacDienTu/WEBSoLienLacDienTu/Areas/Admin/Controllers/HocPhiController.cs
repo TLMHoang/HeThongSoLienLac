@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DTO;
 using DAL;
-//using WEBSoLienLacDienTu.Areas.Admin.Code;
+using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,11 +13,12 @@ using System.Threading.Tasks;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
-    //[SessionTimeout]
-   
+    [SessionTimeout]
+    [SessionAuthorize]
     public class HocPhiController : Controller
     {
-        public static Lop lop = new Lop();
+        public static Khoi khoi = new Khoi();
+
         // GET: Admin/HocPhi
         public async Task<ActionResult> Index()
         {
@@ -25,16 +26,16 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Index(GetClassModel lop)
+        public async Task<ActionResult> Index(getKhoiModel khoi)
         {
-            if (lop.ID == -10 || lop.IDKhoi == 0)
+            if (khoi.ID == -10 )
             {
                 await LoadListKhoi();
                 ViewData["Loi"] = "Vui Lòng Chọn Đầy Đủ Thông Tin !";
             }
             else
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = lop.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
             return View();
         }
@@ -56,9 +57,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<ActionResult>  loadData(int id)
         {
-            lop.ID = id;
+            khoi.ID = id;
             List<TienHocPhi> lst = new List<TienHocPhi>();
-            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT(id)).Rows)
+            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT_ByIDKhoi(id)).Rows)
             {
                 lst.Add(new TienHocPhi(dr));
             }
@@ -68,9 +69,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> AddHP(TienHocPhi hp)
         {
-            if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDKhoi,hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
+            if (await new ThongTinHocPhiDAL().ThemHp(hp.Thang,hp.IDLoaiHocSinh,khoi.ID, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh ,hp.TienTrangThietBi,hp.TienTaiLieu) != 0)
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = lop.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id = khoi.ID });
             }
             else
             {
@@ -88,29 +89,24 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             await LoadLoaiHocSinh();
             return View(tt);
         }
-        public async Task<ActionResult> CapNhat(int id,TienHocPhi hp)
+        [HttpPost]
+        public async Task<ActionResult> UpdateHP(int id,TienHocPhi hp)
         {
-            if (await new ThongTinHocPhiDAL().CapNhatHp(hp.Thang, hp.IDKhoi, hp.IDLoaiHocSinh, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
+            if (await new ThongTinHocPhiDAL().CapNhatHp(id,hp.Thang, hp.IDLoaiHocSinh, khoi.ID, hp.SoNgayHoc, hp.TienHoc, hp.TienAn, hp.TienDien, hp.TienNuoc, hp.TienVeSinh, hp.TienTrangThietBi, hp.TienTaiLieu) != 0)
             {
-                return RedirectToAction("loadData", "HocPhi", new { id = lop.ID });
+                return RedirectToAction("loadData", "HocPhi", new { id=khoi.ID });
             }
             else
             {
-                ModelState.AddModelError("", "Thêm Không Thành Công,Vui Lòng Nhập Đủ Thông Tin !");
+                ModelState.AddModelError("", "Cập Nhật không thành Công!!");
                 await LoadLoaiHocSinh();
             }
 
             return View();
         }
-        public async Task<JsonResult> LoadListLop(int IdKhoi)
+        public async Task<JsonResult> DeleteHP(int id)
         {
-            List<SelectListItem> li = new List<SelectListItem>();
-            li.Add(new SelectListItem { Text = "Vui Lòng Chọn Lớp", Value = "-10" });
-            foreach (DataRow dr in (await new LopDAL().LayDTLopTheoKhoi(IdKhoi)).Rows)
-            {
-                li.Add(new SelectListItem { Text = dr["TenLop"].ToString(), Value = dr["ID"].ToString() });
-            }
-            return Json(li, JsonRequestBehavior.AllowGet);
+            return Json(await new ThongTinHocPhiDAL().Xoa(id), JsonRequestBehavior.AllowGet);
         }
     }
 }

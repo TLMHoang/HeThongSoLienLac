@@ -1,0 +1,68 @@
+﻿@model DTO.XinPhep
+@{
+    ViewBag.Title = "XinPhep";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XinPhep</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Tên Học Sinh</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IDHocSinh, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.IDHocSinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nghỉ từ</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.NghiTu, new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.NghiTu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Nghỉ từ</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.NghiDen, new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.NghiDen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Lý Do</label>
+                <div class="col-md-10">
+                    
+                    @Html.TextAreaFor(model => model.LyDo, new { htmlAttributes = new { @class = "form-control", type = "" } })
+                    @Html.ValidationMessageFor(model => model.LyDo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @*<div class="form-group">
+                <label>Trạng Thái</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Xin Phép" class="btn btn-warning" />
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+}
+
+
+
+

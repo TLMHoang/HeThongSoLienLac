@@ -1,0 +1,10 @@
+﻿@model DTO.TaiKhoanTruong
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+
+<h2>Đây Là Trang Chủ Giáo Viên</h2>
+@Html.DisplayFor(m=>Model.TaiKhoan)
+@Html.DisplayFor(m => Model.MatKhau)
+

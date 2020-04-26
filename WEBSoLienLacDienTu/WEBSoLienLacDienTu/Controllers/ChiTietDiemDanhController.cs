@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WEBSoLienLacDienTu.Home;
+using DTO;
+using DAL;
+using System.Data;
+using System.Threading.Tasks;
+using WEBSoLienLacDienTu.Models;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -11,10 +16,33 @@ namespace WEBSoLienLacDienTu.Controllers
     public class ChiTietDiemDanhController : Controller
     {
         // GET: ChiTietDiemDanh
-        public ActionResult Index()
+        LienKetPHvsHS lk = new LienKetPHvsHS();
+        ThongTinHS tt = new ThongTinHS();
+        
+
+        public async Task<ActionResult> Index()
         {
-            return View();
+
+            List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+            {
+                lst.Add(new ThongTinHSModels(dr));
+            }
+            return View(lst);
+        }
+        public async Task<ActionResult> ChiTiet()
+        {
+
+            List<DiemDanh> lst = new List<DiemDanh>();
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+            {
+                lst.Add(new DiemDanh(dr));
+            }
+            return View(lst);
         }
         
+        
+
+
     }
 }

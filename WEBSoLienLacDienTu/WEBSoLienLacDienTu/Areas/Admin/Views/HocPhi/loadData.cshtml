@@ -25,8 +25,9 @@
                 <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Edit</th>                                                      
+                            <th></th>
                             <th>Tháng</th>
+                            <th>Loại</th>
                             <th>Số ngày học</th>
                             <th>Tiền học phí</th>
                             <th>Tiền ăn</th>
@@ -53,7 +54,7 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split" id="myRow" onclick="DeleleHS(@item.ID);">
+                                        <a href="#" class="btn btn-danger btn-icon-split" id="myRow" onclick="DeleleHP(@item.ID);">
                                             <span class="icon">
                                                 <i class="fas fa-trash"></i>
                                             </span>
@@ -62,11 +63,25 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                HS00<span>@Html.DisplayFor(modelitem => item.ID)</span>
-                            </td>
+
                             <td>
                                 @Html.DisplayFor(modelitem => item.Thang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelitem => item.IDLoaiHocSinh)
+                                @if (item.IDLoaiHocSinh == 1)
+                                {
+                                    @Html.Label("Nội Trú")
+                                }
+                                else if (item.IDLoaiHocSinh == 2)
+                                {
+                                    @Html.Label("Bán Trú")
+                                }
+                                else if (item.IDLoaiHocSinh == 3)
+                                {
+                                    @Html.Label("Ngoại Trú")
+                                }
+
                             </td>
                             <td>
                                 @Html.DisplayFor(modelitem => item.SoNgayHoc)
@@ -100,3 +115,7 @@
         </div>
     </div>
 </div>
+
+
+ 
+
