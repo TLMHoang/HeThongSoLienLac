@@ -186,6 +186,45 @@ ul ul a {
 .ql-cuphoc-item:hover{
     color:darkorange;
 }
+
+.title-page {
+    font-size: 30px;
+    padding-left: 5px;
+    margin-left: 10px;
+    border-left: 7px solid rgb(255, 169, 63);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.box {
+    background-color: #fafafa;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    color: #4a4a4a;
+    display: block;
+    padding: 1rem;
+}
+.panel table th {
+    width: 100%;
+    display: block;
+    padding-top: 5px;
+    font-weight: 700;
+    color: #f18121;
+}
+.panel table td {
+    padding: 4px 0 15px;
+    width: 100%;
+    display: block;
+}
+.panel table  {
+    width: 50%;
+    margin: 0 auto;
+}
+.panel table tbody {
+    width: 80%;
+}
+.panel table select {
+    width: 100%;
+}
 @media all and (max-width : 550px) {
     .container-fluid {
         padding: 0;

@@ -35,10 +35,10 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         public async Task<ActionResult> DanhSachDiem()
         {
             List<DanhSachBangDiemModel> lst = new List<DanhSachBangDiemModel>();
-            foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem_TheoLopMon(lop.ID, HomeGiaoVienController.TK.IDMonHoc)).Rows)
-            {
-                lst.Add(new DanhSachBangDiemModel(dr));
-            }
+            //foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem(lop.ID, HomeGiaoVienController.TK.IDMonHoc)).Rows)
+            //{
+            //    lst.Add(new DanhSachBangDiemModel(dr));
+            //}
             return View(lst);
         }
 
