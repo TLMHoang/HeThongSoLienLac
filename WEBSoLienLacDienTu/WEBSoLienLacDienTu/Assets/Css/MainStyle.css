@@ -225,6 +225,12 @@ ul ul a {
 .panel table .select {
     width: 100%;
 }
+.menu div .card:hover {
+    background-color: rgb(255, 169, 63);
+}
+.menu div .card {
+    background-color: #fafafa;
+}
 @media all and (max-width : 550px) {
     .container-fluid {
         padding: 0;

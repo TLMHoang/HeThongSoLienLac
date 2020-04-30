@@ -203,7 +203,13 @@
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Assets\Css\UpdateTKTruong.css" />
+    <Content Include="Assets\Img\DiemDanh_Image.png" />
+    <Content Include="Assets\Img\List_Image.png" />
     <Content Include="Assets\Img\logo_User.jpg" />
+    <Content Include="Assets\Img\mark_Image.png" />
+    <Content Include="Assets\Img\TBHocSinh_Image.png" />
+    <Content Include="Assets\Img\TBLop_Image.png" />
+    <Content Include="Assets\Img\ThongBao_Image.png" />
     <Content Include="Assets\Img\Ust.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
