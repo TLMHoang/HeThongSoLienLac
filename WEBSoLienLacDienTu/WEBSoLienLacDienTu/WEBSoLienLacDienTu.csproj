@@ -270,6 +270,10 @@
     <Content Include="Areas\Admin\Views\PhanCongDay\PhanCong.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\ThemPhanCong.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCongDay\CapNhatPhanCong.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\Index2.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\DanhSachChiTiet.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\ThemThongBaoHS.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\CapNhatThongBaoHS.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
