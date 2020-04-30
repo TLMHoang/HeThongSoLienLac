@@ -222,7 +222,7 @@ ul ul a {
 .panel table tbody {
     width: 80%;
 }
-.panel table select {
+.panel table .select {
     width: 100%;
 }
 @media all and (max-width : 550px) {
