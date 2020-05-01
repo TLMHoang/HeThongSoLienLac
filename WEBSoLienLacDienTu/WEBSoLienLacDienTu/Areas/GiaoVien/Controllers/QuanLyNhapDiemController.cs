@@ -34,6 +34,13 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             await LoadLoaiDiem();
             return View();
         }
+
+        public async Task<JsonResult> ThemDiem(BangDiem mark)
+        {
+            mark.IDMonHoc = HomeGiaoVienController.TK.IDMonHoc;
+            return Json(await new BangDiemDAL().Them(mark),JsonRequestBehavior.AllowGet);
+        }
+
         public async Task<ActionResult> DanhSachDiem()
         {
             List<DanhSachBangDiemModel> lst = new List<DanhSachBangDiemModel>();
