@@ -43,12 +43,17 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
 
         public async Task<ActionResult> DanhSachDiem()
         {
+            return View();
+        }
+
+        public async Task<JsonResult> LoadDanhSachDiemFull(byte HocKy)
+        {
             List<DanhSachBangDiemModel> lst = new List<DanhSachBangDiemModel>();
-            //foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem(lop.ID, HomeGiaoVienController.TK.IDMonHoc)).Rows)
-            //{
-            //    lst.Add(new DanhSachBangDiemModel(dr));
-            //}
-            return View(lst);
+            foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem_Full(lop.ID, HomeGiaoVienController.TK.IDMonHoc, HocKy)).Rows)
+            {
+                lst.Add(new DanhSachBangDiemModel(dr));
+            }
+            return Json(lst, JsonRequestBehavior.AllowGet);
         }
 
         public async Task LoadLoaiDiem()
