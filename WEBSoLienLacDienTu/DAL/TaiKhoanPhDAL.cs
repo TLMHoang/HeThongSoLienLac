@@ -111,6 +111,11 @@ namespace DAL
         {
             return await ExecuteScalar<int>("W_SelectTaiKhoanPH_Check",new SqlParameter("@TaiKhoan",SqlDbType.VarChar) {Value = taiKhoan} );
         }
+
+        public async Task<DataTable> Search(string chuoiTimKiem)
+        {
+            return await ExecuteQuery("W_SelectTaiKhoanPH_V2",new SqlParameter("@TaiKhoan",SqlDbType.VarChar) {Value = chuoiTimKiem});
+        }
     }
 }
 

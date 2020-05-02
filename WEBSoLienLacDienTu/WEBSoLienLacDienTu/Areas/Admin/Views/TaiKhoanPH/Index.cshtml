@@ -104,6 +104,60 @@
             <div style="margin: 20px auto">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
         </div>
     </div>
+   
 }
+<div class="container">
+    <div class="modal fade" id="TimKiemModal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+      
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Tìm Kiếm Tài Khoản</h4>
+                    <button type="button"  class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10" style="padding: 6px;">
+                            <input class="form-control" id="searchInput" type="text" placeholder="Nhập Tên Tài Khoản">
+                        </div>
+                        <button class="btn btn-warning col-md-2" onclick="return Loadtable();" style="margin-top: 2px; color: white; font-weight: bold;" id="btnSearch">Tìm Kiếm</button>
+                    </div>
+                    <div class="container-fluid ketqua" style="display: none; margin-top: 6px; ">
+                        <!-- Page Heading -->
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                                        <thead style="background-color: darkorange; color: white; height: 100px;">
+                                            <tr>
+                                                <th></th>
+                                                <th>Mã TK</th>
+                                                <th>Tài Khoản</th>
+                                                <th>Tên Mẹ</th>
+                                                <th>SĐT</th>
+                                                <th>Tên Bố</th>
+                                                <th>SĐT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="TimKiemTable">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script src="~/Areas/Admin/Scripts/TaiKhoanPH.js"></script>

@@ -44,7 +44,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             string sdtBo = f["SDTBo"];
             try
             {
-                if (await tkphDal.CheckExist(taiKhoan) == 1)
+                if (await tkphDal.CheckExist(taiKhoan) > 0)
                 {
                     ModelState.AddModelError("","Tài Khoản Đã Tồn Tại !");
                 }
@@ -101,6 +101,16 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public async Task<JsonResult> ResetPass(int ID)
         {
             return Json(await tkphDal.ResetPass(ID), JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<JsonResult> Search(string chuoiTimKiem)
+        {
+            List<TaiKhoanPH> lst = new List<TaiKhoanPH>();
+            foreach (DataRow dr in (await tkphDal.Search(chuoiTimKiem)).Rows)
+            {
+                lst.Add(new TaiKhoanPH(dr));
+            }
+            return Json(lst, JsonRequestBehavior.AllowGet);
         }
     }
 }
