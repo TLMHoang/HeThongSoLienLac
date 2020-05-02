@@ -118,5 +118,9 @@ namespace DAL
                 new SqlParameter("@IDMon", SqlDbType.Int) { Value = id }
             );
         }
+        public async Task<int> CheckExist(string taiKhoan)
+        {
+            return await ExecuteScalar<int>("W_SelectTaiKhoanTruong_Check", new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = taiKhoan });
+        }
     }
 }

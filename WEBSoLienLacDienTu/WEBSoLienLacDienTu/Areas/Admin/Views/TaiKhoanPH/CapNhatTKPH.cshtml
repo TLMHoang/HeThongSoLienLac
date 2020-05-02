@@ -1,10 +1,9 @@
-﻿@model DTO.TaiKhoanTruong
-
+﻿@model DTO.TaiKhoanPH
 @{
-    ViewBag.Title = "Update";
+    ViewBag.Title = "CapNhatTKPH";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-    var x = Html.Raw(Json.Encode(Model));
 }
+
 <link href="~/Assets/Css/UpdateTKTruong.css" rel="stylesheet" />
 <div class="row">
     <div class="col-md-2"></div>
@@ -22,41 +21,37 @@
                 <div class="row">
                     <div class="col-md">
                         <div class="form-group">
+                            
+
                             <label for="TenTk">Tên Tài Khoản:</label>
-                            @Html.TextBoxFor(m => m.TaiKhoan, new { @class = "form-control", @disabled = "disabled", id = "tenTK" })
+                            @Html.TextBoxFor(m => m.TaiKhoan, new {@class = "form-control", @disabled = "disabled", id = "tenTK"})
                         </div>
                         <div class="form-group">
-                            <label for="TenGV">Tên Giáo Viên :</label>
-                            @Html.TextBoxFor(m => m.TenGV, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label for="SDT">SĐT :</label>
-                            @Html.TextBoxFor(m => m.SDT, new { @class = "form-control", @required = "required" , @maxlength = "10" ,@onkeypress = "return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" })
+                            <label for="TenMe">Tên Mẹ :</label>
+                            @Html.TextBoxFor(m => m.TenMe, new { @class = "form-control", @required = "required" })
                             <div class="valid-feedback">Đã Nhập</div>
                             <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
                         </div>
                         <div class="form-group">
-
-                            <div>
-                                <label for="sel1">Chọn Môn Dạy :</label>
-                                @if (ViewBag.LstMon != null)
-                                {
-                                    @Html.DropDownListFor(m => m.IDMonHoc, ViewBag.LstMon as SelectList, "Vui Lòng Chọn Môn Dạy", new { @class = "form-control" })
-                                }
-                            </div>
-
-                            @Html.HiddenFor(m => m.ID, new { id = "maTK" })
-                            @Html.HiddenFor(m => m.Loai)
+                            <label for="SDTMe">SĐT Mẹ :</label>
+                            @Html.TextBoxFor(m => m.SDTMe, new { @class = "form-control", @required = "required", @maxlength = "10", @onkeypress = "return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" })
+                            <div class="valid-feedback">Đã Nhập</div>
+                            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
                         </div>
                         <div class="form-group">
-                            <div>
-                                <label for="sel2">Chọn Lớp :</label>
-                                @if (ViewBag.LstLop1 != null)
-                                {
-                                    @Html.DropDownListFor(m => m.IDLop, ViewBag.LstLop1 as SelectList, "Vui Lòng Chọn Lớp Chủ Nhiệm ", new { @class = "form-control" })
-                                }
-                            </div>
+                            <label for="TenBo">Tên Bố :</label>
+                            @Html.TextBoxFor(m => m.TenBo, new { @class = "form-control", @required = "required" })
+                            <div class="valid-feedback">Đã Nhập</div>
+                            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
                         </div>
+                        <div class="form-group">
+                            <label for="SDTBo">SĐT Bố :</label>
+                            @Html.TextBoxFor(m => m.SDTBo, new { @class = "form-control", @required = "required", @maxlength = "10", @onkeypress = "return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" })
+                            <div class="valid-feedback">Đã Nhập</div>
+                            <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
+                        </div>
+                        @Html.HiddenFor(m => m.ID,new {id = "maTK" })
+                        @Html.HiddenFor(m=>m.TaiKhoan)
                         <div class="form-group">
                             <input type="submit" name="btnSubmit" class="btnSubmit" value="Cập Nhật" />
                         </div>
@@ -100,4 +95,5 @@
     })();
 </script>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
-<script src="~/Areas/Admin/Scripts/TaiKhoanTruong.js"></script>
+<script src="~/Areas/Admin/Scripts/TaiKhoanPH.js"></script>
+

@@ -54,6 +54,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -142,6 +150,7 @@
     <Compile Include="Areas\Admin\Controllers\QuanLyLopController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyMonHocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyThongTinHSController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaiKhoanPHController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanTruongController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
@@ -193,6 +202,7 @@
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyNhapDiemGV.js" />
+    <Content Include="Areas\Admin\Scripts\TaiKhoanPH.js" />
     <Content Include="Areas\Admin\Scripts\TaiKhoanTruong.js" />
     <Content Include="Areas\Admin\Scripts\ThemPhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\ThoiKhoaBieu.js" />
@@ -215,6 +225,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -280,6 +291,9 @@
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\DanhSachChiTiet.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\ThemThongBaoHS.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThongBaoCaNhanGV\CapNhatThongBaoHS.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanPH\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanPH\ThemTaiKhoanPH.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanPH\CapNhatTKPH.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
