@@ -145,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LienKetTaiKhoanPHController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongDayController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyDiemController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyLopController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachBangDiemModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachDiemModel.cs" />
+    <Compile Include="Areas\Admin\Models\DanhSachLienKetPhModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachTaiKhoanTruongModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
     <Compile Include="Areas\Admin\Models\getKhoiModel.cs" />
@@ -294,6 +296,8 @@
     <Content Include="Areas\Admin\Views\TaiKhoanPH\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanPH\ThemTaiKhoanPH.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanPH\CapNhatTKPH.cshtml" />
+    <Content Include="Areas\Admin\Views\LienKetTaiKhoanPH\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LienKetTaiKhoanPH\LoadTable.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -1,0 +1,61 @@
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.GetClassModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="title-page"><h2>Trang Quản Lý Liên Kết Tài Khoản </h2></div>
+    <hr />
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
+            <form>
+                <label for="sel1">Chọn Khối:</label>
+                <div class="input-group mb-3 ">
+                    @if (ViewBag.LstKhoi != null)
+                    {
+                        @Html.DropDownListFor(model => model.IDKhoi, ViewBag.LstKhoi as SelectList, "Vui Lòng Chọn Khối", new { @class = "form-control" })
+                    }
+                </div>
+                <label for="sel1">Chọn Lớp:</label>
+                <div class="input-group mb-3 ">
+                    @Html.DropDownListFor(model => model.ID, new SelectList(" "), "Vui Lòng Chọn Lớp", new { @class = "form-control" })
+                </div>
+                <button type="submit" id="TaiDuLieu" class="btn btn-warning">Chọn</button>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#IDKhoi").change(function () {
+                $.get("/QuanLyThongTinHS/LoadListLop", { IDKhoi: $("#IDKhoi").val() }, function (data) {
+                    $("#ID").empty();
+                    $.each(data, function (index, row) {
+                        $("#ID").append("<option value='" + row.Value + "'>" + row.Text + "</option>")
+                    });
+                });
+            })
+            $("#IDKhoi").change();
+        });
+        @*$(function () {
+
+            $(document).on("click", "#TaiDuLieu", function (e) {
+                e.preventDefault();
+                var newUrl = "@Url.Action("LoadTable","QuanLyThongTinHS")?id=" + $("#ID").val();
+                window.location.href = newUrl;
+            });
+
+        });*@
+    </script>
+
+}
