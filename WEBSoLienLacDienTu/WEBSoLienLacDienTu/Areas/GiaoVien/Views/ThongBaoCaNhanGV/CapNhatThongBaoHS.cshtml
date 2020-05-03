@@ -1,7 +1,7 @@
-﻿@model DTO.ThongBaoTruong
+﻿@model DTO.ThongBaoHS
 @{
-    ViewBag.Title = "Update";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "CapNhatThongBaoHS";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
 
 @using (Html.BeginForm())
@@ -9,9 +9,7 @@
     @Html.AntiForgeryToken()
 
 
-    <div class="title-page">
-        <h2>Cập Nhật Thông Báo Trường</h2>
-    </div>
+    <h2>Cập Nhật Thông Báo Học Sinh</h2>
     <hr />
     <div class="container">
 
@@ -22,6 +20,7 @@
                 @Html.TextAreaFor(m => m.NoiDung, 10, 10, new { @class = "form-control" })
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(m => m.ID)
+                @Html.HiddenFor(m => m.IDHocSinh)
                 @Html.HiddenFor(m => m.Ngay)
                 @Html.HiddenFor(m => m.IDLoaiThongBao)
             </div>

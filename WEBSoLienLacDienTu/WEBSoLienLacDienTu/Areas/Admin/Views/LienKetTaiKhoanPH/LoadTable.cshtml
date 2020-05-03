@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "LoadTable";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var ID = ViewContext.RouteData.Values["id"];
+}
+
+
+<hr />
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Admin/HomeAdmin/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div>
+        <div class="title-page"><h2>Tài Khoản Liên Kết</h2></div>
+    </div>
+</div>
+<hr />
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div style="border-style: groove">
+        <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
+        <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                    <thead style="background-color: darkorange; color: white;">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>Mã Học Sinh</th>
+                            <th>Tên Học Sinh</th>
+                            <th width="30%">Tài Khoản Phụ Huynh Liên Kết</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DanhSachLienKetPhModel>)
+                        {
+                            <tr>
+                                <td width="8%">
+                                    @if (item.TaiKhoan == "")
+                                    {
+                                        <a href="#" style="width: 100%;" class="btn btn-success btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-plus-square"></i>
+                                            </span>
+                                            <span>Thêm</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" style="width: 100%;" class="btn btn-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-pen-square"></i>
+                                            </span>
+                                            <span>Sửa</span>
+                                        </a>
+                                    }
+                                </td>
+                                <td width="8%">
+                                    <a href="#" style="width: 100%;" class="btn btn-danger btn-icon-split" id="myRow">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span>Xóa</span>
+                                    </a>
+                                </td>
+                                <td>
+                                    HS00<span>@Html.DisplayFor(modelitem => item.ID)</span>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Ten)
+                                </td>
+                                <td>
+                                    @if (item.TaiKhoan == "")
+                                    {
+                                        <label>Chưa Có</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="font-weight: bold; color: red;">@item.TaiKhoan</label>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    $(document).ready(
+        $.ajax({
+            url: "/QuanLyThongTinHS/LoadTenLopByID/" + @ID,
+            typr: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $('#maLop').text("Mã Lớp : "+result.ID);
+                $('#tenLop').text("Tên Lớp : "+result.TenKhoi + result.TenLop);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        })
+    );
+
+</script>

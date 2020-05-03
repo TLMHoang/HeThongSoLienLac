@@ -4,19 +4,113 @@
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
 
-<h2>Trang Nhập Điểm</h2>
-<hr />
-<div class="row">
-    <div style="margin-left: 10px">
-        <a href="@Url.Action("DanhSachDiem")" class="btn btn-success btn-icon-split" style="margin: 2px 10px" id="Excel">
-            <span class="icon text-white-50">
-                <i class="fas fa-clipboard-list"></i>
-            </span>
-            <span>Xem Danh Sách Điểm</span>
-        </a>
-    </div>
-    <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton"><i class="fas fa-sign-out-alt"></i></button>
-</div>
+<div class="title-page">Nhập Điểm</div>
 
-<hr />
+<div class="box">
+    <div class="row">
+        <div style="margin-left: 10px">
+            <a href="@Url.Action("DanhSachDiem")" class="btn btn-success btn-icon-split" style="margin: 2px 10px">
+                <span class="icon text-white-50">
+                    <i class="fas fa-clipboard-list"></i>
+                </span>
+                <span>Xem Bảng Danh Sách Điểm</span>
+            </a>
+        </div>
+        <div style="margin-left: 5px">
+            <a href="#" class="btn btn-success btn-icon-split" style="margin: 2px 10px">
+                <span class="icon text-white-50">
+                    <i class="fas fa-file-excel"></i>
+                </span>
+                <span>Nhập Điểm Bằng Excel</span>
+            </a>
+        </div>
+        <button class="btn btn-danger" style="margin-left: 10px" onclick="location.href = '/GiaoVien/HomeGiaoVien/Index';"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+    <hr style="margin: 12px 0;"/>
+    <div class="panel" style="margin-top: 20px">
+        <table>
+            <tbody>
+            <tr>
+                <th>Học Kỳ</th>
+                <td>
+                    <div>
+                        @Html.DropDownList("LstHocKy",
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem {Text = "Học Kỳ I",Value = "1"},
+                                new SelectListItem {Text = "Học Kỳ II",Value = "0"},
+                            }
+                            , null, new { @class = "form-control" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Loại Điểm</th>
+                <td>
+                    <div>
+                        @if (ViewBag.LstLoaiDiem != null)
+                        {
+                            @Html.DropDownList("LstLoaiDiem", ViewBag.LstLoaiDiem as SelectList,new {@class = "form-control",id="LstLoaiDiem"})
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Lần</th>
+                <td>
+                    <div>
+                        @Html.DropDownList("LstSoLan", new SelectList(" "), new { @class = "form-control" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-warning font-weight-bold" id="submitButton" style="color: white;">Xác Nhận</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top: 10px;">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Điểm
+                        <span><label id="lblLoaiDiem" style="color: red"></label></span>
+                        <span><label id="lblLan" style="color: red"></label></span>
+                        </h6>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Mã Học Sinh</th>
+                        <th>Họ Và Tên</th>
+                        <th>Điểm</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbody">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Areas/Admin/Scripts/QuanLyNhapDiemGV.js"></script>
+    
+
+
 

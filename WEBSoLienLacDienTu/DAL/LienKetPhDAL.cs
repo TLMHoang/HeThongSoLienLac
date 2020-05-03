@@ -19,6 +19,12 @@ namespace DAL
                 );
         }
 
+        public async Task<DataTable> LayDT_DanhSach(int idLop)
+        {
+            return await ExecuteQuery("W_SelectLienKetPHvsHS_ByIdLop",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = idLop });
+        }
+
         public async Task<DataTable> LayDT()
         {
             return await ExecuteQuery("SelectHsvsPH",

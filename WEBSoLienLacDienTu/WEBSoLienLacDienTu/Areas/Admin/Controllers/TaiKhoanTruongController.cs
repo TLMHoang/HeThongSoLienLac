@@ -65,9 +65,16 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
             if (mon != "" && lopDay != "")
             {
-                if (await tkDal.Them(new TaiKhoanTruong(-1, tenTk, tenTk, Loai, tenGV, sdt, int.Parse(mon), int.Parse(lopDay))) != 0)
+                if (await tkDal.CheckExist(tenTk) > 0)
                 {
-                    return RedirectToAction("Index");
+                    ModelState.AddModelError("","Tài Khoản Đã Tồn Tại !");
+                }
+                else
+                {
+                    if (await tkDal.Them(new TaiKhoanTruong(-1, tenTk, tenTk, Loai, tenGV, sdt, int.Parse(mon), int.Parse(lopDay))) != 0)
+                    {
+                        return RedirectToAction("Index");
+                    }
                 }
             }
             else

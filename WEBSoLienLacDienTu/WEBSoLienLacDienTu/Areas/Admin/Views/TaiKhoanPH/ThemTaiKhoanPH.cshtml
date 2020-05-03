@@ -1,20 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "ThemTaiKhoanPH";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    <h2>Tạo Mới Tài Khoản Trường</h2>
-    <hr/>
+    <h2>Tạo Mới Tài Khoản Phụ Huynh</h2>
+    <hr />
     <div class="container">
         <form class="needs-validation" novalidate>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 <label for="TenTk">Tên Tài Khoản:</label>
-                <input type="text" class="form-control" id="TenTk" placeholder="Nhập Tên Tài Khoản ..." name="TenTk" required>
+                <input type="text" class="form-control" id="TenTk" placeholder="Nhập Tên Tài Khoản ...(SĐT)" maxlength="10" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" name="TenTk" required>
                 <div class="valid-feedback">Đã Nhập</div>
                 <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
             </div>
@@ -23,35 +23,28 @@
                 <input type="text" class="form-control" id="TenTk" name="mk" value="Mật Khẩu Khi Tạo Mới Là Tên Tài Khoản" disabled="disabled">
             </div>
             <div class="form-group">
-                <label for="TenGV">Tên Giáo Viên :</label>
-                <input type="text" class="form-control" id="TenGV" placeholder="Nhập Tên" name="TenGV" required>
+                <label for="TenMe">Tên Mẹ :</label>
+                <input type="text" class="form-control" id="TenMe" placeholder="Nhập Tên" name="TenMe" required>
                 <div class="valid-feedback">Đã Nhập</div>
                 <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
             </div>
             <div class="form-group">
-                <label for="SDT">SĐT :</label>
-                <input type="text" maxlength="10" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="form-control" id="SDT" placeholder="Nhập SĐT" name="SDT" required>
+                <label for="SDTMe">SĐT :</label>
+                <input type="text" maxlength="10" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="form-control" id="SDTMe" placeholder="Nhập SĐT" name="SDTMe" required>
                 <div class="valid-feedback">Đã Nhập</div>
                 <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
             </div>
             <div class="form-group">
-                <label for="sel1">Chọn Môn Dạy :</label>
-                @if (ViewBag.LstMon != null)
-                {
-                    @Html.DropDownList("LstMon", ViewBag.LstMon as SelectList, "Vui Lòng Chọn Môn Dạy", new {@class = "form-control"})
-                }
+                <label for="TenBo">Tên Bố :</label>
+                <input type="text" class="form-control" id="TenBo" placeholder="Nhập Tên" name="TenBo" required>
+                <div class="valid-feedback">Đã Nhập</div>
+                <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
             </div>
             <div class="form-group">
-                <label for="sel2">Chọn Lớp :</label>
-                @if (ViewBag.LstLop != null)
-                {
-                    @Html.DropDownList("LstLop", ViewBag.LstLop as SelectList, "Vui Lòng Chọn Lớp Chủ Nhiệm ", new {@class = "form-control"})
-                }
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="Loai"> Quyền Quản Lý
-                </label>
+                <label for="SDTBo">SĐT :</label>
+                <input type="text" maxlength="10" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="form-control" id="SDTBo" placeholder="Nhập SĐT" name="SDTBo" required>
+                <div class="valid-feedback">Đã Nhập</div>
+                <div class="invalid-feedback">Vui Lòng Điền Thông Tin !</div>
             </div>
 
             <button type="submit" class="btn btn-warning">Thêm Mới</button>
@@ -83,5 +76,6 @@
                 false);
         })();
     </script>
-    <hr/>
 }
+
+

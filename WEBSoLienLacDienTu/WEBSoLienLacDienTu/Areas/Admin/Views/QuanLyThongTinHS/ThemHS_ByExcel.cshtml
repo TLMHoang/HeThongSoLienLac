@@ -12,8 +12,8 @@
         <hr />
         @using (Html.BeginForm("ThemHS_ByExcel", "QuanLyThongTinHS", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            @Html.TextBoxFor(m => m.file, new { type = "file" })
-            <button class="btn btn-warning" id="submitButton" type="submit">Nhập</button>
+            @Html.TextBoxFor(m => m.file, new { type = "file",name= "UploadedFile" })
+            <button class="btn btn-warning" id="submitButton" name="Import" type="submit">Nhập</button>
             @Html.ValidationMessageFor(model => model.file, null, new { @class = "text-danger" })
         }
         <hr />

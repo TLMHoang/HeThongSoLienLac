@@ -18,13 +18,24 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
                 new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
                 new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
-                new SqlParameter("@TenMe", SqlDbType.Bit) { Value = obj.TenMe },
+                new SqlParameter("@TenMe", SqlDbType.NVarChar) { Value = obj.TenMe },
                 new SqlParameter("@SDTMe", SqlDbType.VarChar) { Value = obj.SDTMe },
-                new SqlParameter("@TenBo", SqlDbType.VarChar) { Value = obj.TenBo },
-                new SqlParameter("@SDTBo", SqlDbType.Int) { Value = obj.SDTBo }
+                new SqlParameter("@TenBo", SqlDbType.NVarChar) { Value = obj.TenBo },
+                new SqlParameter("@SDTBo", SqlDbType.VarChar) { Value = obj.SDTBo }
                 );
         }
-
+        public async Task<int> CapNhapTT(TaiKhoanPH obj)
+        {
+            return await ExecuteNonQuery(
+                "W_UpdateTaiKhoanPH",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
+                new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
+                new SqlParameter("@TenMe", SqlDbType.NVarChar) { Value = obj.TenMe },
+                new SqlParameter("@SDTMe", SqlDbType.VarChar) { Value = obj.SDTMe },
+                new SqlParameter("@TenBo", SqlDbType.NVarChar) { Value = obj.TenBo },
+                new SqlParameter("@SDTBo", SqlDbType.VarChar) { Value = obj.SDTBo }
+            );
+        }
         public async Task<DataTable> LayDT()
         {
             return await ExecuteQuery(
@@ -56,13 +67,12 @@ namespace DAL
         {
             return await ExecuteNonQuery(
                 "InsertTaiKhoanPH",
-                new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
                 new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = obj.TaiKhoan },
                 new SqlParameter("@MatKhau", SqlDbType.VarChar) { Value = obj.MatKhau },
-                new SqlParameter("@TenMe", SqlDbType.Bit) { Value = obj.TenMe },
+                new SqlParameter("@TenMe", SqlDbType.NVarChar) { Value = obj.TenMe },
                 new SqlParameter("@SDTMe", SqlDbType.VarChar) { Value = obj.SDTMe },
-                new SqlParameter("@TenBo", SqlDbType.VarChar) { Value = obj.TenBo },
-                new SqlParameter("@SDTBo", SqlDbType.Int) { Value = obj.SDTBo }
+                new SqlParameter("@TenBo", SqlDbType.NVarChar) { Value = obj.TenBo },
+                new SqlParameter("@SDTBo", SqlDbType.VarChar) { Value = obj.SDTBo }
                 );
         }
 
@@ -85,9 +95,26 @@ namespace DAL
             return await ExecuteNonQuery(
                 "DoiMatKhauPH",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID },
-                new SqlParameter("@MatKhauCu", SqlDbType.NVarChar) { Value = MatKhauCu },
-                new SqlParameter("@MatKhauMoi", SqlDbType.NVarChar) { Value = MatKhauMoi }
+                new SqlParameter("@MatKhauCu", SqlDbType.VarChar) { Value = MatKhauCu },
+                new SqlParameter("@MatKhauMoi", SqlDbType.VarChar) { Value = MatKhauMoi }
                 );
+        }
+
+        public async Task<int> ResetPass(int ID)
+        {
+            return await ExecuteNonQuery("W_UpdateResetPassTaiKhoanPH",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
+        }
+
+        public async Task<int> CheckExist(string taiKhoan)
+        {
+            return await ExecuteScalar<int>("W_SelectTaiKhoanPH_Check",new SqlParameter("@TaiKhoan",SqlDbType.VarChar) {Value = taiKhoan} );
+        }
+
+        public async Task<DataTable> Search(string chuoiTimKiem)
+        {
+            return await ExecuteQuery("W_SelectTaiKhoanPH_V2",new SqlParameter("@TaiKhoan",SqlDbType.VarChar) {Value = chuoiTimKiem});
         }
     }
 }

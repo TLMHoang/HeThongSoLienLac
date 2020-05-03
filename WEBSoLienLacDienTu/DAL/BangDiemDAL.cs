@@ -18,7 +18,7 @@ namespace DAL
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc },
                 new SqlParameter("@IDLoaiDiem", SqlDbType.Int) { Value = obj.IDLoaiDiem },
-                new SqlParameter("@NgayNhap", SqlDbType.DateTime) { Value = obj.NgayNhap },
+                new SqlParameter("@CotDiem", SqlDbType.Int) { Value = obj.CotDiem },
                 new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
                 new SqlParameter("@HocKyI", SqlDbType.Bit) { Value = obj.HocKyI }
             );
@@ -52,9 +52,9 @@ namespace DAL
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@IDMonHoc", SqlDbType.Int) { Value = obj.IDMonHoc },
                 new SqlParameter("@IDLoaiDiem", SqlDbType.Int) { Value = obj.IDLoaiDiem },
-                new SqlParameter("@NgayNhap", SqlDbType.DateTime) { Value = obj.NgayNhap },
                 new SqlParameter("@Diem", SqlDbType.Float) { Value = obj.Diem },
-                new SqlParameter("@HocKyI", SqlDbType.Bit) { Value = obj.HocKyI }
+                new SqlParameter("@HocKyI", SqlDbType.Bit) { Value = obj.HocKyI },
+                new SqlParameter("@CotDiem", SqlDbType.Int) { Value = obj.CotDiem }
             );
         }
 
@@ -65,12 +65,24 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
-        public async Task<DataTable> LayDanhSachDiem_TheoLopMon(int idLop,int idMon)
+        public async Task<DataTable> LayDanhSachDiem(int idLop,int idMon,int idLoaiDiem,int lan,int hocKyI)
         {
-            return await ExecuteQuery("W_SelectBangDiem_ByIdLopIdMon",
+            return await ExecuteQuery("W_SelectBangDiem_V2",
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = idLop },
-                new SqlParameter("@IDMon", SqlDbType.Int) { Value = idMon }
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = idMon },
+                new SqlParameter("@IDloaiDiem", SqlDbType.Int) { Value = idLoaiDiem },
+                new SqlParameter("@Lan", SqlDbType.Int) { Value = lan },
+                new SqlParameter("@HocKyI", SqlDbType.Bit) { Value = hocKyI }
                 );
+        }
+        public async Task<DataTable> LayDanhSachDiem_Full(int idLop,int idMon,byte hocKy)
+        {
+            return await ExecuteQuery("W_SelectBangDiem_Full",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = idLop },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = idMon },
+                new SqlParameter("@HocKy", SqlDbType.Bit) { Value = hocKy }
+
+            );
         }
         public async Task<DataTable> LayDanhSachDiem_ID(int id)
         {

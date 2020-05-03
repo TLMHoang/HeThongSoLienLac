@@ -81,60 +81,106 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ThemHS_ByExcel(ImportExcel importExcel)
+        public async Task<ActionResult> ThemHS_ByExcel(ImportExcel importExcel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    string path = Server.MapPath("~/Content/Upload/" + importExcel.file.FileName);
-                    importExcel.file.SaveAs(path);
-
-                    string excelConnectionString = @"Provider='Microsoft.ACE.OLEDB.12.0';Data Source='" + path + "';Extended Properties='Excel 12.0 Xml;IMEX=1;HDR=YES'";
-                    OleDbConnection excelConnection = new OleDbConnection(excelConnectionString);
-
-                    //Sheet Name
-                    excelConnection.Open();
-                    string tableName = excelConnection.GetSchema("Tables").Rows[0]["TABLE_NAME"].ToString();
-                    excelConnection.Close();
-                    //End
-
-                    OleDbCommand cmd = new OleDbCommand("Select * from [" + tableName + "]", excelConnection);
-
-                    excelConnection.Open();
-
-                    OleDbDataReader dReader;
-                    dReader = cmd.ExecuteReader();
-                    SqlBulkCopy sqlBulk = new SqlBulkCopy(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
-
-                    //Give your Destination table name
-                    sqlBulk.DestinationTableName = "ThongTinHS";
-
-                    //Mappings
-                    sqlBulk.ColumnMappings.Add("Tên", "Ten");
-                    sqlBulk.ColumnMappings.Add("Ngày Sinh", "NgaySinh");
-                    sqlBulk.ColumnMappings.Add("Giới Tính", "GioiTinh");
-                    sqlBulk.ColumnMappings.Add("Nơi Sinh", "NoiSinh");
-                    sqlBulk.ColumnMappings.Add("Dân Tộc", "DanToc");
-                    sqlBulk.ColumnMappings.Add("Tôn Giáo", "TonGiao");
-                    sqlBulk.ColumnMappings.Add("Mã Lớp", "IDLop");
-                    sqlBulk.ColumnMappings.Add("Mã Chương Trình Học", "IDLoaiHocSinh");
-
-                    sqlBulk.WriteToServer(dReader);
-                    excelConnection.Close();
-
-                    ViewBag.Result = "Nhập Dữ Liệu Thành Công !";
-                    return RedirectToAction("LoadTable", "QuanLyThongTinHS", new { id = lop.ID });
+                    if (Request != null)
+                    {
+                        DataTable dt = new DataTable();
+                        HttpPostedFileBase file = importExcel.file;
+                        if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                        {
+                            string fileName = file.FileName;
+                            string path = Server.MapPath("~/Content/Upload/" + fileName);
+                            file.SaveAs(path);
+                            var excelData = new ExcelData(path);
+                            var sData = excelData.getData("Sheet1");
+                            List<ThongTinHS> list = new List<ThongTinHS>();
+                            dt = sData.CopyToDataTable();
+                            foreach (DataRow item in dt.Rows)
+                            {
+                                ThongTinHS hs = new ThongTinHS();
+                                await new ThongTinHSDAL().ThemTTHS(
+                                    hs.Ten = item["Tên"].ToString(),
+                                    hs.NgaySinh = Convert.ToDateTime(item["Ngày Sinh"]),
+                                    hs.GioiTinh = Convert.ToByte(item["Giới Tính"]),
+                                    hs.NoiSinh = item["Nơi Sinh"].ToString(),
+                                    hs.DanToc = item["Dân Tộc"].ToString(),
+                                    hs.TonGiao = item["Tôn Giáo"].ToString(),
+                                    hs.IDLop= Convert.ToInt32(item["Mã Lớp"]),
+                                    hs.IDLoaiHocSinh = Convert.ToInt32(item["Mã Chương Trình Học"])
+                                );
+                            }
+                            return RedirectToAction("LoadTable", "QuanLyThongTinHS", new { id = lop.ID });
+                        }
+                    }
                 }
             }
-            catch (Exception )
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 ViewBag.Loi = "Nhập Dữ Liệu Thất Bại ,Kiểm Tra Lại Định Dạng File Excel !";
             }
-            
             return View();
         }
-        
+        //[HttpPost]
+        //public ActionResult ThemHS_ByExcel(ImportExcel importExcel)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            string path = Server.MapPath("~/Content/Upload/" + importExcel.file.FileName);
+        //            importExcel.file.SaveAs(path);
+
+        //            string excelConnectionString = @"Provider='Microsoft.ACE.OLEDB.12.0';Data Source='" + path + "';Extended Properties='Excel 12.0 Xml;IMEX=1;HDR=YES'";
+        //            OleDbConnection excelConnection = new OleDbConnection(excelConnectionString);
+
+        //            //Sheet Name
+        //            excelConnection.Open();
+        //            string tableName = excelConnection.GetSchema("Tables").Rows[0]["TABLE_NAME"].ToString();
+        //            excelConnection.Close();
+        //            //End
+
+        //            OleDbCommand cmd = new OleDbCommand("Select * from [" + tableName + "]", excelConnection);
+
+        //            excelConnection.Open();
+
+        //            OleDbDataReader dReader;
+        //            dReader = cmd.ExecuteReader();
+        //            SqlBulkCopy sqlBulk = new SqlBulkCopy(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
+
+        //            //Give your Destination table name
+        //            sqlBulk.DestinationTableName = "ThongTinHS";
+
+        //            //Mappings
+        //            sqlBulk.ColumnMappings.Add("Tên", "Ten");
+        //            sqlBulk.ColumnMappings.Add("Ngày Sinh", "NgaySinh");
+        //            sqlBulk.ColumnMappings.Add("Giới Tính", "GioiTinh");
+        //            sqlBulk.ColumnMappings.Add("Nơi Sinh", "NoiSinh");
+        //            sqlBulk.ColumnMappings.Add("Dân Tộc", "DanToc");
+        //            sqlBulk.ColumnMappings.Add("Tôn Giáo", "TonGiao");
+        //            sqlBulk.ColumnMappings.Add("Mã Lớp", "IDLop");
+        //            sqlBulk.ColumnMappings.Add("Mã Chương Trình Học", "IDLoaiHocSinh");
+
+        //            sqlBulk.WriteToServer(dReader);
+        //            excelConnection.Close();
+
+        //            ViewBag.Result = "Nhập Dữ Liệu Thành Công !";
+        //            return RedirectToAction("LoadTable", "QuanLyThongTinHS", new { id = lop.ID });
+        //        }
+        //    }
+        //    catch (Exception )
+        //    {
+        //        ViewBag.Loi = "Nhập Dữ Liệu Thất Bại ,Kiểm Tra Lại Định Dạng File Excel !";
+        //    }
+
+        //    return View();
+        //}
+
         public async Task<ActionResult> CapNhatHS(int id)
         {
             DataTable dt = new DataTable();

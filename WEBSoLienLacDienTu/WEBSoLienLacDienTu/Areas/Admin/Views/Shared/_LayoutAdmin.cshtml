@@ -10,7 +10,8 @@
     <title>E-School | US Team</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -52,7 +53,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">@Html.ActionLink("Nhập Điểm", "Index", "QuanLyDiem")</li>
+                @*<li class="active">@Html.ActionLink("Nhập Điểm", "Index", "QuanLyDiem")</li>*@
                 <li class="active">@Html.ActionLink("Quản Lý Thông Tin Học Sinh", "Index", "QuanLyThongTinHS")</li>
                 <li class="active">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
@@ -74,7 +75,10 @@
                                 @Html.ActionLink("Quản Lý Tài Khoản Trường", "Index", "TaiKhoanTruong")
                             </li>
                             <li>
-                                <a href="#">Tài Khoản Phụ Huynh</a>
+                                @Html.ActionLink("Quản Lý Tài Khoản Phụ Huynh", "Index", "TaiKhoanPH")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Quản Lý Liên Kết PHHS", "Index", "LienKetTaiKhoanPH")
                             </li>
                         </ul>
                 </li>

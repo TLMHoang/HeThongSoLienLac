@@ -3,6 +3,19 @@
     ViewBag.Title = "DanhSachDiem";
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
+<div class="box" style="margin-bottom: 5px; ">
+
+    <div style="width: 50%; margin: 0 auto;">
+        @Html.DropDownList("LstHocKy",
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Học Kỳ I",Value = "1"},
+                    new SelectListItem {Text = "Học Kỳ II",Value = "0"},
+                }
+                , null, new { @class = "form-control" ,id="LstHocKy"})
+    </div>
+
+</div>
 <div class="container-fluid">
     <!-- Page Heading -->
     <!-- DataTales Example -->
@@ -17,114 +30,159 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
                     <thead>
                         <tr>
+                            <th></th>
+                            <th colspan="5">Điểm Miệng</th>
+                            <th colspan="5">Điểm 15P</th>
+                            <th colspan="5">Điểm 1 Tiết</th>
+                            <th>Điểm Học Kỳ</th>
+                        </tr>
+                        <tr>
                             <th>Tên</th>
-                            <th>Điểm Miệng</th>
-                            <th>15P Lần 1</th>
-                            <th>15P Lần 2</th>
-                            <th>15P Lần 3</th>
-                            <th>1 Tiết L1</th>
-                            <th>1 Tiết L2</th>
-                            <th>1 Tiết L3</th>
-                            <th>Học Kỳ</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th></th>
                         </tr>
                     </thead>
 
-                    <tbody id="myTable">
-                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DanhSachBangDiemModel>)
-                        {
-                            <tr>
-                                <td>@item.Ten</td>
-                                <td>
-                                    @if (item.DiemMieng == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item.DiemMieng
-                                    }
-                                </td>
-                                <td>
-                                    @if (item._15p_1 == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item._15p_1
-                                    }
-                                </td>
-                                <td>
-                                    @if (item._15p_2 == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item._15p_2
-                                    }
-                                </td>
-                                <td>
-                                    @if (item._15p_3 == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item._15p_3
-                                    }
-                                </td>
-                                <td>
-                                    @if (item._1t_1== -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item._1t_1
-                                    }
-                                </td>
-                                <td>
-                                    @if (item._1t_2 == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item._1t_2
-                                    }
-                                </td>
-                                <td>
-                                    @if (item._1t_3 == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item._1t_3
-                                    }
-                                </td>
-                                <td>
-                                    @if (item.HocKy == -1)
-                                    {
-                                        <label></label>
-                                    }
-                                    else
-                                    {
-                                        @item.HocKy
-                                    }
-                                </td>
-                            </tr>
-
-                        }
-                    </tbody>
+                    <tbody id="myTable" class="tbody"></tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript">
+    function Loadtable() {
+            var HocKy = $("[name='LstHocKy']").val();
+            $.ajax({
+                url: "/QuanLyNhapDiem/LoadDanhSachDiemFull",
+                data: { HocKy: HocKy },
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    $.each(result,
+                        function (key, item) {
+                            html += '<tr>';
+                            html += '<td>' + item.Ten + '</td>';
+                            if (item.DiemMieng1 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item.DiemMieng1 + '</td>';
+                            }
+                            if (item.DiemMieng2 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item.DiemMieng2 + '</td>';
+                            }
+                            if (item.DiemMieng3 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item.DiemMieng3 + '</td>';
+                            }
+                            if (item.DiemMieng4 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item.DiemMieng4 + '</td>';
+                            }
+                            if (item.DiemMieng5 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item.DiemMieng5 + '</td>';
+                            }
+                            if (item._15p_1 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._15p_1 + '</td>';
+                            }
+                            if (item._15p_2 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._15p_2 + '</td>';
+                            }
+                            if (item._15p_3 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._15p_3 + '</td>';
+                            }
+                            if (item._15p_4 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._15p_4 + '</td>';
+                            }
+                            if (item._15p_5 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._15p_5 + '</td>';
+                            }
+                            if (item._1t_1 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._1t_1 + '</td>';
+                            }
+                            if (item._1t_2 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._1t_2 + '</td>';
+                            }
+                            if (item._1t_3 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._1t_3 + '</td>';
+                            }
+                            if (item._1t_4 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._1t_4 + '</td>';
+                            }
+                            if (item._1t_5 == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item._1t_5 + '</td>';
+                            }
+                            if (item.HocKy == -1) {
+                                html += '<td></td>';
+                            } else {
+                                html += '<td>' + item.HocKy + '</td>';
+                            }
+                            html += '</tr>';
+                        });
+                    $('.tbody').html(html);
 
+                },
+                error: function () {
+                    alert("Load Thông Tin Thất Bại !");
+                }
+            });
+        }
+    
+    $(document).ready(function() {
+        $(function () {
+            $('#LstHocKy').change(function () {
+                Loadtable();
+            });
+            $('#LstHocKy').change();
+        });
+    });
+
+
+</script>

@@ -42,7 +42,7 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            Thông Báo Học Sinh
+                            @Html.ActionLink("Thông Báo Học Sinh", "Index2", "ThongBaoCaNhanGV")
                         </li>
                         <li>
                             @Html.ActionLink("Thông Báo Lớp","Index","ThongBaoCaNhanGV")
@@ -55,10 +55,7 @@
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            @Html.ActionLink("Vắng", "Index", "DiemDanh")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Cúp Học", "CupHoc", "DiemDanh")
+                           <a href="#">Vắng</a>
                         </li>
                     </ul>
                 </li>

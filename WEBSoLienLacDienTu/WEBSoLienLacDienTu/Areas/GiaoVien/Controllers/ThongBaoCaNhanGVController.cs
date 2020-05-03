@@ -18,6 +18,108 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
     public class ThongBaoCaNhanGVController : Controller
     {
         // GET: GiaoVien/ThongBaoCaNhan
+        public static int idhs;
+
+        #region ThongBaoHocSinh
+
+        public async Task<ActionResult> Index2()
+        {
+            List<ThongTinHS> lst = new List<ThongTinHS>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(HomeGiaoVienController.TK.IDLop)).Rows)
+            {
+                lst.Add(new ThongTinHS(dr));
+            }
+            return View(lst);
+        }
+        public async Task<ActionResult> DanhSachChiTiet(int id)
+        {
+            idhs = id;
+            List<ThongBaoHS> lst = new List<ThongBaoHS>();
+            foreach (DataRow dr in (await new ThongBaoHSDAL().LayDT_TheoIDHS(id)).Rows)
+            {
+                lst.Add(new ThongBaoHS(dr));
+            }
+            return View(lst);
+        }
+        public ActionResult ThemThongBaoHS(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> ThemThongBaoHS(int id, FormCollection f)
+        {
+            ThongBaoHS hs = new ThongBaoHS();
+            var noidung = f["text"];
+            if (noidung.Length == 0)
+            {
+                ModelState.AddModelError("", "Vui Lòng Nhập Nội Dung !");
+            }
+            else
+            {
+                try
+                {
+                    hs.IDHocSinh = id;
+                    hs.NoiDung = noidung;
+                    hs.Ngay = DateTime.Now;
+                    hs.IDLoaiThongBao = 1;
+                    if (await new ThongBaoHSDAL().Them(hs) != 0)
+                    {
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs });
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return View();
+        }
+
+        public async Task<ActionResult> CapNhatThongBaoHS(int id)
+        {
+            ThongBaoHS tbhs = new ThongBaoHS();
+            DataTable dt = await new ThongBaoHSDAL().LayDT(id);
+            tbhs = new ThongBaoHS(dt.Rows[0]);
+            return View(tbhs);
+        }
+        [HttpPost]
+        public async Task<ActionResult> CapNhatThongBaoHS(int id, ThongBaoHS tbhs)
+        {
+            if (tbhs.NoiDung.Length == 0)
+            {
+                ModelState.AddModelError("", "Vui Lòng Nhập Nội Dung!");
+            }
+            else
+            {
+                try
+                {
+                    if (await new ThongBaoHSDAL().CapNhap(tbhs) != 0)
+                    {
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs });
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return View();
+        }
+        public async Task<JsonResult> XoaThongBaoHS(int id)
+        {
+            return Json(await new ThongBaoHSDAL().Xoa(id), JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<JsonResult> getById(int ID)
+        {
+            ThongTinHS tt = new ThongTinHS();
+            DataTable dt = await new ThongTinHSDAL().LayDT(ID);
+            tt = new ThongTinHS(dt.Rows[0]);
+            return Json(tt, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region ThongBaoLop
         public async Task<ActionResult> Index()
         {
             List<ThongBaoLop> lst = new List<ThongBaoLop>();
@@ -92,5 +194,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             tt = new GetNameClassModel(dt.Rows[0]);
             return Json(tt, JsonRequestBehavior.AllowGet);
         }
+
+        #endregion
     }
 }

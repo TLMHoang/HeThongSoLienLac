@@ -1,0 +1,164 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<DTO.TaiKhoanPH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="title-page"><h2>Trang Quản Lý Tài Khoản Phụ Huynh</h2></div>
+<hr/>
+<div class="row">
+    <div style="margin-left: 10px">
+        <a href="@Url.Action("ThemTaiKhoanPH")" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Tài Khoản</span>
+        </a>
+    </div>
+    <div style="margin-left: 10px">
+        <a href="#" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-file-excel"></i>
+            </span>
+            <span>Thêm Tài Khoản Bằng Excel</span>
+        </a>
+    </div>
+    <button class="btn btn-danger" style="margin-left: 10px" onclick="location.href='/Admin/HomeAdmin/Index/'"><i class="fas fa-sign-out-alt"></i></button>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Tài Khoản</h6>
+
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Tài Khoản">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                        <thead style="background-color: darkorange; color: white;">
+                        <tr>
+                            <th></th>
+                            <th>Mã TK</th>
+                            <th>Tài Khoản</th>
+                            <th>Tên Mẹ</th>
+                            <th>SĐT</th>
+                            <th>Tên Bố</th>
+                            <th>SĐT</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="myTable">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td width="15%">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="@Url.Action("CapNhatTKPH","TaiKhoanPH",new {@id=item.ID})" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#" onclick="return Delete(@item.ID);" class="btn btn-danger btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@Html.DisplayFor(m => item.ID)</td>
+                                <td>@Html.DisplayFor(m => item.TaiKhoan)</td>
+                                <td>@Html.DisplayFor(m => item.TenMe)</td>
+                                <td>@Html.DisplayFor(m => item.SDTMe)</td>
+                                <td>@Html.DisplayFor(m => item.TenBo)</td>
+                                <td>@Html.DisplayFor(m => item.SDTBo)</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-left: 20px; margin-top: 50px;">
+        <p></p>
+        <p></p>
+        <div class="pagination">
+            <div>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                Trên @Model.PageCount</div>  
+            <div style="margin: 20px auto">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+        </div>
+    </div>
+   
+}
+
+<div class="container">
+    <div class="modal fade" id="TimKiemModal" >
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+      
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Tìm Kiếm Tài Khoản</h4>
+                    <button type="button"  class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10" style="padding: 6px;">
+                            <input class="form-control" id="searchInput" type="text" placeholder="Nhập Tên Tài Khoản">
+                        </div>
+                        <button class="btn btn-warning col-md-2" onclick="return Loadtable();" style="margin-top: 2px; color: white; font-weight: bold;" id="btnSearch">Tìm Kiếm</button>
+                    </div>
+                    <div class="container-fluid ketqua" style="display: none; margin-top: 6px; ">
+                        <!-- Page Heading -->
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                                        <thead style="background-color: darkorange; color: white; height: 100px;">
+                                            <tr>
+                                                <th></th>
+                                                <th>Mã TK</th>
+                                                <th>Tài Khoản</th>
+                                                <th>Tên Mẹ</th>
+                                                <th>SĐT</th>
+                                                <th>Tên Bố</th>
+                                                <th>SĐT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="TimKiemTable">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Areas/Admin/Scripts/TaiKhoanPH.js"></script>
