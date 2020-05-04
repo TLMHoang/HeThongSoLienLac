@@ -200,6 +200,7 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\CapNhatPhanCong.js" />
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\LienKetTaiKhoanPH.js" />
     <Content Include="Areas\Admin\Scripts\PhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />

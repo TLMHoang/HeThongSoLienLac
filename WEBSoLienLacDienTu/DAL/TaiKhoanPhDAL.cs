@@ -114,7 +114,7 @@ namespace DAL
 
         public async Task<DataTable> Search(string chuoiTimKiem)
         {
-            return await ExecuteQuery("W_SelectTaiKhoanPH_V2",new SqlParameter("@TaiKhoan",SqlDbType.VarChar) {Value = chuoiTimKiem});
+            return await ExecuteQuery("W_SelectTaiKhoanPH_Search", new SqlParameter("@TaiKhoan",SqlDbType.VarChar) {Value = chuoiTimKiem});
         }
     }
 }

@@ -52,7 +52,7 @@
                                 <td width="8%">
                                     @if (item.TaiKhoan == "")
                                     {
-                                        <a href="#" style="width: 100%;" class="btn btn-success btn-icon-split">
+                                        <a href="#" onclick="clearTXT();ShowModalAdd(@item.ID);" style="width: 100%;" class="btn btn-success btn-icon-split">
                                             <span class="icon">
                                                 <i class="fas fa-plus-square"></i>
                                             </span>
@@ -61,7 +61,7 @@
                                     }
                                     else
                                     {
-                                        <a href="#" style="width: 100%;" class="btn btn-primary btn-icon-split">
+                                        <a href="#" onclick="clearTXT();ShowModalUpdate(@item.ID);" style="width: 100%;" class="btn btn-primary btn-icon-split">
                                             <span class="icon">
                                                 <i class="fas fa-pen-square"></i>
                                             </span>
@@ -70,12 +70,24 @@
                                     }
                                 </td>
                                 <td width="8%">
-                                    <a href="#" style="width: 100%;" class="btn btn-danger btn-icon-split" id="myRow">
-                                        <span class="icon">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                        <span>Xóa</span>
-                                    </a>
+                                    @if (item.TaiKhoan == "")
+                                    {
+                                        <a href="#" style="width: 100%; pointer-events: none; cursor: default;" class="btn btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span>Xóa</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" style="width: 100%;" onclick="return Xoa(@item.ID);" class="btn btn-danger btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span>Xóa</span>
+                                        </a>
+                                    }
                                 </td>
                                 <td>
                                     HS00<span>@Html.DisplayFor(modelitem => item.ID)</span>
@@ -100,19 +112,63 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container-fluid">
+    <div class="modal hide fade in" id="LienKetModal" tabindex="-1" role="dialog" aria-labelledby="LienKetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
 
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Tìm Kiếm Tài Khoản</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10" style="padding: 6px;">
+                            <input class="form-control" id="searchInput" type="text" placeholder="Nhập Tên Tài Khoản">
+                        </div>
+                        <button class="btn btn-warning col-md-2" onclick="return Loadtable();" style="margin-top: 2px; color: white; font-weight: bold;" id="btnSearchAdd">Tìm Kiếm</button>
+                        <button class="btn btn-warning col-md-2" onclick="return Loadtable1();" style="margin-top: 2px; color: white; font-weight: bold; display: none;" id="btnSearchUpdate">Tìm Kiếm</button>
+                    </div>
+                    <div class="container-fluid ketqua" style="display: none; margin-top: 6px; ">
+                        <!-- Page Heading -->
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                                        <thead style="background-color: darkorange; color: white; height: 100px;">
+                                            <tr>
+                                                <th></th>
+                                                <th>Mã TK</th>
+                                                <th>Tài Khoản</th>
+                                                <th>Tên Mẹ</th>
+                                                <th>SĐT</th>
+                                                <th>Tên Bố</th>
+                                                <th>SĐT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="TimKiemTable"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/Areas/Admin/Scripts/LienKetTaiKhoanPH.js"></script>
 <script>
-    $(document).ready(function () {
-        $("#myInput").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-
     $(document).ready(
         $.ajax({
             url: "/QuanLyThongTinHS/LoadTenLopByID/" + @ID,
@@ -128,5 +184,4 @@
             }
         })
     );
-
 </script>

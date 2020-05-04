@@ -47,10 +47,10 @@ namespace DAL
             return lst;
         }
 
-        public async  Task<int> Them(LienKetPHvsHS obj)
+        public async Task<int> Them(LienKetPHvsHS obj)
         {
             return await ExecuteNonQuery("InsertLienKetPHvsHS",
-                new SqlParameter("@IDHocSinh", SqlDbType.NVarChar) { Value = obj.IDHocSinh },
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = obj.IDTaiKhoan }
             );
         }
@@ -59,7 +59,7 @@ namespace DAL
         {
             return await ExecuteNonQuery(
                 "DeleteLienKetPHvsHS",
-                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = ID }
             );
         }
         public async Task<DataTable> LayDT_IDPH(int IDTaiKhoan)
