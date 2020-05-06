@@ -17,6 +17,7 @@ namespace WEBSoLienLacDienTu.Controllers
     {
         // GET: XemDiem
         ThongTinHS tt = new ThongTinHS();
+        
         public async Task<ActionResult> Index()
         {
 
