@@ -216,12 +216,14 @@
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Assets\Css\UpdateTKTruong.css" />
+    <Content Include="Assets\Img\Admin_Image.png" />
     <Content Include="Assets\Img\DiemDanh_Image.png" />
     <Content Include="Assets\Img\List_Image.png" />
     <Content Include="Assets\Img\logo_User.jpg" />
     <Content Include="Assets\Img\mark_Image.png" />
     <Content Include="Assets\Img\TBHocSinh_Image.png" />
     <Content Include="Assets\Img\TBLop_Image.png" />
+    <Content Include="Assets\Img\Teacher_Image.png" />
     <Content Include="Assets\Img\ThongBao_Image.png" />
     <Content Include="Assets\Img\Ust.png" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -299,6 +301,7 @@
     <Content Include="Areas\Admin\Views\TaiKhoanPH\CapNhatTKPH.cshtml" />
     <Content Include="Areas\Admin\Views\LienKetTaiKhoanPH\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LienKetTaiKhoanPH\LoadTable.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanTruong\ChonChucNang.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

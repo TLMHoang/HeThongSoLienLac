@@ -17,6 +17,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     public class TaiKhoanTruongController : Controller
     {
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
+        public static string mk;
+        public static int flag;
         MonHocDAL mh = new MonHocDAL();
         TaiKhoanTruongDAL tkDal = new TaiKhoanTruongDAL();
         LopDAL lop = new LopDAL();
@@ -31,6 +33,27 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                 lst.Add(new DanhSachTaiKhoanTruongModel(dr));
             }
             return View(lst);
+        }
+
+        [SessionTimeout]
+        [SessionAuthorize]
+        public ActionResult ChonChucNang()
+        {
+            return View();
+        }
+        [SessionTimeout]
+        [SessionAuthorize]
+        [HttpPost]
+        public ActionResult ChonChucNang(FormCollection f)
+        {
+            Session["TaiKhoanGiaoVien"] = TK.TaiKhoan;
+            flag = 1;
+            return RedirectToAction("GetTKTruong", "HomeGiaoVien",
+                 new { area = "GiaoVien", tenTaiKhoan = TK.TaiKhoan, matKhauTaiKhoan = mk });
+        }
+        public JsonResult Flag()
+        {
+            return Json(flag, JsonRequestBehavior.AllowGet);
         }
         [SessionTimeout]
         [SessionAuthorize]
@@ -67,7 +90,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 if (await tkDal.CheckExist(tenTk) > 0)
                 {
-                    ModelState.AddModelError("","Tài Khoản Đã Tồn Tại !");
+                    ModelState.AddModelError("", "Tài Khoản Đã Tồn Tại !");
                 }
                 else
                 {
@@ -79,12 +102,12 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
             else
             {
-                ModelState.AddModelError("","Vui Lòng Nhập Đầy Đủ Thông Tin !");
+                ModelState.AddModelError("", "Vui Lòng Nhập Đầy Đủ Thông Tin !");
             }
 
             return View();
         }
-        
+
         public async Task<ActionResult> Update(int id)
         {
             await LoadDanhSachMon();
@@ -95,7 +118,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View(taiKhoan);
         }
         [HttpPost]
-        public async Task<ActionResult> Update(int id,TaiKhoanTruong tkTruong)
+        public async Task<ActionResult> Update(int id, TaiKhoanTruong tkTruong)
         {
             if (await tkDal.CapNhap(tkTruong) != 0)
             {
@@ -134,15 +157,16 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                     {
                         Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
                         Session["MatKhau"] = lg.MatKhau.ToString();
-                        return RedirectToAction("Index", "HomeAdmin");
+                        mk = lg.MatKhau.ToString();
+                        return RedirectToAction("ChonChucNang");
                     }
                     else
                     {
                         Session["TaiKhoanGiaoVien"] = lg.TaiKhoan.ToString();
                         Session["MatKhau"] = lg.MatKhau.ToString();
-                        return RedirectToAction("GetTKTruong", "HomeGiaoVien",new {area="GiaoVien", tenTaiKhoan = lg.TaiKhoan, matKhauTaiKhoan =lg.MatKhau});
+                        return RedirectToAction("GetTKTruong", "HomeGiaoVien", new { area = "GiaoVien", tenTaiKhoan = lg.TaiKhoan, matKhauTaiKhoan = lg.MatKhau });
                     }
-                    
+
                 }
                 else
                 {
@@ -166,7 +190,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 if (Session["MatKhau"].Equals(changePass.MatKhauCu))
                 {
-                    if(Session["MatKhau"].Equals(changePass.MatKhauMoi))
+                    if (Session["MatKhau"].Equals(changePass.MatKhauMoi))
                     {
                         ModelState.AddModelError("", "Mật Khẩu Mới Không Được Giống Mật Khẩu Cũ !");
                     }
@@ -199,6 +223,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
+            flag = 0;
             return RedirectToAction("Login");
         }
 

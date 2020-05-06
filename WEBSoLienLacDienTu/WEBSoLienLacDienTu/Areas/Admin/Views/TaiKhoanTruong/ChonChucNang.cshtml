@@ -1,4 +1,9 @@
 ﻿
+@{
+    Layout = null;
+}
+
+
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +15,8 @@
     <title>E-School | US Team</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -42,24 +48,49 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            @Html.ActionLink("Thông Báo Học Sinh", "Index2", "ThongBaoCaNhanGV")
+                            @Html.ActionLink("Thông Báo Chung", "Index", "ThongBaoChung")
                         </li>
                         <li>
-                            @Html.ActionLink("Thông Báo Lớp","Index","ThongBaoCaNhanGV")
+                            @Html.ActionLink("Thông Báo Học Sinh", "Index", "ThongBaoCaNhan")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Thông Báo Lớp", "Index2", "ThongBaoCaNhan")
                         </li>
                     </ul>
                 </li>
-                <li class="active">@Html.ActionLink("Nhập Điểm","Index","QuanLyNhapDiem")</li>
-                <li class="active"><a>Xét Duyệt Nghỉ Học</a></li>
+                @*<li class="active">@Html.ActionLink("Nhập Điểm", "Index", "QuanLyDiem")</li>*@
+                <li class="active">@Html.ActionLink("Quản Lý Thông Tin Học Sinh", "Index", "QuanLyThongTinHS")</li>
                 <li class="active">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                           <a href="#">Vắng</a>
+                            @Html.ActionLink("Vắng", "Index", "DiemDanh")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Cúp Học", "CupHoc", "DiemDanh")
                         </li>
                     </ul>
                 </li>
+                <li class="active">@Html.ActionLink("Quản Lý Thời Khóa Biểu", "Index", "ThoiKhoaBieu")</li>
+                <li class="active">
 
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        <li>
+                            @Html.ActionLink("Quản Lý Tài Khoản Trường", "Index", "TaiKhoanTruong")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản Lý Tài Khoản Phụ Huynh", "Index", "TaiKhoanPH")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản Lý Liên Kết PHHS", "Index", "LienKetTaiKhoanPH")
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">@Html.ActionLink("Phân Công Giáo Viên Bộ Môn", "Index", "PhanCongDay")</li>
+                <li class="active">@Html.ActionLink("Quản Lý Lớp Học", "Index", "QuanLyLop")</li>
+                <li class="active">@Html.ActionLink("Quản lý Môn Học", "Index", "QuanLyMonHoc")</li>
+                <li class="active">@Html.ActionLink("Quản lý thông tin học phí", "Index", "HocPhi")</li>
                 @*<li>
                         <a href="#">About</a>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
@@ -92,18 +123,17 @@
             <nav class="navbar navbar-expand-md navbar-light bg-light ">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-warning">
+                    <button type="button" id="sidebarCollapse" style="cursor: default;" class="btn btn-warning" disabled="disabled">
                         <i class="fas fa-align-left"></i>
                     </button>
-                    <a href="/GiaoVien/HomeGiaoVien/Index" class="navbar-brand justify-content-center Icon-team">
+                    <a href="#" style="cursor: default;" class="navbar-brand justify-content-center Icon-team">
                         <strong>E-School By US</strong>
                     </a>
                     <div class="dropdown">
-                        <button type="button" class="btn Icon-user" data-toggle="dropdown">
+                        <button type="button" class="btn Icon-user" data-toggle="dropdown" style="cursor: default;" disabled="disabled">
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" style="display: none;" id="linkChuyenVaiTro" href="/Admin/TaiKhoanTruong/ChonChucNang">Chuyển Vai Trò</a>
                             <a class="dropdown-item" href="/Admin/TaiKhoanTruong/ChangePass">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" href="/Admin/TaiKhoanTruong/logout">Đăng Xuất</a>
                         </div>
@@ -112,7 +142,39 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                @RenderBody()
+                <div>
+                    <div class="title-page"><h2>Vui Lòng Chọn Vai Trò</h2></div>
+                    <hr />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row justify-content-center menu" >
+                                    <div class="col-6 col-md-2" style="cursor: pointer;" onclick="location.href='/Admin/HomeAdmin/Index/'">
+                                        <div class="card" style="width: 100%">
+                                            <img src="~/Assets/Img/Admin_Image.png" alt="QuanLy" style="width: 100%">
+                                            <div>
+                                                <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;" onclick="location.href='/Admin/HomeAdmin/Index/'">Quản Lý</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-2" style="cursor: pointer;" onclick="document.getElementById('btnChuyenVaiTro').click()">
+                                            <div class="card">
+                                            @using (Html.BeginForm())
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                                                <img src="~/Assets/Img/Teacher_Image.png" alt="GiaoVien" style="width: 100%">
+                                                <div>
+                                                    <button type="submit" class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white; padding: 6px;" id="btnChuyenVaiTro">Giáo Viên</button>
+                                                </div>
+                                            }
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <hr />
                 <!-- Footer -->
                 <footer>
@@ -192,42 +254,27 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(
-            function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-            });
-        $(document).ready(function() {
-            ChuyenVaiTro();
-        });
-        function ChuyenVaiTro() {
-            $.ajax({
-                url: "/Admin/TaiKhoanTruong/Flag",
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    if (result === 1) {
-                        $("#linkChuyenVaiTro").css("display", "block");
-                    }
-                }
-            });
-        }
-    </script>
+<script>
+    //function ChuyenGiaoVien() {
+    //    var ans = confirm("Xác Nhận ?");
+    //    if (ans) {
+    //        $.ajax({
+    //            url: "/TaiKhoanTruong/ChuyenGiaoVien/",
+    //            type: "POST",
+    //            contentType: "application/json;charset=UTF-8",
+    //            dataType: "json",
+    //            success: function (result) {
+                    
+    //                    window.location = '/GiaoVien/HomeGiaoVien/Index/'
+                    
+    //            },
+    //            error: function (errormessage) {
+    //                alert("Chuyển Vai Trò Thất Bại !");
+    //            }
+    //        });
+    //    }
+    //};
+</script>
 </body>
 
 </html>
