@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -9,7 +10,7 @@ using System.Web.Security;
 using DTO;
 using DAL;
 using WEBSoLienLacDienTu.Models;
-using WEBSoLienLacDienTu.Home;
+using WEBSoLienLacDienTu.Code;
 
 
 namespace WEBSoLienLacDienTu.Controllers
@@ -17,14 +18,14 @@ namespace WEBSoLienLacDienTu.Controllers
     public class TaiKhoanPhuHuynhController : Controller
     {
         public static TaiKhoanPH TK = new TaiKhoanPH();
+        public static ThongTinHSLienKetModel ttHS = new ThongTinHSLienKetModel();
         // GET: TaiKhoanPhuHuynh
-        //[SessionTimeout]
+        [SessionTimeout]
         public ActionResult Index()
         {
             return View();
         }
-        //[SessionTimeout]
-
+        
         [HttpGet]
         public ActionResult DangNhap()
         {
@@ -45,7 +46,21 @@ namespace WEBSoLienLacDienTu.Controllers
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
                     Session["TaiKhoan"] = lg.TaiKhoan.ToString();
                     Session["MatKhau"] = lg.MatKhau.ToString();
-                    return RedirectToAction("Index", "TaiKhoanPhuHuynh");
+                    DataTable dt1 = await new LienKetPhDAL().LayThongTinHS_ByPH(TK.ID);
+                    if (LoadTths().Result.Rows.Count == 1)
+                    {
+                        ttHS = new ThongTinHSLienKetModel(dt1.Rows[0]);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (LoadTths().Result.Rows.Count == 0)
+                    {
+                        return RedirectToAction("ChonHS", "TaiKhoanPhuHuynh");
+                    }
+                    else
+                    {
+                        ttHS = new ThongTinHSLienKetModel(dt1.Rows[0]);
+                        return RedirectToAction("ChonHS", "TaiKhoanPhuHuynh");
+                    }
                 }
                 else
                 {
@@ -75,7 +90,7 @@ namespace WEBSoLienLacDienTu.Controllers
                     }
                     else
                     {
-                        if ((await new TaiKhoanPhDal().DoiMatKhau(TK.ID, DoiPass.MatKhauCu, DoiPass.MatKhauMoi)) != 0)
+                        if (await new TaiKhoanPhDal().DoiMatKhau(TK.ID, DoiPass.MatKhauCu, DoiPass.MatKhauMoi) != 0)
                         {
                             TK.MatKhau = DoiPass.MatKhauMoi;
                             Session["MatKhau"] = DoiPass.MatKhauMoi;
@@ -98,10 +113,32 @@ namespace WEBSoLienLacDienTu.Controllers
         }
         public ActionResult Logout()
         {
-            Session["TaiKhoanPhuHuynh"] = null;
+            Session["TaiKhoan"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("DangNhap");
         }
+        [SessionTimeout]
+        public async Task<ActionResult> ChonHS()
+        {
+            List<ThongTinHSLienKetModel> lst = new List<ThongTinHSLienKetModel>();
+            foreach (DataRow dr in LoadTths().Result.Rows)
+            {
+                lst.Add(new ThongTinHSLienKetModel(dr));
+            }
+            return View(lst);
+        }
 
+        public async Task<DataTable> LoadTths()
+        {
+            DataTable dt = await new LienKetPhDAL().LayThongTinHS_ByPH(TK.ID);
+            return dt;
+        }
+
+        public async Task<JsonResult> ChonTTHS(int id)
+        {
+            var row = LoadTths().Result.AsEnumerable().SingleOrDefault(r => r.Field<int>("ID") == id);
+            ttHS = new ThongTinHSLienKetModel(row);
+            return Json(JsonRequestBehavior.AllowGet);
+        }
     }
 }

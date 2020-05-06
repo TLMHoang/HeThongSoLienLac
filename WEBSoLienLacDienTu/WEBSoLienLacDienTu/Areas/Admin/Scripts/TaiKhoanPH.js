@@ -71,7 +71,7 @@ function Loadtable() {
             $('.ketqua').css("display","block");
         },
         error: function () {
-            alert("Vui Lòng Chọn Đầy Đủ Thông Tin !");
+            alert("Tìm Kiếm Thất Bại !");
         }
     });
 };

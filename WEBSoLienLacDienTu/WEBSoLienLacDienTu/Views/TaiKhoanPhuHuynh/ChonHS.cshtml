@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -116,10 +121,10 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-warning">
+                    <button type="button" id="sidebarCollapse" class="btn btn-warning" style="color: white; cursor: default;">
                         <i class="fas fa-align-left"></i>
                     </button>
-                    <a href="/Home/Index" class="navbar-brand justify-content-center Icon-team">
+                    <a href="#" class="navbar-brand justify-content-center Icon-team">
                         <strong>E-School By US</strong>
                     </a>
                     <div class="dropdown">
@@ -127,7 +132,6 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/TaiKhoanPhuHuynh/ChonHS">Đổi Học Sinh</a>
                             <a class="dropdown-item" href="/TaiKhoanPhuHuynh/DoiPass">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" href="/TaiKhoanPhuHuynh/Logout">Đăng Xuất</a>
                         </div>
@@ -136,7 +140,39 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                @RenderBody()
+                <div>
+                    <div>
+                        <p class="font-weight-bold " style="text-align: center; background-color: darkorange; color: white;">Vui Lòng Chọn Học Sinh</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        @model IEnumerable<WEBSoLienLacDienTu.Models.ThongTinHSLienKetModel>
+                        @if (Model.Count() == 0)
+                        {
+                            <script type="text/javascript">
+                                alert("Xin Lỗi Tài Khoản Chưa Được Liên Kết Với Học Sinh Nào!");
+                            </script>
+                            <div class="box" style="margin: 0 auto; width: 80%;">
+                                <div style="margin: 0 auto; width: 50%;">
+                                    <p style="font-weight: bold;text-align: center; margin-bottom: 0; color: red;">Tài Khoản Chưa Liên Kết Với Tài Khoản HS</p>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-6 col-md-3 col-lg-3 col-xl-3" style="padding: 10px; width: 12rem;" onclick="ChonHS(@item.ID);">
+                                    <div class="card" id="btnChonHS">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tên Học Sinh : @Html.DisplayFor(m => item.Ten)</h5>
+                                            <p class="card-text" style="font-weight: bold;">Tên Lớp :@Html.DisplayFor(m => item.TenLop)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
                 <hr />
                 <!-- Footer -->
                 <footer>
@@ -216,24 +252,22 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script>
+        function ChonHS(ID) {
+            $.ajax({
+                url: "/TaiKhoanPhuHuynh/ChonTTHS/" + ID,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    location.href = '/Home/Index/';
+                },
+                error: function (errormessage) {
+                    alert("Lỗi !");
+                }
             });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
+        }
     </script>
 </body>
 

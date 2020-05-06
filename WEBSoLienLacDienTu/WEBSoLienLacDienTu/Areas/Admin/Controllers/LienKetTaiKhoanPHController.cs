@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DAL;
+using DTO;
 using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
 
@@ -15,6 +16,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     [SessionAuthorize]
     public class LienKetTaiKhoanPHController : Controller
     {
+        LienKetPhDAL lkDal = new LienKetPhDAL();
         // GET: Admin/LienKetTaiKhoanPH
         public async Task<ActionResult> Index()
         {
@@ -36,14 +38,27 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             return View();
         }
 
+        public async Task<JsonResult> Delete(int ID)
+        {
+            return Json(await lkDal.Xoa(ID),JsonRequestBehavior.AllowGet);
+        }
         public async Task<ActionResult> LoadTable(int id)
         {
             List<DanhSachLienKetPhModel> lst = new List<DanhSachLienKetPhModel>();
-            foreach (DataRow dr in (await new LienKetPhDAL().LayDT_DanhSach(id)).Rows)
+            foreach (DataRow dr in (await lkDal.LayDT_DanhSach(id)).Rows)
             {
                 lst.Add(new DanhSachLienKetPhModel(dr));
             }
             return View(lst);
+        }
+
+        public async Task<JsonResult> ThemLK(int iDHS,int id)
+        {
+            return Json(await lkDal.Them(new LienKetPHvsHS(iDHS, id)), JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> CapNhatLK(int iDHS, int id)
+        {
+            return Json(await lkDal.CapNhap(new LienKetPHvsHS(iDHS, id)), JsonRequestBehavior.AllowGet);
         }
         public async Task LoadListKhoi()
         {
