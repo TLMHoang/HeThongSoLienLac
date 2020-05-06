@@ -261,7 +261,11 @@ ul.pagination li a.active
 ul.pagination li a:hover:not(.active)    
 {    
     background-color: #ddd;    
-}    
+}  
+#btnChonHS:hover {
+    background: rgb(255, 169, 63);
+    cursor: pointer;
+}
 @media all and (max-width : 550px) {
     .container-fluid {
         padding: 0;
