@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using WEBSoLienLacDienTu.Home;
+using WEBSoLienLacDienTu.Code;
 using WEBSoLienLacDienTu.Models;
 
 namespace WEBSoLienLacDienTu.Controllers

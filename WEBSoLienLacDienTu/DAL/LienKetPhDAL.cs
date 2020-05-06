@@ -67,5 +67,11 @@ namespace DAL
             return await ExecuteQuery("SelectHsvsPH",
                 new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = IDTaiKhoan });
         }
+
+        public async Task<DataTable> LayThongTinHS_ByPH(int ID)
+        {
+            return await ExecuteQuery("W_SelectThongTinLienKetPHvsHS_ByIdPh",
+                new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = ID });
+        }
     }
 }

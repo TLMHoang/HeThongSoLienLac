@@ -9,7 +9,7 @@ using System.Web.Security;
 using DTO;
 using DAL;
 using WEBSoLienLacDienTu.Models;
-using WEBSoLienLacDienTu.Home;
+using WEBSoLienLacDienTu.Code;
 
 
 namespace WEBSoLienLacDienTu.Controllers
@@ -17,14 +17,18 @@ namespace WEBSoLienLacDienTu.Controllers
     public class TaiKhoanPhuHuynhController : Controller
     {
         public static TaiKhoanPH TK = new TaiKhoanPH();
+        public static ThongTinHSLienKetModel ttHS = new ThongTinHSLienKetModel();
         // GET: TaiKhoanPhuHuynh
-        //[SessionTimeout]
+        [SessionTimeout]
         public ActionResult Index()
         {
             return View();
         }
-        //[SessionTimeout]
-
+        [SessionTimeout]
+        public ActionResult ChonHS()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult DangNhap()
         {
@@ -45,7 +49,16 @@ namespace WEBSoLienLacDienTu.Controllers
                     FormsAuthentication.SetAuthCookie(lg.TaiKhoan, true);
                     Session["TaiKhoan"] = lg.TaiKhoan.ToString();
                     Session["MatKhau"] = lg.MatKhau.ToString();
-                    return RedirectToAction("Index", "TaiKhoanPhuHuynh");
+                    DataTable dt1 = await new LienKetPhDAL().LayThongTinHS_ByPH(TK.ID);
+                    if (dt1.Rows.Count == 1)
+                    {
+                        ttHS = new ThongTinHSLienKetModel(dt1.Rows[0]);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        return RedirectToAction("ChonHS", "TaiKhoanPhuHuynh");
+                    }
                 }
                 else
                 {
@@ -98,7 +111,7 @@ namespace WEBSoLienLacDienTu.Controllers
         }
         public ActionResult Logout()
         {
-            Session["TaiKhoanPhuHuynh"] = null;
+            Session["TaiKhoan"] = null;
             Session["MatKhau"] = null;
             return RedirectToAction("DangNhap");
         }
