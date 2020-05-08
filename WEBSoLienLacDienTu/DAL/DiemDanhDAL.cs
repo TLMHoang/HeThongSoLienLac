@@ -62,7 +62,7 @@ namespace DAL
 
         public async Task<DataTable> DanhSachDiemDanh(int ID)
         {
-            return await ExecuteQuery("SelectDiemDanhByIDHS",
+            return await ExecuteQuery("W_SelectDiemDanhByIDHS",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }

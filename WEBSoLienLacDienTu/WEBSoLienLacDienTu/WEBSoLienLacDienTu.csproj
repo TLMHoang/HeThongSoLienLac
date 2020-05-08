@@ -169,6 +169,7 @@
     <Compile Include="Areas\Admin\Models\LopPhanCongDayModel.cs" />
     <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\DiemDanhGVController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\QuanLyNhapDiemController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
@@ -200,6 +201,8 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\CapNhatPhanCong.js" />
     <Content Include="Areas\Admin\Scripts\ChiTietvang.js" />
+    <Content Include="Areas\Admin\Scripts\ChiTietVangGV.js" />
+    <Content Include="Areas\Admin\Scripts\DiemDanhGV.js" />
     <Content Include="Areas\Admin\Scripts\LienKetTaiKhoanPH.js" />
     <Content Include="Areas\Admin\Scripts\PhanCongDay.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
@@ -302,6 +305,8 @@
     <Content Include="Areas\Admin\Views\LienKetTaiKhoanPH\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LienKetTaiKhoanPH\LoadTable.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\ChonChucNang.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\DiemDanhGV\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\DiemDanhGV\ChiTietVang.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

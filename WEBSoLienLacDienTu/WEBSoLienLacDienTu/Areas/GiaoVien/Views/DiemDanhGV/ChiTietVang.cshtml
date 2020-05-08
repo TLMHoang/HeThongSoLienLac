@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "ChiTietVang";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
     var ID = ViewContext.RouteData.Values["id"];
 }
 
@@ -38,25 +38,25 @@
                         {
                             <tr>
                                 @*<td width="15%">
-                                    <div class="row">
-                                        <div class="col">
-                                            <a href="#" class="btn btn-primary btn-icon-split" onclick="getByIdDiemDanh(@item.ID);openModal();">
-                                                <span class="icon">
-                                                    <i class="fas fa-pen-square"></i>
-                                                </span>
-                                                <span>Sửa</span>
-                                            </a>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="#" class="btn btn-primary btn-icon-split" onclick="getByIdDiemDanh(@item.ID);openModal();">
+                                                    <span class="icon">
+                                                        <i class="fas fa-pen-square"></i>
+                                                    </span>
+                                                    <span>Sửa</span>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="btn btn-danger btn-icon-split" onclick="Xoa(@item.ID)">
+                                                    <span class="icon">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span>Xóa</span>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <a href="#" class="btn btn-danger btn-icon-split" onclick="Xoa(@item.ID)">
-                                                <span class="icon">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                <span>Xóa</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>*@
+                                    </td>*@
                                 <td width="12%">@Html.DisplayFor(modelitem => item.ID)</td>
                                 <td>@Html.DisplayFor(modelitem => item.IDHocSinh)</td>
                                 <td>
@@ -126,11 +126,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<script src="~/Areas/Admin/Scripts/ChiTietvang.js"></script>
+<script src="~/Areas/Admin/Scripts/ChiTietVangGV.js"></script>
 <script>
     $(document).ready(
         $.ajax({
-                url: "/DiemDanh/getById/" + @ID,
+                url: "/DiemDanhGV/getById/" + @ID,
                 typr: "GET",
                 contentType: "application/json;charset=UTF-8",
                 dataType: "json",
@@ -143,3 +143,4 @@
             })
     );
 </script>
+
