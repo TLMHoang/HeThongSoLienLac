@@ -227,6 +227,7 @@ ul ul a {
 }
 .menu div .card:hover {
     background-color: rgb(255, 169, 63);
+    cursor: pointer;
 }
 .menu div .card {
     background-color: #fafafa;

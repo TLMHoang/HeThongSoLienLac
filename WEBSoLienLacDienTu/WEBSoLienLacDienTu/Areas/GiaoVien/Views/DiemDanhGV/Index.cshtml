@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DTO.ThongTinHS>
 @{
-    ViewBag.Title = "Vang";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
 
 <div class="title-page"><h2>Quản Lý Học Sinh Vắng</h2></div>
@@ -49,7 +49,7 @@
                                     </a>
                                 </td>
                                 <td width="10%">
-                                    <a href="@Url.Action("ChiTietVang","DiemDanh",new {id = @item.ID})" class="btn btn-success btn-icon-split" style="width: 100%;" id="myRow">
+                                    <a href="@Url.Action("ChiTietVang","DiemDanhGV",new {id = @item.ID})" class="btn btn-success btn-icon-split" style="width: 100%;" id="myRow">
                                         <span class="icon">
                                             <i class="fas fa-list-alt"></i>
                                         </span>
@@ -128,6 +128,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<script src="~/Areas/Admin/Scripts/Vang.js"></script>
-
+<script src="~/Areas/Admin/Scripts/DiemDanhGV.js"></script>
 

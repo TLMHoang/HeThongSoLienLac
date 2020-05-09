@@ -28,7 +28,7 @@ namespace DTO
             Phep = 0;
         }
 
-        public DiemDanh(int iD, int idHocSinh, DateTime ngayNghi, byte phep)
+        public DiemDanh(int iD, int idHocSinh,DateTime ngayNghi, byte phep)
         {
             ID = iD;
             IDHocSinh = idHocSinh;

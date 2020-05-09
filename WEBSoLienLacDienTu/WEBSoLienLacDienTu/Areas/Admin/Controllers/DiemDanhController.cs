@@ -53,9 +53,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<ActionResult> ChiTietVang(int id)
         {
-            
             List<DiemDanh> lst = new List<DiemDanh>();
-            foreach (DataRow dr in (await new DiemDanhDAL().LayDT(id)).Rows)
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanh(id)).Rows)
             {
                 lst.Add(new DiemDanh(dr));
             }
