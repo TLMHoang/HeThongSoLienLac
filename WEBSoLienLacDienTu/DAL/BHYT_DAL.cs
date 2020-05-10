@@ -61,5 +61,12 @@ namespace DAL
         {
             return await ExecuteQuery("W_SelectFunctionOrder_BHYT");
         }
+        public async Task<int> CapNhatDKBHYT(DateTime ngayBD,DateTime ngayKT)
+        {
+            return await ExecuteNonQuery("W_UpdateFunctionOrder_BHYT",
+                new SqlParameter("@StartDate", SqlDbType.Date) { Value =ngayBD },
+                new SqlParameter("@EndDate", SqlDbType.Date) { Value = ngayKT }
+            );
+        }
     }
 }

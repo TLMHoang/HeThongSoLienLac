@@ -37,6 +37,14 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public async Task<DataTable> LayDT_ByIDHS(int ID,int Thu)
+        {
+            return await ExecuteQuery("W_SelectThoiKhoaBieu_ByIdHs",
+                new SqlParameter("@IDHocSinh",SqlDbType.Int) {Value = ID},
+                new SqlParameter("@Thu", SqlDbType.Int) { Value = Thu }
+                );
+        }
+
         public async Task<List<ThoiKhoaBieu>> LayLst(int idlop, int thu, int tiet)
         {
             List<ThoiKhoaBieu> lst = new List<ThoiKhoaBieu>();
