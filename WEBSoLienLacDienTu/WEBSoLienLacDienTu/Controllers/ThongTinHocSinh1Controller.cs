@@ -16,28 +16,26 @@ namespace WEBSoLienLacDienTu.Controllers
     public class ThongTinHocSinh1Controller : Controller
     {
         // GET: ThongTinHocSinh1   
-        LienKetPHvsHS lk = new LienKetPHvsHS();
         
-        TaiKhoanPH tkph = new TaiKhoanPH();
 
-        public async Task<ActionResult> Index()
-        {
+        //public async Task<ActionResult> Index()
+        //{
             
-            List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
-            {
-                lst.Add(new ThongTinHSModels(dr));
-            }
-            return View(lst);
-        }     
+        //    List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
+        //    foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
+        //    {
+        //        lst.Add(new ThongTinHSModels(dr));
+        //    }
+        //    return View(lst);
+        //}     
         
 
-        public async Task<ActionResult> Edit(int id)
+        public async Task<ActionResult> Edit()
         {
-                   
-            DataTable dt = new DataTable();
-            dt = await new ThongTinHSDAL().LayDT(id);
-            ThongTinHS tt = new ThongTinHS(dt.Rows[0]);
+
+            ThongTinHS tt = new ThongTinHS();
+            DataTable dt = await new ThongTinHSDAL().LayDT(TaiKhoanPhuHuynhController.ttHS.ID);
+            tt = new ThongTinHS(dt.Rows[0]);
             return View(tt);
         }
         [HttpPost]
@@ -45,7 +43,7 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             if (await new ThongTinHSDAL().CapNhatTTHS_PH(ttHocSinh.ID, ttHocSinh.NoiSinh, ttHocSinh.DanToc, ttHocSinh.TonGiao) != 0)
             {
-                return RedirectToAction("Index", "ThongTinHocSinh1", new { id = TaiKhoanPhuHuynhController.TK.ID });
+                return RedirectToAction("Edit", "ThongTinHocSinh1", new { id = TaiKhoanPhuHuynhController.TK.ID });
             }
             else
             {

@@ -16,25 +16,24 @@ namespace WEBSoLienLacDienTu.Controllers
     public class ChiTietDiemDanhController : Controller
     {
         // GET: ChiTietDiemDanh
-        public static DiemDanh dd = new DiemDanh();
-        public static TaiKhoanPH tk = new TaiKhoanPH();
+        
 
 
-        public async Task<ActionResult> Index()
-        {
+        //public async Task<ActionResult> Index()
+        //{
 
-            List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
-            {
-                lst.Add(new ThongTinHSModels(dr));
-            }
-            return View(lst);
-        }
-        public async Task<ActionResult> ChiTiet(int id)
+        //    List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
+        //    foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+        //    {
+        //        lst.Add(new ThongTinHSModels(dr));
+        //    }
+        //    return View(lst);
+        //}
+        public async Task<ActionResult> ChiTiet()
         {
             
             List<DiemDanh> lst = new List<DiemDanh>();
-            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanh(id)).Rows)
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanh(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
             {
                 lst.Add(new DiemDanh(dr));
             }
