@@ -118,7 +118,7 @@ namespace WEBSoLienLacDienTu.Controllers
             return RedirectToAction("DangNhap");
         }
         [SessionTimeout]
-        public async Task<ActionResult> ChonHS()
+        public ActionResult ChonHS()
         {
             List<ThongTinHSLienKetModel> lst = new List<ThongTinHSLienKetModel>();
             foreach (DataRow dr in LoadTths().Result.Rows)

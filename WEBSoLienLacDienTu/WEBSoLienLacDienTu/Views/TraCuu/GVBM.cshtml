@@ -4,41 +4,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tra Cứu Giáo Viên Bộ Môn</h2>
+<div class="title-page"><h2>Thông Tin Giáo Viên Bộ Môn</h2></div>
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
-            <from class="form-group"></from>
-            <label for="sel1">Lớp</label>
-            <div class="input-group mb-3">
-                <select class="form-control" id="sel1" name="sellist1"></select>
-            </div>
-            <label for="sel1">Môn Học:</label>
-            <div class="input-group mb-3">
-                <select class="form-control" id="sel3" name="sellist1">
-                    <option>Toán</option>
-                </select>
-            </div>
-            <input id="Button1" type="button" value="Lọc" size="30" />
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="card shadow mb-4">      
+    <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="background-color: darkorange; color: white;">
                         <tr>
-                            <th>ID</th>
-                            <th>Tên Giáo Viên</th>
                             <th>Môn Học</th>
+                            <th>Tên Giáo Viên</th>
+                            <th>SĐT</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.ThongTinGVBMModel>)
+                        {
+                            <tr>
+                                <td>@item.TenMon</td>
+                                @if (item.TenGV == "")
+                                {
+                                    <td>Chưa Có</td>
+                                }
+                                else
+                                {
+                                    <td style="font-weight: bold; color: red;">@item.TenGV</td>
+                                }
+                                @if (item.SDT == "")
+                                {
+                                    <td>Chưa Có</td>
+                                }
+                                else
+                                {
+                                    <td style="font-weight: bold; color: red;">@item.SDT</td>
+                                }
+                        </tr>
+                        }
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-
