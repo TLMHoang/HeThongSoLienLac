@@ -32,9 +32,9 @@ namespace WEBSoLienLacDienTu.Controllers
         }
         public async Task<ActionResult> ChiTiet(int id)
         {
-            id = tk.ID;
+            
             List<DiemDanh> lst = new List<DiemDanh>();
-            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanhPH(id)).Rows)
+            foreach (DataRow dr in (await new DiemDanhDAL().DanhSachDiemDanh(id)).Rows)
             {
                 lst.Add(new DiemDanh(dr));
             }
