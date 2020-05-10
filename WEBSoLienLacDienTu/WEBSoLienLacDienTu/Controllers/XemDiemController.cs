@@ -28,12 +28,12 @@ namespace WEBSoLienLacDienTu.Controllers
             }
             return View(lst);
         }
-        public async Task<ActionResult> BangDiem()
+        public async Task<ActionResult> BangDiem(int id)
         {
-            List<BangDiemModels> lst = new List<BangDiemModels>();
+            List<BangDiem2> lst = new List<BangDiem2>();
             foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem_ID(TaiKhoanPhuHuynhController.TK.ID)).Rows)
             {
-                lst.Add(new BangDiemModels(dr));
+                lst.Add(new BangDiem2(dr));
             }
             return View(lst);
         }
