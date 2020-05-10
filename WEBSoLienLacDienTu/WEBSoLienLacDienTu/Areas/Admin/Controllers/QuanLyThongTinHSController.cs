@@ -238,5 +238,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             tt = new GetNameClassModel(dt.Rows[0]);
             return Json(tt, JsonRequestBehavior.AllowGet);
         }
+
+        
     }
 }

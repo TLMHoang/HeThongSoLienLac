@@ -19,15 +19,27 @@ namespace WEBSoLienLacDienTu.Controllers
 
         public async Task<ActionResult> Index()
         {
-
-            List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
-            {
-                lst.Add(new ThongTinHSModels(dr));
-            }
-            return View(lst);
+            BHYT bhyt = new BHYT();
+            DataTable dt = await new BHYT_DAL().LayDT(TaiKhoanPhuHuynhController.ttHS.ID);
+            bhyt = new BHYT(dt.Rows[0]);
+            return View(bhyt);
         }
 
+        public async Task<JsonResult> DKBHYT()
+        {
+            return Json(await new BHYT_DAL().CapNhap(new BHYT(TaiKhoanPhuHuynhController.ttHS.ID, 1, 0)),
+                JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> DKBHQD()
+        {
+            return Json(await new BHYT_DAL().CapNhap(new BHYT(TaiKhoanPhuHuynhController.ttHS.ID, 0, 1)),
+                JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> HuyBHYT()
+        {
+            return Json(await new BHYT_DAL().CapNhap(new BHYT(TaiKhoanPhuHuynhController.ttHS.ID, 0, 0)),
+                JsonRequestBehavior.AllowGet);
+        }
         public async Task<JsonResult> CheckDateBHYT()
         {
             FunctionOrder f = new FunctionOrder();

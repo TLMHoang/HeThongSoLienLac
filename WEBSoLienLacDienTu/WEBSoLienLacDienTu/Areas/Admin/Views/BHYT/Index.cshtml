@@ -1,0 +1,49 @@
+﻿@model DTO.FunctionOrder
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title-page"><h2>Quản Lý Đăng Ký BHYT</h2></div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <form>
+                <div class="form-group">
+                    <label for="Pass">Ngày Bắt Đầu :</label>
+                    @Html.TextBoxFor(model => model.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="NewPass">Ngày Kết Thúc :</label>
+                    @Html.TextBoxFor(model => model.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </form>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <br />
+                    <input type="submit" value="Xác Nhận" class="btn btn-warning" />
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    
+}
+@if (ViewBag.ThongBao != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.ThongBao");
+            //window.location.href = "/Admin/HomeAdmin/Index";
+        }
+    </script>
+}

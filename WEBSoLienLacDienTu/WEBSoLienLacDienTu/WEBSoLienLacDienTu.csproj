@@ -142,6 +142,7 @@
     <Compile Include="Areas\Admin\Code\CheckSessionAuthorize.cs" />
     <Compile Include="Areas\Admin\Code\ExcelData.cs" />
     <Compile Include="Areas\Admin\Code\FileExt.cs" />
+    <Compile Include="Areas\Admin\Controllers\BHYTController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Areas\Admin\Views\TaiKhoanTruong\ChonChucNang.cshtml" />
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\ChiTietVang.cshtml" />
+    <Content Include="Areas\Admin\Views\BHYT\Index.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
