@@ -5,4 +5,43 @@
 }
 
 <h2>THông báo</h2>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">       
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>                          
+                            <th>Nội Dung</th>
+                            <th>Ngày</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable" class="tbody">
+                        @foreach (var item in Model as IEnumerable<DTO.ThongBaoHS>)
+                        {
+                            <tr>                              
+                                @*<td width="5%">
+                                    <div>
+                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoHS(@item.ID);">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span>Xóa</span>
+                                        </a>
+                                    </div>
+                                </td>*@
+                                <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
+                                <td>@Html.DisplayFor(modelitem => item.Ngay)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
 
