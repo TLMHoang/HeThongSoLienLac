@@ -140,5 +140,9 @@ namespace WEBSoLienLacDienTu.Controllers
             ttHS = new ThongTinHSLienKetModel(row);
             return Json(JsonRequestBehavior.AllowGet);
         }
+        public JsonResult TenHS()
+        {
+            return Json(ttHS.Ten, JsonRequestBehavior.AllowGet);
+        }
     }
 }
