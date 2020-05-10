@@ -62,14 +62,17 @@ function getbyID(tiet) {
 function LoadDrop() {
     var lstkhoi = $("[name='LstKhoi']");
     var lstlop = $("[name='LstLop']");
-    lstkhoi.change(function () {
-        $.get("/ThoiKhoaBieu/LoadListLop", { IDKhoi: lstkhoi.val() }, function (data) {
-            lstlop.empty();
-            $.each(data, function (index, row) {
-                lstlop.append("<option value='" + row.Value + "'>" + row.Text + "</option>")
+    lstkhoi.change(function() {
+        $.get("/ThoiKhoaBieu/LoadListLop",
+            { IDKhoi: lstkhoi.val() },
+            function(data) {
+                lstlop.empty();
+                $.each(data,
+                    function(index, row) {
+                        lstlop.append("<option value='" + row.Value + "'>" + row.Text + "</option>")
+                    });
             });
-        });
-    })
+    });
 };
 
 function CapNhat() {
@@ -90,8 +93,6 @@ function CapNhat() {
         async: true,
         success: function (result) {
             Loadtable();
-            alert("Cập Nhật Thành Công !");
-
             $('#MonHocModal').modal('toggle'); //or  $('#IDModal').modal('hide');
 
 

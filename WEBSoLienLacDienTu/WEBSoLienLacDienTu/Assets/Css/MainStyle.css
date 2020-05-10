@@ -267,6 +267,10 @@ ul.pagination li a:hover:not(.active)
     background: rgb(255, 169, 63);
     cursor: pointer;
 }
+#panelTKB div div {
+    border-style: solid;
+    border-width: 1px;
+}
 @media all and (max-width : 550px) {
     .container-fluid {
         padding: 0;

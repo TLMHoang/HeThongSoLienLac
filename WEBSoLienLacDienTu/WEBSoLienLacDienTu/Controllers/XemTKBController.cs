@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WEBSoLienLacDienTu.Areas.GiaoVien.Controllers;
 using WEBSoLienLacDienTu.Code;
 using WEBSoLienLacDienTu.Models;
 
@@ -18,12 +19,78 @@ namespace WEBSoLienLacDienTu.Controllers
         public async Task<ActionResult> Index()
         {
 
-            List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
+            await LoadT2();
+            await LoadT3();
+            await LoadT4();
+            await LoadT5();
+            await LoadT6();
+            await LoadT7();
+            await LoadCN();
+            return View();
+        }
+
+        public async Task LoadT2()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID,2)).Rows)
             {
-                lst.Add(new ThongTinHSModels(dr));
+                lst.Add( dr["TenMon"].ToString());
             }
-            return View(lst);
+            ViewBag.LstT2 = lst;
+        }
+        public async Task LoadT3()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID, 3)).Rows)
+            {
+                lst.Add(dr["TenMon"].ToString());
+            }
+            ViewBag.LstT3 = lst;
+        }
+        public async Task LoadT4()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID, 4)).Rows)
+            {
+                lst.Add(dr["TenMon"].ToString());
+            }
+            ViewBag.LstT4 = lst;
+        }
+        public async Task LoadT5()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID, 5)).Rows)
+            {
+                lst.Add(dr["TenMon"].ToString());
+            }
+            ViewBag.LstT5 = lst;
+        }
+        public async Task LoadT6()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID, 6)).Rows)
+            {
+                lst.Add(dr["TenMon"].ToString());
+            }
+            ViewBag.LstT6 = lst;
+        }
+        public async Task LoadT7()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID, 7)).Rows)
+            {
+                lst.Add(dr["TenMon"].ToString());
+            }
+            ViewBag.LstT7 = lst;
+        }
+        public async Task LoadCN()
+        {
+            List<string> lst = new List<string>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID, 1)).Rows)
+            {
+                lst.Add(dr["TenMon"].ToString());
+            }
+            ViewBag.LstCN = lst;
         }
     }
 }
