@@ -114,7 +114,8 @@ a:focus {
 }   
 
 #sidebar ul p {
-    color: #fff;
+    color: rgb(255, 169, 63);
+    font-weight: bold;
     padding: 10px;
 }
 
@@ -123,7 +124,6 @@ a:focus {
     font-size: 1.1em;
     display: block;
 }
-
 #sidebar ul li a:hover {
     color: #fff;
     background: rgb(255, 169, 63);
