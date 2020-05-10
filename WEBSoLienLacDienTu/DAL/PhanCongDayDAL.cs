@@ -67,5 +67,11 @@ namespace DAL
                 new SqlParameter("@IDLop", SqlDbType.Int) { Value = ID }
             );
         }
+        public async Task<DataTable> LayDTPhanCongDay_TTGVBM(int ID)
+        {
+            return await ExecuteQuery("W_SelectPhanCongDay_TTGVBM",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = ID }
+            );
+        }
     }
 }

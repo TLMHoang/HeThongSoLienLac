@@ -43,9 +43,9 @@ namespace WEBSoLienLacDienTu.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(int id, ThongTinHS ttHocSinh)
         {
-            if (await new ThongTinHSDAL().TTHS(id, ttHocSinh.Ten, ttHocSinh.NgaySinh, ttHocSinh.GioiTinh, ttHocSinh.NoiSinh, ttHocSinh.DanToc, ttHocSinh.TonGiao) != 0)
+            if (await new ThongTinHSDAL().CapNhatTTHS_PH(ttHocSinh.ID, ttHocSinh.NoiSinh, ttHocSinh.DanToc, ttHocSinh.TonGiao) != 0)
             {
-                return RedirectToAction("Index", "ThongTinHocSinh1", new { id = tkph.ID });
+                return RedirectToAction("Index", "ThongTinHocSinh1", new { id = TaiKhoanPhuHuynhController.TK.ID });
             }
             else
             {

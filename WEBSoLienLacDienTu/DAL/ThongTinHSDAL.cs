@@ -100,7 +100,7 @@ namespace DAL
         public async Task<DataTable> LayDT_ByIDTaiKhoan(int IDTaiKhoan)
         {
             return await ExecuteQuery(
-                "SelectHsvsPH",
+                "W_SelectTTHS_ByIDPH",
                 new SqlParameter("@IDTaiKhoan", SqlDbType.Int) { Value = IDTaiKhoan }
             );
         }
@@ -144,6 +144,16 @@ namespace DAL
                 new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = TonGiao }
                 
             );
+        }
+
+        public async Task<int> CapNhatTTHS_PH(int id, string noiSinh, string danToc, string tonGiao)
+        {
+            return await ExecuteNonQuery("W_UpdateThongTinHS_PH",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = id},
+                new SqlParameter("@NoiSinh", SqlDbType.NVarChar) { Value = noiSinh },
+                new SqlParameter("@DanToc", SqlDbType.NVarChar) { Value = danToc },
+                new SqlParameter("@TonGiao", SqlDbType.NVarChar) { Value = tonGiao }
+                );
         }
     }
 }
