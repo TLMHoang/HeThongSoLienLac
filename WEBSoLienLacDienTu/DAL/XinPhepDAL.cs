@@ -9,7 +9,7 @@ using DTO;
 
 namespace DAL
 {
-    class XinPhepDAL : SQL.SQLHelper, CInterface<XinPhep>
+    public class XinPhepDAL : SQL.SQLHelper, CInterface<XinPhep>
     {
         public async Task<int> CapNhap(XinPhep obj)
         {
@@ -35,7 +35,7 @@ namespace DAL
         {
             return await ExecuteQuery(
                 "SelectXinPhep",
-                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
 
@@ -68,15 +68,15 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
-        public async Task<int> XinPhepV2(int iD, int idHocSinh, DateTime nghiTu, DateTime nghiDen, byte trangThai, byte choHuy, string lyDo)
+        public async Task<int> XinPhepV2( DateTime nghiTu, DateTime nghiDen, string lyDo)
         {
             return await ExecuteNonQuery("InsertXinPhepV2",
-               new SqlParameter("@ID", SqlDbType.Int) { Value = iD },
-               new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh },
+               //new SqlParameter("@ID", SqlDbType.Int) { Value = iD },
+               //new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh },
                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = nghiTu },
                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = nghiDen },
-               new SqlParameter("@TrangThai", SqlDbType.Bit) { Value = trangThai },
-               new SqlParameter("@ChoHuy", SqlDbType.Bit) { Value = choHuy },
+               //new SqlParameter("@TrangThai", SqlDbType.Bit) { Value = trangThai },
+               //new SqlParameter("@ChoHuy", SqlDbType.Bit) { Value = choHuy },
                new SqlParameter("@LyDo", SqlDbType.NVarChar) { Value = lyDo }
            );
         }
@@ -91,6 +91,13 @@ namespace DAL
                new SqlParameter("@ChoHuy", SqlDbType.Bit) { Value = choHuy },
                new SqlParameter("@LyDo", SqlDbType.NVarChar) { Value = lyDo }
            );
+        }
+        public async Task<DataTable> LayDT_ID(int ID)
+        {
+            return await ExecuteQuery(
+                "SelectXinPhepID",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
         }
     }
 }
