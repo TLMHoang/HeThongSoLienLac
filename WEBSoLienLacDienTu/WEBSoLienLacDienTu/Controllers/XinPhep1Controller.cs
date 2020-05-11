@@ -38,7 +38,7 @@ namespace WEBSoLienLacDienTu.Controllers
         [HttpPost]
         public async Task<ActionResult> XinPhep(XinPhep xp)
         {
-            if (await new XinPhepDAL().XinPhepV2(xp.NghiTu, xp.NghiDen, xp.LyDo) != 0)
+            if (await new XinPhepDAL().XinPhepV2(TaiKhoanPhuHuynhController.ttHS.ID,xp.NghiTu, xp.NghiDen, xp.LyDo) != 0)
             {
                 return RedirectToAction("Index", "XinPhep1", new { id = TaiKhoanPhuHuynhController.ttHS.ID });
             }

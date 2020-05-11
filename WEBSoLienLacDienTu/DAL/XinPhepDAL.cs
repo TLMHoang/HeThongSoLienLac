@@ -68,11 +68,11 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
-        public async Task<int> XinPhepV2( DateTime nghiTu, DateTime nghiDen, string lyDo)
+        public async Task<int> XinPhepV2(int idHocSinh, DateTime nghiTu, DateTime nghiDen, string lyDo)
         {
             return await ExecuteNonQuery("InsertXinPhepV2",
                //new SqlParameter("@ID", SqlDbType.Int) { Value = iD },
-               //new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh },
+               new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh },
                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = nghiTu },
                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = nghiDen },
                //new SqlParameter("@TrangThai", SqlDbType.Bit) { Value = trangThai },
