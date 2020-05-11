@@ -72,7 +72,17 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">@Html.ActionLink("Xin Phép", "XinPhep", "XinPhep1")</li>
+                <li class="active">
+                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">Xin Phép</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu3">
+                        <li>
+                            @Html.ActionLink("Xin Phép Nghỉ Học", "XinPhep", "XinPhep1")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Danh Sách Xin Phép", "Index", "XinPhep1")
+                        </li>
+                    </ul>
+                </li>
                 <li class="active">
                     @Html.ActionLink("Thông Tin Giáo Viên Bộ Môn", "GVBM", "TraCuu")
                 </li>
