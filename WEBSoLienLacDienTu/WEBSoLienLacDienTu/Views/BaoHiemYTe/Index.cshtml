@@ -69,48 +69,57 @@
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
     function DangKyBHYT() {
-        $.ajax({
-            url: "/BaoHiemYTe/DKBHYT/",
-            type: "POST",
-            contentType: "application/json;charset=UTF-8",
-            dataType: "json",
-            success:function(result) {
-                alert("Đăng Ký Thành Công !");
-                location.reload();
-            },
-            error: function (errormessage) {
-                alert("Cập Nhật Thất Bại !");
-            }
-        });
+        var ans = confirm("Xác Nhận ?");
+        if (ans) {
+            $.ajax({
+                url: "/BaoHiemYTe/DKBHYT/",
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Đăng Ký Thành Công !");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert("Cập Nhật Thất Bại !");
+                }
+            });
+        }
     };
     function DangKyBHQD() {
-        $.ajax({
-            url: "/BaoHiemYTe/DKBHQD/",
-            type: "POST",
-            contentType: "application/json;charset=UTF-8",
-            dataType: "json",
-            success: function (result) {
-                alert("Đăng Ký Thành Công !");
-                location.reload();
-            },
-            error: function (errormessage) {
-                alert("Cập Nhật Thất Bại !");
-            }
-        });
+        var ans = confirm("Xác Nhận ?");
+        if (ans) {
+            $.ajax({
+                url: "/BaoHiemYTe/DKBHQD/",
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Đăng Ký Thành Công !");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert("Cập Nhật Thất Bại !");
+                }
+            });
+        }
     };
     function HuyDangKyBHYT() {
-        $.ajax({
-            url: "/BaoHiemYTe/HuyBHYT/",
-            type: "POST",
-            contentType: "application/json;charset=UTF-8",
-            dataType: "json",
-            success: function (result) {
-                alert("Thành Công !");
-                location.reload();
-            },
-            error: function (errormessage) {
-                alert("Thất Bại !");
-            }
-        });
+        var ans = confirm("Bạn Có Chăc Muốn Hủy ?");
+        if (ans) {
+            $.ajax({
+                url: "/BaoHiemYTe/HuyBHYT/",
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Thành Công !");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert("Thất Bại !");
+                }
+            });
+        }
     };
 </script>

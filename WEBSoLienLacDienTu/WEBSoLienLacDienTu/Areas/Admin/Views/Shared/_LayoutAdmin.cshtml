@@ -205,7 +205,9 @@
             </div>
         </div>
     </div>
-
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
     <div class="overlay"></div>
 
     <!-- jQuery CDN  -->
@@ -245,6 +247,9 @@
                     $("#lblTenTK").text(result);
                 }
             });
+        });
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
         });
     </script>
 </body>

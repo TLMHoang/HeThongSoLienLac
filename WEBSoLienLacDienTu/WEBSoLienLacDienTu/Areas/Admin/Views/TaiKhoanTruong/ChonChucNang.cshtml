@@ -27,7 +27,6 @@
 
 
     <link href="~/Assets/Css/MainStyle.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -148,7 +147,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="row justify-content-center menu" >
+                                <div class="row justify-content-center menu">
                                     <div class="col-6 col-md-2" style="cursor: pointer;" onclick="location.href='/Admin/HomeAdmin/Index/'">
                                         <div class="card" style="width: 100%">
                                             <img src="~/Assets/Img/Admin_Image.png" alt="QuanLy" style="width: 100%">
@@ -158,18 +157,18 @@
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-2" style="cursor: pointer;" onclick="document.getElementById('btnChuyenVaiTro').click()">
-                                            <div class="card">
+                                        <div class="card">
                                             @using (Html.BeginForm())
                                             {
                                                 @Html.AntiForgeryToken()
-                                                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                                 <img src="~/Assets/Img/Teacher_Image.png" alt="GiaoVien" style="width: 100%">
                                                 <div>
                                                     <button type="submit" class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white; padding: 6px;" id="btnChuyenVaiTro">Giáo Viên</button>
                                                 </div>
                                             }
-                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +241,9 @@
             </div>
         </div>
     </div>
-
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
     <div class="overlay"></div>
 
     <!-- jQuery CDN -  version (=without AJAX) -->
@@ -254,27 +255,30 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<script>
-    //function ChuyenGiaoVien() {
-    //    var ans = confirm("Xác Nhận ?");
-    //    if (ans) {
-    //        $.ajax({
-    //            url: "/TaiKhoanTruong/ChuyenGiaoVien/",
-    //            type: "POST",
-    //            contentType: "application/json;charset=UTF-8",
-    //            dataType: "json",
-    //            success: function (result) {
-                    
-    //                    window.location = '/GiaoVien/HomeGiaoVien/Index/'
-                    
-    //            },
-    //            error: function (errormessage) {
-    //                alert("Chuyển Vai Trò Thất Bại !");
-    //            }
-    //        });
-    //    }
-    //};
-</script>
+    <script>
+        //function ChuyenGiaoVien() {
+        //    var ans = confirm("Xác Nhận ?");
+        //    if (ans) {
+        //        $.ajax({
+        //            url: "/TaiKhoanTruong/ChuyenGiaoVien/",
+        //            type: "POST",
+        //            contentType: "application/json;charset=UTF-8",
+        //            dataType: "json",
+        //            success: function (result) {
+
+        //                    window.location = '/GiaoVien/HomeGiaoVien/Index/'
+
+        //            },
+        //            error: function (errormessage) {
+        //                alert("Chuyển Vai Trò Thất Bại !");
+        //            }
+        //        });
+        //    }
+        //};
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
 </body>
 
 </html>
