@@ -17,8 +17,9 @@
                             <th>Nghỉ Từ</th>
                             <th>Nghỉ Đến</th>
                             <th>Trạng Thái</th>
+                            <th>Kiểm Duyệt</th>
                             <th>Lý do</th>
-                            
+
                         </tr>
                     </thead>
 
@@ -34,7 +35,7 @@
                                 @Html.DisplayFor(modelitem => item.NghiDen)
                             </td>
                             <td>
-                                @if (item.TrangThai == 1)
+                                @if (item.TrangThai == 0)
                                 {
                                     @Html.Label("Đang Chờ")
                                 }
@@ -43,9 +44,19 @@
                                     @Html.Label("Đã Duyệt")
                                 }
                             </td>
+                            @*<td>
+                                @if (item.ChoHuy == 0)
+                                {
+                                    @Html.Label("Không Cho Nghỉ")
+                                }
+                                else
+                                {
+                                    @Html.Label("Cho Phép Nghỉ")
+                                }
+                            </td>*@
                             <td>
                                 @Html.DisplayFor(modelitem => item.LyDo)
-                            </td>                                                    
+                            </td>
                         </tr>
                         }
                     </tbody>
