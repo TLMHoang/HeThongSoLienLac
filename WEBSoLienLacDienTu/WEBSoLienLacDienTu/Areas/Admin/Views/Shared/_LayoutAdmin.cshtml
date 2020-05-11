@@ -39,6 +39,7 @@
             </div>
 
             <ul class="list-unstyled components">
+                <p>Xin Chào : <span><label id="lblTenTK"></label></span></p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -65,19 +66,19 @@
                 </li>
                 <li class="active">@Html.ActionLink("Quản Lý Thời Khóa Biểu", "Index", "ThoiKhoaBieu")</li>
                 <li class="active">
-                    
+
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Quản Lý Tài Khoản</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu2">
-                            <li>
-                                @Html.ActionLink("Quản Lý Tài Khoản Trường", "Index", "TaiKhoanTruong")
-                            </li>
-                            <li>
-                                @Html.ActionLink("Quản Lý Tài Khoản Phụ Huynh", "Index", "TaiKhoanPH")
-                            </li>
-                            <li>
-                                @Html.ActionLink("Quản Lý Liên Kết PHHS", "Index", "LienKetTaiKhoanPH")
-                            </li>
-                        </ul>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        <li>
+                            @Html.ActionLink("Quản Lý Tài Khoản Trường", "Index", "TaiKhoanTruong")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản Lý Tài Khoản Phụ Huynh", "Index", "TaiKhoanPH")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản Lý Liên Kết PHHS", "Index", "LienKetTaiKhoanPH")
+                        </li>
+                    </ul>
                 </li>
                 <li class="active">@Html.ActionLink("Phân Công Giáo Viên Bộ Môn", "Index", "PhanCongDay")</li>
                 <li class="active">@Html.ActionLink("Quản Lý Lớp Học", "Index", "QuanLyLop")</li>
@@ -207,7 +208,7 @@
 
     <div class="overlay"></div>
 
-    <!-- jQuery CDN -  version (=without AJAX) -->
+    <!-- jQuery CDN  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -232,6 +233,17 @@
                 $('.overlay').addClass('active');
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Admin/TaiKhoanTruong/TenTK",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $("#lblTenTK").text(result);
+                }
             });
         });
     </script>

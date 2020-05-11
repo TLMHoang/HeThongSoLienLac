@@ -32,5 +32,9 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         {
             return View();
         }
+        public JsonResult TenTK()
+        {
+            return Json(TK.TaiKhoan, JsonRequestBehavior.AllowGet);
+        }
     }
 }

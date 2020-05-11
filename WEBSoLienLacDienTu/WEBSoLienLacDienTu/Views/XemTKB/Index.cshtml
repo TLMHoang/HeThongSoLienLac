@@ -3,91 +3,185 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="title-page"><h2>Thời Khóa Biểu Cá Nhân</h2></div>
+<div id="panelTKB_MT">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body ">
+                <div class="row" id="panelTKB">
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Tiết</div>
+                        @for (int i = 1; i < 11; i++)
+                        {
+                            <div>
+                                Tiết @i
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Thứ 2</div>
+                        @foreach (var item in ViewBag.LstT2)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Thứ 3</div>
+                        @foreach (var item in ViewBag.LstT3)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Thứ 4</div>
+                        @foreach (var item in ViewBag.LstT4)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Thứ 5</div>
+                        @foreach (var item in ViewBag.LstT5)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Thứ 6</div>
+                        @foreach (var item in ViewBag.LstT6)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Thứ 7</div>
+                        @foreach (var item in ViewBag.LstT7)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
+                    <div class="col" style="padding: 0; width: auto; text-align: center;">
+                        <div style="font-weight: bold;">Chủ Nhật</div>
+                        @foreach (var item in ViewBag.LstCN)
+                        {
+                            <div>
+                                @item
+                            </div>
+                        }
+                    </div>
 
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-body ">
-            <div class="row" id="panelTKB">
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Tiết</div>
-                    @for (int i = 1; i < 11; i++)
-                    {
-                        <div>
-                            Tiết @i
-                        </div>
-                    }
                 </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Thứ 2</div>
-                    @foreach (var item in ViewBag.LstT2)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="panelTKB_DT" >
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
+            <form>
+                <label for="sel1">Chọn Thứ:</label>
+                <div class="input-group mb-3 ">
+                    @Html.DropDownList("LstThu",
+                        new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Thứ 2",Value = "2"},
+                            new SelectListItem {Text = "Thứ 3",Value = "3"},
+                            new SelectListItem {Text = "Thứ 4",Value = "4"},
+                            new SelectListItem {Text = "Thứ 5",Value = "5"},
+                            new SelectListItem {Text = "Thứ 6",Value = "6"},
+                            new SelectListItem {Text = "Thứ 7",Value = "7"},
+                            new SelectListItem {Text = "Chủ Nhật",Value = "1"},
+                            new SelectListItem {Text = "Tất Cả",Value = "-1"}
+                        }
+                        , null, new { @class = "form-control" })
                 </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Thứ 3</div>
-                    @foreach (var item in ViewBag.LstT3)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header" style="padding: 6px;">
+                <form>
+                    <div class="input-group mb-3 justify-content-center">
+                        <h6 class="m-0 font-weight-bold text-primary">Thời Khóa Biểu</h6>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Thứ</th>
+                                <th>Tiết</th>
+                                <th>Tên Môn</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Thứ 4</div>
-                    @foreach (var item in ViewBag.LstT4)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
-                </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Thứ 5</div>
-                    @foreach (var item in ViewBag.LstT5)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
-                </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Thứ 6</div>
-                    @foreach (var item in ViewBag.LstT6)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
-                </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Thứ 7</div>
-                    @foreach (var item in ViewBag.LstT7)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
-                </div>
-                <div class="col" style="padding: 0; width: auto; text-align: center;">
-                    <div style="font-weight: bold;">Chủ Nhật</div>
-                    @foreach (var item in ViewBag.LstCN)
-                    {
-                        <div>
-                            @item
-                        </div>
-                    }
-                </div>
-                
             </div>
         </div>
     </div>
-
 </div>
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script>
+    $(document).ready(function() {
+        $("[name='LstThu']").change(function () {
+            Loadtable();
+        });
+        $("[name='LstThu']").change();
+    });
+    function Loadtable() {
+        var Thu = $("[name='LstThu']").val();
+        $.ajax({
+            url: "/XemTKB/LoadData",
+            data: { IDThu: Thu },
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                var html = '';
+                $.each(result,
+                    function (key, item) {
+                        html += '<tr>';
+                        if (item.Thu == 1) {
+                            html += '<td>Chủ Nhật</td>';
+                        } else {
+                            html += '<td>' + item.Thu + '</td>';
+                        }
+                        html += '<td>' + item.Tiet + '</td>';
+                        html += '<td>' + item.TenMon + '</td>';
+                        html += '</tr>';
+                    });
+                $('.tbody').html(html);
+            },
+            error: function () {
+                alert("Load Thông Tin Thất Bại !");
+            }
+        });
+    };
+</script>

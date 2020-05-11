@@ -252,5 +252,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
             ViewBag.LstLop1 = new SelectList(lst, "ID", "TenDayDu");
         }
+        public JsonResult TenTK()
+        {
+            return Json(TK.TaiKhoan, JsonRequestBehavior.AllowGet);
+        }
     }
 }

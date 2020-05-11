@@ -271,6 +271,22 @@ ul.pagination li a:hover:not(.active)
     border-style: solid;
     border-width: 1px;
 }
+@media all and (min-width : 944px) {
+    #panelTKB_MT {
+        display: block;
+    }
+    #panelTKB_DT {
+        display: none;
+    }
+}
+@media all and (max-width : 944px) {
+    #panelTKB_MT {
+        display: none;
+    }
+    #panelTKB_DT {
+        display: block;
+    }
+}
 @media all and (max-width : 550px) {
     .container-fluid {
         padding: 0;

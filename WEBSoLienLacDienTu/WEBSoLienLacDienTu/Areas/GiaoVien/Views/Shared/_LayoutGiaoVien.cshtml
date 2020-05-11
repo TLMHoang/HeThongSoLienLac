@@ -38,6 +38,7 @@
             </div>
 
             <ul class="list-unstyled components">
+                <p>Xin Chào : <span><label id="lblTenTK"></label></span></p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -45,17 +46,17 @@
                             @Html.ActionLink("Thông Báo Học Sinh", "Index2", "ThongBaoCaNhanGV")
                         </li>
                         <li>
-                            @Html.ActionLink("Thông Báo Lớp","Index","ThongBaoCaNhanGV")
+                            @Html.ActionLink("Thông Báo Lớp", "Index", "ThongBaoCaNhanGV")
                         </li>
                     </ul>
                 </li>
-                <li class="active">@Html.ActionLink("Nhập Điểm","Index","QuanLyNhapDiem")</li>
+                <li class="active">@Html.ActionLink("Nhập Điểm", "Index", "QuanLyNhapDiem")</li>
                 <li class="active"><a>Xét Duyệt Nghỉ Học</a></li>
                 <li class="active">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false">Điểm Danh</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            @Html.ActionLink("Vắng","Index","DiemDanhGV")
+                            @Html.ActionLink("Vắng", "Index", "DiemDanhGV")
                         </li>
                     </ul>
                 </li>
@@ -227,6 +228,17 @@
                 }
             });
         }
+        $(document).ready(function () {
+            $.ajax({
+                url: "/GiaoVien/HomeGiaoVien/TenTK",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $("#lblTenTK").text(result);
+                }
+            });
+        });
     </script>
 </body>
 

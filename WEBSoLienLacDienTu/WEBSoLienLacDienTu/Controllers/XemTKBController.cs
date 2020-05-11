@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WEBSoLienLacDienTu.Areas.Admin.Models;
 using WEBSoLienLacDienTu.Areas.GiaoVien.Controllers;
 using WEBSoLienLacDienTu.Code;
 using WEBSoLienLacDienTu.Models;
@@ -28,7 +29,15 @@ namespace WEBSoLienLacDienTu.Controllers
             await LoadCN();
             return View();
         }
-
+        public async Task<JsonResult> LoadData(int IDThu)
+        {
+            List<ThoiKhoaBieuModel> lst = new List<ThoiKhoaBieuModel>();
+            foreach (DataRow dr in (await new ThoiKhoaBieuDAL().LayDT_CoTenMon(TaiKhoanPhuHuynhController.ttHS.IDLop, IDThu)).Rows)
+            {
+                lst.Add(new ThoiKhoaBieuModel(dr));
+            }
+            return Json(lst, JsonRequestBehavior.AllowGet);
+        }
         public async Task LoadT2()
         {
             List<string> lst = new List<string>();
