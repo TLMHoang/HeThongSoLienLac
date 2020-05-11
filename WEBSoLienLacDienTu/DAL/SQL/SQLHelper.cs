@@ -35,8 +35,10 @@ namespace DAL.SQL
                         return await cmd.ExecuteNonQueryAsync();
                     }
                 }
-                catch (Exception)
-                { }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 finally
                 {
                     if (con.State == ConnectionState.Open)
@@ -73,7 +75,10 @@ namespace DAL.SQL
 
                     }
                 }
-                catch (Exception) { }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 finally
                 {
                     if (con.State == ConnectionState.Open)
@@ -107,7 +112,10 @@ namespace DAL.SQL
 
                     }
                 }
-                catch (Exception) { }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 finally
                 {
                     if (con.State == ConnectionState.Open)

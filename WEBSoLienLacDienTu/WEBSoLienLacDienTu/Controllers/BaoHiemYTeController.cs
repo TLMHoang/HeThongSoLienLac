@@ -42,23 +42,25 @@ namespace WEBSoLienLacDienTu.Controllers
         }
         public async Task<JsonResult> CheckDateBHYT()
         {
+            int flag;
             FunctionOrder f = new FunctionOrder();
             DataTable dt = await new BHYT_DAL().CheckDateBhyt();
             f = new FunctionOrder(dt.Rows[0]);
             int result = DateTime.Compare(DateTime.Now, f.EndDate.AddDays(1));
-            if (result < 0)
+            int result1 = DateTime.Compare(DateTime.Now,f.StartDate );
+            if (result < 0 && result1 > 0)
             {
-                result = 1;
+                flag = 1;
             }
-            else if(result == 0)
+            else if(result == 0 && result1 > 0)
             {
-                result = 1;
+                flag = 1;
             }
             else
             {
-                result = 0;
+                flag = 0;
             }
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(flag, JsonRequestBehavior.AllowGet);
         }
     }
 }
