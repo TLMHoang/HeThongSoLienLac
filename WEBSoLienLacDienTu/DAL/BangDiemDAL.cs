@@ -91,5 +91,13 @@ namespace DAL
                 
                 );
         }
+        public async Task<DataTable> LayDanhSachDiem_ByIDHS(int idHocSinh,byte hocKy)
+        {
+            return await ExecuteQuery("W_BangDiemByIdHS",
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh },
+                new SqlParameter("@HocKy", SqlDbType.Bit) { Value = hocKy }
+
+            );
+        }
     }
 }
