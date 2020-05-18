@@ -24,7 +24,13 @@ namespace WEBSoLienLacDienTu.Controllers
             bhyt = new BHYT(dt.Rows[0]);
             return View(bhyt);
         }
-
+        public async Task<JsonResult> TrangThaiBHYT()
+        {
+            BHYT bhyt = new BHYT();
+            DataTable dt = await new BHYT_DAL().LayDT(TaiKhoanPhuHuynhController.ttHS.ID);
+            bhyt = new BHYT(dt.Rows[0]);
+            return Json(bhyt,JsonRequestBehavior.AllowGet);
+        }
         public async Task<JsonResult> DKBHYT()
         {
             return Json(await new BHYT_DAL().CapNhap(new BHYT(TaiKhoanPhuHuynhController.ttHS.ID, 1, 0)),

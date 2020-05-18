@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="row justify-content-center mx-auto">
-                <button class="btn btn-danger" onclick="HuyDangKyBHYT();" style="color: white; font-weight: bold;">Hủy Đăng Ký</button>
+                <button class="btn btn-danger" onclick="HuyDangKyBHYT1();" style="color: white; font-weight: bold;">Hủy Đăng Ký</button>
             </div>
         </div>
     }
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="row justify-content-center mx-auto">
-                <button class="btn btn-warning" onclick="DangKyBHYT();" style="margin-right: 15px; color: white; font-weight: bold;">Đăng Ký BHYT</button>
-                <button class="btn btn-warning" onclick="DangKyBHQD();" style="color: white; font-weight: bold;">Đã Có BHQD</button>
+                <button class="btn btn-warning" onclick="DangKyBHYT1();" style="margin-right: 15px; color: white; font-weight: bold;">Đăng Ký BHYT</button>
+                <button class="btn btn-warning" onclick="DangKyBHQD1();" style="color: white; font-weight: bold;">Đã Có BHQD</button>
             </div>
         </div>
     }
@@ -68,7 +68,7 @@
 </div>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
-    function DangKyBHYT() {
+    function DangKyBHYT1() {
         var ans = confirm("Xác Nhận ?");
         if (ans) {
             $.ajax({
@@ -86,7 +86,7 @@
             });
         }
     };
-    function DangKyBHQD() {
+    function DangKyBHQD1() {
         var ans = confirm("Xác Nhận ?");
         if (ans) {
             $.ajax({
@@ -104,7 +104,7 @@
             });
         }
     };
-    function HuyDangKyBHYT() {
+    function HuyDangKyBHYT1() {
         var ans = confirm("Bạn Có Chăc Muốn Hủy ?");
         if (ans) {
             $.ajax({
