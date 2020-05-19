@@ -122,5 +122,13 @@ namespace DAL
                 new SqlParameter("@TienTaiLieu", SqlDbType.Int) { Value = tienTailieu }
                 );
         }
+        public async Task<DataTable> LayDT_ByID_Thang(int ID , int Thang)
+        {
+            return await ExecuteQuery(
+                "SelectHocPhiTheoIDHS_Thang",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID },
+                new SqlParameter("@Thang", SqlDbType.Int) { Value = Thang }
+            );
+        }
     }
 }

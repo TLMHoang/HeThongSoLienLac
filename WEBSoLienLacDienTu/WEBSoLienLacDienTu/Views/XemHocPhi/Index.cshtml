@@ -5,10 +5,9 @@
 }
 
 <h2>Xem Học Phí</h2>
-<div class="input-group mb-3 text-danger">@ViewData["Loi"]</div>
-<form>
-    <label for="sel1">Chọn Tháng:</label>
-    <div class="input-group mb-3 ">
+<div class="box" style="margin-bottom: 5px; ">
+
+    <div style="width: 50%; margin: 0 auto;">
         @Html.DropDownList("LstThang",
             new List<SelectListItem>
             {
@@ -25,7 +24,37 @@
                 new SelectListItem {Text = "Tháng 11",Value = "11"},
                 new SelectListItem {Text = "Tháng 12",Value = "12"}
             }
-            , null, new { @class = "form-control" })
+            , null, new { @class = "form-control", id = "LstThang" })
     </div>
-</form>
+
+</div>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">       
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>Tên</th>
+                            <th>Chương Trình Học</th>
+                            <th>Số Ngày</th>
+                            <th>Tiền Học</th>
+                            <th>Tiền Ăn</th>
+                            <th>Tiền Điện </th>
+                            <th>Tiền Nước</th>
+                            <th>Tiền Vệ Sinh</th>
+                            <th>Tiền Trang Thiết Bị </th>
+                            <th>Tiền Tài Liệu</th>                            
+                        </tr>                       
+                    </thead>
+
+                    <tbody id="myTable" class="tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 

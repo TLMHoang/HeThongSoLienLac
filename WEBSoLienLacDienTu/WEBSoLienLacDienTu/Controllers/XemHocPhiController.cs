@@ -16,17 +16,22 @@ namespace WEBSoLienLacDienTu.Controllers
     public class XemHocPhiController : Controller
     {
         // GET: XemHocPhi
-        ThongTinHS tt = new ThongTinHS();
+        
         public async Task<ActionResult> Index()
+        {
+          
+            return View();
+        }
+        public async Task<ActionResult> LoadHocPhi(int Thang)
         {
 
             List<HocPhiModels> lst = new List<HocPhiModels>();
-            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
+            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT_ByID_Thang(TaiKhoanPhuHuynhController.ttHS.ID, Thang)).Rows)
             {
                 lst.Add(new HocPhiModels(dr));
             }
-            return View(lst);
+            return Json(lst, JsonRequestBehavior.AllowGet);
         }
-       
+
     }
 }
