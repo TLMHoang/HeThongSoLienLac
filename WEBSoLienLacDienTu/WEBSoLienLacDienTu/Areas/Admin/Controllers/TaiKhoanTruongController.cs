@@ -158,7 +158,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                         Session["TaiKhoanNhaTruong"] = lg.TaiKhoan.ToString();
                         Session["MatKhau"] = lg.MatKhau.ToString();
                         mk = lg.MatKhau.ToString();
-                        return RedirectToAction("ChonChucNang");
+                        return RedirectToAction("Index","HomeAdmin");
                     }
                     else
                     {

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WEBSoLienLacDienTu.Areas.GiaoVien.Models.KiemDuyetXinPhepModel>
+@{
+    ViewBag.Title = "DanhSachDaDuyet";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/GiaoVien/KiemDuyetXinPhep/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page">
+        <h2>Danh Sách Đơn Đã Duyệt</h2>
+    </div>
+
+</div>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="row">
+                    <div class="col"><h6 class="m-0 font-weight-bold text-primary">Danh Sách</h6></div>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã Học Sinh</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Nghỉ Từ</th>
+                            <th>Nghỉ Đến</th>
+                            <th>Lý Do</th>
+                            <th>Trạng Thái</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable" class="tbody">
+                        @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="7">
+                                    <div class="box" style="margin: 0 auto; width: 80%;">
+                                        <div style="margin: 0 auto; width: 50%;">
+                                            <p style="font-weight: bold;text-align: center; margin-bottom: 0; color: red;">Trống</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>HS00<span>@item.IDHocSinh</span></td>
+                                    <td>@item.TenHS</td>
+                                    <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.LyDo</td>
+                                    @if (item.TrangThai == 2)
+                                    {
+                                        <td><label style="color: greenyellow; font-weight: bold;">Đã Xét Duyệt</label></td>
+                                    }
+                                    else
+                                    {
+                                        <td><label style="color: red; font-weight: bold;">Từ Chối</label></td>
+                                    }
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

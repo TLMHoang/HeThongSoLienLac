@@ -325,6 +325,7 @@
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\ChiTietVang.cshtml" />
     <Content Include="Areas\Admin\Views\BHYT\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\DanhSachDaDuyet.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

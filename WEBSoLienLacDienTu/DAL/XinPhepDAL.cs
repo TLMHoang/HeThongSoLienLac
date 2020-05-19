@@ -47,6 +47,14 @@ namespace DAL
                 new SqlParameter("@TrangThai", SqlDbType.Int) { Value = TrangThai }
             );
         }
+        public async Task<DataTable> LayDT_DaDuyet(int IDLop)
+        {
+            return await ExecuteQuery(
+                "W_SelectXinPhep_DSDaDuyet",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop }
+            );
+        }
         public async Task<DataTable> LayDT(int ID)
         {
             return await ExecuteQuery(
