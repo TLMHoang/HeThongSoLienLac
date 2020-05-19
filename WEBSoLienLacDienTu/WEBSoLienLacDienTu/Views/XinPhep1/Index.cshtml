@@ -27,36 +27,25 @@
                         @foreach (var item in Model as IEnumerable<DTO.XinPhep>)
                         {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.NghiTu)
-                            </td>
+                            <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
 
-                            <td>
-                                @Html.DisplayFor(modelitem => item.NghiDen)
-                            </td>
-                            <td>
-                                @if (item.TrangThai == 0)
+                            <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
+                            @*<td>
+                                @if (item.TrangThai == 1)
                                 {
                                     @Html.Label("Đang Chờ")
                                 }
-                                else
+                                else if (item.TrangThai == 2)
                                 {
-                                    @Html.Label("Đã Duyệt")
+                                    @Html.Label("Chấp Nhận Nghỉ")
                                 }
-                            </td>
-                            @*<td>
-                                @if (item.ChoHuy == 0)
+                                else if (item.TrangThai == 3)
                                 {
-                                    @Html.Label("Không Cho Nghỉ")
-                                }
-                                else
-                                {
-                                    @Html.Label("Cho Phép Nghỉ")
+                                    @Html.Label("Không Cho Phép")
                                 }
                             </td>*@
-                            <td>
-                                @Html.DisplayFor(modelitem => item.LyDo)
-                            </td>
+                            <td>@item.TrangThai.ToString()</td>                           
+                            <td>@item.LyDo</td>
                         </tr>
                         }
                     </tbody>
