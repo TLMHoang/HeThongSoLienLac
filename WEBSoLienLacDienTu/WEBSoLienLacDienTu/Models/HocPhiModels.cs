@@ -1,26 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace DTO
+namespace WEBSoLienLacDienTu.Models
 {
-    [Table("nxtckedu_sa.TienHocPhi")]
-    public class TienHocPhi
+    public class HocPhiModels
     {
         public int ID { get; set; }
-
+        public string Ten { get; set; }
         public int Thang { get; set; }
-
-        public int IDLoaiHocSinh { get; set; }
-
-        public int IDKhoi { get; set; }
-
+        public int LoaiHocSinh { get; set; }
         public int SoNgayHoc { get; set; }
-
         public int TienHoc { get; set; }
 
         public int TienAn { get; set; }
@@ -34,13 +26,12 @@ namespace DTO
         public int TienTrangThietBi { get; set; }
 
         public int TienTaiLieu { get; set; }
-
-        public TienHocPhi()
+        public HocPhiModels()
         {
             ID = -1;
+            Ten = "";
             Thang = -1;
-            IDLoaiHocSinh = -1;
-            IDKhoi = -1;
+            LoaiHocSinh = -1;
             SoNgayHoc = -1;
             TienHoc = -1;
             TienAn = -1;
@@ -50,13 +41,13 @@ namespace DTO
             TienTrangThietBi = -1;
             TienTaiLieu = -1;
         }
-        public TienHocPhi(int iD, int thang, int idLoaiHocSinh, int idKhoi, int soNgayHoc, int tienHoc, int tienAn, int tienDien, int tienNuoc, int tienVeSinh, int tienTrangThietBi, int tienTaiLieu)
+        public HocPhiModels(int iD, string ten,int thag, int HocSinh, int soNgayHoc, int tienHoc, int tienAn, int tienDien, int tienNuoc, int tienVeSinh, int tienTrangThietBi, int tienTaiLieu)
         {
             ID = iD;
-            Thang = thang;
-            IDLoaiHocSinh = idLoaiHocSinh;
-            IDKhoi = idKhoi;
-            SoNgayHoc = soNgayHoc;
+            Ten = ten;
+            Thang = thag;
+            LoaiHocSinh = HocSinh;
+            SoNgayHoc = soNgayHoc;          
             TienHoc = tienHoc;
             TienAn = tienAn;
             TienDien = tienDien;
@@ -66,12 +57,12 @@ namespace DTO
             TienTaiLieu = tienTaiLieu;
         }
 
-        public TienHocPhi(DataRow dr)
+        public HocPhiModels(DataRow dr)
         {
-            ID = Convert.IsDBNull(dr["ID"]) ? -1 : Convert.ToInt32(dr["ID"]);
+            ID = Convert.IsDBNull(dr["ID"]) ? -1 : Convert.ToInt32(dr["ID"]);           
+            Ten = dr["Ten"].ToString();
             Thang = Convert.IsDBNull(dr["Thang"]) ? -1 : Convert.ToInt32(dr["Thang"]);
-            IDLoaiHocSinh = Convert.IsDBNull(dr["IDLoaiHocSinh"]) ? -1 : Convert.ToInt32(dr["IDLoaiHocSinh"]);
-            IDKhoi = Convert.IsDBNull(dr["IDKhoi"]) ? -1 : Convert.ToInt32(dr["IDKhoi"]);
+            LoaiHocSinh = Convert.IsDBNull(dr["IDLoaiHocSinh"]) ? -1 : Convert.ToInt32(dr["IDLoaiHocSinh"]);
             SoNgayHoc = Convert.IsDBNull(dr["SoNgayHoc"]) ? -1 : Convert.ToInt32(dr["SoNgayHoc"]);
             TienHoc = Convert.IsDBNull(dr["TienHoc"]) ? -1 : Convert.ToInt32(dr["TienHoc"]);
             TienAn = Convert.IsDBNull(dr["TienAn"]) ? -1 : Convert.ToInt32(dr["TienAn"]);
@@ -81,5 +72,6 @@ namespace DTO
             TienTrangThietBi = Convert.IsDBNull(dr["TienTrangThietBi"]) ? -1 : Convert.ToInt32(dr["TienTrangThietBi"]);
             TienTaiLieu = Convert.IsDBNull(dr["TienTaiLieu"]) ? -1 : Convert.ToInt32(dr["TienTaiLieu"]);
         }
+
     }
 }
