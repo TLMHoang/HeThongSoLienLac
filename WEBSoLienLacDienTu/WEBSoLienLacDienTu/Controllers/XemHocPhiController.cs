@@ -17,11 +17,11 @@ namespace WEBSoLienLacDienTu.Controllers
     {
         // GET: XemHocPhi
         ThongTinHS tt = new ThongTinHS();
-        public async Task<ActionResult> Index(int id)
+        public async Task<ActionResult> Index()
         {
 
             List<HocPhiModels> lst = new List<HocPhiModels>();
-            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT(id)).Rows)
+            foreach (DataRow dr in (await new ThongTinHocPhiDAL().LayDT(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
             {
                 lst.Add(new HocPhiModels(dr));
             }
