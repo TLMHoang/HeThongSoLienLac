@@ -191,7 +191,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BangDiemModels.cs" />
     <Compile Include="Models\DangNhapModels.cs" />
     <Compile Include="Models\DanhSachBangDiemTheoMonModel.cs" />
     <Compile Include="Models\DoiPassModels.cs" />
