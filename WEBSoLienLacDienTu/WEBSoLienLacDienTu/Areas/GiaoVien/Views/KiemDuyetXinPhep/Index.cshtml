@@ -1,0 +1,123 @@
+﻿@model IEnumerable<WEBSoLienLacDienTu.Areas.GiaoVien.Models.KiemDuyetXinPhepModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+
+<div class="title-page">Kiểm Duyệt Xin Phép</div>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="row">
+                    <div class="col"><h6 class="m-0 font-weight-bold text-primary">Danh Sách Chờ Duyệt</h6></div>
+                    <div class="col"><button class="btn btn-primary" style="float: right;">Danh Sách Đã Duyệt</button></div>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã Học Sinh</th>
+                            <th>Tên Học Sinh</th>
+                            <th>Nghỉ Từ</th>
+                            <th>Nghỉ Đến</th>
+                            <th>Lý Do</th>
+                            <th>Duyệt</th>
+                            <th>Từ Chối</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable" class="tbody">
+                        @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="7">
+                                    <div class="box" style="margin: 0 auto; width: 80%;">
+                                        <div style="margin: 0 auto; width: 50%;">
+                                            <p style="font-weight: bold;text-align: center; margin-bottom: 0; color: red;">Trống</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <script type="text/javascript">
+                                alert("Hiện Chưa Có Đơn Cần Duyệt !");
+                            </script>
+                        }
+                        else
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>HS00<span>@item.IDHocSinh</span></td>
+                                    <td>@item.TenHS</td>
+                                    <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.LyDo</td>
+                                    <td width="5%">
+                                        <div>
+                                            <a href="#" onclick="DuyetDon(@item.ID);" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Duyệt</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td width="5%">
+                                        <div>
+                                            <a href="#" onclick="TuChoiDon(@item.ID);" class="btn btn-danger btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Từ Chối</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script>
+    function DuyetDon(ID) {
+        $.ajax({
+            url: "/GiaoVien/KiemDuyetXinPhep/DuyetDon/" + ID,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                location.reload();
+            },
+            error: function (errormessage) {
+                alert("Thất Bại");
+            }
+        });
+    }
+    function TuChoiDon(ID) {
+        $.ajax({
+            url: "/GiaoVien/KiemDuyetXinPhep/TuChoiDon/" + ID,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                location.reload();
+            },
+            error: function (errormessage) {
+                alert("Thất Bại");
+            }
+        });
+    }
+</script>

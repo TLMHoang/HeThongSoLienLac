@@ -172,9 +172,11 @@
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DiemDanhGVController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\KiemDuyetXinPhepController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\QuanLyNhapDiemController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
+    <Compile Include="Areas\GiaoVien\Models\KiemDuyetXinPhepModel.cs" />
     <Compile Include="Code\CheckSession.cs" />
     <Compile Include="Controllers\BaoHiemYTeController.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
@@ -322,6 +324,7 @@
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\ChiTietVang.cshtml" />
     <Content Include="Areas\Admin\Views\BHYT\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\Index.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -370,7 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\GiaoVien\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
