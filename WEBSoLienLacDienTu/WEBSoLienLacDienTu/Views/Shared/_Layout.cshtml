@@ -65,10 +65,10 @@
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
-                            @Html.ActionLink("Thông Tin Hoc Sinh", "Edit", "ThongTinHocSinh1")
+                            @Html.ActionLink("Thông Tin Học Sinh", "Edit", "ThongTinHocSinh1")
                         </li>
                         <li style="display: none;" id="linkBHYT">
-                            @Html.ActionLink("Bảo Hiểm Y Tế", "Index", "BaoHiemYTe")
+                            <a href="#">Đăng Ký BHYT</a>
                         </li>
                     </ul>
                 </li>
@@ -149,10 +149,13 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                @RenderBody()
-                <hr />
+                <div class="body-pagecontent">
+                    @RenderBody()
+                </div>
+                
                 <!-- Footer -->
                 <footer>
+                    <hr />
                     <!-- Footer Links -->
                     <div class="container text-center text-md-left mt-6">
 
@@ -222,6 +225,30 @@
     </div>
     <div class="overlay"></div>
 
+    <div class="modal fade" id="BHYTModal">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Đăng Ký BHYT</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container-fluid" id="bodyModal_BHYT">
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
     <script src="~/Scripts/jquery-3.4.1.js"></script>
@@ -232,52 +259,8 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
 
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-        $(document).ready(function () {
-            $.ajax({
-                url: "/TaiKhoanPhuHuynh/TenHS",
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    $("#lblTenHS").text(result);
-                }
-            });
-        });
-        $(document).ready(function () {
-            $.ajax({
-                url: "/BaoHiemYTe/CheckDateBHYT",
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    if (result === 1) {
-                        $("#linkBHYT").css("display", "block");
-                    }
-                }
-            });
-        });
-        $(window).on("load", function () {
-            $(".loader-wrapper").fadeOut("slow");
-        });
-    </script>
+    <script src="~/Scripts/_Layout.js"></script>
 </body>
 
 </html>
