@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Xem Học Phí</h2>
+<div class="title-page"><h2>Thông Tin Học Phí</h2></div>
 <div class="box" style="margin-bottom: 5px; ">
 
     <div style="width: 50%; margin: 0 auto;">
@@ -31,24 +31,23 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">       
+    <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
-                    <thead>
+                    <thead style="background-color: darkorange; color: white;">
                         <tr>
-
-                            <th>Tên</th>
-                            <th>Chương Trình Học</th>
-                            <th>Số Ngày</th>
+                           
+                            @*<th>Chương Trình Học</th>
+                            <th>Số Ngày</th>*@
                             <th>Tiền Học</th>
                             <th>Tiền Ăn</th>
                             <th>Tiền Điện </th>
                             <th>Tiền Nước</th>
                             <th>Tiền Vệ Sinh</th>
                             <th>Tiền Trang Thiết Bị </th>
-                            <th>Tiền Tài Liệu</th>                            
-                        </tr>                       
+                            <th>Tiền Tài Liệu</th>
+                        </tr>
                     </thead>
 
                     <tbody id="myTable" class="tbody"></tbody>
@@ -57,4 +56,53 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript">
+    function Loadtable() {
+            var Thang = $("[name='LstThang']").val();
+            $.ajax({
+                url: "/XemHocPhi/LoadHocPhi",
+                data: { Thang: Thang },
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    $.each(result,
+                        function (key, item) {
+                            html += '<tr>';
+                            
+                            //html += '<td>' + item.LoaiHocSinh + '</td>';
+                            //html += '<td>' + item.SoNgayHoc + '</td>';
+                            html += '<td>' + item.TienHoc + '</td>';
+                            html += '<td>' + item.TienAn + '</td>';
+                            html += '<td>' + item.TienDien + '</td>';
+                            html += '<td>' + item.TienNuoc + '</td>';
+                            html += '<td>' + item.TienVeSinh + '</td>';
+                            html += '<td>' + item.TienTrangThietBi + '</td>';
+                            html += '<td>' + item.TienTaiLieu + '</td>';
+                            html += '</tr>';
+                        });
+                    $('.tbody').html(html);
+
+                },
+                error: function () {
+                    alert("Load Data Thất Bại !");
+                }
+            });
+        }
+
+    $(document).ready(function() {
+        $(function () {
+            $('#LstThang').change(function () {
+                Loadtable();
+            });
+            $('#LstThang').change();
+        });
+    });
+
+
+</script>
 
