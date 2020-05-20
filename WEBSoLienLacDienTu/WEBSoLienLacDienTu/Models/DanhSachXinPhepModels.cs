@@ -39,7 +39,7 @@ namespace WEBSoLienLacDienTu.Models
             LyDo = lyDo;
         }
 
-        public DanhSachXinPhepModels(DataRow dr)
+        public DanhSachXinPhepModels (DataRow dr)
         {
             ID = Convert.IsDBNull(dr["ID"]) ? -1 : Convert.ToInt32(dr["ID"]);
             NghiTu = Convert.ToDateTime(dr["NghiTu"]);

@@ -21,10 +21,10 @@ namespace WEBSoLienLacDienTu.Controllers
         public async Task<ActionResult> Index()
         {
 
-            List<XinPhep> lst = new List<XinPhep>();
+            List<DanhSachXinPhepModels> lst = new List<DanhSachXinPhepModels>();
             foreach (DataRow dr in (await xp.LayDT_ID(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
             {
-                lst.Add(new XinPhep(dr));
+                lst.Add(new DanhSachXinPhepModels(dr));
             }
             return View(lst);
         }

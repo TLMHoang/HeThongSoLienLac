@@ -24,21 +24,26 @@
 
                     <tbody id="myTable" class="tbody">
                         
-                            @foreach (var item in Model as IEnumerable<DTO.XinPhep>)
+                            @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.DanhSachXinPhepModels>)
                             {
                                 <tr>
 
-                                    <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
-                                    <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
-                                    <td>@item.LyDo</td>
-                                    @if (item.TrangThai == 2)
+                                    @Html.DisplayFor(modelitem => item.NghiTu)
+                                    @Html.DisplayFor(modelitem => item.NghiDen)
+                                    @Html.DisplayFor(modelitem => item.LyDo)
+                                    @Html.DisplayFor(modelitem => item.TrangThai)
+                                    @*@if (item.TrangThai == 1)
                                     {
-                                        <td><label style="color: greenyellow; font-weight: bold;">Đã Xét Duyệt</label></td>
+                                        <td><label style="color: red; font-weight: bold;">Đang Xử Lý</label></td>
                                     }
-                                    else
+                                    else if(item.TrangThai == 2)
                                     {
-                                        <td><label style="color: red; font-weight: bold;">Từ Chối</label></td>
+                                        <td><label style="color: red; font-weight: bold;">Không Cho Phép</label></td>
                                     }
+                                    else if(item.TrangThai == 3)
+                                    {
+                                        <td><label style="color: red; font-weight: bold;">Cho Phép</label></td>
+                                    }*@
                                 </tr>
                             }
                         
