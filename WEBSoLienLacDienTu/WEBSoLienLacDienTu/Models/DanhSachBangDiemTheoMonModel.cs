@@ -26,6 +26,8 @@ namespace WEBSoLienLacDienTu.Models
         public double _1t_4 { get; set; }
         public double _1t_5 { get; set; }
         public double HocKy { get; set; }
+        public double TBM1 { get; set; }
+        public double TBM2 { get; set; }
 
         public DanhSachBangDiemTheoMonModel(DataRow dr)
         {
@@ -46,6 +48,8 @@ namespace WEBSoLienLacDienTu.Models
             _1t_4 = Convert.IsDBNull(dr["1t_4"]) ? -1 : Convert.ToDouble(dr["1t_4"]);
             _1t_5 = Convert.IsDBNull(dr["1t_5"]) ? -1 : Convert.ToDouble(dr["1t_5"]);
             HocKy = Convert.IsDBNull(dr["HocKy"]) ? -1 : Convert.ToDouble(dr["HocKy"]);
+            TBM1 = Convert.IsDBNull(dr["HK1"]) ? -1 : Convert.ToDouble(dr["HK1"]);
+            TBM2 = Convert.IsDBNull(dr["HK2"]) ? -1 : Convert.ToDouble(dr["HK2"]);
         }
     }
 }

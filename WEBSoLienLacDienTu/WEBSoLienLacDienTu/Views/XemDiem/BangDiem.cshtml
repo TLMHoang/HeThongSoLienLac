@@ -39,7 +39,8 @@
                             <th colspan="5">Điểm Miệng</th>
                             <th colspan="5">Điểm 15P</th>
                             <th colspan="5">Điểm 1 Tiết</th>
-                            <th>Điểm Học Kỳ</th>
+                            <th width="7%">Điểm HK</th>
+                            <th>TBM</th>
                         </tr>
                         <tr>
                             <th>Tên Môn</th>
@@ -59,10 +60,14 @@
                             <th>4</th>
                             <th>5</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody id="myTable" class="tbody"></tbody>
+                    <tbody class="tbody2">
+                    
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -165,6 +170,19 @@
                                 html += '<td></td>';
                             } else {
                                 html += '<td>' + item.HocKy + '</td>';
+                            }
+                            if (HocKy == 1) {
+                                if (item.TBM1 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item.TBM1 + '</td>';
+                                }
+                            } else {
+                                if (item.TBM2 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item.TBM2 + '</td>';
+                                }
                             }
                             html += '</tr>';
                         });
