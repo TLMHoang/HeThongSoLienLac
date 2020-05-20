@@ -197,9 +197,9 @@
     </Compile>
     <Compile Include="Models\DangNhapModels.cs" />
     <Compile Include="Models\DanhSachBangDiemTheoMonModel.cs" />
+    <Compile Include="Models\DanhSachXinPhepModels.cs" />
     <Compile Include="Models\DoiPassModels.cs" />
     <Compile Include="Models\HocPhiModels.cs" />
-    <Compile Include="Models\LKPHvsHS.cs" />
     <Compile Include="Models\ThongTinGVBMModel.cs" />
     <Compile Include="Models\ThongTinHSLienKetModel.cs" />
     <Compile Include="Models\ThongTinHSModels.cs" />

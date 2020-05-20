@@ -17,12 +17,12 @@ namespace WEBSoLienLacDienTu.Controllers
     public class XinPhep1Controller : Controller
     {
         // GET: XinPhep1
-
+        XinPhepDAL xp = new XinPhepDAL();
         public async Task<ActionResult> Index()
         {
-             
+
             List<XinPhep> lst = new List<XinPhep>();
-            foreach (DataRow dr in (await new XinPhepDAL().LayDT_ID(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
+            foreach (DataRow dr in (await xp.LayDT_ID(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
             {
                 lst.Add(new XinPhep(dr));
             }

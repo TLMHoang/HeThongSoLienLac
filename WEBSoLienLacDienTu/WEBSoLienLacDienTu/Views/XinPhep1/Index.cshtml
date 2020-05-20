@@ -11,48 +11,42 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="background-color: darkorange; color: white;">
                         <tr>
+
                             <th>Nghỉ Từ</th>
                             <th>Nghỉ Đến</th>
+                            <th>Lý Do</th>
                             <th>Trạng Thái</th>
-                            @*<th>Kiểm Duyệt</th>*@
-                            <th>Lý do</th>
-
                         </tr>
                     </thead>
 
-                    <tbody id="myTable">
-                        @foreach (var item in Model as IEnumerable<DTO.XinPhep>)
-                        {
-                        <tr>
-                            <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
+                    <tbody id="myTable" class="tbody">
+                        
+                            @foreach (var item in Model as IEnumerable<DTO.XinPhep>)
+                            {
+                                <tr>
 
-                            <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
-                            @*<td>
-                                @if (item.TrangThai == 1)
-                                {
-                                    @Html.Label("Đang Chờ")
-                                }
-                                else if (item.TrangThai == 2)
-                                {
-                                    @Html.Label("Chấp Nhận Nghỉ")
-                                }
-                                else if (item.TrangThai == 3)
-                                {
-                                    @Html.Label("Không Cho Phép")
-                                }
-                            </td>*@
-                            <td>@item.TrangThai.ToString()</td>                           
-                            <td>@item.LyDo</td>
-                        </tr>
-                        }
+                                    <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.LyDo</td>
+                                    @if (item.TrangThai == 2)
+                                    {
+                                        <td><label style="color: greenyellow; font-weight: bold;">Đã Xét Duyệt</label></td>
+                                    }
+                                    else
+                                    {
+                                        <td><label style="color: red; font-weight: bold;">Từ Chối</label></td>
+                                    }
+                                </tr>
+                            }
+                        
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
-
 </div>
 
