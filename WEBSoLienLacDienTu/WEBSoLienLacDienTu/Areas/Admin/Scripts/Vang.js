@@ -16,7 +16,7 @@ function getById(ID) {
         success: function (result) {
             $('#IDModal').val(result.ID);
             $('#TenModal').val(result.Ten);
-
+            $('#User_Ph').val(result.User_PH);
             $('#myModal').modal('show');
         },
         error: function (errormessage) {
@@ -38,11 +38,11 @@ function Them() {
         Name: $('#TenModal').val(),
         NgayNghi : d.toLocaleDateString(),
         Phep: phep
-        
     };
+    var User_PH = $('#User_Ph').val();
     $.ajax({
         url: "/DiemDanh/ThemVang",
-        data: JSON.stringify(Obj),
+        data: JSON.stringify({ dd: Obj, User_PH:User_PH }),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
