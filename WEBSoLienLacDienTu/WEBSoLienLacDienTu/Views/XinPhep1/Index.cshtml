@@ -31,19 +31,16 @@
                                     @Html.DisplayFor(modelitem => item.NghiTu)
                                     @Html.DisplayFor(modelitem => item.NghiDen)
                                     @Html.DisplayFor(modelitem => item.LyDo)
-                                    @Html.DisplayFor(modelitem => item.TrangThai)
-                                    @*@if (item.TrangThai == 1)
+                                    @*@Html.DisplayFor(modelitem => item.TrangThai)*@
+                                    @if (item.TrangThai == 2)
                                     {
-                                        <td><label style="color: red; font-weight: bold;">Đang Xử Lý</label></td>
+                                        <td><label style="color: red; font-weight: bold;">Cho Phép</label></td>
                                     }
-                                    else if(item.TrangThai == 2)
+                                    else
                                     {
                                         <td><label style="color: red; font-weight: bold;">Không Cho Phép</label></td>
                                     }
-                                    else if(item.TrangThai == 3)
-                                    {
-                                        <td><label style="color: red; font-weight: bold;">Cho Phép</label></td>
-                                    }*@
+                                  
                                 </tr>
                             }
                         
