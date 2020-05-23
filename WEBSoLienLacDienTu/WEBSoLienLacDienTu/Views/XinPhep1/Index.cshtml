@@ -33,21 +33,25 @@
                             {
                                 <tr>
 
-                                    @Html.DisplayFor(modelitem => item.NghiTu)
-                                    @Html.DisplayFor(modelitem => item.NghiDen)
-                                    @Html.DisplayFor(modelitem => item.LyDo)
+                                    <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.LyDo</td>
                                     @*@Html.DisplayFor(modelitem => item.TrangThai)*@
                                     @if (item.TrangThai == 1)
                                     {
-                                        <td><label style="color: red; font-weight: bold;">Đã Gửi</label></td>
+                                        <td><label style="color: gray; font-weight: bold;">Chờ Duyệt</label></td>
                                     }
                                     else if (item.TrangThai == 2)
                                     {
-                                        <td><label style="color: red; font-weight: bold;">Cho Phép</label></td>
+                                        <td><label style="color: blue; font-weight: bold;">Cho Phép</label></td>
                                     }
                                     else if (item.TrangThai == 3)
                                     {
-                                        <td><label style="color: red; font-weight: bold;"> KHông Cho Phép</label></td>
+                                        <td><label style="color: green; font-weight: bold;"> KHông Cho Phép</label></td>
+                                    }
+                                    else if (item.TrangThai == 4)
+                                    {
+                                        <td><label style="color: red; font-weight: bold;"> Lỗi!! Không thể gửi</label></td>
                                     }
                                   
                                 </tr>
