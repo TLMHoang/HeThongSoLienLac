@@ -3,11 +3,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Admin/HomeAdmin/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page"><h2>Quản Lý Thông Báo Học Sinh</h2></div>
 
+</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h2>Quản Lý Thông Báo Học Sinh</h2>
+    
     <hr />
     <div class="row">
         <div class="col-lg-3"></div>

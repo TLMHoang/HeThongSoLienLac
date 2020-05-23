@@ -37,3 +37,6 @@ function Delete(ID) {
         });
     }
 }
+function ThongBao() {
+    alert("Xin Lỗi Môn Này Không Thể Xóa Hoặc Sửa (Môn Mặc Định) !");
+}
