@@ -9,6 +9,7 @@ namespace WEBSoLienLacDienTu.Models
     public class DanhSachBangDiemTheoMonModel
     {
         public string TenMon { get; set; }
+        public int LoaiDiem { get; set; }
         public double DiemMieng1 { get; set; }
         public double DiemMieng2 { get; set; }
         public double DiemMieng3 { get; set; }
@@ -32,6 +33,7 @@ namespace WEBSoLienLacDienTu.Models
         public DanhSachBangDiemTheoMonModel(DataRow dr)
         {
             TenMon= dr["TenMon"].ToString();
+            LoaiDiem = Convert.IsDBNull(dr["LoaiDiem"]) ? -1 : Convert.ToInt32(dr["LoaiDiem"]);
             DiemMieng1 = Convert.IsDBNull(dr["DM1"]) ? -1 : Convert.ToDouble(dr["DM1"]);
             DiemMieng2 = Convert.IsDBNull(dr["DM2"]) ? -1 : Convert.ToDouble(dr["DM2"]);
             DiemMieng3 = Convert.IsDBNull(dr["DM3"]) ? -1 : Convert.ToDouble(dr["DM3"]);

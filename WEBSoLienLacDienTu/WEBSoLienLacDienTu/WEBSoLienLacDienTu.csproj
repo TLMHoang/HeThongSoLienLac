@@ -203,6 +203,7 @@
     <Compile Include="Models\ThongTinGVBMModel.cs" />
     <Compile Include="Models\ThongTinHSLienKetModel.cs" />
     <Compile Include="Models\ThongTinHSModels.cs" />
+    <Compile Include="Models\TongKetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

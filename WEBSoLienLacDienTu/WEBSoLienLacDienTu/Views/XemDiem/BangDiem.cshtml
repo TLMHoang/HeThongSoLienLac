@@ -4,7 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="title-page"><h2>Bảng Điểm Học Sinh</h2></div>
+
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Home/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page"><h2>Bảng Điểm Học Sinh</h2></div>
+
+</div>
 <div class="box" style="margin-bottom: 5px; ">
 
     <div style="width: 50%; margin: 0 auto;">
@@ -89,102 +94,157 @@
                     var html = '';
                     $.each(result,
                         function (key, item) {
-                            html += '<tr>';
-                            html += '<td>' + item.TenMon + '</td>';
-                            if (item.DiemMieng1 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item.DiemMieng1 + '</td>';
-                            }
-                            if (item.DiemMieng2 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item.DiemMieng2 + '</td>';
-                            }
-                            if (item.DiemMieng3 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item.DiemMieng3 + '</td>';
-                            }
-                            if (item.DiemMieng4 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item.DiemMieng4 + '</td>';
-                            }
-                            if (item.DiemMieng5 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item.DiemMieng5 + '</td>';
-                            }
-                            if (item._15p_1 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._15p_1 + '</td>';
-                            }
-                            if (item._15p_2 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._15p_2 + '</td>';
-                            }
-                            if (item._15p_3 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._15p_3 + '</td>';
-                            }
-                            if (item._15p_4 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._15p_4 + '</td>';
-                            }
-                            if (item._15p_5 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._15p_5 + '</td>';
-                            }
-                            if (item._1t_1 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._1t_1 + '</td>';
-                            }
-                            if (item._1t_2 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._1t_2 + '</td>';
-                            }
-                            if (item._1t_3 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._1t_3 + '</td>';
-                            }
-                            if (item._1t_4 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._1t_4 + '</td>';
-                            }
-                            if (item._1t_5 == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item._1t_5 + '</td>';
-                            }
-                            if (item.HocKy == -1) {
-                                html += '<td></td>';
-                            } else {
-                                html += '<td>' + item.HocKy + '</td>';
-                            }
-                            if (HocKy == 1) {
-                                if (item.TBM1 == -1) {
+                            if (item.LoaiDiem == 1) {
+                                html += '<tr>';
+                                html += '<td>' + item.TenMon + '</td>';
+                                if (item.DiemMieng1 == -1) {
                                     html += '<td></td>';
                                 } else {
-                                    html += '<td>' + item.TBM1 + '</td>';
+                                    html += '<td>' + item.DiemMieng1 + '</td>';
                                 }
-                            } else {
-                                if (item.TBM2 == -1) {
+                                if (item.DiemMieng2 == -1) {
                                     html += '<td></td>';
                                 } else {
-                                    html += '<td>' + item.TBM2 + '</td>';
+                                    html += '<td>' + item.DiemMieng2 + '</td>';
                                 }
+                                if (item.DiemMieng3 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item.DiemMieng3 + '</td>';
+                                }
+                                if (item.DiemMieng4 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item.DiemMieng4 + '</td>';
+                                }
+                                if (item.DiemMieng5 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item.DiemMieng5 + '</td>';
+                                }
+                                if (item._15p_1 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._15p_1 + '</td>';
+                                }
+                                if (item._15p_2 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._15p_2 + '</td>';
+                                }
+                                if (item._15p_3 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._15p_3 + '</td>';
+                                }
+                                if (item._15p_4 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._15p_4 + '</td>';
+                                }
+                                if (item._15p_5 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._15p_5 + '</td>';
+                                }
+                                if (item._1t_1 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._1t_1 + '</td>';
+                                }
+                                if (item._1t_2 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._1t_2 + '</td>';
+                                }
+                                if (item._1t_3 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._1t_3 + '</td>';
+                                }
+                                if (item._1t_4 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._1t_4 + '</td>';
+                                }
+                                if (item._1t_5 == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item._1t_5 + '</td>';
+                                }
+                                if (item.HocKy == -1) {
+                                    html += '<td></td>';
+                                } else {
+                                    html += '<td>' + item.HocKy + '</td>';
+                                }
+                                if (HocKy == 1) {
+                                    if (item.TBM1 == -1) {
+                                        html += '<td></td>';
+                                    } else {
+                                        html += '<td>' + item.TBM1 + '</td>';
+                                    }
+                                } else {
+                                    if (item.TBM2 == -1) {
+                                        html += '<td></td>';
+                                    } else {
+                                        html += '<td>' + item.TBM2 + '</td>';
+                                    }
+                                }
+                                html += '</tr>';
+                            } else {
+                                html += '<tr>';
+                                html += '<td>' + item.TenMon + '</td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                html += '<td></td>';
+                                if (item.HocKy == -1) {
+                                    html += '<td></td>';
+                                }
+                                else {
+                                    if (item.HocKy >= 5) {
+                                        html += '<td>Đ</td>';
+                                    } else {
+                                        html += '<td>KĐ</td>';
+                                    }
+                                }
+                                if (HocKy == 1) {
+                                    if (item.TBM1 == -1) {
+                                        html += '<td></td>';
+                                    }
+                                    else
+                                    {
+                                        if (item.TBM1 >= 5) {
+                                            html += '<td>Đ</td>';
+                                        } else {
+                                            html += '<td>KĐ</td>';
+                                        }
+                                    }
+                                } else {
+                                    if (item.TBM2 == -1) {
+                                        html += '<td></td>';
+                                    }
+                                    else {
+                                        if (item.TBM2 >= 5) {
+                                            html += '<td>Đ</td>';
+                                        } else {
+                                            html += '<td>KĐ</td>';
+                                        }
+                                    }
+                                }
+                                html += '</tr>';
                             }
-                            html += '</tr>';
                         });
                     $('.tbody').html(html);
 

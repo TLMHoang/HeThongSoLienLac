@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
@@ -98,6 +99,11 @@ namespace DAL
                 new SqlParameter("@HocKy", SqlDbType.Bit) { Value = hocKy }
 
             );
+        }
+        public async Task<DataTable> LayDT_DiemTongKet(int id)
+        {
+            return await ExecuteQuery("W_SelectBangDiem_TongKet",
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = id });
         }
     }
 }

@@ -18,13 +18,10 @@ namespace WEBSoLienLacDienTu.Controllers
 
         public async Task<ActionResult> Index()
         {
-
-            List<ThongTinHSModels> lst = new List<ThongTinHSModels>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDTaiKhoan(TaiKhoanPhuHuynhController.TK.ID)).Rows)
-            {
-                lst.Add(new ThongTinHSModels(dr));
-            }
-            return View(lst);
+            TongKetModel tk = new TongKetModel();
+            DataTable dt = await new BangDiemDAL().LayDT_DiemTongKet(TaiKhoanPhuHuynhController.ttHS.ID);
+            tk = new TongKetModel(dt.Rows[0]);
+            return View(tk);
         }
     }
 }
