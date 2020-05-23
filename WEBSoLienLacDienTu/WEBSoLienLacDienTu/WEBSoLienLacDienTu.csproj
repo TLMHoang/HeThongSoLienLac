@@ -242,11 +242,15 @@
     <Content Include="Assets\Img\QLTaiKhoan_Image.png" />
     <Content Include="Assets\Img\QLTKB_Image.png" />
     <Content Include="Assets\Img\School_Image.png" />
+    <Content Include="Assets\Img\search-2ndg.png" />
     <Content Include="Assets\Img\TBHocSinh_Image.png" />
     <Content Include="Assets\Img\TBLop_Image.png" />
     <Content Include="Assets\Img\Teacher_Image.png" />
     <Content Include="Assets\Img\ThongBao_Image.png" />
+    <Content Include="Assets\Img\tongKet.png" />
     <Content Include="Assets\Img\Ust.png" />
+    <Content Include="Assets\Img\VietGiay.png" />
+    <Content Include="Assets\Img\XinPhep.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -358,7 +362,6 @@
     <Content Include="Views\XinPhep1\Index.cshtml" />
     <Content Include="Views\XemTKB\Index.cshtml" />
     <Content Include="Views\XemHocPhi\Index.cshtml" />
-    <Content Include="Views\XemDiem\Index.cshtml" />
     <Content Include="Views\TraCuu\Index.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\Index.cshtml" />
     <Content Include="Views\TraCuu\GVBM.cshtml" />

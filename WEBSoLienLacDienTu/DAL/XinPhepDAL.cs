@@ -126,7 +126,7 @@ namespace DAL
         public async Task<DataTable> LayDT_ID(int ID)
         {
             return await ExecuteQuery(
-                "SelectXinPhep_ID",               
+                "SelectXinPhepTheoIDHSV2",               
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }

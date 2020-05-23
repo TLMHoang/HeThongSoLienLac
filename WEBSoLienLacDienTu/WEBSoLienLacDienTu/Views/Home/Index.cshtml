@@ -5,3 +5,138 @@
 }
 
 <div class="title-page"><h2>Trang Chủ</h2></div>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row justify-content-center menu">
+                <div class="col-6 col-md-2">
+                    <div class="card" onclick="location.href = '/ThongBaoTruongCaNhan/Index'" style="width: 100%">
+                        <img src="~/Assets/Img/ThongBao_Image.png" alt="ThongBao" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;">Thông Báo</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/ThongTinHocSinh1/Edit'">
+                        <img src="~/Assets/Img/QLHocSinh_Image.png" alt="QLHS" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/QuanLyThongTinHS/Edit'" style="width: 100%; margin-top: 10px; color: white; padding: 6px; ">Thông Tin Cá Nhân</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2">
+                    <div class="card" data-toggle="modal" data-target="#XinPhepModal" style="width: 100%">
+                       
+                        <img src="~/Assets/Img/XinPhep.jpg" alt="XinPhep" style="width: 100%"/>
+                        <div>
+                            <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;" data-toggle="modal" data-target="#XinPhepModal">Xin Phép Vắng</button>
+                        </div>
+                        <div class="modal fade" id="XinPhepModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xin Phép Vắng</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card" onclick="location.href = '/XinPhep1/XinPhep'" style="width: 100%">
+                                                    <img src="~/Assets/Img/VietGiay.png" alt="GUi" style="width: 100%"/>
+                                                    
+                                                    <div>
+                                                        <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;" onclick="location.href = '/XinPhep1/XinPhep'">Viết Xin Phép</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card" onclick="location.href = '/XinPhep1/Index'" style="width: 100%">
+                                                    
+                                                    <img src="~/Assets/Img/List_Image.png" alt="DanhSach" style="width: 100%"/>
+                                                    <div>
+                                                        <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white; padding: 6px;" onclick="location.href = '/XinPhep1/Index'">Danh Sách</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" style="color: white; font-weight: bold;" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/ChiTietDiemDanh/ChiTiet'">
+                        <img src="~/Assets/Img/DiemDanh_Image.png" alt="DiemDanh" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/DiemDanh/ChiTiet'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Chi Tiết Vắng Học</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/XemTKB/Index'">
+                        <img src="~/Assets/Img/QLTKB_Image.png" alt="TKB" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/XemTKB/Index'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">TKB Cá Nhân</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/XemDiem/BangDiem'">
+
+                        <img src="~/Assets/Img/mark_Image.png" alt="Mark" style="width: 100%" />
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/XemDiem/BangDiem'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Xem Điểm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/BaoHiemYTe/Index'">
+                        <img src="~/Assets/Img/BHYT_Image.png" alt="BHYT" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/BaoHiemYTe/Index'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Đăng Ký BHYT</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/XemHocPhi/Index'">
+                        <img src="~/Assets/Img/QLHocPhi_Image.png" alt="HocPhi" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/XemHocPhi/Index'" style="width: 100%; margin-top: 12px; color: white;padding: 6px;  "> Học Phí</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/TraCuu/GVBM'">
+
+                        <img src="~/Assets/Img/search-2ndg.png" alt="GVBM" style="width: 100%" />
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/TraCuu/GVBM'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Giáo Viên Dạy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/TongKetCuoiKy/Index'">
+
+                        <img src="~/Assets/Img/tongKet.png" alt="TongKet" style="width: 100%" />
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/TongKetCuoiKy/Index'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Tổng Kết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
