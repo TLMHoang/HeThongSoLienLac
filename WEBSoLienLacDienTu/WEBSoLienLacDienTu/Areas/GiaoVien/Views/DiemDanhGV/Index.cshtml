@@ -18,72 +18,105 @@
                 </div>
             </form>
         </div>
-        <div class="card-body">
-            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
-            <br>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Vắng</th>
-                            <th>Danh Sách</th>
-                            <th>ID</th>
-                            <th>Tên Học Sinh</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Dân Tộc</th>
-                            <th>Tôn Giáo</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="myTable" class="tbody">
-                        @foreach (var item in Model)
-                        {
+        @if (ViewBag.ThongBao == null)
+        {
+            <div class="card-body">
+                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td width="8%">
-                                    <a href="#" style="width: 100%;" class="btn btn-primary btn-icon-split" onclick="getById(@item.ID);openModal();">
-                                        <span class="icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span>Vắng</span>
-                                    </a>
-                                </td>
-                                <td width="10%">
-                                    <a href="@Url.Action("ChiTietVang","DiemDanhGV",new {id = @item.ID})" class="btn btn-success btn-icon-split" style="width: 100%;" id="myRow">
-                                        <span class="icon">
-                                            <i class="fas fa-list-alt"></i>
-                                        </span>
-                                        <span>Chi Tiết</span>
-                                    </a>
-                                </td>
-                                <td>HS00<span>@Html.DisplayFor(modelitem => item.ID)</span></td>
-                                <td>@Html.DisplayFor(modelitem => item.Ten)</td>
-                                <td>
-                                    @if (item.GioiTinh == 1)
-                                    {
-                                        @Html.Label("Nam")
-                                    }
-                                    else
-                                    {
-                                        @Html.Label("Nữ")
-                                    }
-                                </td>
-                                <td>
-                                    @item.NgaySinh.ToString("dd/MM/yyyy")
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.DanToc)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.TonGiao)
-                                </td>
+                                <th>Vắng</th>
+                                <th>Danh Sách</th>
+                                <th>ID</th>
+                                <th>Tên Học Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Ngày Sinh</th>
+                                <th>Dân Tộc</th>
+                                <th>Tôn Giáo</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
 
+                        <tbody id="myTable" class="tbody">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td width="8%">
+                                        <a href="#" style="width: 100%;" class="btn btn-primary btn-icon-split" onclick="getById(@item.ID);openModal();">
+                                            <span class="icon">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                            <span>Vắng</span>
+                                        </a>
+                                    </td>
+                                    <td width="10%">
+                                        <a href="@Url.Action("ChiTietVang","DiemDanhGV",new {id = @item.ID})" class="btn btn-success btn-icon-split" style="width: 100%;" id="myRow">
+                                            <span class="icon">
+                                                <i class="fas fa-list-alt"></i>
+                                            </span>
+                                            <span>Chi Tiết</span>
+                                        </a>
+                                    </td>
+                                    <td>HS00<span>@Html.DisplayFor(modelitem => item.ID)</span></td>
+                                    <td>@Html.DisplayFor(modelitem => item.Ten)</td>
+                                    <td>
+                                        @if (item.GioiTinh == 1)
+                                        {
+                                            @Html.Label("Nam")
+                                        }
+                                        else
+                                        {
+                                            @Html.Label("Nữ")
+                                        }
+                                    </td>
+                                    <td>
+                                        @item.NgaySinh.ToString("dd/MM/yyyy")
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.DanToc)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.TonGiao)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="card-body">
+                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Vắng</th>
+                                <th>Danh Sách</th>
+                                <th>ID</th>
+                                <th>Tên Học Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Ngày Sinh</th>
+                                <th>Dân Tộc</th>
+                                <th>Tôn Giáo</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="myTable" class="tbody">
+                        <tr>
+                            <td colspan="8" style="text-align: center; color: red;"><h4>@ViewBag.ThongBao</h4></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        }
     </div>
 
 </div>

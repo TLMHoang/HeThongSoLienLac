@@ -19,11 +19,19 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         public async Task<ActionResult> Index()
         {
             List<DiemDanh_PostNotificationModel> lst = new List<DiemDanh_PostNotificationModel>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_Notification(HomeGiaoVienController.TK.IDLop)).Rows)
+            if (HomeGiaoVienController.TK.IDLop == -1)
             {
-                lst.Add(new DiemDanh_PostNotificationModel(dr));
+                ViewBag.ThongBao = "Xin Lỗi Bạn Không Phải GVCN !";
+                return View();
             }
-            return View(lst);
+            else
+            {
+                foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_Notification(HomeGiaoVienController.TK.IDLop)).Rows)
+                {
+                    lst.Add(new DiemDanh_PostNotificationModel(dr));
+                }
+                return View(lst);
+            }
         }
         public async Task<ActionResult> ChiTietVang(int id)
         {

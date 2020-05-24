@@ -13,9 +13,20 @@
             <form>
                 <div class="row">
                     <div class="col"><h6 class="m-0 font-weight-bold text-primary">Danh Sách Chờ Duyệt</h6></div>
-                    <div class="col"><a href="@Url.Action("DanhSachDaDuyet")" style="float: right;" class="btn btn-primary">
-                        Danh Sách Đã Duyệt
-                    </a></div>
+                    <div class="col">
+                        @if (ViewBag.ThongBao == null)
+                        {
+                            <a href="@Url.Action("DanhSachDaDuyet")" style="float: right;" class="btn btn-primary">
+                                Danh Sách Đã Duyệt
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="#" style="float: right; cursor:default;" class="btn btn">
+                                Danh Sách Đã Duyệt
+                            </a>
+                        }
+                    </div>
                 </div>
             </form>
         </div>
@@ -35,54 +46,66 @@
                     </thead>
 
                     <tbody id="myTable" class="tbody">
-                        @if (Model.Count() == 0)
+                        @if (ViewBag.ThongBao == null)
                         {
-                            <tr>
-                                <td colspan="7">
-                                    <div class="box" style="margin: 0 auto; width: 80%;">
-                                        <div style="margin: 0 auto; width: 50%;">
-                                            <p style="font-weight: bold;text-align: center; margin-bottom: 0; color: red;">Trống</p>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <script type="text/javascript">
-                                alert("Hiện Chưa Có Đơn Cần Duyệt !");
-                            </script>
-                        }
-                        else
-                        {
-                            foreach (var item in Model)
+                            if (Model.Count() == 0)
                             {
                                 <tr>
-                                    <td>HS00<span>@item.IDHocSinh</span></td>
-                                    <td>@item.TenHS</td>
-                                    <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
-                                    <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
-                                    <td>@item.LyDo</td>
-                                    <td width="5%">
-                                        <div>
-                                            <a href="#" onclick="DuyetDon(@item.ID);" class="btn btn-primary btn-icon-split">
-                                                <span class="icon">
-                                                    <i class="fas fa-pen-square"></i>
-                                                </span>
-                                                <span>Duyệt</span>
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td width="5%">
-                                        <div>
-                                            <a href="#" onclick="TuChoiDon(@item.ID);" class="btn btn-danger btn-icon-split">
-                                                <span class="icon">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                <span>Từ Chối</span>
-                                            </a>
+                                    <td colspan="7">
+                                        <div class="box" style="margin: 0 auto; width: 80%;">
+                                            <div style="margin: 0 auto; width: 50%;">
+                                                <p style="font-weight: bold; text-align: center; margin-bottom: 0; color: red;">Trống</p>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
+                                <script type="text/javascript">
+                                    alert("Hiện Chưa Có Đơn Cần Duyệt !");
+                                </script>
+                            }
+                            else
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>HS00<span>@item.IDHocSinh</span></td>
+                                        <td>@item.TenHS</td>
+                                        <td>@item.NghiTu.ToString("dd/MM/yyyy")</td>
+                                        <td>@item.NghiDen.ToString("dd/MM/yyyy")</td>
+                                        <td>@item.LyDo</td>
+                                        <td width="5%">
+                                            <div>
+                                                <a href="#" onclick="DuyetDon(@item.ID);" class="btn btn-primary btn-icon-split">
+                                                    <span class="icon">
+                                                        <i class="fas fa-pen-square"></i>
+                                                    </span>
+                                                    <span>Duyệt</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td width="5%">
+                                            <div>
+                                                <a href="#" onclick="TuChoiDon(@item.ID);" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span>Từ Chối</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
                             }
                         }
+                        else
+                        {
+
+                            <tr>
+                                <td colspan="7" style="text-align: center; color: red;"><h4>@ViewBag.ThongBao</h4></td>
+                            </tr>
+
+                        }
+
                     </tbody>
                 </table>
 

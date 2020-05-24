@@ -19,18 +19,28 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         public async Task<ActionResult> Index()
         {
             List<KiemDuyetXinPhepModel> lst = new List<KiemDuyetXinPhepModel>();
-            foreach (DataRow dr in (await new XinPhepDAL().LayDT_CoTenHS(HomeGiaoVienController.TK.IDLop, 1)).Rows)
+
+            if (HomeGiaoVienController.TK.IDLop == -1)
             {
-                if (DateTime.Compare(DateTime.Now, Convert.ToDateTime(dr["NghiDen"].ToString())) > 0)
-                {
-                    await new XinPhepDAL().DuyetDon(Convert.ToInt32(dr["ID"].ToString()), 4);
-                }
-                else
-                {
-                    lst.Add(new KiemDuyetXinPhepModel(dr));
-                }
+                ViewBag.ThongBao = "Xin Lỗi Bạn Không Phải GVCN !";
+                return View();
             }
-            return View(lst);
+            else
+            {
+                foreach (DataRow dr in (await new XinPhepDAL().LayDT_CoTenHS(HomeGiaoVienController.TK.IDLop, 1)).Rows)
+                {
+                    if (DateTime.Compare(DateTime.Now, Convert.ToDateTime(dr["NghiDen"].ToString())) > 0)
+                    {
+                        await new XinPhepDAL().DuyetDon(Convert.ToInt32(dr["ID"].ToString()), 4);
+                    }
+                    else
+                    {
+                        lst.Add(new KiemDuyetXinPhepModel(dr));
+                    }
+                }
+                return View(lst);
+                
+            }
         }
         public async Task<ActionResult> DanhSachDaDuyet()
         {
