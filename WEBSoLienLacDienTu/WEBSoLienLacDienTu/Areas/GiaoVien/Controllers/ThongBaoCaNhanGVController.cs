@@ -25,11 +25,19 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         public async Task<ActionResult> Index2()
         {
             List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(HomeGiaoVienController.TK.IDLop)).Rows)
+            if (HomeGiaoVienController.TK.IDLop == -1)
             {
-                lst.Add(new ThongTinHS(dr));
+                ViewBag.ThongBao = "Xin Lỗi Bạn Không Phải GVCN !";
+                return View();
             }
-            return View(lst);
+            else
+            {
+                foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(HomeGiaoVienController.TK.IDLop)).Rows)
+                {
+                    lst.Add(new ThongTinHS(dr));
+                }
+                return View(lst);
+            }
         }
         public async Task<ActionResult> DanhSachChiTiet(int id)
         {
@@ -123,11 +131,19 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         public async Task<ActionResult> Index()
         {
             List<ThongBaoLop> lst = new List<ThongBaoLop>();
-            foreach (DataRow dr in (await new ThongBaoLopDAL().LayDT_TheoLop(HomeGiaoVienController.TK.IDLop)).Rows)
+            if (HomeGiaoVienController.TK.IDLop == -1)
             {
-                lst.Add(new ThongBaoLop(dr));
+                ViewBag.ThongBao = "Xin Lỗi Bạn Không Phải GVCN !";
+                return View();
             }
-            return View(lst);
+            else
+            {
+                foreach (DataRow dr in (await new ThongBaoLopDAL().LayDT_TheoLop(HomeGiaoVienController.TK.IDLop)).Rows)
+                {
+                    lst.Add(new ThongBaoLop(dr));
+                }
+                return View(lst);
+            }
         }
         public ActionResult ThemThongBaoLop()
         {

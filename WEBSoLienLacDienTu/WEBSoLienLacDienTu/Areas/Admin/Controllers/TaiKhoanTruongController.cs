@@ -237,7 +237,17 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             List<GetNameClassModel> lst = new List<GetNameClassModel>();
             foreach (DataRow dr in (await lop.LayTenLopChuaCoChuNhiem()).Rows)
             {
-                lst.Add(new GetNameClassModel(dr));
+                if (Convert.ToInt32(dr["ID"].ToString()) == -1)
+                {
+                    GetNameClassModel l = new GetNameClassModel();
+                    l.ID = -1;
+                    l.TenDayDu = "Trống";
+                    lst.Add(l);
+                }
+                else
+                {
+                    lst.Add(new GetNameClassModel(dr));
+                }
             }
 
             ViewBag.LstLop = new SelectList(lst, "ID", "TenDayDu");
@@ -247,7 +257,17 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             List<GetNameClassModel> lst = new List<GetNameClassModel>();
             foreach (DataRow dr in (await lop.LayTenLopChuaCoChuNhiem(id)).Rows)
             {
-                lst.Add(new GetNameClassModel(dr));
+                if (Convert.ToInt32(dr["ID"].ToString()) == -1)
+                {
+                    GetNameClassModel l = new GetNameClassModel();
+                    l.ID = -1;
+                    l.TenDayDu = "Trống";
+                    lst.Add(l);
+                }
+                else
+                {
+                    lst.Add(new GetNameClassModel(dr));
+                }
             }
 
             ViewBag.LstLop1 = new SelectList(lst, "ID", "TenDayDu");

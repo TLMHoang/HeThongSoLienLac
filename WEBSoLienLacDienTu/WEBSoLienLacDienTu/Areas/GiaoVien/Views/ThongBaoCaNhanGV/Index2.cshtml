@@ -12,83 +12,130 @@
     </div>
 </div>
 <hr />
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- DataTales Example -->
-    <div style="border-style: groove">
-        <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
-        <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
-    </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <form>
-                <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
-
-                </div>
-            </form>
+@if (ViewBag.ThongBao == null)
+{
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div style="border-style: groove">
+            <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
+            <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
         </div>
-        <div class="card-body">
-            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
-            <br>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Chọn</th>
-                            <th>ID</th>
-                            <th>Tên Học Sinh</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Dân Tộc</th>
-                            <th>Tôn Giáo</th>
-                        </tr>
-                    </thead>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
 
-                    <tbody id="myTable" class="tbody">
-                        @foreach (var item in Model)
-                        {
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td width="5%">
-                                    <div>
-                                        <a href="@Url.Action("DanhSachChiTiet","ThongBaoCaNhanGV",new {@id = item.ID})" class="btn btn-success btn-icon-split" id="myRow">
-                                            <span class="icon">
-                                                <i class="fas fa-list-alt"></i>
-                                            </span>
-                                            <span>Chọn</span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>HS00<span>@Html.DisplayFor(modelitem => item.ID)</span></td>
-                                <td>@Html.DisplayFor(modelitem => item.Ten)</td>
-                                <td>
-                                    @if (item.GioiTinh == 1)
-                                    {
-                                        @Html.Label("Nam")
-                                    }
-                                    else
-                                    {
-                                        @Html.Label("Nữ")
-                                    }
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.NgaySinh)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.DanToc)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelitem => item.TonGiao)
-                                </td>
+                                <th>Chọn</th>
+                                <th>ID</th>
+                                <th>Tên Học Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Ngày Sinh</th>
+                                <th>Dân Tộc</th>
+                                <th>Tôn Giáo</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody id="myTable" class="tbody">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td width="5%">
+                                        <div>
+                                            <a href="@Url.Action("DanhSachChiTiet","ThongBaoCaNhanGV",new {@id = item.ID})" class="btn btn-success btn-icon-split" id="myRow">
+                                                <span class="icon">
+                                                    <i class="fas fa-list-alt"></i>
+                                                </span>
+                                                <span>Chọn</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>HS00<span>@Html.DisplayFor(modelitem => item.ID)</span></td>
+                                    <td>@Html.DisplayFor(modelitem => item.Ten)</td>
+                                    <td>
+                                        @if (item.GioiTinh == 1)
+                                        {
+                                            @Html.Label("Nam")
+                                        }
+                                        else
+                                        {
+                                            @Html.Label("Nữ")
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.NgaySinh)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.DanToc)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.TonGiao)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Sinh</h6>
+
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Học Sinh">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Chọn</th>
+                                <th>ID</th>
+                                <th>Tên Học Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Ngày Sinh</th>
+                                <th>Dân Tộc</th>
+                                <th>Tôn Giáo</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="myTable" class="tbody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: red;"><h4>@ViewBag.ThongBao</h4></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>

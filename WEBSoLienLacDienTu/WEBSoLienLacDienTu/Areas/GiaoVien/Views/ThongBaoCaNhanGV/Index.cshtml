@@ -8,85 +8,137 @@
     <h2>Thông Báo Lớp</h2>
 </div>
 <hr />
-<div class="row">
-    <div>
-        <a href="@Url.Action("ThemThongBaoLop","ThongBaoCaNhanGV")" class="btn btn-success btn-icon-split" style="margin-left: 20px">
-            <span class="icon text-white-50">
-                <i class="fas fa-plus-square"></i>
-            </span>
-            <span>Thêm Thông Báo</span>
-        </a>
+@if (ViewBag.ThongBao == null)
+{
+    <div class="row">
+        <div>
+            <a href="@Url.Action("ThemThongBaoLop","ThongBaoCaNhanGV")" class="btn btn-success btn-icon-split" style="margin-left: 20px">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus-square"></i>
+                </span>
+                <span>Thêm Thông Báo</span>
+            </a>
+        </div>
+        <button class="btn btn-danger" style="margin-left: 10px" onclick="window.location.href='/GiaoVien/HomeGiaoVien/Index'"><i class="fas fa-sign-out-alt"></i></button>
     </div>
-    <button class="btn btn-danger" style="margin-left: 10px" onclick="window.location.href='/GiaoVien/HomeGiaoVien/Index'"><i class="fas fa-sign-out-alt"></i></button>
-</div>
+    <hr />
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div style="border-style: groove">
+            <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
+            <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Thông Báo</h6>
 
-<hr />
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- DataTales Example -->
-    <div style="border-style: groove">
-        <span><label id="maLop" class="font-weight-bold text-danger" style="margin:5px 5px"></label></span>
-        <span><label id="tenLop" style="margin: 5px 5px" class="font-weight-bold text-danger"></label></span>
-    </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <form>
-                <div class="input-group mb-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Thông Báo</h6>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Mã Thông Báo</th>
+                                <th>Nội Dung</th>
+                                <th>Ngày</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable" class="tbody">
+                            @foreach (var item in Model as IEnumerable<DTO.ThongBaoLop>)
+                            {
+                                <tr>
+                                    <td width="15%">
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="@Url.Action("CapNhatThongBaoLop","ThongBaoCaNhanGV",new {@id = item.ID})" class="btn btn-primary btn-icon-split">
+                                                    <span class="icon">
+                                                        <i class="fas fa-pen-square"></i>
+                                                    </span>
+                                                    <span>Sửa</span>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoLopGV(@item.ID);">
+                                                    <span class="icon">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span>Xóa</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>@Html.DisplayFor(modelitem => item.ID)</td>
+                                    <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
+                                    <td>
+                                        @Html.DisplayFor(modelitem => item.Ngay)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
 
                 </div>
-            </form>
-        </div>
-        <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Mã Thông Báo</th>
-                        <th>Nội Dung</th>
-                        <th>Ngày</th>
-                    </tr>
-                    </thead>
-                    <tbody id="myTable" class="tbody">
-                    @foreach (var item in Model as IEnumerable<DTO.ThongBaoLop>)
-                    {
-                        <tr>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="@Url.Action("CapNhatThongBaoLop","ThongBaoCaNhanGV",new {@id = item.ID})" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Sửa</span>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoLopGV(@item.ID);">
-                                            <span class="icon">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span>Xóa</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>@Html.DisplayFor(modelitem => item.ID)</td>
-                            <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.Ngay)
-                            </td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-
             </div>
         </div>
     </div>
-</div>
+}
+else
+{
+    <div class="row">
+        <div>
+            <a href="#" class="btn btn btn-icon-split" style="margin-left: 20px; cursor: default;">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus-square"></i>
+                </span>
+                <span>Thêm Thông Báo</span>
+            </a>
+        </div>
+        <button class="btn btn-danger" style="margin-left: 10px" onclick="window.location.href='/GiaoVien/HomeGiaoVien/Index'"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+    <hr />
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Thông Báo</h6>
+
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Mã Thông Báo</th>
+                                <th>Nội Dung</th>
+                                <th>Ngày</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable" class="tbody">
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: red;"><h4>@ViewBag.ThongBao</h4></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
