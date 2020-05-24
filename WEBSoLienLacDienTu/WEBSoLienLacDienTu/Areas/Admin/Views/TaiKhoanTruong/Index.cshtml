@@ -88,7 +88,14 @@
                             </td>
                             <td>@Html.DisplayFor(m => item.SDT)</td>
                             <td>@Html.DisplayFor(m => item.TenMon)</td>
-                            <td><label>@item.TenKhoi@item.TenLop</label></td>
+                            @if (item.IDLop == -1)
+                            {
+                                <td><label>Trống</label></td>
+                            }
+                            else
+                            {
+                                <td><label>@item.TenKhoi@item.TenLop</label></td>
+                            }
                         </tr>
                     }
                     </tbody>
