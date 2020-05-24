@@ -47,14 +47,21 @@
                 <h4>Điểm HKII : @Model.HKII.ToString("0.00")</h4>
 
             }
-            @if (Model.DiemCaNam == -1)
+            @if (Model.HKI == -1 || Model.HKII == -1)
             {
                 <h4>Điểm Tổng Kết Cả Năm : Chưa Có</h4>
             }
             else
             {
-                <h4>Điểm Tổng Kết Cả Năm : @Model.DiemCaNam.ToString("0.00")</h4>
+                if (Model.DiemCaNam == -1)
+                {
+                     <h4>Điểm Tổng Kết Cả Năm : Chưa Có</h4>
+                 }
+                 else
+                 {
+                     <h4>Điểm Tổng Kết Cả Năm : @Model.DiemCaNam.ToString("0.00")</h4>
 
+                 }
             }
         </div>
         <div>

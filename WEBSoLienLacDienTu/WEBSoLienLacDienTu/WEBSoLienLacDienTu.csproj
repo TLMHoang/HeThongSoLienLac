@@ -332,6 +332,8 @@
     <Content Include="Areas\Admin\Views\BHYT\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\DanhSachDaDuyet.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\Shared\_FooterPartial.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -376,6 +378,7 @@
     <Content Include="Views\XemDiem\BangDiem.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\TaiKhoanPhuHuynh\ChonHS.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

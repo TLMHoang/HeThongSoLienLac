@@ -103,10 +103,10 @@
                     </div>
                 </div>
                 <div class="col-6 col-md-2">
-                    <div class="card" style="width: 100%" onclick="location.href = '/BaoHiemYTe/Index'">
+                    <div class="card" style="width: 100%" onclick="LoadBhyt();$('#BHYTModal').modal('show');">
                         <img src="~/Assets/Img/BHYT_Image.png" alt="BHYT" style="width: 100%">
                         <div>
-                            <button class="btn btn-warning" onclick="location.href = '/BaoHiemYTe/Index'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Đăng Ký BHYT</button>
+                            <button class="btn btn-warning" onclick="LoadBhyt();$('#BHYTModal').modal('show');" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Đăng Ký BHYT</button>
                         </div>
                     </div>
                 </div>
@@ -140,3 +140,5 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/_Layout.js"></script>

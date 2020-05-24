@@ -192,7 +192,14 @@ ul ul a {
     top: 0;
     right: 0;
 }
-
+#info_Team a {
+    
+    margin-left: 20px;
+}
+#info_Team a:hover {
+    color: blue;
+    text-decoration: underline;
+}
 /* ---------------------------------------------------
     CONTENT Admin
 ----------------------------------------------------- */
