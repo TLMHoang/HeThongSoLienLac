@@ -35,6 +35,7 @@
         success: function (result) {
             if (result === 1) {
                 $("#linkBHYT").css("display", "block");
+                $("#LinkIndexBHYT").css("display", "block");
             }
         }
     });

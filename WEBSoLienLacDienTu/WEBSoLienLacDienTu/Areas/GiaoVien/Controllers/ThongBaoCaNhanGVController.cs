@@ -7,24 +7,24 @@ using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DTO;
+using WEBSoLienLacDienTu.Areas.Admin.Code;
 using WEBSoLienLacDienTu.Areas.Admin.Models;
-using WEBSoLienLacDienTu.Areas.GiaoVien.Code;
 
 
 namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
 {
 
-    [SessionAuthorize]
+    [Code.SessionAuthorize]
     public class ThongBaoCaNhanGVController : Controller
     {
         // GET: GiaoVien/ThongBaoCaNhan
         public static int idhs;
-
+        public static int User_Ph;
         #region ThongBaoHocSinh
 
         public async Task<ActionResult> Index2()
         {
-            List<ThongTinHS> lst = new List<ThongTinHS>();
+            List<DiemDanh_PostNotificationModel> lst = new List<DiemDanh_PostNotificationModel>();
             if (HomeGiaoVienController.TK.IDLop == -1)
             {
                 ViewBag.ThongBao = "Xin Lỗi Bạn Không Phải GVCN !";
@@ -32,16 +32,17 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             }
             else
             {
-                foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(HomeGiaoVienController.TK.IDLop)).Rows)
+                foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_Notification(HomeGiaoVienController.TK.IDLop)).Rows)
                 {
-                    lst.Add(new ThongTinHS(dr));
+                    lst.Add(new DiemDanh_PostNotificationModel(dr));
                 }
                 return View(lst);
             }
         }
-        public async Task<ActionResult> DanhSachChiTiet(int id)
+        public async Task<ActionResult> DanhSachChiTiet(int id,int idPH)
         {
             idhs = id;
+            User_Ph = idPH;
             List<ThongBaoHS> lst = new List<ThongBaoHS>();
             foreach (DataRow dr in (await new ThongBaoHSDAL().LayDT_TheoIDHS(id)).Rows)
             {
@@ -70,8 +71,11 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
                     hs.NoiDung = noidung;
                     hs.Ngay = DateTime.Now;
                     hs.IDLoaiThongBao = 1;
+                    
                     if (await new ThongBaoHSDAL().Them(hs) != 0)
                     {
+                        var postNotification = new PostNotification(User_Ph.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
+                            "Bạn Có 1 Thông Báo Mới !");
                         return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs });
                     }
                 }

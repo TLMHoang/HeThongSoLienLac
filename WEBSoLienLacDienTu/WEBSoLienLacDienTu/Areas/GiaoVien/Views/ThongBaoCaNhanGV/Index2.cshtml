@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DTO.ThongTinHS>
+﻿@model IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DiemDanh_PostNotificationModel>
 @{
     ViewBag.Title = "Index2";
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
@@ -53,7 +53,7 @@
                                 <tr>
                                     <td width="5%">
                                         <div>
-                                            <a href="@Url.Action("DanhSachChiTiet","ThongBaoCaNhanGV",new {@id = item.ID})" class="btn btn-success btn-icon-split" id="myRow">
+                                            <a href="@Url.Action("DanhSachChiTiet","ThongBaoCaNhanGV",new {@id = item.ID,@idPH = item.User_PH})" class="btn btn-success btn-icon-split" id="myRow">
                                                 <span class="icon">
                                                     <i class="fas fa-list-alt"></i>
                                                 </span>

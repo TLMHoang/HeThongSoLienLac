@@ -20,6 +20,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public static int idhs;
         public static Lop lop = new Lop();
         public static Lop lop2 = new Lop();
+        public static int User_Ph;
         // GET: Admin/ThongBaoCaNhan
 
         #region ThongBaoHocSinh
@@ -48,16 +49,17 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public async Task<ActionResult> ThongBaoHocSinh(int id)
         {
             lop.ID = id;
-            List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(id)).Rows)
+            List<DiemDanh_PostNotificationModel> lst = new List<DiemDanh_PostNotificationModel>();
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_Notification(id)).Rows)
             {
-                lst.Add(new ThongTinHS(dr));
+                lst.Add(new DiemDanh_PostNotificationModel(dr));
             }
             return View(lst);
         }
-        public async Task<ActionResult> DanhSachChiTiet(int id)
+        public async Task<ActionResult> DanhSachChiTiet(int id,int idPH)
         {
             idhs = id;
+            User_Ph = idPH;
             List<ThongBaoHS> lst = new List<ThongBaoHS>();
             foreach (DataRow dr in (await new ThongBaoHSDAL().LayDT_TheoIDHS(id)).Rows)
             {
@@ -89,7 +91,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                     hs.IDLoaiThongBao = 1;
                     if (await new ThongBaoHSDAL().Them(hs) != 0)
                     {
-                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new {id = idhs});
+                        var postNotification = new PostNotification(User_Ph.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
+                            "Bạn Có 1 Thông Báo Mới !");
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new {id = idhs, idPH = User_Ph});
                     }
                 }
                 catch (Exception e)
