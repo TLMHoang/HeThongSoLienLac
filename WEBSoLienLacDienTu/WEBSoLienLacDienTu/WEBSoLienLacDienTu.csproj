@@ -379,6 +379,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\TaiKhoanPhuHuynh\ChonHS.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\ThongBaoTruongCaNhan\TBLop.cshtml" />
+    <Content Include="Views\ThongBaoTruongCaNhan\TBTruong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,6 +15,7 @@ namespace WEBSoLienLacDienTu.Controllers
     public class ThongBaoTruongCaNhanController : Controller
     {
         // GET: ThongBaoTruongCaNhan
+        ThongBaoTruongDAL tb = new ThongBaoTruongDAL();
         public async Task<ActionResult> Index()
         {
             List<ThongBaoHS> lst = new List<ThongBaoHS>();
@@ -24,6 +25,20 @@ namespace WEBSoLienLacDienTu.Controllers
             }
             return View(lst);
         }
-        
+        public async Task<ActionResult> TBLop()
+        {
+            List<ThongBaoLop> lst = new List<ThongBaoLop>();
+            foreach (DataRow dr in (await new ThongBaoLopDAL().LayDT_TheoLop(TaiKhoanPhuHuynhController.ttHS.IDLop)).Rows)
+            {
+                lst.Add(new ThongBaoLop(dr));
+            }
+            return View(lst);
+        }
+        public async Task<ActionResult> TBTruong()
+        {
+                     
+            return View(await tb.LayLst());
+        }
+
     }
 }

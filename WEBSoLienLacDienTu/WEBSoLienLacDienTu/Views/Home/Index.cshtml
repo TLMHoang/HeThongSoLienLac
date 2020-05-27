@@ -11,12 +11,56 @@
         <div class="col-md-12">
             <div class="row justify-content-center menu">
                 <div class="col-6 col-md-2">
-                    <div class="card" onclick="location.href = '/ThongBaoTruongCaNhan/Index'" style="width: 100%">
+                    <div class="card" data-toggle="modal" data-target="#TBModal" style="width: 100%">
                         <img src="~/Assets/Img/ThongBao_Image.png" alt="ThongBao" style="width: 100%">
                         <div>
-                            <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;">Thông Báo</button>
+                            <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;" data-toggle="modal" data-target="#TBModal">Thông Báo</button>
                         </div>
+                        <div class="modal fade" id="TBModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Loại Thông Báo</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card" onclick="location.href = '/ThongBaoTruongCaNhan/TBTruong'" style="width: 100%">
+                                                    <img src="~/Assets/Img/School_Image.png" alt="TBTruong" style="width: 100%">
+                                                    <div>
+                                                        <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white;padding: 6px;" onclick="location.href = '/ThongBaoTruongCaNhan/TBTruong'">Trường</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card" onclick="location.href = '/ThongBaoTruongCaNhan/TBLop'" style="width: 100%">
+                                                    <img src="~/Assets/Img/TBLop_Image.png" alt="TBLop" style="width: 100%">
+                                                    <div>
+                                                        <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white; padding: 6px;" onclick="location.href = '/ThongBaoTruongCaNhan/TBLop'">Lớp</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card" onclick="location.href = '/ThongBaoTruongCaNhan/Index'" style="width: 100%">
+                                                    <img src="~/Assets/Img/TBHocSinh_Image.png" alt="TBCaNhan" style="width: 100%">
+                                                    <div>
+                                                        <button class="btn btn-warning" style="width: 100%; margin-top: 10px; color: white; padding: 6px;" onclick="location.href = '/ThongBaoTruongCaNhan/Index'">Cá Nhân</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" style="color: white; font-weight: bold;" class="btn btn-warning" data-dismiss="modal">Đóng</button>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-2">
