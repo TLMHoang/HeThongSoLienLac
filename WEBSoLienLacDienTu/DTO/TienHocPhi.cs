@@ -77,6 +77,7 @@ namespace DTO
             TienAn = Convert.IsDBNull(dr["TienAn"]) ? -1 : Convert.ToInt32(dr["TienAn"]);
             TienDien = Convert.IsDBNull(dr["TienDien"]) ? -1 : Convert.ToInt32(dr["TienDien"]);
             TienNuoc = Convert.IsDBNull(dr["TienNuoc"]) ? -1 : Convert.ToInt32(dr["TienNuoc"]);
+            TienVeSinh = Convert.IsDBNull(dr["TienVeSinh"]) ? -1 : Convert.ToInt32(dr["TienVeSinh"]);
             TienTrangThietBi = Convert.IsDBNull(dr["TienTrangThietBi"]) ? -1 : Convert.ToInt32(dr["TienTrangThietBi"]);
             TienTaiLieu = Convert.IsDBNull(dr["TienTaiLieu"]) ? -1 : Convert.ToInt32(dr["TienTaiLieu"]);
         }

@@ -7,20 +7,31 @@ using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DTO;
+using WEBSoLienLacDienTu.Areas.Admin.Code;
+using WEBSoLienLacDienTu.Areas.Admin.Models;
 
 namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
 {
+    [SessionTimeout]
     public class DiemDanhGVController : Controller
     {
         // GET: GiaoVien/DiemDanhGV
         public async Task<ActionResult> Index()
         {
-            List<ThongTinHS> lst = new List<ThongTinHS>();
-            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(HomeGiaoVienController.TK.IDLop)).Rows)
+            List<DiemDanh_PostNotificationModel> lst = new List<DiemDanh_PostNotificationModel>();
+            if (HomeGiaoVienController.TK.IDLop == -1)
             {
-                lst.Add(new ThongTinHS(dr));
+                ViewBag.ThongBao = "Xin Lỗi Bạn Không Phải GVCN !";
+                return View();
             }
-            return View(lst);
+            else
+            {
+                foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_Notification(HomeGiaoVienController.TK.IDLop)).Rows)
+                {
+                    lst.Add(new DiemDanh_PostNotificationModel(dr));
+                }
+                return View(lst);
+            }
         }
         public async Task<ActionResult> ChiTietVang(int id)
         {
@@ -31,8 +42,10 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             }
             return View(lst);
         }
-        public async Task<JsonResult> ThemVang(DiemDanh dd)
+        public async Task<JsonResult> ThemVang(DiemDanh dd, int User_PH)
         {
+            var postNotification = new PostNotification(User_PH.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
+                "Bạn Có 1 Thông Báo Mới !");
             return Json(await new DiemDanhDAL().Them(dd), JsonRequestBehavior.AllowGet);
         }
         public async Task<JsonResult> CapNhatVang(DiemDanh dd)
@@ -52,9 +65,9 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         }
         public async Task<JsonResult> getById(int ID)
         {
-            ThongTinHS tt = new ThongTinHS();
-            DataTable dt = await new ThongTinHSDAL().LayDT(ID);
-            tt = new ThongTinHS(dt.Rows[0]);
+            DiemDanh_PostNotificationModel tt = new DiemDanh_PostNotificationModel();
+            DataTable dt = await new ThongTinHSDAL().LayDTHS_Notification(ID);
+            tt = new DiemDanh_PostNotificationModel(dt.Rows[0]);
             return Json(tt, JsonRequestBehavior.AllowGet);
         }
     }

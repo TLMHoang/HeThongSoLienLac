@@ -142,6 +142,7 @@
     <Compile Include="Areas\Admin\Code\CheckSessionAuthorize.cs" />
     <Compile Include="Areas\Admin\Code\ExcelData.cs" />
     <Compile Include="Areas\Admin\Code\FileExt.cs" />
+    <Compile Include="Areas\Admin\Code\PostNotification.cs" />
     <Compile Include="Areas\Admin\Controllers\BHYTController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Areas\Admin\Models\DanhSachDiemModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachLienKetPhModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachTaiKhoanTruongModel.cs" />
+    <Compile Include="Areas\Admin\Models\DiemDanh_PostNotificationModel.cs" />
     <Compile Include="Areas\Admin\Models\GetClassModel.cs" />
     <Compile Include="Areas\Admin\Models\getKhoiModel.cs" />
     <Compile Include="Areas\Admin\Models\GetNameClassModel.cs" />
@@ -172,9 +174,11 @@
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DiemDanhGVController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\KiemDuyetXinPhepController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\QuanLyNhapDiemController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
+    <Compile Include="Areas\GiaoVien\Models\KiemDuyetXinPhepModel.cs" />
     <Compile Include="Code\CheckSession.cs" />
     <Compile Include="Controllers\BaoHiemYTeController.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
@@ -191,14 +195,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BangDiem2.cs" />
-    <Compile Include="Models\BangDiemModels.cs" />
     <Compile Include="Models\DangNhapModels.cs" />
+    <Compile Include="Models\DanhSachBangDiemTheoMonModel.cs" />
+    <Compile Include="Models\DanhSachXinPhepModels.cs" />
     <Compile Include="Models\DoiPassModels.cs" />
-    <Compile Include="Models\LKPHvsHS.cs" />
+    <Compile Include="Models\HocPhiModels.cs" />
     <Compile Include="Models\ThongTinGVBMModel.cs" />
     <Compile Include="Models\ThongTinHSLienKetModel.cs" />
     <Compile Include="Models\ThongTinHSModels.cs" />
+    <Compile Include="Models\TongKetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,15 +228,29 @@
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Assets\Css\UpdateTKTruong.css" />
     <Content Include="Assets\Img\Admin_Image.png" />
+    <Content Include="Assets\Img\BHYT_Image.png" />
     <Content Include="Assets\Img\DiemDanh_Image.png" />
+    <Content Include="Assets\Img\LienKetPHHS_Image.png" />
     <Content Include="Assets\Img\List_Image.png" />
     <Content Include="Assets\Img\logo_User.jpg" />
     <Content Include="Assets\Img\mark_Image.png" />
+    <Content Include="Assets\Img\PhanCong_Image.png" />
+    <Content Include="Assets\Img\QLHocPhi_Image.png" />
+    <Content Include="Assets\Img\QLHocSinh_Image.png" />
+    <Content Include="Assets\Img\QLMon_Image.png" />
+    <Content Include="Assets\Img\QLTaiKhoanPH_Image.png" />
+    <Content Include="Assets\Img\QLTaiKhoan_Image.png" />
+    <Content Include="Assets\Img\QLTKB_Image.png" />
+    <Content Include="Assets\Img\School_Image.png" />
+    <Content Include="Assets\Img\search-2ndg.png" />
     <Content Include="Assets\Img\TBHocSinh_Image.png" />
     <Content Include="Assets\Img\TBLop_Image.png" />
     <Content Include="Assets\Img\Teacher_Image.png" />
     <Content Include="Assets\Img\ThongBao_Image.png" />
+    <Content Include="Assets\Img\tongKet.png" />
     <Content Include="Assets\Img\Ust.png" />
+    <Content Include="Assets\Img\VietGiay.png" />
+    <Content Include="Assets\Img\XinPhep.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -311,6 +330,10 @@
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\DiemDanhGV\ChiTietVang.cshtml" />
     <Content Include="Areas\Admin\Views\BHYT\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\DanhSachDaDuyet.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\Shared\_FooterPartial.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -326,6 +349,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\ldld.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\_Layout.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -340,7 +364,6 @@
     <Content Include="Views\XinPhep1\Index.cshtml" />
     <Content Include="Views\XemTKB\Index.cshtml" />
     <Content Include="Views\XemHocPhi\Index.cshtml" />
-    <Content Include="Views\XemDiem\Index.cshtml" />
     <Content Include="Views\TraCuu\Index.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\Index.cshtml" />
     <Content Include="Views\TraCuu\GVBM.cshtml" />
@@ -355,10 +378,12 @@
     <Content Include="Views\XemDiem\BangDiem.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\TaiKhoanPhuHuynh\ChonHS.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\ThongBaoTruongCaNhan\TBLop.cshtml" />
+    <Content Include="Views\ThongBaoTruongCaNhan\TBTruong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\GiaoVien\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,74 +1,114 @@
-﻿
+﻿@using System.Diagnostics.Eventing.Reader
+@model WEBSoLienLacDienTu.Models.TongKetModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    #Link_TKBangDiem a:hover {
+        text-decoration: underline;
+    }
+</style>
 
-<h2>Index</h2>
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Tên Học Sinh</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Dân Tộc</th>
-                            <th>Tôn Giáo</th>
-                            <th></th>
-                        </tr>
-                    </thead>
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Home/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page">Điểm Tổng Kết Học Sinh : <label id="TenHocSinh_TongKet"></label></div>
 
-                    <tbody id="myTable">
-                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.ThongTinHSModels>)
-                        {
-                        <tr>
+</div>
+<div class="container-fluid">
+   
+    <div class="box" style="text-align: center;">
+        <div id="HanhKiem_TK">
+            @if (Model.TenHanhKiem == "")
+            {
+                <h4>Hạnh Kiểm : Chưa Có</h4>
+            }
+            else
+            {
+                <h4>Hạnh Kiểm : @Model.TenHanhKiem</h4>
+            }
+        </div>
+        <div id="Diem_TK">
+            @if (Model.HKI == -1)
+            {
+                <h4>Điểm HKI : Chưa Có</h4>
+            }
+            else
+            {
+                <h4>Điểm HKI : @Model.HKI.ToString("0.00")</h4>
 
-                            <td>
-                                @Html.DisplayFor(modelitem => item.Ten)
-                            </td>
-                            <td>
-                                @if (item.GioiTinh == 1)
-                                {
-                                    @Html.Label("Nam")
-                                }
-                                else
-                                {
-                                    @Html.Label("Nữ")
-                                }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.NgaySinh)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.DanToc)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TonGiao)
-                            </td>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="@Url.Action("","TongKetCuoiKy", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Tổng Kết</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+            }
+            @if (Model.HKII == -1)
+            {
+                <h4>Điểm HKII : Chưa Có</h4>
+            }
+            else
+            {
+                <h4>Điểm HKII : @Model.HKII.ToString("0.00")</h4>
+
+            }
+            @if (Model.HKI == -1 || Model.HKII == -1)
+            {
+                <h4>Điểm Tổng Kết Cả Năm : Chưa Có</h4>
+            }
+            else
+            {
+                if (Model.DiemCaNam == -1)
+                {
+                     <h4>Điểm Tổng Kết Cả Năm : Chưa Có</h4>
+                 }
+                 else
+                 {
+                     <h4>Điểm Tổng Kết Cả Năm : @Model.DiemCaNam.ToString("0.00")</h4>
+
+                 }
+            }
+        </div>
+        <div>
+            @if (Model.TenHanhKiem == "" || Model.DiemCaNam == -1)
+            {
+                <h4>Đạt Danh Hiệu : Chưa Có</h4>
+            }
+            else
+            {
+                if (Model.DiemCaNam >= 8)
+                {
+                    <h4>Đạt Danh Hiệu : <span style="color: red;">HỌC SINH GIỎI</span></h4>
+                }else if (Model.DiemCaNam < 8 && Model.DiemCaNam >= 6.5)
+                {
+                    <h4>Đạt Danh Hiệu : <span style="color: red;">HỌC SINH KHÁ</span></h4>
+                }
+                else if (Model.DiemCaNam < 6.5 && Model.DiemCaNam >= 5)
+                {
+                    <h4>Đạt Danh Hiệu : <span style="color: red;">HỌC SINH TRUNG BÌNH</span></h4>
+                }
+                else if (Model.DiemCaNam < 5 && Model.DiemCaNam >= 3.5)
+                {
+                    <h4>Đạt Danh Hiệu : <span style="color: red;">HỌC SINH YẾU</span></h4>
+                }
+                else
+                {
+                    <h4>Đạt Danh Hiệu : <span style="color: red;">HỌC SINH KÉM</span></h4>
+                }
+            }
+        </div>
+        <div style="color: blue;" id="Link_TKBangDiem">
+            @Html.ActionLink("Xem Điểm Chi Tiết", "BangDiem", "XemDiem")
         </div>
     </div>
 
 </div>
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "/TaiKhoanPhuHuynh/TenHS",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                $("#TenHocSinh_TongKet").text(result);
+            }
+        });
+        });
+</script>

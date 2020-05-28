@@ -4,71 +4,110 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Xem Học Phí</h2>
+
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Home/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page"><h2>Thông Tin Học Phí</h2></div>
+
+</div>
+<div class="box" style="margin-bottom: 5px; ">
+
+    <div style="width: 50%; margin: 0 auto;">
+        @Html.DropDownList("LstThang",
+            new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Tháng 1",Value = "1"},
+                new SelectListItem {Text = "Tháng 2",Value = "2"},
+                new SelectListItem {Text = "Tháng 3",Value = "3"},
+                new SelectListItem {Text = "Tháng 4",Value = "4"},
+                new SelectListItem {Text = "Tháng 5",Value = "5"},
+                new SelectListItem {Text = "Tháng 6",Value = "6"},
+                new SelectListItem {Text = "Tháng 7",Value = "7"},
+                new SelectListItem {Text = "Tháng 8",Value = "8"},
+                new SelectListItem {Text = "Tháng 9",Value = "9"},
+                new SelectListItem {Text = "Tháng 10",Value = "10"},
+                new SelectListItem {Text = "Tháng 11",Value = "11"},
+                new SelectListItem {Text = "Tháng 12",Value = "12"}
+            }
+            , null, new { @class = "form-control", id = "LstThang" })
+    </div>
+
+</div>
 <div class="container-fluid">
     <!-- Page Heading -->
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                    <thead>
+                <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                    <thead style="background-color: darkorange; color: white;">
                         <tr>
-                            <th>Tên Học Sinh</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Dân Tộc</th>
-                            <th>Tôn Giáo</th>
-                            <th></th>
+                           
+                            @*<th>Chương Trình Học</th>
+                            <th>Số Ngày</th>*@
+                            <th>Tiền Học</th>
+                            <th>Tiền Ăn</th>
+                            <th>Tiền Điện </th>
+                            <th>Tiền Nước</th>
+                            <th>Tiền Vệ Sinh</th>
+                            <th>Tiền Trang Thiết Bị </th>
+                            <th>Tiền Tài Liệu</th>
                         </tr>
                     </thead>
 
-                    <tbody id="myTable">
-                        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Models.ThongTinHSModels>)
-                        {
-                        <tr>
-
-                            <td>
-                                @Html.DisplayFor(modelitem => item.Ten)
-                            </td>
-                            <td>
-                                @if (item.GioiTinh == 1)
-                                {
-                                    @Html.Label("Nam")
-                                }
-                                else
-                                {
-                                    @Html.Label("Nữ")
-                                }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.NgaySinh)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.DanToc)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TonGiao)
-                            </td>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="@Url.Action("","XemHocPhi", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Xem Học Phí</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
+                    <tbody id="myTable" class="tbody"></tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript">
+    function Loadtable() {
+            var Thang = $("[name='LstThang']").val();
+            $.ajax({
+                url: "/XemHocPhi/LoadHocPhi",
+                data: { Thang: Thang },
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    $.each(result,
+                        function (key, item) {
+                            html += '<tr>';
+                            
+                            //html += '<td>' + item.LoaiHocSinh + '</td>';
+                            //html += '<td>' + item.SoNgayHoc + '</td>';
+                            html += '<td>' + item.TienHoc + '</td>';
+                            html += '<td>' + item.TienAn + '</td>';
+                            html += '<td>' + item.TienDien + '</td>';
+                            html += '<td>' + item.TienNuoc + '</td>';
+                            html += '<td>' + item.TienVeSinh + '</td>';
+                            html += '<td>' + item.TienTrangThietBi + '</td>';
+                            html += '<td>' + item.TienTaiLieu + '</td>';
+                            html += '</tr>';
+                        });
+                    $('.tbody').html(html);
+
+                },
+                error: function () {
+                    alert("Load Data Thất Bại !");
+                }
+            });
+        }
+
+    $(document).ready(function() {
+        $(function () {
+            $('#LstThang').change(function () {
+                Loadtable();
+            });
+            $('#LstThang').change();
+        });
+    });
+
+
+</script>
 

@@ -18,8 +18,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <!-- Our Custom CSS -->
 
+    
     <link href="~/Assets/Css/MainStyle.css" rel="stylesheet" />
-
+    <link rel="icon" href="~/favicon.ico" />
 </head>
 
 <body>
@@ -35,12 +36,18 @@
                 <h3>Chức Năng</h3>
             </div>
             <ul class="list-unstyled components">
-                <p>Học Sinh : <span><label id="lblTenHS"></label></span></p>
+                <p>Học Sinh : <label id="lblTenHS"></label></p>                
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Thông Báo </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            @Html.ActionLink("Thông Báo Trường", "Index", "ThongBaoTruongCaNhan")
+                            @Html.ActionLink("Thông Báo Cá Nhân", "Index", "ThongBaoTruongCaNhan")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Thông Báo Lớp", "TBLop", "ThongBaoTruongCaNhan")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Thông Báo Toàn Trường", "TBTruong", "ThongBaoTruongCaNhan")
                         </li>
                     </ul>
                 </li>
@@ -65,10 +72,10 @@
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">Thông Tin Học Sinh </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
-                            @Html.ActionLink("Thông Tin Hoc Sinh", "Edit", "ThongTinHocSinh1")
+                            @Html.ActionLink("Thông Tin Học Sinh", "Edit", "ThongTinHocSinh1")
                         </li>
                         <li style="display: none;" id="linkBHYT">
-                            @Html.ActionLink("Bảo Hiểm Y Tế", "Index", "BaoHiemYTe")
+                            <a href="#">Đăng Ký BHYT</a>
                         </li>
                     </ul>
                 </li>
@@ -86,38 +93,39 @@
                 <li class="active">
                     @Html.ActionLink("Thông Tin Giáo Viên Bộ Môn", "GVBM", "TraCuu")
                 </li>
+                <li class="active">@Html.ActionLink("Xem Học Phí", "Index", "XemHocPhi")</li>
                 @*<li class="active">
-                        <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu3">
-                            <li>
-                                @Html.ActionLink("Tra Cứu Giáo Viên Chủ Nhiệm", "Index", "TraCuu")
-                            </li>
-                            <li>
-                                @Html.ActionLink("Thông Tin Giáo Viên Bộ Môn", "GVBM", "TraCuu")
-                            </li>
-                        </ul>
-                    </li>*@
+            <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">Tra Cứu</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu3">
+                <li>
+                    @Html.ActionLink("Tra Cứu Giáo Viên Chủ Nhiệm", "Index", "TraCuu")
+                </li>
+                <li>
+                    @Html.ActionLink("Thông Tin Giáo Viên Bộ Môn", "GVBM", "TraCuu")
+                </li>
+            </ul>
+        </li>*@
                 @*<li>
-                        <a href="#">About</a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li>
-                                <a href="#">Page 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>*@
+            <a href="#">About</a>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Portfolio</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>*@
             </ul>
 
 
@@ -149,70 +157,12 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                @RenderBody()
-                <hr />
+                <div class="body-pagecontent">
+                    @RenderBody()
+                </div>
+                
                 <!-- Footer -->
-                <footer>
-                    <!-- Footer Links -->
-                    <div class="container text-center text-md-left mt-6">
-
-                        <!-- Grid row -->
-                        <div class="row mt-3">
-
-                            <!-- Grid column -->
-                            <div class="col-md-3 col-lg-5 col-xl-5 mx-auto mb-4">
-
-                                <!-- Content -->
-                                <h6 class="text-uppercase font-weight-bold">E-school By US</h6>
-                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                <p>
-                                    Hệ Thống Được Phát Triển Để Giúp Nhà Trường Và Phụ Huynh Kết Nối Với Nhau Dễ Dàng Hơn.
-                                </p>
-
-                            </div>
-                            <!-- Grid column -->
-                            <!-- Grid column -->
-                            <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
-
-                                <!-- Links -->
-                                <h6 class="text-uppercase font-weight-bold">Sản Phẩm Trong Hệ Thống</h6>
-                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                <p>
-                                    Web Sổ Liên Lạc
-                                </p>
-                                <p>
-                                    App Mobile Sổ Liên Lạc
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                                <!-- Links -->
-                                <h6 class="text-uppercase font-weight-bold">Liên Hệ Với Chúng Tôi</h6>
-                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                <p>
-                                    <i class="fas fa-home mr-3"></i> HUTECH University Of Technology
-                                </p>
-                                <p>
-                                    <i class="fas fa-envelope mr-3"></i> Emty@example.com
-                                </p>
-                                <p>
-                                    <i class="fas fa-phone mr-3"></i> + 0352908667
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-
-                        </div>
-                        <!-- Grid row -->
-
-                    </div>
-                    <!-- Footer Links -->
-                    <!-- Copyright -->
-                    <div class="text-center">
-                        <p>&copy; @DateTime.Now.Year - Đồ Án Phát Triển Bởi US Team</p>
-                    </div>
-                    <!-- Copyright -->
-                </footer>
+                @Html.Partial("_FooterPartial")
                 <!-- Footer -->
             </div>
         </div>
@@ -222,6 +172,30 @@
     </div>
     <div class="overlay"></div>
 
+    <div class="modal fade" id="BHYTModal">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Đăng Ký BHYT</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container-fluid" id="bodyModal_BHYT">
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
     <script src="~/Scripts/jquery-3.4.1.js"></script>
@@ -232,52 +206,8 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
 
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-        $(document).ready(function () {
-            $.ajax({
-                url: "/TaiKhoanPhuHuynh/TenHS",
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    $("#lblTenHS").text(result);
-                }
-            });
-        });
-        $(document).ready(function () {
-            $.ajax({
-                url: "/BaoHiemYTe/CheckDateBHYT",
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    if (result === 1) {
-                        $("#linkBHYT").css("display", "block");
-                    }
-                }
-            });
-        });
-        $(window).on("load", function () {
-            $(".loader-wrapper").fadeOut("slow");
-        });
-    </script>
+    <script src="~/Scripts/_Layout.js"></script>
 </body>
 
 </html>

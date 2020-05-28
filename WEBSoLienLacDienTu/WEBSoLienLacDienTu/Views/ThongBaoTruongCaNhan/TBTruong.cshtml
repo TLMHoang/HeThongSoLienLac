@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "TBTruong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Home/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page"><h2>Thông báo Toàn Trường</h2></div>
+
+</div>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="background-color: darkorange; color: white;">
+                        <tr>
+                            <th>Nội Dung</th>
+                            <th>Ngày</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable" class="tbody">
+                        @foreach (var item in Model as IEnumerable<DTO.ThongBaoTruong>)
+                        {
+                            <tr>
+                                @*<td width="5%">
+                                        <div>
+                                            <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoHS(@item.ID);">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
+                                    </td>*@
+                                <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
+                                <td>@Html.DisplayFor(modelitem => item.Ngay)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+

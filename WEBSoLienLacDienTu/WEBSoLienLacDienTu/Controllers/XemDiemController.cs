@@ -16,8 +16,8 @@ namespace WEBSoLienLacDienTu.Controllers
     public class XemDiemController : Controller
     {
         // GET: XemDiem
-        
-        
+
+
         //public async Task<ActionResult> Index()
         //{
 
@@ -30,12 +30,17 @@ namespace WEBSoLienLacDienTu.Controllers
         //}
         public async Task<ActionResult> BangDiem()
         {
-            List<BangDiem2> lst = new List<BangDiem2>();
-            foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem_ID(TaiKhoanPhuHuynhController.ttHS.ID)).Rows)
+            return View();
+        }
+
+        public async Task<JsonResult> LoadBangDiem(byte HocKy)
+        {
+            List<DanhSachBangDiemTheoMonModel> lst = new List<DanhSachBangDiemTheoMonModel>();
+            foreach (DataRow dr in (await new BangDiemDAL().LayDanhSachDiem_ByIDHS(TaiKhoanPhuHuynhController.ttHS.ID,HocKy)).Rows)
             {
-                lst.Add(new BangDiem2(dr));
+                lst.Add(new DanhSachBangDiemTheoMonModel(dr));
             }
-            return View(lst);
+            return Json(lst,JsonRequestBehavior.AllowGet);
         }
     }
 }

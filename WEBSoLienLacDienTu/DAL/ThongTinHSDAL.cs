@@ -45,6 +45,14 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }
+
+        public async Task<DataTable> LayDTHS_Notification(int ID)
+        {
+            return await ExecuteQuery(
+                "W_SelectThongTinHS_Notification",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
+        }
         public async Task<List<ThongTinHS>> LayLst()
         {
             List<ThongTinHS> lst = new List<ThongTinHS>();
@@ -95,6 +103,14 @@ namespace DAL
             return await ExecuteQuery(
                 "W_SelectThongTinHSTheoLop",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
+        }
+
+        public async Task<DataTable> LayDT_Notification(int ID)
+        {
+            return await ExecuteQuery(
+                "W_SelectThongTinHSTheoLop_Notification",
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = ID }
             );
         }
         public async Task<DataTable> LayDT_ByIDTaiKhoan(int IDTaiKhoan)

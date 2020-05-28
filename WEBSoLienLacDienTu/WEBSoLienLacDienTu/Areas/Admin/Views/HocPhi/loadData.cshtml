@@ -14,13 +14,13 @@
             </span>
             <span>Thêm Tiền Học Phí</span>
         </a>
-    </div>    
+    </div>
     <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton"><i class="fas fa-sign-out-alt"></i></button>
 </div>
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3"></div>
-        <div class="card-body">           
+        <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
                     <thead>
@@ -42,80 +42,115 @@
                     <tbody id="myTable">
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td width="15%">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="@Url.Action("UpdateHP", "HocPhi", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Sửa</span>
-                                        </a>
+                            <tr>
+                                <td width="15%">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="@Url.Action("UpdateHP", "HocPhi", new { @id = item.ID })" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#" class="btn btn-danger btn-icon-split" id="myRow" onclick="DeleleHP(@item.ID);">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-danger btn-icon-split" id="myRow" onclick="DeleleHP(@item.ID);">
-                                            <span class="icon">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span>Xóa</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
+                                </td>
 
-                            <td>
-                                @Html.DisplayFor(modelitem => item.Thang)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.IDLoaiHocSinh)
-                                @if (item.IDLoaiHocSinh == 1)
-                                {
-                                    @Html.Label("Nội Trú")
-                                }
-                                else if (item.IDLoaiHocSinh == 2)
-                                {
-                                    @Html.Label("Bán Trú")
-                                }
-                                else if (item.IDLoaiHocSinh == 3)
-                                {
-                                    @Html.Label("Ngoại Trú")
-                                }
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Thang)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.IDLoaiHocSinh)
+                                    @if (item.IDLoaiHocSinh == 1)
+                                    {
+                                        @Html.Label("Nội Trú")
+                                    }
+                                    else if (item.IDLoaiHocSinh == 2)
+                                    {
+                                        @Html.Label("Bán Trú")
+                                    }
+                                    else if (item.IDLoaiHocSinh == 3)
+                                    {
+                                        @Html.Label("Ngoại Trú")
+                                    }
 
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.SoNgayHoc)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienHoc)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienAn)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienDien)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienNuoc)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienVeSinh)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienTrangThietBi)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelitem => item.TienTaiLieu)
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.SoNgayHoc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienHoc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienAn)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienDien)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienNuoc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienVeSinh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienTrangThietBi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TienTaiLieu)
+                                </td>
+                            </tr>
                         }
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    function DeleleHP(ID) {
+        var ans = confirm("Bạn Có Chắc Muốn Xóa ?");
+        if (ans) {
+            $.ajax({
+                url: "/HocPhi/DeleteHP/" + ID,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Xóa Thành Công");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        $('#ExitButton').click(function () {
+            window.location.href = "/Admin/HocPhi/Index";
+        })
+    });
+</script>
 
 
- 
 

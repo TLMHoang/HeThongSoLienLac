@@ -22,7 +22,7 @@
 
 
     <link href="~/Assets/Css/MainStyle.css" rel="stylesheet" />
-
+    <link rel="icon" href="~/favicon.ico" />
 </head>
 
 <body>
@@ -128,7 +128,7 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/Admin/TaiKhoanTruong/ChonChucNang">Chuyển Vai Trò</a>
+                            @*<a class="dropdown-item" href="/Admin/TaiKhoanTruong/ChonChucNang">Chuyển Vai Trò</a>*@
                             <a class="dropdown-item" href="/Admin/TaiKhoanTruong/ChangePass">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" href="/Admin/TaiKhoanTruong/logout">Đăng Xuất</a>
                         </div>
@@ -137,70 +137,12 @@
                 </div>
             </nav>
             <div class="container-fluid">
-                @RenderBody()
-                <hr />
+                <div class="body-pagecontent">
+                    @RenderBody()
+                </div>
+                
                 <!-- Footer -->
-                <footer>
-                    <!-- Footer Links -->
-                    <div class="container text-center text-md-left mt-6">
-
-                        <!-- Grid row -->
-                        <div class="row mt-3">
-
-                            <!-- Grid column -->
-                            <div class="col-md-3 col-lg-5 col-xl-5 mx-auto mb-4">
-
-                                <!-- Content -->
-                                <h6 class="text-uppercase font-weight-bold">E-school By US</h6>
-                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                <p>
-                                    Hệ Thống Được Phát Triển Để Giúp Nhà Trường Và Phụ Huynh Kết Nối Với Nhau Dễ Dàng Hơn.
-                                </p>
-
-                            </div>
-                            <!-- Grid column -->
-                            <!-- Grid column -->
-                            <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
-
-                                <!-- Links -->
-                                <h6 class="text-uppercase font-weight-bold">Sản Phẩm Trong Hệ Thống</h6>
-                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                <p>
-                                    Web Sổ Liên Lạc
-                                </p>
-                                <p>
-                                    App Mobile Sổ Liên Lạc
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                                <!-- Links -->
-                                <h6 class="text-uppercase font-weight-bold">Liên Hệ Với Chúng Tôi</h6>
-                                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                <p>
-                                    <i class="fas fa-home mr-3"></i> HUTECH University Of Technology
-                                </p>
-                                <p>
-                                    <i class="fas fa-envelope mr-3"></i> Emty@example.com
-                                </p>
-                                <p>
-                                    <i class="fas fa-phone mr-3"></i> + 0352908667
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-
-                        </div>
-                        <!-- Grid row -->
-
-                    </div>
-                    <!-- Footer Links -->
-                    <!-- Copyright -->
-                    <div class="text-center">
-                        <p>&copy; @DateTime.Now.Year - Đồ Án Phát Triển Bởi US Team</p>
-                    </div>
-                    <!-- Copyright -->
-                </footer>
+                @Html.Partial("_FooterPartial")
                 <!-- Footer -->
             </div>
         </div>

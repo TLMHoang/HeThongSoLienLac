@@ -18,8 +18,7 @@ namespace DAL
                 new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                 new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = obj.NghiTu },
                 new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = obj.NghiDen },
-                new SqlParameter("@TrangThai", SqlDbType.Bit) { Value = obj.TrangThai },
-                new SqlParameter("@ChoHuy", SqlDbType.NVarChar) { Value = obj.ChoHuy }              
+                new SqlParameter("@TrangThai", SqlDbType.Int) { Value = obj.TrangThai }
             );
         }
 
@@ -30,7 +29,32 @@ namespace DAL
                 new SqlParameter("@ID", SqlDbType.Int) { Value = -1 }
             );
         }
-
+        public async Task<DataTable> LayDT_CoTenHS(int IDLop,int TrangThai)
+        {
+            return await ExecuteQuery(
+                "W_SelectXinPhep_V2",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop },
+                new SqlParameter("@TrangThai", SqlDbType.Int) { Value = TrangThai }
+            );
+        }
+        public async Task<DataTable> LayDT_CoTenHS(int ID,int IDLop, int TrangThai)
+        {
+            return await ExecuteQuery(
+                "W_SelectXinPhep_V2",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop },
+                new SqlParameter("@TrangThai", SqlDbType.Int) { Value = TrangThai }
+            );
+        }
+        public async Task<DataTable> LayDT_DaDuyet(int IDLop)
+        {
+            return await ExecuteQuery(
+                "W_SelectXinPhep_DSDaDuyet",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = -1 },
+                new SqlParameter("@IDLop", SqlDbType.Int) { Value = IDLop }
+            );
+        }
         public async Task<DataTable> LayDT(int ID)
         {
             return await ExecuteQuery(
@@ -52,13 +76,12 @@ namespace DAL
         public async Task<int> Them(XinPhep obj)
         {
             return await ExecuteNonQuery("InsertXinPhep",
-               new SqlParameter("@ID", SqlDbType.Int) { Value = obj.ID },
-               new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = obj.IDHocSinh },
                new SqlParameter("@NghiTu", SqlDbType.DateTime) { Value = obj.NghiTu },
                new SqlParameter("@NghiDen", SqlDbType.DateTime) { Value = obj.NghiDen },
-               new SqlParameter("@TrangThai", SqlDbType.Bit) { Value = obj.TrangThai },
-               new SqlParameter("@ChoHuy", SqlDbType.NVarChar) { Value = obj.ChoHuy }
-           );
+               new SqlParameter("@TrangThai", SqlDbType.Int) { Value = obj.TrangThai },
+               new SqlParameter("@LyDo", SqlDbType.NVarChar) { Value = obj.LyDo }
+            );
         }
 
         public async Task<int> Xoa(int ID)
@@ -66,6 +89,14 @@ namespace DAL
             return await ExecuteNonQuery(
                 "DeleteXinPhep",
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
+        }
+
+        public async Task<int> DuyetDon(int ID,int TrangThai)
+        {
+            return await ExecuteNonQuery("W_SelectXinPhep_DuyetDon",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID },
+                new SqlParameter("@TrangThai", SqlDbType.Int) { Value = TrangThai }
             );
         }
         public async Task<int> XinPhepV2(int idHocSinh, DateTime nghiTu, DateTime nghiDen, string lyDo)
@@ -95,7 +126,7 @@ namespace DAL
         public async Task<DataTable> LayDT_ID(int ID)
         {
             return await ExecuteQuery(
-                "SelectXinPhepID",
+                "SelectXinPhep2",               
                 new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
             );
         }

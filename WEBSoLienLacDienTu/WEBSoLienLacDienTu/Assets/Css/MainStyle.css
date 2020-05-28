@@ -4,8 +4,21 @@
 body {
     font-family: 'Roboto', sans-serif;
     background: #fafafa;
-}
 
+}
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+.body-pagecontent {
+    padding-bottom: 2rem;    /* Footer height */
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    height: 2.5rem;            /* Footer height */
+}
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 1.1em;
@@ -55,7 +68,7 @@ a:focus {
     left: -250px;
     height: 100vh;
     z-index: 999;
-    background: #fafafa;
+    background-color: #fafafa;
     color: #999;
     transition: all 0.3s;
     overflow-y: scroll;
@@ -123,6 +136,7 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    background-color: #fafafa;
 }
 #sidebar ul li a:hover {
     color: #fff;
@@ -178,7 +192,14 @@ ul ul a {
     top: 0;
     right: 0;
 }
-
+#info_Team a {
+    
+    margin-left: 20px;
+}
+#info_Team a:hover {
+    color: blue;
+    text-decoration: underline;
+}
 /* ---------------------------------------------------
     CONTENT Admin
 ----------------------------------------------------- */

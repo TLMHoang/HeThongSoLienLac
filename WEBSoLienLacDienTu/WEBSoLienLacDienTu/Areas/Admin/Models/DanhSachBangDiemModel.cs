@@ -26,6 +26,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
         public double _1t_4 { get; set; }
         public double _1t_5 { get; set; }
         public double HocKy { get; set; }
+        public double TBM1 { get; set; }
+        public double TBM2 { get; set; }
 
         public DanhSachBangDiemModel()
         {
@@ -46,10 +48,12 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
             _1t_4 = -1;
             _1t_5 = -1;
             HocKy = -1;
+            TBM1 = -1;
+            TBM2 = -1;
         }
 
         public DanhSachBangDiemModel(string ten, double diemMieng1, double diemMieng2, double diemMieng3, double diemMieng4, double diemMieng5, double diem15_1, double diem15_2, double diem15_3, double diem15_4, double diem15_5, double diem1t_1,
-            double diem1t_2, double diem1t_3, double diem1t_4, double diem1t_5, double hocKy)
+            double diem1t_2, double diem1t_3, double diem1t_4, double diem1t_5, double hocKy,double tbm1,double tbm2)
         {
             Ten = ten;
             DiemMieng1 = diemMieng1;
@@ -68,6 +72,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
             _1t_4 = diem1t_4;
             _1t_5 = diem1t_5;
             HocKy = hocKy;
+            TBM1 = tbm1;
+            TBM2 = tbm2;
         }
 
         public DanhSachBangDiemModel(DataRow dr)
@@ -89,6 +95,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
             _1t_4 = Convert.IsDBNull(dr["1t_4"]) ? -1 : Convert.ToDouble(dr["1t_4"]);
             _1t_5 = Convert.IsDBNull(dr["1t_5"]) ? -1 : Convert.ToDouble(dr["1t_5"]);
             HocKy = Convert.IsDBNull(dr["HocKy"]) ? -1 : Convert.ToDouble(dr["HocKy"]);
+            TBM1 = Convert.IsDBNull(dr["HK1"]) ? -1 : Convert.ToDouble(dr["HK1"]);
+            TBM2 = Convert.IsDBNull(dr["HK2"]) ? -1 : Convert.ToDouble(dr["HK2"]);
         }
     }
 }

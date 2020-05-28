@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DTO.ThongTinHS>
+﻿@model IEnumerable<WEBSoLienLacDienTu.Areas.Admin.Models.DiemDanh_PostNotificationModel>
 @{
     ViewBag.Title = "Vang";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -103,6 +103,7 @@
                     <div class="form-group">
                         <label for="TenModal">Tên Học Sinh</label>
                         <input type="text" class="form-control" id="TenModal" disabled="disabled" />
+                        <input type="text" class="form-control" id="User_Ph" style="display: none;" />
                     </div>
                     <div class="form-group">
                         <label for="Phep">Phép</label>

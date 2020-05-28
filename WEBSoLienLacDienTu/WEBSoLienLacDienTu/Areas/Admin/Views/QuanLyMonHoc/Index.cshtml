@@ -4,7 +4,12 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Trang Quản Lý Môn Học</h2>
+
+<div class="container-fluid">
+    <div><button class="btn btn-danger" style="margin-left: 10px; float: right" onclick="location.href='/Admin/HomeAdmin/Index'"><i class="fas fa-sign-out-alt"></i></button></div>
+    <div class="title-page"><h2>Trang Quản Lý Môn Học</h2></div>
+
+</div>
 <hr />
 <a href="@Url.Action("Create","QuanLyMonHoc")" class="btn btn-success btn-icon-split">
     <span class="icon text-white-50">
@@ -32,7 +37,6 @@
                         <tr>
                             <th>Sửa</th>
                             <th>Xóa</th>
-                            <th>Mã Môn</th>
                             <th>Tên Môn</th>
                             <th>Hệ Số 10</th>
                         </tr>
@@ -41,40 +45,78 @@
                     <tbody id="myTable">
                         @foreach (var item in Model as IEnumerable<DTO.MonHoc>)
                         {
-                            <tr>
-                                <td width="7%">
-                                    <div>
-                                        <a href="@Url.Action("Update","QuanLyMonHoc",new {@id=item.ID})" class="btn btn-primary btn-icon-split">
-                                            <span class="icon">
-                                                <i class="fas fa-pen-square"></i>
-                                            </span>
-                                            <span>Sửa</span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td  width="7%">
-                                    <div>
-                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="Delete(@item.ID);">
-                                            <span class="icon">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span>Xóa</span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td  width="10%" >@Html.DisplayFor(modelitem => item.ID)</td>
-                                <td>@Html.DisplayFor(modelitem => item.TenMon)</td>
-                                <td>
-                                    @if (item.LoaiDiem == 0)
-                                    {
-                                        <label>Không</label>
-                                    }
-                                    else
-                                    {
-                                        <label>Có</label>
-                                    }
-                                </td>
-                            </tr>
+                            if (item.ID > 15)
+                            {
+                                <tr>
+                                    <td width="7%">
+                                        <div>
+                                            <a href="@Url.Action("Update","QuanLyMonHoc",new {@id=item.ID})" class="btn btn-primary btn-icon-split">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td  width="7%">
+                                        <div>
+                                            <a href="#" class="btn btn-danger btn-icon-split" onclick="Delete(@item.ID);">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>@Html.DisplayFor(modelitem => item.TenMon)</td>
+                                    <td>
+                                        @if (item.LoaiDiem == 0)
+                                        {
+                                            <label>Không</label>
+                                        }
+                                        else
+                                        {
+                                            <label>Có</label>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td width="7%">
+                                        <div>
+                                            <a href="#" class="btn btn-icon-split" onclick="ThongBao();">
+                                                <span class="icon">
+                                                    <i class="fas fa-pen-square"></i>
+                                                </span>
+                                                <span>Sửa</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td  width="7%">
+                                        <div>
+                                            <a href="#" class="btn btn-icon-split" onclick="ThongBao();">
+                                                <span class="icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span>Xóa</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>@Html.DisplayFor(modelitem => item.TenMon)</td>
+                                    <td>
+                                        @if (item.LoaiDiem == 0)
+                                        {
+                                            <label>Không</label>
+                                        }
+                                        else
+                                        {
+                                            <label>Có</label>
+                                        }
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
