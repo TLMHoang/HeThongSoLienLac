@@ -1,4 +1,4 @@
-﻿ALTER TRIGGER trg_InsertTienHocPhi
+﻿CREATE TRIGGER trg_InsertTienHocPhi
 ON nxtckedu_sa.TienHocPhi
 FOR INSERT
 AS
@@ -58,7 +58,7 @@ BEGIN
 END
 GO
 
-ALTER TRIGGER trg_UpdateTienHocPhi
+CREATE TRIGGER trg_UpdateTienHocPhi
 ON nxtckedu_sa.TienHocPhi
 FOR UPDATE
 AS
@@ -79,7 +79,7 @@ BEGIN
 END
 GO
 
-ALTER TRIGGER trg_DeleteTienHocPhi
+CREATE TRIGGER trg_DeleteTienHocPhi
 ON nxtckedu_sa.TienHocPhi
 FOR DELETE
 AS
@@ -90,7 +90,7 @@ END
 GO
 
 
-ALTER TRIGGER trg_InsertLop
+CREATE TRIGGER trg_InsertLop
 ON nxtckedu_sa.Lop
 FOR	INSERT
 AS
@@ -148,3 +148,167 @@ BEGIN
         0  -- BHQD - bit
         )
 END
+GO	
+
+ALTER TRIGGER trg_InsertDiem
+ON nxtckedu_sa.BangDiem
+FOR INSERT,UPDATE
+AS
+BEGIN
+	IF ((SELECT Inserted.CotDiem FROM Inserted) > (SELECT TongCot FROM nxtckedu_sa.LoaiDiem WHERE ID = (SELECT Inserted.IDLoaiDiem FROM Inserted)))
+	BEGIN
+	    PRINT N'Vượt quá giới hạn số cột của loai điểm'
+		ROLLBACK
+	END
+	DECLARE @Diem INT = (SELECT Inserted.Diem FROM Inserted)
+    IF (@Diem <0.0 AND @Diem > 10.0)
+	BEGIN
+	    PRINT N'Nhập diểm nhỏ hơn 0 học 10 khôn được'
+		ROLLBACK
+	END
+	ELSE
+	BEGIN
+	    IF((SELECT COUNT(*) FROM nxtckedu_sa.BangDiem 
+		WHERE IDHocSinh = (SELECT Inserted.IDHocSinh FROM Inserted) 
+		AND IDMonHoc = (SELECT Inserted.IDMonHoc FROM Inserted)
+		AND CotDiem = (SELECT Inserted.CotDiem FROM Inserted)) = 2)
+		BEGIN
+		    PRINT N'Đã có cột này không thể thêm, chỉ có thể sửa'
+			ROLLBACK
+		END
+		ELSE
+		BEGIN
+		    DECLARE @IDHocSinh INT = (SELECT Inserted.IDHocSinh FROM Inserted)
+			DECLARE @IDMonHoc INT = (SELECT Inserted.IDMonHoc FROM Inserted)
+			DECLARE @HKI BIT = (SELECT Inserted.HocKyI FROM Inserted)
+			DECLARE @IDLop INT = (SELECT IDLop FROM nxtckedu_sa.ThongTinHS WHERE ID = @IDHocSinh)
+			DECLARE @Count INT = 0
+			DECLARE @Loop INT
+			DECLARE @Point FLOAT = 0.0
+			DECLARE @TablePoint TABLE(IDLoaiDiem INT, HocKyI BIT, Diem FLOAT, HeSo INT)
+
+			INSERT INTO @TablePoint
+			SELECT D.IDLoaiDiem,
+                   D.HocKyI,
+                   D.Diem,
+                   L.HeSo FROM nxtckedu_sa.BangDiem AS D
+			JOIN nxtckedu_sa.LoaiDiem AS L
+			ON L.ID = D.IDLoaiDiem
+			WHERE D.IDHocSinh = @IDHocSinh AND D.IDMonHoc = @IDMonHoc
+
+			DECLARE @P FLOAT = (SELECT SUM(Diem * HeSo) FROM @TablePoint WHERE HocKyI = @HKI)
+			DECLARE @C INT = (SELECT SUM(HeSo) FROM @TablePoint WHERE  HocKyI = @HKI)
+			IF @P <> 0
+				BEGIN
+				    SET @Point = @Point + @P
+				END
+			IF @C <> 0
+				BEGIN
+				    SET @Count = @Count + @C
+				END
+			
+			-- Input AGV to Table DTBMon
+			IF ((SELECT COUNT(*) FROM nxtckedu_sa.DTBMon 
+			WHERE IDHocSinh = @IDHocSinh
+			AND IDMon = @IDMonHoc
+			AND IDLop = @IDLop) = 1)
+			BEGIN
+				IF(@HKI = 1)
+			    BEGIN
+			        UPDATE nxtckedu_sa.DTBMon 
+					SET HKI = @Point / @Count
+					WHERE IDHocSinh = @IDHocSinh AND IDMon = @IDMonHoc AND IDLop = @IDLop
+			    END 
+				ELSE
+				BEGIN
+			        UPDATE nxtckedu_sa.DTBMon 
+					SET HKII = @Point / @Count
+					WHERE IDHocSinh = @IDHocSinh AND IDMon = @IDMonHoc AND IDLop = @IDLop
+				END
+			END
+			ELSE
+			BEGIN
+				IF(@HKI = 1)
+				BEGIN
+				    INSERT nxtckedu_sa.DTBMon
+					(
+						IDHocSinh,
+						IDMon,
+						IDLop,
+						HKI,
+						HKII,
+						CaNam
+					)
+					VALUES
+				    (   @IDHocSinh,   -- IDHocSinh - int
+					    @IDMonHoc,   -- IDMon - int
+				        @IDLop,  
+					    @Point / @Count, -- HKI - float
+					    0.0, -- HKII - float
+					    0.0  -- CaNam - float
+					    )
+				END
+				ELSE
+				BEGIN
+				    INSERT nxtckedu_sa.DTBMon
+					(
+						IDHocSinh,
+						IDMon,
+						IDLop,
+						HKI,
+						HKII,
+						CaNam
+					)
+					VALUES
+				    (   @IDHocSinh,   -- IDHocSinh - int
+					    @IDMonHoc,   -- IDMon - int
+				        @IDLop,  
+					    0.0, -- HKI - float
+					    @Point / @Count, -- HKII - float
+					    0.0  -- CaNam - float
+					    )
+				END
+			END
+
+			UPDATE nxtckedu_sa.DTBMon 
+					SET CaNam = ((SELECT HKI FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDMon = @IDMonHoc AND IDLop = @IDLop) + (SELECT HKII FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDMon = @IDMonHoc AND IDLop = @IDLop) * 2) / 3
+					WHERE IDHocSinh = @IDHocSinh AND IDMon = @IDMonHoc AND IDLop = @IDLop
+
+			--Get count Subject
+			SET @Count = (SELECT COUNT(*) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop)
+
+			-- Sum Point AGV
+			IF((SELECT COUNT(*) FROM nxtckedu_sa.DTBTong 
+			WHERE IDHocSinh = @IDHocSinh
+			AND IDLop = @IDLop) = 1)
+			BEGIN
+			    UPDATE nxtckedu_sa.DTBTong 
+				SET HKI = (SELECT SUM(HKI) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop) / @Count,
+				HKII = (SELECT SUM(HKII) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop) / @Count,
+				CaNam = (SELECT SUM(CaNam) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop) / @Count
+				WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop
+			END
+			ELSE
+			BEGIN
+			    INSERT nxtckedu_sa.DTBTong
+			    (
+			        IDHocSinh,
+			        IDLop,
+			        HKI,
+			        HKII,
+			        CaNam
+			    )
+			    VALUES
+			    (   @IDHocSinh,   -- IDHocSinh - int
+			        @IDLop,  
+			        (SELECT SUM(HKI) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop) / @Count, -- HKI - float
+			        (SELECT SUM(HKII) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop) / @Count, -- HKII - float
+			        (SELECT SUM(CaNam) FROM nxtckedu_sa.DTBMon WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop) / @Count  -- CaNam - float
+			        )
+			END
+			
+		END
+	END
+END
+GO	
+
