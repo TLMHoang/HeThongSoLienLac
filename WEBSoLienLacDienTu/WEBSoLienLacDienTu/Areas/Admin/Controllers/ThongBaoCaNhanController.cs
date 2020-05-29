@@ -124,7 +124,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                 {
                     if (await new ThongBaoHSDAL().CapNhap(tbhs) != 0)
                     {
-                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new { id = idhs });
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new { id = idhs,idPH = User_Ph });
                     }
                 }
                 catch (Exception e)

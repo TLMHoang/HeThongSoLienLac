@@ -76,7 +76,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
                     {
                         var postNotification = new PostNotification(User_Ph.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
                             "Bạn Có 1 Thông Báo Mới !");
-                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs });
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs, idPH = User_Ph });
                     }
                 }
                 catch (Exception e)
@@ -107,7 +107,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
                 {
                     if (await new ThongBaoHSDAL().CapNhap(tbhs) != 0)
                     {
-                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs });
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs, idPH = User_Ph });
                     }
                 }
                 catch (Exception e)

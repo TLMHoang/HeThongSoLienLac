@@ -63,7 +63,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<JsonResult> ThemVang(DiemDanh dd,int User_PH)
         {
-            new PostNotification(User_PH.ToString(),"Notification !","New Notification!","Thông Báo Mới !","Bạn Có 1 Thông Báo Mới !");
+            var thongbao = new PostNotification(User_PH.ToString(),"Notification !","New Notification!","Thông Báo Mới !","Bạn Có 1 Thông Báo Mới !");
             return Json( await new DiemDanhDAL().Them(dd), JsonRequestBehavior.AllowGet);
         }
         public async Task<JsonResult> CapNhatVang(DiemDanh dd)
