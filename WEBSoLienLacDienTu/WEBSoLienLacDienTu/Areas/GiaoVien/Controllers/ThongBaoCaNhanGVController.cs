@@ -19,7 +19,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
     {
         // GET: GiaoVien/ThongBaoCaNhan
         public static int idhs;
-        public static int User_Ph;
+        public static string User_Ph;
         #region ThongBaoHocSinh
 
         public async Task<ActionResult> Index2()
@@ -39,7 +39,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
                 return View(lst);
             }
         }
-        public async Task<ActionResult> DanhSachChiTiet(int id,int idPH)
+        public async Task<ActionResult> DanhSachChiTiet(int id,string idPH)
         {
             idhs = id;
             User_Ph = idPH;
@@ -74,7 +74,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
                     
                     if (await new ThongBaoHSDAL().Them(hs) != 0)
                     {
-                        var postNotification = new PostNotification(User_Ph.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
+                        var postNotification = new PostNotification(User_Ph, "Notification !", "New Notification!", "Thông Báo Mới !",
                             "Bạn Có 1 Thông Báo Mới !");
                         return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhanGV", new { id = idhs, idPH = User_Ph });
                     }

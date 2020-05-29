@@ -42,9 +42,9 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             }
             return View(lst);
         }
-        public async Task<JsonResult> ThemVang(DiemDanh dd, int User_PH)
+        public async Task<JsonResult> ThemVang(DiemDanh dd, string User_PH)
         {
-            var postNotification = new PostNotification(User_PH.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
+            var postNotification = new PostNotification(User_PH, "Notification !", "New Notification!", "Thông Báo Mới !",
                 "Bạn Có 1 Thông Báo Mới !");
             return Json(await new DiemDanhDAL().Them(dd), JsonRequestBehavior.AllowGet);
         }

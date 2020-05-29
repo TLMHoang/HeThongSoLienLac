@@ -38,7 +38,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
         public int? HKII { get; set; }
 
         public int? CaNam { get; set; }
-        public int? User_PH { get; set; }
+        public string User_PH { get; set; }
 
         public DiemDanh_PostNotificationModel()
         {
@@ -54,9 +54,9 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
             HKI = -1;
             HKII = -1;
             CaNam = -1;
-            User_PH = -1;
+            User_PH = "";
         }
-        public DiemDanh_PostNotificationModel(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int idLop, int idLoaiHocSinh, int? hki, int? hkii, int? caNam,int userPh)
+        public DiemDanh_PostNotificationModel(int iD, string ten, DateTime ngaySinh, byte gioiTinh, string noiSinh, string danToc, string tonGiao, int idLop, int idLoaiHocSinh, int? hki, int? hkii, int? caNam,string userPh)
         {
             ID = iD;
             Ten = ten;
@@ -87,7 +87,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Models
             HKI = Convert.IsDBNull(dr["HKI"]) ? -1 : Convert.ToInt32(dr["HKI"]);
             HKII = Convert.IsDBNull(dr["HKII"]) ? -1 : Convert.ToInt32(dr["HKII"]);
             CaNam = Convert.IsDBNull(dr["CaNam"]) ? -1 : Convert.ToInt32(dr["CaNam"]);
-            User_PH = Convert.IsDBNull(dr["IDTaiKhoan"]) ? -1 : Convert.ToInt32(dr["IDTaiKhoan"]);
+            User_PH = dr["TaiKhoan"].ToString();
         }
     }
 }
