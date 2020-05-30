@@ -196,12 +196,21 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 if (await new ThongBaoLopDAL().Them(lop2.ID, noidung, DateTime.Now, 1) != 0)
                 {
+                    foreach (DataRow dr in LayLop_Notification().Result.Rows)
+                    {
+                        var thongBao = new PostNotification(dr["TaiKhoan"].ToString(), "Notification !"
+                            , "New Notification From Class", "Thông Báo Mới !", "Thông Báo Mới Từ Lớp");
+                    }
                     return RedirectToAction("ThongBaoLop", "ThongBaoCaNhan", new { id = lop2.ID });
                 }
             }
             return View();
         }
-
+        private async Task<DataTable> LayLop_Notification()
+        {
+            DataTable dt = await new ThongTinHSDAL().LayDT_Notification(lop2.ID);
+            return dt;
+        }
         public async Task<ActionResult> CapNhatThongBaoLop(int id)
         {
             ThongBaoLop tbl = new ThongBaoLop();

@@ -165,12 +165,22 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             {
                 if (await new ThongBaoLopDAL().Them(HomeGiaoVienController.TK.IDLop, noidung, DateTime.Now, 1) != 0)
                 {
+                    foreach (DataRow dr in LayLop_Notification().Result.Rows)
+                    {
+                        var thongBao = new PostNotification(dr["TaiKhoan"].ToString(),"Notification !"
+                        ,"New Notification From Class","Thông Báo Mới !","Thông Báo Mới Từ Lớp");
+                    }
                     return RedirectToAction("Index", "ThongBaoCaNhanGV", new { area="GiaoVien" });
                 }
             }
             return View();
         }
 
+        private async Task<DataTable> LayLop_Notification()
+        {
+            DataTable dt = await new ThongTinHSDAL().LayDT_Notification(HomeGiaoVienController.TK.IDLop);
+            return dt;
+        }
         public async Task<ActionResult> CapNhatThongBaoLop(int id)
         {
             ThongBaoLop tbl = new ThongBaoLop();
