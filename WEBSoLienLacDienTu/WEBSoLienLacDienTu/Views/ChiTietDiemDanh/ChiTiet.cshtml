@@ -29,9 +29,9 @@
                         <tr>
                             @*<td>@Html.DisplayFor(modelitem => item.ID)</td>
         <td>@Html.DisplayFor(modelitem => item.IDHocSinh)</td>*@
-                            <td>
-                                @Html.DisplayFor(modelitem => item.NgayNghi)
-                            </td>
+                            
+                            <td>@item.NgayNghi.ToString("dd/MM/yyyy")</td>
+
                             @if (item.Phep == 1)
                             {
                                 <td><label style="color: greenyellow; font-weight: bold;">Có Phép</label></td>
@@ -40,6 +40,7 @@
                             {
                                 <td><label style="color: red; font-weight: bold;">Không Phép</label></td>
                             }
+                            
 
                         </tr>
                         }

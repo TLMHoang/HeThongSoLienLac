@@ -19,27 +19,17 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="background-color: darkorange; color: white;">
                         <tr>
-                            <th>Nội Dung</th>
                             <th>Ngày</th>
+                            <th>Nội Dung</th>
                         </tr>
                     </thead>
 
                     <tbody id="myTable" class="tbody">
                         @foreach (var item in Model as IEnumerable<DTO.ThongBaoHS>)
                         {
-                            <tr>                              
-                                @*<td width="5%">
-                                    <div>
-                                        <a href="#" class="btn btn-danger btn-icon-split" onclick="XoaThongBaoHS(@item.ID);">
-                                            <span class="icon">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span>Xóa</span>
-                                        </a>
-                                    </div>
-                                </td>*@
+                            <tr>                                                             
+                                <td>@item.Ngay.ToString("dd/MM/yyyy")</td>
                                 <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
-                                <td>@Html.DisplayFor(modelitem => item.Ngay)</td>
                             </tr>
                         }
                     </tbody>
