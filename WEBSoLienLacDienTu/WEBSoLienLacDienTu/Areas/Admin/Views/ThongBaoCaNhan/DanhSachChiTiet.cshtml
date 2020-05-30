@@ -66,7 +66,7 @@
                                 </div>
                             </td>
                             <td>@Html.DisplayFor(modelitem => item.NoiDung)</td>
-                            <td>@Html.DisplayFor(modelitem => item.Ngay)</td>
+                            <td>@item.Ngay.ToString("dd/MM/yyyy")</td>
                         </tr>
                     }
                     </tbody>

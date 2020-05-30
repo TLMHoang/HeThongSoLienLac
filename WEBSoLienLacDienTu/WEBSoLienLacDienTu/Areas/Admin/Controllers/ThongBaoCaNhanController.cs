@@ -20,7 +20,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public static int idhs;
         public static Lop lop = new Lop();
         public static Lop lop2 = new Lop();
-        public static int User_Ph;
+        public static string User_Ph;
         // GET: Admin/ThongBaoCaNhan
 
         #region ThongBaoHocSinh
@@ -56,7 +56,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             }
             return View(lst);
         }
-        public async Task<ActionResult> DanhSachChiTiet(int id,int idPH)
+        public async Task<ActionResult> DanhSachChiTiet(int id,string idPH)
         {
             idhs = id;
             User_Ph = idPH;
@@ -91,7 +91,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                     hs.IDLoaiThongBao = 1;
                     if (await new ThongBaoHSDAL().Them(hs) != 0)
                     {
-                        var postNotification = new PostNotification(User_Ph.ToString(), "Notification !", "New Notification!", "Thông Báo Mới !",
+                        var postNotification = new PostNotification(User_Ph, "Notification !", "New Notification!", "Thông Báo Mới !",
                             "Bạn Có 1 Thông Báo Mới !");
                         return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new {id = idhs, idPH = User_Ph});
                     }
@@ -124,7 +124,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                 {
                     if (await new ThongBaoHSDAL().CapNhap(tbhs) != 0)
                     {
-                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new { id = idhs });
+                        return RedirectToAction("DanhSachChiTiet", "ThongBaoCaNhan", new { id = idhs,idPH = User_Ph });
                     }
                 }
                 catch (Exception e)

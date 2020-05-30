@@ -17,37 +17,11 @@ ALTER PROCEDURE SelectThongTinHSv2
 @ID INT	
 AS
 BEGIN
-    SELECT HS.CaNam,
-           HS.DanToc,
-           HS.GioiTinh,
-           HS.HKI,
-           HS.HKII,
-           HS.ID,
-           L.IDKhoi,
-           HS.IDLoaiHocSinh,
-           HS.IDLop,
-           HS.NoiSinh,
-           HS.NgaySinh,
-           HS.Ten,
-           K.TenKhoi,
-           LHS.TenLoai,
-           L.TenLop,
-           HS.TonGiao,
-		   HS.Tien,
-		   BH.DangKy,
-		   BH.BHQD
-	FROM nxtckedu_sa.ThongTinHS AS HS
-	JOIN nxtckedu_sa.Lop AS L
-	ON L.ID = HS.IDLop
-	JOIN nxtckedu_sa.Khoi AS K
-	ON K.ID = L.IDKhoi
-	JOIN nxtckedu_sa.LoaiHocSinh AS LHS
-	ON LHS.ID = HS.IDLoaiHocSinh
-	JOIN nxtckedu_sa.BHYT AS BH
-	ON BH.IDHocSinh = HS.ID
-	WHERE HS.ID = @ID
+	SELECT * FROM nxtckedu_sa.ThongTinHS_View_M
+	WHERE ID = @ID
 END
-GO	
+GO
+
 
 CREATE PROCEDURE SelectChiTietTienHoc
 @Thang INT,
@@ -137,7 +111,15 @@ ALTER PROCEDURE SelectXinPhepTheoIDHS
 @IDHocSinh INT
 AS
 BEGIN
-    SELECT * FROM nxtckedu_sa.XinPhep WHERE IDHocSinh = @IDHocSinh
+    SELECT X.ID,
+           X.IDHocSinh,
+           X.LyDo,
+           X.NghiDen,
+           X.NghiTu,
+           L.TenTrangThai FROM nxtckedu_sa.XinPhep AS X
+	JOIN nxtckedu_sa.LoaiTrangThai AS L
+	ON L.ID = X.TrangThai
+	WHERE IDHocSinh = @IDHocSinh
 END
 GO 
 
@@ -151,19 +133,18 @@ BEGIN
     UPDATE nxtckedu_sa.XinPhep
 	SET NghiTu = @NghiTu,
         NghiDen = @NghiDen,
-        TrangThai = 0,
+        TrangThai = 1,
         LyDo = @LyDo
 	WHERE ID = @ID
 END
 GO
 
-CREATE PROCEDURE HuyXinPhep
+alter PROCEDURE HuyXinPhep
 @ID INT
 AS
 BEGIN
     UPDATE nxtckedu_sa.XinPhep
-	SET TrangThai = 0,
-		ChoHuy = 1
+	SET TrangThai = 3
 	WHERE ID = @ID
 END
 GO
@@ -212,4 +193,55 @@ END
 GO
 
 
-	
+ALTER PROCEDURE M_LayDTBMon
+@IDHocSinh INT,
+@IDLop INT,
+@HocKy INT 
+AS
+BEGIN
+	IF @HocKy = 1
+	BEGIN
+	    SELECT M.TenMon, D.HKI AS Diem FROM nxtckedu_sa.DTBMon AS D
+		JOIN nxtckedu_sa.MonHoc AS M
+		ON M.ID = D.IDMon
+		WHERE d.IDHocSinh = @IDHocSinh AND D.IDLop = @IDLop
+	END
+	ELSE
+	IF @HocKy = 2
+	BEGIN
+	    SELECT M.TenMon, D.HKII AS Diem FROM nxtckedu_sa.DTBMon AS D
+		JOIN nxtckedu_sa.MonHoc AS M
+		ON M.ID = D.IDMon
+		WHERE d.IDHocSinh = @IDHocSinh AND D.IDLop = @IDLop
+	END
+	ELSE
+	BEGIN
+	    SELECT M.TenMon, D.CaNam AS Diem FROM nxtckedu_sa.DTBMon AS D
+		JOIN nxtckedu_sa.MonHoc AS M
+		ON M.ID = D.IDMon
+		WHERE d.IDHocSinh = @IDHocSinh AND D.IDLop = @IDLop
+	END
+    
+END
+GO
+
+ALTER PROCEDURE M_LayDTB
+@IDHocSinh INT,
+@IDLop INT
+AS
+BEGIN
+    SELECT HKI,
+           HKII,
+		   CaNam FROM nxtckedu_sa.DTBTong
+		WHERE IDHocSinh = @IDHocSinh AND IDLop = @IDLop
+END
+GO
+
+SELECT * FROM nxtckedu_sa.BangDiem
+
+nxtckedu_sa.InsertBangDiem @IDHocSinh = 0,  -- int
+                           @IDMonHoc = 0,   -- int
+                           @IDLoaiDiem = 0, -- int
+                           @Diem = 0.0,     -- float
+                           @HocKyI = NULL,  -- bit
+                           @CotDiem = 0     -- int
