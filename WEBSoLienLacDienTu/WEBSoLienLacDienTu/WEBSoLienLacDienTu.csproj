@@ -334,6 +334,7 @@
     <Content Include="Areas\GiaoVien\Views\KiemDuyetXinPhep\DanhSachDaDuyet.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Shared\_FooterPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
