@@ -9,6 +9,7 @@ using DAL;
 using DTO;
 using PagedList;
 using WEBSoLienLacDienTu.Areas.Admin.Code;
+using WEBSoLienLacDienTu.Areas.Admin.Models;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 {
@@ -111,6 +112,53 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                 lst.Add(new TaiKhoanPH(dr));
             }
             return Json(lst, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult ThemTK_ByExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> ThemTK_ByExcel(ImportExcel importExcel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (Request != null)
+                    {
+                        DataTable dt = new DataTable();
+                        HttpPostedFileBase file = importExcel.file;
+                        if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                        {
+                            string fileName = file.FileName;
+                            string path = Server.MapPath("~/Content/Upload/" + fileName);
+                            file.SaveAs(path);
+                            var excelData = new ExcelData(path);
+                            var sData = excelData.getData("Sheet1");
+                            dt = sData.CopyToDataTable();
+                            foreach (DataRow item in dt.Rows)
+                            {
+                                await new TaiKhoanPhDal().Them(new TaiKhoanPH(
+                                    -1,
+                                    item["Tài Khoản"].ToString(),
+                                    item["Tài Khoản"].ToString(),
+                                    item["Tên Mẹ"].ToString(),
+                                    item["SĐT Mẹ"].ToString(),
+                                    item["Tên Bố"].ToString(),
+                                    item["SĐT Bố"].ToString()
+                                ));
+                            }
+                            return RedirectToAction("Index", "TaiKhoanPH", new { page = 1 });
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                ViewBag.Loi = "Nhập Dữ Liệu Thất Bại ,Kiểm Tra Lại Định Dạng File Excel !";
+            }
+            return View();
         }
     }
 }

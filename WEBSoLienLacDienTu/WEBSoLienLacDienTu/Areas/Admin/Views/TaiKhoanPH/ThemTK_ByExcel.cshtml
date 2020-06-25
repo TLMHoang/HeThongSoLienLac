@@ -1,0 +1,33 @@
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.ImportExcel
+@{
+    ViewBag.Title = "ThemTK_ByExcel";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h4>Nhập Dữ Liệu Từ Excel</h4>
+        <hr />
+        @using (Html.BeginForm("ThemTK_ByExcel", "TaiKhoanPH", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.TextBoxFor(m => m.file, new { type = "file", name = "UploadedFile" })
+            <button class="btn btn-warning" id="submitButton" name="Import" type="submit">Nhập</button>
+            @Html.ValidationMessageFor(model => model.file, null, new { @class = "text-danger" })
+        }
+        <hr />
+        <a href="https://drive.google.com/file/d/1fcQxMKtWqmesH_Yz6sl30bC05-iYu1vf/view?usp=sharing" style="color: blue" target="_blank">Lấy File Excel Mẫu</a>
+        <button class="btn btn-danger" onclick="window.location.href='/Admin/HomeAdmin/Index'" style="margin-left: 10px;float: right" id="TurnBack"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+@if (ViewBag.Loi != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Loi");
+        }
+    </script>
+}
