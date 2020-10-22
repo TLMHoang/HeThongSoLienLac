@@ -23,11 +23,17 @@ namespace WEBSoLienLacDienTu.Controllers
           
             return View();
         }
-        [HttpPost]
-        public async Task<ActionResult> Index(FormCollection f)
+        
+        public async Task<ActionResult> DongHocPhi()
         {
 
-            return Redirect(ThanhToanMoMo("120tts","69300"));
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DongHocPhi(FormCollection f)
+        {
+
+            return Redirect(ThanhToanMoMo("120es", "63100"));
         }
         public async Task<ActionResult> LoadHocPhi(int Thang)
         {

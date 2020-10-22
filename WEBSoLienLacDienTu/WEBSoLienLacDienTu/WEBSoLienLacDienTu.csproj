@@ -238,6 +238,7 @@
     <Content Include="Assets\Img\Admin_Image.png" />
     <Content Include="Assets\Img\BHYT_Image.png" />
     <Content Include="Assets\Img\DiemDanh_Image.png" />
+    <Content Include="Assets\Img\DongHPOnline_Image.png" />
     <Content Include="Assets\Img\LienKetPHHS_Image.png" />
     <Content Include="Assets\Img\List_Image.png" />
     <Content Include="Assets\Img\logo_User.jpg" />
@@ -391,6 +392,7 @@
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\TBLop.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\TBTruong.cshtml" />
+    <Content Include="Views\XemHocPhi\DongHocPhi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
