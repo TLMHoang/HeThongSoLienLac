@@ -130,5 +130,20 @@ namespace DAL
                 new SqlParameter("@Thang", SqlDbType.Int) { Value = Thang }
             );
         }
+        public async Task<DataTable> LoadHocPhiNo(int IDHS)
+        {
+            return await ExecuteQuery(
+                "W_SelectHocPhiNo",
+                new SqlParameter("@IDHS", SqlDbType.Int) { Value = IDHS }
+            );
+        }
+        public async Task<DataTable> LoadTongHocPhi(int Thang,int IDKhoi)
+        {
+            return await ExecuteQuery(
+                "W_SelectTongHocPhi",
+                new SqlParameter("@Thang", SqlDbType.Int) { Value = Thang} ,
+                    new SqlParameter("@IDKhoi", SqlDbType.Int) { Value = IDKhoi }
+            );
+        }
     }
 }
