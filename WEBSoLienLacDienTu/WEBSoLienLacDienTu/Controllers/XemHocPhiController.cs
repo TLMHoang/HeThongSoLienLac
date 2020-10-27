@@ -23,11 +23,19 @@ namespace WEBSoLienLacDienTu.Controllers
           
             return View();
         }
-        [HttpPost]
-        public async Task<ActionResult> Index(FormCollection f)
+        
+        public async Task<ActionResult> DongHocPhi()
         {
-
-            return Redirect(ThanhToanMoMo("120tts","69300"));
+            await LoadTongHocPhi();
+            await LoadHocPhiNo();
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DongHocPhi(FormCollection f)
+        {
+            await LoadTongHocPhi();
+            await LoadHocPhiNo();
+            return Redirect(ThanhToanMoMo("120es", "63100"));
         }
         public async Task<ActionResult> LoadHocPhi(int Thang)
         {
@@ -38,6 +46,32 @@ namespace WEBSoLienLacDienTu.Controllers
                 lst.Add(new HocPhiModels(dr));
             }
             return Json(lst, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task LoadHocPhiNo()
+        {
+            DataTable lstHocPhiNo = await new ThongTinHocPhiDAL().LoadHocPhiNo(TaiKhoanPhuHuynhController.ttHS.ID);
+            if (lstHocPhiNo.Rows.Count > 0)
+            {
+                ViewBag.LstHocPhiNo = lstHocPhiNo.Rows[0]["Tien"].ToString();
+            }
+            else
+            {
+                ViewBag.LstHocPhiNo = null;
+            }
+        }
+        public async Task LoadTongHocPhi()
+        {
+            DataTable TongHocPhi = await new ThongTinHocPhiDAL().LoadTongHocPhi(2,1);
+            if (TongHocPhi.Rows.Count > 0)
+            {
+                ViewBag.TongHocPhi = TongHocPhi.Rows[0]["Tong"].ToString();
+            }
+            else
+            {
+                ViewBag.TongHocPhi = null;
+            }
+            
         }
         protected string ThanhToanMoMo(string maDonHang, string tongCong)
         {
