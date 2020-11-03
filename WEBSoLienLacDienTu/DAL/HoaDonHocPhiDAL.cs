@@ -38,7 +38,7 @@ namespace DAL
 
         public async Task<DataTable> ThemHoaDon(int idHocPhi,int idHocSinh,DateTime ngayTao,byte thanhToan)
         {
-            return await ExecuteQuery("InsertHoaDonHocPhi",
+            return await ExecuteQuery("W_InsertHoaDonHocPhi",
                     new SqlParameter("@IDHocPhi", SqlDbType.Int) { Value = idHocPhi },
                     new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh },
                     new SqlParameter("@NgayTao", SqlDbType.DateTime) { Value = ngayTao },

@@ -40,8 +40,7 @@
 <hr/>
 <div class="box">
     <h3>Tên Học Sinh: <label style="color: red" id="lblDHPTenHS"></label></h3>
-    <h3>Số Tiền Còn Nợ Kỳ Trước: @if (ViewBag.LstHocPhiNo != null)
-                                 {<label style="color: red">@ViewBag.LstHocPhiNo VNĐ</label>}</h3>
+    <h3>Số Tiền Còn Nợ Kỳ Trước:  <label style="color: red">@ViewBag.LstHocPhiNo</label></h3>
     <h3>Học Phí Tháng: @if (ViewBag.TongHocPhi != null)
     {<label style="color: red">@ViewBag.TongHocPhi VNĐ</label>}else{<label>Chưa Có</label>}</h3>
     <h3>Tổng Học Phí :<lable style="color: red"> @ViewBag.TongHocPhiThangVaNo VNĐ</lable></h3>
