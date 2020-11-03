@@ -137,12 +137,21 @@ namespace DAL
                 new SqlParameter("@IDHS", SqlDbType.Int) { Value = IDHS }
             );
         }
-        public async Task<DataTable> LoadTongHocPhi(int Thang,int IDKhoi)
+        public async Task<DataTable> LoadTongHocPhi(int Thang,int IDKhoi,int idloaiHocSinh)
         {
             return await ExecuteQuery(
                 "W_SelectTongHocPhi",
                 new SqlParameter("@Thang", SqlDbType.Int) { Value = Thang} ,
-                    new SqlParameter("@IDKhoi", SqlDbType.Int) { Value = IDKhoi }
+                    new SqlParameter("@IDKhoi", SqlDbType.Int) { Value = IDKhoi },
+                    new SqlParameter("@IDLoaiHocSinh", SqlDbType.Int) { Value = idloaiHocSinh }
+            );
+        }
+        public async Task<DataTable> LoadThongTinHocPhi_IDHS(int idHocSinh)
+        {
+            return await ExecuteQuery(
+                "W_SelectHocPhi_ThongTinHS",
+                new SqlParameter("@IDHocSinh", SqlDbType.Int) { Value = idHocSinh }
+              
             );
         }
     }

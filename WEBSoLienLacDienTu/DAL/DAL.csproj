@@ -45,6 +45,7 @@
     <Compile Include="BHYT_DAL.cs" />
     <Compile Include="CInterface.cs" />
     <Compile Include="DiemDanhDAL.cs" />
+    <Compile Include="HoaDonHocPhiDAL.cs" />
     <Compile Include="KhoiDAL.cs" />
     <Compile Include="LienKetPhDAL.cs" />
     <Compile Include="LoaiDiemDAL.cs" />

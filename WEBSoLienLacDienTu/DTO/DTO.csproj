@@ -46,6 +46,7 @@
     <Compile Include="CupHoc.cs" />
     <Compile Include="DiemDanh.cs" />
     <Compile Include="FunctionOrder.cs" />
+    <Compile Include="HoaDonHocPhi.cs" />
     <Compile Include="Khoi.cs" />
     <Compile Include="LienKetPHvsHS.cs" />
     <Compile Include="LoaiDiem.cs" />

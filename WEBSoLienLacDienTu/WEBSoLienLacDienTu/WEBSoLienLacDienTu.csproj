@@ -393,6 +393,7 @@
     <Content Include="Views\ThongBaoTruongCaNhan\TBLop.cshtml" />
     <Content Include="Views\ThongBaoTruongCaNhan\TBTruong.cshtml" />
     <Content Include="Views\XemHocPhi\DongHocPhi.cshtml" />
+    <Content Include="Views\XemHocPhi\ThanhToanThanhCong_MoMo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
