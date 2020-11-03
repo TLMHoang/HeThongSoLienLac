@@ -127,7 +127,7 @@ namespace WEBSoLienLacDienTu.Controllers
             string partnerCode = "MOMOU7HO20201012";
             string accessKey = "m7FdDFcxJQucpLhi";
             string serectkey = "LWdLzT6SZ1oPUJ0kak2kzBQOWgLkR3sS";
-            string orderInfo = "DongHocPhi_";
+            string orderInfo = "DongHocPhi_MaSo:"+ TaiKhoanPhuHuynhController.ttHS.ID;
             string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
             string notifyurl = "https://solienlac-us.tk/";
 
