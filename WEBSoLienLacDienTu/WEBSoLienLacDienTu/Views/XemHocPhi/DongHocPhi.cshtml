@@ -10,75 +10,118 @@
         padding: 5px;
         border-radius: 5px
     }
-    .btnDongHocPhi{border: 1px solid #ae2070;background-color: #fafafa;}
+
+    .btnDongHocPhi {
+        border: 1px solid #ae2070;
+        background-color: #fafafa;
+    }
+
     .checkout-button .btn:hover {
         background-color: bisque;
     }
+
     .checkout-button img {
         padding-left: 10px;
         height: 50px;
         width: 50px;
     }
 
-    .content{
+    .content {
         padding-left: 15px;
     }
-    .content .checkout-title{
-        color: #000;
-        font-size: 13pt;
-        font-weight: 600;
-    }
-    .content .description{
-        color: #666
-    }
 
-    input[type="radio"]:hover{
+        .content .checkout-title {
+            color: #000;
+            font-size: 13pt;
+            font-weight: 600;
+        }
+
+        .content .description {
+            color: #666
+        }
+
+    input[type="radio"]:hover {
         cursor: pointer;
     }
 </style>
 <h2 class="title-page">Đóng Học Phí Online</h2>
-<hr/>
+<hr />
 <div class="box">
     <h3>Tên Học Sinh: <label style="color: red" id="lblDHPTenHS"></label></h3>
-    <h3>Số Tiền Còn Nợ Kỳ Trước: @if (ViewBag.LstHocPhiNo != null)
-                                 {<label style="color: red">@ViewBag.LstHocPhiNo VNĐ</label>}</h3>
-    <h3>Học Phí Tháng: @if (ViewBag.TongHocPhi != null)
-    {<label style="color: red">@ViewBag.TongHocPhi VNĐ</label>}else{<label>Chưa Có</label>}</h3>
+    <h3>Số Tiền Còn Nợ Kỳ Trước:  <label style="color: red">@ViewBag.LstHocPhiNo</label></h3>
+    <h3>
+        Học Phí Tháng: @if (ViewBag.TongHocPhi != null)
+        {<label style="color: red">@ViewBag.TongHocPhi VNĐ</label>}
+    else
+    {<label>Chưa Có</label>}
+    </h3>
     <h3>Tổng Học Phí :<lable style="color: red"> @ViewBag.TongHocPhiThangVaNo VNĐ</lable></h3>
     <h3>Thanh Toán Học Phí Online</h3>
-                                                              
+
 </div>
-@using (Html.BeginForm("DongHocPhi", "XemHocPhi", FormMethod.Post))
+@if (ViewBag.TongHocPhi != null)
+{
+    using (Html.BeginForm("DongHocPhi", "XemHocPhi", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+                <br />
+
+                <div class="checkout-button">
+
+                    <button class="content btn btnDongHocPhi" style="align-items: center; margin: auto; width: 50%;">
+                        <span class="checkout-title">
+                            Thanh toán bằng
+                        </span>
+                        <img src="https://developers.momo.vn/images/logo.png" width="25" />
+
+                    </button>
+
+
+                </div>
+
+
+                <br />
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    }
+}
+else
 {
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-            <br/>
-            
-                <div class="checkout-button">
-                
-                    <button class="content btn btnDongHocPhi" style="align-items: center; margin: auto; width: 50%;">
-                        <span class="checkout-title">
-                            Thanh toán bằng
-                        </span>
-                        <img src="https://developers.momo.vn/images/logo.png" width="25"/>
-                        
-                    </button>
-                
-               
-                </div>
-            
-            
-            <br/>
+            <br />
+
+            <div class="checkout-button" onclick="ThongBao();">
+
+                <button class="content btn btnDongHocPhi" style="align-items: center; margin: auto; width: 50%;">
+                    <span class="checkout-title">
+                        Thanh toán bằng
+                    </span>
+                    <img src="https://developers.momo.vn/images/logo.png" width="25" />
+
+                </button>
+
+
+            </div>
+
+
+            <br />
         </div>
         <div class="col-lg-4"></div>
     </div>
 }
+
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: "/TaiKhoanPhuHuynh/TenHS",
             type: "GET",
@@ -89,4 +132,7 @@
             }
         });
     })
+    function ThongBao() {
+        alert("Chưa Có Học Phí Tháng Không Thể Thanh Toán!")
+    }
 </script>

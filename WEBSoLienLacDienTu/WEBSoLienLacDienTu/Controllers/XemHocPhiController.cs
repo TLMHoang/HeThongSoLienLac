@@ -16,7 +16,7 @@ using System.Text;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
-   
+
     public class XemHocPhiController : Controller
     {
         int idHocPhi;
@@ -24,23 +24,23 @@ namespace WEBSoLienLacDienTu.Controllers
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public async Task<ActionResult> Index()
         {
-          
+
             return View();
         }
-        
+
         public async Task<ActionResult> DongHocPhi()
         {
             var hocPhiNo = await LoadHocPhiNo();
             var hocPhiThang = await LoadTongHocPhi();
             ViewBag.TongHocPhiThangVaNo = int.Parse(hocPhiThang != null ? hocPhiThang : "0") + int.Parse(hocPhiNo != null ? hocPhiNo : "0");
-            ViewBag.TongHocPhi =hocPhiThang;
+            ViewBag.TongHocPhi = hocPhiThang;
             if (hocPhiNo != null)
             {
-                ViewBag.LstHocPhiNo = hocPhiNo;
+                ViewBag.LstHocPhiNo = hocPhiNo + " VNĐ";
             }
             else
             {
-                ViewBag.LstHocPhiNo = null;
+                ViewBag.LstHocPhiNo = "Không Nợ";
             }
             return View();
         }
@@ -50,20 +50,27 @@ namespace WEBSoLienLacDienTu.Controllers
 
             var hocPhiNo = await LoadHocPhiNo();
             var hocPhiThang = await LoadTongHocPhi();
-            var tongHocPhi = int.Parse(hocPhiThang != null ? hocPhiThang : "0") + int.Parse(hocPhiNo != null ? hocPhiNo : "0");
+            var tongHocPhi = int.Parse(hocPhiThang != null ? hocPhiThang.ToString() : "0") + Convert.ToInt32(hocPhiNo.ToString() != null ? hocPhiNo : "0");
             ViewBag.TongHocPhiThangVaNo = tongHocPhi;
             ViewBag.TongHocPhi = hocPhiThang;
+
             if (hocPhiNo != null)
             {
                 ViewBag.LstHocPhiNo = hocPhiNo;
             }
             else
             {
-                ViewBag.LstHocPhiNo = null;
+                ViewBag.LstHocPhiNo = "Không Nợ";
             }
-            
-            DataTable dt = await new HoaDonHocPhiDAL().ThemHoaDon(idHocPhi, TaiKhoanPhuHuynhController.ttHS.ID,DateTime.Now,0);
-            return Redirect(ThanhToanMoMo(dt.Rows[0]["ID"].ToString(),tongHocPhi.ToString()));
+
+            DataTable dt = await new HoaDonHocPhiDAL().ThemHoaDon(idHocPhi, TaiKhoanPhuHuynhController.ttHS.ID, DateTime.Now, 0);
+
+            return Redirect(ThanhToanMoMo(dt.Rows[0]["ID"].ToString(), tongHocPhi.ToString()));
+
+
+
+
+
         }
         public ActionResult ThanhToanThanhCong_MoMo()
         {
@@ -85,30 +92,37 @@ namespace WEBSoLienLacDienTu.Controllers
             DataTable lstHocPhiNo = await new ThongTinHocPhiDAL().LoadHocPhiNo(TaiKhoanPhuHuynhController.ttHS.ID);
             if (lstHocPhiNo.Rows.Count > 0)
             {
-               
-                return lstHocPhiNo.Rows[0]["Tien"].ToString();
+                if (lstHocPhiNo.Rows[0]["Tien"].ToString() == "")
+                {
+                    return null;
+                }
+                else
+                {
+                    return lstHocPhiNo.Rows[0]["Tien"].ToString();
+                }
+
             }
             else
             {
                 return null;
             }
-            
+
         }
         public async Task<string> LoadTongHocPhi()
         {
             DataTable dt = await new ThongTinHocPhiDAL().LoadThongTinHocPhi_IDHS(TaiKhoanPhuHuynhController.ttHS.ID);
-            DataTable TongHocPhi = await new ThongTinHocPhiDAL().LoadTongHocPhi(DateTime.Now.Month,int.Parse(dt.Rows[0]["IDLoaiHocSinh"].ToString()),int.Parse(dt.Rows[0]["IDKhoi"].ToString()));
+            DataTable TongHocPhi = await new ThongTinHocPhiDAL().LoadTongHocPhi(DateTime.Now.Month, int.Parse(dt.Rows[0]["IDLoaiHocSinh"].ToString()), int.Parse(dt.Rows[0]["IDKhoi"].ToString()));
             if (TongHocPhi.Rows.Count > 0)
             {
                 idHocPhi = int.Parse(TongHocPhi.Rows[0]["ID"].ToString());
                 return TongHocPhi.Rows[0]["Tong"].ToString();
-                
+
             }
             else
             {
                 return null;
             }
-            
+
         }
         protected string ThanhToanMoMo(string maDonHang, string tongCong)
         {
@@ -116,7 +130,7 @@ namespace WEBSoLienLacDienTu.Controllers
             string partnerCode = "MOMOU7HO20201012";
             string accessKey = "m7FdDFcxJQucpLhi";
             string serectkey = "LWdLzT6SZ1oPUJ0kak2kzBQOWgLkR3sS";
-            string orderInfo = "DongHocPhi_";
+            string orderInfo = "DongHocPhi_MaSo:"+ TaiKhoanPhuHuynhController.ttHS.ID;
             string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
             string notifyurl = "https://solienlac-us.tk/";
 
