@@ -188,6 +188,7 @@
     <Compile Include="Code\CheckSession.cs" />
     <Compile Include="Code\MoMoSecurity.cs" />
     <Compile Include="Code\PaymentRequest.cs" />
+    <Compile Include="Controllers\api\IPNController.cs" />
     <Compile Include="Controllers\BaoHiemYTeController.cs" />
     <Compile Include="Controllers\ChiTietDiemDanhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -397,6 +398,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\IPN\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

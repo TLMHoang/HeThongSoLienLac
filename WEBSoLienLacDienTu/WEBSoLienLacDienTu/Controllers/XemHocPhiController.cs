@@ -63,7 +63,7 @@ namespace WEBSoLienLacDienTu.Controllers
                 ViewBag.LstHocPhiNo = "Không Nợ";
             }
 
-            DataTable dt = await new HoaDonHocPhiDAL().ThemHoaDon(idHocPhi, TaiKhoanPhuHuynhController.ttHS.ID, DateTime.Now, 0);
+            DataTable dt = await new HoaDonHocPhiDAL().ThemHoaDon(idHocPhi, TaiKhoanPhuHuynhController.ttHS.ID, DateTime.Now, 1);
 
             return Redirect(ThanhToanMoMo(dt.Rows[0]["ID"].ToString(), tongHocPhi.ToString()));
 
@@ -132,7 +132,7 @@ namespace WEBSoLienLacDienTu.Controllers
             string serectkey = "LWdLzT6SZ1oPUJ0kak2kzBQOWgLkR3sS";
             string orderInfo = "DongHocPhi_MaSo:"+ TaiKhoanPhuHuynhController.ttHS.ID;
             string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
-            string notifyurl = "https://solienlac-us.tk/";
+            string notifyurl = "https://webhook.site/5e2e3092-2036-449e-b775-d041a3654d2c";
 
             string amount = tongCong;
             string orderid = maDonHang;
