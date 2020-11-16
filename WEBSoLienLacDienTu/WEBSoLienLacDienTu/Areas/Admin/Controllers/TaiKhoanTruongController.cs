@@ -19,6 +19,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public static TaiKhoanTruong TK = new TaiKhoanTruong();
         public static string mk;
         public static int flag;
+        
         MonHocDAL mh = new MonHocDAL();
         TaiKhoanTruongDAL tkDal = new TaiKhoanTruongDAL();
         LopDAL lop = new LopDAL();
@@ -54,6 +55,20 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         public JsonResult Flag()
         {
             return Json(flag, JsonRequestBehavior.AllowGet);
+        }
+        public async Task<JsonResult> CheckStatusTaiKhoan()
+        {
+            DataTable dt = await new TaiKhoanTruongDAL().CheckStatus();
+            int flagStatus;
+            if (dt.Rows.Count > 0)
+            {
+                flagStatus = 1;
+            }
+            else
+            {
+                flagStatus = 0;
+            }
+            return Json(flagStatus, JsonRequestBehavior.AllowGet);
         }
         [SessionTimeout]
         [SessionAuthorize]
@@ -164,6 +179,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                     {
                         Session["TaiKhoanGiaoVien"] = lg.TaiKhoan.ToString();
                         Session["MatKhau"] = lg.MatKhau.ToString();
+                        await new TaiKhoanTruongDAL().SetStatus(lg.TaiKhoan, 1);
                         return RedirectToAction("GetTKTruong", "HomeGiaoVien", new { area = "GiaoVien", tenTaiKhoan = lg.TaiKhoan, matKhauTaiKhoan = lg.MatKhau });
                     }
 
@@ -218,12 +234,14 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         }
 
-        public ActionResult Logout()
+        public async Task<ActionResult> Logout()
         {
+            await new TaiKhoanTruongDAL().SetStatus(Session["TaiKhoanGiaoVien"].ToString(), 0);
             Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
             flag = 0;
+            
             return RedirectToAction("Login");
         }
 

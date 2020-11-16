@@ -122,5 +122,18 @@ namespace DAL
         {
             return await ExecuteScalar<int>("W_SelectTaiKhoanTruong_Check", new SqlParameter("@TaiKhoan", SqlDbType.VarChar) { Value = taiKhoan });
         }
+        public async Task<int> SetStatus(string taiKhoan,byte trangThai)
+        {
+            return await ExecuteNonQuery("UpdateTrangThaiTKTruong",
+                new SqlParameter("@TaiKhoan", SqlDbType.NVarChar) { Value = taiKhoan },
+                new SqlParameter("@TrangThai", SqlDbType.Bit) { Value = trangThai }
+            );
+        }
+        public async Task<DataTable> CheckStatus()
+        {
+            return await ExecuteQuery(
+                "W_SelectTrangThaiTKTruong"
+            );
+        }
     }
 }

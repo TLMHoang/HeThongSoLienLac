@@ -39,6 +39,22 @@
             }
         }
     });
+
+
+
+    $.ajax({
+        url: "/Admin/TaiKhoanTruong/CheckStatusTaiKhoan/",
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            if (parseInt(result) == 1) {
+                $('body').append('<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8744210.js"></script>');
+            }
+        }
+    });
+
+
 });
 $(window).on("load", function () {
     $(".loader-wrapper").fadeOut("slow");
@@ -165,4 +181,22 @@ function HuyDangKyBHYT() {
             }
         });
     }
+};
+function CheckStatus() {
+
+
+    $.ajax({
+        url: "Areas/Admin/TaiKhoanTruong/CheckStatusTaiKhoan/",
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            $('#CheckStatus').text(result);
+
+        },
+        error: function (errormessage) {
+            alert("Thất Bại !");
+        }
+    });
+
 };
