@@ -238,7 +238,7 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             try
             {
-                var verificationRequest = WebRequest.Create("https://www.sandbox.paypal.com/cgi-bin/webscr");
+                var verificationRequest = WebRequest.Create("https://test-payment.momo.vn/gw_payment/transactionProcessor");
 
                 //Set values for the verification request
                 verificationRequest.Method = "POST";
