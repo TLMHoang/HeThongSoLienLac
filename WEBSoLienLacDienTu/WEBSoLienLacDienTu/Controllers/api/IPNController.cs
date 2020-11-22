@@ -138,6 +138,7 @@ namespace WEBSoLienLacDienTu.Controllers.api
         {
             if (verificationResponse.Equals("VERIFIED"))
             {
+
                 NameValueCollection pay = HttpUtility.ParseQueryString(verificationResponse);
                 string email = pay["payer_email"];
                 string status = pay["payment_status"];
@@ -148,13 +149,16 @@ namespace WEBSoLienLacDienTu.Controllers.api
                 // check that Receiver_email is your Primary PayPal email
                 // check that Payment_amount/Payment_currency are correct
                 // process payment
+                log.Info("Momo says VERIFIED");
             }
             else if (verificationResponse.Equals("INVALID"))
             {
+                log.Error("oops-INVALID");
                 //Log for manual investigation
             }
             else
             {
+                log.Info("Momo say" + verificationResponse);
                 //Log error
             }
         }
