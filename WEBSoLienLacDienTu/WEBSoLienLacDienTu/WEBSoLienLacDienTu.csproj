@@ -348,6 +348,7 @@
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\botChat.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -395,6 +396,7 @@
     <Content Include="Views\ThongBaoTruongCaNhan\TBTruong.cshtml" />
     <Content Include="Views\XemHocPhi\DongHocPhi.cshtml" />
     <Content Include="Views\XemHocPhi\ThanhToanThanhCong_MoMo.cshtml" />
+    <Content Include="Views\XemHocPhi\BotChat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

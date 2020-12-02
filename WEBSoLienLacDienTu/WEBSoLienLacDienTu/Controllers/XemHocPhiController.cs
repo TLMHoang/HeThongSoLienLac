@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Net.Http;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -130,7 +131,7 @@ namespace WEBSoLienLacDienTu.Controllers
             string partnerCode = "MOMOU7HO20201012";
             string accessKey = "m7FdDFcxJQucpLhi";
             string serectkey = "LWdLzT6SZ1oPUJ0kak2kzBQOWgLkR3sS";
-            string orderInfo = "DongHocPhi_MaSo:"+ TaiKhoanPhuHuynhController.ttHS.ID;
+            string orderInfo = "DongHocPhi_MaSo:" + TaiKhoanPhuHuynhController.ttHS.ID;
             string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
             string notifyurl = "https://webhook.site/5e2e3092-2036-449e-b775-d041a3654d2c";
 
@@ -291,6 +292,66 @@ namespace WEBSoLienLacDienTu.Controllers
             else
             {
                 //Log error
+            }
+        }
+        public ActionResult BotChat()
+        {
+            return PartialView();
+        }
+        public JsonResult botChat_Post(string strText)
+        {
+            var text = strText;
+            var str = botChat_Request(strText);
+            return Json(str, JsonRequestBehavior.AllowGet);
+        }
+        public string botChat_Request(string strText)
+        {
+            try
+            {
+                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("https://botchathethongsolienlac.herokuapp.com/post");
+
+                JObject postData = new JObject
+                {
+                    { "Text", strText },
+                };
+
+                var data = Encoding.UTF8.GetBytes(postData.ToString());
+
+                httpWReq.ProtocolVersion = HttpVersion.Version11;
+                httpWReq.Method = "POST";
+                httpWReq.ContentType = "application/json";
+
+                httpWReq.ContentLength = data.Length;
+                httpWReq.ReadWriteTimeout = 30000;
+                httpWReq.Timeout = 15000;
+                Stream stream = httpWReq.GetRequestStream();
+                stream.Write(data, 0, data.Length);
+                stream.Close();
+
+                HttpWebResponse response = (HttpWebResponse)httpWReq.GetResponse();
+
+                string jsonresponse = "";
+
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+
+                    string temp = null;
+                    while ((temp = reader.ReadLine()) != null)
+                    {
+                        jsonresponse += temp;
+                    }
+                }
+
+                JObject jmessage = JObject.Parse(jsonresponse);
+
+                //todo parse it
+                return jmessage.GetValue("Text").ToString(); ;
+                //return new MomoResponse(mtid, jsonresponse);
+
+            }
+            catch (WebException e)
+            {
+                return e.Message;
             }
         }
     }
