@@ -55,6 +55,7 @@
     <Compile Include="LoaiThongBao.cs" />
     <Compile Include="Lop.cs" />
     <Compile Include="MonHoc.cs" />
+    <Compile Include="NoiDungChat.cs" />
     <Compile Include="PhanCongDay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanPH.cs" />

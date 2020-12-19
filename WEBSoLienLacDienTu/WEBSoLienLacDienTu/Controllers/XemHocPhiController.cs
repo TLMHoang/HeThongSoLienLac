@@ -14,6 +14,8 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Net.Http;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace WEBSoLienLacDienTu.Controllers
 {
@@ -302,13 +304,32 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             var text = strText;
             var str = botChat_Request(strText);
+            AddChat(new NoiDungChat(-1, TaiKhoanPhuHuynhController.TK.ID, DateTime.Now, strText));
             return Json(str, JsonRequestBehavior.AllowGet);
+        }
+        string cs = ConfigurationManager.ConnectionStrings["BotChat"].ConnectionString;
+        public int AddChat(NoiDungChat nd)
+        {
+            int i;
+            
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("InsertChat", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@IDKhachHang", nd.IDKhachHang);
+                com.Parameters.AddWithValue("@ThoiGian", nd.ThoiGian);
+                com.Parameters.AddWithValue("@NoiDung", nd.NoiDung);
+                
+                i = com.ExecuteNonQuery();
+            }
+            return i;
         }
         public string botChat_Request(string strText)
         {
             try
             {
-                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("https://botchathethongsolienlac.herokuapp.com/post");
+                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:5000/post");
 
                 JObject postData = new JObject
                 {

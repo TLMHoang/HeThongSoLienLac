@@ -244,7 +244,17 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             
             return RedirectToAction("Login");
         }
+        
 
+        public async Task<JsonResult> OnWindowClosing()
+        {
+            await new TaiKhoanTruongDAL().SetStatus(Session["TaiKhoanGiaoVien"].ToString(), 0);
+            Session["TaiKhoanGiaoVien"] = null;
+            Session["TaiKhoanNhaTruong"] = null;
+            Session["MatKhau"] = null;
+            flag = 0;
+            return Json(flag, JsonRequestBehavior.AllowGet);
+        }
         public async Task LoadDanhSachMon()
         {
             ViewBag.LstMon = new SelectList(await mh.LayLst(), "ID", "TenMon");
