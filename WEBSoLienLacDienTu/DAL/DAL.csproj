@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BangDiemDAL.cs" />
     <Compile Include="BHYT_DAL.cs" />
+    <Compile Include="BotChat.cs" />
     <Compile Include="CInterface.cs" />
     <Compile Include="DiemDanhDAL.cs" />
     <Compile Include="HoaDonHocPhiDAL.cs" />

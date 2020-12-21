@@ -164,6 +164,7 @@
     <Compile Include="Areas\Admin\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoCaNhanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongBaoChungController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TrainBotController.cs" />
     <Compile Include="Areas\Admin\Models\ChangePassModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachBangDiemModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachDiemModel.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Areas\Admin\Models\ImportExcel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\LopPhanCongDayModel.cs" />
+    <Compile Include="Areas\Admin\Models\NoiDungChatBotModel.cs" />
     <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DiemDanhGVController.cs" />
@@ -345,6 +347,7 @@
     <Content Include="Areas\Admin\Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanPH\ThemTK_ByExcel.cshtml" />
+    <Content Include="Areas\Admin\Views\TrainBot\Index.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

@@ -14,10 +14,46 @@ namespace DAL.SQL
     public class SQLHelper
     {
         public string connStr = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+        string cs = ConfigurationManager.ConnectionStrings["BotChat"].ConnectionString;
 
         public async Task<int> ExecuteNonQuery(string ProcName, params SqlParameter[] parameters)
         {
             using (SqlConnection con = new SqlConnection(connStr))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(ProcName, con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters);
+                        }
+
+                        await con.OpenAsync();
+
+
+                        return await cmd.ExecuteNonQueryAsync();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+            }
+            return 0;
+        }
+
+        public async Task<int> ExecuteNonQuery_BotChat(string ProcName, params SqlParameter[] parameters)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
             {
                 try
                 {
@@ -90,7 +126,46 @@ namespace DAL.SQL
 
             return dt;
         }
+        public async Task<DataTable> ExecuteQuery_BotChat(string ProcName, params SqlParameter[] parameters)
+        {
+            DataTable dt = new DataTable();
 
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(ProcName, con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters);
+                        }
+
+                        await con.OpenAsync();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+            }
+
+            return dt;
+        }
         public async Task<T> ExecuteScalar<T>(string ProcName, params SqlParameter[] parameters)
         {
             using (SqlConnection con = new SqlConnection(connStr))

@@ -300,30 +300,17 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             return PartialView();
         }
-        public JsonResult botChat_Post(string strText)
+        public async Task<JsonResult> botChat_Post(string strText)
         {
             var text = strText;
             var str = botChat_Request(strText);
-            AddChat(new NoiDungChat(-1, TaiKhoanPhuHuynhController.TK.ID, DateTime.Now, strText));
+            await AddChat(new NoiDungChat(-1, TaiKhoanPhuHuynhController.TK.ID, DateTime.Now, strText,0));
             return Json(str, JsonRequestBehavior.AllowGet);
         }
         string cs = ConfigurationManager.ConnectionStrings["BotChat"].ConnectionString;
-        public int AddChat(NoiDungChat nd)
+        public async Task<int> AddChat(NoiDungChat nd)
         {
-            int i;
-            
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                con.Open();
-                SqlCommand com = new SqlCommand("InsertChat", con);
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@IDKhachHang", nd.IDKhachHang);
-                com.Parameters.AddWithValue("@ThoiGian", nd.ThoiGian);
-                com.Parameters.AddWithValue("@NoiDung", nd.NoiDung);
-                
-                i = com.ExecuteNonQuery();
-            }
-            return i;
+            return await new BotChat().Them(nd);
         }
         public string botChat_Request(string strText)
         {
