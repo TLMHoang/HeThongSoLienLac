@@ -82,12 +82,12 @@ namespace WEBSoLienLacDienTu.Controllers.api
         //    string amount = tongCong;
         //    string orderid = maDonHang;
         //    string requestId = maDonHang;
-        //    int errorCode = 0 ;
+        //    int errorCode = 0;
         //    string orderInfo = "DongHocPhi_MaSo:" + TaiKhoanPhuHuynhController.ttHS.ID;
         //    string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
         //    string notifyurl = "https://webhook.site/5e2e3092-2036-449e-b775-d041a3654d2c";
 
-            
+
         //    string extraData = "";
 
         //    string rawHash = "partnerCode=" +
@@ -95,7 +95,7 @@ namespace WEBSoLienLacDienTu.Controllers.api
         //                     accessKey + "&requestId=" +
         //                     requestId + "&amount=" +
         //                     amount + "&orderId=" +
-        //                     errorCode+ 0+
+        //                     errorCode + 0 +
         //                     orderid + "&orderInfo=" +
         //                     orderInfo + "&returnUrl=" +
         //                     returnUrl + "&notifyUrl=" +
@@ -136,14 +136,18 @@ namespace WEBSoLienLacDienTu.Controllers.api
         //}
         private void ProcessVerificationResponse(string verificationResponse)
         {
+            string madonHang;
+            string tongCong;
+
             if (verificationResponse.Equals("VERIFIED"))
             {
-
-                NameValueCollection pay = HttpUtility.ParseQueryString(verificationResponse);
-                string email = pay["payer_email"];
-                string status = pay["payment_status"];
-                string Name = pay["name"];
-                string itemName = pay["item_name"];
+                //log.Info("order id" + Request.Form["custom"]);
+                //NameValueCollection pay = HttpUtility.ParseQueryString(verificationResponse);
+                //string email = pay["payer_email"];
+                //string status = pay["payment_status"];
+                //string Name = pay["name"];
+                //string itemName = pay["item_name"];
+               
                 // check that Payment_status=Completed
                 // check that Txn_id has not been previously processed
                 // check that Receiver_email is your Primary PayPal email
