@@ -53,7 +53,7 @@ namespace WEBSoLienLacDienTu.Controllers
 
             var hocPhiNo = await LoadHocPhiNo();
             var hocPhiThang = await LoadTongHocPhi();
-            var tongHocPhi = int.Parse(hocPhiThang != null ? hocPhiThang.ToString() : "0") + Convert.ToInt32(hocPhiNo.ToString() != null ? hocPhiNo : "0");
+            var tongHocPhi = int.Parse(hocPhiThang != null ? hocPhiThang.ToString() : "0") + Convert.ToInt32(hocPhiNo != null ? hocPhiNo.ToString() : "0");
             ViewBag.TongHocPhiThangVaNo = tongHocPhi;
             ViewBag.TongHocPhi = hocPhiThang;
 
@@ -134,7 +134,7 @@ namespace WEBSoLienLacDienTu.Controllers
             string accessKey = "m7FdDFcxJQucpLhi";
             string serectkey = "LWdLzT6SZ1oPUJ0kak2kzBQOWgLkR3sS";
             string orderInfo = "DongHocPhi_MaSo:" + TaiKhoanPhuHuynhController.ttHS.ID;
-            string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
+            string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCongMoMo";
             string notifyurl = "https://webhook.site/5e2e3092-2036-449e-b775-d041a3654d2c";
 
             string amount = tongCong;
