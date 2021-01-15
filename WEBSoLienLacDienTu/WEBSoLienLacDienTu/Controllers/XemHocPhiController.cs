@@ -134,7 +134,7 @@ namespace WEBSoLienLacDienTu.Controllers
             string accessKey = "m7FdDFcxJQucpLhi";
             string serectkey = "LWdLzT6SZ1oPUJ0kak2kzBQOWgLkR3sS";
             string orderInfo = "DongHocPhi_MaSo:" + TaiKhoanPhuHuynhController.ttHS.ID;
-            string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCongMoMo";
+            string returnUrl = "https://solienlac-us.tk/XemHocPhi/ThanhToanThanhCong_MoMo";
             string notifyurl = "https://webhook.site/5e2e3092-2036-449e-b775-d041a3654d2c";
 
             string amount = tongCong;
@@ -316,7 +316,7 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             try
             {
-                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:5000/post");
+                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("https://botchathethongsolienlac.herokuapp.com/post");
 
                 JObject postData = new JObject
                 {

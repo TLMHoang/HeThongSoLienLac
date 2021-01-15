@@ -72,6 +72,7 @@ namespace WEBSoLienLacDienTu.Controllers.api
 
         private void LogRequest(HttpRequestBase request)
         {
+            
             // Persist the request values into a database or temporary data store
         }
         
