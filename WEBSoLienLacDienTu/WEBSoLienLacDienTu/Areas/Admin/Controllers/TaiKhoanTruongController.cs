@@ -236,7 +236,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<ActionResult> Logout()
         {
-            await new TaiKhoanTruongDAL().SetStatus(Session["TaiKhoanGiaoVien"].ToString(), 0);
+            await new TaiKhoanTruongDAL().SetStatus(Session["TaiKhoanNhaTruong"].ToString(), 0);
             Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
