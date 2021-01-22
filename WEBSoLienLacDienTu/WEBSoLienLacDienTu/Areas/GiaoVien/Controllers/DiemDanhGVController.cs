@@ -44,7 +44,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         }
         public async Task<JsonResult> ThemVang(DiemDanh dd, string User_PH)
         {
-            var postNotification = new PostNotification(User_PH, "Notification !", "New Notification!", "Thông Báo Mới !",
+            var postNotification = new PostNotification(User_PH, "Thông Báo Điểm Danh !", "Học sinh vắng học không phép ngày " + DateTime.Now.ToString("dd/MM/yyyy") + " PHHS vui lòng kiểm tra.", "Thông Báo Mới !",
                 "Bạn Có 1 Thông Báo Mới !");
             return Json(await new DiemDanhDAL().Them(dd), JsonRequestBehavior.AllowGet);
         }

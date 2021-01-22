@@ -316,7 +316,7 @@ namespace WEBSoLienLacDienTu.Controllers
         {
             try
             {
-                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("https://botchathethongsolienlac.herokuapp.com/post");
+                HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:5000/post");
 
                 JObject postData = new JObject
                 {

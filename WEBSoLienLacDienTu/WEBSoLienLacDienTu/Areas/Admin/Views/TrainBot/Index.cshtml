@@ -25,6 +25,7 @@
                             <th>Nội Dung</th>
                             <th>Số Lần Xuất Hiện</th>
                             <th>Nhập Câu Trả Lời</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -46,6 +47,8 @@
                                    <td>
                                        @Html.TextBox("Text","", new {@class = "form-control"})
                                    </td>
+                                    <td width="10%"><input class="btn btn-danger" type="button" value="Xác Nhận" OnClick="AddAnswer(@item.NoiDung,@item.NoiDung)" />
+                                    </td>
                                 </tr>
 
                         }
@@ -56,4 +59,23 @@
     </div>
 
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    function AddAnswer(cauHoi, cauTraLoi) {
+        $.ajax({
+            url: "/Admin/TrainBot/AddAnswer",
+            data: JSON.stringify({ cauHoi: cauHoi, cauTraLoi: cauTraLoi }),
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                alert("Thành Công");
+                location.reload();
+            },
+            error: function (errormessage) {
+                alert("Thất Bại !");
+            }
+        });
+    }
+</script>
 

@@ -24,6 +24,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             
             return View(lst);
         }
+        public async Task<JsonResult> AddAnswer(string cauHoi,string cauTraLoi)
+        {
+            return Json(await new BotChat().AddAnswer(cauHoi, cauTraLoi),JsonRequestBehavior.AllowGet);
+        }
         
     }
 }

@@ -23,7 +23,10 @@ namespace DAL
         {
             return await ExecuteQuery_BotChat("SoLanBotChat");
         }
-       
+        public async Task<int> AddAnswer(string cauHoi,string cauTraLoi)
+        {
+            return await ExecuteNonQuery_BotChat("InsertAnswer");
+        }
     }
     
 }
