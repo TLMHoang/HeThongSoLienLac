@@ -133,6 +133,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -149,6 +155,7 @@
     <Compile Include="Areas\Admin\Code\ExcelData.cs" />
     <Compile Include="Areas\Admin\Code\FileExt.cs" />
     <Compile Include="Areas\Admin\Code\PostNotification.cs" />
+    <Compile Include="Areas\Admin\Code\QRCodeModel.cs" />
     <Compile Include="Areas\Admin\Controllers\BHYTController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiemDanhController.cs" />
     <Compile Include="Areas\Admin\Controllers\HocPhiController.cs" />
@@ -352,6 +359,8 @@
     <Content Include="Areas\Admin\Views\TaiKhoanPH\ThemTK_ByExcel.cshtml" />
     <Content Include="Areas\Admin\Views\TrainBot\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QR\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QR\Read.cshtml" />
+    <Content Include="Areas\Admin\Views\QR\IndexQR.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

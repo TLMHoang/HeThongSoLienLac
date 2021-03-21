@@ -1,0 +1,55 @@
+﻿
+
+@model WEBSoLienLacDienTu.Areas.Admin.Code.QRCodeModel
+@{
+    ViewBag.Title = "IndexQR";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="title-page">Mã QR Tự Phát Sinh Theo Lớp</h2>
+
+
+@using (Html.BeginForm("Generate", "QR", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <span style="color:red; ">@ViewBag.Message </span>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.QRCodeText, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QRCodeText, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.QRCodeText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QRCodeImagePath, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (Model != null && !String.IsNullOrEmpty(Model.QRCodeImagePath))
+                {
+                    <img src="@Url.Content(Model.QRCodeImagePath)" alt="Image" />
+                }
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Generate QR" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Read QR Code", "Read")
+</div>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+

@@ -1,0 +1,32 @@
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Code.QRCodeModel
+@{
+    ViewBag.Title = "Read";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Read</h2>
+
+<div class="form-horizontal">
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2"> Decoded Text from Model</label>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.QRCodeText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.QRCodeText, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2"> QR image</label>
+        <div class="col-md-10">
+            @if (Model != null && !String.IsNullOrEmpty(Model.QRCodeImagePath))
+            {
+                <img src="@Url.Content(Model.QRCodeImagePath)" alt="Image" />
+            }
+
+        </div>
+    </div>
+
+
+</div>
