@@ -155,6 +155,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LienKetTaiKhoanPHController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongDayController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QRController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyDiemController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyLopController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyMonHocController.cs" />
@@ -224,6 +225,7 @@
     <Content Include="Areas\Admin\Scripts\DiemDanhGV.js" />
     <Content Include="Areas\Admin\Scripts\LienKetTaiKhoanPH.js" />
     <Content Include="Areas\Admin\Scripts\PhanCongDay.js" />
+    <Content Include="Areas\Admin\Scripts\QR.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyLop.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyMonHoc.js" />
     <Content Include="Areas\Admin\Scripts\QuanLyNhapDiemGV.js" />
@@ -253,6 +255,7 @@
     <Content Include="Assets\Img\QLTaiKhoanPH_Image.png" />
     <Content Include="Assets\Img\QLTaiKhoan_Image.png" />
     <Content Include="Assets\Img\QLTKB_Image.png" />
+    <Content Include="Assets\Img\Qr_Image.png" />
     <Content Include="Assets\Img\School_Image.png" />
     <Content Include="Assets\Img\search-2ndg.png" />
     <Content Include="Assets\Img\TBHocSinh_Image.png" />
@@ -348,6 +351,7 @@
     <Content Include="Areas\GiaoVien\Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoanPH\ThemTK_ByExcel.cshtml" />
     <Content Include="Areas\Admin\Views\TrainBot\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QR\Index.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

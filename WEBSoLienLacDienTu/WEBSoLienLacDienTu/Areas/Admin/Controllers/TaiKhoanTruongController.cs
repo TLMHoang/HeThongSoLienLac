@@ -178,8 +178,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                     else
                     {
                         Session["TaiKhoanGiaoVien"] = lg.TaiKhoan.ToString();
-                        Session["MatKhau"] = lg.MatKhau.ToString();
-                        await new TaiKhoanTruongDAL().SetStatus(lg.TaiKhoan, 1);
+                        Session["MatKhau"] = lg.MatKhau.ToString();                        
                         return RedirectToAction("GetTKTruong", "HomeGiaoVien", new { area = "GiaoVien", tenTaiKhoan = lg.TaiKhoan, matKhauTaiKhoan = lg.MatKhau });
                     }
 
@@ -235,8 +234,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
         }
 
         public async Task<ActionResult> Logout()
-        {
-            await new TaiKhoanTruongDAL().SetStatus(Session["TaiKhoanNhaTruong"].ToString(), 0);
+        {           
             Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
@@ -248,7 +246,7 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         public async Task<JsonResult> OnWindowClosing()
         {
-            await new TaiKhoanTruongDAL().SetStatus(Session["TaiKhoanGiaoVien"].ToString(), 0);
+            
             Session["TaiKhoanGiaoVien"] = null;
             Session["TaiKhoanNhaTruong"] = null;
             Session["MatKhau"] = null;
