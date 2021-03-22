@@ -1,6 +1,8 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WEBSoLienLacDienTu.Areas.Admin.Code;
+using WEBSoLienLacDienTu.Areas.Admin.Models;
 using ZXing;
 
 namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
@@ -16,23 +19,43 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
     public class QRController : Controller
     {
         // GET: Admin/QR
+        public static Lop lop = new Lop();
         public async Task<ActionResult> Index()
         {
             await LoadListKhoi();
             return View();
         }
-        public async Task<ActionResult> IndexQR()
+        [HttpPost]
+        public async Task<ActionResult> Index(GetClassModel lop)
         {
-            
+            if (lop.ID == -10 || lop.IDKhoi == 0)
+            {
+                await LoadListKhoi();
+                ViewData["Loi"] = "Vui Lòng Chọn Đầy Đủ Thông Tin !";
+            }
+            else
+            {
+                return RedirectToAction("IndexQR", "QR", new { id = lop.ID });
+            }
             return View();
+        }
+        public async Task<ActionResult> IndexQR(int id)
+        {
+            List<QRCodeModel> lstQR=new List<QRCodeModel>();
+            lop.ID = id;
+            foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(id)).Rows)
+            {                
+                lstQR.Add(new QRCodeModel(dr["ID"].ToString(), GenerateQRCode(dr["ID"].ToString())));
+            }
+            return View(lstQR);
         }
         public async Task LoadListKhoi()
         {
             ViewBag.LstKhoi = new SelectList(await new KhoiDAL().LayLst(), "ID", "TenKhoi");
         }
 
-        [HttpPost]
-        public ActionResult Generate(QRCodeModel qrcode)
+
+        public void Generate(QRCodeModel qrcode)
         {
             try
             {
@@ -43,7 +66,6 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             {
                 Console.WriteLine(ex.Message);
             }
-            return View("IndexQR", qrcode);
         }
 
         public ActionResult Read()
@@ -69,8 +91,8 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
 
         private string GenerateQRCode(string qrcodeText)
         {
-            string folderPath = "~/Assets/Img";
-            string imagePath = "~/Assets/Img/QrCode.jpg";
+            string folderPath = "/Assets/Img";
+            string imagePath = "/Assets/Img/qr"+qrcodeText+".jpg";
             // If the directory doesn't exist then create it.
             if (!Directory.Exists(Server.MapPath(folderPath)))
             {
