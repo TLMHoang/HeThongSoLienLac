@@ -44,8 +44,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
             List<QRCodeModel> lstQR=new List<QRCodeModel>();
             lop.ID = id;
             foreach (DataRow dr in (await new ThongTinHSDAL().LayDT_ByIDLop(id)).Rows)
-            {                
-                lstQR.Add(new QRCodeModel(dr["ID"].ToString(), GenerateQRCode(dr["ID"].ToString())));
+            {
+                DataTable l =  await new LopDAL().LayTenLop(Convert.ToInt32(dr["IDLop"]));
+                lstQR.Add(new QRCodeModel(dr["ID"].ToString(), GenerateQRCode(dr["ID"].ToString()),Convert.ToDateTime(dr["NgaySinh"]),
+                    Convert.ToByte(dr["GioiTinh"]),l.Rows[0][3].ToString(),dr["Ten"].ToString()));
             }
             return View(lstQR);
         }
