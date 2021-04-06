@@ -26,7 +26,17 @@ namespace WEBSoLienLacDienTu.Controllers.api
             DataTable dtLop = await new LopDAL().LayTenLop(hs.IDLop);
             GetNameClassModel l = new GetNameClassModel(dtLop.Rows[0]);
             ThongTinHS_API result = new ThongTinHS_API(hs,l.TenDayDu);
+            await new DiemDanh_ScanQRDAL().Them(new DiemDanh_ScanQR(-1,iD,DateTime.Now));
             return result;
         }
+        public async void CheckOut()
+        {
+            List<ThongTinHS> lstHS = await new DiemDanh_ScanQRDAL().LayLstHocSinhVang_QR();
+            foreach(var item in lstHS)
+            {
+                await new DiemDanhDAL().Them(new DiemDanh(-1,item.ID,DateTime.Today.AddDays(1),0));
+            }
+        }
+
     }
 }

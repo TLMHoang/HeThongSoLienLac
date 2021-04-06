@@ -46,6 +46,7 @@
     <Compile Include="BotChat.cs" />
     <Compile Include="CInterface.cs" />
     <Compile Include="DiemDanhDAL.cs" />
+    <Compile Include="DiemDanh_ScanQRDAL.cs" />
     <Compile Include="HoaDonHocPhiDAL.cs" />
     <Compile Include="KhoiDAL.cs" />
     <Compile Include="LienKetPhDAL.cs" />
