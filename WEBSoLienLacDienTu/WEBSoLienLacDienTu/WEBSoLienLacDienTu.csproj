@@ -205,6 +205,8 @@
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Models\KiemDuyetXinPhepModel.cs" />
+    <Compile Include="Areas\HeThongTaiLieu\Controllers\UserController.cs" />
+    <Compile Include="Areas\HeThongTaiLieu\HeThongTaiLieuAreaRegistration.cs" />
     <Compile Include="Code\CheckSession.cs" />
     <Compile Include="Code\MoMoSecurity.cs" />
     <Compile Include="Code\PaymentRequest.cs" />
@@ -373,6 +375,8 @@
     <Content Include="Areas\Admin\Views\QR\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QR\Read.cshtml" />
     <Content Include="Areas\Admin\Views\QR\IndexQR.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\web.config" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Login_TaiLieuONL.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -428,6 +432,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\HeThongTaiLieu\Code\" />
+    <Folder Include="Areas\HeThongTaiLieu\Data\" />
+    <Folder Include="Areas\HeThongTaiLieu\Views\Shared\" />
+    <Folder Include="Views\HeThongTaiLieu\" />
     <Folder Include="Views\IPN\" />
   </ItemGroup>
   <ItemGroup>
