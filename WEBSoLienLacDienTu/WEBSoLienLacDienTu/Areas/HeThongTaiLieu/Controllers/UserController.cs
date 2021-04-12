@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model;
 
 namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
 {
@@ -16,6 +17,11 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public ActionResult Login_TaiLieuONL()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login_TaiLieuONL(Login_HocSinhModel hs)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

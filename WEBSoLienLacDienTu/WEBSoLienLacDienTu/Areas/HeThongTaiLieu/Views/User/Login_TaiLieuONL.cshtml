@@ -1,4 +1,4 @@
-﻿
+﻿@model WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.Login_HocSinhModel
 @{
     Layout = null;
 }
@@ -308,8 +308,6 @@
 <body>
     <div class="wrapper fadeInDown">
         <div id="formContent">
-
-
             <!-- Icon -->
             <div class="fadeIn first" style="height:5%">
                 <img src="~/Assets/Img/Ust.png" id="icon" alt="User Icon" width="60%" height="2%" />
@@ -318,11 +316,18 @@
                 <h4>Hệ Thống Tài Liệu - USTEAM</h4>
             </div>
             <!-- Login Form -->
-            <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Tên Đăng Nhập">
-                <input type="password" id="password" class="fadeIn third" name="login" placeholder="Mật Khẩu">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+                @Html.TextBoxFor(model => model.UserName, new { @name = "login", @id = "login", @class = "fadeIn second", @placeholder = "Tên Đăng Nhập", @autofocus = "autofocus" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(model => model.PassWord, new { id = "password", @name = "login",@class = "fadeIn third", @placeholder = "Mật Khẩu", @type = "password" })
+                @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
                 <input type="submit" class="fadeIn fourth" value="Đăng Nhập">
-            </form>
+            }
 
             <!-- Remind Passowrd -->
             <div id="formFooter">
