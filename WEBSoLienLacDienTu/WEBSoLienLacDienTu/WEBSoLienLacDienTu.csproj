@@ -259,6 +259,18 @@
     <Content Include="Areas\Admin\Scripts\ThongBaoHS.js" />
     <Content Include="Areas\Admin\Scripts\ThongBaoLop.js" />
     <Content Include="Areas\Admin\Scripts\Vang.js" />
+    <Content Include="Areas\HeThongTaiLieu\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\HeThongTaiLieu\Content\css\font-awesome.min.css" />
+    <Content Include="Areas\HeThongTaiLieu\Content\css\owl.carousel.css" />
+    <Content Include="Areas\HeThongTaiLieu\Content\css\owl.theme.default.min.css" />
+    <Content Include="Areas\HeThongTaiLieu\Content\css\templatemo-style.css" />
+    <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.svg" />
+    <Content Include="Areas\HeThongTaiLieu\Content\img\slider-image1.jpg" />
+    <Content Include="Areas\HeThongTaiLieu\Content\js\bootstrap.min.js" />
+    <Content Include="Areas\HeThongTaiLieu\Content\js\custom.js" />
+    <Content Include="Areas\HeThongTaiLieu\Content\js\jquery.js" />
+    <Content Include="Areas\HeThongTaiLieu\Content\js\owl.carousel.min.js" />
+    <Content Include="Areas\HeThongTaiLieu\Content\js\smoothscroll.js" />
     <Content Include="Assets\Css\MainStyle.css" />
     <Content Include="Assets\Css\Style.css" />
     <Content Include="Assets\Css\UpdateTKTruong.css" />
@@ -378,6 +390,16 @@
     <Content Include="Areas\Admin\Views\QR\IndexQR.cshtml" />
     <Content Include="Areas\HeThongTaiLieu\Views\web.config" />
     <Content Include="Areas\HeThongTaiLieu\Views\User\Login_TaiLieuONL.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\Shared\_Layout_HeThongTaiLieu.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Index.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.eot" />
+    <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.woff" />
+    <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.woff2" />
+    <Content Include="Areas\HeThongTaiLieu\Content\font\FontAwesome.otf" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Selected_Subject_Student.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Test_Student.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -435,7 +457,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\HeThongTaiLieu\Code\" />
     <Folder Include="Areas\HeThongTaiLieu\Data\" />
-    <Folder Include="Areas\HeThongTaiLieu\Views\Shared\" />
     <Folder Include="Views\HeThongTaiLieu\" />
     <Folder Include="Views\IPN\" />
   </ItemGroup>
