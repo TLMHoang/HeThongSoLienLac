@@ -22,6 +22,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public ActionResult Login_TaiLieuONL(Login_HocSinhModel hs)
         {
             return RedirectToAction("Index");
+        }
 
         public ActionResult Selected_Subject_Student()
         {
