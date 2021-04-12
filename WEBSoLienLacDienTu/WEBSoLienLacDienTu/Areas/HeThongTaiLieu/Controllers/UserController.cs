@@ -17,5 +17,14 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         {
             return View();
         }
+
+        public ActionResult Selected_Subject_Student()
+        {
+            return View();
+        }
+        public ActionResult Test_Student()
+        {
+            return View();
+        }
     }
 }

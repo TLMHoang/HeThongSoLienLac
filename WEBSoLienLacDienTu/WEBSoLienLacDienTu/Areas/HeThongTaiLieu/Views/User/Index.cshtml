@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
+}
+
+<!-- HOME -->
+<section id="home">
+    <div class="row">
+
+        <div class="owl-carousel owl-theme home-slider">
+            <div class="item item-first">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-6 col-sm-12">
+                            <h1>Hệ Thống Tài Liệu Online</h1>
+                            <h3>Nơi cung cấp tài liệu ôn tập</h3>
+                            <a href="#feature" class="section-btn btn btn-default smoothScroll">Bắt Đầu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FEATURE -->
+<section id="feature">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-6" onclick="window.location.href ='@Url.Action("Selected_Subject_Student","User")'">
+                <div class="feature-thumb" id="btnTaiLieuMon">
+                   
+                        <span>01</span>
+                        <h3>Tài Liệu Môn</h3>
+
+                  
+                    
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6" id="btnKiemTraThu">
+                <div class="feature-thumb">
+                    <span>02</span>
+                    <h3>Kiểm Tra Thử</h3>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

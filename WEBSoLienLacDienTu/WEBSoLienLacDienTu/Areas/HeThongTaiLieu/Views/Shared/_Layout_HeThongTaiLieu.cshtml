@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Eschool - USTEAM</title>
+    <!--
+
+    Known Template
+
+    https://templatemo.com/tm-516-known
+
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="/Areas/HeThongTaiLieu/Content/css/bootstrap.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/Areas/HeThongTaiLieu/Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="/Areas/HeThongTaiLieu/Content/css/owl.theme.default.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Areas/HeThongTaiLieu/Content/css/templatemo-style.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+
+            <span class="spinner-rotate"></span>
+
+        </div>
+    </section>
+
+    
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+
+                <!-- lOGO TEXT HERE -->
+                <a href=@Url.Action("Index","User") class="navbar-brand">Hệ Thống Cung Cấp Tài Liệu USTEAM</a>
+            </div>
+
+            <!-- MENU LINKS -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li><a href=@Url.Action("Index","User") class="smoothScroll">Trang Chủ</a></li>
+                    <li><a href="#" class="smoothScroll">Tài Liệu</a></li>
+                    <li><a href="#" class="smoothScroll">Thi Thử</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Chào Bạn</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    
+
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <hr />
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-6">
+
+            <!-- Grid row -->
+            <div class="row mt-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-5 col-xl-5 mx-auto mb-4">
+
+                    <!-- Content -->
+                    <h6 class="text-uppercase font-weight-bold">E-school By US</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        Hệ Thống Được Phát Triển Để Giúp Nhà Trường Và Phụ Huynh Kết Nối Với Nhau Dễ Dàng Hơn.
+                    </p>
+                    <h6 class="text-uppercase font-weight-bold">Thành Viên</h6>
+                    <div style="display: inline-block; text-align: center; width: 100%;" id="info_Team">
+                        <a href="https://www.facebook.com/WhoAmIWhereIsThis" target="_blank">Hoàng</a>
+                        <a href="https://www.facebook.com/vhp17" target="_blank">Phong</a>
+                        <a href="https://www.facebook.com/txt.melody" target="_blank">Trường</a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Sản Phẩm Trong Hệ Thống</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        Web Sổ Liên Lạc
+                    </p>
+                    <p>
+                        App Mobile Sổ Liên Lạc
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Liên Hệ Với Chúng Tôi</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home mr-3"></i> HUTECH University Of Technology
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i> vhp.justp@gmail.com
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i> + 0352908667
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="text-center">
+            <p>&copy; @DateTime.Now.Year - Đồ Án Phát Triển Bởi US Team (VHP)</p>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+
+    <!-- SCRIPTS -->
+    <script src="~/Areas/HeThongTaiLieu/Content/js/jquery.js"></script>
+    <script src="~/Areas/HeThongTaiLieu/Content/js/bootstrap.min.js"></script>
+    <script src="~/Areas/HeThongTaiLieu/Content/js/owl.carousel.min.js"></script>
+    <script src="~/Areas/HeThongTaiLieu/Content/js/smoothscroll.js"></script>
+    <script src="~/Areas/HeThongTaiLieu/Content/js/custom.js"></script>
+
+</body>
+</html>
