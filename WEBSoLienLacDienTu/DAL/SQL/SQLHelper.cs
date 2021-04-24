@@ -15,10 +15,45 @@ namespace DAL.SQL
     {
         public string connStr = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string cs = ConfigurationManager.ConnectionStrings["BotChat"].ConnectionString;
-
+        string conHTTL = ConfigurationManager.ConnectionStrings["HeThongTaiLieu"].ConnectionString;
         public async Task<int> ExecuteNonQuery(string ProcName, params SqlParameter[] parameters)
         {
             using (SqlConnection con = new SqlConnection(connStr))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(ProcName, con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters);
+                        }
+
+                        await con.OpenAsync();
+
+
+                        return await cmd.ExecuteNonQueryAsync();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+            }
+            return 0;
+        }
+
+        public async Task<int> ExecuteNonQuery_HTTL(string ProcName, params SqlParameter[] parameters)
+        {
+            using (SqlConnection con = new SqlConnection(conHTTL))
             {
                 try
                 {
@@ -91,6 +126,47 @@ namespace DAL.SQL
             DataTable dt = new DataTable();
 
             using (SqlConnection con = new SqlConnection(connStr))
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(ProcName, con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters);
+                        }
+
+                        await con.OpenAsync();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+        public async Task<DataTable> ExecuteQuery_HTTL(string ProcName, params SqlParameter[] parameters)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection con = new SqlConnection(conHTTL))
             {
                 try
                 {

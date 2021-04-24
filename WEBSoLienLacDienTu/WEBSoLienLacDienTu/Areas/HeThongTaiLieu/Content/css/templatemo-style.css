@@ -775,12 +775,7 @@ https://templatemo.com/tm-516-known
     margin-top: 20px;
   }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 95%;
-    height: 0.3rem; 
-}
+
 /*---------------------------------------
      SOCIAL ICON              
   -----------------------------------------*/
@@ -937,11 +932,7 @@ footer {
   }
 
 
-.btnMon {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 25px;
-}
+
 .title-page {
     font-size: 30px;
     padding-left: 5px;

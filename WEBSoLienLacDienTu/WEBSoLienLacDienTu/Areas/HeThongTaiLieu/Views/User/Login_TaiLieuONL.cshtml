@@ -303,6 +303,11 @@
         * {
             box-sizing: border-box;
         }
+        .custom-validation-summary ul {
+            list-style-type: none;
+            color: red;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -319,7 +324,7 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationSummary(true, null, new { @class = "custom-validation-summary" })
                 
                 @Html.TextBoxFor(model => model.UserName, new { @name = "login", @id = "login", @class = "fadeIn second", @placeholder = "Tên Đăng Nhập", @autofocus = "autofocus" })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
