@@ -59,6 +59,7 @@
     <Compile Include="NoiDungChat.cs" />
     <Compile Include="PhanCongDay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuesTopicModel.cs" />
     <Compile Include="TaiKhoanPH.cs" />
     <Compile Include="TaiKhoanTruong.cs" />
     <Compile Include="ThoiKhoaBieu.cs" />

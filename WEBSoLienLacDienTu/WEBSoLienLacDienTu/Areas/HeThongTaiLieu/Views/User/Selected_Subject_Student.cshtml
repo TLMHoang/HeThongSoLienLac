@@ -4,34 +4,25 @@
     Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
 }
 
+<style>
+    .btn_selectSubject:hover {
+        cursor: pointer;
+    }
+</style>
 <h2 class="title-page">Chọn Môn Học</h2>
 <div class="row">
-   
-    <div class="card bg-warning btnMon col-md-3">
-        <div class="card-body text-center">
-            <p class="card-text">Toán</p>
+
+    @foreach (var item in Model as IEnumerable<DTO.MonHoc>)
+    {
+
+        <div class="col-6 col-md-3 btn_selectSubject" style="padding: 10px;" onclick="window.location.href='@Url.Action("Selected_Topic","User",new { idMon = item.ID })'" >
+            <div class="panel panel-warning">
+                <div class="panel-heading">Tài Liệu Môn:</div>
+                <div class="panel-body">@item.TenMon</div>
+            </div>
         </div>
-    </div>
-    <div class="card bg-success btnMon col-md-3">
-        <div class="card-body text-center">
-            <p class="card-text">Lý</p>
-        </div>
-    </div>
-    <div class="card bg-danger btnMon  col-md-3">
-        <div class="card-body text-center">
-            <p class="card-text">Hóa</p>
-        </div>
-    </div>
-    <div class="card bg-warning btnMon  col-md-3">
-        <div class="card-body text-center">
-            <p class="card-text">Văn</p>
-        </div>
-    </div>
-    <div class="card bg-info btnMon  col-md-3">
-        <div class="card-body text-center">
-            <p class="card-text">Anh Văn</p>
-        </div>
-    </div>
+
+    }
 
 
 </div>

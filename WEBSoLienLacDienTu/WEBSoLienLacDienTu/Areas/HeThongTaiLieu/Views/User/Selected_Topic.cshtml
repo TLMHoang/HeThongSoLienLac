@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Selected_Topic";
+    Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
+}
+    <style>
+        .btn_selectSubject:hover {
+            cursor: pointer;
+        }
+    </style>
+    <h2 class="title-page">Tài Liệu Hiện Có</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.QuesTopicModel>)
+        {
+
+            <div class="col-6 col-md-3 btn_selectSubject" style="padding: 10px;">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Mã Tài Liệu: @item.ID</div>
+                    <div class="panel-body">@item.NameTopic</div>
+                </div>
+            </div>
+
+        }
+
+
+
+    </div>
+
+

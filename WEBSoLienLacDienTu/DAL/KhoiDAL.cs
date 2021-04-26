@@ -36,6 +36,24 @@ namespace DAL
             );
         }
 
+        public async Task<Lop> SelectKhoi_ByIDLop(int ID)
+        {
+            DataTable dt = await ExecuteQuery(
+                "SelectKhoi_ByIDLop",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID }
+            );
+            if(dt.Rows.Count != 0)
+            {
+                Lop l = new Lop(dt.Rows[0]);
+                return l;
+            }
+
+
+            return null;
+        }
+
+        
+
         public async Task<List<Khoi>> LayLst()
         {
             List<Khoi> lst = new List<Khoi>();

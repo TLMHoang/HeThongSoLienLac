@@ -327,10 +327,10 @@
                 @Html.ValidationSummary(true, null, new { @class = "custom-validation-summary" })
                 
                 @Html.TextBoxFor(model => model.UserName, new { @name = "login", @id = "login", @class = "fadeIn second", @placeholder = "Tên Đăng Nhập", @autofocus = "autofocus" })
-                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" ,@style = "display:block;" })
 
                 @Html.TextBoxFor(model => model.PassWord, new { id = "password", @name = "login",@class = "fadeIn third", @placeholder = "Mật Khẩu", @type = "password" })
-                @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger", @style = "display:block;" })
                 <input type="submit" class="fadeIn fourth" value="Đăng Nhập">
             }
 

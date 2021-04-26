@@ -398,8 +398,9 @@
     <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\HeThongTaiLieu\Content\font\fontawesome-webfont.woff2" />
     <Content Include="Areas\HeThongTaiLieu\Content\font\FontAwesome.otf" />
-    <Content Include="Areas\HeThongTaiLieu\Views\User\Selected_Subject_Student.cshtml" />
     <Content Include="Areas\HeThongTaiLieu\Views\User\Test_Student.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Selected_Subject_Student.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Selected_Topic.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
