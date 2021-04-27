@@ -1,49 +1,40 @@
-﻿
+﻿@model WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.MergeQues
+
 @{
     ViewBag.Title = "Test_Student";
     Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
 }
 
-    <div class="container mt-5" style="border:groove;margin-top:40px;">
-        <div class="d-flex justify-content-center row">
-            <div class="col-md-10 col-lg-10">
+<div class="container mt-5" style="border:groove;margin-top:40px;">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10 col-lg-10">
 
 
 
-                <div class="border">
-                    <div class="question bg-white p-3 border-bottom">
-                        <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                            <h4>Câu Hỏi</h4>
-                        </div>
+            <div class="border">
+                <div class="question bg-white p-3 border-bottom">
+                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
+                        <h4>Câu Hỏi</h4>
                     </div>
-                    <div class="question bg-white p-3 border-bottom">
-                        <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger">Q.</h3>
-                            <h5 class="mt-1 ml-2">Which of the following country has largest population?</h5>
-                        </div>
-                        <div class="ans ml-2">
-                            <label class="radio">
-                                <input type="radio" name="1" value="brazil"> <span>1</span>
-                            </label>
-                        </div>
-                        <div class="ans ml-2">
-                            <label class="radio">
-                                <input type="radio" name="2" value="Germany"> <span>2</span>
-                            </label>
-                        </div>
-                        <div class="ans ml-2">
-                            <label class="radio">
-                                <input type="radio" name="3" value="Indonesia"> <span>3</span>
-                            </label>
-                        </div>
-                        <div class="ans ml-2">
-                            <label class="radio">
-                                <input type="radio" name="4" value="Russia"> <span>4</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white" style="margin-top:20px;"><button class="btn btn-primary d-flex align-items-center btn-danger" type="button"><i class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous</button><button class="btn btn-primary border-success align-items-center btn-success" style="float:right;" type="button">Next<i class="fa fa-angle-right ml-2"></i></button></div>
                 </div>
+                <div class="question bg-white p-3 border-bottom">
+                    <div class="d-flex flex-row align-items-center question-title">
+                        <h3 class="text-danger">Q.</h3>
+                        <h5 class="mt-1 ml-2">@Model.Question.Question</h5>
+                    </div>
+                    @foreach (var item in Model.LstAns)
+                    {
+                        <div class="ans ml-2">
+                            <label class="radio">
+                                <input type="radio" value="@item.ID" name="@item.IDQues"> <span>@item.Answer</span>
+                            </label>
+                        </div>
+                    }
+                </div>
+
+               
+                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white" style="margin-top:20px;"><button class="btn btn-primary border-success align-items-center btn-success" style="float:right;" type="button">Kế Tiếp<i class="fa fa-angle-right ml-2"></i></button></div>
             </div>
         </div>
     </div>
+</div>

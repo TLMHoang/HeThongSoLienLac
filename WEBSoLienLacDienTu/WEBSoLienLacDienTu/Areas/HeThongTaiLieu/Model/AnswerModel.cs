@@ -11,15 +11,15 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model
         public int ID { get; set; }
         public int IDQues { get; set; }
         public string Answer { get; set; }
-        public string ExplanAns { get; set; }
+        public string ExplainAns { get; set; }
         public byte CorrectAns { get; set; }
 
-        public AnswerModel(int iD, int iDQues, string answer, string explanAns, byte correctAns)
+        public AnswerModel(int iD, int iDQues, string answer, string explainAns, byte correctAns)
         {
             ID = iD;
             IDQues = iDQues;
             Answer = answer;
-            ExplanAns = explanAns;
+            ExplainAns = explainAns;
             CorrectAns = correctAns;
         }
 
@@ -28,7 +28,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model
             ID = Convert.IsDBNull(dr["ID"]) ? -1 : Convert.ToInt32(dr["ID"]);
             IDQues = Convert.IsDBNull(dr["IDQues"]) ? -1 : Convert.ToInt32(dr["IDQues"]);
             Answer = dr["Answer"].ToString();
-            ExplanAns = dr["ExplanAns"].ToString();
+            ExplainAns = dr["ExplainAns"].ToString();
             CorrectAns = Convert.ToByte(dr["CorrectAns"]);
         }
     }

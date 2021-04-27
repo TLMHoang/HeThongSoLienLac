@@ -29,7 +29,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         [HttpPost]
         public async Task<ActionResult> Login_TaiLieuONL(Login_HocSinhModel hs)
         {
-            
+
             var result = await httl.StudenLogin(hs.UserName, hs.PassWord);
             if (ModelState.IsValid)
             {
@@ -41,21 +41,21 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                     Session["StudentName"] = hocsinh.Ten.ToString();
                     return RedirectToAction("Index");
                 }
-                else if(hs.UserName.Contains("hs00"))
+                else if (hs.UserName.Contains("hs00"))
                 {
                     DataTable dt = await new ThongTinHSDAL().LayDT(int.Parse(hs.UserName.Remove(0, 3)));
                     if (dt.Rows.Count == 1)
                     {
 
                         hocsinh = new ThongTinHS(dt.Rows[0]);
-                        if(await httl.CreateStudent(hs.UserName, hs.UserName) != 0)
+                        if (await httl.CreateStudent(hs.UserName, hs.UserName) != 0)
                         {
-                            Session["StudentName"] =hocsinh.Ten.ToString();
+                            Session["StudentName"] = hocsinh.Ten.ToString();
                             return RedirectToAction("Index");
                         }
                         else
                         {
-                            ModelState.AddModelError("","Không Thể Thêm Tài Khoản");
+                            ModelState.AddModelError("", "Không Thể Thêm Tài Khoản");
                         }
                     }
                     else
@@ -68,8 +68,8 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                     ModelState.AddModelError("", "Sai Tên Đăng Nhập Hoặc Mật Khẩu");
                 }
             }
-            
-            
+
+
             return View();
         }
 
@@ -80,15 +80,44 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public async Task<ActionResult> Selected_Topic(int idMon)
         {
             Lop l = await new KhoiDAL().SelectKhoi_ByIDLop(hocsinh.IDLop);
-            return View(await new HeThongTaiLieuDAL().GetListTopic(idMon,l.IDKhoi));
+            return View(await new HeThongTaiLieuDAL().GetListTopic(idMon, l.IDKhoi));
         }
-        
-        public ActionResult Test_Student()
-        {
 
-            dynamic mymodel = new ExpandoObject();
+        public async Task<ActionResult> Test_Student(int idquiz)
+        {
+            var random = new Random();
+            List<QuestionModel> lstQues = await getQues(idquiz);
             
-            return View();
+            
+            MergeQues mymodel = new MergeQues();
+            QuestionModel question = lstQues[random.Next(lstQues.Count)];
+            List<AnswerModel> lstAns = await getAns(question.ID);
+            
+            mymodel.Question =question;
+
+            mymodel.LstAns = lstAns;
+            
+            return View(mymodel);
+        }
+
+        public async Task<List<QuestionModel>> getQues(int idquiz){
+            List<QuestionModel> lst = new List<QuestionModel>();
+            DataTable dt = await new HeThongTaiLieuDAL().GetQues(idquiz);
+            foreach (DataRow item in dt.Rows)
+            {
+                lst.Add(new QuestionModel(item));
+            }
+            return lst;
+        }
+        public async Task<List<AnswerModel>> getAns(int idques)
+        {
+            List<AnswerModel> lst = new List<AnswerModel>();
+            DataTable dt = await new HeThongTaiLieuDAL().GetAns(idques);
+            foreach (DataRow item in dt.Rows)
+            {
+                lst.Add(new AnswerModel(item));
+            }
+            return lst;
         }
     }
 }

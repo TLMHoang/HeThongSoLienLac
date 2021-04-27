@@ -15,7 +15,7 @@
         @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.QuesTopicModel>)
         {
 
-            <div class="col-6 col-md-3 btn_selectSubject" style="padding: 10px;">
+            <div class="col-6 col-md-3 btn_selectSubject" style="padding: 10px;" onclick="window.location.href='@Url.Action("Test_Student","User",new { idquiz = item.ID })'">
                 <div class="panel panel-warning">
                     <div class="panel-heading">Mã Tài Liệu: @item.ID</div>
                     <div class="panel-body">@item.NameTopic</div>
