@@ -54,5 +54,38 @@ namespace DAL
                 "selectAns",
                 new SqlParameter("@IDQues", SqlDbType.Int) { Value = IDQues });
         }
+
+        public async Task<DataTable> GetScores(int IDStudent,int IDTopic)
+        {
+            return await ExecuteQuery_HTTL(
+                "selectScores",
+                new SqlParameter("@IDStudent", SqlDbType.Int) { Value = IDStudent },
+                new SqlParameter("@IDTopic", SqlDbType.Int) { Value = IDTopic }
+                );
+        }
+
+        public async Task<int> CreateScores(int IDStudent, int IDTopic,int efficiencyLevel)
+        {
+            return await ExecuteNonQuery_HTTL(
+                "insertScores",
+                new SqlParameter("@IDStudent", SqlDbType.Int) { Value = IDStudent },
+                new SqlParameter("@IDTopic", SqlDbType.Int) { Value = IDTopic },
+                new SqlParameter("@efficiencyLevel", SqlDbType.Int) { Value = efficiencyLevel });
+        }
+        public async Task<int> UpdateScoresLevel(int IDStudent, int IDTopic, int efficiencyLevel)
+        {
+            return await ExecuteNonQuery_HTTL(
+                "updateScores",
+                new SqlParameter("@IDStudent", SqlDbType.Int) { Value = IDStudent },
+                new SqlParameter("@IDTopic", SqlDbType.Int) { Value = IDTopic },
+                new SqlParameter("@efficiencyLevel", SqlDbType.Int) { Value = efficiencyLevel });
+        }
+        public async Task<DataTable> CountQueslevel(int level)
+        {
+            return await ExecuteQuery_HTTL(
+                "selectQuesLevel",
+                new SqlParameter("@level", SqlDbType.Int) { Value = level }
+                );
+        }
     }
 }

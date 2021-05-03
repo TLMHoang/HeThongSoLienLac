@@ -4,37 +4,107 @@
     ViewBag.Title = "Test_Student";
     Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
 }
-
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 95%;
+        height: 2.5rem;
+    }
+</style>
 <div class="container mt-5" style="border:groove;margin-top:40px;">
     <div class="d-flex justify-content-center row">
-        <div class="col-md-10 col-lg-10">
+        <div class="col-md-12 col-lg-12">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
 
-
-            <div class="border">
-                <div class="question bg-white p-3 border-bottom">
-                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                        <h4>Câu Hỏi</h4>
-                    </div>
-                </div>
-                <div class="question bg-white p-3 border-bottom">
-                    <div class="d-flex flex-row align-items-center question-title">
-                        <h3 class="text-danger">Q.</h3>
-                        <h5 class="mt-1 ml-2">@Model.Question.Question</h5>
-                    </div>
-                    @foreach (var item in Model.LstAns)
-                    {
-                        <div class="ans ml-2">
-                            <label class="radio">
-                                <input type="radio" value="@item.ID" name="@item.IDQues"> <span>@item.Answer</span>
-                            </label>
+                <div class="border">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row justify-content-between align-items-center mcq">
+                            <h4>Câu Hỏi</h4>
                         </div>
-                    }
+                    </div>
+                    <div class="question bg-white p-3 border-bottom">
+                        <h4 class="text-danger" style="float:right;">
+                            Mức độ: @if (@Model.Question.LevelQues == 1)
+                            {<span>Dễ</span> }
+                            else if (@Model.Question.LevelQues == 2)
+                            {<span>Trung Bình</span>}
+                            else
+                            {<span>Khó</span>}
+                        </h4>
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h3 class="text-danger">Q.</h3>
+
+                            <h5 class="mt-1 ml-2">@Model.Question.Question</h5>
+                        </div>
+                        @foreach (var item in Model.LstAns)
+                        {
+                            <div class="ans ml-2">
+                                <label class="radio">
+                                    <input id='radio@(item.ID)'  type="radio" value="@item.ID" name="idQues"> <span id='span@(item.ID)'>@item.Answer</span>
+                                </label>
+                            </div>
+                        }
+
+                    </div>
+
+
+                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white" style="margin-top:20px;"><button class="btn btn-primary border-success align-items-center btn-success" id="btnNextQues" name="btnNextQues" style="float:right;" type="submit">Kế Tiếp<i class="fa fa-angle-right ml-2"></i></button><button class="btn btn-primary border-success align-items-center btn-success" style="float:right;margin-right:5px;" type="button" onclick="getDataOnClick();" name="btnResultQues">Kết Quả</button></div>
                 </div>
 
-               
-                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white" style="margin-top:20px;"><button class="btn btn-primary border-success align-items-center btn-success" style="float:right;" type="button">Kế Tiếp<i class="fa fa-angle-right ml-2"></i></button></div>
-            </div>
+            }
+
         </div>
+        <div id="explain"></div>
     </div>
 </div>
+<script>
+    
+    window.addEventListener('load',
+        function () {
+            document.getElementById("btnNextQues").disabled = true;
+        }, false);
+
+    function getDataOnClick() {
+        var result = document.getElementsByName("idQues");
+        var idAns;
+        for (var i = 0, length = result.length; i < length; i++) {
+            if (result[i].checked) {
+
+                idAns = result[i].value;
+            }
+        }
+        if (typeof idAns == "undefined") {
+            alert("lòng chọn đáp án");
+        } else {           
+            $.ajax({
+                url: "/HeThongTaiLieu/User/showResult?idAns=" + idAns,
+                typr: "GET",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';                    
+                    if (result.ExplainAns == "") { html += '<h3>Giải Thích: chưa có</h3>' } else { html += '<h3> Giải Thích: ' + result.ExplainAns + '</h3>' };
+                    $("#span" + result.ID).css({ "background-color": "#5ab95f", "color": "#fff" });
+                    $("#explain").html(html);
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+            for (var i = 0, length = result.length; i < length; i++) {
+                if (result[i].checked) {
+                } else
+                    result[i].disabled = true;
+            }
+            document.getElementById("btnNextQues").disabled = false;
+            document.getElementsByName("btnResultQues")[0].disabled = true;
+        }      
+
+        
+    }
+</script>

@@ -959,11 +959,14 @@ label.radio {
         border: 1px solid red;
         display: inline-block;
         color: red;
-        width: 100px;
+        width: 100%;
+        height: auto;
         text-align: center;
         border-radius: 3px;
         margin-top: 7px;
-        text-transform: uppercase
+        text-transform: uppercase;
+        word-wrap: break-word;
+        white-space: pre-wrap;
     }
 
     label.radio input:checked + span {
@@ -971,6 +974,8 @@ label.radio {
         background-color: red;
         color: #fff
     }
+
+
 
 .ans {
     margin-left: 36px !important
