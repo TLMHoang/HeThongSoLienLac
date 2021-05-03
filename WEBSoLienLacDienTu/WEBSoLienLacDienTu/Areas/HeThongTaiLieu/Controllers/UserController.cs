@@ -113,13 +113,14 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             var random = new Random();//DECLARE VAR RANDOM
             MergeQues mymodel = new MergeQues();
             AnswerModel answer = lstAns_Check.FirstOrDefault(x => x.ID == int.Parse(resultAnswer));
+            
             if(answer.CorrectAns == 1)
             {
-                scores += coefficient;
-                if(scores >= 0.9)
+                combo += coefficient;
+                if(combo >= 0.5)
                 {
                     int level = await checkScores();
-                    if(level == 3)
+                    if (level == 3)
                     {
                         await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level);
                         lstQues_level.Clear();
@@ -130,35 +131,59 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level + 1);
                         lstQues_level.Clear();
                         scores = 0;
-                    }                    
+                    }
                     mymodel = await GetListQuestion(iDQuiz);
                 }
                 else
                 {
-                    lstQues_level.RemoveAt(lstQues_level.FindIndex(x => x.ID == answer.IDQues));
-                    if(lstQues_level.Count == 0)
+                    scores += coefficient;
+                    if (scores >= 0.9)
                     {
                         int level = await checkScores();
-                        List<QuestionModel> lst = await getQues(iDQuiz);
-                        lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
-                        QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
-                        List<AnswerModel> lstAns = await getAns(question.ID);
-                        mymodel.Question = question;
-                        mymodel.LstAns = lstAns;
+                        if (level == 3)
+                        {
+                            await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level);
+                            lstQues_level.Clear();
+                            scores = 0;
+                        }
+                        else
+                        {
+                            await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level + 1);
+                            lstQues_level.Clear();
+                            scores = 0;
+                        }
+                        mymodel = await GetListQuestion(iDQuiz);
                     }
                     else
                     {
-                        QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
-                        List<AnswerModel> lstAns = await getAns(question.ID);
-                        mymodel.Question = question;
-                        mymodel.LstAns = lstAns;
+
+                        lstQues_level.RemoveAt(lstQues_level.FindIndex(x => x.ID == answer.IDQues));
+                        if (lstQues_level.Count == 0)
+                        {
+                            int level = await checkScores();
+                            List<QuestionModel> lst = await getQues(iDQuiz);
+                            lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
+                            QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
+                            List<AnswerModel> lstAns = await getAns(question.ID);
+                            mymodel.Question = question;
+                            mymodel.LstAns = lstAns;
+                        }
+                        else
+                        {
+                            QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
+                            List<AnswerModel> lstAns = await getAns(question.ID);
+                            mymodel.Question = question;
+                            mymodel.LstAns = lstAns;
+                        }
+
                     }
-                    
+
                 }
-                
+
             }
             else
             {
+                combo = 0;
                 scores -= coefficient;
                 if(scores <= -0.9)
                 {
