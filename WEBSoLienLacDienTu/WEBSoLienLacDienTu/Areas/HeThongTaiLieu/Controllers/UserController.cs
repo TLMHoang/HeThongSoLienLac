@@ -205,10 +205,20 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                 {
                     var r = 0;
                     var lastAnsID = lstQues_level.FindIndex(x => x.ID == answer.IDQues);
-                    do
+                    if (lstQues_level.Count == 1)
                     {
-                        r = random.Next(lstQues_level.Count);
-                    } while (r == lastAnsID);
+                        lstQues_level.Clear();
+                        int level = await checkScores();
+                        List<QuestionModel> lst = await getQues(iDQuiz);
+                        lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
+                    }
+                    else
+                    {
+                        do
+                        {
+                            r = random.Next(lstQues_level.Count);
+                        } while (r == lastAnsID);
+                    }                    
                     QuestionModel question = lstQues_level[r];
                     List<AnswerModel> lstAns = await getAns(question.ID);
                     mymodel.Question = question;
