@@ -16,6 +16,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
     {
         HeThongTaiLieuDAL httl = new HeThongTaiLieuDAL();
         public static ThongTinHS hocsinh = new ThongTinHS();
+        public static int iDStudent_HTTL;
         public static int iDQuiz;
         public static float coefficient;
         public static float scores;
@@ -37,13 +38,14 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public async Task<ActionResult> Login_TaiLieuONL(Login_HocSinhModel hs)
         {
 
-            var result = await httl.StudenLogin(hs.UserName, hs.PassWord);
+            DataTable result = await httl.StudenLogin(hs.UserName, hs.PassWord);
             if (ModelState.IsValid)
             {
 
                 if (result.Rows.Count == 1)
                 {
                     DataTable dt = await new ThongTinHSDAL().LayDT(int.Parse(hs.UserName.Remove(0, 3)));
+                    iDStudent_HTTL = int.Parse(result.Rows[0][0].ToString());
                     hocsinh = new ThongTinHS(dt.Rows[0]);
                     Session["StudentName"] = hocsinh.Ten.ToString();
                     return RedirectToAction("Index");
@@ -57,6 +59,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         hocsinh = new ThongTinHS(dt.Rows[0]);
                         if (await httl.CreateStudent(hs.UserName, hs.UserName) != 0)
                         {
+                            iDStudent_HTTL = int.Parse(result.Rows[0][0].ToString());
                             Session["StudentName"] = hocsinh.Ten.ToString();
                             return RedirectToAction("Index");
                         }
@@ -122,13 +125,13 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                     int level = await checkScores();
                     if (level == 3)
                     {
-                        await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level);
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
                         lstQues_level.Clear();
                         scores = 0;
                     }
                     else
                     {
-                        await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level + 1);
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level + 1);
                         lstQues_level.Clear();
                         scores = 0;
                     }
@@ -142,13 +145,13 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         int level = await checkScores();
                         if (level == 3)
                         {
-                            await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level);
+                            await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
                             lstQues_level.Clear();
                             scores = 0;
                         }
                         else
                         {
-                            await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level + 1);
+                            await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level + 1);
                             lstQues_level.Clear();
                             scores = 0;
                         }
@@ -190,12 +193,12 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                     int level = await checkScores();
                     if(level == 1)
                     {
-                        await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level);
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
                         scores = 0;
                     }
                     else
                     {
-                        await httl.UpdateScoresLevel(hocsinh.ID, iDQuiz, level - 1);
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level - 1);
                         lstQues_level.Clear();
                         scores = 0;
                     }                    
@@ -274,10 +277,10 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public async Task<int> checkScores()
         {
             int result;
-            DataTable dt = await httl.GetScores(hocsinh.ID,iDQuiz);
+            DataTable dt = await httl.GetScores(iDStudent_HTTL, iDQuiz);
             if(dt.Rows.Count == 0)
             {
-                await httl.CreateScores(hocsinh.ID, iDQuiz,1);
+                await httl.CreateScores(iDStudent_HTTL, iDQuiz,1);
                 result = 1;
             }
             else
