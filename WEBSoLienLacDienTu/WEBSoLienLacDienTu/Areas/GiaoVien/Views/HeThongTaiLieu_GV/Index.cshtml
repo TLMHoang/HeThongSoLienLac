@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+
+<h2 class="title-page">Upload Tài Liệu Hệ Thống</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row justify-content-center menu">
+                
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/GiaoVien/HeThongTaiLieu_GV/Quiz'">
+                        <img src="~/Assets/Img/quiz_img.png" alt="NhapDiem" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href='/GiaoVien/HeThongTaiLieu_GV/Quiz'" style="width: 100%; margin-top: 10px; color: white; padding: 6px; ">Tài Liệu Trắc Nghiệm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="card" style="width: 100%" onclick="location.href = '/GiaoVien/HeThongTaiLieu_GV/Documents'">
+                        <img src="~/Assets/Img/document_img.png" alt="DiemDanh" style="width: 100%">
+                        <div>
+                            <button class="btn btn-warning" onclick="location.href = '/GiaoVien/HeThongTaiLieu_GV/Documents'" style="width: 100%; margin-top: 10px; color: white;padding: 6px;  ">Upload Tài Liệu</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+

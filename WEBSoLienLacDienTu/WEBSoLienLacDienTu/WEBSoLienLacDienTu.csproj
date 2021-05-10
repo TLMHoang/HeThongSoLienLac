@@ -199,6 +199,7 @@
     <Compile Include="Areas\Admin\Models\ThoiKhoaBieuModel.cs" />
     <Compile Include="Areas\GiaoVien\Code\CheckSessionGiaoVien.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DiemDanhGVController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\HeThongTaiLieu_GVController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeGiaoVienController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\KiemDuyetXinPhepController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\QuanLyNhapDiemController.cs" />
@@ -280,7 +281,9 @@
     <Content Include="Assets\Img\Admin_Image.png" />
     <Content Include="Assets\Img\BHYT_Image.png" />
     <Content Include="Assets\Img\DiemDanh_Image.png" />
+    <Content Include="Assets\Img\document_img.png" />
     <Content Include="Assets\Img\DongHPOnline_Image.png" />
+    <Content Include="Assets\Img\HTTL_img.png" />
     <Content Include="Assets\Img\LienKetPHHS_Image.png" />
     <Content Include="Assets\Img\List_Image.png" />
     <Content Include="Assets\Img\logo_User.jpg" />
@@ -293,6 +296,7 @@
     <Content Include="Assets\Img\QLTaiKhoan_Image.png" />
     <Content Include="Assets\Img\QLTKB_Image.png" />
     <Content Include="Assets\Img\Qr_Image.png" />
+    <Content Include="Assets\Img\quiz_img.png" />
     <Content Include="Assets\Img\School_Image.png" />
     <Content Include="Assets\Img\search-2ndg.png" />
     <Content Include="Assets\Img\TBHocSinh_Image.png" />
@@ -404,6 +408,9 @@
     <Content Include="Areas\HeThongTaiLieu\Views\User\Test_Student.cshtml" />
     <Content Include="Areas\HeThongTaiLieu\Views\User\Selected_Subject_Student.cshtml" />
     <Content Include="Areas\HeThongTaiLieu\Views\User\Selected_Topic.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Quiz.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Documents.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
