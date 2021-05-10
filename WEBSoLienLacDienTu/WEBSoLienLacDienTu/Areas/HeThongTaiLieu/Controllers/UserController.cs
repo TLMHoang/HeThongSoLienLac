@@ -188,7 +188,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             {
                 combo = 0;
                 scores -= coefficient;
-                if(scores <= -0.9)
+                if(scores <= -0.3)
                 {
                     int level = await checkScores();
                     if(level == 1)
