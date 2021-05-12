@@ -3,6 +3,44 @@
     ViewBag.Title = "Documents";
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: 0 auto;
+    }
 
-<h2>Documents</h2>
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 2px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    #link_document:hover{
+        text-decoration:underline;
+        cursor:pointer;
+        color:blue;
+    }
+</style>
+<h2>Tài Liệu Download</h2>
+<hr />
+<table>
+    <tr>
+        <th>Mã Tài Liệu</th>
+        <th>Tên Tài Liệu</th>
+        <th>Ngày Tải Lên</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td id="link_document">Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+        <td>xóa</td>
+    </tr>
+    
+</table>
 

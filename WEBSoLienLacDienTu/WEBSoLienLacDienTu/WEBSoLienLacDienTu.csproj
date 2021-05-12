@@ -206,12 +206,14 @@
     <Compile Include="Areas\GiaoVien\Controllers\ThongBaoCaNhanGVController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Models\KiemDuyetXinPhepModel.cs" />
+    <Compile Include="Areas\GiaoVien\Models\ListQuestionModel.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Controllers\UserController.cs" />
     <Compile Include="Areas\HeThongTaiLieu\HeThongTaiLieuAreaRegistration.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\AnswerModel.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\Login_HocSinhModel.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\MergeQues.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\QuestionModel.cs" />
+    <Compile Include="Areas\HeThongTaiLieu\Model\QuizModel.cs" />
     <Compile Include="Code\CheckSession.cs" />
     <Compile Include="Code\MoMoSecurity.cs" />
     <Compile Include="Code\PaymentRequest.cs" />
@@ -411,6 +413,8 @@
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Quiz.cshtml" />
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Documents.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\QuizDetails.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Import_Quiz.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

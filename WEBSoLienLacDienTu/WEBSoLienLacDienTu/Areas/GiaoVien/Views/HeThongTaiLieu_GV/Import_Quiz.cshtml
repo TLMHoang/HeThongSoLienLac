@@ -1,0 +1,25 @@
+﻿@model WEBSoLienLacDienTu.Areas.Admin.Models.ImportExcel
+@{
+    ViewBag.Title = "Import_Quiz";
+    Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
+}
+
+<h2>Thêm Dữ Liệu Ngân Hàng Trắc Nghiệm</h2>
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h4>Nhập Dữ Liệu Từ Excel</h4>
+        <hr />
+        @using (Html.BeginForm("Import_Quiz", "HeThongTaiLieu_GV", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.TextBoxFor(m => m.file, new { type = "file", name = "UploadedFile" })
+            <button class="btn btn-warning" id="submitButton" name="Import" type="submit">Nhập</button>
+            @Html.ValidationMessageFor(model => model.file, null, new { @class = "text-danger" })
+        }
+        <hr />
+        <a href="https://drive.google.com/file/d/1MXTbpXe__AmvV6Pu7xtA4q0ovii06CqI/view?usp=sharing" style="color: blue" target="_blank">Lấy File Excel Mẫu</a>
+        <button class="btn btn-danger" onclick="window.location.href='/GiaoVien/HomeGiaoVien/Index'" style="margin-left: 10px;float: right" id="TurnBack"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+    <div class="col-lg-3"></div>
+</div>

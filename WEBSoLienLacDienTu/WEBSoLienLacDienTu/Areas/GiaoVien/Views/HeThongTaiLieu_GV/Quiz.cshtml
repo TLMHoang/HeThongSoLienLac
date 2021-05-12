@@ -1,8 +1,88 @@
-﻿
+﻿@model IEnumerable<WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.QuizModel>
 @{
     ViewBag.Title = "Quiz";
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
+    <style>
+        #myTable:hover {
+            cursor: pointer;
+        }
+    </style>
+<h2>Danh Sách Tài Liệu Trắc Nghiệm Của Bạn</h2>
+<hr />
+@*<div class="row">
 
-<h2>Quiz</h2>
+    <div style="margin-left: 10px">
+        <a href="@Url.Action("ThemHS_ByExcel")" class="btn btn-success btn-icon-split" style="margin: 2px 10px" id="Excel">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Thêm Tài Liệu Bằng Excel</span>
+        </a>
+    </div>
+    <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton"><i class="fas fa-sign-out-alt"></i></button>
+</div>
 
+<hr />*@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form>
+                <div class="input-group mb-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Tài Liệu</h6>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <input class="form-control" id="myInput" type="text" placeholder="Tìm Kiếm Tài Liệu">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã Tài Liệu</th>
+                            <th>Tên Tài Liệu</th>
+                            <th>Ngày Tạo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                        @foreach (var item in Model)
+                        {
+                            <tr onclick="location.href='@Url.Action("QuizDetails","HeThongTaiLieu_GV",new { @idTopic = item.ID })'">
+                                <td width="15%">
+                                    @item.ID
+                                </td>
+                                <td>
+                                    @item.NameTopic
+                                </td>
+                                <td>
+                                    @item.CreateAt
+                                </td>
+                               
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+</script>

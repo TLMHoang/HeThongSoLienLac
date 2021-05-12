@@ -40,14 +40,26 @@ namespace DAL
             return lst;
 
         }
+        public async Task<DataTable> GetListTopic2(int idMon, int idTeacher)
+        {
+             return await ExecuteQuery_HTTL("selecttopic2",
+                  new SqlParameter("@idMon", SqlDbType.Int) { Value = idMon },
+                  new SqlParameter("@idteacher", SqlDbType.Int) { Value = idTeacher }
+                );                       
 
+        }
         public async Task<DataTable> GetQues(int IDQuiz)
         {
             return await ExecuteQuery_HTTL(
                 "selectQues",
                 new SqlParameter("@IDQuiz", SqlDbType.Int) { Value = IDQuiz });
         }
-
+        public async Task<DataTable> GetListQues_Ans(int IDQuiz)
+        {
+            return await ExecuteQuery_HTTL(
+                "SelectListQuest",
+                new SqlParameter("@IDQuiz", SqlDbType.Int) { Value = IDQuiz });
+        }
         public async Task<DataTable> GetAns(int IDQues)
         {
             return await ExecuteQuery_HTTL(
