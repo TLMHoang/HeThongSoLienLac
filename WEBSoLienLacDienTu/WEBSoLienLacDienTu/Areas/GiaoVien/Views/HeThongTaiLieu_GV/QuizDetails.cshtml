@@ -50,7 +50,7 @@
 
                         <tbody id="myTable">
 
-                            @foreach (var item in Model.GroupBy(x => x.Question).Select(x => x.First()))
+                            @foreach (var item in Model.GroupBy(x => x.ID).Select(x => x.FirstOrDefault(p => p.CorrectAns == 1)))
                             {
                                 <tr>
                                     <td width="15%">

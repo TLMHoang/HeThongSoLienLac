@@ -3,31 +3,37 @@
     ViewBag.Title = "Quiz";
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
-    <style>
-        #myTable:hover {
-            cursor: pointer;
-        }
-    </style>
+<style>
+    #myTable:hover {
+        cursor: pointer;
+    }
+
+    #myTable tr td {
+        padding: 0;
+    }
+
+    #myTable tr:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
 <h2>Danh Sách Tài Liệu Trắc Nghiệm Của Bạn</h2>
 <hr />
-@*<div class="row">
-
+<div class="row">
     <div style="margin-left: 10px">
-        <a href="@Url.Action("ThemHS_ByExcel")" class="btn btn-success btn-icon-split" style="margin: 2px 10px" id="Excel">
+        <a href="#" class="btn btn-success btn-icon-split" onclick="clearTextBox(); OpenModal();">
             <span class="icon text-white-50">
                 <i class="fas fa-plus-square"></i>
             </span>
-            <span>Thêm Tài Liệu Bằng Excel</span>
+            <span>Thêm</span>
         </a>
     </div>
-    <button class="btn btn-danger" style="margin-left: 10px" id="ExitButton"><i class="fas fa-sign-out-alt"></i></button>
 </div>
-
-<hr />*@
 <div class="container-fluid">
+    <hr />
     <!-- Page Heading -->
     <!-- DataTales Example -->
-    
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <form>
@@ -63,7 +69,7 @@
                                 <td>
                                     @item.CreateAt
                                 </td>
-                               
+
                             </tr>
                         }
                     </tbody>
@@ -74,7 +80,41 @@
 
 </div>
 
+<div class="modal hide fade in" id="ThemModal" tabindex="-1" role="dialog" aria-labelledby="QuanLyLopModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label id="MaLopModal" style="display: none"></label>
+                    <div class="form-group">
+                        <label for="sel1">Chọn Khối:</label>
+                        @if (ViewBag.LstKhoi != null)
+                        {
+                            @Html.DropDownList("LstKhoiModal", (IEnumerable<SelectListItem>)ViewBag.LstKhoi, "Vui Lòng Chọn Khối", new { @class = "form-control" })
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label for="TenLopModal">Tên Đề Tài</label>
+                        <input type="text" class="form-control" id="TenLopModal" />
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Them();">Thêm</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script>
     $(document).ready(function () {
         $("#myInput").on("keyup", function () {
@@ -84,5 +124,46 @@
             });
         });
     });
+    function OpenModal() {
+        $('#ThemModal').modal('show');
+    }
+    function validate() {
+        var isValid = true;
+        if ($('#TenLopModal').val().trim() == "") {
+            $('#TenLopModal').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#TenLopModal').css('border-color', 'lightgrey');
+        }
+        return isValid;
+    }
+    function clearTextBox() {
 
+        $('#TenLopModal').val("");
+        $('#TenLopModal').css('border-color', 'lightgrey');
+    }
+    function Them() {
+        var res = validate();
+        if (res == false) {
+            return false;
+        }
+       
+        $.ajax({
+            url: "/HeThongTaiLieu_GV/InsertQuiz",
+            data: JSON.stringify({ ten: $('#TenLopModal').val(),idKhoi:$("[name='LstKhoiModal']").val()}),
+            type: "POST",
+            async: true,
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                
+                $('#ThemModal').modal('toggle');
+                location.reload();
+            },
+            error: function (errormessage) {
+                alert("Vui Lòng Điền Đầy Đủ Thông Tin");
+            }
+        });
+    }
 </script>

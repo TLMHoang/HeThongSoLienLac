@@ -140,6 +140,4 @@ function clearTextBox() {
 
     $('#TenLopModal').val("");
     $('#TenLopModal').css('border-color', 'lightgrey');
-    $('#btnUpdate').hide();
-    $('#btnAdd').show();
 }
