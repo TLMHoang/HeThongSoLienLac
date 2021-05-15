@@ -156,5 +156,15 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         {
             return View();
         }
+        public ActionResult Import_Documents()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Import_Documents(HttpPostedFileBase file)
+        {
+            
+            return View();
+        }
     }
 }

@@ -20,13 +20,27 @@
     tr:nth-child(even) {
         background-color: #dddddd;
     }
-    #link_document:hover{
-        text-decoration:underline;
-        cursor:pointer;
-        color:blue;
+
+    #link_document:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: blue;
     }
 </style>
 <h2>Tài Liệu Download</h2>
+<hr />
+<div class="row">
+
+    <div style="margin-left: 10px">
+        <a href="@Url.Action("Import_Documents")" class="btn btn-success btn-icon-split" style="margin: 2px 10px" id="UploadGG">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <span>Upload Tài Liệu</span>
+        </a>
+    </div>
+</div>
+
 <hr />
 <table>
     <tr>
@@ -41,6 +55,6 @@
         <td>Germany</td>
         <td>xóa</td>
     </tr>
-    
+
 </table>
 

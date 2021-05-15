@@ -413,6 +413,7 @@
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Documents.cshtml" />
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\QuizDetails.cshtml" />
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Import_Quiz.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Import_Documents.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
