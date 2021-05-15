@@ -152,19 +152,84 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             return View();
         }
 
-        public ActionResult Documents()
+        public async Task<ActionResult> Documents()
         {
-            return View();
+            List<DocumentModel> list = new List<DocumentModel>();
+            DataTable dtFiles = await new HeThongTaiLieuDAL().SelectDocuments(HomeGiaoVienController.TK.ID,-1,HomeGiaoVienController.TK.IDMonHoc);
+            foreach (DataRow dr in dtFiles.Rows)
+            {
+                list.Add(new DocumentModel(dr));
+            }            
+            return View(list);
         }
         public ActionResult Import_Documents()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Import_Documents(HttpPostedFileBase file)
+        public async Task<ActionResult> Import_Documents(HttpPostedFileBase files)
         {
+            DocumentModel model = new DocumentModel();
             
+            if (files != null)
+            {
+                
+                var fileName = "file-" + DateTime.Now.ToString("yyyyMMddHHmmssfff") +"-"+ files.FileName;
+                string path = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
+                model.Path = Url.Content(Path.Combine("~/UploadedFiles/", fileName));
+                model.NameDocument = fileName;
+                model.IDTeacher = HomeGiaoVienController.TK.ID;
+                model.IDKhoi = 1;
+                model.IDSubject = HomeGiaoVienController.TK.IDMonHoc;
+
+                if (await SaveFile(model) != 0)
+                {
+                    files.SaveAs(path);
+                    ViewBag.AlertMessage = "Uploaded Successfully !";                    
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Lỗi, Vui Lòng Kiểm Tra Lại !!!");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Vui Lòng Chọn Đúng Định Dạng File !!");
+                return View();
+            }
             return View();
+            
+        }
+        public ActionResult DownloadFile(string filePath)
+        {
+            string fullName = Server.MapPath("~" + filePath);
+            byte[] fileBytes = GetFile(fullName);
+            return File(
+                fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, filePath.Substring(38, filePath.Length - 38));//substring at 1 - >38 return filename
+        }
+        public async Task<JsonResult> DeleteDocument(int ID,string path)
+        {
+            string fullPath = Server.MapPath("~" + path);
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+            return Json(await new HeThongTaiLieuDAL().DeleteDocument(ID),JsonRequestBehavior.AllowGet);
+        }
+        private async Task<int> SaveFile(DocumentModel document)
+        {
+            return await new HeThongTaiLieuDAL().InsertDocument(document.IDTeacher, DateTime.Now, document.IDKhoi, document.IDSubject, document.Path, document.NameDocument);
+            
+        }
+        
+        byte[] GetFile(string s)
+        {
+            System.IO.FileStream fs = System.IO.File.OpenRead(s);
+            byte[] data = new byte[fs.Length];
+            int br = fs.Read(data, 0, data.Length);
+            if (br != fs.Length)
+                throw new System.IO.IOException(s);
+            return data;
         }
     }
 }

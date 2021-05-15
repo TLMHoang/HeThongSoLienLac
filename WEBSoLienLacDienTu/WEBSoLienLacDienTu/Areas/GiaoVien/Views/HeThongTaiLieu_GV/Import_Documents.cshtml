@@ -4,21 +4,33 @@
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
 
-<h2>Import_Documents</h2>
+<h2>Tải Tài Liệu Lên</h2>
 
 
 @using (Html.BeginForm("Import_Documents", "HeThongTaiLieu_GV", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="row" style="margin-top:10px;margin-bottom:10px;">
+
         <div class="col-md-2"><label for="file">Upload file :</label></div>
         <div class="col-md-10">
-            <input type="file" name="file" id="file" />
+            <input type="file" name="files" id="file" required="required" />
         </div>
         <div class="col-md-2">
             <br />
-            <input type="submit" class="btn btn-success" value="Upload" />
+            <input type="submit" class="btn btn-success" value="Tải Lên" />
         </div>
     </div>
 }
 
-@ViewBag.Success
+
+@if (ViewBag.AlertMessage != null)
+{
+<script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewBag.AlertMessage");
+                    window.location.href = '@Url.Action("Documents","HeThongTaiLieu_GV")';
+                }
+</script>
+}

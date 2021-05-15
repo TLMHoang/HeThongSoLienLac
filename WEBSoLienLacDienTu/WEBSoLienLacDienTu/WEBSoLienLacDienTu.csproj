@@ -208,6 +208,7 @@
     <Compile Include="Areas\HeThongTaiLieu\Controllers\UserController.cs" />
     <Compile Include="Areas\HeThongTaiLieu\HeThongTaiLieuAreaRegistration.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\AnswerModel.cs" />
+    <Compile Include="Areas\HeThongTaiLieu\Model\DocumentModel.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\Login_HocSinhModel.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\MergeQues.cs" />
     <Compile Include="Areas\HeThongTaiLieu\Model\QuestionModel.cs" />
@@ -280,15 +281,18 @@
     <Content Include="Assets\Css\UpdateTKTruong.css" />
     <Content Include="Assets\Img\Admin_Image.png" />
     <Content Include="Assets\Img\BHYT_Image.png" />
+    <Content Include="Assets\Img\delete_img.png" />
     <Content Include="Assets\Img\DiemDanh_Image.png" />
     <Content Include="Assets\Img\document_img.png" />
     <Content Include="Assets\Img\DongHPOnline_Image.png" />
+    <Content Include="Assets\Img\download_img.png" />
     <Content Include="Assets\Img\HTTL_img.png" />
     <Content Include="Assets\Img\LienKetPHHS_Image.png" />
     <Content Include="Assets\Img\List_Image.png" />
     <Content Include="Assets\Img\logo_User.jpg" />
     <Content Include="Assets\Img\mark_Image.png" />
     <Content Include="Assets\Img\PhanCong_Image.png" />
+    <Content Include="Assets\Img\preview_img.png" />
     <Content Include="Assets\Img\QLHocPhi_Image.png" />
     <Content Include="Assets\Img\QLHocSinh_Image.png" />
     <Content Include="Assets\Img\QLMon_Image.png" />
@@ -471,6 +475,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\HeThongTaiLieu\Code\" />
     <Folder Include="Areas\HeThongTaiLieu\Data\" />
+    <Folder Include="UploadedFiles\" />
     <Folder Include="Views\HeThongTaiLieu\" />
     <Folder Include="Views\IPN\" />
   </ItemGroup>

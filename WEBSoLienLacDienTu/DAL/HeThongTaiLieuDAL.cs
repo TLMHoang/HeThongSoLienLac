@@ -9,7 +9,7 @@ using WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model;
 
 namespace DAL
 {
-    public class HeThongTaiLieuDAL:SQL.SQLHelper
+    public class HeThongTaiLieuDAL : SQL.SQLHelper
     {
         public async Task<DataTable> StudenLogin(string TaiKhoan, string MatKhau)
         {
@@ -24,7 +24,13 @@ namespace DAL
                 "InsertStudents",
                 new SqlParameter("@TaiKhoan", SqlDbType.NVarChar) { Value = TaiKhoan },
                 new SqlParameter("@NgayTao", SqlDbType.Date) { Value = DateTime.Now },
-            new SqlParameter("@MatKhau", SqlDbType.NVarChar) { Value = MatKhau });
+                new SqlParameter("@MatKhau", SqlDbType.NVarChar) { Value = MatKhau });
+        }
+        public async Task<int> DeleteDocument(int ID)
+        {
+            return await ExecuteNonQuery_HTTL(
+                "DeleteDocument",
+                new SqlParameter("@ID", SqlDbType.Int) { Value = ID });
         }
         public async Task<List<QuesTopicModel>> GetListTopic(int idMon, int idKhoi)
         {
@@ -42,10 +48,10 @@ namespace DAL
         }
         public async Task<DataTable> GetListTopic2(int idMon, int idTeacher)
         {
-             return await ExecuteQuery_HTTL("selecttopic2",
-                  new SqlParameter("@idMon", SqlDbType.Int) { Value = idMon },
-                  new SqlParameter("@idteacher", SqlDbType.Int) { Value = idTeacher }
-                );                       
+            return await ExecuteQuery_HTTL("selecttopic2",
+                 new SqlParameter("@idMon", SqlDbType.Int) { Value = idMon },
+                 new SqlParameter("@idteacher", SqlDbType.Int) { Value = idTeacher }
+               );
 
         }
         public async Task<DataTable> GetQues(int IDQuiz)
@@ -54,7 +60,7 @@ namespace DAL
                 "selectQues",
                 new SqlParameter("@IDQuiz", SqlDbType.Int) { Value = IDQuiz });
         }
-        public async Task<DataTable> InsertQues(string ques, int idquiz,int level)
+        public async Task<DataTable> InsertQues(string ques, int idquiz, int level)
         {
             return await ExecuteQuery_HTTL("insertQuesTopic",
                  new SqlParameter("@Question", SqlDbType.NVarChar) { Value = ques },
@@ -62,7 +68,7 @@ namespace DAL
                  new SqlParameter("@Level", SqlDbType.Int) { Value = level }
                );
         }
-        public async Task<int> InsertAns(int IDQues,string Ans,string Ex, byte correct)
+        public async Task<int> InsertAns(int IDQues, string Ans, string Ex, byte correct)
         {
             return await ExecuteNonQuery_HTTL(
                 "insertAns",
@@ -72,15 +78,36 @@ namespace DAL
             new SqlParameter("@correct", SqlDbType.Bit) { Value = correct }
             );
         }
-        public async Task<int> InsertQuiz(int IDMon,int IDGV,DateTime NgayTao, string Ten, int IDKhoi)
+        public async Task<int> InsertDocument(int IdTeacher, DateTime NgayTao, int IdKhoi, int IdMon, string DuongDan, string Ten)
+        {
+            return await ExecuteNonQuery_HTTL(
+                "InsertDocument",
+                new SqlParameter("@IdTeacher", SqlDbType.Int) { Value = IdTeacher },
+                new SqlParameter("@NgayTao", SqlDbType.Date) { Value = NgayTao },
+                new SqlParameter("@IDKhoi", SqlDbType.Int) { Value = IdKhoi },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = IdMon },
+                new SqlParameter("@path", SqlDbType.NVarChar) { Value = DuongDan },
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = Ten }
+            );
+        }
+        public async Task<DataTable> SelectDocuments(int IdTeacher,int IdKhoi,int IdMon)
+        {
+            return await ExecuteQuery_HTTL(
+                "SelectDocuments",
+                new SqlParameter("@IDTeacher", SqlDbType.Int) { Value = IdTeacher },
+                new SqlParameter("@IDKhoi", SqlDbType.Int) { Value = IdKhoi },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = IdMon }
+                );
+        }
+        public async Task<int> InsertQuiz(int IDMon, int IDGV, DateTime NgayTao, string Ten, int IDKhoi)
         {
             return await ExecuteNonQuery_HTTL(
                 "insertQuiz",
                 new SqlParameter("@IdMon", SqlDbType.Int) { Value = IDMon },
                 new SqlParameter("@IdGV", SqlDbType.Int) { Value = IDGV },
-            new SqlParameter("@NgayTao", SqlDbType.DateTime) { Value = NgayTao },
-            new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = Ten },
-            new SqlParameter("@IdKhoi", SqlDbType.Int) { Value = IDKhoi }
+                new SqlParameter("@NgayTao", SqlDbType.DateTime) { Value = NgayTao },
+                new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = Ten },
+                new SqlParameter("@IdKhoi", SqlDbType.Int) { Value = IDKhoi }
             );
         }
         public async Task<DataTable> GetListQues_Ans(int IDQuiz)
@@ -96,7 +123,7 @@ namespace DAL
                 new SqlParameter("@IDQues", SqlDbType.Int) { Value = IDQues });
         }
 
-        public async Task<DataTable> GetScores(int IDStudent,int IDTopic)
+        public async Task<DataTable> GetScores(int IDStudent, int IDTopic)
         {
             return await ExecuteQuery_HTTL(
                 "selectScores",
@@ -105,7 +132,7 @@ namespace DAL
                 );
         }
 
-        public async Task<int> CreateScores(int IDStudent, int IDTopic,int efficiencyLevel)
+        public async Task<int> CreateScores(int IDStudent, int IDTopic, int efficiencyLevel)
         {
             return await ExecuteNonQuery_HTTL(
                 "insertScores",

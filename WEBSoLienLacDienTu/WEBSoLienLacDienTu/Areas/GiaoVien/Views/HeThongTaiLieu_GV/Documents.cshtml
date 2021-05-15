@@ -11,6 +11,17 @@
         margin: 0 auto;
     }
 
+    #downloadFile:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: blue;
+    }
+
+    .table th, .table td {
+        padding: 0;
+    }
+
+
     td, th {
         border: 1px solid #dddddd;
         text-align: left;
@@ -42,19 +53,52 @@
 </div>
 
 <hr />
-<table>
+<table class="table table-striped table-bordered table-hover">
     <tr>
         <th>Mã Tài Liệu</th>
         <th>Tên Tài Liệu</th>
         <th>Ngày Tải Lên</th>
         <th></th>
     </tr>
-    <tr>
-        <td id="link_document">Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-        <td>xóa</td>
-    </tr>
+    @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.DocumentModel>)
+    {
+        <tr>
 
-</table>
+            <td>@item.ID</td>
+            <td id="downloadFile" onclick="window.location.href='/GiaoVien/HeThongTaiLieu_GV/DownloadFile?filePath=@item.Path'">@item.NameDocument</td>
+            <td>@item.CreateAt.ToString("dd/MM/yyyy")</td>
+            <td>
 
+                <a href="#">
+                    <img alt="preview_document" src="~/Assets/Img/preview_img.png" width="30px" height="25px">
+                </a>
+                <a href="#" style="margin-left:10px;" onclick="DeleteDocument(@item.ID,'@item.Path');">
+                    <img alt="delete_document" src="~/Assets/Img/delete_img.png" width="30px" height="25px">
+                </a>
+            </td>
+        </tr>
+        }
+
+
+    </table>
+<script>
+    function DeleteDocument(ID,path) {
+        var ans = confirm("Bạn Có Chắc Muốn Xóa Tài Liệu Này ?");
+        if (ans) {
+            $.ajax({
+                url: "/HeThongTaiLieu_GV/DeleteDocument/",
+                data: JSON.stringify({ID:ID,path:path}),
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert("Xóa Thành Công");
+                    location.reload();
+                },
+                error: function (errormessage) {
+                    alert("Lỗi!");
+                }
+            });
+        }
+    }
+</script>
