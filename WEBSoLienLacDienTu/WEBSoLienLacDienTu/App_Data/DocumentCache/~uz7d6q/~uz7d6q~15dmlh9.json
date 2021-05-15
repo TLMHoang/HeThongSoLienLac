@@ -1,0 +1,29 @@
+{
+  "CacheSourceKey": "uz7d6q",
+  "CachePdfKey": "uz7d6q/uz7d6q-npq31v.pdf",
+  "CacheXpzKey": "uz7d6q/uz7d6q-15dmlh9.xpz",
+  "CacheInfoKey": "uz7d6q/uz7d6q-15dmlh9.json",
+  "CacheCopyKey": null,
+  "Document": "file-20210515165626237-R2S_Note_Application_v1.0.pdf",
+  "DocumentHandlerType": null,
+  "DocumentHandlerParameters": null,
+  "DocumentLocation": "D:\\Study\\Project\\HeThongSoLienLac\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\UploadedFiles",
+  "DocumentFileName": "file-20210515165626237-R2S_Note_Application_v1.0.pdf",
+  "InputOptions": {
+    "Format": "Pdf",
+    "Password": null
+  },
+  "PdfOutputOptions": {
+    "Watermarks": [],
+    "FastWebViewEnabled": false,
+    "Password": null,
+    "Attachments": [],
+    "Format": "Pdf"
+  },
+  "XpzOutputOptions": {
+    "Password": "uz7d6q",
+    "HighQualityEnabled": false,
+    "Format": "Xpz"
+  },
+  "Attachments": []
+}

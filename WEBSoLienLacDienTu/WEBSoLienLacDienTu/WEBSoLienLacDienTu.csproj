@@ -53,6 +53,12 @@
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GleamTech.Common, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a05198837413a6d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\GleamTech.Common.4.5.3\lib\net40\GleamTech.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GleamTech.DocumentUltimate, Version=5.7.0.0, Culture=neutral, PublicKeyToken=a05198837413a6d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\GleamTech.DocumentUltimate.5.9.6\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -418,6 +424,10 @@
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\QuizDetails.cshtml" />
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Import_Quiz.cshtml" />
     <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\Import_Documents.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\ViewDocument.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\ViewDocument.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Document.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Notfound_Quiz.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -436,6 +446,7 @@
     <Content Include="Scripts\ldld.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\_Layout.js" />
+    <Content Include="UploadedFiles\file-20210515125532132-download_img.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -475,7 +486,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\HeThongTaiLieu\Code\" />
     <Folder Include="Areas\HeThongTaiLieu\Data\" />
-    <Folder Include="UploadedFiles\" />
+    <Folder Include="SourceDocument\" />
     <Folder Include="Views\HeThongTaiLieu\" />
     <Folder Include="Views\IPN\" />
   </ItemGroup>

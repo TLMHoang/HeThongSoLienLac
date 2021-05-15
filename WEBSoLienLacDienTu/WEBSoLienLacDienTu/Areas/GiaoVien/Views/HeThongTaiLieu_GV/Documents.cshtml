@@ -69,7 +69,7 @@
             <td>@item.CreateAt.ToString("dd/MM/yyyy")</td>
             <td>
 
-                <a href="#">
+                <a target="_blank" href="@Url.Action("ViewDocument","HeThongTaiLieu_GV",new { @fileName=item.NameDocument,@path= item.Path })">
                     <img alt="preview_document" src="~/Assets/Img/preview_img.png" width="30px" height="25px">
                 </a>
                 <a href="#" style="margin-left:10px;" onclick="DeleteDocument(@item.ID,'@item.Path');">

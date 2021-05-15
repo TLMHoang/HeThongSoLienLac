@@ -175,6 +175,10 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             {
                 
                 var fileName = "file-" + DateTime.Now.ToString("yyyyMMddHHmmssfff") +"-"+ files.FileName;
+                if (!Directory.Exists(Server.MapPath("~/UploadedFiles")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/UploadedFiles"));
+                }
                 string path = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
                 model.Path = Url.Content(Path.Combine("~/UploadedFiles/", fileName));
                 model.NameDocument = fileName;
@@ -185,6 +189,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
                 if (await SaveFile(model) != 0)
                 {
                     files.SaveAs(path);
+                    
                     ViewBag.AlertMessage = "Uploaded Successfully !";                    
                 }
                 else
@@ -200,7 +205,14 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             return View();
             
         }
-        public ActionResult DownloadFile(string filePath)
+        public ActionResult ViewDocument(string fileName,string path)
+        {
+            string ReportURL = Server.MapPath("~" + path);
+            ViewBag.Link = ReportURL;
+            return View();
+            
+        }
+        public FileResult DownloadFile(string filePath)
         {
             string fullName = Server.MapPath("~" + filePath);
             byte[] fileBytes = GetFile(fullName);

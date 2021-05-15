@@ -99,6 +99,14 @@ namespace DAL
                 new SqlParameter("@IDMon", SqlDbType.Int) { Value = IdMon }
                 );
         }
+        public async Task<DataTable> SelectDocuments_Student(int IdKhoi, int IdMon)
+        {
+            return await ExecuteQuery_HTTL(
+                "SelectDocuments_Student",
+                new SqlParameter("@IDKhoi", SqlDbType.Int) { Value = IdKhoi },
+                new SqlParameter("@IDMon", SqlDbType.Int) { Value = IdMon }
+                );
+        }
         public async Task<int> InsertQuiz(int IDMon, int IDGV, DateTime NgayTao, string Ten, int IDKhoi)
         {
             return await ExecuteNonQuery_HTTL(

@@ -20,10 +20,13 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public static int iDQuiz;
         public static float coefficient;
         public static float scores;
-        public static List<QuestionModel> lstQues_level =new List<QuestionModel>();
+        public static List<QuestionModel> lstQues_level = new List<QuestionModel>();
         public static List<AnswerModel> lstAns_Check = new List<AnswerModel>();
-        public static float combo=0;
+        public static float combo = 0;
         int idQues;
+        public static int idKhoi;
+        public static int sta_IdMon;
+
         // GET: HeThongTaiLieu/User
         public ActionResult Index()
         {
@@ -90,23 +93,28 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public async Task<ActionResult> Selected_Topic(int idMon)
         {
             Lop l = await new KhoiDAL().SelectKhoi_ByIDLop(hocsinh.IDLop);
+            idKhoi = l.IDKhoi;
+            sta_IdMon = idMon;
             return View(await new HeThongTaiLieuDAL().GetListTopic(idMon, l.IDKhoi));
         }
 
         public async Task<ActionResult> Test_Student(int idquiz)
         {
-            var random = new Random();
-            scores = 0;
-            MergeQues mymodel = new MergeQues();
-            DataTable dt = new DataTable();
-            List<QuestionModel> lstQues = await getQues(idquiz);
-            iDQuiz = idquiz;
-            lstAns_Check = await getAns(-1);
+            List<QuestionModel> lst = await getQues(idquiz);
+            if (lst.Count != 0)
+            {
+                scores = 0;
+                MergeQues mymodel = new MergeQues();
+                DataTable dt = new DataTable();
+                List<QuestionModel> lstQues = await getQues(idquiz);
+                iDQuiz = idquiz;
+                lstAns_Check = await getAns(-1);
 
-            mymodel = await GetListQuestion(idquiz);               
-                       
-            
-            return View(mymodel);
+                mymodel = await GetListQuestion(idquiz);
+                return View(mymodel);
+            }
+            else
+                return RedirectToAction("Notfound_Quiz");
         }
 
         [HttpPost]
@@ -116,11 +124,11 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             var random = new Random();//DECLARE VAR RANDOM
             MergeQues mymodel = new MergeQues();
             AnswerModel answer = lstAns_Check.FirstOrDefault(x => x.ID == int.Parse(resultAnswer));
-            
-            if(answer.CorrectAns == 1)
+
+            if (answer.CorrectAns == 1)
             {
                 combo += coefficient;
-                if(combo >= 0.5)
+                if (combo >= 0.5)
                 {
                     int level = await checkScores();
                     if (level == 3)
@@ -188,10 +196,10 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             {
                 combo = 0;
                 scores -= coefficient;
-                if(scores <= -0.3)
+                if (scores <= -0.3)
                 {
                     int level = await checkScores();
-                    if(level == 1)
+                    if (level == 1)
                     {
                         await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
                         scores = 0;
@@ -201,7 +209,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level - 1);
                         lstQues_level.Clear();
                         scores = 0;
-                    }                    
+                    }
                     mymodel = await GetListQuestion(iDQuiz);
                 }
                 else
@@ -221,13 +229,13 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         {
                             r = random.Next(lstQues_level.Count);
                         } while (r == lastAnsID);
-                    }                    
+                    }
                     QuestionModel question = lstQues_level[r];
                     List<AnswerModel> lstAns = await getAns(question.ID);
                     mymodel.Question = question;
                     mymodel.LstAns = lstAns;
-                }                
-            }  
+                }
+            }
             return View(mymodel);
         }
         public async Task<MergeQues> GetListQuestion(int idQuiz)
@@ -236,9 +244,8 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             DataTable dt = new DataTable();
             List<QuestionModel> lst = await getQues(idQuiz);
             var random = new Random();
-            int level =await checkScores();            
+            int level = await checkScores();
             lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
-            
             QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
             List<AnswerModel> lstAns = await getAns(question.ID);
             idQues = question.ID;
@@ -248,13 +255,18 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             coefficient = 1 / float.Parse(dt.Rows[0][0].ToString());
             return mymodel;
         }
+        public ActionResult Notfound_Quiz()
+        {
+            return View();
+        }
         public JsonResult showResult(int idAns)
         {
             AnswerModel ans = lstAns_Check.FirstOrDefault(x => x.ID == idAns);
             AnswerModel correctAns = lstAns_Check.FirstOrDefault(x => x.IDQues == ans.IDQues && x.CorrectAns == 1);
             return Json(correctAns, JsonRequestBehavior.AllowGet);
         }
-        public async Task<List<QuestionModel>> getQues(int idquiz){
+        public async Task<List<QuestionModel>> getQues(int idquiz)
+        {
             List<QuestionModel> lst = new List<QuestionModel>();
             DataTable dt = await new HeThongTaiLieuDAL().GetQues(idquiz);
             foreach (DataRow item in dt.Rows)
@@ -273,14 +285,14 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             }
             return lst;
         }
-        
+
         public async Task<int> checkScores()
         {
             int result;
             DataTable dt = await httl.GetScores(iDStudent_HTTL, iDQuiz);
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
-                await httl.CreateScores(iDStudent_HTTL, iDQuiz,1);
+                await httl.CreateScores(iDStudent_HTTL, iDQuiz, 1);
                 result = 1;
             }
             else
@@ -288,6 +300,22 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                 result = int.Parse(dt.Rows[0][3].ToString());
             }
             return result;
+        }
+        public ActionResult ViewDocument(string fileName, string path)
+        {
+            string ReportURL = Server.MapPath("~" + path);
+            ViewBag.Link = ReportURL;
+            return View();
+        }
+        public async Task<ActionResult> Document()
+        {
+            List<DocumentModel> list = new List<DocumentModel>();
+            DataTable dtFiles = await new HeThongTaiLieuDAL().SelectDocuments_Student(idKhoi, sta_IdMon);
+            foreach (DataRow dr in dtFiles.Rows)
+            {
+                list.Add(new DocumentModel(dr));
+            }
+            return View(list);
         }
     }
 }

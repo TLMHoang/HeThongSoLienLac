@@ -1,0 +1,33 @@
+{
+  "CacheSourceKey": "wprq7v",
+  "CachePdfKey": "wprq7v/wprq7v-4z1dcu.pdf",
+  "CacheXpzKey": "wprq7v/wprq7v-1tyrjzh.xpz",
+  "CacheInfoKey": "wprq7v/wprq7v-1tyrjzh.json",
+  "CacheCopyKey": null,
+  "Document": "file-20210515182905883-kiem_thu.docx",
+  "DocumentHandlerType": null,
+  "DocumentHandlerParameters": null,
+  "DocumentLocation": "D:\\Study\\Project\\HeThongSoLienLac\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\UploadedFiles",
+  "DocumentFileName": "file-20210515182905883-kiem_thu.docx",
+  "InputOptions": {
+    "$type": "GleamTech.DocumentUltimate.WordProcessingInputOptions, GleamTech.DocumentUltimate",
+    "FieldFileName": null,
+    "UpdateFields": true,
+    "Encoding": null,
+    "Format": "Docx",
+    "Password": null
+  },
+  "PdfOutputOptions": {
+    "Watermarks": [],
+    "FastWebViewEnabled": false,
+    "Password": null,
+    "Attachments": [],
+    "Format": "Pdf"
+  },
+  "XpzOutputOptions": {
+    "Password": "wprq7v",
+    "HighQualityEnabled": false,
+    "Format": "Xpz"
+  },
+  "Attachments": []
+}

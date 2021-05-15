@@ -1,0 +1,29 @@
+{
+  "CacheSourceKey": "i6rco8",
+  "CachePdfKey": "i6rco8/i6rco8-jfz4vm.pdf",
+  "CacheXpzKey": "i6rco8/i6rco8-2dvnvg.xpz",
+  "CacheInfoKey": "i6rco8/i6rco8-2dvnvg.json",
+  "CacheCopyKey": null,
+  "Document": "file-20210515125532132-download_img.png",
+  "DocumentHandlerType": null,
+  "DocumentHandlerParameters": null,
+  "DocumentLocation": "D:\\Study\\Project\\HeThongSoLienLac\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\UploadedFiles",
+  "DocumentFileName": "file-20210515125532132-download_img.png",
+  "InputOptions": {
+    "Format": "Png",
+    "Password": null
+  },
+  "PdfOutputOptions": {
+    "Watermarks": [],
+    "FastWebViewEnabled": false,
+    "Password": null,
+    "Attachments": [],
+    "Format": "Pdf"
+  },
+  "XpzOutputOptions": {
+    "Password": "i6rco8",
+    "HighQualityEnabled": false,
+    "Format": "Xpz"
+  },
+  "Attachments": []
+}

@@ -94,6 +94,10 @@ namespace WEBSoLienLacDienTu.Areas.Admin.Controllers
                         if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
                         {
                             string fileName = file.FileName;
+                            if (!Directory.Exists(Server.MapPath("~/Content/Upload")))
+                            {
+                                Directory.CreateDirectory(Server.MapPath("~/Content/Upload"));
+                            }
                             string path = Server.MapPath("~/Content/Upload/" + fileName);
                             file.SaveAs(path);
                             var excelData = new ExcelData(path);

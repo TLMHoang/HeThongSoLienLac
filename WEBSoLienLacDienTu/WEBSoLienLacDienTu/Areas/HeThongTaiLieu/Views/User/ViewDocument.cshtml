@@ -1,0 +1,36 @@
+﻿@using GleamTech.AspNet.Mvc
+@using GleamTech.DocumentUltimate
+@using GleamTech.DocumentUltimate.AspNet
+@using GleamTech.DocumentUltimate.AspNet.UI
+@{
+    ViewBag.Title = "ViewDocument";
+    Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
+}
+
+<h2 class="title-page">Xem Tài Liệu</h2>
+
+<style>
+    #documentViewer {
+        width: 100% !important;
+    }
+</style>
+<!DOCTYPE html>
+@{
+    var documentViewer = new DocumentViewer
+    {
+        Width = 1000,
+        Height = 800,
+        Document = ViewBag.Link
+    };
+}
+<html>
+<head>
+
+    @this.RenderHead(documentViewer)
+</head>
+<body>
+
+    @this.RenderBody(documentViewer)
+</body>
+</html>
+
