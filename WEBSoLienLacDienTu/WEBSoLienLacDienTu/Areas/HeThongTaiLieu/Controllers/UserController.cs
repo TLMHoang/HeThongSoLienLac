@@ -62,7 +62,8 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         hocsinh = new ThongTinHS(dt.Rows[0]);
                         if (await httl.CreateStudent(hs.UserName, hs.UserName) != 0)
                         {
-                            iDStudent_HTTL = int.Parse(result.Rows[0][0].ToString());
+                            DataTable result1 = await httl.StudenLogin(hs.UserName, hs.PassWord);
+                            iDStudent_HTTL = int.Parse(result1.Rows[0][0].ToString());
                             Session["StudentName"] = hocsinh.Ten.ToString();
                             return RedirectToAction("Index");
                         }
