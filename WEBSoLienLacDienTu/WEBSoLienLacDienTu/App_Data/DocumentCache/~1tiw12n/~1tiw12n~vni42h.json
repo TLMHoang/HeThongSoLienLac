@@ -1,0 +1,29 @@
+{
+  "CacheSourceKey": "1tiw12n",
+  "CachePdfKey": "1tiw12n/1tiw12n-1l5d4zc.pdf",
+  "CacheXpzKey": "1tiw12n/1tiw12n-vni42h.xpz",
+  "CacheInfoKey": "1tiw12n/1tiw12n-vni42h.json",
+  "CacheCopyKey": null,
+  "Document": "file-20210518224258530-dethiToan.jpg",
+  "DocumentHandlerType": null,
+  "DocumentHandlerParameters": null,
+  "DocumentLocation": "E:\\DoAn\\HeThongSoLienLac\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\UploadedFiles",
+  "DocumentFileName": "file-20210518224258530-dethiToan.jpg",
+  "InputOptions": {
+    "Format": "Jpg",
+    "Password": null
+  },
+  "PdfOutputOptions": {
+    "Watermarks": [],
+    "FastWebViewEnabled": false,
+    "Password": null,
+    "Attachments": [],
+    "Format": "Pdf"
+  },
+  "XpzOutputOptions": {
+    "Password": "1tiw12n",
+    "HighQualityEnabled": false,
+    "Format": "Xpz"
+  },
+  "Attachments": []
+}

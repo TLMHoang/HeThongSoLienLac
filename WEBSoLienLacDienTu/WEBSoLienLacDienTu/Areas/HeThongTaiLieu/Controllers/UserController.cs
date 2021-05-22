@@ -318,5 +318,22 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             }
             return View(list);
         }
+        ///
+        public async Task<ActionResult> TuLuan()
+        {
+            List<DocumentModel> list = new List<DocumentModel>();
+            DataTable dtFiles = await new HeThongTaiLieuDAL().SelectDocuments_Student(idKhoi, sta_IdMon);
+            foreach (DataRow dr in dtFiles.Rows)
+            {
+                list.Add(new DocumentModel(dr));
+            }
+            return View(list);
+        }
+        public ActionResult DeThi(string fileName, string path)
+        {
+            string ReportURL = Server.MapPath("~" + path);
+            ViewBag.Link = ReportURL;
+            return View();
+        }
     }
 }
