@@ -4,7 +4,7 @@
     Layout = "~/Areas/GiaoVien/Views/Shared/_LayoutGiaoVien.cshtml";
 }
 
-<h2>Thêm Dữ Liệu Ngân Hàng Trắc Nghiệm</h2>
+<h2>Thêm Dữ Liệu</h2>
 
 <div class="row">
     <div class="col-lg-3"></div>
@@ -18,7 +18,8 @@
             @Html.ValidationMessageFor(model => model.file, null, new { @class = "text-danger" })
         }
         <hr />
-        <a href="https://drive.google.com/file/d/1wwRdOdFcoJnYeeYax2Hvlkd7uXztWH63/view?usp=sharing" style="color: blue" target="_blank">Lấy File Excel Mẫu</a>
+        <a href="https://drive.google.com/file/d/1wwRdOdFcoJnYeeYax2Hvlkd7uXztWH63/view?usp=sharing" style="color: blue" target="_blank">Lấy File Excel Trắc Nghiệm</a> <br />
+        <a href="https://drive.google.com/file/d/1O9jOF8f1fkngZjeMN2DlsqD3qGOk3GKh/view?usp=sharing" style="color: blue" target="_blank">Lấy File Excel Mẫu Tự Luận</a>
         <button class="btn btn-danger" onclick="window.location.href='/GiaoVien/HomeGiaoVien/Index'" style="margin-left: 10px;float: right" id="TurnBack"><i class="fas fa-sign-out-alt"></i></button>
     </div>
     <div class="col-lg-3"></div>

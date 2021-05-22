@@ -1,0 +1,29 @@
+{
+  "CacheSourceKey": "p6br4w",
+  "CachePdfKey": "p6br4w/p6br4w-npq31v.pdf",
+  "CacheXpzKey": "p6br4w/p6br4w-1yple0g.xpz",
+  "CacheInfoKey": "p6br4w/p6br4w-1yple0g.json",
+  "CacheCopyKey": null,
+  "Document": "file-20210522171529287-DE_1_18_01_2021.pdf",
+  "DocumentHandlerType": null,
+  "DocumentHandlerParameters": null,
+  "DocumentLocation": "D:\\Study\\Project\\HeThongSoLienLac\\WEBSoLienLacDienTu\\WEBSoLienLacDienTu\\UploadedFiles",
+  "DocumentFileName": "file-20210522171529287-DE_1_18_01_2021.pdf",
+  "InputOptions": {
+    "Format": "Pdf",
+    "Password": null
+  },
+  "PdfOutputOptions": {
+    "Watermarks": [],
+    "FastWebViewEnabled": false,
+    "Password": null,
+    "Attachments": [],
+    "Format": "Pdf"
+  },
+  "XpzOutputOptions": {
+    "Password": "p6br4w",
+    "HighQualityEnabled": false,
+    "Format": "Xpz"
+  },
+  "Attachments": []
+}

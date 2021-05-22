@@ -428,6 +428,9 @@
     <Content Include="Areas\HeThongTaiLieu\Views\User\ViewDocument.cshtml" />
     <Content Include="Areas\HeThongTaiLieu\Views\User\Document.cshtml" />
     <Content Include="Areas\HeThongTaiLieu\Views\User\Notfound_Quiz.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\HeThongTaiLieu_GV\QuizDetails_Essay.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\Test_Student_Essay.cshtml" />
+    <Content Include="Areas\HeThongTaiLieu\Views\User\EndEssay.cshtml" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

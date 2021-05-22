@@ -26,6 +26,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         int idQues;
         public static int idKhoi;
         public static int sta_IdMon;
+        public static int sta_CountLstEssay=0;
 
         // GET: HeThongTaiLieu/User
         public ActionResult Index()
@@ -98,7 +99,44 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             sta_IdMon = idMon;
             return View(await new HeThongTaiLieuDAL().GetListTopic(idMon, l.IDKhoi));
         }
-
+        public async Task<ActionResult> Test_Student_Essay(int idquiz)
+        {
+            List<QuestionModel> lst = await getQues(idquiz);
+            lstQues_level = lst;
+            if (lst.Count != 0)
+            {
+                lstAns_Check = await getAns(-1);
+                QuestionModel ques = lstQues_level[sta_CountLstEssay];
+                return View(ques);
+            }
+            else
+                return RedirectToAction("Notfound_Quiz");
+        }
+        [HttpPost]
+        public ActionResult Test_Student_Essay()
+        {
+            
+            if (lstQues_level.Count != 0)
+            {
+                sta_CountLstEssay++;
+                if(sta_CountLstEssay < lstQues_level.Count)
+                {
+                    QuestionModel ques = lstQues_level[sta_CountLstEssay];
+                    return View(ques);
+                }
+                else
+                {
+                    sta_CountLstEssay = 0;
+                    return RedirectToAction("EndEssay");
+                }
+                
+            }
+            else
+            {
+                return RedirectToAction("Notfound_Quiz");
+            }
+                
+        }
         public async Task<ActionResult> Test_Student(int idquiz)
         {
             List<QuestionModel> lst = await getQues(idquiz);
@@ -252,11 +290,15 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             idQues = question.ID;
             mymodel.Question = question;
             mymodel.LstAns = lstAns;
-            dt = await httl.CountQueslevel(1);
+            dt = await httl.CountQueslevel(1,idQuiz);
             coefficient = 1 / float.Parse(dt.Rows[0][0].ToString());
             return mymodel;
         }
         public ActionResult Notfound_Quiz()
+        {
+            return View();
+        }
+        public ActionResult EndEssay()
         {
             return View();
         }
@@ -265,6 +307,11 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             AnswerModel ans = lstAns_Check.FirstOrDefault(x => x.ID == idAns);
             AnswerModel correctAns = lstAns_Check.FirstOrDefault(x => x.IDQues == ans.IDQues && x.CorrectAns == 1);
             return Json(correctAns, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult showResult_Essay(int idAns)
+        {
+            AnswerModel ans = lstAns_Check.FirstOrDefault(x => x.IDQues == idAns);
+            return Json(ans, JsonRequestBehavior.AllowGet);
         }
         public async Task<List<QuestionModel>> getQues(int idquiz)
         {
@@ -318,5 +365,6 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             }
             return View(list);
         }
+
     }
 }

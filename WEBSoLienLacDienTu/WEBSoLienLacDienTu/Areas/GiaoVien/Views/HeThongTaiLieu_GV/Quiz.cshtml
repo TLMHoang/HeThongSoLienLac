@@ -53,24 +53,49 @@
                             <th>Mã Tài Liệu</th>
                             <th>Tên Tài Liệu</th>
                             <th>Ngày Tạo</th>
+                            <th>Loại</th>
                         </tr>
                     </thead>
 
                     <tbody id="myTable">
                         @foreach (var item in Model)
                         {
-                            <tr onclick="location.href='@Url.Action("QuizDetails","HeThongTaiLieu_GV",new { @idTopic = item.ID })'">
-                                <td width="15%">
-                                    @item.ID
-                                </td>
-                                <td>
-                                    @item.NameTopic
-                                </td>
-                                <td>
-                                    @item.CreateAt
-                                </td>
 
-                            </tr>
+                            if (item.MultipleChoice == 0)
+                            {
+                                <tr onclick="location.href='@Url.Action("QuizDetails","HeThongTaiLieu_GV",new { @idTopic = item.ID })'">
+                                    <td width="15%">
+                                        @item.ID
+                                    </td>
+                                    <td>
+                                        @item.NameTopic
+                                    </td>
+                                    <td>
+                                        @item.CreateAt
+                                    </td>
+                                    <td>
+                                        Trắc Nghiệm
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr onclick="location.href='@Url.Action("QuizDetails_Essay","HeThongTaiLieu_GV",new { @idTopic = item.ID })'">
+                                    <td width="15%">
+                                        @item.ID
+                                    </td>
+                                    <td>
+                                        @item.NameTopic
+                                    </td>
+                                    <td>
+                                        @item.CreateAt
+                                    </td>
+                                    <td>
+                                        Tự Luận
+                                    </td>
+                                </tr>
+                            }
+
                         }
                     </tbody>
                 </table>
@@ -96,6 +121,20 @@
                         {
                             @Html.DropDownList("LstKhoiModal", (IEnumerable<SelectListItem>)ViewBag.LstKhoi, "Vui Lòng Chọn Khối", new { @class = "form-control" })
                         }
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Chọn Loại:</label>
+
+
+                        @Html.DropDownList("LstLoai",
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem {Text = "Trắc Nghiệm",Value = "0"},
+                                new SelectListItem {Text = "Tự Luận",Value = "1"}
+                            }
+                            , "Vui Lòng Chọn Loại", new { @class = "form-control" })
+
+
                     </div>
                     <div class="form-group">
                         <label for="TenLopModal">Tên Đề Tài</label>
@@ -148,16 +187,16 @@
         if (res == false) {
             return false;
         }
-       
+
         $.ajax({
             url: "/HeThongTaiLieu_GV/InsertQuiz",
-            data: JSON.stringify({ ten: $('#TenLopModal').val(),idKhoi:$("[name='LstKhoiModal']").val()}),
+            data: JSON.stringify({ ten: $('#TenLopModal').val(), idKhoi: $("[name='LstKhoiModal']").val(), Loai: $("[name='LstLoai']").val() }),
             type: "POST",
             async: true,
             contentType: "application/json;charset=utf-8",
             dataType: "json",
             success: function (result) {
-                
+
                 $('#ThemModal').modal('toggle');
                 location.reload();
             },

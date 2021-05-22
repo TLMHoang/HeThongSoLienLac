@@ -107,7 +107,7 @@ namespace DAL
                 new SqlParameter("@IDMon", SqlDbType.Int) { Value = IdMon }
                 );
         }
-        public async Task<int> InsertQuiz(int IDMon, int IDGV, DateTime NgayTao, string Ten, int IDKhoi)
+        public async Task<int> InsertQuiz(int IDMon, int IDGV, DateTime NgayTao, string Ten, int IDKhoi,byte Loai)
         {
             return await ExecuteNonQuery_HTTL(
                 "insertQuiz",
@@ -115,7 +115,8 @@ namespace DAL
                 new SqlParameter("@IdGV", SqlDbType.Int) { Value = IDGV },
                 new SqlParameter("@NgayTao", SqlDbType.DateTime) { Value = NgayTao },
                 new SqlParameter("@Ten", SqlDbType.NVarChar) { Value = Ten },
-                new SqlParameter("@IdKhoi", SqlDbType.Int) { Value = IDKhoi }
+                new SqlParameter("@IdKhoi", SqlDbType.Int) { Value = IDKhoi },
+                new SqlParameter("@Loai", SqlDbType.Bit) { Value = Loai }
             );
         }
         public async Task<DataTable> GetListQues_Ans(int IDQuiz)
@@ -156,11 +157,12 @@ namespace DAL
                 new SqlParameter("@IDTopic", SqlDbType.Int) { Value = IDTopic },
                 new SqlParameter("@efficiencyLevel", SqlDbType.Int) { Value = efficiencyLevel });
         }
-        public async Task<DataTable> CountQueslevel(int level)
+        public async Task<DataTable> CountQueslevel(int level,int idQuiz)
         {
             return await ExecuteQuery_HTTL(
                 "selectQuesLevel",
-                new SqlParameter("@level", SqlDbType.Int) { Value = level }
+                new SqlParameter("@level", SqlDbType.Int) { Value = level },
+                new SqlParameter("@IDQuiz", SqlDbType.Int) { Value = idQuiz }
                 );
         }
     }

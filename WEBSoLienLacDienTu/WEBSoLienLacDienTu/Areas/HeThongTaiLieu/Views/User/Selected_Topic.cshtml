@@ -3,34 +3,50 @@
     ViewBag.Title = "Selected_Topic";
     Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
 }
-    <style>
-        .btn_selectSubject:hover {
-            cursor: pointer;
-        }
-    </style>
-    <h2 class="title-page">Tài Liệu Hiện Có</h2>
-    <hr />
-    <h4>Tài Liệu Trắc Nghiệm</h4>
-    <div class="row">
+<style>
+    .btn_selectSubject:hover {
+        cursor: pointer;
+    }
+</style>
+<h2 class="title-page">Tài Liệu Hiện Có</h2>
+<hr />
+<h4>Tài Liệu Trắc Nghiệm</h4>
+<div class="row">
 
-        @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.QuesTopicModel>)
+    @foreach (var item in Model as IEnumerable<WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.QuesTopicModel>)
+    {
+        if (item.MultipleChoice == 0)
         {
-
             <div class="col-6 col-md-3 btn_selectSubject" style="padding: 10px;" onclick="window.location.href='@Url.Action("Test_Student","User",new { idquiz = item.ID })'">
                 <div class="panel panel-warning">
                     <div class="panel-heading">Mã Tài Liệu: @item.ID</div>
+                    <div class="panel-body">Loại: Trắc Nghiệm</div>
+
+                    <div class="panel-body">@item.NameTopic</div>
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <div class="col-6 col-md-3 btn_selectSubject" style="padding: 10px;" onclick="window.location.href='@Url.Action("Test_Student_Essay","User",new { idquiz = item.ID })'">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Mã Tài Liệu: @item.ID</div>
+                    <div class="panel-body">Loại: Tự Luận</div>
+
                     <div class="panel-body">@item.NameTopic</div>
                 </div>
             </div>
 
         }
+    }
 
 
 
-    </div>
+</div>
 
-    <hr />
-    <h4>Tài Liệu</h4>
-    <div style="margin-top:10px;font-weight:bold">
-        <a href="@Url.Action("Document")" style="color:blue;">Tài Liệu DownLoad</a>
-    </div>
+<hr />
+<h4>Tài Liệu</h4>
+<div style="margin-top:10px;font-weight:bold">
+    <a href="@Url.Action("Document")" style="color:blue;">Tài Liệu DownLoad</a>
+</div>

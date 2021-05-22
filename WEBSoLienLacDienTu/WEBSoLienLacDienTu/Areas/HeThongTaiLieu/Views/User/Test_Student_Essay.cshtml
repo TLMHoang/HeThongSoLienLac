@@ -1,0 +1,60 @@
+﻿@model WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model.QuestionModel
+@{
+    ViewBag.Title = "Test_Student_Essay";
+    Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
+}
+
+<h2>Tài Liệu Tự Luận</h2>
+<div style="border:solid">
+    <h3 style="margin:auto">Câu Hỏi: @Model.Question</h3>
+</div>
+<h4>Câu Trả Lời Của Bạn:</h4>
+<input type="text" name="txtAnswer" id="txtAnswer" value="" class="form-control" />
+<button style="margin-top:10px;" id="btnNopBai" class="btn btn-primary" onclick="getDataOnClick(@Model.ID)">
+    Nộp Bài
+</button>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button id="submitAnswer" style="margin-top:10px;display:none" type="submit" class="btn btn-primary">
+        Kế Tiếp
+    </button>
+}
+<div id="result" style="margin-top:10px;"></div>
+<div id="explain"></div>
+<script>
+
+
+    function getDataOnClick(idAns) {
+        var ans = $('#txtAnswer').val();
+        $.ajax({
+            url: "/HeThongTaiLieu/User/showResult_Essay?idAns=" + idAns,
+            type: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                var html = '';
+                if (result.ExplainAns == "") { html += '<h3>Giải Thích: chưa có</h3>' } else { html += '<h3> Giải Thích: ' + result.ExplainAns + '</h3>' };
+                if (result.Answer != ans) {
+                    $("#txtAnswer").css({ "background-color": "red", "color": "#fff" });
+                } else {
+                    $("#txtAnswer").css({ "background-color": "#5ab95f", "color": "#fff" });
+                }
+                var html2 = 'Kết Quả: ' + result.Answer + '';
+                $("#result").html(html2);
+                $("#explain").html(html);
+                $('#submitAnswer').css({ "display": "inline" });
+                $('#btnNopBai').prop('disabled', true);
+                $('#txtAnswer').prop('disabled', true);
+            },
+            error: function (errormessage) {
+                alert("Lỗi!");
+            }
+        });
+
+
+    }
+
+
+
+</script>

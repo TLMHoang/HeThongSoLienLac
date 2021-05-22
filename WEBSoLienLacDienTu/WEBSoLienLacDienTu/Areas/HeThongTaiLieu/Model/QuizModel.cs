@@ -14,6 +14,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model
         public DateTime CreateAt { get; set; }
         public string NameTopic { get; set; }
         public int IDKhoi { get; set; }
+        public byte MultipleChoice { get; set; }
 
         public QuizModel()
         {
@@ -23,8 +24,9 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model
             CreateAt = DateTime.Now;
             NameTopic = "";
             IDKhoi = -1;
+            MultipleChoice = 0;
         }
-        public QuizModel(int iD, int iDSubject, int iDTeacher, DateTime createAt, string nameTopic, int iDKhoi)
+        public QuizModel(int iD, int iDSubject, int iDTeacher, DateTime createAt, string nameTopic, int iDKhoi,byte multipleChoice)
         {
             ID = iD;
             IDSubject = iDSubject;
@@ -32,6 +34,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model
             CreateAt = createAt;
             NameTopic = nameTopic;
             IDKhoi = iDKhoi;
+            MultipleChoice = multipleChoice;
         }
 
         public QuizModel(DataRow dr)
@@ -42,6 +45,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Model
             CreateAt = Convert.ToDateTime(dr["CreateAt"]);
             NameTopic = dr["NameTopic"].ToString();
             IDKhoi = Convert.IsDBNull(dr["IDKhoi"]) ? -1 : Convert.ToInt32(dr["IDKhoi"]);
+            MultipleChoice = Convert.ToByte(dr["MultipleChoice"]);
         }
     }
 }

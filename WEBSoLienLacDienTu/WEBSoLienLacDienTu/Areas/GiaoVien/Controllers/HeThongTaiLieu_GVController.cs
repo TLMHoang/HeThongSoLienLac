@@ -17,6 +17,7 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
     public class HeThongTaiLieu_GVController : Controller
     {
         public static int sta_IDTopic;
+        public static int sta_Flag_CheckType;
         // GET: GiaoVien/HeThongTaiLieu_GV
         public async Task<ActionResult> Index()
         {
@@ -34,9 +35,9 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
             }
             return View(lst);
         }
-        public async Task<JsonResult> InsertQuiz(string ten,int idKhoi)
+        public async Task<JsonResult> InsertQuiz(string ten,int idKhoi,byte Loai)
         {
-            return Json(await new HeThongTaiLieuDAL().InsertQuiz(HomeGiaoVienController.TK.IDMonHoc,HomeGiaoVienController.TK.ID,DateTime.Now,ten,idKhoi), JsonRequestBehavior.AllowGet);
+            return Json(await new HeThongTaiLieuDAL().InsertQuiz(HomeGiaoVienController.TK.IDMonHoc,HomeGiaoVienController.TK.ID,DateTime.Now,ten,idKhoi,Loai), JsonRequestBehavior.AllowGet);
         }
         public async Task LoadListKhoi()
         {
@@ -45,6 +46,19 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         public async Task<ActionResult> QuizDetails(int idTopic)
         {
             sta_IDTopic = idTopic;
+            sta_Flag_CheckType = 0;
+            DataTable dt = await new HeThongTaiLieuDAL().GetListQues_Ans(idTopic);
+            List<ListQuestionModel> lst = new List<ListQuestionModel>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                lst.Add(new ListQuestionModel(dr));
+            }
+            return View(lst);
+        }
+        public async Task<ActionResult> QuizDetails_Essay(int idTopic)
+        {
+            sta_IDTopic = idTopic;
+            sta_Flag_CheckType = 1;
             DataTable dt = await new HeThongTaiLieuDAL().GetListQues_Ans(idTopic);
             List<ListQuestionModel> lst = new List<ListQuestionModel>();
             foreach (DataRow dr in dt.Rows)
@@ -62,87 +76,134 @@ namespace WEBSoLienLacDienTu.Areas.GiaoVien.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if(sta_Flag_CheckType == 0)
                 {
-                    if (Request != null)
+                    if (ModelState.IsValid)
                     {
-                        DataTable dt = new DataTable();
-                        HttpPostedFileBase file = importExcel.file;
-                        if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                        if (Request != null)
                         {
-                            System.GC.Collect();
-                            System.GC.WaitForPendingFinalizers();
-                            string fullPath = Request.MapPath("~/Content/Upload/" + file.FileName);
-                            if (System.IO.File.Exists(fullPath))
+                            DataTable dt = new DataTable();
+                            HttpPostedFileBase file = importExcel.file;
+                            if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
                             {
-                                System.IO.File.Delete(fullPath);
+                                System.GC.Collect();
+                                System.GC.WaitForPendingFinalizers();
+                                string fullPath = Request.MapPath("~/Content/Upload/" + file.FileName);
+                                if (System.IO.File.Exists(fullPath))
+                                {
+                                    System.IO.File.Delete(fullPath);
+                                }
+
+                                string fileName = file.FileName;
+                                string path = Server.MapPath("~/Content/Upload/" + fileName);
+
+                                file.SaveAs(path);
+
+                                var excelData = new ExcelData(path);
+                                var sData = excelData.getData("Sheet1");
+                                dt = sData.CopyToDataTable();
+                                foreach (DataRow item in dt.Rows)
+                                {
+                                    string ques = item["Câu Hỏi"].ToString();
+                                    string level = item["Độ Khó"].ToString();
+                                    string A = item["A"].ToString();
+                                    string B = item["B"].ToString();
+                                    string C = item["C"].ToString();
+                                    string D = item["D"].ToString();
+                                    string correct = item["Câu Đúng"].ToString();
+                                    string explain = item["Giải Thích"].ToString();
+
+                                    DataTable dtIDQues = await new HeThongTaiLieuDAL().InsertQues(ques, sta_IDTopic, int.Parse(level));
+                                    int resultIdQues = int.Parse(dtIDQues.Rows[0]["ID"].ToString());
+                                    if (correct.Contains("A") || correct.Contains("a"))
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, A, explain, 1);
+                                    }
+                                    else
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, A, "", 0);
+                                    }
+
+                                    if (correct.Contains("B") || correct.Contains("b"))
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, B, explain, 1);
+                                    }
+                                    else
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, B, "", 0);
+                                    }
+
+                                    if (correct.Contains("C") || correct.Contains("c"))
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, C, explain, 1);
+                                    }
+                                    else
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, C, "", 0);
+                                    }
+
+                                    if (correct.Contains("D") || correct.Contains("d"))
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, D, explain, 1);
+                                    }
+                                    else
+                                    {
+                                        await new HeThongTaiLieuDAL().InsertAns(resultIdQues, D, "", 0);
+                                    }
+
+                                }
+
+
+
+                                return RedirectToAction("QuizDetails", "HeThongTaiLieu_GV", new { idTopic = sta_IDTopic });
                             }
-
-                            string fileName = file.FileName;
-                            string path = Server.MapPath("~/Content/Upload/" + fileName);
-                            
-                            file.SaveAs(path);
-                            
-                            var excelData = new ExcelData(path);
-                            var sData = excelData.getData("Sheet1");
-                            dt = sData.CopyToDataTable();
-                            foreach (DataRow item in dt.Rows)
-                            {
-                                string ques = item["Câu Hỏi"].ToString();
-                                string level = item["Độ Khó"].ToString();
-                                string A = item["A"].ToString();
-                                string B = item["B"].ToString();
-                                string C = item["C"].ToString();
-                                string D = item["D"].ToString();
-                                string correct = item["Câu Đúng"].ToString();
-                                string explain = item["Giải Thích"].ToString();
-
-                                DataTable dtIDQues = await new HeThongTaiLieuDAL().InsertQues(ques, sta_IDTopic, int.Parse(level));
-                                int resultIdQues = int.Parse(dtIDQues.Rows[0]["ID"].ToString());
-                                if(correct.Contains("A")|| correct.Contains("a"))
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, A, explain, 1);
-                                }
-                                else
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, A, "", 0);
-                                }
-
-                                if (correct.Contains("B") || correct.Contains("b"))
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, B, explain, 1);
-                                }
-                                else
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, B, "", 0);
-                                }
-
-                                if (correct.Contains("C") || correct.Contains("c"))
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, C, explain, 1);
-                                }
-                                else
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, C, "", 0);
-                                }
-
-                                if (correct.Contains("D") || correct.Contains("d"))
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, D, explain, 1);
-                                }
-                                else
-                                {
-                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, D, "", 0);
-                                }
-
-                            }
-                            
-                            
-
-                            return RedirectToAction("QuizDetails", "HeThongTaiLieu_GV", new { idTopic = sta_IDTopic });
                         }
                     }
                 }
+                else
+                {
+                    if (ModelState.IsValid)
+                    {
+                        if (Request != null)
+                        {
+                            DataTable dt = new DataTable();
+                            HttpPostedFileBase file = importExcel.file;
+                            if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                            {
+                                System.GC.Collect();
+                                System.GC.WaitForPendingFinalizers();
+                                string fullPath = Request.MapPath("~/Content/Upload/" + file.FileName);
+                                if (System.IO.File.Exists(fullPath))
+                                {
+                                    System.IO.File.Delete(fullPath);
+                                }
+
+                                string fileName = file.FileName;
+                                string path = Server.MapPath("~/Content/Upload/" + fileName);
+
+                                file.SaveAs(path);
+
+                                var excelData = new ExcelData(path);
+                                var sData = excelData.getData("Sheet1");
+                                dt = sData.CopyToDataTable();
+                                foreach (DataRow item in dt.Rows)
+                                {
+                                    string ques = item["Câu Hỏi"].ToString();
+                                    string level = item["Độ Khó"].ToString();
+                                    string answer = item["Câu Trả Lời"].ToString();                                   
+                                    string explain = item["Giải Thích"].ToString();
+
+                                    DataTable dtIDQues = await new HeThongTaiLieuDAL().InsertQues(ques, sta_IDTopic, int.Parse(level));
+                                    int resultIdQues = int.Parse(dtIDQues.Rows[0]["ID"].ToString());                                    
+                                    await new HeThongTaiLieuDAL().InsertAns(resultIdQues, answer, explain, 1);                                   
+
+                                }
+                                return RedirectToAction("QuizDetails_Essay", "HeThongTaiLieu_GV", new { idTopic = sta_IDTopic });
+                            }
+                        }
+                    }
+                }
+                
             }
             catch (Exception e)
             {
