@@ -23,7 +23,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
         public static List<QuestionModel> lstQues_level = new List<QuestionModel>();
         public static List<AnswerModel> lstAns_Check = new List<AnswerModel>();
         public static float combo = 0;
-        int idQues;
+        public static int idQues;
         public static int idKhoi;
         public static int sta_IdMon;
         public static int sta_CountLstEssay=0;
@@ -99,43 +99,174 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             sta_IdMon = idMon;
             return View(await new HeThongTaiLieuDAL().GetListTopic(idMon, l.IDKhoi));
         }
+        public async Task<QuestionModel> Get_Ques_Essay(int idQuiz)
+        {
+            List<QuestionModel> lst = await getQues(idQuiz);
+            iDQuiz = idQuiz;
+            
+            var random = new Random();
+            int level = await checkScores();
+            lstAns_Check = await getAns(-1);
+            lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
+            QuestionModel ques = lstQues_level[random.Next(lstQues_level.Count)];
+            idQues = ques.ID;
+            DataTable dt = new DataTable();
+            dt = await httl.CountQueslevel(level, idQuiz);
+            coefficient = 1 / float.Parse(dt.Rows[0][0].ToString());
+            
+            return ques;
+        }
         public async Task<ActionResult> Test_Student_Essay(int idquiz)
         {
+
             List<QuestionModel> lst = await getQues(idquiz);
-            lstQues_level = lst;
             if (lst.Count != 0)
             {
-                lstAns_Check = await getAns(-1);
-                QuestionModel ques = lstQues_level[sta_CountLstEssay];
+                QuestionModel ques =await Get_Ques_Essay(idquiz);
+
                 return View(ques);
             }
             else
                 return RedirectToAction("Notfound_Quiz");
         }
         [HttpPost]
-        public ActionResult Test_Student_Essay()
+        public async Task<ActionResult> Test_Student_Essay(FormCollection f)
         {
-            
-            if (lstQues_level.Count != 0)
+            var resultTextAnswer = f["txtAnswer_toServer"];
+            var random = new Random();//DECLARE VAR RANDOM
+            AnswerModel answer = lstAns_Check.FirstOrDefault(x => x.IDQues == idQues);
+            QuestionModel ques;
+            //if (lstQues_level.Count != 0)
+            //{
+            //    sta_CountLstEssay++;
+            //    if(sta_CountLstEssay < lstQues_level.Count)
+            //    {
+            //        QuestionModel ques = lstQues_level[sta_CountLstEssay];
+            //        return View(ques);
+            //    }
+            //    else
+            //    {
+            //        sta_CountLstEssay = 0;
+            //        return RedirectToAction("EndEssay");
+            //    }
+
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Notfound_Quiz");
+            //}
+
+            if (resultTextAnswer.Equals(answer.Answer))
             {
-                sta_CountLstEssay++;
-                if(sta_CountLstEssay < lstQues_level.Count)
+                combo += coefficient;
+                if (combo >= 0.5)
                 {
-                    QuestionModel ques = lstQues_level[sta_CountLstEssay];
-                    return View(ques);
+                    int level = await checkScores();
+                    if (level == 3)
+                    {
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
+                        lstQues_level.Clear();
+                        scores = 0;
+                    }
+                    else
+                    {
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level + 1);
+                        lstQues_level.Clear();
+                        scores = 0;
+                    }
+                    combo = 0;
+                    ques = await Get_Ques_Essay(iDQuiz);
                 }
                 else
                 {
-                    sta_CountLstEssay = 0;
-                    return RedirectToAction("EndEssay");
+                    scores += coefficient;
+                    if (scores >= 0.9)
+                    {
+                        int level = await checkScores();
+                        if (level == 3)
+                        {
+                            await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
+                            lstQues_level.Clear();
+                            scores = 0;
+                        }
+                        else
+                        {
+                            await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level + 1);
+                            lstQues_level.Clear();
+                            scores = 0;
+                        }
+                        ques = await Get_Ques_Essay(iDQuiz);
+                    }
+                    else
+                    {
+
+                        lstQues_level.RemoveAt(lstQues_level.FindIndex(x => x.ID == answer.IDQues));
+                        if (lstQues_level.Count == 0)
+                        {
+                            int level = await checkScores();
+                            List<QuestionModel> lst = await getQues(iDQuiz);
+                            lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
+                            QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
+                            List<AnswerModel> lstAns = await getAns(question.ID);
+                            ques = question;
+                        }
+                        else
+                        {
+                            QuestionModel question = lstQues_level[random.Next(lstQues_level.Count)];
+                            List<AnswerModel> lstAns = await getAns(question.ID);
+                            ques = question;
+                        }
+
+                    }
+
                 }
-                
+
             }
             else
             {
-                return RedirectToAction("Notfound_Quiz");
+                combo = 0;
+                scores -= coefficient;
+                if (scores <= -0.3)
+                {
+                    int level = await checkScores();
+                    if (level == 1)
+                    {
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
+                        scores = 0;
+                    }
+                    else
+                    {
+                        await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level - 1);
+                        lstQues_level.Clear();
+                        scores = 0;
+                    }
+                    ques = await Get_Ques_Essay(iDQuiz);
+                }
+                else
+                {
+                    var r = 0;
+                    var lastAnsID = lstQues_level.FindIndex(x => x.ID == answer.IDQues);
+                    if (lstQues_level.Count == 1)
+                    {
+                        lstQues_level.Clear();
+                        int level = await checkScores();
+                        List<QuestionModel> lst = await getQues(iDQuiz);
+                        lstQues_level = lst.Where(x => x.LevelQues == level).ToList();
+                    }
+                    else
+                    {
+                        do
+                        {
+                            r = random.Next(lstQues_level.Count);
+                        } while (r == lastAnsID);
+                    }
+                    QuestionModel question = lstQues_level[r];
+                    List<AnswerModel> lstAns = await getAns(question.ID);
+                    ques = question;
+                }
             }
-                
+            idQues = ques.ID;
+            return View(ques);
         }
         public async Task<ActionResult> Test_Student(int idquiz)
         {

@@ -3,23 +3,35 @@
     ViewBag.Title = "Test_Student_Essay";
     Layout = "~/Areas/HeThongTaiLieu/Views/Shared/_Layout_HeThongTaiLieu.cshtml";
 }
-
+    <h4 style="float:right">
+        Độ Khó:  @if (@Model.LevelQues == 1)
+        {<span>Dễ</span> }
+        else if (@Model.LevelQues == 2)
+        {<span>Trung Bình</span>}
+        else
+        {<span>Khó</span>}
+    </h4>
 <h2>Tài Liệu Tự Luận</h2>
+
 <div style="border:solid">
     <h3 style="margin:auto">Câu Hỏi: @Model.Question</h3>
 </div>
-<h4>Câu Trả Lời Của Bạn:</h4>
-<input type="text" name="txtAnswer" id="txtAnswer" value="" class="form-control" />
-<button style="margin-top:10px;" id="btnNopBai" class="btn btn-primary" onclick="getDataOnClick(@Model.ID)">
-    Nộp Bài
-</button>
+
 @using (Html.BeginForm())
 {
+    <h4>Câu Trả Lời Của Bạn:</h4>
+    <input type="text" name="txtAnswer" id="txtAnswer" class="form-control" />
+
+
     @Html.AntiForgeryToken()
     <button id="submitAnswer" style="margin-top:10px;display:none" type="submit" class="btn btn-primary">
         Kế Tiếp
     </button>
+    <input value="@Model.ID" style="display:none;" name="txtAnswer_toServer" id="txtAnswer_toServer" />
 }
+<button style="margin-top:10px;" id="btnNopBai" class="btn btn-primary" onclick="getDataOnClick(@Model.ID)">
+    Nộp Bài
+</button>
 <div id="result" style="margin-top:10px;"></div>
 <div id="explain"></div>
 <script>
@@ -41,6 +53,7 @@
                     $("#txtAnswer").css({ "background-color": "#5ab95f", "color": "#fff" });
                 }
                 var html2 = 'Kết Quả: ' + result.Answer + '';
+                $('#txtAnswer_toServer').val($('#txtAnswer').val());
                 $("#result").html(html2);
                 $("#explain").html(html);
                 $('#submitAnswer').css({ "display": "inline" });
