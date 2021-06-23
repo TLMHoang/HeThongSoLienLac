@@ -421,7 +421,7 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
             idQues = question.ID;
             mymodel.Question = question;
             mymodel.LstAns = lstAns;
-            dt = await httl.CountQueslevel(1,idQuiz);
+            dt = await httl.CountQueslevel(level,idQuiz);
             coefficient = 1 / float.Parse(dt.Rows[0][0].ToString());
             return mymodel;
         }
