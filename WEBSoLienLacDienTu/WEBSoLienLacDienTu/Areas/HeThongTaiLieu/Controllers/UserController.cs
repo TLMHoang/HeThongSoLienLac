@@ -306,12 +306,14 @@ namespace WEBSoLienLacDienTu.Areas.HeThongTaiLieu.Controllers
                         await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level);
                         lstQues_level.Clear();
                         scores = 0;
+                        combo = 0;
                     }
                     else
                     {
                         await httl.UpdateScoresLevel(iDStudent_HTTL, iDQuiz, level + 1);
                         lstQues_level.Clear();
                         scores = 0;
+                        combo = 0;
                     }
                     mymodel = await GetListQuestion(iDQuiz);
                 }
